@@ -32,8 +32,8 @@
     <div class="card">
         <div class="kpi-row">
             <div class="kpi-box"><div class="kpi-val" id="kpi-vol">--</div><div class="kpi-lbl">Vol. Ontem</div></div>
-            <div class="kpi-box"><div class="kpi-val" id="kpi-avg">--</div><div class="kpi-lbl">Média Diária (14d)</div></div>
-            <div class="kpi-box"><div class="kpi-val" id="kpi-records">--</div><div class="kpi-lbl">Total Registros</div></div>
+            <div class="kpi-box"><div class="kpi-val" id="kpi-avg">--</div><div class="kpi-lbl">Média Diária</div></div>
+            <div class="kpi-box"><div class="kpi-val" id="kpi-records">--</div><div class="kpi-lbl">Registros</div></div>
         </div>
     </div>
 
@@ -49,7 +49,7 @@
         <div class="chart-container"><canvas id="cAvg"></canvas></div>
     </div>
 
-    <!-- 3. Dispersão Diária (Alinhada) -->
+    <!-- 3. Dispersão Diária -->
     <div class="card">
         <div class="card-header">📍 Distribuição por Dia</div>
         <div class="chart-container"><canvas id="cScatterDay"></canvas></div>
@@ -116,21 +116,19 @@
             dayStr: r.d.split('-').reverse().slice(0,2).join('/')
         })).sort((a,b) => a.dateObj - b.dateObj);
 
-        // Agregação Diária para Mapeamento de Cores
-        const dailyMap = {}; // { "2026-01-20": {total: 725, count: 8} }
+        // Agregação Diária
+        const dailyMap = {};
         processedData.forEach(r => {
             if(!dailyMap[r.d]) dailyMap[r.d] = { vol:0, count:0 };
             dailyMap[r.d].vol += r.v;
             dailyMap[r.d].count++;
         });
 
-        // Intervalos
         for(let i=1; i<processedData.length; i++) {
             const diffMs = processedData[i].dateObj - processedData[i-1].dateObj;
             processedData[i].intervalHours = (diffMs / 60000) / 60;
         }
 
-        // --- FUNÇÕES ---
         function getFilteredData(daysLimit) {
             if (daysLimit > 100) return processedData;
             const limitTime = new Date(lastDataDate);
@@ -149,17 +147,15 @@
             return days ? (total/days) : 0;
         }
 
-        // --- RENDER KPI & PANORAMA ---
         const lastDayKey = rawData[rawData.length-1].d;
         document.getElementById('kpi-vol').innerText = dailyMap[lastDayKey].vol + " ml";
         
-        // Média Geral 14 Dias (Para KPI)
         const recentData = getFilteredData(14);
         const avg14d = Math.round(calculatePeriodDailyAvg(recentData));
         document.getElementById('kpi-avg').innerText = avg14d + " ml";
         document.getElementById('kpi-records').innerText = processedData.length;
 
-        // --- GRÁFICOS DIÁRIOS (Sem Filtro - Panorama) ---
+        // Render Overview Charts
         const dailyKeys = Object.keys(dailyMap).sort();
         const lbls = dailyKeys.map(k => k.split('-').reverse().slice(0,2).join('/'));
         const dVols = dailyKeys.map(k => dailyMap[k].vol);
@@ -191,7 +187,6 @@
             }
         });
 
-        // Chart 3: Dispersão Diária (Alinhada)
         new Chart(document.getElementById('cScatterDay'), {
             type: 'scatter',
             data: {
@@ -213,14 +208,91 @@
             }
         });
 
-        // --- FILTROS & LÓGICA DE CORES (Intervalo) ---
-        let chartInterval; // Escopo global para destruir
+        // Dynamic Charts
+        let chartHist, chartHourly, chartInterval;
+
+        function renderHist(limit) {
+            const data = getFilteredData(limit);
+            const bins = {};
+            data.forEach(r => {
+                const binFloor = Math.floor(r.v / 20) * 20;
+                const label = `${binFloor}-${binFloor+20}`;
+                bins[label] = (bins[label] || 0) + 1;
+            });
+            const sortedKeys = Object.keys(bins).sort((a,b) => parseInt(a) - parseInt(b));
+            
+            const config = {
+                type: 'bar',
+                data: {
+                    labels: sortedKeys,
+                    datasets: [{ label: 'Frequência', data: sortedKeys.map(k => bins[k]), backgroundColor: '#8b5cf6', borderRadius: 4 }]
+                },
+                options: { maintainAspectRatio: false, plugins: {legend:{display:false}}, scales: {x:{grid:{display:false}}, y:{beginAtZero:true}} }
+            };
+
+            if(chartHist) chartHist.destroy();
+            chartHist = new Chart(document.getElementById('cHist'), config);
+        }
+
+        function renderHourly(limit) {
+            const data = getFilteredData(limit);
+            const bins = {};
+            for(let i=0; i<24; i+=2) bins[`${i}h-${i+2}h`] = [];
+
+            data.forEach(r => {
+                const h = r.dateObj.getHours();
+                const binFloor = Math.floor(h / 2) * 2;
+                bins[`${binFloor}h-${binFloor+2}h`].push(r.v);
+            });
+
+            const labels = Object.keys(bins);
+            const avgs = labels.map(k => {
+                const vols = bins[k];
+                if(vols.length === 0) return 0;
+                return Math.round(vols.reduce((a,b)=>a+b,0) / vols.length);
+            });
+
+            const scatterPts = data.map(r => ({
+                x: r.dateObj.getHours() + (r.dateObj.getMinutes()/60),
+                y: r.v
+            }));
+
+            const config = {
+                type: 'scatter',
+                data: {
+                    datasets: [
+                        {
+                            type: 'line',
+                            label: 'Média',
+                            data: avgs.map((v, i) => ({x: i*2 + 1, y: v})),
+                            borderColor: '#ec4899',
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Mamada',
+                            data: scatterPts,
+                            backgroundColor: 'rgba(156, 163, 175, 0.4)',
+                            pointRadius: 3
+                        }
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { type: 'linear', min: 0, max: 24, title: {display:true, text:'Hora do Dia'}, ticks: {stepSize: 2} },
+                        y: { title: {display:true, text:'Volume'} }
+                    }
+                }
+            };
+
+            if(chartHourly) chartHourly.destroy();
+            chartHourly = new Chart(document.getElementById('cHourly'), config);
+        }
 
         function renderInterval(limit) {
-            const data = getFilteredData(limit).filter(r => r.intervalHours); // Remove o primeiro (sem intervalo)
-            
-            // 1. Calcula Média TOTAL DO PERÍODO SELECIONADO
-            // Média de volume DIÁRIO desse período (ex: 730ml)
+            const data = getFilteredData(limit).filter(r => r.intervalHours);
             const periodDailyAvg = calculatePeriodDailyAvg(data);
 
             const config = {
@@ -232,11 +304,7 @@
                         backgroundColor: function(context) {
                             if(!context.raw) return '#999';
                             const dayKey = context.raw.dateRef;
-                            const dayTotal = dailyMap[dayKey].vol; // Volume Total daquele dia
-                            
-                            // Lógica do Mauricio:
-                            // Se o TOTAL DO DIA > MÉDIA DO PERÍODO => Verde
-                            // Se o TOTAL DO DIA < MÉDIA DO PERÍODO => Vermelho
+                            const dayTotal = dailyMap[dayKey].vol;
                             return dayTotal >= periodDailyAvg ? 'rgba(16, 185, 129, 0.8)' : 'rgba(239, 68, 68, 0.8)';
                         },
                         pointRadius: 6
@@ -264,31 +332,22 @@
                 }
             };
 
-            if(chartInterval) { chartInterval.destroy(); }
+            if(chartInterval) chartInterval.destroy();
             chartInterval = new Chart(document.getElementById('cInterval'), config);
         }
 
-        // Funções placeholders para os outros gráficos (mantendo simples por agora)
-        function renderHist(limit) { /* ... mantido igual V4 ... */ }
-        function renderHourly(limit) { /* ... mantido igual V4 ... */ }
-
-        // --- Placeholder Implementations to keep it running ---
-        let cH, cHr;
-        function simpleUpdate(name, limit) {
-             // Simplificação: apenas recarrega o Intervalo que foi o foco da alteração
-             if(name === 'interval') renderInterval(limit);
-        }
-        
         window.updateFilter = function(chartName, days, btn) {
             const parent = btn.parentNode;
             parent.querySelectorAll('button').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+            if(chartName === 'hist') renderHist(days);
+            if(chartName === 'hourly') renderHourly(days);
             if(chartName === 'interval') renderInterval(days);
-            // Outros charts ignorados por brevidade neste patch, mas funcionariam igual V4
         };
 
-        // Init
-        renderInterval(14); // Inicializa com lógica de cores nova
+        renderHist(14);
+        renderHourly(14);
+        renderInterval(14);
 
     </script>
 </body>
