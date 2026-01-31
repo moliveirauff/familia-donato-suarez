@@ -6,94 +6,271 @@
     <title>🍼 Controle de Mamadeiras</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.30.0/index.min.js"></script>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f4f7f6; margin: 0; padding: 15px; }
-        .card { background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 15px; margin-bottom: 20px; }
-        h1 { text-align: center; color: #2c3e50; font-size: 24px; margin-bottom: 5px; }
-        h2 { color: #34495e; font-size: 16px; margin-bottom: 10px; border-bottom: 2px solid #ecf0f1; padding-bottom: 5px; }
-        .stat-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
-        .stat-box { text-align: center; flex: 1; }
-        .stat-val { font-size: 20px; font-weight: bold; color: #2980b9; }
-        .stat-label { font-size: 12px; color: #7f8c8d; }
-        canvas { width: 100% !important; height: 250px !important; }
-        .update-time { text-align: center; font-size: 11px; color: #95a5a6; margin-top: 20px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 10px; padding-bottom: 40px; }
+        h1 { text-align: center; color: #1f2937; font-size: 20px; margin: 15px 0; font-weight: 700; }
+        .update-time { text-align: center; font-size: 11px; color: #6b7280; margin-bottom: 20px; }
+        
+        /* Cards */
+        .card { background: white; border-radius: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); padding: 15px; margin-bottom: 20px; border: 1px solid #e5e7eb; }
+        .card-header { font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 15px; border-bottom: 1px solid #f3f4f6; padding-bottom: 8px; }
+        
+        /* Stats Row */
+        .stat-row { display: flex; justify-content: space-around; align-items: center; }
+        .stat-item { text-align: center; }
+        .stat-val { font-size: 24px; font-weight: 800; color: #2563eb; }
+        .stat-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #9ca3af; margin-top: 2px; }
+
+        /* Chart Containers - Fix Height for Mobile */
+        .chart-container { position: relative; height: 300px; width: 100%; }
+        
+        @media (min-width: 768px) {
+            body { max-width: 800px; margin: 0 auto; }
+            .chart-container { height: 350px; }
+        }
     </style>
 </head>
 <body>
 
-    <h1>🍼 Controle de Mamadeiras</h1>
-    <div class="update-time">Atualizado em: 31/01/2026</div>
+    <h1>🍼 Controle do Matheus</h1>
+    <div class="update-time">Dados até: 30/01/2026</div>
 
-    <!-- Resumo Rápido (30/01/2026) -->
+    <!-- KPIs -->
     <div class="card">
         <div class="stat-row">
-            <div class="stat-box">
-                <div class="stat-val">530 ml</div>
-                <div class="stat-label">Último Dia</div>
+            <div class="stat-item">
+                <div class="stat-val" id="kpi-vol">--</div>
+                <div class="stat-lbl">Total (30/01)</div>
             </div>
-            <div class="stat-box">
-                <div class="stat-val">5</div>
-                <div class="stat-label">Mamadas</div>
+            <div class="stat-item">
+                <div class="stat-val" id="kpi-avg">--</div>
+                <div class="stat-lbl">Média/Mamada</div>
             </div>
-            <div class="stat-box">
-                <div class="stat-val">106 ml</div>
-                <div class="stat-label">Média</div>
+            <div class="stat-item">
+                <div class="stat-val" id="kpi-count">--</div>
+                <div class="stat-lbl">Mamadas</div>
             </div>
         </div>
     </div>
 
-    <!-- Gráfico 1: Histórico -->
+    <!-- Gráfico 1 -->
     <div class="card">
-        <h2>📊 Volume Total e Frequência</h2>
-        <canvas id="chartHistory"></canvas>
+        <div class="card-header">📊 Volume Total por Dia (ml)</div>
+        <div class="chart-container">
+            <canvas id="chartTotal"></canvas>
+        </div>
     </div>
 
-    <!-- Gráfico 2: Detalhe -->
+    <!-- Gráfico 2 -->
     <div class="card">
-        <h2>🕐 Horários (Todos os dias)</h2>
-        <canvas id="chartScatter"></canvas>
+        <div class="card-header">📉 Média (Barra) vs Frequência (Linha)</div>
+        <div class="chart-container">
+            <canvas id="chartAvg"></canvas>
+        </div>
+    </div>
+
+    <!-- Gráfico 3 -->
+    <div class="card">
+        <div class="card-header">🕐 Distribuição (Últimos 14 dias)</div>
+        <div class="chart-container">
+            <canvas id="chartScatter"></canvas>
+        </div>
     </div>
 
     <script>
-        const labels = ["17/01","18/01","19/01","20/01","21/01","22/01","23/01","24/01","25/01","26/01","27/01","28/01","29/01","30/01"];
-        const dataTotal = [715,765,800,725,580,760,830,810,785,685,750,660,690,530];
-        const dataCount = [7,6,7,8,7,7,7,7,8,6,7,7,6,5];
-        const dataAvg   = [102,128,114,91,83,109,119,116,98,114,107,94,115,106];
+        // --- DADOS BRUTOS (Inseridos pelo Bot) ---
+        const rawData = [
+            {d: "2026-01-17", t: "00:45", v: 135}, {d: "2026-01-17", t: "02:50", v: 50}, {d: "2026-01-17", t: "06:30", v: 100}, {d: "2026-01-17", t: "10:40", v: 100}, {d: "2026-01-17", t: "13:40", v: 115}, {d: "2026-01-17", t: "17:00", v: 110}, {d: "2026-01-17", t: "20:30", v: 105},
+            {d: "2026-01-18", t: "02:20", v: 150}, {d: "2026-01-18", t: "06:13", v: 70}, {d: "2026-01-18", t: "10:15", v: 140}, {d: "2026-01-18", t: "14:10", v: 150}, {d: "2026-01-18", t: "17:50", v: 120}, {d: "2026-01-18", t: "21:30", v: 135},
+            {d: "2026-01-19", t: "02:35", v: 140}, {d: "2026-01-19", t: "07:00", v: 90}, {d: "2026-01-19", t: "10:00", v: 120}, {d: "2026-01-19", t: "13:38", v: 120}, {d: "2026-01-19", t: "16:40", v: 120}, {d: "2026-01-19", t: "20:05", v: 70}, {d: "2026-01-19", t: "22:35", v: 140},
+            {d: "2026-01-20", t: "03:05", v: 100}, {d: "2026-01-20", t: "05:00", v: 30}, {d: "2026-01-20", t: "08:00", v: 80}, {d: "2026-01-20", t: "11:30", v: 135}, {d: "2026-01-20", t: "14:15", v: 80}, {d: "2026-01-20", t: "16:45", v: 60}, {d: "2026-01-20", t: "20:20", v: 150}, {d: "2026-01-20", t: "23:05", v: 90},
+            {d: "2026-01-21", t: "01:40", v: 80}, {d: "2026-01-21", t: "03:40", v: 40}, {d: "2026-01-21", t: "07:20", v: 60}, {d: "2026-01-21", t: "10:15", v: 120}, {d: "2026-01-21", t: "13:18", v: 70}, {d: "2026-01-21", t: "16:25", v: 70}, {d: "2026-01-21", t: "19:35", v: 140},
+            {d: "2026-01-22", t: "00:00", v: 140}, {d: "2026-01-22", t: "04:30", v: 100}, {d: "2026-01-22", t: "08:30", v: 100}, {d: "2026-01-22", t: "11:20", v: 90}, {d: "2026-01-22", t: "14:30", v: 80}, {d: "2026-01-22", t: "17:20", v: 100}, {d: "2026-01-22", t: "20:30", v: 150},
+            {d: "2026-01-23", t: "01:10", v: 150}, {d: "2026-01-23", t: "05:00", v: 60}, {d: "2026-01-23", t: "07:15", v: 100}, {d: "2026-01-23", t: "11:50", v: 100}, {d: "2026-01-23", t: "14:15", v: 140}, {d: "2026-01-23", t: "16:50", v: 130}, {d: "2026-01-23", t: "19:45", v: 150},
+            {d: "2026-01-24", t: "00:05", v: 140}, {d: "2026-01-24", t: "04:20", v: 110}, {d: "2026-01-24", t: "07:05", v: 40}, {d: "2026-01-24", t: "09:00", v: 140}, {d: "2026-01-24", t: "12:15", v: 130}, {d: "2026-01-24", t: "16:15", v: 130}, {d: "2026-01-24", t: "19:30", v: 120},
+            {d: "2026-01-25", t: "00:40", v: 145}, {d: "2026-01-25", t: "03:40", v: 70}, {d: "2026-01-25", t: "06:00", v: 60}, {d: "2026-01-25", t: "08:50", v: 50}, {d: "2026-01-25", t: "11:00", v: 100}, {d: "2026-01-25", t: "14:20", v: 110}, {d: "2026-01-25", t: "17:30", v: 110}, {d: "2026-01-25", t: "20:30", v: 140},
+            {d: "2026-01-26", t: "02:30", v: 140}, {d: "2026-01-26", t: "08:00", v: 135}, {d: "2026-01-26", t: "11:00", v: 90}, {d: "2026-01-26", t: "14:00", v: 60}, {d: "2026-01-26", t: "17:00", v: 110}, {d: "2026-01-26", t: "20:10", v: 150},
+            {d: "2026-01-27", t: "00:50", v: 140}, {d: "2026-01-27", t: "04:35", v: 140}, {d: "2026-01-27", t: "08:20", v: 60}, {d: "2026-01-27", t: "11:30", v: 100}, {d: "2026-01-27", t: "14:20", v: 140}, {d: "2026-01-27", t: "17:30", v: 110}, {d: "2026-01-27", t: "20:30", v: 60},
+            {d: "2026-01-28", t: "01:30", v: 100}, {d: "2026-01-28", t: "04:15", v: 110}, {d: "2026-01-28", t: "09:00", v: 100}, {d: "2026-01-28", t: "12:30", v: 110}, {d: "2026-01-28", t: "15:30", v: 80}, {d: "2026-01-28", t: "17:30", v: 100}, {d: "2026-01-28", t: "20:30", v: 60},
+            {d: "2026-01-29", t: "00:40", v: 140}, {d: "2026-01-29", t: "04:40", v: 100}, {d: "2026-01-29", t: "09:30", v: 100}, {d: "2026-01-29", t: "12:45", v: 100}, {d: "2026-01-29", t: "17:20", v: 130}, {d: "2026-01-29", t: "23:40", v: 120},
+            {d: "2026-01-30", t: "04:20", v: 120}, {d: "2026-01-30", t: "10:00", v: 110}, {d: "2026-01-30", t: "13:20", v: 100}, {d: "2026-01-30", t: "16:40", v: 60}, {d: "2026-01-30", t: "19:50", v: 140}
+        ];
 
-        const scatterData = [{"x":"2026-01-17T00:45:00","y":135},{"x":"2026-01-17T02:50:00","y":50},{"x":"2026-01-17T06:30:00","y":100},{"x":"2026-01-17T10:40:00","y":100},{"x":"2026-01-17T13:40:00","y":115},{"x":"2026-01-17T17:00:00","y":110},{"x":"2026-01-17T20:30:00","y":105},{"x":"2026-01-18T02:20:00","y":150},{"x":"2026-01-18T06:13:00","y":70},{"x":"2026-01-18T10:15:00","y":140},{"x":"2026-01-18T14:10:00","y":150},{"x":"2026-01-18T17:50:00","y":120},{"x":"2026-01-18T21:30:00","y":135},{"x":"2026-01-19T02:35:00","y":140},{"x":"2026-01-19T07:00:00","y":90},{"x":"2026-01-19T10:00:00","y":120},{"x":"2026-01-19T13:38:00","y":120},{"x":"2026-01-19T16:40:00","y":120},{"x":"2026-01-19T20:05:00","y":70},{"x":"2026-01-19T22:35:00","y":140},{"x":"2026-01-20T03:05:00","y":100},{"x":"2026-01-20T05:00:00","y":30},{"x":"2026-01-20T08:00:00","y":80},{"x":"2026-01-20T11:30:00","y":135},{"x":"2026-01-20T14:15:00","y":80},{"x":"2026-01-20T16:45:00","y":60},{"x":"2026-01-20T20:20:00","y":150},{"x":"2026-01-20T23:05:00","y":90},{"x":"2026-01-21T01:40:00","y":80},{"x":"2026-01-21T03:40:00","y":40},{"x":"2026-01-21T07:20:00","y":60},{"x":"2026-01-21T10:15:00","y":120},{"x":"2026-01-21T13:18:00","y":70},{"x":"2026-01-21T16:25:00","y":70},{"x":"2026-01-21T19:35:00","y":140},{"x":"2026-01-22T00:00:00","y":140},{"x":"2026-01-22T04:30:00","y":100},{"x":"2026-01-22T08:30:00","y":100},{"x":"2026-01-22T11:20:00","y":90},{"x":"2026-01-22T14:30:00","y":80},{"x":"2026-01-22T17:20:00","y":100},{"x":"2026-01-22T20:30:00","y":150},{"x":"2026-01-23T01:10:00","y":150},{"x":"2026-01-23T05:00:00","y":60},{"x":"2026-01-23T07:15:00","y":100},{"x":"2026-01-23T11:50:00","y":100},{"x":"2026-01-23T14:15:00","y":140},{"x":"2026-01-23T16:50:00","y":130},{"x":"2026-01-23T19:45:00","y":150},{"x":"2026-01-24T00:05:00","y":140},{"x":"2026-01-24T04:20:00","y":110},{"x":"2026-01-24T07:05:00","y":40},{"x":"2026-01-24T09:00:00","y":140},{"x":"2026-01-24T12:15:00","y":130},{"x":"2026-01-24T16:15:00","y":130},{"x":"2026-01-24T19:30:00","y":120},{"x":"2026-01-25T00:40:00","y":145},{"x":"2026-01-25T03:40:00","y":70},{"x":"2026-01-25T06:00:00","y":60},{"x":"2026-01-25T08:50:00","y":50},{"x":"2026-01-25T11:00:00","y":100},{"x":"2026-01-25T14:20:00","y":110},{"x":"2026-01-25T17:30:00","y":110},{"x":"2026-01-25T20:30:00","y":140},{"x":"2026-01-26T02:30:00","y":140},{"x":"2026-01-26T08:00:00","y":135},{"x":"2026-01-26T11:00:00","y":90},{"x":"2026-01-26T14:00:00","y":60},{"x":"2026-01-26T17:00:00","y":110},{"x":"2026-01-26T20:10:00","y":150},{"x":"2026-01-27T00:50:00","y":140},{"x":"2026-01-27T04:35:00","y":140},{"x":"2026-01-27T08:20:00","y":60},{"x":"2026-01-27T11:30:00","y":100},{"x":"2026-01-27T14:20:00","y":140},{"x":"2026-01-27T17:30:00","y":110},{"x":"2026-01-27T20:30:00","y":60},{"x":"2026-01-28T01:30:00","y":100},{"x":"2026-01-28T04:15:00","y":110},{"x":"2026-01-28T09:00:00","y":100},{"x":"2026-01-28T12:30:00","y":110},{"x":"2026-01-28T15:30:00","y":80},{"x":"2026-01-28T17:30:00","y":100},{"x":"2026-01-28T20:30:00","y":60},{"x":"2026-01-29T00:40:00","y":140},{"x":"2026-01-29T04:40:00","y":100},{"x":"2026-01-29T09:30:00","y":100},{"x":"2026-01-29T12:45:00","y":100},{"x":"2026-01-29T17:20:00","y":130},{"x":"2026-01-29T23:40:00","y":120},{"x":"2026-01-30T04:20:00","y":120},{"x":"2026-01-30T10:00:00","y":110},{"x":"2026-01-30T13:20:00","y":100},{"x":"2026-01-30T16:40:00","y":60},{"x":"2026-01-30T19:50:00","y":140}];
+        // --- LÓGICA DE PROCESSAMENTO ---
+        const today = new Date();
+        const cutoffDate = new Date();
+        cutoffDate.setDate(today.getDate() - 14); // 14 dias atrás
 
-        new Chart(document.getElementById('chartHistory'), {
+        const dailyData = {};
+        const scatterPoints = [];
+
+        rawData.forEach(r => {
+            // Scatter (Todos os pontos dos ultimos 14 dias)
+            const dateObj = new Date(r.d + "T" + r.t);
+            
+            // Agrupamento Diário
+            if (!dailyData[r.d]) dailyData[r.d] = { vol: 0, count: 0, date: new Date(r.d) };
+            dailyData[r.d].vol += r.v;
+            dailyData[r.d].count++;
+
+            // Se for recente, adiciona ao scatter
+            if (dateObj >= cutoffDate) {
+                scatterPoints.push({ x: dateObj, y: r.v });
+            }
+        });
+
+        // Separar Recentes vs Antigos
+        const chartLabels = [];
+        const chartVol = [];
+        const chartAvg = [];
+        const chartCount = [];
+
+        const sortedDays = Object.keys(dailyData).sort();
+        
+        // Estrutura para agrupar semanas antigas
+        const weeklyBuckets = {};
+
+        sortedDays.forEach(dayStr => {
+            const dayData = dailyData[dayStr];
+            
+            if (dayData.date >= cutoffDate) {
+                // É recente: Mostrar Dia a Dia
+                const label = dayData.date.toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'});
+                chartLabels.push(label);
+                chartVol.push(dayData.vol);
+                chartCount.push(dayData.count);
+                chartAvg.push(Math.round(dayData.vol / dayData.count));
+            } else {
+                // É antigo: Agrupar por Semana (Segunda-feira)
+                // Acha a segunda-feira daquela semana
+                const d = new Date(dayData.date);
+                const day = d.getDay();
+                const diff = d.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday
+                const monday = new Date(d.setDate(diff));
+                const mondayStr = monday.toISOString().split('T')[0];
+
+                if (!weeklyBuckets[mondayStr]) weeklyBuckets[mondayStr] = { volSum: 0, countSum: 0, days: 0 };
+                weeklyBuckets[mondayStr].volSum += dayData.vol;
+                weeklyBuckets[mondayStr].countSum += dayData.count;
+                weeklyBuckets[mondayStr].days++;
+            }
+        });
+
+        // Adicionar Semanas Antigas no INÍCIO dos arrays (se houver)
+        // (Neste dataset não haverá, mas a lógica está pronta)
+        Object.keys(weeklyBuckets).sort().forEach(weekStart => {
+            const w = weeklyBuckets[weekStart];
+            const startFormat = new Date(weekStart).toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'});
+            
+            // Média Diária daquela semana
+            chartLabels.unshift(`Sem. ${startFormat}`);
+            chartVol.unshift(Math.round(w.volSum / w.days)); // Volume médio diário na semana
+            chartCount.unshift(Math.round(w.countSum / w.days)); // Média de mamadas/dia
+            chartAvg.unshift(Math.round(w.volSum / w.countSum)); // Média por mamada real
+        });
+
+        // Atualizar KPIs do último dia
+        const lastDay = sortedDays[sortedDays.length - 1];
+        document.getElementById('kpi-vol').innerText = dailyData[lastDay].vol + " ml";
+        document.getElementById('kpi-avg').innerText = Math.round(dailyData[lastDay].vol / dailyData[lastDay].count) + " ml";
+        document.getElementById('kpi-count').innerText = dailyData[lastDay].count;
+
+
+        // --- CHART CONFIGS ---
+        Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
+        Chart.defaults.color = '#6b7280';
+
+        // 1. Volume Total (Bar)
+        new Chart(document.getElementById('chartTotal'), {
             type: 'bar',
             data: {
-                labels: labels,
+                labels: chartLabels,
+                datasets: [{
+                    label: 'Volume Diário',
+                    data: chartVol,
+                    backgroundColor: '#3b82f6',
+                    borderRadius: 4,
+                    barPercentage: 0.6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: {display: false} },
+                scales: { y: { grid: { borderDash: [2, 2] } }, x: { grid: { display: false } } }
+            }
+        });
+
+        // 2. Média (Bar) + Count (Line)
+        new Chart(document.getElementById('chartAvg'), {
+            type: 'bar',
+            data: {
+                labels: chartLabels,
                 datasets: [
-                    { label: 'Total (ml)', data: dataTotal, backgroundColor: '#3498db', yAxisID: 'y' },
-                    { type: 'line', label: 'Média (ml)', data: dataAvg, borderColor: '#e74c3c', borderWidth: 2, yAxisID: 'y' },
-                    { type: 'line', label: 'Qtd', data: dataCount, borderColor: '#f1c40f', pointBackgroundColor: '#f1c40f', showLine: false, pointRadius: 5, yAxisID: 'y1' }
+                    {
+                        label: 'Média/Mamada (ml)',
+                        data: chartAvg,
+                        backgroundColor: '#10b981', // Verde
+                        borderRadius: 4,
+                        order: 2,
+                        yAxisID: 'y'
+                    },
+                    {
+                        type: 'line',
+                        label: 'Qtd Mamadas',
+                        data: chartCount,
+                        borderColor: '#f59e0b', // Amarelo/Laranja
+                        borderWidth: 2,
+                        pointBackgroundColor: '#fff',
+                        pointBorderColor: '#f59e0b',
+                        pointRadius: 4,
+                        tension: 0.1,
+                        order: 1,
+                        yAxisID: 'y1'
+                    }
                 ]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 scales: {
-                    y: { type: 'linear', position: 'left', title: {display: true, text: 'ml'} },
-                    y1: { type: 'linear', position: 'right', grid: {drawOnChartArea: false}, min: 0, max: 12 }
+                    y: { position: 'left', grid: { borderDash: [2, 2] } },
+                    y1: { position: 'right', grid: { display: false }, min: 0, max: 10 },
+                    x: { grid: { display: false } }
                 }
             }
         });
 
+        // 3. Scatter (Dia no X, Volume no Y)
         new Chart(document.getElementById('chartScatter'), {
             type: 'scatter',
             data: {
                 datasets: [{
                     label: 'Mamada (ml)',
-                    data: scatterData,
-                    backgroundColor: 'rgba(52, 152, 219, 0.6)',
+                    data: scatterPoints, // {x: Date, y: 120}
+                    backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                    borderColor: '#2563eb',
+                    borderWidth: 1,
                     pointRadius: 5
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: {display: false} },
                 scales: {
-                    x: { type: 'time', time: { unit: 'hour', displayFormats: { hour: 'HH:mm' } }, title: { display: true, text: 'Horário' } },
-                    y: { title: { display: true, text: 'Volume (ml)' } }
+                    x: {
+                        type: 'time',
+                        time: { unit: 'day', displayFormats: { day: 'dd/MM' } },
+                        title: { display: true, text: 'Dia' },
+                        grid: { display: false }
+                    },
+                    y: {
+                        title: { display: true, text: 'Volume (ml)' },
+                        min: 0,
+                        grid: { borderDash: [2, 2] }
+                    }
                 }
             }
         });
