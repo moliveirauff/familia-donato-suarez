@@ -3,83 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍼 Controle de Mamadeiras</title>
+    <title>🍼 BI do Matheus</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
-    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.30.0/index.min.js"></script>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 10px; padding-bottom: 40px; }
-        h1 { text-align: center; color: #1f2937; font-size: 20px; margin: 15px 0; font-weight: 700; }
-        .update-time { text-align: center; font-size: 11px; color: #6b7280; margin-bottom: 20px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f3f4f6; margin: 0; padding: 10px; padding-bottom: 60px; color: #1f2937; }
+        h1 { text-align: center; font-size: 20px; margin: 15px 0 5px 0; font-weight: 800; color: #111827; }
+        .subtitle { text-align: center; font-size: 12px; color: #6b7280; margin-bottom: 20px; }
         
         /* Cards */
-        .card { background: white; border-radius: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); padding: 15px; margin-bottom: 20px; border: 1px solid #e5e7eb; }
-        .card-header { font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 15px; border-bottom: 1px solid #f3f4f6; padding-bottom: 8px; }
+        .card { background: white; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); padding: 15px; margin-bottom: 24px; border: 1px solid #e5e7eb; }
+        .card-header { font-size: 15px; font-weight: 700; color: #374151; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
         
-        /* Stats Row */
-        .stat-row { display: flex; justify-content: space-around; align-items: center; }
-        .stat-item { text-align: center; }
-        .stat-val { font-size: 24px; font-weight: 800; color: #2563eb; }
-        .stat-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #9ca3af; margin-top: 2px; }
+        /* KPI Row */
+        .kpi-row { display: flex; justify-content: space-between; margin-bottom: 0; }
+        .kpi-box { text-align: center; flex: 1; border-right: 1px solid #f3f4f6; }
+        .kpi-box:last-child { border-right: none; }
+        .kpi-val { font-size: 22px; font-weight: 800; color: #2563eb; }
+        .kpi-lbl { font-size: 10px; text-transform: uppercase; color: #9ca3af; font-weight: 600; margin-top: 2px; }
 
-        /* Chart Containers - Fix Height for Mobile */
+        /* Controls */
+        .filter-group { display: flex; gap: 5px; }
+        .btn-filter { background: #e5e7eb; border: none; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; color: #4b5563; cursor: pointer; transition: all 0.2s; }
+        .btn-filter.active { background: #2563eb; color: white; }
+
+        /* Charts */
         .chart-container { position: relative; height: 300px; width: 100%; }
         
         @media (min-width: 768px) {
-            body { max-width: 800px; margin: 0 auto; }
-            .chart-container { height: 350px; }
+            body { max-width: 900px; margin: 0 auto; }
+            .chart-container { height: 380px; }
         }
     </style>
 </head>
 <body>
 
-    <h1>🍼 Controle do Matheus</h1>
-    <div class="update-time">Dados até: 30/01/2026</div>
+    <h1>🍼 BI do Matheus</h1>
+    <div class="subtitle">Última atualização: 30/01/2026</div>
 
-    <!-- KPIs -->
+    <!-- KPI Card -->
     <div class="card">
-        <div class="stat-row">
-            <div class="stat-item">
-                <div class="stat-val" id="kpi-vol">--</div>
-                <div class="stat-lbl">Total (30/01)</div>
+        <div class="kpi-row">
+            <div class="kpi-box">
+                <div class="kpi-val" id="kpi-vol">--</div>
+                <div class="kpi-lbl">Vol. Ontem</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-val" id="kpi-avg">--</div>
-                <div class="stat-lbl">Média/Mamada</div>
+            <div class="kpi-box">
+                <div class="kpi-val" id="kpi-avg">--</div>
+                <div class="kpi-lbl">Média Geral</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-val" id="kpi-count">--</div>
-                <div class="stat-lbl">Mamadas</div>
+            <div class="kpi-box">
+                <div class="kpi-val" id="kpi-records">--</div>
+                <div class="kpi-lbl">Registros</div>
             </div>
         </div>
     </div>
 
-    <!-- Gráfico 1 -->
+    <!-- 1. Volume Total (Barras) -->
     <div class="card">
-        <div class="card-header">📊 Volume Total por Dia (ml)</div>
-        <div class="chart-container">
-            <canvas id="chartTotal"></canvas>
-        </div>
+        <div class="card-header">📊 Volume Diário (ml)</div>
+        <div class="chart-container"><canvas id="cTotal"></canvas></div>
     </div>
 
-    <!-- Gráfico 2 -->
+    <!-- 2. Média e Qtd -->
     <div class="card">
-        <div class="card-header">📉 Média (Barra) vs Frequência (Linha)</div>
-        <div class="chart-container">
-            <canvas id="chartAvg"></canvas>
-        </div>
+        <div class="card-header">📉 Média vs Qtd</div>
+        <div class="chart-container"><canvas id="cAvg"></canvas></div>
     </div>
 
-    <!-- Gráfico 3 -->
+    <!-- 3. Dispersão Diária (Alinhada) -->
     <div class="card">
-        <div class="card-header">🕐 Distribuição (Últimos 14 dias)</div>
-        <div class="chart-container">
-            <canvas id="chartScatter"></canvas>
+        <div class="card-header">📍 Distribuição por Dia</div>
+        <div class="chart-container"><canvas id="cScatterDay"></canvas></div>
+    </div>
+
+    <!-- 4. Histograma (Gaussiana) -->
+    <div class="card">
+        <div class="card-header">
+            <span>🔔 Frequência de Volume</span>
+            <div class="filter-group">
+                <button class="btn-filter active" onclick="updateFilter('hist', 14, this)">14D</button>
+                <button class="btn-filter" onclick="updateFilter('hist', 999, this)">Tudo</button>
+            </div>
         </div>
+        <div class="chart-container"><canvas id="cHist"></canvas></div>
+    </div>
+
+    <!-- 5. Tendência Horária -->
+    <div class="card">
+        <div class="card-header">
+            <span>🕐 Tendência Horária (2h)</span>
+            <div class="filter-group">
+                <button class="btn-filter active" onclick="updateFilter('hourly', 14, this)">14D</button>
+                <button class="btn-filter" onclick="updateFilter('hourly', 999, this)">Tudo</button>
+            </div>
+        </div>
+        <div class="chart-container"><canvas id="cHourly"></canvas></div>
+    </div>
+
+    <!-- 6. Intervalo entre Mamadas -->
+    <div class="card">
+        <div class="card-header">
+            <span>⏳ Intervalo vs Volume</span>
+            <div class="filter-group">
+                <button class="btn-filter active" onclick="updateFilter('interval', 14, this)">14D</button>
+                <button class="btn-filter" onclick="updateFilter('interval', 999, this)">Tudo</button>
+            </div>
+        </div>
+        <div class="chart-container"><canvas id="cInterval"></canvas></div>
     </div>
 
     <script>
-        // --- DADOS BRUTOS (Inseridos pelo Bot) ---
+        // === DADOS ORIGINAIS ===
         const rawData = [
             {d: "2026-01-17", t: "00:45", v: 135}, {d: "2026-01-17", t: "02:50", v: 50}, {d: "2026-01-17", t: "06:30", v: 100}, {d: "2026-01-17", t: "10:40", v: 100}, {d: "2026-01-17", t: "13:40", v: 115}, {d: "2026-01-17", t: "17:00", v: 110}, {d: "2026-01-17", t: "20:30", v: 105},
             {d: "2026-01-18", t: "02:20", v: 150}, {d: "2026-01-18", t: "06:13", v: 70}, {d: "2026-01-18", t: "10:15", v: 140}, {d: "2026-01-18", t: "14:10", v: 150}, {d: "2026-01-18", t: "17:50", v: 120}, {d: "2026-01-18", t: "21:30", v: 135},
@@ -97,183 +132,273 @@
             {d: "2026-01-30", t: "04:20", v: 120}, {d: "2026-01-30", t: "10:00", v: 110}, {d: "2026-01-30", t: "13:20", v: 100}, {d: "2026-01-30", t: "16:40", v: 60}, {d: "2026-01-30", t: "19:50", v: 140}
         ];
 
-        // --- LÓGICA DE PROCESSAMENTO ---
-        const today = new Date();
-        const cutoffDate = new Date();
-        cutoffDate.setDate(today.getDate() - 14); // 14 dias atrás
+        // --- PREPARAÇÃO DOS DADOS ---
+        const today = new Date(); // Considerar hoje como data base para calculo de 14 dias
+        // Para simular "Hoje" baseado nos dados, vamos pegar o último dia do dataset
+        const lastDataDate = new Date(rawData[rawData.length-1].d + "T12:00:00");
+        const cutoffDate = new Date(lastDataDate);
+        cutoffDate.setDate(cutoffDate.getDate() - 13); // Últimos 14 dias (incluindo o atual)
 
-        const dailyData = {};
-        const scatterPoints = [];
+        // Enriquecer dados com Objetos Date e Intervalos
+        let processedData = rawData.map(r => ({
+            ...r,
+            dateObj: new Date(r.d + "T" + r.t),
+            dayStr: r.d.split('-').reverse().slice(0,2).join('/') // DD/MM
+        })).sort((a,b) => a.dateObj - b.dateObj);
 
-        rawData.forEach(r => {
-            // Scatter (Todos os pontos dos ultimos 14 dias)
-            const dateObj = new Date(r.d + "T" + r.t);
-            
-            // Agrupamento Diário
-            if (!dailyData[r.d]) dailyData[r.d] = { vol: 0, count: 0, date: new Date(r.d) };
-            dailyData[r.d].vol += r.v;
-            dailyData[r.d].count++;
+        // Calcular Intervalos (Diferença para o anterior em minutos)
+        for(let i=1; i<processedData.length; i++) {
+            const diffMs = processedData[i].dateObj - processedData[i-1].dateObj;
+            processedData[i].intervalMin = Math.round(diffMs / 60000);
+            processedData[i].intervalHours = processedData[i].intervalMin / 60;
+        }
 
-            // Se for recente, adiciona ao scatter
-            if (dateObj >= cutoffDate) {
-                scatterPoints.push({ x: dateObj, y: r.v });
-            }
-        });
+        // --- FUNÇÕES DE AGREGAÇÃO ---
 
-        // Separar Recentes vs Antigos
-        const chartLabels = [];
-        const chartVol = [];
-        const chartAvg = [];
-        const chartCount = [];
+        function getFilteredData(daysLimit) {
+            if (daysLimit > 100) return processedData; // All
+            const limitTime = new Date(lastDataDate);
+            limitTime.setDate(limitTime.getDate() - daysLimit);
+            return processedData.filter(d => d.dateObj >= limitTime);
+        }
 
-        const sortedDays = Object.keys(dailyData).sort();
+        function aggregateDaily(data) {
+            const days = {};
+            data.forEach(r => {
+                if(!days[r.d]) days[r.d] = { vol:0, count:0, date: r.dateObj, label: r.dayStr };
+                days[r.d].vol += r.v;
+                days[r.d].count++;
+            });
+            return Object.values(days).sort((a,b) => a.date - b.date);
+        }
+
+        // --- RENDERIZAÇÃO DOS GRÁFICOS ---
         
-        // Estrutura para agrupar semanas antigas
-        const weeklyBuckets = {};
+        // Globais para update
+        let chartHist, chartHourly, chartInterval;
 
-        sortedDays.forEach(dayStr => {
-            const dayData = dailyData[dayStr];
-            
-            if (dayData.date >= cutoffDate) {
-                // É recente: Mostrar Dia a Dia
-                const label = dayData.date.toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'});
-                chartLabels.push(label);
-                chartVol.push(dayData.vol);
-                chartCount.push(dayData.count);
-                chartAvg.push(Math.round(dayData.vol / dayData.count));
-            } else {
-                // É antigo: Agrupar por Semana (Segunda-feira)
-                // Acha a segunda-feira daquela semana
-                const d = new Date(dayData.date);
-                const day = d.getDay();
-                const diff = d.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday
-                const monday = new Date(d.setDate(diff));
-                const mondayStr = monday.toISOString().split('T')[0];
+        // KPI
+        const daily = aggregateDaily(processedData);
+        const lastDay = daily[daily.length-1];
+        const totalVol = processedData.reduce((acc, cur) => acc + cur.v, 0);
+        const avgVol = Math.round(totalVol / processedData.length);
+        
+        document.getElementById('kpi-vol').innerText = lastDay.vol + " ml";
+        document.getElementById('kpi-avg').innerText = avgVol + " ml";
+        document.getElementById('kpi-records').innerText = processedData.length;
 
-                if (!weeklyBuckets[mondayStr]) weeklyBuckets[mondayStr] = { volSum: 0, countSum: 0, days: 0 };
-                weeklyBuckets[mondayStr].volSum += dayData.vol;
-                weeklyBuckets[mondayStr].countSum += dayData.count;
-                weeklyBuckets[mondayStr].days++;
-            }
+
+        // Chart 1 & 2 (Diários - Sem Filtro Dinâmico, mostram panorama)
+        // Agrupando antigos por semana
+        const chartLabels = [];
+        const dsVol = [];
+        const dsAvg = [];
+        const dsCount = [];
+        
+        // Lógica Simplificada: Listar tudo dia a dia pois dataset é pequeno (14 dias)
+        // Num cenário real > 30 dias, aqui entraria o agrupamento semanal.
+        daily.forEach(d => {
+            chartLabels.push(d.label);
+            dsVol.push(d.vol);
+            dsAvg.push(Math.round(d.vol/d.count));
+            dsCount.push(d.count);
         });
 
-        // Adicionar Semanas Antigas no INÍCIO dos arrays (se houver)
-        // (Neste dataset não haverá, mas a lógica está pronta)
-        Object.keys(weeklyBuckets).sort().forEach(weekStart => {
-            const w = weeklyBuckets[weekStart];
-            const startFormat = new Date(weekStart).toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'});
-            
-            // Média Diária daquela semana
-            chartLabels.unshift(`Sem. ${startFormat}`);
-            chartVol.unshift(Math.round(w.volSum / w.days)); // Volume médio diário na semana
-            chartCount.unshift(Math.round(w.countSum / w.days)); // Média de mamadas/dia
-            chartAvg.unshift(Math.round(w.volSum / w.countSum)); // Média por mamada real
-        });
-
-        // Atualizar KPIs do último dia
-        const lastDay = sortedDays[sortedDays.length - 1];
-        document.getElementById('kpi-vol').innerText = dailyData[lastDay].vol + " ml";
-        document.getElementById('kpi-avg').innerText = Math.round(dailyData[lastDay].vol / dailyData[lastDay].count) + " ml";
-        document.getElementById('kpi-count').innerText = dailyData[lastDay].count;
-
-
-        // --- CHART CONFIGS ---
-        Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto';
-        Chart.defaults.color = '#6b7280';
-
-        // 1. Volume Total (Bar)
-        new Chart(document.getElementById('chartTotal'), {
+        new Chart(document.getElementById('cTotal'), {
             type: 'bar',
             data: {
                 labels: chartLabels,
-                datasets: [{
-                    label: 'Volume Diário',
-                    data: chartVol,
-                    backgroundColor: '#3b82f6',
-                    borderRadius: 4,
-                    barPercentage: 0.6
-                }]
+                datasets: [{ label: 'Total (ml)', data: dsVol, backgroundColor: '#3b82f6', borderRadius: 4 }]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: {display: false} },
-                scales: { y: { grid: { borderDash: [2, 2] } }, x: { grid: { display: false } } }
-            }
+            options: { maintainAspectRatio: false, plugins: {legend:{display:false}}, scales: { x: {grid:{display:false}} } }
         });
 
-        // 2. Média (Bar) + Count (Line)
-        new Chart(document.getElementById('chartAvg'), {
+        new Chart(document.getElementById('cAvg'), {
             type: 'bar',
             data: {
                 labels: chartLabels,
                 datasets: [
-                    {
-                        label: 'Média/Mamada (ml)',
-                        data: chartAvg,
-                        backgroundColor: '#10b981', // Verde
-                        borderRadius: 4,
-                        order: 2,
-                        yAxisID: 'y'
-                    },
-                    {
-                        type: 'line',
-                        label: 'Qtd Mamadas',
-                        data: chartCount,
-                        borderColor: '#f59e0b', // Amarelo/Laranja
-                        borderWidth: 2,
-                        pointBackgroundColor: '#fff',
-                        pointBorderColor: '#f59e0b',
-                        pointRadius: 4,
-                        tension: 0.1,
-                        order: 1,
-                        yAxisID: 'y1'
-                    }
+                    { label: 'Média (ml)', data: dsAvg, backgroundColor: '#10b981', order: 2 },
+                    { type: 'line', label: 'Qtd', data: dsCount, borderColor: '#f59e0b', borderWidth:2, pointBackgroundColor:'white', order: 1, yAxisID: 'y1' }
                 ]
             },
             options: {
-                responsive: true,
                 maintainAspectRatio: false,
                 scales: {
-                    y: { position: 'left', grid: { borderDash: [2, 2] } },
-                    y1: { position: 'right', grid: { display: false }, min: 0, max: 10 },
-                    x: { grid: { display: false } }
+                    x: {grid:{display:false}},
+                    y1: {position:'right', grid:{display:false}, min:0}
                 }
             }
         });
 
-        // 3. Scatter (Dia no X, Volume no Y)
-        new Chart(document.getElementById('chartScatter'), {
+        // Chart 3: Dispersão Alinhada (Categoria = Dia)
+        new Chart(document.getElementById('cScatterDay'), {
             type: 'scatter',
             data: {
                 datasets: [{
-                    label: 'Mamada (ml)',
-                    data: scatterPoints, // {x: Date, y: 120}
-                    backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                    label: 'Mamada',
+                    data: processedData.map(d => ({ x: d.dayStr, y: d.v })), // X é String agora!
+                    backgroundColor: 'rgba(37, 99, 235, 0.6)',
                     borderColor: '#2563eb',
-                    borderWidth: 1,
-                    pointRadius: 5
+                    borderWidth: 1
                 }]
             },
             options: {
-                responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: {display: false} },
                 scales: {
-                    x: {
-                        type: 'time',
-                        time: { unit: 'day', displayFormats: { day: 'dd/MM' } },
-                        title: { display: true, text: 'Dia' },
-                        grid: { display: false }
-                    },
-                    y: {
-                        title: { display: true, text: 'Volume (ml)' },
-                        min: 0,
-                        grid: { borderDash: [2, 2] }
-                    }
-                }
+                    x: { type: 'category', labels: chartLabels, grid:{display:false} }, // Força eixo categórico
+                    y: { title: {display:true, text:'Volume (ml)'} }
+                },
+                plugins: { legend: {display:false} }
             }
         });
+
+        // --- GRÁFICOS DINÂMICOS (Com Filtro) ---
+
+        function renderHist(limit) {
+            const data = getFilteredData(limit);
+            // Bins de 20 em 20 (0-20, 20-40...)
+            const bins = {};
+            data.forEach(r => {
+                const binFloor = Math.floor(r.v / 20) * 20;
+                const label = `${binFloor}-${binFloor+20}`;
+                bins[label] = (bins[label] || 0) + 1;
+            });
+            // Ordenar bins numeric
+            const sortedKeys = Object.keys(bins).sort((a,b) => parseInt(a) - parseInt(b));
+            
+            const config = {
+                type: 'bar',
+                data: {
+                    labels: sortedKeys,
+                    datasets: [{ label: 'Frequência', data: sortedKeys.map(k => bins[k]), backgroundColor: '#8b5cf6', borderRadius: 4 }]
+                },
+                options: { maintainAspectRatio: false, plugins: {legend:{display:false}}, scales: {x:{grid:{display:false}}, y:{beginAtZero:true}} }
+            };
+
+            if(chartHist) { chartHist.destroy(); }
+            chartHist = new Chart(document.getElementById('cHist'), config);
+        }
+
+        function renderHourly(limit) {
+            const data = getFilteredData(limit);
+            // Bins de 2h em 2h (0-2, 2-4...)
+            const bins = {};
+            for(let i=0; i<24; i+=2) bins[`${i}h-${i+2}h`] = []; // Array de volumes
+
+            data.forEach(r => {
+                const h = r.dateObj.getHours();
+                const binFloor = Math.floor(h / 2) * 2;
+                bins[`${binFloor}h-${binFloor+2}h`].push(r.v);
+            });
+
+            const labels = Object.keys(bins);
+            const avgs = labels.map(k => {
+                const vols = bins[k];
+                if(vols.length === 0) return 0;
+                return Math.round(vols.reduce((a,b)=>a+b,0) / vols.length);
+            });
+
+            // Dispersão sobreposta (Pontos reais)
+            // Mapear hora real para index do bin (0 a 11) + fração
+            // Simplificação: Scatter plot normal X=Hora
+            const scatterPts = data.map(r => ({
+                x: r.dateObj.getHours() + (r.dateObj.getMinutes()/60),
+                y: r.v
+            }));
+
+            const config = {
+                type: 'scatter',
+                data: {
+                    datasets: [
+                        {
+                            type: 'line',
+                            label: 'Média (Tendência)',
+                            data: avgs.map((v, i) => ({x: i*2 + 1, y: v})), // Plota no meio do bin (1h, 3h...)
+                            borderColor: '#ec4899',
+                            borderWidth: 3,
+                            pointRadius: 0,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Mamada Individual',
+                            data: scatterPts,
+                            backgroundColor: 'rgba(156, 163, 175, 0.4)', // Cinza
+                            pointRadius: 3
+                        }
+                    ]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { type: 'linear', min: 0, max: 24, title: {display:true, text:'Hora do Dia'}, ticks: {stepSize: 2} },
+                        y: { title: {display:true, text:'Volume'} }
+                    }
+                }
+            };
+
+            if(chartHourly) { chartHourly.destroy(); }
+            chartHourly = new Chart(document.getElementById('cHourly'), config);
+        }
+
+        function renderInterval(limit) {
+            const data = getFilteredData(limit).filter(r => r.intervalMin); // Remove o primeiro sem intervalo
+            // Bins de 15min
+            // Scatter: X=Minutos, Y=Volume
+            
+            const config = {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Mamada',
+                        data: data.map(r => ({ x: r.intervalHours, y: r.v })),
+                        backgroundColor: function(context) {
+                            const v = context.raw?.y;
+                            return v > 120 ? 'rgba(16, 185, 129, 0.7)' : 'rgba(239, 68, 68, 0.7)'; // Verde se > 120, Vermelho se <
+                        },
+                        pointRadius: 5
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { type: 'linear', title: {display:true, text:'Intervalo (Horas)'}, ticks: {stepSize: 0.5} },
+                        y: { title: {display:true, text:'Volume'} }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.raw.y}ml após ${Math.floor(context.raw.x)}h${Math.round((context.raw.x%1)*60)}m`;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            if(chartInterval) { chartInterval.destroy(); }
+            chartInterval = new Chart(document.getElementById('cInterval'), config);
+        }
+
+        // --- CONTROLE DE FILTROS ---
+        window.updateFilter = function(chartName, days, btn) {
+            // UI Toggle
+            const parent = btn.parentNode;
+            parent.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Render
+            if(chartName === 'hist') renderHist(days);
+            if(chartName === 'hourly') renderHourly(days);
+            if(chartName === 'interval') renderInterval(days);
+        };
+
+        // Init Charts
+        renderHist(14);
+        renderHourly(14);
+        renderInterval(14);
+
     </script>
 </body>
 </html>
