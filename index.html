@@ -133,14 +133,13 @@
     </div>
 
     <script>
-        const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQuNhMpD8np684lVzD9NYKUlKfPkTdYyTVh7mYn2h-Oq-xIGa_QDcSeG-1o7Dw-Zq6EpigKjuKcUVri/pub?gid=0&single=true&output=csv';
+        const LOCAL_DATA_URL = './data/mamadas.json';
 
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
             const btn = document.getElementById('theme-toggle');
             if (document.body.classList.contains('dark-mode')) {
                 btn.innerHTML = '☀️';
-                // Atualizar cor dos gráficos para dark mode se necessário (opcional, Chart.js usa canvas transparente, mas textos/grids precisam de ajuste global ou plugin)
                 Chart.defaults.color = '#e5e7eb';
                 Chart.defaults.borderColor = '#374151';
             } else {
@@ -148,7 +147,6 @@
                 Chart.defaults.color = '#666';
                 Chart.defaults.borderColor = '#e5e7eb';
             }
-            // Redesenhar todos os gráficos ativos para aplicar novas cores padrão
             if(chartTotal) chartTotal.update();
             if(chartAvgOnly) chartAvgOnly.update();
             if(chartCountOnly) chartCountOnly.update();
@@ -161,20 +159,19 @@
         let dailyMap = {};
         let lastDataDate;
 
-        Papa.parse(SHEET_URL, {
-            download: true,
-            header: true,
-            complete: function(results) {
-                processAndRender(results.data);
-            },
-            error: function(err) {
-                document.getElementById('loading').innerHTML = "❌ Erro ao carregar dados.<br>Verifique a conexão.";
+        // Carregar JSON local em vez de CSV do Google Sheets
+        fetch(LOCAL_DATA_URL)
+            .then(response => response.json())
+            .then(data => {
+                processAndRender(data);
+            })
+            .catch(err => {
+                document.getElementById('loading').innerHTML = "❌ Erro ao carregar dados locais.<br>Verifique se o arquivo existe.";
                 console.error(err);
-            }
-        });
+            });
 
-        function processAndRender(csvData) {
-            processedData = csvData
+        function processAndRender(jsonData) {
+            processedData = jsonData
                 .filter(row => row.Data && row.Hora && row['Volume (ml)'])
                 .map(row => {
                     let dStr = row.Data;
