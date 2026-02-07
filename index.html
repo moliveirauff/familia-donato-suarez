@@ -36,15 +36,30 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background: none;
+            background: rgba(0,0,0,0.05);
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        body.dark-mode #theme-toggle {
+            background: rgba(255,255,255,0.1);
         }
         h1 {
+            margin-top: 60px;
             margin-bottom: 40px;
             font-weight: 300;
             text-align: center;
+            padding: 0 20px;
+            font-size: 1.8rem;
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: 1.5rem; margin-top: 70px; }
         }
         .container {
             display: grid;
