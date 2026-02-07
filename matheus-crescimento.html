@@ -168,6 +168,16 @@
       margin-top: 0.25rem;
     }
 
+    .percentil-badge {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: rgba(255,255,255,0.25);
+    }
+
     /* === LOADING === */
     .loading {
       text-align: center;
@@ -224,11 +234,13 @@
           <div class="stat-label">Peso</div>
           <div class="stat-value" id="statPeso">-</div>
           <div class="stat-date" id="statPesoData"></div>
+          <div class="percentil-badge" id="statPesoPercentil"></div>
         </div>
         <div class="stat-card">
           <div class="stat-label">Altura</div>
           <div class="stat-value" id="statAltura">-</div>
           <div class="stat-date" id="statAlturaData"></div>
+          <div class="percentil-badge" id="statAlturaPercentil"></div>
         </div>
       </div>
     </section>
@@ -307,7 +319,6 @@
 
     // === INTERPOLAÇÃO LINEAR ===
     function interpolar(idade, curva) {
-      // Encontrar pontos adjacentes
       for (let i = 0; i < curva.length - 1; i++) {
         if (idade >= curva[i].idade_meses && idade <= curva[i + 1].idade_meses) {
           const p1 = curva[i];
@@ -316,7 +327,46 @@
           return p1.valor + t * (p2.valor - p1.valor);
         }
       }
-      return curva[curva.length - 1].valor; // Fallback
+      return curva[curva.length - 1].valor;
+    }
+
+    // === CÁLCULO DE PERCENTIL EXATO ===
+    function calcularPercentil(idade, valor, refData, sexo) {
+      const percentis = [3, 10, 20, 30, 40, 50, 60, 70, 80, 90, 97];
+      const percentisCurvas = ['p3', 'p10', 'p20', 'p30', 'p40', 'p50', 'p60', 'p70', 'p80', 'p90', 'p97'];
+      
+      // Obter valores interpolados para cada percentil nessa idade
+      const valores = percentis.map((p, i) => ({
+        percentil: p,
+        valor: interpolar(idade, refData[sexo][percentisCurvas[i]])
+      }));
+
+      // Se valor está fora do range
+      if (valor <= valores[0].valor) return `≤P${percentis[0]}`;
+      if (valor >= valores[valores.length - 1].valor) return `≥P${percentis[percentis.length - 1]}`;
+
+      // Interpolar entre percentis
+      for (let i = 0; i < valores.length - 1; i++) {
+        if (valor >= valores[i].valor && valor <= valores[i + 1].valor) {
+          const p1 = valores[i];
+          const p2 = valores[i + 1];
+          const t = (valor - p1.valor) / (p2.valor - p1.valor);
+          const percentilExato = p1.percentil + t * (p2.percentil - p1.percentil);
+          return `P${Math.round(percentilExato)}`;
+        }
+      }
+
+      return 'P??';
+    }
+
+    // === COR DO PERCENTIL ===
+    function getPercentilColor(percentilStr) {
+      const p = parseInt(percentilStr.replace(/[^\d]/g, ''));
+      if (p < 10) return '#f56565'; // vermelho
+      if (p < 25) return '#ed8936'; // laranja
+      if (p < 75) return '#48bb78'; // verde
+      if (p < 90) return '#ed8936'; // laranja
+      return '#f56565'; // vermelho
     }
 
     // === CÁLCULO DE GANHO DIÁRIO ===
@@ -330,22 +380,18 @@
         const valor1 = tipo === 'peso' ? m1.peso_kg : m1.altura_cm;
         const valor2 = tipo === 'peso' ? m2.peso_kg : m2.altura_cm;
         
-        // Pular se não tiver dados
         if (valor1 === null || valor2 === null) continue;
         
         const diasIntervalo = (m2.idade_meses - m1.idade_meses) * 30.44;
-        
-        // Ganho real
         const ganhoReal = (valor2 - valor1) / diasIntervalo;
         
-        // Ganho esperado (P50)
         const esperado1 = interpolar(m1.idade_meses, curvaP50);
         const esperado2 = interpolar(m2.idade_meses, curvaP50);
         const ganhoEsperado = (esperado2 - esperado1) / diasIntervalo;
         
         ganhos.push({
           label: `${new Date(m1.data).toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'})} → ${new Date(m2.data).toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'})}`,
-          real: tipo === 'peso' ? ganhoReal * 1000 : ganhoReal, // peso em g/dia
+          real: tipo === 'peso' ? ganhoReal * 1000 : ganhoReal,
           esperado: tipo === 'peso' ? ganhoEsperado * 1000 : ganhoEsperado,
           dias: Math.round(diasIntervalo)
         });
@@ -359,11 +405,10 @@
       const { pesoRef, alturaRef, crianca } = await loadData();
       const sexo = crianca.metadata.sexo;
       
-      // Filtrar medições válidas
       const medicoesComPeso = crianca.medicoes.filter(m => m.peso_kg !== null);
       const medicoesComAltura = crianca.medicoes.filter(m => m.altura_cm !== null);
 
-      // === ÚLTIMA MEDIÇÃO ===
+      // === ÚLTIMA MEDIÇÃO COM PERCENTIL ===
       const ultimaMedicao = crianca.medicoes[crianca.medicoes.length - 1];
       const ultimaComAltura = medicoesComAltura[medicoesComAltura.length - 1];
       
@@ -371,9 +416,14 @@
       document.getElementById('statPeso').textContent = `${ultimaMedicao.peso_kg} kg`;
       document.getElementById('statPesoData').textContent = new Date(ultimaMedicao.data).toLocaleDateString('pt-BR');
       
+      const percentilPeso = calcularPercentil(ultimaMedicao.idade_meses, ultimaMedicao.peso_kg, pesoRef, sexo);
+      document.getElementById('statPesoPercentil').textContent = percentilPeso;
+      
       if (ultimaComAltura) {
         document.getElementById('statAltura').textContent = `${ultimaComAltura.altura_cm} cm`;
         document.getElementById('statAlturaData').textContent = new Date(ultimaComAltura.data).toLocaleDateString('pt-BR');
+        const percentilAltura = calcularPercentil(ultimaComAltura.idade_meses, ultimaComAltura.altura_cm, alturaRef, sexo);
+        document.getElementById('statAlturaPercentil').textContent = percentilAltura;
       } else {
         document.getElementById('statAltura').textContent = '-';
       }
@@ -415,6 +465,21 @@
         return datasets;
       }
 
+      // === PREPARAR DADOS DO MATHEUS COM PERCENTIL ===
+      const dadosPesoComPercentil = medicoesComPeso.map(m => ({
+        x: m.idade_meses,
+        y: m.peso_kg,
+        percentil: calcularPercentil(m.idade_meses, m.peso_kg, pesoRef, sexo),
+        data: new Date(m.data).toLocaleDateString('pt-BR')
+      }));
+
+      const dadosAlturaComPercentil = medicoesComAltura.map(m => ({
+        x: m.idade_meses,
+        y: m.altura_cm,
+        percentil: calcularPercentil(m.idade_meses, m.altura_cm, alturaRef, sexo),
+        data: new Date(m.data).toLocaleDateString('pt-BR')
+      }));
+
       // === GRÁFICO 1: PESO ===
       const ctxPeso = document.getElementById('chartPeso').getContext('2d');
       new Chart(ctxPeso, {
@@ -424,7 +489,7 @@
             ...criarDatasetsPercentis(pesoRef, sexo),
             {
               label: 'Matheus',
-              data: medicoesComPeso.map(m => ({ x: m.idade_meses, y: m.peso_kg })),
+              data: dadosPesoComPercentil,
               borderColor: '#5568d3',
               backgroundColor: '#5568d3',
               pointRadius: 6,
@@ -438,12 +503,18 @@
           maintainAspectRatio: true,
           aspectRatio: 1.5,
           plugins: {
-            legend: {
-              display: false
-            },
+            legend: { display: false },
             tooltip: {
               callbacks: {
                 label: function(context) {
+                  if (context.dataset.label === 'Matheus') {
+                    const point = context.raw;
+                    return [
+                      `Data: ${point.data}`,
+                      `Peso: ${point.y.toFixed(2)} kg`,
+                      `Percentil: ${point.percentil}`
+                    ];
+                  }
                   return `${context.dataset.label}: ${context.parsed.y.toFixed(2)} kg`;
                 }
               }
@@ -526,7 +597,7 @@
             ...criarDatasetsPercentis(alturaRef, sexo),
             {
               label: 'Matheus',
-              data: medicoesComAltura.map(m => ({ x: m.idade_meses, y: m.altura_cm })),
+              data: dadosAlturaComPercentil,
               borderColor: '#5568d3',
               backgroundColor: '#5568d3',
               pointRadius: 6,
@@ -540,12 +611,18 @@
           maintainAspectRatio: true,
           aspectRatio: 1.5,
           plugins: {
-            legend: {
-              display: false
-            },
+            legend: { display: false },
             tooltip: {
               callbacks: {
                 label: function(context) {
+                  if (context.dataset.label === 'Matheus') {
+                    const point = context.raw;
+                    return [
+                      `Data: ${point.data}`,
+                      `Altura: ${point.y.toFixed(1)} cm`,
+                      `Percentil: ${point.percentil}`
+                    ];
+                  }
                   return `${context.dataset.label}: ${context.parsed.y.toFixed(1)} cm`;
                 }
               }
@@ -619,7 +696,6 @@
         }
       });
 
-      // Mostrar conteúdo e esconder loading
       document.getElementById('loading').style.display = 'none';
       document.getElementById('content').style.display = 'block';
     }
