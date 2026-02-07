@@ -406,6 +406,7 @@
             <span>Ocultar itens riscados</span>
         </label>
         <button class="btn-conclude" onclick="concludeShoppingConfirm()">✅ Concluir Compra</button>
+        <button class="btn-conclude" onclick="syncWithBot()" id="syncBtn" style="background: #2563eb">☁️ Sincronizar</button>
     </div>
     
     <div id="filters-mestre" class="filters hidden">
@@ -829,6 +830,37 @@
             saveState();
             render();
             alert('✅ Compra concluída! Itens marcados foram removidos.');
+        }
+
+        async function syncWithBot() {
+            const syncBtn = document.getElementById('syncBtn');
+            const originalText = syncBtn.innerText;
+            syncBtn.innerText = "⏳ Enviando...";
+            syncBtn.disabled = true;
+
+            const message = `BOT_SYNC_COMPRAS:${JSON.stringify(shoppingList)}`;
+            const botToken = "8032731802:AAH9E3Y_T04n5k9jUuE6f6U3g5L7h9B6E4M"; 
+            const chatId = "8306629331"; 
+
+            try {
+                await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message
+                    })
+                });
+                syncBtn.innerText = "✅ Enviado!";
+                setTimeout(() => {
+                    syncBtn.innerText = originalText;
+                    syncBtn.disabled = false;
+                }, 3000);
+            } catch (e) {
+                alert("Erro ao sincronizar. Tente novamente.");
+                syncBtn.innerText = originalText;
+                syncBtn.disabled = false;
+            }
         }
         
         // Theme toggle

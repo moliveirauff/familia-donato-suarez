@@ -196,6 +196,7 @@
         
         <div class="controls">
             <button class="btn-add" onclick="openModal()">+ Novo Item</button>
+            <button class="btn-filter" onclick="saveData()" id="syncBtn" style="background: var(--success)">☁️ Sincronizar no Bot</button>
             <button class="btn-filter" onclick="toggleFilter()" id="filterBtn">Ocultar Riscados</button>
             <button class="btn-reset" onclick="resetList()">Zerar Lista</button>
         </div>
@@ -372,7 +373,39 @@
             
             closeModal();
             renderList();
-            alert("⚠️ Lembre-se de avisar ao bot para salvar as alterações permanentemente!");
+        }
+
+        async function saveData() {
+            const syncBtn = document.getElementById('syncBtn');
+            const originalText = syncBtn.innerText;
+            syncBtn.innerText = "⏳ Enviando...";
+            syncBtn.disabled = true;
+
+            const message = `BOT_SYNC_VIAGEM:${JSON.stringify(listData)}`;
+            // Usamos a API do Telegram para enviar a mensagem para você,
+            // e o Bot que está rodando no seu VPS vai capturar essa mensagem.
+            const botToken = "8032731802:AAH9E3Y_T04n5k9jUuE6f6U3g5L7h9B6E4M"; 
+            const chatId = "8306629331"; 
+
+            try {
+                await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message
+                    })
+                });
+                syncBtn.innerText = "✅ Enviado ao Bot!";
+                setTimeout(() => {
+                    syncBtn.innerText = originalText;
+                    syncBtn.disabled = false;
+                }, 3000);
+            } catch (e) {
+                alert("Erro ao sincronizar. Tente novamente.");
+                syncBtn.innerText = originalText;
+                syncBtn.disabled = false;
+            }
         }
 
         function deleteItem() {
