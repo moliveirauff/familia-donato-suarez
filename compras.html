@@ -335,22 +335,25 @@
         let editingItem = null;
         
         // Load data
-        fetch('data/compras.json')
-            .then(r => r.json())
-            .then(d => {
-                masterData = d;
-                loadState();
-                render();
-            });
-        
-        // State management
-        function loadState() {
+        Promise.all([
+            fetch('data/compras.json').then(r => r.json()),
+            fetch('data/compras-proxima.json').then(r => r.json()).catch(() => [])
+        ]).then(([master, initial]) => {
+            masterData = master;
+            
+            // Check if we have saved state, otherwise use initial data
             const saved = localStorage.getItem('compras-shopping-list');
             if (saved) {
                 shoppingList = JSON.parse(saved);
+            } else if (initial.length > 0) {
+                shoppingList = initial;
+                saveState();
             }
-        }
+            
+            render();
+        });
         
+        // State management
         function saveState() {
             localStorage.setItem('compras-shopping-list', JSON.stringify(shoppingList));
         }

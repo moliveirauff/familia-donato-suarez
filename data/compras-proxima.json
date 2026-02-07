@@ -1,0 +1,23 @@
+[
+  {
+    "Item": "Queijo minas",
+    "Categoria": "Laticínios",
+    "qty": "1",
+    "price": "51.45",
+    "checked": false
+  },
+  {
+    "Item": "Requeijão",
+    "Categoria": "Laticínios",
+    "qty": "1",
+    "price": "17.99",
+    "checked": false
+  },
+  {
+    "Item": "Sabão em Pó Lava Louças",
+    "Categoria": "Limpeza",
+    "qty": "1",
+    "price": "55",
+    "checked": false
+  }
+]
