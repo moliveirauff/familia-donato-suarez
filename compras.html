@@ -445,6 +445,10 @@
                 <label>Preço (R$)</label>
                 <input type="number" id="edit-price" step="0.01">
             </div>
+            <div class="modal-field">
+                <label>Observações</label>
+                <input type="text" id="edit-obs">
+            </div>
             <div class="modal-buttons">
                 <button class="modal-btn modal-btn-cancel" onclick="closeModal()">Cancelar</button>
                 <button class="modal-btn modal-btn-save" onclick="saveEdit()">Salvar</button>
@@ -757,14 +761,33 @@
                     
                     const inList = shoppingList.find(i => i.Item === item.Item);
                     
+                    // Wrapper for buttons
+                    const btnContainer = document.createElement('div');
+                    btnContainer.style.display = 'flex';
+                    btnContainer.style.gap = '5px';
+
                     if (!inList) {
                         const addBtn = document.createElement('button');
                         addBtn.className = 'item-btn item-add-btn';
                         addBtn.textContent = '➕';
                         addBtn.onclick = () => addToList(item.Item);
-                        info.appendChild(addBtn);
+                        btnContainer.appendChild(addBtn);
                     }
                     
+                    const editMestreBtn = document.createElement('button');
+                    editMestreBtn.className = 'item-btn item-edit-btn';
+                    editMestreBtn.textContent = '✏️';
+                    // Adapt object to expected format by openEditModal
+                    const mestreItemProxy = {
+                        Item: item.Item,
+                        qty: item["Quantidade Típica"],
+                        price: item["Valor Esperado (Un)"],
+                        obs: item["Observações"]
+                    };
+                    editMestreBtn.onclick = () => openEditModal(mestreItemProxy);
+                    btnContainer.appendChild(editMestreBtn);
+
+                    info.appendChild(btnContainer);
                     info.appendChild(price);
                     
                     row.appendChild(nameWrapper);
@@ -793,6 +816,15 @@
             document.getElementById('edit-name').value = item.Item;
             document.getElementById('edit-qty').value = item.qty;
             document.getElementById('edit-price').value = item.price;
+            
+            // Get current obs
+            let currentObs = item.obs || "";
+            if (!currentObs) {
+                const masterItem = masterData.find(m => m.Item === item.Item);
+                currentObs = masterItem?.["Observações"] || "";
+            }
+            document.getElementById('edit-obs').value = currentObs;
+            
             document.getElementById('edit-modal').style.display = 'block';
         }
         
@@ -805,6 +837,18 @@
             if (editingItem) {
                 editingItem.qty = document.getElementById('edit-qty').value;
                 editingItem.price = document.getElementById('edit-price').value;
+                editingItem.obs = document.getElementById('edit-obs').value;
+                
+                // If we are in "Mestre" view, we should also update the master data
+                if (currentView === 'mestre') {
+                    const masterItem = masterData.find(m => m.Item === editingItem.Item);
+                    if (masterItem) {
+                        masterItem["Observações"] = editingItem.obs;
+                        masterItem["Quantidade Típica"] = editingItem.qty;
+                        masterItem["Valor Esperado (Un)"] = editingItem.price;
+                    }
+                }
+
                 saveState();
                 render();
                 closeModal();
@@ -839,7 +883,12 @@
             syncBtn.innerText = "⏳ Enviando...";
             syncBtn.disabled = true;
 
-            const message = `BOT_SYNC_COMPRAS:${JSON.stringify(shoppingList)}`;
+            const payload = {
+                shoppingList: shoppingList,
+                masterData: masterData
+            };
+
+            const message = `BOT_SYNC_COMPRAS:${JSON.stringify(payload)}`;
             const botToken = "8032731802:AAH9E3Y_T04n5k9jUuE6f6U3g5L7h9B6E4M"; 
             const chatId = "8306629331"; 
 
