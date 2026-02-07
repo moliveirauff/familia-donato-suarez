@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛒 Lista de Compras</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background-color: #f3f4f6; 
+            margin: 0; 
+            padding: 10px; 
+            padding-bottom: 60px; 
+            color: #1f2937; 
+            transition: background-color 0.3s, color 0.3s; 
+        }
+        body.dark-mode { background-color: #111827; color: #f3f4f6; }
+        
+        h1 { 
+            text-align: center; 
+            font-size: 24px; 
+            margin: 15px 0 20px 0; 
+            font-weight: 800; 
+            color: #111827; 
+        }
+        body.dark-mode h1 { color: #f3f4f6; }
+        
+        .view-toggle { 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            margin-bottom: 20px; 
+        }
+        
+        .btn-view { 
+            background: #e5e7eb; 
+            border: none; 
+            padding: 10px 24px; 
+            border-radius: 8px; 
+            font-size: 14px; 
+            font-weight: 600; 
+            color: #4b5563; 
+            cursor: pointer; 
+            transition: all 0.2s; 
+        }
+        body.dark-mode .btn-view { background: #374151; color: #d1d5db; }
+        
+        .btn-view.active { 
+            background: #2563eb; 
+            color: white; 
+        }
+        body.dark-mode .btn-view.active { background: #3b82f6; }
+        
+        .card { 
+            background: white; 
+            border-radius: 12px; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+            padding: 15px; 
+            margin-bottom: 15px; 
+            border: 1px solid #e5e7eb; 
+            transition: background-color 0.3s, border-color 0.3s; 
+        }
+        body.dark-mode .card { 
+            background-color: #1f2937; 
+            border-color: #374151; 
+        }
+        
+        .category-header { 
+            font-size: 16px; 
+            font-weight: 700; 
+            color: #2563eb; 
+            margin-bottom: 12px; 
+            padding-bottom: 8px; 
+            border-bottom: 2px solid #e5e7eb; 
+        }
+        body.dark-mode .category-header { 
+            color: #60a5fa; 
+            border-bottom-color: #374151; 
+        }
+        
+        .item-row { 
+            display: flex; 
+            align-items: center; 
+            padding: 10px 0; 
+            border-bottom: 1px solid #f3f4f6; 
+            gap: 10px;
+        }
+        body.dark-mode .item-row { border-bottom-color: #374151; }
+        .item-row:last-child { border-bottom: none; }
+        
+        .item-checkbox { 
+            flex-shrink: 0;
+            width: 20px; 
+            height: 20px; 
+            cursor: pointer; 
+        }
+        
+        .item-name { 
+            flex: 1; 
+            font-weight: 600; 
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .item-name.checked { 
+            text-decoration: line-through; 
+            opacity: 0.5; 
+        }
+        
+        .item-info { 
+            display: flex; 
+            gap: 8px; 
+            align-items: center;
+            flex-shrink: 0;
+        }
+        
+        .item-qty, .item-price { 
+            font-size: 13px; 
+            color: #6b7280; 
+            background: #f3f4f6;
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+        body.dark-mode .item-qty, 
+        body.dark-mode .item-price { 
+            background: #374151; 
+            color: #9ca3af; 
+        }
+        
+        .item-edit-btn { 
+            background: #dbeafe; 
+            color: #2563eb; 
+            border: none; 
+            padding: 4px 8px; 
+            border-radius: 6px; 
+            font-size: 11px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: all 0.2s;
+        }
+        body.dark-mode .item-edit-btn { 
+            background: #1e3a8a; 
+            color: #60a5fa; 
+        }
+        .item-edit-btn:hover { opacity: 0.8; }
+        
+        .list-master .item-row { 
+            padding: 8px 0; 
+        }
+        
+        .list-master .item-name { 
+            font-weight: 500; 
+        }
+        
+        #theme-toggle { 
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            background: none; 
+            border: none; 
+            font-size: 24px; 
+            cursor: pointer; 
+        }
+        
+        .hidden { display: none !important; }
+        
+        /* Modal */
+        .modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.5); 
+        }
+        
+        .modal-content { 
+            background-color: white; 
+            margin: 15% auto; 
+            padding: 20px; 
+            border-radius: 12px; 
+            width: 90%; 
+            max-width: 400px; 
+        }
+        body.dark-mode .modal-content { 
+            background-color: #1f2937; 
+        }
+        
+        .modal-header { 
+            font-size: 18px; 
+            font-weight: 700; 
+            margin-bottom: 15px; 
+        }
+        
+        .modal-field { 
+            margin-bottom: 15px; 
+        }
+        
+        .modal-field label { 
+            display: block; 
+            font-size: 13px; 
+            font-weight: 600; 
+            margin-bottom: 5px; 
+            color: #6b7280; 
+        }
+        body.dark-mode .modal-field label { color: #9ca3af; }
+        
+        .modal-field input { 
+            width: 100%; 
+            padding: 8px 12px; 
+            border: 1px solid #e5e7eb; 
+            border-radius: 6px; 
+            font-size: 14px; 
+        }
+        body.dark-mode .modal-field input { 
+            background: #374151; 
+            border-color: #4b5563; 
+            color: #f3f4f6; 
+        }
+        
+        .modal-buttons { 
+            display: flex; 
+            gap: 10px; 
+            justify-content: flex-end; 
+        }
+        
+        .modal-btn { 
+            padding: 8px 16px; 
+            border: none; 
+            border-radius: 6px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: all 0.2s; 
+        }
+        
+        .modal-btn-cancel { 
+            background: #e5e7eb; 
+            color: #4b5563; 
+        }
+        body.dark-mode .modal-btn-cancel { 
+            background: #374151; 
+            color: #d1d5db; 
+        }
+        
+        .modal-btn-save { 
+            background: #2563eb; 
+            color: white; 
+        }
+        body.dark-mode .modal-btn-save { background: #3b82f6; }
+        
+        @media (min-width: 768px) { 
+            body { max-width: 900px; margin: 0 auto; } 
+        }
+    </style>
+</head>
+<body>
+    <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+    <h1>🛒 Lista de Compras</h1>
+    
+    <div class="view-toggle">
+        <button class="btn-view active" onclick="switchView('proxima')">📝 Próxima Compra</button>
+        <button class="btn-view" onclick="switchView('mestre')">📋 Lista Mestre</button>
+    </div>
+    
+    <div id="view-proxima">
+        <!-- Populated by JS -->
+    </div>
+    
+    <div id="view-mestre" class="hidden list-master">
+        <!-- Populated by JS -->
+    </div>
+    
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">Editar Item</div>
+            <div class="modal-field">
+                <label>Nome</label>
+                <input type="text" id="edit-name" readonly>
+            </div>
+            <div class="modal-field">
+                <label>Quantidade</label>
+                <input type="number" id="edit-qty" step="1">
+            </div>
+            <div class="modal-field">
+                <label>Preço (R$)</label>
+                <input type="number" id="edit-price" step="0.01">
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-cancel" onclick="closeModal()">Cancelar</button>
+                <button class="modal-btn modal-btn-save" onclick="saveEdit()">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let data = [];
+        let currentView = 'proxima';
+        let editingItem = null;
+        
+        // Load data
+        fetch('data/compras.json')
+            .then(r => r.json())
+            .then(d => {
+                data = d;
+                loadState();
+                render();
+            });
+        
+        // State management
+        function loadState() {
+            const saved = localStorage.getItem('compras-state');
+            if (saved) {
+                const state = JSON.parse(saved);
+                data.forEach(item => {
+                    const savedItem = state.find(s => s.Item === item.Item);
+                    if (savedItem) {
+                        item.checked = savedItem.checked || false;
+                        item["Quantidade Típica"] = savedItem.qty || item["Quantidade Típica"];
+                        item["Valor Esperado (Un)"] = savedItem.price || item["Valor Esperado (Un)"];
+                    }
+                });
+            }
+        }
+        
+        function saveState() {
+            const state = data.map(item => ({
+                Item: item.Item,
+                checked: item.checked || false,
+                qty: item["Quantidade Típica"],
+                price: item["Valor Esperado (Un)"]
+            }));
+            localStorage.setItem('compras-state', JSON.stringify(state));
+        }
+        
+        // View switching
+        function switchView(view) {
+            currentView = view;
+            document.querySelectorAll('.btn-view').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (view === 'proxima') {
+                document.getElementById('view-proxima').classList.remove('hidden');
+                document.getElementById('view-mestre').classList.add('hidden');
+            } else {
+                document.getElementById('view-proxima').classList.add('hidden');
+                document.getElementById('view-mestre').classList.remove('hidden');
+            }
+        }
+        
+        // Render
+        function render() {
+            renderProxima();
+            renderMestre();
+        }
+        
+        function renderProxima() {
+            const container = document.getElementById('view-proxima');
+            const grouped = groupByCategory(data);
+            
+            container.innerHTML = '';
+            
+            for (const category in grouped) {
+                const card = document.createElement('div');
+                card.className = 'card';
+                
+                const header = document.createElement('div');
+                header.className = 'category-header';
+                header.textContent = category;
+                card.appendChild(header);
+                
+                grouped[category].forEach(item => {
+                    const row = document.createElement('div');
+                    row.className = 'item-row';
+                    
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.className = 'item-checkbox';
+                    checkbox.checked = item.checked || false;
+                    checkbox.onchange = () => toggleCheck(item);
+                    
+                    const name = document.createElement('div');
+                    name.className = 'item-name';
+                    if (item.checked) name.classList.add('checked');
+                    name.textContent = item.Item;
+                    
+                    const info = document.createElement('div');
+                    info.className = 'item-info';
+                    
+                    const qty = document.createElement('span');
+                    qty.className = 'item-qty';
+                    qty.textContent = `${item["Quantidade Típica"]}x`;
+                    
+                    const price = document.createElement('span');
+                    price.className = 'item-price';
+                    price.textContent = `R$ ${parseFloat(item["Valor Esperado (Un)"]).toFixed(2)}`;
+                    
+                    const editBtn = document.createElement('button');
+                    editBtn.className = 'item-edit-btn';
+                    editBtn.textContent = '✏️';
+                    editBtn.onclick = () => openEditModal(item);
+                    
+                    info.appendChild(qty);
+                    info.appendChild(price);
+                    info.appendChild(editBtn);
+                    
+                    row.appendChild(checkbox);
+                    row.appendChild(name);
+                    row.appendChild(info);
+                    
+                    card.appendChild(row);
+                });
+                
+                container.appendChild(card);
+            }
+        }
+        
+        function renderMestre() {
+            const container = document.getElementById('view-mestre');
+            const grouped = groupByCategory(data);
+            
+            container.innerHTML = '';
+            
+            for (const category in grouped) {
+                const card = document.createElement('div');
+                card.className = 'card';
+                
+                const header = document.createElement('div');
+                header.className = 'category-header';
+                header.textContent = category;
+                card.appendChild(header);
+                
+                grouped[category].forEach(item => {
+                    const row = document.createElement('div');
+                    row.className = 'item-row';
+                    
+                    const name = document.createElement('div');
+                    name.className = 'item-name';
+                    name.textContent = item.Item;
+                    
+                    const info = document.createElement('div');
+                    info.className = 'item-info';
+                    
+                    const price = document.createElement('span');
+                    price.className = 'item-price';
+                    price.textContent = `R$ ${parseFloat(item["Valor Esperado (Un)"]).toFixed(2)}`;
+                    
+                    info.appendChild(price);
+                    
+                    row.appendChild(name);
+                    row.appendChild(info);
+                    
+                    card.appendChild(row);
+                });
+                
+                container.appendChild(card);
+            }
+        }
+        
+        function groupByCategory(items) {
+            const grouped = {};
+            items.forEach(item => {
+                const cat = item.Categoria || 'Outros';
+                if (!grouped[cat]) grouped[cat] = [];
+                grouped[cat].push(item);
+            });
+            return grouped;
+        }
+        
+        function toggleCheck(item) {
+            item.checked = !item.checked;
+            saveState();
+            render();
+        }
+        
+        // Edit modal
+        function openEditModal(item) {
+            editingItem = item;
+            document.getElementById('edit-name').value = item.Item;
+            document.getElementById('edit-qty').value = item["Quantidade Típica"];
+            document.getElementById('edit-price').value = item["Valor Esperado (Un)"];
+            document.getElementById('edit-modal').style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('edit-modal').style.display = 'none';
+            editingItem = null;
+        }
+        
+        function saveEdit() {
+            if (editingItem) {
+                editingItem["Quantidade Típica"] = document.getElementById('edit-qty').value;
+                editingItem["Valor Esperado (Un)"] = document.getElementById('edit-price').value;
+                saveState();
+                render();
+                closeModal();
+            }
+        }
+        
+        // Theme toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('theme-toggle');
+            icon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        }
+        
+        // Load theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('theme-toggle').textContent = '☀️';
+        }
+        
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('edit-modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
