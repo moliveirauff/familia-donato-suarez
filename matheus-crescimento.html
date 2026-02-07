@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matheus: Crescimento - Hub Família</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    /* === DESIGN SYSTEM === */
+    :root {
+      --primary: #667eea;
+      --primary-dark: #5568d3;
+      --success: #48bb78;
+      --warning: #ed8936;
+      --danger: #f56565;
+      --bg: #f7fafc;
+      --surface: #ffffff;
+      --text: #2d3748;
+      --text-muted: #718096;
+      --border: #e2e8f0;
+    }
+
+    [data-theme="dark"] {
+      --bg: #1a202c;
+      --surface: #2d3748;
+      --text: #f7fafc;
+      --text-muted: #cbd5e0;
+      --border: #4a5568;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 1rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* === NAVBAR === */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: var(--surface);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .back-btn {
+      font-size: 1.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .nav-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      border-color: var(--primary);
+    }
+
+    /* === CARDS === */
+    .section {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-icon {
+      font-size: 1.75rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .chart-container {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .chart-subtitle {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    /* === ÚLTIMA MEDIÇÃO === */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .stat-date {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      margin-top: 0.25rem;
+    }
+
+    /* === LOADING === */
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-muted);
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 4px solid var(--border);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-left">
+      <a href="matheus.html" class="back-btn">🏠</a>
+      <h1 class="nav-title">Matheus: Crescimento</h1>
+    </div>
+    <button class="theme-toggle" id="themeToggle" title="Alternar tema">🌙</button>
+  </nav>
+
+  <!-- Loading -->
+  <div id="loading" class="loading">
+    <div class="spinner"></div>
+    <p style="margin-top: 1rem;">Carregando dados...</p>
+  </div>
+
+  <!-- Content (hidden initially) -->
+  <div id="content" style="display: none;">
+    
+    <!-- Última Medição -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon">📊</span>
+        <h2 class="section-title">Última Medição</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Data</div>
+          <div class="stat-value" id="statData">-</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Peso</div>
+          <div class="stat-value" id="statPeso">-</div>
+          <div class="stat-date" id="statPesoData"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Altura</div>
+          <div class="stat-value" id="statAltura">-</div>
+          <div class="stat-date" id="statAlturaData"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Peso -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon">⚖️</span>
+        <h2 class="section-title">Peso</h2>
+      </div>
+      
+      <div class="chart-container">
+        <div class="chart-subtitle">Peso por Idade (kg) - Curvas de Referência OMS</div>
+        <canvas id="chartPeso"></canvas>
+      </div>
+
+      <div class="chart-container">
+        <div class="chart-subtitle">Ganho de Peso Diário (g/dia) - Real vs. Esperado (P50)</div>
+        <canvas id="chartGanhoPeso"></canvas>
+      </div>
+    </section>
+
+    <!-- Seção Altura -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon">📏</span>
+        <h2 class="section-title">Altura</h2>
+      </div>
+      
+      <div class="chart-container">
+        <div class="chart-subtitle">Altura por Idade (cm) - Curvas de Referência OMS</div>
+        <canvas id="chartAltura"></canvas>
+      </div>
+
+      <div class="chart-container">
+        <div class="chart-subtitle">Ganho de Altura Diário (cm/dia) - Real vs. Esperado (P50)</div>
+        <canvas id="chartGanhoAltura"></canvas>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // === THEME TOGGLE ===
+    const themeToggle = document.getElementById('themeToggle');
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+    themeToggle.addEventListener('click', () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      const newTheme = theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    });
+
+    // === DATA LOADING ===
+    const BASE_URL = 'https://moliveirauff.github.io/familia-donato-suarez/data';
+    
+    async function loadData() {
+      try {
+        const [pesoRef, alturaRef, crianca] = await Promise.all([
+          fetch(`${BASE_URL}/peso-referencia.json?v=${Date.now()}`).then(r => r.json()),
+          fetch(`${BASE_URL}/altura-referencia.json?v=${Date.now()}`).then(r => r.json()),
+          fetch(`${BASE_URL}/matheus-crescimento.json?v=${Date.now()}`).then(r => r.json())
+        ]);
+
+        return { pesoRef, alturaRef, crianca };
+      } catch (error) {
+        console.error('Erro ao carregar dados:', error);
+        document.getElementById('loading').innerHTML = '<p style="color: var(--danger);">❌ Erro ao carregar dados. Tente novamente.</p>';
+        throw error;
+      }
+    }
+
+    // === INTERPOLAÇÃO LINEAR ===
+    function interpolar(idade, curva) {
+      // Encontrar pontos adjacentes
+      for (let i = 0; i < curva.length - 1; i++) {
+        if (idade >= curva[i].idade_meses && idade <= curva[i + 1].idade_meses) {
+          const p1 = curva[i];
+          const p2 = curva[i + 1];
+          const t = (idade - p1.idade_meses) / (p2.idade_meses - p1.idade_meses);
+          return p1.valor + t * (p2.valor - p1.valor);
+        }
+      }
+      return curva[curva.length - 1].valor; // Fallback
+    }
+
+    // === CÁLCULO DE GANHO DIÁRIO ===
+    function calcularGanhos(medicoes, curvaP50, tipo) {
+      const ganhos = [];
+      
+      for (let i = 0; i < medicoes.length - 1; i++) {
+        const m1 = medicoes[i];
+        const m2 = medicoes[i + 1];
+        
+        const valor1 = tipo === 'peso' ? m1.peso_kg : m1.altura_cm;
+        const valor2 = tipo === 'peso' ? m2.peso_kg : m2.altura_cm;
+        
+        // Pular se não tiver dados
+        if (valor1 === null || valor2 === null) continue;
+        
+        const diasIntervalo = (m2.idade_meses - m1.idade_meses) * 30.44;
+        
+        // Ganho real
+        const ganhoReal = (valor2 - valor1) / diasIntervalo;
+        
+        // Ganho esperado (P50)
+        const esperado1 = interpolar(m1.idade_meses, curvaP50);
+        const esperado2 = interpolar(m2.idade_meses, curvaP50);
+        const ganhoEsperado = (esperado2 - esperado1) / diasIntervalo;
+        
+        ganhos.push({
+          label: `${new Date(m1.data).toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'})} → ${new Date(m2.data).toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'})}`,
+          real: tipo === 'peso' ? ganhoReal * 1000 : ganhoReal, // peso em g/dia
+          esperado: tipo === 'peso' ? ganhoEsperado * 1000 : ganhoEsperado,
+          dias: Math.round(diasIntervalo)
+        });
+      }
+      
+      return ganhos;
+    }
+
+    // === RENDERIZAR GRÁFICOS ===
+    async function renderCharts() {
+      const { pesoRef, alturaRef, crianca } = await loadData();
+      const sexo = crianca.metadata.sexo;
+      
+      // Filtrar medições válidas
+      const medicoesComPeso = crianca.medicoes.filter(m => m.peso_kg !== null);
+      const medicoesComAltura = crianca.medicoes.filter(m => m.altura_cm !== null);
+
+      // === ÚLTIMA MEDIÇÃO ===
+      const ultimaMedicao = crianca.medicoes[crianca.medicoes.length - 1];
+      const ultimaComAltura = medicoesComAltura[medicoesComAltura.length - 1];
+      
+      document.getElementById('statData').textContent = new Date(ultimaMedicao.data).toLocaleDateString('pt-BR');
+      document.getElementById('statPeso').textContent = `${ultimaMedicao.peso_kg} kg`;
+      document.getElementById('statPesoData').textContent = new Date(ultimaMedicao.data).toLocaleDateString('pt-BR');
+      
+      if (ultimaComAltura) {
+        document.getElementById('statAltura').textContent = `${ultimaComAltura.altura_cm} cm`;
+        document.getElementById('statAlturaData').textContent = new Date(ultimaComAltura.data).toLocaleDateString('pt-BR');
+      } else {
+        document.getElementById('statAltura').textContent = '-';
+      }
+
+      // === CORES DOS PERCENTIS ===
+      const percentisCores = {
+        p3: { color: '#f56565', width: 1, dash: [] },
+        p10: { color: '#ed8936', width: 2, dash: [] },
+        p20: { color: '#cbd5e0', width: 1, dash: [5, 5] },
+        p30: { color: '#cbd5e0', width: 1, dash: [5, 5] },
+        p40: { color: '#cbd5e0', width: 1, dash: [5, 5] },
+        p50: { color: '#667eea', width: 3, dash: [] },
+        p60: { color: '#cbd5e0', width: 1, dash: [5, 5] },
+        p70: { color: '#cbd5e0', width: 1, dash: [5, 5] },
+        p80: { color: '#cbd5e0', width: 1, dash: [5, 5] },
+        p90: { color: '#ed8936', width: 2, dash: [] },
+        p97: { color: '#f56565', width: 1, dash: [] }
+      };
+
+      // === DATASETS PERCENTIS ===
+      function criarDatasetsPercentis(refData, sexo) {
+        const datasets = [];
+        const percentis = ['p3', 'p10', 'p20', 'p30', 'p40', 'p50', 'p60', 'p70', 'p80', 'p90', 'p97'];
+        
+        percentis.forEach(p => {
+          const config = percentisCores[p];
+          datasets.push({
+            label: p === 'p50' ? 'P50 (mediana)' : p.toUpperCase(),
+            data: refData[sexo][p].map(d => ({ x: d.idade_meses, y: d.valor })),
+            borderColor: config.color,
+            borderWidth: config.width,
+            borderDash: config.dash,
+            fill: false,
+            pointRadius: 0,
+            tension: 0.4
+          });
+        });
+        
+        return datasets;
+      }
+
+      // === GRÁFICO 1: PESO ===
+      const ctxPeso = document.getElementById('chartPeso').getContext('2d');
+      new Chart(ctxPeso, {
+        type: 'line',
+        data: {
+          datasets: [
+            ...criarDatasetsPercentis(pesoRef, sexo),
+            {
+              label: 'Matheus',
+              data: medicoesComPeso.map(m => ({ x: m.idade_meses, y: m.peso_kg })),
+              borderColor: '#5568d3',
+              backgroundColor: '#5568d3',
+              pointRadius: 6,
+              pointHoverRadius: 8,
+              showLine: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          aspectRatio: 1.5,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return `${context.dataset.label}: ${context.parsed.y.toFixed(2)} kg`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              type: 'linear',
+              title: { display: true, text: 'Idade (meses)' },
+              min: 0,
+              max: 12
+            },
+            y: {
+              title: { display: true, text: 'Peso (kg)' }
+            }
+          }
+        }
+      });
+
+      // === GRÁFICO 2: GANHO PESO ===
+      const ganhosPeso = calcularGanhos(medicoesComPeso, pesoRef[sexo].p50, 'peso');
+      const ctxGanhoPeso = document.getElementById('chartGanhoPeso').getContext('2d');
+      
+      new Chart(ctxGanhoPeso, {
+        type: 'bar',
+        data: {
+          labels: ganhosPeso.map(g => g.label),
+          datasets: [
+            {
+              label: 'Esperado (P50)',
+              data: ganhosPeso.map(g => g.esperado),
+              type: 'line',
+              borderColor: '#667eea',
+              borderWidth: 2,
+              borderDash: [5, 5],
+              fill: false,
+              pointRadius: 0
+            },
+            {
+              label: 'Real',
+              data: ganhosPeso.map(g => g.real),
+              backgroundColor: ganhosPeso.map(g => {
+                if (g.real < 0) return '#f56565';
+                if (g.real < g.esperado) return '#ed8936';
+                return '#48bb78';
+              }),
+              borderWidth: 1,
+              borderColor: '#fff'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          aspectRatio: 2,
+          plugins: {
+            legend: { display: true },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return `${context.dataset.label}: ${context.parsed.y.toFixed(1)} g/dia`;
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              title: { display: true, text: 'Ganho (g/dia)' }
+            }
+          }
+        }
+      });
+
+      // === GRÁFICO 3: ALTURA ===
+      const ctxAltura = document.getElementById('chartAltura').getContext('2d');
+      new Chart(ctxAltura, {
+        type: 'line',
+        data: {
+          datasets: [
+            ...criarDatasetsPercentis(alturaRef, sexo),
+            {
+              label: 'Matheus',
+              data: medicoesComAltura.map(m => ({ x: m.idade_meses, y: m.altura_cm })),
+              borderColor: '#5568d3',
+              backgroundColor: '#5568d3',
+              pointRadius: 6,
+              pointHoverRadius: 8,
+              showLine: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          aspectRatio: 1.5,
+          plugins: {
+            legend: {
+              display: false
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return `${context.dataset.label}: ${context.parsed.y.toFixed(1)} cm`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              type: 'linear',
+              title: { display: true, text: 'Idade (meses)' },
+              min: 0,
+              max: 12
+            },
+            y: {
+              title: { display: true, text: 'Altura (cm)' }
+            }
+          }
+        }
+      });
+
+      // === GRÁFICO 4: GANHO ALTURA ===
+      const ganhosAltura = calcularGanhos(medicoesComAltura, alturaRef[sexo].p50, 'altura');
+      const ctxGanhoAltura = document.getElementById('chartGanhoAltura').getContext('2d');
+      
+      new Chart(ctxGanhoAltura, {
+        type: 'bar',
+        data: {
+          labels: ganhosAltura.map(g => g.label),
+          datasets: [
+            {
+              label: 'Esperado (P50)',
+              data: ganhosAltura.map(g => g.esperado),
+              type: 'line',
+              borderColor: '#667eea',
+              borderWidth: 2,
+              borderDash: [5, 5],
+              fill: false,
+              pointRadius: 0
+            },
+            {
+              label: 'Real',
+              data: ganhosAltura.map(g => g.real),
+              backgroundColor: ganhosAltura.map(g => {
+                if (g.real < 0) return '#f56565';
+                if (g.real < g.esperado) return '#ed8936';
+                return '#48bb78';
+              }),
+              borderWidth: 1,
+              borderColor: '#fff'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: true,
+          aspectRatio: 2,
+          plugins: {
+            legend: { display: true },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return `${context.dataset.label}: ${context.parsed.y.toFixed(2)} cm/dia`;
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              title: { display: true, text: 'Ganho (cm/dia)' }
+            }
+          }
+        }
+      });
+
+      // Mostrar conteúdo e esconder loading
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+    }
+
+    // === INIT ===
+    renderCharts();
+  </script>
+</body>
+</html>
