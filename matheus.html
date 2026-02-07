@@ -161,7 +161,7 @@
         let lastDataDate;
 
         // Carregar JSON local em vez de CSV do Google Sheets
-        fetch(LOCAL_DATA_URL)
+        fetch(LOCAL_DATA_URL + '?v=' + Date.now())
             .then(response => response.json())
             .then(data => {
                 processAndRender(data);
