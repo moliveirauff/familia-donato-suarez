@@ -5,7 +5,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "2",
     "Valor Esperado (Un)": "6",
-    "Observações": "1kg"
+    "Observações": ""
   },
   {
     "Item": "Água mineral",
@@ -13,7 +13,7 @@
     "Categoria": "Bebidas",
     "Quantidade Típica": "12",
     "Valor Esperado (Un)": "13,39",
-    "Observações": "1,5L ou 5L"
+    "Observações": ""
   },
   {
     "Item": "Refrigerante H2OH!",
@@ -21,7 +21,7 @@
     "Categoria": "Bebidas",
     "Quantidade Típica": "2",
     "Valor Esperado (Un)": "3,99",
-    "Observações": "limoneto 1,5L"
+    "Observações": ""
   },
   {
     "Item": "Chá mate",
@@ -29,7 +29,7 @@
     "Categoria": "Bebidas",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "3,99",
-    "Observações": "300ml"
+    "Observações": ""
   },
   {
     "Item": "Refrigerante cola",
@@ -37,7 +37,7 @@
     "Categoria": "Bebidas",
     "Quantidade Típica": "6",
     "Valor Esperado (Un)": "3,99",
-    "Observações": "lata 350ml"
+    "Observações": ""
   },
   {
     "Item": "Carne moída",
@@ -45,7 +45,7 @@
     "Categoria": "Carnes e Frios",
     "Quantidade Típica": "2",
     "Valor Esperado (Un)": "22,99",
-    "Observações": "600g desengordurada"
+    "Observações": ""
   },
   {
     "Item": "Ovos",
@@ -53,7 +53,7 @@
     "Categoria": "Carnes e Frios",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "9,99",
-    "Observações": "20un caipira"
+    "Observações": ""
   },
   {
     "Item": "Peito de frango",
@@ -61,7 +61,7 @@
     "Categoria": "Carnes e Frios",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "23,99",
-    "Observações": "desfiado 400g"
+    "Observações": ""
   },
   {
     "Item": "Peito de peru",
@@ -69,7 +69,7 @@
     "Categoria": "Carnes e Frios",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "7,99",
-    "Observações": "fatiado 100g"
+    "Observações": ""
   },
   {
     "Item": "Picanha",
@@ -77,7 +77,7 @@
     "Categoria": "Carnes e Frios",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "112,48",
-    "Observações": "1,5kg peça"
+    "Observações": ""
   },
   {
     "Item": "Sobrecoxa de frango",
@@ -85,7 +85,7 @@
     "Categoria": "Carnes e Frios",
     "Quantidade Típica": "2",
     "Valor Esperado (Un)": "21,99",
-    "Observações": "600g sem pele"
+    "Observações": ""
   },
   {
     "Item": "Desodorante",
@@ -93,7 +93,7 @@
     "Categoria": "Higiene Pessoal",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "29,99",
-    "Observações": "aerosol 250ml"
+    "Observações": ""
   },
   {
     "Item": "Escova dental",
@@ -101,7 +101,7 @@
     "Categoria": "Higiene Pessoal",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "34,9",
-    "Observações": "4un"
+    "Observações": ""
   },
   {
     "Item": "Máscara capilar",
@@ -109,7 +109,7 @@
     "Categoria": "Higiene Pessoal",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "29,99",
-    "Observações": "hidratação 270ml"
+    "Observações": ""
   },
   {
     "Item": "Pasta de dente",
@@ -117,7 +117,7 @@
     "Categoria": "Higiene Pessoal",
     "Quantidade Típica": "3",
     "Valor Esperado (Un)": "5,99",
-    "Observações": "90g"
+    "Observações": ""
   },
   {
     "Item": "Shampoo",
@@ -125,7 +125,7 @@
     "Categoria": "Higiene Pessoal",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "47,99",
-    "Observações": "antiqueda 510ml"
+    "Observações": ""
   },
   {
     "Item": "Abacaxi",
@@ -133,7 +133,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "9,99",
-    "Observações": "un"
+    "Observações": ""
   },
   {
     "Item": "Abóbora",
@@ -141,7 +141,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "8,49",
-    "Observações": "cubos a vácuo 500g"
+    "Observações": ""
   },
   {
     "Item": "Abobrinha",
@@ -149,7 +149,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "1,4",
-    "Observações": "italiana un"
+    "Observações": ""
   },
   {
     "Item": "Alface",
@@ -157,7 +157,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "3,79",
-    "Observações": "crespa un"
+    "Observações": ""
   },
   {
     "Item": "Alho descascado",
@@ -165,7 +165,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "7,49",
-    "Observações": "150g"
+    "Observações": ""
   },
   {
     "Item": "Alho",
@@ -173,7 +173,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "23,99",
-    "Observações": "roxo 500g"
+    "Observações": ""
   },
   {
     "Item": "Batata",
@@ -181,7 +181,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "3,59",
-    "Observações": "inglesa"
+    "Observações": ""
   },
   {
     "Item": "Cebola",
@@ -189,7 +189,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "1",
-    "Observações": "un"
+    "Observações": ""
   },
   {
     "Item": "Desengordurante",
@@ -197,7 +197,7 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "12,99",
-    "Observações": "500ml"
+    "Observações": ""
   },
   {
     "Item": "Desengordurante spray",
@@ -205,7 +205,7 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "21,99",
-    "Observações": "gatilho 500ml"
+    "Observações": ""
   },
   {
     "Item": "Laranja",
@@ -213,7 +213,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "19,99",
-    "Observações": "lima 2kg"
+    "Observações": ""
   },
   {
     "Item": "Maçã",
@@ -221,7 +221,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "4,25",
-    "Observações": "fuji un"
+    "Observações": ""
   },
   {
     "Item": "Mamão",
@@ -229,7 +229,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "6,49",
-    "Observações": "papaia un"
+    "Observações": ""
   },
   {
     "Item": "Manjericão",
@@ -237,7 +237,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "3,79",
-    "Observações": "un"
+    "Observações": ""
   },
   {
     "Item": "Maracujá",
@@ -245,7 +245,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "11,24",
-    "Observações": "750g"
+    "Observações": ""
   },
   {
     "Item": "Melão",
@@ -253,7 +253,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "10,38",
-    "Observações": "amarelo metade"
+    "Observações": ""
   },
   {
     "Item": "Tomate",
@@ -261,7 +261,7 @@
     "Categoria": "Hortifruti",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "8,38",
-    "Observações": "carmen ou italiano"
+    "Observações": ""
   },
   {
     "Item": "Iogurte morango",
@@ -269,7 +269,7 @@
     "Categoria": "Laticínios",
     "Quantidade Típica": "2",
     "Valor Esperado (Un)": "3,99",
-    "Observações": "170g"
+    "Observações": ""
   },
   {
     "Item": "Iogurte grego",
@@ -277,7 +277,7 @@
     "Categoria": "Laticínios",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "11,9",
-    "Observações": "360g"
+    "Observações": ""
   },
   {
     "Item": "Iogurte natural",
@@ -285,7 +285,7 @@
     "Categoria": "Laticínios",
     "Quantidade Típica": "2",
     "Valor Esperado (Un)": "3,79",
-    "Observações": "com mel 170g"
+    "Observações": ""
   },
   {
     "Item": "Iogurte zero",
@@ -293,7 +293,7 @@
     "Categoria": "Laticínios",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "16,99",
-    "Observações": "morango 1,15kg"
+    "Observações": ""
   },
   {
     "Item": "Iogurte proteico",
@@ -301,7 +301,7 @@
     "Categoria": "Laticínios",
     "Quantidade Típica": "3",
     "Valor Esperado (Un)": "7,99",
-    "Observações": "140g diversos sabores"
+    "Observações": ""
   },
   {
     "Item": "Leite",
@@ -309,7 +309,7 @@
     "Categoria": "Laticínios",
     "Quantidade Típica": "2",
     "Valor Esperado (Un)": "5,29",
-    "Observações": "semidesnatado 1L"
+    "Observações": ""
   },
   {
     "Item": "Leite longa vida",
@@ -317,7 +317,7 @@
     "Categoria": "Laticínios",
     "Quantidade Típica": "4",
     "Valor Esperado (Un)": "7,79",
-    "Observações": "1L"
+    "Observações": ""
   },
   {
     "Item": "Manteiga",
@@ -325,7 +325,7 @@
     "Categoria": "Laticínios",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "14,9",
-    "Observações": "200g com sal"
+    "Observações": ""
   },
   {
     "Item": "Queijo minas",
@@ -333,7 +333,7 @@
     "Categoria": "Laticínios",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "51,45",
-    "Observações": "lacfree 500g"
+    "Observações": ""
   },
   {
     "Item": "Queijo parmesão",
@@ -341,7 +341,7 @@
     "Categoria": "Laticínios",
     "Quantidade Típica": "2",
     "Valor Esperado (Un)": "29,99",
-    "Observações": "ralado 180g"
+    "Observações": ""
   },
   {
     "Item": "Requeijão",
@@ -349,7 +349,7 @@
     "Categoria": "Laticínios",
     "Quantidade Típica": "2",
     "Valor Esperado (Un)": "17,99",
-    "Observações": "cremoso 180g lacfree"
+    "Observações": ""
   },
   {
     "Item": "Sabonete",
@@ -357,7 +357,7 @@
     "Categoria": "Higiene Pessoal",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "3,29",
-    "Observações": "85g diversos aromas"
+    "Observações": ""
   },
   {
     "Item": "Amaciante",
@@ -365,7 +365,7 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "22,99",
-    "Observações": "1L"
+    "Observações": ""
   },
   {
     "Item": "Esponja de louça",
@@ -373,7 +373,7 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "7,99",
-    "Observações": "3un antiaderente"
+    "Observações": ""
   },
   {
     "Item": "Passa fácil",
@@ -381,7 +381,7 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "2",
     "Valor Esperado (Un)": "14,99",
-    "Observações": "refil 400ml"
+    "Observações": ""
   },
   {
     "Item": "Papel higiênico",
@@ -389,7 +389,7 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "29,9",
-    "Observações": "12-18un folha dupla"
+    "Observações": ""
   },
   {
     "Item": "Papel toalha",
@@ -397,7 +397,7 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "7,99",
-    "Observações": "2 rolos 60 folhas"
+    "Observações": ""
   },
   {
     "Item": "Gel sanitário",
@@ -405,7 +405,7 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "2",
     "Valor Esperado (Un)": "14,99",
-    "Observações": "lavanda 6un refil"
+    "Observações": ""
   },
   {
     "Item": "Sabão líquido",
@@ -413,7 +413,7 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "36,9",
-    "Observações": "1L ou 3L"
+    "Observações": ""
   },
   {
     "Item": "Saco de lixo",
@@ -421,7 +421,7 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "2",
     "Valor Esperado (Un)": "21,85",
-    "Observações": "30L ou banheiro"
+    "Observações": ""
   },
   {
     "Item": "Saponáceo",
@@ -429,7 +429,7 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "9,98",
-    "Observações": "450ml"
+    "Observações": ""
   },
   {
     "Item": "Tira manchas",
@@ -437,7 +437,7 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "20,99",
-    "Observações": "500ml líquido ou pó"
+    "Observações": ""
   },
   {
     "Item": "Amendoim",
@@ -445,7 +445,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "15,99",
-    "Observações": "mendorato 400g"
+    "Observações": ""
   },
   {
     "Item": "Arroz",
@@ -453,7 +453,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "2",
     "Valor Esperado (Un)": "5,85",
-    "Observações": "branco 1kg"
+    "Observações": ""
   },
   {
     "Item": "Atum em lata",
@@ -461,7 +461,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "10,69",
-    "Observações": "ralado 170g"
+    "Observações": ""
   },
   {
     "Item": "Azeite",
@@ -469,7 +469,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "35,98",
-    "Observações": "extravirgem 500ml"
+    "Observações": ""
   },
   {
     "Item": "Azeitona",
@@ -477,7 +477,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "16,38",
-    "Observações": "preta com caroço 200g"
+    "Observações": ""
   },
   {
     "Item": "Biscoito queijinho",
@@ -485,7 +485,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "3,99",
-    "Observações": "100g"
+    "Observações": ""
   },
   {
     "Item": "Biscoito recheado",
@@ -493,7 +493,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "2,99",
-    "Observações": "goiabinha 75g"
+    "Observações": ""
   },
   {
     "Item": "Biscoito cream cracker",
@@ -501,7 +501,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "3,99",
-    "Observações": "184g"
+    "Observações": ""
   },
   {
     "Item": "Biscoito look chocolate",
@@ -509,7 +509,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "2",
     "Valor Esperado (Un)": "2,99",
-    "Observações": "55g"
+    "Observações": ""
   },
   {
     "Item": "Biscoito maizena  pacote",
@@ -517,7 +517,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "2,95",
-    "Observações": "175g"
+    "Observações": ""
   },
   {
     "Item": "Biscoito wafer recheio chocolate",
@@ -525,7 +525,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "3,39",
-    "Observações": "92g"
+    "Observações": ""
   },
   {
     "Item": "Chia",
@@ -533,7 +533,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "20,29",
-    "Observações": "200g"
+    "Observações": ""
   },
   {
     "Item": "Feijão",
@@ -541,7 +541,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "5,59",
-    "Observações": "preto 1kg"
+    "Observações": ""
   },
   {
     "Item": "Granola",
@@ -549,7 +549,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "16,99",
-    "Observações": "mel e frutas 250g"
+    "Observações": ""
   },
   {
     "Item": "Ovinhos de amendoim",
@@ -557,7 +557,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "9,99",
-    "Observações": "145g"
+    "Observações": ""
   },
   {
     "Item": "Sal grosso",
@@ -565,7 +565,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "3,65",
-    "Observações": "1kg"
+    "Observações": ""
   },
   {
     "Item": "Sal rosa",
@@ -573,7 +573,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "18,49",
-    "Observações": "himalaia 500g"
+    "Observações": ""
   },
   {
     "Item": "Achocolatado",
@@ -581,7 +581,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "10,99",
-    "Observações": "370g"
+    "Observações": ""
   },
   {
     "Item": "Desinfetante",
@@ -589,7 +589,7 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "13,99",
-    "Observações": "1L"
+    "Observações": ""
   },
   {
     "Item": "Guardanapo",
@@ -597,7 +597,7 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "4",
     "Valor Esperado (Un)": "6,19",
-    "Observações": "50un folha dupla"
+    "Observações": ""
   },
   {
     "Item": "Macarrão",
@@ -605,7 +605,7 @@
     "Categoria": "Mercearia / Grãos",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "17,91",
-    "Observações": "diversos tipos"
+    "Observações": ""
   },
   {
     "Item": "Mistura para bolo",
@@ -613,7 +613,7 @@
     "Categoria": "Padaria",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "4,99",
-    "Observações": "cenoura 400g"
+    "Observações": ""
   },
   {
     "Item": "Pão baguete",
@@ -621,7 +621,7 @@
     "Categoria": "Padaria",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "30,29",
-    "Observações": "filão 410g"
+    "Observações": ""
   },
   {
     "Item": "Pão de forma",
@@ -629,7 +629,7 @@
     "Categoria": "Padaria",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "17,89",
-    "Observações": "100% natural 450g"
+    "Observações": ""
   },
   {
     "Item": "Pão de forma artesano",
@@ -637,7 +637,7 @@
     "Categoria": "Padaria",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "13,99",
-    "Observações": "500g"
+    "Observações": ""
   },
   {
     "Item": "Pão egg sponge",
@@ -645,7 +645,7 @@
     "Categoria": "Padaria",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "17,49",
-    "Observações": "10un 250g"
+    "Observações": ""
   },
   {
     "Item": "Pão francês",
@@ -653,7 +653,7 @@
     "Categoria": "Padaria",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "1,43",
-    "Observações": "60g un"
+    "Observações": ""
   },
   {
     "Item": "Sabão em Pó Lava Louças",
@@ -661,6 +661,6 @@
     "Categoria": "Limpeza",
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "55",
-    "Observações": "1kg"
+    "Observações": ""
   }
 ]
