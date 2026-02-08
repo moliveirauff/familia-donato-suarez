@@ -232,16 +232,35 @@
 
     .spinner {
       display: inline-block;
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       border: 4px solid var(--border);
       border-top-color: var(--primary);
       border-radius: 50%;
-      animation: spin 1s linear infinite;
+      animation: spin 0.8s linear infinite;
     }
 
     @keyframes spin {
       to { transform: rotate(360deg); }
+    }
+
+    .error-message {
+      text-align: center;
+      padding: 2rem;
+      color: var(--danger);
+      background: rgba(220, 38, 38, 0.1);
+      border-radius: 12px;
+      margin: 2rem 1rem;
+    }
+
+    .error-message h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .error-message p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
     }
 
     /* Mobile optimizations for touch */
@@ -254,15 +273,21 @@
   </style>
 </head>
 <body>
-  <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
-  <a href="index.html" class="nav-link">← Voltar para Início</a>
+  <button id="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema claro/escuro">🌙</button>
+  <a href="index.html" class="nav-link" aria-label="Voltar para a página inicial">← Voltar para Início</a>
   <h1>📊 Crescimento do Matheus</h1>
   <div class="subtitle" id="last-update">Carregando dados...</div>
 
   <!-- Loading -->
-  <div id="loading" class="loading">
-    <div class="spinner"></div>
-    <p style="margin-top: 1rem;">Carregando dados...</p>
+  <div id="loading" class="loading" role="status" aria-live="polite">
+    <div class="spinner" aria-hidden="true"></div>
+    <p style="margin-top: 1rem;">Carregando dados de crescimento...</p>
+  </div>
+
+  <!-- Error (hidden initially) -->
+  <div id="error" class="error-message" style="display: none;" role="alert">
+    <h3>❌ Erro ao carregar dados</h3>
+    <p>Não foi possível buscar os dados de crescimento. Por favor, recarregue a página.</p>
   </div>
 
   <!-- Content (hidden initially) -->
@@ -303,10 +328,10 @@
           <div class="time-filters">
             <button class="time-filter-btn" data-chart="peso" data-period="3">3m</button>
             <button class="time-filter-btn" data-chart="peso" data-period="6">6m</button>
-            <button class="time-filter-btn active" data-chart="peso" data-period="all">Total</button>
+            <button class="time-filter-btn active" data-chart="peso" data-period="all" aria-pressed="true">Total</button>
           </div>
         </div>
-        <canvas id="chartPeso"></canvas>
+        <canvas id="chartPeso" aria-label="Gráfico de peso por idade com curvas de referência da OMS"></canvas>
       </div>
 
       <div class="chart-container">
@@ -315,10 +340,10 @@
           <div class="time-filters">
             <button class="time-filter-btn" data-chart="ganhoPeso" data-period="3">3m</button>
             <button class="time-filter-btn" data-chart="ganhoPeso" data-period="6">6m</button>
-            <button class="time-filter-btn active" data-chart="ganhoPeso" data-period="all">Total</button>
+            <button class="time-filter-btn active" data-chart="ganhoPeso" data-period="all" aria-pressed="true">Total</button>
           </div>
         </div>
-        <canvas id="chartGanhoPeso"></canvas>
+        <canvas id="chartGanhoPeso" aria-label="Gráfico de ganho de peso semanal comparado com referências da OMS"></canvas>
       </div>
     </section>
 
@@ -335,10 +360,10 @@
           <div class="time-filters">
             <button class="time-filter-btn" data-chart="altura" data-period="3">3m</button>
             <button class="time-filter-btn" data-chart="altura" data-period="6">6m</button>
-            <button class="time-filter-btn active" data-chart="altura" data-period="all">Total</button>
+            <button class="time-filter-btn active" data-chart="altura" data-period="all" aria-pressed="true">Total</button>
           </div>
         </div>
-        <canvas id="chartAltura"></canvas>
+        <canvas id="chartAltura" aria-label="Gráfico de altura por idade com curvas de referência da OMS"></canvas>
       </div>
 
       <div class="chart-container">
@@ -347,10 +372,10 @@
           <div class="time-filters">
             <button class="time-filter-btn" data-chart="ganhoAltura" data-period="3">3m</button>
             <button class="time-filter-btn" data-chart="ganhoAltura" data-period="6">6m</button>
-            <button class="time-filter-btn active" data-chart="ganhoAltura" data-period="all">Total</button>
+            <button class="time-filter-btn active" data-chart="ganhoAltura" data-period="all" aria-pressed="true">Total</button>
           </div>
         </div>
-        <canvas id="chartGanhoAltura"></canvas>
+        <canvas id="chartGanhoAltura" aria-label="Gráfico de ganho de altura semanal comparado com referências da OMS"></canvas>
       </div>
     </section>
 
@@ -621,7 +646,7 @@
     }
 
     // === OPCOES COMUNS DOS GRAFICOS ===
-    function chartOptions(xLabel, yLabel, yRange, minX, maxX) {
+    function chartOptions(xLabel, yLabel, yRange, minX, maxX, tooltipUnit = '') {
       return {
         responsive: true,
         maintainAspectRatio: true,
@@ -629,18 +654,45 @@
         scales: {
           x: {
             type: 'linear',
-            title: { display: true, text: xLabel },
+            title: { display: true, text: xLabel, font: { size: 12, weight: '600' } },
             min: minX,
-            max: maxX
+            max: maxX,
+            grid: { color: 'rgba(0, 0, 0, 0.05)' }
           },
           y: {
-            title: { display: true, text: yLabel },
+            title: { display: true, text: yLabel, font: { size: 12, weight: '600' } },
             min: yRange.min,
-            max: yRange.max
+            max: yRange.max,
+            grid: { color: 'rgba(0, 0, 0, 0.08)' }
           }
         },
         plugins: {
-          legend: { display: true, position: 'bottom', labels: { usePointStyle: true, padding: 12, font: { size: 11 } } }
+          legend: { 
+            display: true, 
+            position: 'bottom', 
+            labels: { 
+              usePointStyle: true, 
+              padding: 12, 
+              font: { size: 11 } 
+            } 
+          },
+          tooltip: {
+            backgroundColor: 'rgba(0, 0, 0, 0.85)',
+            padding: 12,
+            titleFont: { size: 13, weight: '600' },
+            bodyFont: { size: 12 },
+            displayColors: true,
+            callbacks: {
+              label: function(context) {
+                const label = context.dataset.label || '';
+                const value = context.parsed.y;
+                if (tooltipUnit) {
+                  return `${label}: ${value.toFixed(tooltipUnit === 'kg' ? 2 : tooltipUnit === 'cm' ? 1 : 0)} ${tooltipUnit}`;
+                }
+                return `${label}: ${value.toFixed(2)}`;
+              }
+            }
+          }
         }
       };
     }
@@ -682,7 +734,7 @@
       chartInstances.peso = new Chart(document.getElementById('chartPeso'), {
         type: 'line',
         data: { datasets: [...dsPercentis, dsMatheus] },
-        options: chartOptions('Idade (meses)', 'Peso (kg)', calculateYRange(allY), minIdade, maxIdade)
+        options: chartOptions('Idade (meses)', 'Peso (kg)', calculateYRange(allY), minIdade, maxIdade, 'kg')
       });
     }
 
@@ -732,13 +784,7 @@
       chartInstances.ganhoPeso = new Chart(document.getElementById('chartGanhoPeso'), {
         type: 'line',
         data: { datasets },
-        options: {
-          ...chartOptions('Idade (meses)', 'Ganho (g/semana)', calculateYRange(allY, 0.15), Math.max(0, minIdade), maxIdade),
-          plugins: {
-            legend: { display: true, position: 'bottom', labels: { usePointStyle: true, padding: 12, font: { size: 11 } } },
-            tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(0)} g/sem` } }
-          }
-        }
+        options: chartOptions('Idade (meses)', 'Ganho (g/semana)', calculateYRange(allY, 0.15), Math.max(0, minIdade), maxIdade, 'g/sem')
       });
     }
 
@@ -765,7 +811,7 @@
       chartInstances.altura = new Chart(document.getElementById('chartAltura'), {
         type: 'line',
         data: { datasets: [...dsPercentis, dsMatheus] },
-        options: chartOptions('Idade (meses)', 'Altura (cm)', calculateYRange(allY), minIdade, maxIdade)
+        options: chartOptions('Idade (meses)', 'Altura (cm)', calculateYRange(allY), minIdade, maxIdade, 'cm')
       });
     }
 
@@ -815,13 +861,7 @@
       chartInstances.ganhoAltura = new Chart(document.getElementById('chartGanhoAltura'), {
         type: 'line',
         data: { datasets },
-        options: {
-          ...chartOptions('Idade (meses)', 'Ganho (cm/semana)', calculateYRange(allY, 0.15), Math.max(0, minIdade), maxIdade),
-          plugins: {
-            legend: { display: true, position: 'bottom', labels: { usePointStyle: true, padding: 12, font: { size: 11 } } },
-            tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(2)} cm/sem` } }
-          }
-        }
+        options: chartOptions('Idade (meses)', 'Ganho (cm/semana)', calculateYRange(allY, 0.15), Math.max(0, minIdade), maxIdade, 'cm/sem')
       });
     }
 
@@ -861,23 +901,33 @@
 
     // === EVENT LISTENERS: FILTROS DE TEMPO ===
     document.querySelectorAll('.time-filter-btn').forEach(btn => {
+      // Adicionar aria-label
+      const chartName = btn.dataset.chart;
+      const period = btn.dataset.period;
+      const periodLabel = period === 'all' ? 'período total' : `últimos ${period} meses`;
+      btn.setAttribute('aria-label', `Filtrar ${chartName} por ${periodLabel}`);
+
       btn.addEventListener('click', () => {
         const chart = btn.dataset.chart;
-        const period = btn.dataset.period === 'all' ? 'all' : parseInt(btn.dataset.period);
+        const periodValue = btn.dataset.period === 'all' ? 'all' : parseInt(btn.dataset.period);
 
         // Atualizar botão ativo
-        btn.parentElement.querySelectorAll('.time-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.parentElement.querySelectorAll('.time-filter-btn').forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
 
-        currentFilters[chart] = period;
+        currentFilters[chart] = periodValue;
 
         if (!globalData) return;
 
         switch (chart) {
-          case 'peso': renderChartPeso(globalData, period); break;
-          case 'ganhoPeso': renderChartGanhoPeso(globalData, period); break;
-          case 'altura': renderChartAltura(globalData, period); break;
-          case 'ganhoAltura': renderChartGanhoAltura(globalData, period); break;
+          case 'peso': renderChartPeso(globalData, periodValue); break;
+          case 'ganhoPeso': renderChartGanhoPeso(globalData, periodValue); break;
+          case 'altura': renderChartAltura(globalData, periodValue); break;
+          case 'ganhoAltura': renderChartGanhoAltura(globalData, periodValue); break;
         }
       });
     });
@@ -886,6 +936,10 @@
     (async function init() {
       try {
         globalData = await loadData();
+
+        if (!globalData || !globalData.crianca) {
+          throw new Error('Dados inválidos recebidos');
+        }
 
         const meta = globalData.crianca.metadata;
         const lastUpdate = new Date(meta.ultima_atualizacao).toLocaleDateString('pt-BR');
@@ -896,7 +950,10 @@
 
         renderAll(globalData);
       } catch (e) {
-        console.error('Falha na inicialização:', e);
+        console.error('❌ Falha na inicialização:', e);
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('error').style.display = 'block';
+        document.getElementById('last-update').style.display = 'none';
       }
     })();
   </script>
