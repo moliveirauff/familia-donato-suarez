@@ -315,7 +315,7 @@
 
       <div class="chart-container">
         <div class="chart-header">
-          <div class="chart-subtitle">Ganho de Peso Diário (g/dia)</div>
+          <div class="chart-subtitle">Ganho de Peso Diário (g/dia) - Pontos Diários + Média Móvel 7 Dias</div>
           <div class="time-filters">
             <button class="time-filter-btn" data-chart="ganhoPeso" data-period="1">1m</button>
             <button class="time-filter-btn" data-chart="ganhoPeso" data-period="3">3m</button>
@@ -324,19 +324,6 @@
           </div>
         </div>
         <canvas id="chartGanhoPeso"></canvas>
-      </div>
-
-      <div class="chart-container">
-        <div class="chart-header">
-          <div class="chart-subtitle">Ganho Médio Semanal de Peso (g/semana)</div>
-          <div class="time-filters">
-            <button class="time-filter-btn" data-chart="pesoSemanal" data-period="1">1m</button>
-            <button class="time-filter-btn" data-chart="pesoSemanal" data-period="3">3m</button>
-            <button class="time-filter-btn" data-chart="pesoSemanal" data-period="6">6m</button>
-            <button class="time-filter-btn active" data-chart="pesoSemanal" data-period="all">Total</button>
-          </div>
-        </div>
-        <canvas id="chartPesoSemanal"></canvas>
       </div>
     </section>
 
@@ -362,7 +349,7 @@
 
       <div class="chart-container">
         <div class="chart-header">
-          <div class="chart-subtitle">Ganho de Altura Diário (cm/dia)</div>
+          <div class="chart-subtitle">Ganho de Altura Diário (cm/dia) - Pontos Diários + Média Móvel 7 Dias</div>
           <div class="time-filters">
             <button class="time-filter-btn" data-chart="ganhoAltura" data-period="1">1m</button>
             <button class="time-filter-btn" data-chart="ganhoAltura" data-period="3">3m</button>
@@ -371,19 +358,6 @@
           </div>
         </div>
         <canvas id="chartGanhoAltura"></canvas>
-      </div>
-
-      <div class="chart-container">
-        <div class="chart-header">
-          <div class="chart-subtitle">Ganho Médio Semanal de Altura (cm/semana)</div>
-          <div class="time-filters">
-            <button class="time-filter-btn" data-chart="alturaSemanal" data-period="1">1m</button>
-            <button class="time-filter-btn" data-chart="alturaSemanal" data-period="3">3m</button>
-            <button class="time-filter-btn" data-chart="alturaSemanal" data-period="6">6m</button>
-            <button class="time-filter-btn active" data-chart="alturaSemanal" data-period="all">Total</button>
-          </div>
-        </div>
-        <canvas id="chartAlturaSemanal"></canvas>
       </div>
     </section>
 
@@ -410,10 +384,8 @@
     let currentFilters = {
       peso: 'all',
       ganhoPeso: 'all',
-      pesoSemanal: 'all',
       altura: 'all',
-      ganhoAltura: 'all',
-      alturaSemanal: 'all'
+      ganhoAltura: 'all'
     };
 
     // === DATA LOADING ===
@@ -459,7 +431,7 @@
       }));
 
       if (valor <= valores[0].valor) return `≤P${percentis[0]}`;
-      if (valor >= valores[valores.length - 1].valor) return `≥P${percentis[percentis.length - 1]}`;
+      if (valor >= valores[valores.length - 1].valor) return `≥P${percentis[valores.length - 1]}`;
 
       for (let i = 0; i < valores.length - 1; i++) {
         if (valor >= valores[i].valor && valor <= valores[i + 1].valor) {
@@ -499,12 +471,9 @@
       };
     }
 
-    // === CÁLCULO DE GANHOS SEMANAIS (MÉDIA POR SEMANA) ===
-    function calcularGanhosSemanas(medicoes, tipo) {
-      const ganhosSemanas = [];
-      
-      // Agrupar medições por semana
-      const semanas = {};
+    // === CÁLCULO DE GANHOS DIÁRIOS INTERPOLADOS ===
+    function calcularGanhosDiariosInterpolados(medicoes, tipo) {
+      const pontosDiarios = [];
       
       for (let i = 0; i < medicoes.length - 1; i++) {
         const m1 = medicoes[i];
@@ -515,74 +484,51 @@
         
         if (valor1 === null || valor2 === null) continue;
         
-        const semanaInicio = Math.floor(m1.idade_meses * 4.345); // semanas desde nascimento
-        const semanaFim = Math.floor(m2.idade_meses * 4.345);
-        
-        if (semanaInicio === semanaFim) continue; // mesma semana, ignorar
-        
-        const diasIntervalo = (m2.idade_meses - m1.idade_meses) * 30.44;
-        const semanasIntervalo = diasIntervalo / 7;
+        const diasIntervalo = Math.round((m2.idade_meses - m1.idade_meses) * 30.44);
         const ganhoTotal = valor2 - valor1;
-        const ganhoPorSemana = ganhoTotal / semanasIntervalo;
+        const ganhoDiario = ganhoTotal / diasIntervalo;
         
-        const semanaLabel = Math.floor((m1.idade_meses + m2.idade_meses) / 2 * 4.345);
+        // Converter para g/dia (peso) ou manter cm/dia (altura)
+        const ganhoConvertido = tipo === 'peso' ? ganhoDiario * 1000 : ganhoDiario;
         
-        if (!semanas[semanaLabel]) {
-          semanas[semanaLabel] = [];
+        // Criar pontos para cada dia no intervalo
+        const dataInicio = new Date(m1.data);
+        for (let dia = 0; dia < diasIntervalo; dia++) {
+          const dataAtual = new Date(dataInicio);
+          dataAtual.setDate(dataAtual.getDate() + dia);
+          
+          pontosDiarios.push({
+            data: dataAtual,
+            dataStr: dataAtual.toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'}),
+            ganho: ganhoConvertido,
+            idadeMeses: m1.idade_meses + (dia / 30.44)
+          });
         }
-        
-        semanas[semanaLabel].push({
-          ganho: tipo === 'peso' ? ganhoPorSemana * 1000 : ganhoPorSemana,
-          dataInicio: m1.data,
-          dataFim: m2.data
-        });
       }
       
-      // Calcular média por semana
-      Object.keys(semanas).sort((a, b) => parseInt(a) - parseInt(b)).forEach(semana => {
-        const medicoesSemana = semanas[semana];
-        const mediaGanho = medicoesSemana.reduce((sum, m) => sum + m.ganho, 0) / medicoesSemana.length;
-        
-        ganhosSemanas.push({
-          semana: parseInt(semana),
-          label: `Sem ${semana}`,
-          ganhoMedio: mediaGanho,
-          numMedicoes: medicoesSemana.length
-        });
-      });
-      
-      return ganhosSemanas;
+      return pontosDiarios;
     }
 
-    // === CÁLCULO DE GANHO DIÁRIO ===
-    function calcularGanhos(medicoes, curvaP50, tipo) {
-      const ganhos = [];
+    // === CALCULAR MÉDIA MÓVEL DE 7 DIAS ===
+    function calcularMediaMovel(pontosDiarios, janela = 7) {
+      const mediaMovel = [];
       
-      for (let i = 0; i < medicoes.length - 1; i++) {
-        const m1 = medicoes[i];
-        const m2 = medicoes[i + 1];
+      for (let i = 0; i < pontosDiarios.length; i++) {
+        const inicio = Math.max(0, i - Math.floor(janela / 2));
+        const fim = Math.min(pontosDiarios.length, i + Math.ceil(janela / 2));
         
-        const valor1 = tipo === 'peso' ? m1.peso_kg : m1.altura_cm;
-        const valor2 = tipo === 'peso' ? m2.peso_kg : m2.altura_cm;
+        const pontosJanela = pontosDiarios.slice(inicio, fim);
+        const media = pontosJanela.reduce((sum, p) => sum + p.ganho, 0) / pontosJanela.length;
         
-        if (valor1 === null || valor2 === null) continue;
-        
-        const diasIntervalo = (m2.idade_meses - m1.idade_meses) * 30.44;
-        const ganhoReal = (valor2 - valor1) / diasIntervalo;
-        
-        const esperado1 = interpolar(m1.idade_meses, curvaP50);
-        const esperado2 = interpolar(m2.idade_meses, curvaP50);
-        const ganhoEsperado = (esperado2 - esperado1) / diasIntervalo;
-        
-        ganhos.push({
-          label: `${new Date(m1.data).toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'})} → ${new Date(m2.data).toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'})}`,
-          real: tipo === 'peso' ? ganhoReal * 1000 : ganhoReal,
-          esperado: tipo === 'peso' ? ganhoEsperado * 1000 : ganhoEsperado,
-          dias: Math.round(diasIntervalo)
+        mediaMovel.push({
+          data: pontosDiarios[i].data,
+          dataStr: pontosDiarios[i].dataStr,
+          idadeMeses: pontosDiarios[i].idadeMeses,
+          ganho: media
         });
       }
       
-      return ganhos;
+      return mediaMovel;
     }
 
     // === CORES DOS PERCENTIS ===
@@ -711,91 +657,39 @@
 
     // === RENDER CHART: GANHO PESO ===
     function renderChartGanhoPeso(period = 'all') {
-      const { pesoRef, crianca } = globalData;
-      const sexo = crianca.metadata.sexo;
-      
-      const medicoesComPeso = crianca.medicoes.filter(m => m.peso_kg !== null);
-      const dadosFiltrados = filterByPeriod(medicoesComPeso, period);
-      
-      const ganhosPeso = calcularGanhos(dadosFiltrados, pesoRef[sexo].p50, 'peso');
-      
-      if (chartInstances.ganhoPeso) chartInstances.ganhoPeso.destroy();
-      
-      const ctx = document.getElementById('chartGanhoPeso').getContext('2d');
-      chartInstances.ganhoPeso = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ganhosPeso.map(g => g.label),
-          datasets: [
-            {
-              label: 'Esperado (P50)',
-              data: ganhosPeso.map(g => g.esperado),
-              type: 'line',
-              borderColor: '#667eea',
-              borderWidth: 2,
-              borderDash: [5, 5],
-              fill: false,
-              pointRadius: 0
-            },
-            {
-              label: 'Real',
-              data: ganhosPeso.map(g => g.real),
-              backgroundColor: ganhosPeso.map(g => {
-                if (g.real < 0) return '#f56565';
-                if (g.real < g.esperado) return '#ed8936';
-                return '#48bb78';
-              }),
-              borderWidth: 1,
-              borderColor: '#fff'
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: true,
-          aspectRatio: 2,
-          plugins: {
-            legend: { display: true },
-            tooltip: {
-              callbacks: {
-                label: function(context) {
-                  return `${context.dataset.label}: ${context.parsed.y.toFixed(1)} g/dia`;
-                }
-              }
-            }
-          },
-          scales: {
-            y: {
-              title: { display: true, text: 'Ganho (g/dia)' }
-            }
-          }
-        }
-      });
-    }
-
-    // === RENDER CHART: PESO SEMANAL ===
-    function renderChartPesoSemanal(period = 'all') {
       const { crianca } = globalData;
       
       const medicoesComPeso = crianca.medicoes.filter(m => m.peso_kg !== null);
       const dadosFiltrados = filterByPeriod(medicoesComPeso, period);
       
-      const ganhosSemanas = calcularGanhosSemanas(dadosFiltrados, 'peso');
+      const pontosDiarios = calcularGanhosDiariosInterpolados(dadosFiltrados, 'peso');
+      const mediaMovel = calcularMediaMovel(pontosDiarios, 7);
       
-      if (chartInstances.pesoSemanal) chartInstances.pesoSemanal.destroy();
+      if (chartInstances.ganhoPeso) chartInstances.ganhoPeso.destroy();
       
-      const ctx = document.getElementById('chartPesoSemanal').getContext('2d');
-      chartInstances.pesoSemanal = new Chart(ctx, {
-        type: 'bar',
+      const ctx = document.getElementById('chartGanhoPeso').getContext('2d');
+      chartInstances.ganhoPeso = new Chart(ctx, {
+        type: 'line',
         data: {
-          labels: ganhosSemanas.map(g => g.label),
           datasets: [
             {
-              label: 'Ganho Médio por Semana',
-              data: ganhosSemanas.map(g => g.ganhoMedio),
-              backgroundColor: '#667eea',
-              borderWidth: 1,
-              borderColor: '#fff'
+              label: 'Pontos Diários',
+              data: pontosDiarios.map(p => ({ x: p.idadeMeses, y: p.ganho })),
+              backgroundColor: '#cbd5e0',
+              borderColor: '#cbd5e0',
+              pointRadius: 3,
+              pointHoverRadius: 5,
+              showLine: false,
+              pointHitRadius: 10
+            },
+            {
+              label: 'Média Móvel 7 Dias',
+              data: mediaMovel.map(p => ({ x: p.idadeMeses, y: p.ganho })),
+              borderColor: '#667eea',
+              backgroundColor: 'transparent',
+              borderWidth: 3,
+              pointRadius: 0,
+              tension: 0.4
             }
           ]
         },
@@ -803,23 +697,39 @@
           responsive: true,
           maintainAspectRatio: true,
           aspectRatio: 2,
+          interaction: {
+            mode: 'nearest',
+            intersect: false
+          },
           plugins: {
             legend: { display: true },
             tooltip: {
               callbacks: {
                 label: function(context) {
-                  const semana = ganhosSemanas[context.dataIndex];
-                  return [
-                    `Ganho médio: ${context.parsed.y.toFixed(1)} g/semana`,
-                    `Nº medições: ${semana.numMedicoes}`
-                  ];
+                  if (context.datasetIndex === 0) {
+                    const idx = context.dataIndex;
+                    return [
+                      `Data: ${pontosDiarios[idx].dataStr}`,
+                      `Ganho: ${context.parsed.y.toFixed(1)} g/dia`
+                    ];
+                  } else {
+                    const idx = context.dataIndex;
+                    return [
+                      `Data: ${mediaMovel[idx].dataStr}`,
+                      `Média 7d: ${context.parsed.y.toFixed(1)} g/dia`
+                    ];
+                  }
                 }
               }
             }
           },
           scales: {
+            x: {
+              type: 'linear',
+              title: { display: true, text: 'Idade (meses)' }
+            },
             y: {
-              title: { display: true, text: 'Ganho Médio (g/semana)' }
+              title: { display: true, text: 'Ganho (g/dia)' }
             }
           }
         }
@@ -913,91 +823,39 @@
 
     // === RENDER CHART: GANHO ALTURA ===
     function renderChartGanhoAltura(period = 'all') {
-      const { alturaRef, crianca } = globalData;
-      const sexo = crianca.metadata.sexo;
-      
-      const medicoesComAltura = crianca.medicoes.filter(m => m.altura_cm !== null);
-      const dadosFiltrados = filterByPeriod(medicoesComAltura, period);
-      
-      const ganhosAltura = calcularGanhos(dadosFiltrados, alturaRef[sexo].p50, 'altura');
-      
-      if (chartInstances.ganhoAltura) chartInstances.ganhoAltura.destroy();
-      
-      const ctx = document.getElementById('chartGanhoAltura').getContext('2d');
-      chartInstances.ganhoAltura = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ganhosAltura.map(g => g.label),
-          datasets: [
-            {
-              label: 'Esperado (P50)',
-              data: ganhosAltura.map(g => g.esperado),
-              type: 'line',
-              borderColor: '#667eea',
-              borderWidth: 2,
-              borderDash: [5, 5],
-              fill: false,
-              pointRadius: 0
-            },
-            {
-              label: 'Real',
-              data: ganhosAltura.map(g => g.real),
-              backgroundColor: ganhosAltura.map(g => {
-                if (g.real < 0) return '#f56565';
-                if (g.real < g.esperado) return '#ed8936';
-                return '#48bb78';
-              }),
-              borderWidth: 1,
-              borderColor: '#fff'
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: true,
-          aspectRatio: 2,
-          plugins: {
-            legend: { display: true },
-            tooltip: {
-              callbacks: {
-                label: function(context) {
-                  return `${context.dataset.label}: ${context.parsed.y.toFixed(2)} cm/dia`;
-                }
-              }
-            }
-          },
-          scales: {
-            y: {
-              title: { display: true, text: 'Ganho (cm/dia)' }
-            }
-          }
-        }
-      });
-    }
-
-    // === RENDER CHART: ALTURA SEMANAL ===
-    function renderChartAlturaSemanal(period = 'all') {
       const { crianca } = globalData;
       
       const medicoesComAltura = crianca.medicoes.filter(m => m.altura_cm !== null);
       const dadosFiltrados = filterByPeriod(medicoesComAltura, period);
       
-      const ganhosSemanas = calcularGanhosSemanas(dadosFiltrados, 'altura');
+      const pontosDiarios = calcularGanhosDiariosInterpolados(dadosFiltrados, 'altura');
+      const mediaMovel = calcularMediaMovel(pontosDiarios, 7);
       
-      if (chartInstances.alturaSemanal) chartInstances.alturaSemanal.destroy();
+      if (chartInstances.ganhoAltura) chartInstances.ganhoAltura.destroy();
       
-      const ctx = document.getElementById('chartAlturaSemanal').getContext('2d');
-      chartInstances.alturaSemanal = new Chart(ctx, {
-        type: 'bar',
+      const ctx = document.getElementById('chartGanhoAltura').getContext('2d');
+      chartInstances.ganhoAltura = new Chart(ctx, {
+        type: 'line',
         data: {
-          labels: ganhosSemanas.map(g => g.label),
           datasets: [
             {
-              label: 'Ganho Médio por Semana',
-              data: ganhosSemanas.map(g => g.ganhoMedio),
-              backgroundColor: '#667eea',
-              borderWidth: 1,
-              borderColor: '#fff'
+              label: 'Pontos Diários',
+              data: pontosDiarios.map(p => ({ x: p.idadeMeses, y: p.ganho })),
+              backgroundColor: '#cbd5e0',
+              borderColor: '#cbd5e0',
+              pointRadius: 3,
+              pointHoverRadius: 5,
+              showLine: false,
+              pointHitRadius: 10
+            },
+            {
+              label: 'Média Móvel 7 Dias',
+              data: mediaMovel.map(p => ({ x: p.idadeMeses, y: p.ganho })),
+              borderColor: '#667eea',
+              backgroundColor: 'transparent',
+              borderWidth: 3,
+              pointRadius: 0,
+              tension: 0.4
             }
           ]
         },
@@ -1005,23 +863,39 @@
           responsive: true,
           maintainAspectRatio: true,
           aspectRatio: 2,
+          interaction: {
+            mode: 'nearest',
+            intersect: false
+          },
           plugins: {
             legend: { display: true },
             tooltip: {
               callbacks: {
                 label: function(context) {
-                  const semana = ganhosSemanas[context.dataIndex];
-                  return [
-                    `Ganho médio: ${context.parsed.y.toFixed(2)} cm/semana`,
-                    `Nº medições: ${semana.numMedicoes}`
-                  ];
+                  if (context.datasetIndex === 0) {
+                    const idx = context.dataIndex;
+                    return [
+                      `Data: ${pontosDiarios[idx].dataStr}`,
+                      `Ganho: ${context.parsed.y.toFixed(2)} cm/dia`
+                    ];
+                  } else {
+                    const idx = context.dataIndex;
+                    return [
+                      `Data: ${mediaMovel[idx].dataStr}`,
+                      `Média 7d: ${context.parsed.y.toFixed(2)} cm/dia`
+                    ];
+                  }
                 }
               }
             }
           },
           scales: {
+            x: {
+              type: 'linear',
+              title: { display: true, text: 'Idade (meses)' }
+            },
             y: {
-              title: { display: true, text: 'Ganho Médio (cm/semana)' }
+              title: { display: true, text: 'Ganho (cm/dia)' }
             }
           }
         }
@@ -1032,10 +906,8 @@
     function renderAllCharts() {
       renderChartPeso(currentFilters.peso);
       renderChartGanhoPeso(currentFilters.ganhoPeso);
-      renderChartPesoSemanal(currentFilters.pesoSemanal);
       renderChartAltura(currentFilters.altura);
       renderChartGanhoAltura(currentFilters.ganhoAltura);
-      renderChartAlturaSemanal(currentFilters.alturaSemanal);
     }
 
     // === RENDER STATS ===
@@ -1085,10 +957,8 @@
         switch(chartName) {
           case 'peso': renderChartPeso(currentFilters.peso); break;
           case 'ganhoPeso': renderChartGanhoPeso(currentFilters.ganhoPeso); break;
-          case 'pesoSemanal': renderChartPesoSemanal(currentFilters.pesoSemanal); break;
           case 'altura': renderChartAltura(currentFilters.altura); break;
           case 'ganhoAltura': renderChartGanhoAltura(currentFilters.ganhoAltura); break;
-          case 'alturaSemanal': renderChartAlturaSemanal(currentFilters.alturaSemanal); break;
         }
       }
     });
