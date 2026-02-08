@@ -202,6 +202,9 @@
         <div class="progress-container">
             <div class="progress-bar" id="progressBar"></div>
         </div>
+        <div style="font-size: 0.7rem; color: var(--gray); margin-top: 8px; opacity: 0.8;">
+            💾 Auto-salvando localmente
+        </div>
     </div>
     
     <div class="controls">
@@ -247,13 +250,70 @@
         let listData = [];
         let hideChecked = false;
         let collapsedCategories = {};
+        const STORAGE_KEY = 'viagem_checklist_state';
+
+        // === PERSISTÊNCIA LOCAL ===
+        function saveStateToLocalStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(listData));
+            } catch (e) {
+                console.error('Erro ao salvar estado:', e);
+            }
+        }
+
+        function loadStateFromLocalStorage() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                return saved ? JSON.parse(saved) : null;
+            } catch (e) {
+                console.error('Erro ao carregar estado:', e);
+                return null;
+            }
+        }
 
         async function loadData() {
             try {
+                // 1. Carregar dados do servidor (estrutura base)
                 const response = await fetch('data/viagem.json?t=' + Date.now());
-                listData = await response.json();
+                const serverData = await response.json();
+                
+                // 2. Tentar carregar estado local salvo
+                const localState = loadStateFromLocalStorage();
+                
+                if (localState && localState.length > 0) {
+                    // Merge: preservar checkboxes locais, adicionar novos itens do servidor
+                    const merged = serverData.map(serverItem => {
+                        const localMatch = localState.find(local => 
+                            local.item === serverItem.item && local.categoria === serverItem.categoria
+                        );
+                        return localMatch || serverItem;
+                    });
+                    
+                    // Adicionar itens locais que não existem no servidor (criados manualmente)
+                    localState.forEach(localItem => {
+                        const exists = merged.find(m => 
+                            m.item === localItem.item && m.categoria === localItem.categoria
+                        );
+                        if (!exists) merged.push(localItem);
+                    });
+                    
+                    listData = merged;
+                } else {
+                    // Primeira vez: usar dados do servidor
+                    listData = serverData;
+                }
+                
                 renderList();
-            } catch (e) { console.error(e); }
+                saveStateToLocalStorage(); // Salvar estado inicial
+            } catch (e) { 
+                console.error('Erro ao carregar dados:', e);
+                // Fallback: tentar carregar do localStorage se fetch falhar
+                const localState = loadStateFromLocalStorage();
+                if (localState) {
+                    listData = localState;
+                    renderList();
+                }
+            }
         }
 
         function renderList() {
@@ -304,6 +364,7 @@
 
         function toggleItem(index) {
             listData[index].checked = !listData[index].checked;
+            saveStateToLocalStorage(); // Salvar automaticamente
             renderList();
         }
 
@@ -324,6 +385,7 @@
         function resetList() {
             if (confirm("Zerar toda a lista para uma nova viagem?")) {
                 listData.forEach(i => i.checked = false);
+                saveStateToLocalStorage(); // Salvar estado limpo
                 renderList();
             }
         }
@@ -359,6 +421,7 @@
             } else {
                 listData.push({ item: name, categoria: cat, checked: false });
             }
+            saveStateToLocalStorage(); // Salvar automaticamente
             closeModal();
             renderList();
         }
@@ -367,6 +430,7 @@
             const index = document.getElementById('editIndex').value;
             if (confirm("Excluir item?")) {
                 listData.splice(index, 1);
+                saveStateToLocalStorage(); // Salvar automaticamente
                 closeModal();
                 renderList();
             }
