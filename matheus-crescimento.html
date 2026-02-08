@@ -7,22 +7,25 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
     :root {
-      --bg: #f4f7f6;
-      --text: #333;
+      --bg: #f7fafc;
+      --text: #2d3748;
       --card-bg: #ffffff;
-      --primary: #2c3e50;
-      --accent: #3498db;
+      --primary: #667eea;
+      --primary-dark: #5568d3;
+      --accent: #667eea;
       --border: #e2e8f0;
       --success: #48bb78;
       --warning: #ed8936;
       --danger: #f56565;
+      --text-muted: #718096;
     }
 
     body.dark-mode {
-      --bg: #1a1a1a;
-      --text: #e0e0e0;
-      --card-bg: #2d2d2d;
+      --bg: #1a202c;
+      --text: #f7fafc;
+      --card-bg: #2d3748;
       --border: #4a5568;
+      --text-muted: #cbd5e0;
     }
 
     * {
@@ -203,12 +206,12 @@
     <section class="section">
       <div class="section-header">
         <span class="section-icon">📊</span>
-        <h2 class="section-title">Ganho de Peso (Média Semanal)</h2>
+        <h2 class="section-title">Ganho por Dia</h2>
       </div>
       
       <div class="chart-container">
         <div class="chart-header">
-          <div class="chart-subtitle">Ganho médio de peso por semana (g/dia)</div>
+          <div class="chart-subtitle">Ganho diário de peso com média móvel de 7 dias (g/dia)</div>
           <div class="time-filters">
             <button class="time-filter-btn" data-period="1">1m</button>
             <button class="time-filter-btn" data-period="3">3m</button>
@@ -280,11 +283,9 @@
       return medicoes.filter(m => m.idade_meses >= minIdade);
     }
 
-    // Calcular ganho semanal (média móvel de 7 dias)
-    function calcularGanhoSemanalMovingAvg(medicoes, curvaP50) {
-      const ganhosSemanas = [];
-      
-      // Calcular ganho diário entre cada par de medições
+    // Calcular ganho por dia com média móvel de 7 dias
+    function calcularGanhoDiarioMovingAvg(medicoes, curvaP50) {
+      // Calcular ganho diário bruto entre cada par de medições
       const ganhosDiarios = [];
       for (let i = 0; i < medicoes.length - 1; i++) {
         const m1 = medicoes[i];
@@ -303,55 +304,31 @@
           idadeMeses: (m1.idade_meses + m2.idade_meses) / 2,
           data: m2.data,
           ganhoReal: ganhoReal,
-          ganhoEsperado: ganhoEsperado,
-          diasIntervalo: diasIntervalo
+          ganhoEsperado: ganhoEsperado
         });
       }
       
-      // Agrupar por semanas (grupos de ~7 dias) e calcular média
-      const DIAS_POR_SEMANA = 7;
-      let somaGanhoReal = 0;
-      let somaGanhoEsperado = 0;
-      let somaDias = 0;
-      let count = 0;
-      let primeiraData = null;
-      let ultimaData = null;
+      // Aplicar média móvel de 7 dias
+      const WINDOW = 7;
+      const ganhosSuavizados = [];
       
       for (let i = 0; i < ganhosDiarios.length; i++) {
-        const ganho = ganhosDiarios[i];
+        const inicio = Math.max(0, i - Math.floor(WINDOW / 2));
+        const fim = Math.min(ganhosDiarios.length, i + Math.ceil(WINDOW / 2));
+        const janela = ganhosDiarios.slice(inicio, fim);
         
-        if (!primeiraData) primeiraData = ganho.data;
-        ultimaData = ganho.data;
+        const mediaReal = janela.reduce((sum, g) => sum + g.ganhoReal, 0) / janela.length;
+        const mediaEsperado = janela.reduce((sum, g) => sum + g.ganhoEsperado, 0) / janela.length;
         
-        somaGanhoReal += ganho.ganhoReal;
-        somaGanhoEsperado += ganho.ganhoEsperado;
-        somaDias += ganho.diasIntervalo;
-        count++;
-        
-        // Quando acumular ~7 dias, criar ponto
-        if (somaDias >= DIAS_POR_SEMANA || i === ganhosDiarios.length - 1) {
-          const mediaGanhoReal = somaGanhoReal / count;
-          const mediaGanhoEsperado = somaGanhoEsperado / count;
-          
-          ganhosSemanas.push({
-            label: new Date(ultimaData).toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'}),
-            real: mediaGanhoReal,
-            esperado: mediaGanhoEsperado,
-            numMedicoes: count,
-            periodo: `${new Date(primeiraData).toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'})} - ${new Date(ultimaData).toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'})}`
-          });
-          
-          // Reset para próxima semana
-          somaGanhoReal = 0;
-          somaGanhoEsperado = 0;
-          somaDias = 0;
-          count = 0;
-          primeiraData = null;
-          ultimaData = null;
-        }
+        ganhosSuavizados.push({
+          label: new Date(ganhosDiarios[i].data).toLocaleDateString('pt-BR', {day: '2-digit', month: '2-digit'}),
+          data: ganhosDiarios[i].data,
+          real: mediaReal,
+          esperado: mediaEsperado
+        });
       }
       
-      return ganhosSemanas;
+      return ganhosSuavizados;
     }
 
     // Render chart
@@ -362,37 +339,45 @@
       const medicoesComPeso = crianca.medicoes.filter(m => m.peso_kg !== null);
       const dadosFiltrados = filterByPeriod(medicoesComPeso, period);
       
-      const ganhosSemanas = calcularGanhoSemanalMovingAvg(dadosFiltrados, pesoRef[sexo].p50);
+      const ganhosDiarios = calcularGanhoDiarioMovingAvg(dadosFiltrados, pesoRef[sexo].p50);
       
       if (chartInstance) chartInstance.destroy();
       
       const ctx = document.getElementById('chartGanhoPeso').getContext('2d');
       chartInstance = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
-          labels: ganhosSemanas.map(g => g.label),
+          labels: ganhosDiarios.map(g => g.label),
           datasets: [
             {
               label: 'Esperado (P50)',
-              data: ganhosSemanas.map(g => g.esperado),
-              type: 'line',
-              borderColor: '#3498db',
-              borderWidth: 3,
+              data: ganhosDiarios.map(g => g.esperado),
+              borderColor: '#667eea',
+              backgroundColor: 'rgba(102, 126, 234, 0.1)',
+              borderWidth: 2,
               borderDash: [5, 5],
               fill: false,
-              pointRadius: 4,
-              pointHoverRadius: 6
+              pointRadius: 3,
+              pointHoverRadius: 6,
+              pointHitRadius: 15,
+              tension: 0.3
             },
             {
-              label: 'Real (média semanal)',
-              data: ganhosSemanas.map(g => g.real),
-              backgroundColor: ganhosSemanas.map(g => {
+              label: 'Real (média móvel 7 dias)',
+              data: ganhosDiarios.map(g => g.real),
+              borderColor: '#48bb78',
+              backgroundColor: 'rgba(72, 187, 120, 0.1)',
+              borderWidth: 3,
+              fill: true,
+              pointRadius: 6,
+              pointHoverRadius: 8,
+              pointHitRadius: 15,
+              pointBackgroundColor: ganhosDiarios.map(g => {
                 if (g.real < 0) return '#f56565';
                 if (g.real < g.esperado) return '#ed8936';
                 return '#48bb78';
               }),
-              borderWidth: 1,
-              borderColor: '#fff'
+              tension: 0.3
             }
           ]
         },
@@ -409,18 +394,14 @@
               callbacks: {
                 title: function(context) {
                   const idx = context[0].dataIndex;
-                  const ganho = ganhosSemanas[idx];
-                  return ganho.periodo;
+                  const ganho = ganhosDiarios[idx];
+                  return new Date(ganho.data).toLocaleDateString('pt-BR', {
+                    day: '2-digit',
+                    month: 'long',
+                    year: 'numeric'
+                  });
                 },
                 label: function(context) {
-                  const idx = context.dataIndex;
-                  const ganho = ganhosSemanas[idx];
-                  if (context.dataset.label.includes('Real')) {
-                    return [
-                      `Real: ${context.parsed.y.toFixed(1)} g/dia`,
-                      `Medições na semana: ${ganho.numMedicoes}`
-                    ];
-                  }
                   return `${context.dataset.label}: ${context.parsed.y.toFixed(1)} g/dia`;
                 }
               }
@@ -433,7 +414,7 @@
             y: {
               title: { 
                 display: true, 
-                text: 'Ganho Médio (g/dia)',
+                text: 'Ganho Diário (g/dia)',
                 font: { weight: 'bold' }
               },
               beginAtZero: true
