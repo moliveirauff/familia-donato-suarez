@@ -255,7 +255,7 @@
             <div class="card-header">
                 <span>🎯 Comparação com Orçamento Mensal</span>
             </div>
-            <div id="tab2BudgetChart"></div>
+            <div id="budgetChart"></div>
         </div>
 
         <!-- 5: Acumulado dia a dia -->
@@ -867,7 +867,54 @@
         const last12Totals = last12Keys.map(k => {
             return despesas.filter(r => r.data.startsWith(k)).reduce((s, r) => s + Math.abs(r.valor), 0);
         });
-        const avg12 = last12Totals.reduce((a, b) => a + b, 0) / 12;
+        const total12 = last12Totals.reduce((a, b) => a + b, 0);
+        const avg12 = total12 / 12;
+
+        // --- KPIs ---
+        const kpiGrid = document.getElementById('kpi-grid');
+        
+        // 1. Total do Mês
+        const lastMonthKey = last12Keys[0];
+        const lastMonthTotal = despesas.filter(r => r.data.startsWith(lastMonthKey)).reduce((s, r) => s + Math.abs(r.valor), 0);
+        const vsLastMonth = lastMonthTotal > 0 ? ((curTotal / lastMonthTotal - 1) * 100) : 0;
+        const vsLastCls = vsLastMonth > 0 ? 'pos' : 'neg';
+
+        // 2. Média 12M
+        const vsAvg = avg12 > 0 ? ((curTotal / avg12 - 1) * 100) : 0;
+        const vsAvgCls = vsAvg > 0 ? 'pos' : 'neg';
+
+        // 3. Projeção
+        const projection = currentDay > 0 ? (curTotal / currentDay * daysInMonth) : 0;
+        const vsOrcProjection = (orcamento && Object.values(orcamento).reduce((a,b)=>a+b,0)) || 0;
+        const vsOrcPct = vsOrcProjection > 0 ? ((projection / vsOrcProjection - 1) * 100) : 0;
+        const vsOrcCls = vsOrcPct > 0 ? 'pos' : 'neg';
+
+        kpiGrid.innerHTML = `
+            <div class="kpi-card">
+                <span class="kpi-emoji">💰</span>
+                <span class="kpi-label">Total no Mês</span>
+                <span class="kpi-value">${brl(curTotal)}</span>
+                <span class="kpi-sub"><span class="${vsLastCls}">${vsLastMonth > 0 ? '+' : ''}${vsLastMonth.toFixed(1)}%</span> vs mês ant.</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-emoji">📊</span>
+                <span class="kpi-label">Média 12M</span>
+                <span class="kpi-value">${brl(avg12)}</span>
+                <span class="kpi-sub"><span class="${vsAvgCls}">${vsAvg > 0 ? '+' : ''}${vsAvg.toFixed(1)}%</span> vs média</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-emoji">🔮</span>
+                <span class="kpi-label">Projeção</span>
+                <span class="kpi-value">${brl(projection)}</span>
+                <span class="kpi-sub"><span class="${vsOrcCls}">${vsOrcPct > 0 ? '+' : ''}${vsOrcPct.toFixed(1)}%</span> vs orçam.</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-emoji">📅</span>
+                <span class="kpi-label">Dias Restantes</span>
+                <span class="kpi-value">${Math.max(0, daysInMonth - currentDay)}</span>
+                <span class="kpi-sub">de ${daysInMonth} dias</span>
+            </div>
+        `;
 
         // ── Titles ────────────────────────────────────────────────────────
         document.getElementById('kpi-bar-title').textContent = `📊 Gastos por Categoria — ${monthName.charAt(0).toUpperCase() + monthName.slice(1)}`;
@@ -939,7 +986,7 @@
         });
 
         // ── Bloco 4 — Comparação com Orçamento ────────────────────────────
-        const budgetContainer = document.getElementById('tab2BudgetChart');
+        const budgetContainer = document.getElementById('budgetChart');
         budgetContainer.innerHTML = '';
 
         const orcCats = Object.keys(orcamento);
