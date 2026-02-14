@@ -27,7 +27,7 @@
     "Item": "Farinha de trigo",
     "Categoria": "Outros",
     "qty": "1",
-    "price": "0.00",
+    "price": "4.29",
     "checked": false,
     "obs": "Para: Panqueca Doce"
   },
@@ -35,7 +35,7 @@
     "Item": "Fermento em pó",
     "Categoria": "Outros",
     "qty": "1",
-    "price": "0.00",
+    "price": "4.99",
     "checked": false,
     "obs": "Para: Panqueca Doce"
   },
@@ -59,7 +59,7 @@
     "Item": "Ovo",
     "Categoria": "Outros",
     "qty": "1",
-    "price": "0.00",
+    "price": "9.99",
     "checked": false,
     "obs": "Para: Panqueca Doce"
   },

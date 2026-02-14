@@ -670,5 +670,21 @@
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "0",
     "Observações": "Criado automaticamente"
+  },
+  {
+    "Item": "Farinha de trigo",
+    "Marca/Descrição": "Tipo 1 1kg",
+    "Categoria": "Mercearia / Grãos",
+    "Quantidade Típica": "1",
+    "Valor Esperado (Un)": "4,29",
+    "Observações": "Ref: supermercadoindustrial.com.br"
+  },
+  {
+    "Item": "Fermento em pó",
+    "Marca/Descrição": "Royal 100g",
+    "Categoria": "Mercearia / Grãos",
+    "Quantidade Típica": "1",
+    "Valor Esperado (Un)": "4,99",
+    "Observações": "Ref: supermercadoindustrial.com.br"
   }
 ]
