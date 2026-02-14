@@ -118,17 +118,6 @@
             gap: 8px;
         }
         .card-controls { display: flex; align-items: center; gap: 8px; }
-        .btn-fullscreen {
-            background: var(--border);
-            border: none;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            cursor: pointer;
-            color: var(--text);
-            transition: background 0.2s;
-        }
-        .btn-fullscreen:hover { background: var(--accent); color: white; }
         .chart-container { position: relative; height: 300px; width: 100%; }
         select.cat-select {
             background: var(--border);
@@ -151,46 +140,7 @@
         .budget-fill.green { background: var(--green); }
         .budget-fill.yellow { background: var(--yellow); }
         .budget-fill.red { background: var(--red); }
-        /* Top10 table */
-        .table-wrap { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; font-size: 0.82rem; min-width: 500px; }
-        th {
-            text-align: left;
-            padding: 8px 10px;
-            border-bottom: 2px solid var(--border);
-            color: var(--subtext);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.72rem;
-        }
-        td { padding: 8px 10px; border-bottom: 1px solid var(--border); }
-        tr:last-child td { border-bottom: none; }
-        .val-cell { font-weight: 700; color: var(--red); white-space: nowrap; }
         .loading-msg { text-align: center; padding: 40px; color: var(--subtext); font-size: 1rem; }
-        /* Fullscreen overlay */
-        .fs-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: var(--bg);
-            z-index: 1000;
-            padding: 20px;
-            flex-direction: column;
-        }
-        .fs-overlay.active { display: flex; }
-        .fs-close {
-            align-self: flex-end;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 6px 14px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            margin-bottom: 12px;
-        }
-        .fs-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; }
-        .fs-chart { flex: 1; position: relative; }
         @media (min-width: 768px) {
             body { max-width: 960px; margin: 0 auto; }
             .chart-container { height: 380px; }
@@ -222,22 +172,32 @@
 
     <div id="dashboard" style="display:none;">
 
-        <!-- B: Barras por Categoria -->
+        <!-- A: Total de Gastos por Mês -->
         <div class="card">
             <div class="card-header">
-                <span>📊 Gastos por Categoria</span>
-                <button class="btn-fullscreen" onclick="openFullscreen('fsB')">⛶ Tela Cheia</button>
+                <span>📅 Total de Gastos por Mês</span>
+            </div>
+            <div class="chart-container"><canvas id="cA"></canvas></div>
+        </div>
+
+        <!-- B: Total por Mês com filtro de Categoria -->
+        <div class="card">
+            <div class="card-header">
+                <span>📊 Gastos por Mês — por Categoria</span>
+                <div class="card-controls">
+                    <select id="selB" class="cat-select" onchange="renderB()"></select>
+                </div>
             </div>
             <div class="chart-container"><canvas id="cB"></canvas></div>
         </div>
 
-        <!-- C: Barras por Subcategoria -->
+        <!-- C: Total por Mês com filtros de Categoria e Subcategoria -->
         <div class="card">
             <div class="card-header">
-                <span>📊 Gastos por Subcategoria</span>
+                <span>📊 Gastos por Mês — por Subcategoria</span>
                 <div class="card-controls">
-                    <select id="selC" class="cat-select" onchange="renderC()"></select>
-                    <button class="btn-fullscreen" onclick="openFullscreen('fsC')">⛶ Tela Cheia</button>
+                    <select id="selC" class="cat-select" onchange="onSelCChange()"></select>
+                    <select id="selCSub" class="cat-select" onchange="renderC()"></select>
                 </div>
             </div>
             <div class="chart-container"><canvas id="cC"></canvas></div>
@@ -248,7 +208,6 @@
             <div class="card">
                 <div class="card-header">
                     <span>🥧 % por Categoria</span>
-                    <button class="btn-fullscreen" onclick="openFullscreen('fsD')">⛶ Tela Cheia</button>
                 </div>
                 <div class="chart-container"><canvas id="cD"></canvas></div>
             </div>
@@ -259,7 +218,6 @@
                     <span>🥧 % por Subcategoria</span>
                     <div class="card-controls">
                         <select id="selE" class="cat-select" onchange="renderE()"></select>
-                        <button class="btn-fullscreen" onclick="openFullscreen('fsE')">⛶ Tela Cheia</button>
                     </div>
                 </div>
                 <div class="chart-container"><canvas id="cE"></canvas></div>
@@ -278,7 +236,6 @@
         <div class="card">
             <div class="card-header">
                 <span>📈 Evolução Mensal de Despesas</span>
-                <button class="btn-fullscreen" onclick="openFullscreen('fsG')">⛶ Tela Cheia</button>
             </div>
             <div class="chart-container"><canvas id="cG"></canvas></div>
         </div>
@@ -287,62 +244,10 @@
         <div class="card">
             <div class="card-header">
                 <span>🏦 Gastos por Origem</span>
-                <button class="btn-fullscreen" onclick="openFullscreen('fsH')">⛶ Tela Cheia</button>
             </div>
             <div class="chart-container"><canvas id="cH"></canvas></div>
         </div>
 
-        <!-- I: Top 10 -->
-        <div class="card">
-            <div class="card-header"><span>🔝 Top 10 Maiores Lançamentos</span></div>
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Descrição</th>
-                            <th>Data</th>
-                            <th>Categoria</th>
-                            <th>Subcategoria</th>
-                            <th>Valor</th>
-                            <th>Origem</th>
-                        </tr>
-                    </thead>
-                    <tbody id="top10body"></tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!-- Fullscreen overlays -->
-    <div id="fsB" class="fs-overlay">
-        <button class="fs-close" onclick="closeFullscreen('fsB')">✕ Fechar</button>
-        <div class="fs-title">📊 Gastos por Categoria</div>
-        <div class="fs-chart"><canvas id="cBfs"></canvas></div>
-    </div>
-    <div id="fsC" class="fs-overlay">
-        <button class="fs-close" onclick="closeFullscreen('fsC')">✕ Fechar</button>
-        <div class="fs-title" id="fsCTitle">📊 Gastos por Subcategoria</div>
-        <div class="fs-chart"><canvas id="cCfs"></canvas></div>
-    </div>
-    <div id="fsD" class="fs-overlay">
-        <button class="fs-close" onclick="closeFullscreen('fsD')">✕ Fechar</button>
-        <div class="fs-title">🥧 % por Categoria</div>
-        <div class="fs-chart"><canvas id="cDfs"></canvas></div>
-    </div>
-    <div id="fsE" class="fs-overlay">
-        <button class="fs-close" onclick="closeFullscreen('fsE')">✕ Fechar</button>
-        <div class="fs-title" id="fsETitle">🥧 % por Subcategoria</div>
-        <div class="fs-chart"><canvas id="cEfs"></canvas></div>
-    </div>
-    <div id="fsG" class="fs-overlay">
-        <button class="fs-close" onclick="closeFullscreen('fsG')">✕ Fechar</button>
-        <div class="fs-title">📈 Evolução Mensal de Despesas</div>
-        <div class="fs-chart"><canvas id="cGfs"></canvas></div>
-    </div>
-    <div id="fsH" class="fs-overlay">
-        <button class="fs-close" onclick="closeFullscreen('fsH')">✕ Fechar</button>
-        <div class="fs-title">🏦 Gastos por Origem</div>
-        <div class="fs-chart"><canvas id="cHfs"></canvas></div>
     </div>
 
     <script>
@@ -350,6 +255,7 @@
     let allData = [];
     let filteredData = [];
     let categorias = {};
+    let subcategoriasPorCat = {}; // { catId: [subcat, ...] }
     let origens = {};
     let orcamento = {};
     let currentPeriod = '12m';
@@ -366,41 +272,6 @@
         Chart.defaults.color = isDark ? '#9ca3af' : '#6b7280';
         Chart.defaults.borderColor = isDark ? '#374151' : '#e5e7eb';
         Object.values(charts).forEach(c => c && c.update());
-    }
-
-    // ─── Fullscreen ───────────────────────────────────────────────────────────
-    const fsChartMap = {
-        fsB: { src: 'cB', fs: 'cBfs', type: 'bar' },
-        fsC: { src: 'cC', fs: 'cCfs', type: 'bar' },
-        fsD: { src: 'cD', fs: 'cDfs', type: 'pie' },
-        fsE: { src: 'cE', fs: 'cEfs', type: 'pie' },
-        fsG: { src: 'cG', fs: 'cGfs', type: 'line' },
-        fsH: { src: 'cH', fs: 'cHfs', type: 'doughnut' }
-    };
-
-    function openFullscreen(id) {
-        const overlay = document.getElementById(id);
-        overlay.classList.add('active');
-        const info = fsChartMap[id];
-        if (!info) return;
-        const srcChart = charts[info.src];
-        if (!srcChart) return;
-        const fsCanvas = document.getElementById(info.fs);
-        if (charts[info.fs]) { charts[info.fs].destroy(); }
-        charts[info.fs] = new Chart(fsCanvas, {
-            type: srcChart.config.type,
-            data: JSON.parse(JSON.stringify(srcChart.config.data)),
-            options: { ...srcChart.config.options, responsive: true, maintainAspectRatio: false }
-        });
-    }
-
-    function closeFullscreen(id) {
-        document.getElementById(id).classList.remove('active');
-        const info = fsChartMap[id];
-        if (info && charts[info.fs]) {
-            charts[info.fs].destroy();
-            charts[info.fs] = null;
-        }
     }
 
     // ─── Helpers ──────────────────────────────────────────────────────────────
@@ -428,16 +299,25 @@
         });
     }
 
+    // Build sorted month keys from filteredData
+    function getMonthKeys() {
+        const set = new Set();
+        filteredData.forEach(r => {
+            const [y, m] = r.data.split('-');
+            set.add(`${y}-${m}`);
+        });
+        return Array.from(set).sort();
+    }
+
+    function monthLabel(key) {
+        const [y, m] = key.split('-');
+        return `${m}/${y}`;
+    }
+
     const CAT_COLORS = [
         '#2563eb','#16a34a','#dc2626','#ca8a04','#7c3aed',
         '#0891b2','#ea580c','#be185d','#059669','#4b5563'
     ];
-
-    function getCatColors(cats) {
-        const map = {};
-        cats.forEach((c, i) => { map[c] = CAT_COLORS[i % CAT_COLORS.length]; });
-        return map;
-    }
 
     // ─── Period UI ────────────────────────────────────────────────────────────
     function setPeriod(period, btn) {
@@ -448,23 +328,70 @@
         renderAll();
     }
 
-    // ─── Chart B — Barras por Categoria ──────────────────────────────────────
-    function renderB() {
-        const totals = {};
+    // ─── Chart A — Total de Gastos por Mês ───────────────────────────────────
+    function renderA() {
+        const monthly = {};
         filteredData.forEach(r => {
-            totals[r.categoria] = (totals[r.categoria] || 0) + Math.abs(r.valor);
+            const [y, m] = r.data.split('-');
+            const key = `${y}-${m}`;
+            monthly[key] = (monthly[key] || 0) + Math.abs(r.valor);
         });
-        const sorted = Object.entries(totals).sort((a,b) => b[1] - a[1]);
-        const labels = sorted.map(([k]) => categorias[k] || k);
-        const values = sorted.map(([,v]) => v);
-        const colors = sorted.map(([,], i) => CAT_COLORS[i % CAT_COLORS.length]);
+        const keys = Object.keys(monthly).sort();
+        const labels = keys.map(monthLabel);
+        const values = keys.map(k => monthly[k]);
+
+        if (charts['cA']) charts['cA'].destroy();
+        charts['cA'] = new Chart(document.getElementById('cA'), {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [{
+                    label: 'Total (R$)',
+                    data: values,
+                    backgroundColor: '#2563eb',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { label: ctx => ' ' + brl(ctx.parsed.y) } }
+                },
+                scales: {
+                    y: { ticks: { callback: v => 'R$ ' + (v/1000).toFixed(0) + 'k' } },
+                    x: { ticks: { maxRotation: 45, font: { size: 10 } } }
+                }
+            }
+        });
+    }
+
+    // ─── Chart B — Total por Mês com filtro de Categoria ─────────────────────
+    function renderB() {
+        const sel = document.getElementById('selB');
+        const cat = sel.value;
+
+        const monthly = {};
+        filteredData.filter(r => r.categoria === cat).forEach(r => {
+            const [y, m] = r.data.split('-');
+            const key = `${y}-${m}`;
+            monthly[key] = (monthly[key] || 0) + Math.abs(r.valor);
+        });
+        const keys = Object.keys(monthly).sort();
+        const labels = keys.map(monthLabel);
+        const values = keys.map(k => monthly[k]);
 
         if (charts['cB']) charts['cB'].destroy();
         charts['cB'] = new Chart(document.getElementById('cB'), {
             type: 'bar',
             data: {
                 labels,
-                datasets: [{ label: 'Total (R$)', data: values, backgroundColor: colors, borderRadius: 6 }]
+                datasets: [{
+                    label: 'Total (R$)',
+                    data: values,
+                    backgroundColor: '#16a34a',
+                    borderRadius: 6
+                }]
             },
             options: {
                 responsive: true, maintainAspectRatio: false,
@@ -473,32 +400,63 @@
                     tooltip: { callbacks: { label: ctx => ' ' + brl(ctx.parsed.y) } }
                 },
                 scales: {
-                    y: { ticks: { callback: v => 'R$ ' + (v/1000).toFixed(0) + 'k' } }
+                    y: { ticks: { callback: v => 'R$ ' + (v/1000).toFixed(0) + 'k' } },
+                    x: { ticks: { maxRotation: 45, font: { size: 10 } } }
                 }
             }
         });
     }
 
-    // ─── Chart C — Barras por Subcategoria ───────────────────────────────────
-    function renderC() {
-        const sel = document.getElementById('selC');
-        const cat = sel.value;
-        document.getElementById('fsCTitle').textContent = '📊 Subcategorias — ' + (categorias[cat] || cat);
-
-        const totals = {};
-        filteredData.filter(r => r.categoria === cat).forEach(r => {
-            totals[r.subcategoria] = (totals[r.subcategoria] || 0) + Math.abs(r.valor);
+    // ─── Chart C — Total por Mês com filtros de Categoria + Subcategoria ─────
+    function populateSubcatSelect(catId) {
+        const sel = document.getElementById('selCSub');
+        sel.innerHTML = '';
+        const subs = subcategoriasPorCat[catId] || [];
+        const allOpt = document.createElement('option');
+        allOpt.value = '__all__';
+        allOpt.textContent = 'Todas';
+        sel.appendChild(allOpt);
+        subs.forEach(sub => {
+            const opt = document.createElement('option');
+            opt.value = sub;
+            opt.textContent = sub;
+            sel.appendChild(opt);
         });
-        const sorted = Object.entries(totals).sort((a,b) => b[1]-a[1]);
-        const labels = sorted.map(([k]) => k);
-        const values = sorted.map(([,v]) => v);
+    }
+
+    function onSelCChange() {
+        const cat = document.getElementById('selC').value;
+        populateSubcatSelect(cat);
+        renderC();
+    }
+
+    function renderC() {
+        const cat = document.getElementById('selC').value;
+        const sub = document.getElementById('selCSub').value;
+
+        const monthly = {};
+        filteredData
+            .filter(r => r.categoria === cat && (sub === '__all__' || r.subcategoria === sub))
+            .forEach(r => {
+                const [y, m] = r.data.split('-');
+                const key = `${y}-${m}`;
+                monthly[key] = (monthly[key] || 0) + Math.abs(r.valor);
+            });
+        const keys = Object.keys(monthly).sort();
+        const labels = keys.map(monthLabel);
+        const values = keys.map(k => monthly[k]);
 
         if (charts['cC']) charts['cC'].destroy();
         charts['cC'] = new Chart(document.getElementById('cC'), {
             type: 'bar',
             data: {
                 labels,
-                datasets: [{ label: 'Total (R$)', data: values, backgroundColor: '#2563eb', borderRadius: 6 }]
+                datasets: [{
+                    label: 'Total (R$)',
+                    data: values,
+                    backgroundColor: '#7c3aed',
+                    borderRadius: 6
+                }]
             },
             options: {
                 responsive: true, maintainAspectRatio: false,
@@ -507,7 +465,8 @@
                     tooltip: { callbacks: { label: ctx => ' ' + brl(ctx.parsed.y) } }
                 },
                 scales: {
-                    y: { ticks: { callback: v => 'R$ ' + (v/1000).toFixed(0) + 'k' } }
+                    y: { ticks: { callback: v => 'R$ ' + (v/1000).toFixed(0) + 'k' } },
+                    x: { ticks: { maxRotation: 45, font: { size: 10 } } }
                 }
             }
         });
@@ -556,7 +515,6 @@
     function renderE() {
         const sel = document.getElementById('selE');
         const cat = sel.value;
-        document.getElementById('fsETitle').textContent = '🥧 Subcategorias — ' + (categorias[cat] || cat);
 
         const totals = {};
         filteredData.filter(r => r.categoria === cat).forEach(r => {
@@ -593,7 +551,6 @@
 
     // ─── Block F — Categoria vs Orçamento ────────────────────────────────────
     function renderF() {
-        // Calculate months in period
         const boundary = getDateBoundary(currentPeriod);
         const today = new Date();
         let months;
@@ -651,10 +608,7 @@
             monthly[key] = (monthly[key] || 0) + Math.abs(r.valor);
         });
         const sorted = Object.keys(monthly).sort();
-        const labels = sorted.map(k => {
-            const [y, m] = k.split('-');
-            return `${m}/${y}`;
-        });
+        const labels = sorted.map(monthLabel);
         const values = sorted.map(k => monthly[k]);
 
         if (charts['cG']) charts['cG'].destroy();
@@ -722,30 +676,9 @@
         });
     }
 
-    // ─── Block I — Top 10 ────────────────────────────────────────────────────
-    function renderI() {
-        const top10 = [...filteredData]
-            .sort((a,b) => a.valor - b.valor) // mais negativos = maiores gastos
-            .slice(0, 10);
-
-        const tbody = document.getElementById('top10body');
-        tbody.innerHTML = '';
-        top10.forEach(r => {
-            const d = r.data.split('-').reverse().join('/');
-            tbody.innerHTML += `
-            <tr>
-                <td>${r.descricao}</td>
-                <td>${d}</td>
-                <td>${categorias[r.categoria] || r.categoria}</td>
-                <td>${r.subcategoria}</td>
-                <td class="val-cell">${brl(r.valor)}</td>
-                <td>${origens[r.origem] || r.origem}</td>
-            </tr>`;
-        });
-    }
-
     // ─── Render All ───────────────────────────────────────────────────────────
     function renderAll() {
+        renderA();
         renderB();
         renderC();
         renderD();
@@ -753,7 +686,6 @@
         renderF();
         renderG();
         renderH();
-        renderI();
     }
 
     // ─── Init ─────────────────────────────────────────────────────────────────
@@ -784,17 +716,51 @@
 
             allData = lancData;
 
+            // Build subcategorias lookup from data
+            allData.forEach(r => {
+                if (r.categoria && r.subcategoria) {
+                    if (!subcategoriasPorCat[r.categoria]) subcategoriasPorCat[r.categoria] = new Set();
+                    subcategoriasPorCat[r.categoria].add(r.subcategoria);
+                }
+            });
+            // Convert Sets to sorted arrays
+            Object.keys(subcategoriasPorCat).forEach(k => {
+                subcategoriasPorCat[k] = Array.from(subcategoriasPorCat[k]).sort();
+            });
+
             // Populate category selects
             const despesaCats = catData.categorias.filter(c => c.tipo === 'despesa');
-            ['selC', 'selE'].forEach(selId => {
-                const sel = document.getElementById(selId);
-                despesaCats.forEach(c => {
-                    const opt = document.createElement('option');
-                    opt.value = c.id;
-                    opt.textContent = c.nome;
-                    if (c.id === 'alimentacao') opt.selected = true;
-                    sel.appendChild(opt);
-                });
+
+            // selB — category filter for block B
+            const selB = document.getElementById('selB');
+            despesaCats.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.id;
+                opt.textContent = c.nome;
+                if (c.id === 'alimentacao') opt.selected = true;
+                selB.appendChild(opt);
+            });
+
+            // selC — category filter for block C
+            const selC = document.getElementById('selC');
+            despesaCats.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.id;
+                opt.textContent = c.nome;
+                if (c.id === 'alimentacao') opt.selected = true;
+                selC.appendChild(opt);
+            });
+            // Populate subcategories for initial selection
+            populateSubcatSelect(selC.value);
+
+            // selE — category filter for pizza subcategoria
+            const selE = document.getElementById('selE');
+            despesaCats.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.id;
+                opt.textContent = c.nome;
+                if (c.id === 'alimentacao') opt.selected = true;
+                selE.appendChild(opt);
             });
 
             applyFilter(currentPeriod);
