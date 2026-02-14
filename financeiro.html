@@ -41,7 +41,8 @@
       min-height: 100vh;
       transition: background .3s, color .3s;
     }
-    /* HEADER */
+
+    /* ── HEADER ── */
     header {
       background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
       color: white;
@@ -68,28 +69,67 @@
     .btn-ghost:hover { background: rgba(255,255,255,.25); }
     .btn-primary { background: white; color: #4f46e5; }
     .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.2); }
-    /* MAIN */
-    main { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
-    /* FILTERS */
-    .filters {
+
+    /* ── FILTERS (global) ── */
+    .filters-bar {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: .75rem 2rem;
       display: flex;
       gap: .75rem;
       flex-wrap: wrap;
-      margin-bottom: 1.5rem;
       align-items: center;
     }
-    .filters select, .filters input {
-      padding: .5rem .75rem;
+    .filters-bar label { font-size: .8rem; font-weight: 600; color: var(--text-muted); }
+    .filters-bar select, .filters-bar input {
+      padding: .4rem .7rem;
       border-radius: 8px;
       border: 1px solid var(--border);
-      background: var(--card);
+      background: var(--bg);
       color: var(--text);
       font-size: .875rem;
       cursor: pointer;
     }
-    .filters select:focus, .filters input:focus { outline: 2px solid #4f46e5; border-color: transparent; }
-    .filters label { font-size: .875rem; color: var(--text-muted); font-weight: 500; }
-    /* SUMMARY CARDS */
+    .filters-bar select:focus, .filters-bar input:focus { outline: 2px solid #4f46e5; border-color: transparent; }
+
+    /* ── TABS ── */
+    .tabs-nav {
+      background: var(--card);
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 0 2rem;
+    }
+    .tabs-nav::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      padding: .9rem 1.5rem;
+      border: none;
+      border-bottom: 3px solid transparent;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color .2s, border-color .2s;
+      margin-bottom: -2px;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    /* ── TAB PANELS ── */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── MAIN WRAPPER ── */
+    .tab-content { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+    /* ── BLOCO A: SUMMARY CARDS ── */
     .summary-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -112,15 +152,16 @@
       flex-shrink: 0;
     }
     .summary-icon.green { background: var(--green-light); }
-    .summary-icon.red { background: var(--red-light); }
-    .summary-icon.blue { background: var(--primary-light); }
+    .summary-icon.red   { background: var(--red-light); }
+    .summary-icon.blue  { background: var(--primary-light); }
     .summary-icon.yellow { background: #fffbeb; }
     .summary-data .label { font-size: .75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
     .summary-data .value { font-size: 1.5rem; font-weight: 700; margin-top: .1rem; }
-    .summary-data .value.green { color: var(--green); }
-    .summary-data .value.red { color: var(--red); }
-    .summary-data .value.blue { color: #4f46e5; }
-    /* CHARTS GRID */
+    .summary-data .value.green  { color: var(--green); }
+    .summary-data .value.red    { color: var(--red); }
+    .summary-data .value.blue   { color: #4f46e5; }
+
+    /* ── BLOCO B: CHARTS ── */
     .charts-grid {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -137,7 +178,8 @@
       gap: .5rem;
     }
     .chart-wrap { position: relative; height: 280px; }
-    /* BUDGET BARS */
+
+    /* ── BLOCO C: BUDGET BARS ── */
     .budget-list { display: flex; flex-direction: column; gap: .75rem; }
     .budget-item .budget-header {
       display: flex;
@@ -146,7 +188,7 @@
       margin-bottom: .3rem;
     }
     .budget-item .budget-name { font-weight: 600; }
-    .budget-item .budget-pct { color: var(--text-muted); }
+    .budget-item .budget-pct  { color: var(--text-muted); }
     .budget-bar-bg {
       height: 6px;
       background: var(--border);
@@ -158,87 +200,24 @@
       border-radius: 99px;
       transition: width .6s ease;
     }
-    /* TRANSACTIONS */
-    .trans-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-      gap: .5rem;
-    }
-    .trans-search {
-      padding: .4rem .75rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--text);
-      font-size: .875rem;
-      width: 200px;
-    }
-    .trans-table { width: 100%; border-collapse: collapse; }
-    .trans-table th {
-      text-align: left;
-      font-size: .75rem;
-      font-weight: 700;
+
+    /* ── PLACEHOLDER ── */
+    .placeholder {
+      text-align: center;
+      padding: 4rem 2rem;
       color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      padding: .5rem .75rem;
-      border-bottom: 2px solid var(--border);
     }
-    .trans-table td {
-      padding: .75rem;
-      border-bottom: 1px solid var(--border);
-      font-size: .875rem;
-      vertical-align: middle;
-    }
-    .trans-table tr:last-child td { border-bottom: none; }
-    .trans-table tr:hover td { background: var(--bg); }
-    .cat-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: .3rem;
-      padding: .2rem .6rem;
-      border-radius: 99px;
-      font-size: .75rem;
-      font-weight: 600;
-      background: var(--primary-light);
-      color: var(--primary);
-    }
-    .amount { font-weight: 700; font-variant-numeric: tabular-nums; }
-    .amount.receita { color: var(--green); }
-    .amount.despesa { color: var(--red); }
-    .pago-badge {
-      display: inline-block;
-      padding: .15rem .5rem;
-      border-radius: 99px;
-      font-size: .7rem;
-      font-weight: 700;
-    }
-    .pago-badge.pago { background: var(--green-light); color: var(--green); }
-    .pago-badge.pendente { background: #fffbeb; color: var(--yellow); }
-    /* PAGINATION */
-    .pagination { display: flex; gap: .5rem; justify-content: center; margin-top: 1rem; }
-    .page-btn {
-      width: 32px; height: 32px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--text);
-      cursor: pointer;
-      font-size: .875rem;
-      font-weight: 600;
-    }
-    .page-btn.active { background: #4f46e5; color: white; border-color: #4f46e5; }
-    .page-btn:hover:not(.active) { background: var(--bg); }
-    /* MODAL */
+    .placeholder .ph-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .placeholder h3 { font-size: 1.2rem; margin-bottom: .5rem; color: var(--text); }
+    .placeholder p  { font-size: .9rem; max-width: 380px; margin: 0 auto; }
+
+    /* ── MODAL ── */
     .modal-overlay {
       position: fixed; inset: 0;
       background: rgba(0,0,0,.5);
-      display: flex; align-items: center; justify-content: center;
-      z-index: 100;
       display: none;
+      align-items: center; justify-content: center;
+      z-index: 100;
     }
     .modal-overlay.open { display: flex; }
     .modal {
@@ -278,23 +257,21 @@
     .type-btn.active.despesa { background: var(--red-light); border-color: var(--red); color: var(--red); }
     .modal-actions { display: flex; gap: .75rem; margin-top: 1.5rem; justify-content: flex-end; }
     .btn-cancel { background: var(--border); color: var(--text); padding: .6rem 1.25rem; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; }
-    .btn-save { background: #4f46e5; color: white; padding: .6rem 1.25rem; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; }
+    .btn-save   { background: #4f46e5; color: white; padding: .6rem 1.25rem; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; }
     .btn-save:hover { background: #4338ca; }
-    /* EMPTY */
-    .empty { text-align: center; padding: 3rem; color: var(--text-muted); }
-    .empty .empty-icon { font-size: 3rem; }
-    /* RESPONSIVE */
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
       header { padding: 1rem; }
-      main { padding: 1rem; }
-      .trans-table th:nth-child(4),
-      .trans-table td:nth-child(4),
-      .trans-table th:nth-child(5),
-      .trans-table td:nth-child(5) { display: none; }
+      .tab-content { padding: 1rem; }
+      .filters-bar { padding: .75rem 1rem; }
+      .tabs-nav { padding: 0 1rem; }
     }
   </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
     <div class="header-left">
       <h1>💰 Dashboard Financeiro</h1>
@@ -306,100 +283,109 @@
     </div>
   </header>
 
-  <main>
-    <!-- FILTERS -->
-    <div class="filters">
-      <label>Período:</label>
-      <select id="filter-month" onchange="applyFilters()"></select>
-      <label>Categoria:</label>
-      <select id="filter-cat" onchange="applyFilters()">
-        <option value="">Todas</option>
-      </select>
-      <label>Tipo:</label>
-      <select id="filter-type" onchange="applyFilters()">
-        <option value="">Todos</option>
-        <option value="receita">Receitas</option>
-        <option value="despesa">Despesas</option>
-      </select>
-    </div>
+  <!-- GLOBAL FILTERS -->
+  <div class="filters-bar">
+    <label>Período:</label>
+    <select id="filter-month" onchange="applyFilters()"></select>
+    <label>Categoria:</label>
+    <select id="filter-cat" onchange="applyFilters()">
+      <option value="">Todas</option>
+    </select>
+    <label>Tipo:</label>
+    <select id="filter-type" onchange="applyFilters()">
+      <option value="">Todos</option>
+      <option value="receita">Receitas</option>
+      <option value="despesa">Despesas</option>
+    </select>
+  </div>
 
-    <!-- SUMMARY -->
-    <div class="summary-grid">
-      <div class="card summary-card">
-        <div class="summary-icon green">💰</div>
-        <div class="summary-data">
-          <div class="label">Receitas</div>
-          <div class="value green" id="total-receitas">R$ 0</div>
+  <!-- TAB NAVIGATION -->
+  <nav class="tabs-nav">
+    <button class="tab-btn active" onclick="switchTab('resumo', this)">📊 Resumo</button>
+    <button class="tab-btn" onclick="switchTab('orcamento', this)">🎯 Orçamento</button>
+    <button class="tab-btn" onclick="switchTab('lancamentos', this)">📋 Lançamentos</button>
+  </nav>
+
+  <!-- ═══ ABA 1: RESUMO ═══ -->
+  <div class="tab-panel active" id="tab-resumo">
+    <div class="tab-content">
+
+      <!-- BLOCO A: KPI CARDS -->
+      <div class="summary-grid">
+        <div class="card summary-card">
+          <div class="summary-icon green">💰</div>
+          <div class="summary-data">
+            <div class="label">Receitas</div>
+            <div class="value green" id="total-receitas">R$ 0</div>
+          </div>
+        </div>
+        <div class="card summary-card">
+          <div class="summary-icon red">💸</div>
+          <div class="summary-data">
+            <div class="label">Despesas</div>
+            <div class="value red" id="total-despesas">R$ 0</div>
+          </div>
+        </div>
+        <div class="card summary-card">
+          <div class="summary-icon blue">📊</div>
+          <div class="summary-data">
+            <div class="label">Saldo</div>
+            <div class="value blue" id="saldo">R$ 0</div>
+          </div>
+        </div>
+        <div class="card summary-card">
+          <div class="summary-icon yellow">🏦</div>
+          <div class="summary-data">
+            <div class="label">Pendente</div>
+            <div class="value" id="pendente" style="color:var(--yellow)">R$ 0</div>
+          </div>
         </div>
       </div>
-      <div class="card summary-card">
-        <div class="summary-icon red">💸</div>
-        <div class="summary-data">
-          <div class="label">Despesas</div>
-          <div class="value red" id="total-despesas">R$ 0</div>
+
+      <!-- BLOCO B: CHARTS -->
+      <div class="charts-grid">
+        <div class="card">
+          <div class="card-title">📈 Receitas vs Despesas (6 meses)</div>
+          <div class="chart-wrap"><canvas id="bar-chart"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="card-title">🥧 Despesas por Categoria</div>
+          <div class="chart-wrap"><canvas id="pie-chart"></canvas></div>
         </div>
       </div>
-      <div class="card summary-card">
-        <div class="summary-icon blue">📊</div>
-        <div class="summary-data">
-          <div class="label">Saldo</div>
-          <div class="value blue" id="saldo">R$ 0</div>
-        </div>
+
+      <!-- BLOCO C: BUDGET BARS -->
+      <div class="card" id="budget-section">
+        <div class="card-title">🎯 Orçamento por Categoria (mês selecionado)</div>
+        <div class="budget-list" id="budget-list"></div>
       </div>
-      <div class="card summary-card">
-        <div class="summary-icon yellow">🏦</div>
-        <div class="summary-data">
-          <div class="label">Pendente</div>
-          <div class="value" id="pendente" style="color:var(--yellow)">R$ 0</div>
-        </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ ABA 2: ORÇAMENTO ═══ -->
+  <div class="tab-panel" id="tab-orcamento">
+    <div class="tab-content">
+      <div class="placeholder">
+        <div class="ph-icon">🎯</div>
+        <h3>Planejamento de Orçamento</h3>
+        <p>Em breve: edição de metas, comparação mês a mês e alertas de limites por categoria.</p>
       </div>
     </div>
+  </div>
 
-    <!-- CHARTS -->
-    <div class="charts-grid">
-      <div class="card">
-        <div class="card-title">📈 Receitas vs Despesas (6 meses)</div>
-        <div class="chart-wrap"><canvas id="bar-chart"></canvas></div>
-      </div>
-      <div class="card">
-        <div class="card-title">🥧 Despesas por Categoria</div>
-        <div class="chart-wrap"><canvas id="pie-chart"></canvas></div>
+  <!-- ═══ ABA 3: LANÇAMENTOS ═══ -->
+  <div class="tab-panel" id="tab-lancamentos">
+    <div class="tab-content">
+      <div class="placeholder">
+        <div class="ph-icon">📋</div>
+        <h3>Lançamentos</h3>
+        <p>Tabela detalhada de lançamentos — em implementação.</p>
       </div>
     </div>
+  </div>
 
-    <!-- BUDGET -->
-    <div class="card" style="margin-bottom:1.5rem" id="budget-section">
-      <div class="card-title">🎯 Orçamento por Categoria (mês atual)</div>
-      <div class="budget-list" id="budget-list"></div>
-    </div>
-
-    <!-- TRANSACTIONS -->
-    <div class="card">
-      <div class="trans-header">
-        <div class="card-title" style="margin:0">📋 Transações</div>
-        <input class="trans-search" type="text" placeholder="🔍 Buscar..." id="search-input" oninput="applyFilters()">
-      </div>
-      <div style="overflow-x:auto">
-        <table class="trans-table">
-          <thead>
-            <tr>
-              <th>Data</th>
-              <th>Descrição</th>
-              <th>Categoria</th>
-              <th>Tipo</th>
-              <th>Status</th>
-              <th style="text-align:right">Valor</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="trans-body"></tbody>
-        </table>
-      </div>
-      <div class="pagination" id="pagination"></div>
-    </div>
-  </main>
-
-  <!-- MODAL -->
+  <!-- MODAL: Nova Transação -->
   <div class="modal-overlay" id="modal-overlay">
     <div class="modal">
       <h2 id="modal-title">➕ Nova Transação</h2>
@@ -440,15 +426,21 @@
   </div>
 
 <script>
-// ─── STATE ───────────────────────────────────────────────────────────────────
+// ─── STATE ────────────────────────────────────────────────────────────────────
 let DATA = null;
 let filteredTrans = [];
-let currentPage = 1;
-const PAGE_SIZE = 10;
 let barChart = null;
 let pieChart = null;
 let editingId = null;
 let currentType = 'receita';
+
+// ─── TABS ─────────────────────────────────────────────────────────────────────
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
 
 // ─── LOAD DATA ────────────────────────────────────────────────────────────────
 async function loadData() {
@@ -466,19 +458,16 @@ async function loadData() {
 
 // ─── INIT FILTERS ─────────────────────────────────────────────────────────────
 function initFilters() {
-  // months
   const months = [...new Set(DATA.transacoes.map(t => t.data.slice(0,7)))].sort().reverse();
   const sel = document.getElementById('filter-month');
   sel.innerHTML = '<option value="">Todos os meses</option>' +
     months.map(m => `<option value="${m}" ${m === months[0] ? 'selected' : ''}>${fmtMonth(m)}</option>`).join('');
 
-  // categories
   const catSel = document.getElementById('filter-cat');
   const allCats = [...DATA.categorias_despesa, ...DATA.categorias_receita];
   catSel.innerHTML = '<option value="">Todas</option>' +
     allCats.map(c => `<option value="${c.id}">${c.icone} ${c.nome}</option>`).join('');
 
-  // modal form cats (initial)
   updateModalCats('receita');
 }
 
@@ -490,35 +479,31 @@ function updateModalCats(type) {
 
 // ─── APPLY FILTERS ────────────────────────────────────────────────────────────
 function applyFilters() {
-  const month = document.getElementById('filter-month').value;
-  const cat = document.getElementById('filter-cat').value;
-  const type = document.getElementById('filter-type').value;
-  const search = document.getElementById('search-input').value.toLowerCase();
+  const month  = document.getElementById('filter-month').value;
+  const cat    = document.getElementById('filter-cat').value;
+  const type   = document.getElementById('filter-type').value;
 
   filteredTrans = DATA.transacoes.filter(t => {
     if (month && !t.data.startsWith(month)) return false;
-    if (cat && t.categoria !== cat) return false;
-    if (type && t.tipo !== type) return false;
-    if (search && !t.descricao.toLowerCase().includes(search)) return false;
+    if (cat   && t.categoria !== cat)        return false;
+    if (type  && t.tipo !== type)            return false;
     return true;
   }).sort((a,b) => b.data.localeCompare(a.data));
 
-  currentPage = 1;
-  renderSummary();
-  renderCharts();
-  renderBudget(month || getCurrentMonth());
-  renderTransactions();
+  renderBlocoA();
+  renderBlocoB();
+  renderBlocoC(month || getCurrentMonth());
 }
 
 function getCurrentMonth() {
   return new Date().toISOString().slice(0,7);
 }
 
-// ─── SUMMARY ──────────────────────────────────────────────────────────────────
-function renderSummary() {
+// ─── BLOCO A: KPI CARDS ───────────────────────────────────────────────────────
+function renderBlocoA() {
   const receitas = filteredTrans.filter(t => t.tipo === 'receita').reduce((s,t) => s + t.valor, 0);
   const despesas = filteredTrans.filter(t => t.tipo === 'despesa').reduce((s,t) => s + t.valor, 0);
-  const saldo = receitas - despesas;
+  const saldo    = receitas - despesas;
   const pendente = filteredTrans.filter(t => !t.pago).reduce((s,t) => s + t.valor, 0);
 
   document.getElementById('total-receitas').textContent = fmtBRL(receitas);
@@ -529,18 +514,17 @@ function renderSummary() {
   document.getElementById('pendente').textContent = fmtBRL(pendente);
 }
 
-// ─── CHARTS ───────────────────────────────────────────────────────────────────
-function renderCharts() {
-  // Bar chart – last 6 months
-  const months = getLast6Months();
-  const receitasByMonth = months.map(m =>
+// ─── BLOCO B: CHARTS ──────────────────────────────────────────────────────────
+function renderBlocoB() {
+  const months   = getLast6Months();
+  const recMeses = months.map(m =>
     DATA.transacoes.filter(t => t.data.startsWith(m) && t.tipo === 'receita').reduce((s,t) => s+t.valor, 0)
   );
-  const despesasByMonth = months.map(m =>
+  const despMeses = months.map(m =>
     DATA.transacoes.filter(t => t.data.startsWith(m) && t.tipo === 'despesa').reduce((s,t) => s+t.valor, 0)
   );
 
-  const isDark = document.body.classList.contains('dark');
+  const isDark   = document.body.classList.contains('dark');
   const gridColor = isDark ? 'rgba(255,255,255,.08)' : 'rgba(0,0,0,.06)';
   const textColor = isDark ? '#94a3b8' : '#718096';
 
@@ -550,8 +534,8 @@ function renderCharts() {
     data: {
       labels: months.map(fmtMonth),
       datasets: [
-        { label: 'Receitas', data: receitasByMonth, backgroundColor: '#10b981cc', borderRadius: 6 },
-        { label: 'Despesas', data: despesasByMonth, backgroundColor: '#ef4444cc', borderRadius: 6 }
+        { label: 'Receitas', data: recMeses,  backgroundColor: '#10b981cc', borderRadius: 6 },
+        { label: 'Despesas', data: despMeses, backgroundColor: '#ef4444cc', borderRadius: 6 }
       ]
     },
     options: {
@@ -564,18 +548,17 @@ function renderCharts() {
     }
   });
 
-  // Pie chart – despesas by category (filtered)
+  // Pie – despesas por categoria (filtradas)
   const despTrans = filteredTrans.filter(t => t.tipo === 'despesa');
   const byCat = {};
   despTrans.forEach(t => { byCat[t.categoria] = (byCat[t.categoria] || 0) + t.valor; });
-  const catIds = Object.keys(byCat);
-  const catData = catIds.map(id => ({ id, val: byCat[id], cat: DATA.categorias_despesa.find(c => c.id === id) }));
+  const catData = Object.keys(byCat).map(id => ({
+    id, val: byCat[id], cat: DATA.categorias_despesa.find(c => c.id === id)
+  }));
 
   if (pieChart) pieChart.destroy();
-  if (catData.length === 0) {
-    pieChart = null;
-    return;
-  }
+  if (catData.length === 0) { pieChart = null; return; }
+
   pieChart = new Chart(document.getElementById('pie-chart'), {
     type: 'doughnut',
     data: {
@@ -608,8 +591,8 @@ function getLast6Months() {
   return result;
 }
 
-// ─── BUDGET ───────────────────────────────────────────────────────────────────
-function renderBudget(month) {
+// ─── BLOCO C: BUDGET BARS ─────────────────────────────────────────────────────
+function renderBlocoC(month) {
   const list = document.getElementById('budget-list');
   const monthTrans = DATA.transacoes.filter(t => t.data.startsWith(month) && t.tipo === 'despesa');
   const byCat = {};
@@ -617,7 +600,7 @@ function renderBudget(month) {
 
   list.innerHTML = DATA.categorias_despesa.map(cat => {
     const spent = byCat[cat.id] || 0;
-    const pct = cat.orcamento_mensal > 0 ? Math.min((spent / cat.orcamento_mensal) * 100, 100) : 0;
+    const pct   = cat.orcamento_mensal > 0 ? Math.min((spent / cat.orcamento_mensal) * 100, 100) : 0;
     const color = pct > 90 ? '#ef4444' : pct > 70 ? '#f59e0b' : '#10b981';
     return `
       <div class="budget-item">
@@ -632,54 +615,14 @@ function renderBudget(month) {
   }).join('');
 }
 
-// ─── TRANSACTIONS ─────────────────────────────────────────────────────────────
-function renderTransactions() {
-  const body = document.getElementById('trans-body');
-  const total = filteredTrans.length;
-  const pages = Math.ceil(total / PAGE_SIZE);
-  const slice = filteredTrans.slice((currentPage-1)*PAGE_SIZE, currentPage*PAGE_SIZE);
-
-  if (slice.length === 0) {
-    body.innerHTML = '<tr><td colspan="7"><div class="empty"><div class="empty-icon">🔍</div><p>Nenhuma transação encontrada.</p></div></td></tr>';
-  } else {
-    body.innerHTML = slice.map(t => {
-      const allCats = [...DATA.categorias_despesa, ...DATA.categorias_receita];
-      const cat = allCats.find(c => c.id === t.categoria);
-      const catName = cat ? `${cat.icone} ${cat.nome}` : t.categoria;
-      const catColor = cat ? cat.cor : '#a0aec0';
-      return `
-        <tr>
-          <td style="white-space:nowrap">${fmtDate(t.data)}</td>
-          <td>${t.descricao}</td>
-          <td><span class="cat-badge" style="background:${catColor}22;color:${catColor}">${catName}</span></td>
-          <td>${t.tipo === 'receita' ? '💰 Receita' : '💸 Despesa'}</td>
-          <td><span class="pago-badge ${t.pago ? 'pago' : 'pendente'}">${t.pago ? 'Pago' : 'Pendente'}</span></td>
-          <td style="text-align:right"><span class="amount ${t.tipo}">${t.tipo === 'receita' ? '+' : '-'}${fmtBRL(t.valor)}</span></td>
-          <td><button style="background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:1rem" onclick="deleteTransaction('${t.id}')">🗑️</button></td>
-        </tr>`;
-    }).join('');
-  }
-
-  // Pagination
-  const pag = document.getElementById('pagination');
-  pag.innerHTML = '';
-  for (let i = 1; i <= pages; i++) {
-    const btn = document.createElement('button');
-    btn.className = 'page-btn' + (i === currentPage ? ' active' : '');
-    btn.textContent = i;
-    btn.onclick = () => { currentPage = i; renderTransactions(); };
-    pag.appendChild(btn);
-  }
-}
-
-// ─── ADD / DELETE ─────────────────────────────────────────────────────────────
+// ─── MODAL: NOVA TRANSAÇÃO ────────────────────────────────────────────────────
 function openModal() {
   editingId = null;
   document.getElementById('modal-title').textContent = '➕ Nova Transação';
-  document.getElementById('form-desc').value = '';
+  document.getElementById('form-desc').value  = '';
   document.getElementById('form-valor').value = '';
-  document.getElementById('form-data').value = new Date().toISOString().slice(0,10);
-  document.getElementById('form-pago').value = 'true';
+  document.getElementById('form-data').value  = new Date().toISOString().slice(0,10);
+  document.getElementById('form-pago').value  = 'true';
   setType('receita');
   document.getElementById('modal-overlay').classList.add('open');
 }
@@ -696,30 +639,21 @@ function setType(type) {
 }
 
 function saveTransaction() {
-  const desc = document.getElementById('form-desc').value.trim();
+  const desc  = document.getElementById('form-desc').value.trim();
   const valor = parseFloat(document.getElementById('form-valor').value);
-  const data = document.getElementById('form-data').value;
-  const cat = document.getElementById('form-cat').value;
-  const pago = document.getElementById('form-pago').value === 'true';
+  const data  = document.getElementById('form-data').value;
+  const cat   = document.getElementById('form-cat').value;
+  const pago  = document.getElementById('form-pago').value === 'true';
 
   if (!desc || !valor || !data) { alert('Preencha todos os campos obrigatórios.'); return; }
 
-  const newT = {
+  DATA.transacoes.push({
     id: 't' + Date.now(),
     data, tipo: currentType, categoria: cat, descricao: desc, valor, pago
-  };
-
-  DATA.transacoes.push(newT);
+  });
   closeModal();
   applyFilters();
   showToast('Transação adicionada! 🎉');
-}
-
-function deleteTransaction(id) {
-  if (!confirm('Excluir esta transação?')) return;
-  DATA.transacoes = DATA.transacoes.filter(t => t.id !== id);
-  applyFilters();
-  showToast('Transação removida.');
 }
 
 // ─── THEME ────────────────────────────────────────────────────────────────────
@@ -727,7 +661,7 @@ function toggleTheme() {
   document.body.classList.toggle('dark');
   document.getElementById('theme-btn').textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
   localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-  renderCharts();
+  renderBlocoB();
 }
 
 // ─── UTILS ────────────────────────────────────────────────────────────────────
@@ -758,16 +692,14 @@ function showToast(msg) {
   setTimeout(() => { t.style.opacity = '0'; setTimeout(() => t.remove(), 300); }, 2500);
 }
 
-// ─── INIT ────────────────────────────────────────────────────────────────────
+// ─── INIT ─────────────────────────────────────────────────────────────────────
 if (localStorage.getItem('theme') === 'dark') {
   document.body.classList.add('dark');
   document.getElementById('theme-btn').textContent = '☀️';
 }
-
 document.getElementById('modal-overlay').addEventListener('click', e => {
   if (e.target === e.currentTarget) closeModal();
 });
-
 loadData();
 </script>
 </body>
