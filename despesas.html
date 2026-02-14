@@ -219,6 +219,7 @@
     <a href="index.html" class="nav-link">← Voltar para Início</a>
     <h1>💸 Dashboard de Despesas</h1>
     <p class="page-subtitle">Análise de gastos da família · Hub Donato Suárez</p>
+    <p id="last-update" class="page-subtitle" style="display:none; font-size: 0.72rem; margin-top: -12px; opacity: 0.8;"></p>
 
     <!-- Tab Navigation -->
     <div class="tab-nav">
@@ -331,7 +332,15 @@
         </div>
 
         <!-- Summary -->
-        <div id="ed-summary" style="font-size:0.8rem; color:var(--subtext); margin-bottom:10px; padding: 0 4px;"></div>
+        <div id="ed-summary" style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px; padding: 0 4px;"></div>
+
+        <!-- Button Bar -->
+        <div style="margin-bottom: 14px; padding: 0 4px;">
+            <button onclick="openAddModal()"
+                style="background:var(--primary); color:white; border:none; padding:9px 18px; border-radius:8px; font-size:0.85rem; font-weight:700; cursor:pointer; min-height:44px; transition:opacity 0.2s;">
+                ➕ Novo Lançamento
+            </button>
+        </div>
 
         <!-- Table -->
         <div class="card" style="padding:0; overflow:hidden;">
@@ -353,16 +362,6 @@
             </div>
         </div>
 
-        <!-- Action Bar -->
-        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;">
-            <button onclick="openAddModal()"
-                style="background:var(--primary); color:white; border:none; padding:9px 18px; border-radius:8px; font-size:0.85rem; font-weight:700; cursor:pointer; min-height:44px; transition:opacity 0.2s;">
-                ➕ Novo Lançamento
-            </button>
-            <button onclick="downloadJSON()"
-                style="background:var(--surface); border:1px solid var(--border); color:var(--text); padding:9px 18px; border-radius:8px; font-size:0.85rem; font-weight:700; cursor:pointer; min-height:44px; transition:opacity 0.2s;">
-                💾 Baixar lancamentos.json
-            </button>
         </div>
     </div>
 
@@ -523,7 +522,7 @@
         if (period === 'ano_atual') return new Date(today.getFullYear(), 0, 1);
         const months = { '12m': 12, '24m': 24, '36m': 36 };
         const m = months[period] || 12;
-        // Start from the 1st of the month N months ago (full months, not partial)
+        // Mês atual + M meses anteriores completos (total M+1 meses)
         const d = new Date(today.getFullYear(), today.getMonth() - m, 1);
         return d;
     }
@@ -1577,16 +1576,7 @@
         renderEditor();
     }
 
-    function downloadJSON() {
-        const json = JSON.stringify(allData, null, 2);
-        const blob = new Blob([json], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'lancamentos.json';
-        a.click();
-        URL.revokeObjectURL(url);
-    }
+    // function downloadJSON removida
 
     function populateModalSelects() {
         // Modal category
@@ -1635,6 +1625,14 @@
             orcamento = orcData.orcamento_mensal;
 
             allData = Array.isArray(lancData) ? lancData : (lancData.lancamentos || []);
+
+            // Data da última atualização
+            const lastDate = allData.reduce((max, r) => r.data > max ? r.data : max, '');
+            if (lastDate) {
+                const [y, m, d] = lastDate.split('-');
+                document.getElementById('last-update').textContent = `Última atualização: ${d}/${m}/${y}`;
+                document.getElementById('last-update').style.display = 'block';
+            }
 
             // Build subcategorias lookup from data
             allData.forEach(r => {
