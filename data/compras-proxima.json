@@ -78,5 +78,13 @@
     "price": "3.99",
     "checked": false,
     "obs": "Adicionado por CasaBot"
+  },
+  {
+    "Item": "Teste Item Novo",
+    "Categoria": "Limpeza",
+    "qty": "2",
+    "price": "0",
+    "checked": false,
+    "obs": "Teste de Sincronização"
   }
 ]

@@ -662,5 +662,13 @@
     "Quantidade Típica": "1",
     "Valor Esperado (Un)": "55",
     "Observações": ""
+  },
+  {
+    "Item": "Teste Item Novo",
+    "Marca/Descrição": "",
+    "Categoria": "Limpeza",
+    "Quantidade Típica": "1",
+    "Valor Esperado (Un)": "0",
+    "Observações": "Criado automaticamente"
   }
 ]
