@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💸 Dashboard de Despesas</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --bg: #f3f4f6;
+            --text: #1f2937;
+            --card-bg: #ffffff;
+            --border: #e5e7eb;
+            --subtext: #6b7280;
+            --accent: #2563eb;
+            --accent-light: #eff6ff;
+            --green: #16a34a;
+            --yellow: #ca8a04;
+            --red: #dc2626;
+        }
+        body.dark-mode {
+            --bg: #111827;
+            --text: #f3f4f6;
+            --card-bg: #1f2937;
+            --border: #374151;
+            --subtext: #9ca3af;
+            --accent: #3b82f6;
+            --accent-light: #1e3a5f;
+            --green: #4ade80;
+            --yellow: #fbbf24;
+            --red: #f87171;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.3s, color 0.3s;
+            padding: 10px;
+            padding-bottom: 60px;
+        }
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding: 10px 4px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .header-left { display: flex; align-items: center; gap: 12px; }
+        .back-link {
+            text-decoration: none;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .back-link:hover { text-decoration: underline; }
+        h1 { font-size: 1.2rem; font-weight: 800; }
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 8px;
+            color: var(--text);
+            transition: background 0.2s;
+        }
+        #theme-toggle:hover { background: var(--border); }
+        /* Period filters */
+        .period-bar {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 10px 14px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .period-label { font-size: 0.75rem; font-weight: 700; color: var(--subtext); text-transform: uppercase; margin-right: 4px; }
+        .btn-period {
+            background: var(--border);
+            border: none;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-period:hover { opacity: 0.8; }
+        .btn-period.active { background: var(--accent); color: white; }
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07);
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .card-header {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .card-controls { display: flex; align-items: center; gap: 8px; }
+        .chart-container { position: relative; height: 300px; width: 100%; }
+        select.cat-select {
+            background: var(--border);
+            border: none;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            outline: none;
+        }
+        /* Budget bars */
+        .budget-item { margin-bottom: 14px; }
+        .budget-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; font-size: 0.82rem; }
+        .budget-cat { font-weight: 700; }
+        .budget-vals { color: var(--subtext); font-size: 0.78rem; }
+        .budget-track { background: var(--border); border-radius: 99px; height: 10px; overflow: hidden; }
+        .budget-fill { height: 100%; border-radius: 99px; transition: width 0.5s ease; }
+        .budget-fill.green { background: var(--green); }
+        .budget-fill.yellow { background: var(--yellow); }
+        .budget-fill.red { background: var(--red); }
+        .loading-msg { text-align: center; padding: 40px; color: var(--subtext); font-size: 1rem; }
+        @media (min-width: 768px) {
+            body { max-width: 960px; margin: 0 auto; }
+            .chart-container { height: 380px; }
+            .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        }
+        /* ─── Tab Nav ─────────────────────────────────────────────────────── */
+        .tab-nav {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 14px;
+        }
+        .tab-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 8px 18px;
+            border-radius: 10px 10px 0 0;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--subtext);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .tab-btn:hover:not(:disabled) { color: var(--text); border-color: var(--accent); }
+        .tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .tab-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+        /* ─── Aba 2 KPI Cards ─────────────────────────────────────────────── */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        @media (min-width: 600px) { .kpi-grid { grid-template-columns: repeat(4, 1fr); } }
+        .kpi-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .kpi-emoji { font-size: 1.4rem; }
+        .kpi-label { font-size: 0.7rem; font-weight: 700; color: var(--subtext); text-transform: uppercase; letter-spacing: 0.03em; }
+        .kpi-value { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+        .kpi-sub { font-size: 0.72rem; color: var(--subtext); margin-top: 2px; }
+        .kpi-sub .pos { color: var(--red); }
+        .kpi-sub .neg { color: var(--green); }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <a href="index.html" class="back-link">← Início</a>
+            <h1>💸 Dashboard de Despesas</h1>
+        </div>
+        <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(1)">📊 Consolidado</button>
+        <button class="tab-btn" onclick="switchTab(2)">📅 Análise Mensal</button>
+        <button class="tab-btn" disabled>✏️ Editor <small style="font-weight:400;font-size:0.7em">— Em breve</small></button>
+    </div>
+
+    <!-- Month Selector (Tab 2) -->
+    <div id="month-selector" style="display:none; text-align:center; margin-bottom: 16px; align-items: center; justify-content: center; gap: 20px;">
+        <button onclick="changeMonth(-1)" style="background:var(--card-bg); border:1px solid var(--border); border-radius: 50%; width: 36px; height: 36px; cursor: pointer; color: var(--text); font-weight: bold;">&lt;</button>
+        <span id="display-month" style="font-size: 1.1rem; font-weight: 800; min-width: 140px; text-transform: uppercase;">MÊS/ANO</span>
+        <button onclick="changeMonth(1)" style="background:var(--card-bg); border:1px solid var(--border); border-radius: 50%; width: 36px; height: 36px; cursor: pointer; color: var(--text); font-weight: bold;">&gt;</button>
+    </div>
+
+    <!-- Period Filter -->
+    <div class="period-bar" id="period-bar">
+        <span class="period-label">Período:</span>
+        <button class="btn-period" onclick="setPeriod('ano_atual', this)">Ano Atual</button>
+        <button class="btn-period active" onclick="setPeriod('12m', this)">12M</button>
+        <button class="btn-period" onclick="setPeriod('24m', this)">24M</button>
+        <button class="btn-period" onclick="setPeriod('36m', this)">36M</button>
+        <button class="btn-period" onclick="setPeriod('todos', this)">Todos</button>
+    </div>
+
+    <div id="loading" class="loading-msg">⏳ Carregando dados...</div>
+
+    <!-- ═══ ABA 2 — Mês Atual ═══════════════════════════════════════════════ -->
+    <div id="tab2" style="display:none;">
+
+        <!-- 1: KPI Cards -->
+        <div class="kpi-grid" id="kpi-grid"></div>
+
+        <!-- 2: Barras por categoria -->
+        <div class="card">
+            <div class="card-header"><span id="kpi-bar-title">📊 Gastos por Categoria — Mês Atual</span></div>
+            <div class="chart-container"><canvas id="cT2B"></canvas></div>
+        </div>
+
+        <!-- 3: Subcategorias do mês -->
+        <div class="card">
+            <div class="card-header">
+                <span id="kpi-subcat-title">📊 Detalhe por Subcategoria</span>
+                <div class="card-controls">
+                    <select id="selT2D" class="cat-select" onchange="renderTab2()"></select>
+                </div>
+            </div>
+            <div class="chart-container"><canvas id="cT2D"></canvas></div>
+        </div>
+
+        <!-- 4: Comparação com Orçamento -->
+        <div class="card">
+            <div class="card-header">
+                <span>🎯 Comparação com Orçamento Mensal</span>
+            </div>
+            <div id="budgetChart"></div>
+        </div>
+
+        <!-- 5: Acumulado dia a dia -->
+        <div class="card">
+            <div class="card-header"><span id="kpi-acc-title">📈 Gasto Acumulado Dia a Dia</span></div>
+            <div class="chart-container"><canvas id="cT2C"></canvas></div>
+        </div>
+
+    </div>
+
+    <div id="dashboard" style="display:none;">
+
+        <!-- A: Total de Gastos por Mês -->
+        <div class="card">
+            <div class="card-header">
+                <span>📅 Total de Gastos por Mês</span>
+            </div>
+            <div class="chart-container"><canvas id="cA"></canvas></div>
+        </div>
+
+        <!-- B: Total por Mês com filtro de Categoria -->
+        <div class="card">
+            <div class="card-header">
+                <span>📊 Gastos por Mês — por Categoria</span>
+                <div class="card-controls">
+                    <select id="selB" class="cat-select" onchange="renderB()"></select>
+                </div>
+            </div>
+            <div class="chart-container"><canvas id="cB"></canvas></div>
+        </div>
+
+        <!-- C: Total por Mês com filtros de Categoria e Subcategoria -->
+        <div class="card">
+            <div class="card-header">
+                <span>📊 Gastos por Mês — por Subcategoria</span>
+                <div class="card-controls">
+                    <select id="selC" class="cat-select" onchange="onSelCChange()"></select>
+                    <select id="selCSub" class="cat-select" onchange="renderC()"></select>
+                </div>
+            </div>
+            <div class="chart-container"><canvas id="cC"></canvas></div>
+        </div>
+
+        <div class="grid-2">
+            <!-- D: Pizza por Categoria -->
+            <div class="card">
+                <div class="card-header">
+                    <span>🥧 % por Categoria</span>
+                </div>
+                <div class="chart-container"><canvas id="cD"></canvas></div>
+            </div>
+
+            <!-- E: Pizza por Subcategoria -->
+            <div class="card">
+                <div class="card-header">
+                    <span>🥧 % por Subcategoria</span>
+                    <div class="card-controls">
+                        <select id="selE" class="cat-select" onchange="renderE()"></select>
+                    </div>
+                </div>
+                <div class="chart-container"><canvas id="cE"></canvas></div>
+            </div>
+        </div>
+
+        <!-- G: Evolução Mensal -->
+        <div class="card">
+            <div class="card-header">
+                <span>📈 Evolução Mensal de Despesas</span>
+            </div>
+            <div class="chart-container"><canvas id="cG"></canvas></div>
+        </div>
+
+        <!-- H: Por Origem -->
+        <div class="card">
+            <div class="card-header">
+                <span>🏦 Gastos por Origem</span>
+            </div>
+            <div class="chart-container"><canvas id="cH"></canvas></div>
+        </div>
+
+    </div>
+
+    <script>
+    // ─── State ────────────────────────────────────────────────────────────────
+    let allData = [];
+    let filteredData = [];
+    let categorias = {};
+    let subcategoriasPorCat = {}; // { catId: [subcat, ...] }
+    let origens = {};
+    let orcamento = {};
+    let currentPeriod = '12m';
+
+    // Chart instances
+    let charts = {};
+
+    // ─── Theme ────────────────────────────────────────────────────────────────
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        document.getElementById('theme-toggle').textContent = isDark ? '☀️' : '🌙';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        Chart.defaults.color = isDark ? '#9ca3af' : '#6b7280';
+        Chart.defaults.borderColor = isDark ? '#374151' : '#e5e7eb';
+        Object.values(charts).forEach(c => c && c.update());
+    }
+
+    // ─── Helpers ──────────────────────────────────────────────────────────────
+    function brl(v) {
+        return 'R$ ' + Math.abs(v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function getDateBoundary(period) {
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        if (period === 'todos') return new Date('2000-01-01');
+        if (period === 'ano_atual') return new Date(today.getFullYear(), 0, 1);
+        const months = { '12m': 12, '24m': 24, '36m': 36 };
+        const m = months[period] || 12;
+        const d = new Date(today);
+        d.setMonth(d.getMonth() - m);
+        return d;
+    }
+
+    function applyFilter(period) {
+        const boundary = getDateBoundary(period);
+        filteredData = allData.filter(r => {
+            const d = new Date(r.data);
+            return d >= boundary && r.valor < 0 && r.categoria !== 'receitas';
+        });
+    }
+
+    // Build sorted month keys from filteredData
+    function getMonthKeys() {
+        const set = new Set();
+        filteredData.forEach(r => {
+            const [y, m] = r.data.split('-');
+            set.add(`${y}-${m}`);
+        });
+        return Array.from(set).sort();
+    }
+
+    function monthLabel(key) {
+        const [y, m] = key.split('-');
+        return `${m}/${y}`;
+    }
+
+    const CAT_COLORS = [
+        '#2563eb','#16a34a','#dc2626','#ca8a04','#7c3aed',
+        '#0891b2','#ea580c','#be185d','#059669','#4b5563'
+    ];
+
+    // ─── Period UI ────────────────────────────────────────────────────────────
+    function setPeriod(period, btn) {
+        currentPeriod = period;
+        document.querySelectorAll('.btn-period').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyFilter(period);
+        renderAll();
+    }
+
+    // ─── Chart A — Total de Gastos por Mês ───────────────────────────────────
+    function renderA() {
+        const monthly = {};
+        filteredData.forEach(r => {
+            const [y, m] = r.data.split('-');
+            const key = `${y}-${m}`;
+            monthly[key] = (monthly[key] || 0) + Math.abs(r.valor);
+        });
+        const keys = Object.keys(monthly).sort();
+        const labels = keys.map(monthLabel);
+        const values = keys.map(k => monthly[k]);
+
+        if (charts['cA']) charts['cA'].destroy();
+        charts['cA'] = new Chart(document.getElementById('cA'), {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [{
+                    label: 'Total (R$)',
+                    data: values,
+                    backgroundColor: '#2563eb',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { label: ctx => ' ' + brl(ctx.parsed.y) } }
+                },
+                scales: {
+                    y: { ticks: { callback: v => 'R$ ' + (v/1000).toFixed(0) + 'k' } },
+                    x: { ticks: { maxRotation: 45, font: { size: 10 } } }
+                }
+            }
+        });
+    }
+
+    // ─── Chart B — Total por Mês com filtro de Categoria ─────────────────────
+    function renderB() {
+        const sel = document.getElementById('selB');
+        const cat = sel.value;
+
+        const monthly = {};
+        filteredData.filter(r => r.categoria === cat).forEach(r => {
+            const [y, m] = r.data.split('-');
+            const key = `${y}-${m}`;
+            monthly[key] = (monthly[key] || 0) + Math.abs(r.valor);
+        });
+        const keys = Object.keys(monthly).sort();
+        const labels = keys.map(monthLabel);
+        const values = keys.map(k => monthly[k]);
+
+        if (charts['cB']) charts['cB'].destroy();
+        charts['cB'] = new Chart(document.getElementById('cB'), {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [{
+                    label: 'Total (R$)',
+                    data: values,
+                    backgroundColor: '#16a34a',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { label: ctx => ' ' + brl(ctx.parsed.y) } }
+                },
+                scales: {
+                    y: { ticks: { callback: v => 'R$ ' + (v/1000).toFixed(0) + 'k' } },
+                    x: { ticks: { maxRotation: 45, font: { size: 10 } } }
+                }
+            }
+        });
+    }
+
+    // ─── Chart C — Total por Mês com filtros de Categoria + Subcategoria ─────
+    function populateSubcatSelect(catId) {
+        const sel = document.getElementById('selCSub');
+        sel.innerHTML = '';
+        const subs = subcategoriasPorCat[catId] || [];
+        const allOpt = document.createElement('option');
+        allOpt.value = '__all__';
+        allOpt.textContent = 'Todas';
+        sel.appendChild(allOpt);
+        subs.forEach(sub => {
+            const opt = document.createElement('option');
+            opt.value = sub;
+            opt.textContent = sub;
+            sel.appendChild(opt);
+        });
+    }
+
+    function onSelCChange() {
+        const cat = document.getElementById('selC').value;
+        populateSubcatSelect(cat);
+        renderC();
+    }
+
+    function renderC() {
+        const cat = document.getElementById('selC').value;
+        const sub = document.getElementById('selCSub').value;
+
+        const monthly = {};
+        filteredData
+            .filter(r => r.categoria === cat && (sub === '__all__' || r.subcategoria === sub))
+            .forEach(r => {
+                const [y, m] = r.data.split('-');
+                const key = `${y}-${m}`;
+                monthly[key] = (monthly[key] || 0) + Math.abs(r.valor);
+            });
+        const keys = Object.keys(monthly).sort();
+        const labels = keys.map(monthLabel);
+        const values = keys.map(k => monthly[k]);
+
+        if (charts['cC']) charts['cC'].destroy();
+        charts['cC'] = new Chart(document.getElementById('cC'), {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [{
+                    label: 'Total (R$)',
+                    data: values,
+                    backgroundColor: '#7c3aed',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { label: ctx => ' ' + brl(ctx.parsed.y) } }
+                },
+                scales: {
+                    y: { ticks: { callback: v => 'R$ ' + (v/1000).toFixed(0) + 'k' } },
+                    x: { ticks: { maxRotation: 45, font: { size: 10 } } }
+                }
+            }
+        });
+    }
+
+    // ─── Chart D — Pizza por Categoria ───────────────────────────────────────
+    function renderD() {
+        const totals = {};
+        filteredData.forEach(r => {
+            totals[r.categoria] = (totals[r.categoria] || 0) + Math.abs(r.valor);
+        });
+        const sorted = Object.entries(totals).sort((a,b) => b[1]-a[1]);
+        const labels = sorted.map(([k]) => categorias[k] || k);
+        const values = sorted.map(([,v]) => v);
+        const total = values.reduce((a,b)=>a+b,0);
+        const colors = sorted.map(([,],i) => CAT_COLORS[i % CAT_COLORS.length]);
+
+        if (charts['cD']) charts['cD'].destroy();
+        charts['cD'] = new Chart(document.getElementById('cD'), {
+            type: 'pie',
+            data: {
+                labels,
+                datasets: [{ data: values, backgroundColor: colors, borderWidth: 2 }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { font: { size: 11 }, padding: 8, boxWidth: 12 }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => {
+                                const pct = ((ctx.parsed / total) * 100).toFixed(1);
+                                return ` ${brl(ctx.parsed)} (${pct}%)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // ─── Chart E — Pizza por Subcategoria ────────────────────────────────────
+    function renderE() {
+        const sel = document.getElementById('selE');
+        const cat = sel.value;
+
+        const totals = {};
+        filteredData.filter(r => r.categoria === cat).forEach(r => {
+            totals[r.subcategoria] = (totals[r.subcategoria] || 0) + Math.abs(r.valor);
+        });
+        const sorted = Object.entries(totals).sort((a,b) => b[1]-a[1]);
+        const labels = sorted.map(([k]) => k);
+        const values = sorted.map(([,v]) => v);
+        const total = values.reduce((a,b)=>a+b,0);
+
+        if (charts['cE']) charts['cE'].destroy();
+        charts['cE'] = new Chart(document.getElementById('cE'), {
+            type: 'pie',
+            data: {
+                labels,
+                datasets: [{ data: values, backgroundColor: CAT_COLORS, borderWidth: 2 }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 8, boxWidth: 12 } },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => {
+                                const pct = ((ctx.parsed / total) * 100).toFixed(1);
+                                return ` ${brl(ctx.parsed)} (${pct}%)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // ─── Block F — Categoria vs Orçamento ────────────────────────────────────
+    function renderF() {
+        const boundary = getDateBoundary(currentPeriod);
+        const today = new Date();
+        let months;
+        if (currentPeriod === 'todos') {
+            const dates = filteredData.map(r => new Date(r.data));
+            if (dates.length === 0) { months = 1; }
+            else {
+                const minD = new Date(Math.min(...dates));
+                months = Math.max(1, (today.getFullYear() - minD.getFullYear()) * 12 + today.getMonth() - minD.getMonth() + 1);
+            }
+        } else if (currentPeriod === 'ano_atual') {
+            months = Math.max(1, today.getMonth() + 1);
+        } else {
+            months = parseInt(currentPeriod) || 12;
+        }
+
+        const totals = {};
+        filteredData.forEach(r => {
+            totals[r.categoria] = (totals[r.categoria] || 0) + Math.abs(r.valor);
+        });
+
+        const container = document.getElementById('budgetChart');
+        container.innerHTML = '';
+
+        const orcCats = Object.keys(orcamento);
+        orcCats.forEach(catId => {
+            const orc = orcamento[catId];
+            const real = totals[catId] || 0;
+            const orcTotal = orc * months;
+            const pct = orcTotal > 0 ? (real / orcTotal * 100) : 0;
+            const clampedPct = Math.min(pct, 100);
+            const cls = pct < 80 ? 'green' : pct <= 100 ? 'yellow' : 'red';
+            const catName = categorias[catId] || catId;
+            const avgMes = months > 0 ? real / months : 0;
+
+            container.innerHTML += `
+            <div class="budget-item">
+                <div class="budget-row">
+                    <span class="budget-cat">${catName}</span>
+                    <span class="budget-vals">${brl(avgMes)}/mês · Orçamento: ${brl(orc)}/mês · <strong style="color:var(--${cls})">${pct.toFixed(0)}%</strong></span>
+                </div>
+                <div class="budget-track">
+                    <div class="budget-fill ${cls}" style="width:${clampedPct}%"></div>
+                </div>
+            </div>`;
+        });
+    }
+
+    // ─── Chart G — Evolução Mensal ────────────────────────────────────────────
+    function renderG() {
+        const monthly = {};
+        filteredData.forEach(r => {
+            const [y, m] = r.data.split('-');
+            const key = `${y}-${m}`;
+            monthly[key] = (monthly[key] || 0) + Math.abs(r.valor);
+        });
+        const sorted = Object.keys(monthly).sort();
+        const labels = sorted.map(monthLabel);
+        const values = sorted.map(k => monthly[k]);
+
+        if (charts['cG']) charts['cG'].destroy();
+        charts['cG'] = new Chart(document.getElementById('cG'), {
+            type: 'line',
+            data: {
+                labels,
+                datasets: [{
+                    label: 'Total Despesas',
+                    data: values,
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37,99,235,0.1)',
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 3
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { label: ctx => ' ' + brl(ctx.parsed.y) } }
+                },
+                scales: {
+                    y: { ticks: { callback: v => 'R$ ' + (v/1000).toFixed(0) + 'k' } },
+                    x: { ticks: { maxRotation: 45, font: { size: 10 } } }
+                }
+            }
+        });
+    }
+
+    // ─── Chart H — Por Origem ─────────────────────────────────────────────────
+    function renderH() {
+        const totals = {};
+        filteredData.forEach(r => {
+            const name = origens[r.origem] || r.origem;
+            totals[name] = (totals[name] || 0) + Math.abs(r.valor);
+        });
+        const sorted = Object.entries(totals).sort((a,b) => b[1]-a[1]);
+        const labels = sorted.map(([k]) => k);
+        const values = sorted.map(([,v]) => v);
+        const total = values.reduce((a,b)=>a+b,0);
+
+        if (charts['cH']) charts['cH'].destroy();
+        charts['cH'] = new Chart(document.getElementById('cH'), {
+            type: 'doughnut',
+            data: {
+                labels,
+                datasets: [{ data: values, backgroundColor: CAT_COLORS, borderWidth: 2 }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 8, boxWidth: 12 } },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => {
+                                const pct = ((ctx.parsed / total) * 100).toFixed(1);
+                                return ` ${brl(ctx.parsed)} (${pct}%)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // ─── Render All ───────────────────────────────────────────────────────────
+    function renderAll() {
+        renderA();
+        renderB();
+        renderC();
+        renderD();
+        renderE();
+        renderF();
+        renderG();
+        renderH();
+    }
+
+    // ─── Tab Navigation ───────────────────────────────────────────────────────
+    let currentTab = 1;
+    let selectedMonth = null; // { year, month, key }
+
+    function switchTab(tab) {
+        currentTab = tab;
+        // Update button states
+        document.querySelectorAll('.tab-btn').forEach((b, i) => {
+            if (!b.disabled) b.classList.toggle('active', i + 1 === tab);
+        });
+        // Show/hide UI elements
+        document.getElementById('period-bar').style.display = tab === 1 ? '' : 'none';
+        document.getElementById('month-selector').style.display = tab === 2 ? 'flex' : 'none';
+        
+        // Show/hide content
+        document.getElementById('tab2').style.display = tab === 2 ? 'block' : 'none';
+        document.getElementById('dashboard').style.display = tab === 1 ? 'block' : 'none';
+        
+        // Render tab 2 when activated
+        if (tab === 2 && allData.length > 0) {
+            if (!selectedMonth) selectedMonth = getInitialMonth();
+            renderTab2();
+        }
+    }
+
+    function getInitialMonth() {
+        const today = new Date();
+        const curKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;
+        const despesas = allData.filter(r => r.valor < 0 && r.categoria !== 'receitas');
+        const hasCur = despesas.some(r => r.data.startsWith(curKey));
+        if (hasCur) return { year: today.getFullYear(), month: today.getMonth() + 1, key: curKey };
+        
+        const keys = [...new Set(despesas.map(r => r.data.substring(0, 7)))].sort();
+        const last = keys[keys.length - 1];
+        if (!last) return { year: today.getFullYear(), month: today.getMonth() + 1, key: curKey };
+        const [y, m] = last.split('-').map(Number);
+        return { year: y, month: m, key: last };
+    }
+
+    function changeMonth(offset) {
+        if (!selectedMonth) return;
+        const d = new Date(selectedMonth.year, selectedMonth.month - 1 + offset, 1);
+        const y = d.getFullYear();
+        const m = d.getMonth() + 1;
+        selectedMonth = { year: y, month: m, key: `${y}-${String(m).padStart(2, '0')}` };
+        renderTab2();
+    }
+
+    // ─── Aba 2 helpers ────────────────────────────────────────────────────────
+    function getDaysInMonth(year, month) {
+        return new Date(year, month, 0).getDate();
+    }
+
+    function renderTab2() {
+        if (!selectedMonth) return;
+        const { year, month, key } = selectedMonth;
+        const daysInMonth = getDaysInMonth(year, month);
+        const today = new Date();
+        
+        // Determinar "dia atual" para o ritmo:
+        let currentDay;
+        const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;
+        if (key === todayKey) {
+            currentDay = today.getDate();
+        } else if (key < todayKey) {
+            currentDay = daysInMonth;
+        } else {
+            currentDay = 0;
+        }
+
+        const despesas = allData.filter(r => r.valor < 0 && r.categoria !== 'receitas');
+
+        // Month total
+        const curMonthData = despesas.filter(r => r.data.startsWith(key));
+        const curTotal = curMonthData.reduce((s, r) => s + Math.abs(r.valor), 0);
+
+        // Update display
+        const monthName = new Date(year, month - 1, 1).toLocaleString('pt-BR', { month: 'long', year: 'numeric' });
+        document.getElementById('display-month').textContent = monthName;
+
+        // Last 12 months (excluding selected month for avg)
+        const refDate = new Date(year, month - 1, 1);
+        const last12Keys = [];
+        for (let i = 1; i <= 12; i++) {
+            const d = new Date(refDate);
+            d.setMonth(d.getMonth() - i);
+            last12Keys.push(`${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`);
+        }
+        const last12Totals = last12Keys.map(k => {
+            return despesas.filter(r => r.data.startsWith(k)).reduce((s, r) => s + Math.abs(r.valor), 0);
+        });
+        const total12 = last12Totals.reduce((a, b) => a + b, 0);
+        const avg12 = total12 / 12;
+
+        // --- KPIs ---
+        const kpiGrid = document.getElementById('kpi-grid');
+        
+        // 1. Total do Mês
+        const lastMonthKey = last12Keys[0];
+        const lastMonthTotal = despesas.filter(r => r.data.startsWith(lastMonthKey)).reduce((s, r) => s + Math.abs(r.valor), 0);
+        const vsLastMonth = lastMonthTotal > 0 ? ((curTotal / lastMonthTotal - 1) * 100) : 0;
+        const vsLastCls = vsLastMonth > 0 ? 'pos' : 'neg';
+
+        // 2. Média 12M
+        const vsAvg = avg12 > 0 ? ((curTotal / avg12 - 1) * 100) : 0;
+        const vsAvgCls = vsAvg > 0 ? 'pos' : 'neg';
+
+        // 3. Projeção
+        const projection = currentDay > 0 ? (curTotal / currentDay * daysInMonth) : 0;
+        const vsOrcProjection = (orcamento && Object.values(orcamento).reduce((a,b)=>a+b,0)) || 0;
+        const vsOrcPct = vsOrcProjection > 0 ? ((projection / vsOrcProjection - 1) * 100) : 0;
+        const vsOrcCls = vsOrcPct > 0 ? 'pos' : 'neg';
+
+        kpiGrid.innerHTML = `
+            <div class="kpi-card">
+                <span class="kpi-emoji">💰</span>
+                <span class="kpi-label">Total no Mês</span>
+                <span class="kpi-value">${brl(curTotal)}</span>
+                <span class="kpi-sub"><span class="${vsLastCls}">${vsLastMonth > 0 ? '+' : ''}${vsLastMonth.toFixed(1)}%</span> vs mês ant.</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-emoji">📊</span>
+                <span class="kpi-label">Média 12M</span>
+                <span class="kpi-value">${brl(avg12)}</span>
+                <span class="kpi-sub"><span class="${vsAvgCls}">${vsAvg > 0 ? '+' : ''}${vsAvg.toFixed(1)}%</span> vs média</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-emoji">🔮</span>
+                <span class="kpi-label">Projeção</span>
+                <span class="kpi-value">${brl(projection)}</span>
+                <span class="kpi-sub"><span class="${vsOrcCls}">${vsOrcPct > 0 ? '+' : ''}${vsOrcPct.toFixed(1)}%</span> vs orçam.</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-emoji">📅</span>
+                <span class="kpi-label">Dias Restantes</span>
+                <span class="kpi-value">${Math.max(0, daysInMonth - currentDay)}</span>
+                <span class="kpi-sub">de ${daysInMonth} dias</span>
+            </div>
+        `;
+
+        // ── Titles ────────────────────────────────────────────────────────
+        document.getElementById('kpi-bar-title').textContent = `📊 Gastos por Categoria — ${monthName.charAt(0).toUpperCase() + monthName.slice(1)}`;
+        document.getElementById('kpi-acc-title').textContent = `📈 Gasto Acumulado Dia a Dia — ${monthName.charAt(0).toUpperCase() + monthName.slice(1)}`;
+
+        // ── Bloco 2 — Barras por categoria ────────────────────────────────
+        const catTotals = {};
+        curMonthData.forEach(r => {
+            catTotals[r.categoria] = (catTotals[r.categoria] || 0) + Math.abs(r.valor);
+        });
+        const catSorted = Object.entries(catTotals).sort((a, b) => b[1] - a[1]);
+        const barLabels = catSorted.map(([k]) => categorias[k] || k);
+        const barValues = catSorted.map(([, v]) => v);
+        const barColors = catSorted.map((_, i) => CAT_COLORS[i % CAT_COLORS.length]);
+
+        if (charts['cT2B']) charts['cT2B'].destroy();
+        charts['cT2B'] = new Chart(document.getElementById('cT2B'), {
+            type: 'bar',
+            data: {
+                labels: barLabels,
+                datasets: [{ label: 'Total (R$)', data: barValues, backgroundColor: barColors, borderRadius: 6 }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { label: ctx => ' ' + brl(ctx.parsed.x) } }
+                },
+                scales: {
+                    x: { ticks: { callback: v => 'R$ ' + (v / 1000).toFixed(0) + 'k' } },
+                    y: { ticks: { font: { size: 11 } } }
+                }
+            }
+        });
+
+        // ── Bloco 3 — Subcategorias ───────────────────────────────────────
+        const selT2D = document.getElementById('selT2D');
+        const selCat = selT2D.value || 'alimentacao';
+        
+        const subTotals = {};
+        curMonthData.filter(r => r.categoria === selCat).forEach(r => {
+            const sub = r.subcategoria || 'Não definida';
+            subTotals[sub] = (subTotals[sub] || 0) + Math.abs(r.valor);
+        });
+        const subSorted = Object.entries(subTotals).sort((a,b) => b[1] - a[1]);
+        const subLabels = subSorted.map(([k]) => k);
+        const subValues = subSorted.map(([,v]) => v);
+
+        if (charts['cT2D']) charts['cT2D'].destroy();
+        charts['cT2D'] = new Chart(document.getElementById('cT2D'), {
+            type: 'bar',
+            data: {
+                labels: subLabels,
+                datasets: [{ label: 'Total (R$)', data: subValues, backgroundColor: '#7c3aed', borderRadius: 6 }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: { label: ctx => ' ' + brl(ctx.parsed.x) } }
+                },
+                scales: {
+                    x: { ticks: { callback: v => 'R$ ' + (v / 1000).toFixed(0) + 'k' } },
+                    y: { ticks: { font: { size: 11 } } }
+                }
+            }
+        });
+
+        // ── Bloco 4 — Comparação com Orçamento ────────────────────────────
+        const budgetContainer = document.getElementById('budgetChart');
+        budgetContainer.innerHTML = '';
+
+        const orcCats = Object.keys(orcamento);
+        orcCats.forEach(catId => {
+            const orcValue = orcamento[catId];
+            const realValue = catTotals[catId] || 0;
+            const pct = orcValue > 0 ? (realValue / orcValue * 100) : 0;
+            const clampedPct = Math.min(pct, 100);
+            const cls = pct < 80 ? 'green' : pct <= 100 ? 'yellow' : 'red';
+            const catName = categorias[catId] || catId;
+
+            budgetContainer.innerHTML += `
+            <div class="budget-item">
+                <div class="budget-row">
+                    <span class="budget-cat">${catName}</span>
+                    <span class="budget-vals">${brl(realValue)} / ${brl(orcValue)} · <strong style="color:var(--${cls})">${pct.toFixed(0)}%</strong></span>
+                </div>
+                <div class="budget-track">
+                    <div class="budget-fill ${cls}" style="width:${clampedPct}%"></div>
+                </div>
+            </div>`;
+        });
+
+        // ── Bloco 5 — Acumulado dia a dia ─────────────────────────────────
+        const dailyMap = {};
+        curMonthData.forEach(r => {
+            const day = parseInt(r.data.split('-')[2]);
+            dailyMap[day] = (dailyMap[day] || 0) + Math.abs(r.valor);
+        });
+
+        // Cálculo da curva histórica (média dos últimos 3 meses)
+        const histCurves = [];
+        for (let i = 1; i <= 3; i++) {
+            const d = new Date(year, month - 1, 1);
+            d.setMonth(d.getMonth() - i);
+            const k = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+            const mDays = getDaysInMonth(d.getFullYear(), d.getMonth() + 1);
+            const mData = despesas.filter(r => r.data.startsWith(k));
+            const mDaily = new Array(32).fill(0); // usar 1-31
+            mData.forEach(r => {
+                const day = parseInt(r.data.split('-')[2]);
+                mDaily[day] += Math.abs(r.valor);
+            });
+            const mAcc = [];
+            let mRunning = 0;
+            for (let day = 1; day <= 31; day++) {
+                mRunning += mDaily[day] || 0;
+                mAcc.push(mRunning);
+            }
+            histCurves.push(mAcc);
+        }
+
+        const dayLabels = [];
+        const realAcc = [];
+        const historicalAcc = [];
+        let runningReal = 0;
+
+        for (let d = 1; d <= daysInMonth; d++) {
+            dayLabels.push(`Dia ${d}`);
+            if (d <= (key < todayKey ? daysInMonth : (key === todayKey ? today.getDate() : 0))) {
+                runningReal += (dailyMap[d] || 0);
+                realAcc.push(runningReal);
+            } else {
+                realAcc.push(null);
+            }
+            
+            // Média do acumulado dos 3 meses para o dia D
+            let sumHist = 0;
+            histCurves.forEach(c => { sumHist += c[d-1]; });
+            historicalAcc.push(sumHist / histCurves.length);
+        }
+
+        if (charts['cT2C']) charts['cT2C'].destroy();
+        charts['cT2C'] = new Chart(document.getElementById('cT2C'), {
+            type: 'line',
+            data: {
+                labels: dayLabels,
+                datasets: [
+                    {
+                        label: 'Gasto Real Acumulado',
+                        data: realAcc,
+                        borderColor: '#2563eb',
+                        backgroundColor: 'rgba(37,99,235,0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 2,
+                        spanGaps: false
+                    },
+                    {
+                        label: 'Curva de Referência (Média 3 meses)',
+                        data: historicalAcc,
+                        borderColor: '#ca8a04',
+                        borderDash: [6, 4],
+                        fill: false,
+                        tension: 0.2,
+                        pointRadius: 0
+                    }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 8, boxWidth: 12 } },
+                    tooltip: { callbacks: { label: ctx => ' ' + brl(ctx.parsed.y) } }
+                },
+                scales: {
+                    y: { ticks: { callback: v => 'R$ ' + (v / 1000).toFixed(0) + 'k' } },
+                    x: { ticks: { maxRotation: 45, font: { size: 9 }, maxTicksLimit: 15 } }
+                }
+            }
+        });
+    }
+
+    // ─── Init ─────────────────────────────────────────────────────────────────
+    async function init() {
+        // Theme
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('theme-toggle').textContent = '☀️';
+            Chart.defaults.color = '#9ca3af';
+            Chart.defaults.borderColor = '#374151';
+        }
+
+        try {
+            const [lancData, catData, origData, orcData] = await Promise.all([
+                fetch('./data/lancamentos.json?v=' + Date.now()).then(r => r.json()),
+                fetch('./data/categorias.json?v=' + Date.now()).then(r => r.json()),
+                fetch('./data/origens.json?v=' + Date.now()).then(r => r.json()),
+                fetch('./data/orcamento.json?v=' + Date.now()).then(r => r.json())
+            ]);
+
+            // Build lookup maps
+            catData.categorias.forEach(c => {
+                if (c.tipo === 'despesa') categorias[c.id] = c.nome;
+            });
+            origData.origens.forEach(o => { origens[o.id] = o.nome; });
+            orcamento = orcData.orcamento_mensal;
+
+            allData = lancData;
+
+            // Build subcategorias lookup from data
+            allData.forEach(r => {
+                if (r.categoria && r.subcategoria) {
+                    if (!subcategoriasPorCat[r.categoria]) subcategoriasPorCat[r.categoria] = new Set();
+                    subcategoriasPorCat[r.categoria].add(r.subcategoria);
+                }
+            });
+            // Convert Sets to sorted arrays
+            Object.keys(subcategoriasPorCat).forEach(k => {
+                subcategoriasPorCat[k] = Array.from(subcategoriasPorCat[k]).sort();
+            });
+
+            // Populate category selects
+            const despesaCats = catData.categorias.filter(c => c.tipo === 'despesa');
+
+            // selB — category filter for block B
+            const selB = document.getElementById('selB');
+            despesaCats.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.id;
+                opt.textContent = c.nome;
+                if (c.id === 'alimentacao') opt.selected = true;
+                selB.appendChild(opt);
+            });
+
+            // selC — category filter for block C
+            const selC = document.getElementById('selC');
+            despesaCats.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.id;
+                opt.textContent = c.nome;
+                if (c.id === 'alimentacao') opt.selected = true;
+                selC.appendChild(opt);
+            });
+            // Populate subcategories for initial selection
+            populateSubcatSelect(selC.value);
+
+            // selE — category filter for pizza subcategoria
+            const selE = document.getElementById('selE');
+            despesaCats.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.id;
+                opt.textContent = c.nome;
+                if (c.id === 'alimentacao') opt.selected = true;
+                selE.appendChild(opt);
+            });
+
+            // selT2D — category filter for Tab 2 subcategories
+            const selT2D = document.getElementById('selT2D');
+            despesaCats.forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.id;
+                opt.textContent = c.nome;
+                if (c.id === 'alimentacao') opt.selected = true;
+                selT2D.appendChild(opt);
+            });
+
+            applyFilter(currentPeriod);
+            renderAll();
+
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+
+        } catch(err) {
+            document.getElementById('loading').innerHTML = '❌ Erro ao carregar dados. <br><small>' + err.message + '</small>';
+            console.error(err);
+        }
+    }
+
+    init();
+    </script>
+</body>
+</html>
