@@ -204,8 +204,15 @@
     <!-- Tab Navigation -->
     <div class="tab-nav">
         <button class="tab-btn active" onclick="switchTab(1)">📊 Consolidado</button>
-        <button class="tab-btn" onclick="switchTab(2)">📅 Mês Atual</button>
+        <button class="tab-btn" onclick="switchTab(2)">📅 Análise Mensal</button>
         <button class="tab-btn" disabled>✏️ Editor <small style="font-weight:400;font-size:0.7em">— Em breve</small></button>
+    </div>
+
+    <!-- Month Selector (Tab 2) -->
+    <div id="month-selector" style="display:none; text-align:center; margin-bottom: 16px; align-items: center; justify-content: center; gap: 20px;">
+        <button onclick="changeMonth(-1)" style="background:var(--card-bg); border:1px solid var(--border); border-radius: 50%; width: 36px; height: 36px; cursor: pointer; color: var(--text); font-weight: bold;">&lt;</button>
+        <span id="display-month" style="font-size: 1.1rem; font-weight: 800; min-width: 140px; text-transform: uppercase;">MÊS/ANO</span>
+        <button onclick="changeMonth(1)" style="background:var(--card-bg); border:1px solid var(--border); border-radius: 50%; width: 36px; height: 36px; cursor: pointer; color: var(--text); font-weight: bold;">&gt;</button>
     </div>
 
     <!-- Period Filter -->
@@ -760,6 +767,7 @@
 
     // ─── Tab Navigation ───────────────────────────────────────────────────────
     let currentTab = 1;
+    let selectedMonth = null; // { year, month, key }
 
     function switchTab(tab) {
         currentTab = tab;
@@ -767,24 +775,28 @@
         document.querySelectorAll('.tab-btn').forEach((b, i) => {
             if (!b.disabled) b.classList.toggle('active', i + 1 === tab);
         });
-        // Show/hide period-bar (only for tab 1)
+        // Show/hide UI elements
         document.getElementById('period-bar').style.display = tab === 1 ? '' : 'none';
+        document.getElementById('month-selector').style.display = tab === 2 ? 'flex' : 'none';
+        
         // Show/hide content
         document.getElementById('tab2').style.display = tab === 2 ? 'block' : 'none';
         document.getElementById('dashboard').style.display = tab === 1 ? 'block' : 'none';
+        
         // Render tab 2 when activated
-        if (tab === 2 && allData.length > 0) renderTab2();
+        if (tab === 2 && allData.length > 0) {
+            if (!selectedMonth) selectedMonth = getInitialMonth();
+            renderTab2();
+        }
     }
 
-    // ─── Aba 2 helpers ────────────────────────────────────────────────────────
-    function getRefMonth() {
-        // Use current month/year; fallback to most recent in data if no data for current month
+    function getInitialMonth() {
         const today = new Date();
         const curKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;
         const despesas = allData.filter(r => r.valor < 0 && r.categoria !== 'receitas');
         const hasCur = despesas.some(r => r.data.startsWith(curKey));
         if (hasCur) return { year: today.getFullYear(), month: today.getMonth() + 1, key: curKey };
-        // Fallback: most recent month in data
+        
         const keys = [...new Set(despesas.map(r => r.data.substring(0, 7)))].sort();
         const last = keys[keys.length - 1];
         if (!last) return { year: today.getFullYear(), month: today.getMonth() + 1, key: curKey };
@@ -792,17 +804,39 @@
         return { year: y, month: m, key: last };
     }
 
+    function changeMonth(offset) {
+        if (!selectedMonth) return;
+        const d = new Date(selectedMonth.year, selectedMonth.month - 1 + offset, 1);
+        const y = d.getFullYear();
+        const m = d.getMonth() + 1;
+        selectedMonth = { year: y, month: m, key: `${y}-${String(m).padStart(2, '0')}` };
+        renderTab2();
+    }
+
+    // ─── Aba 2 helpers ────────────────────────────────────────────────────────
     function getDaysInMonth(year, month) {
         return new Date(year, month, 0).getDate();
     }
 
     function renderTab2() {
-        const { year, month, key } = getRefMonth();
+        if (!selectedMonth) return;
+        const { year, month, key } = selectedMonth;
         const daysInMonth = getDaysInMonth(year, month);
         const today = new Date();
-        const currentDay = (today.getFullYear() === year && today.getMonth() + 1 === month)
-            ? today.getDate()
-            : daysInMonth; // if past month, use full month
+        
+        // Determinar "dia atual" para o ritmo:
+        // Se for o mês atual real, usa o dia de hoje.
+        // Se for um mês passado, usa o último dia do mês.
+        // Se for um mês futuro, usa 0 (ou 1).
+        let currentDay;
+        const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;
+        if (key === todayKey) {
+            currentDay = today.getDate();
+        } else if (key < todayKey) {
+            currentDay = daysInMonth;
+        } else {
+            currentDay = 0;
+        }
 
         const despesas = allData.filter(r => r.valor < 0 && r.categoria !== 'receitas');
 
@@ -810,7 +844,11 @@
         const curMonthData = despesas.filter(r => r.data.startsWith(key));
         const curTotal = curMonthData.reduce((s, r) => s + Math.abs(r.valor), 0);
 
-        // Last 12 months (excluding current ref month for avg)
+        // Update display
+        const monthName = new Date(year, month - 1, 1).toLocaleString('pt-BR', { month: 'long', year: 'numeric' });
+        document.getElementById('display-month').textContent = monthName;
+
+        // Last 12 months (excluding selected month for avg)
         const refDate = new Date(year, month - 1, 1);
         const last12Keys = [];
         for (let i = 1; i <= 12; i++) {
@@ -827,8 +865,7 @@
         const sameMonthLastYear = `${year - 1}-${String(month).padStart(2, '0')}`;
         const sameYearTotal = despesas.filter(r => r.data.startsWith(sameMonthLastYear)).reduce((s, r) => s + Math.abs(r.valor), 0);
 
-        // ── KPI Cards ──────────────────────────────────────────────────────
-        const monthName = new Date(year, month - 1, 1).toLocaleString('pt-BR', { month: 'long', year: 'numeric' });
+        // ── Titles ────────────────────────────────────────────────────────
         document.getElementById('kpi-bar-title').textContent = `📊 Gastos por Categoria — ${monthName.charAt(0).toUpperCase() + monthName.slice(1)}`;
         document.getElementById('kpi-acc-title').textContent = `📈 Gasto Acumulado Dia a Dia — ${monthName.charAt(0).toUpperCase() + monthName.slice(1)}`;
 
@@ -903,7 +940,6 @@
         });
 
         // ── Bloco C — Acumulado dia a dia ─────────────────────────────────
-        // Build day-by-day accumulation
         const dailyMap = {};
         curMonthData.forEach(r => {
             const day = parseInt(r.data.split('-')[2]);
@@ -918,11 +954,11 @@
 
         for (let d = 1; d <= daysInMonth; d++) {
             dayLabels.push(`Dia ${d}`);
-            if (d <= currentDay) {
+            if (d <= (key < todayKey ? daysInMonth : (key === todayKey ? today.getDate() : 0))) {
                 runningReal += (dailyMap[d] || 0);
                 realAcc.push(runningReal);
             } else {
-                realAcc.push(null); // no data yet
+                realAcc.push(null);
             }
             expectedAcc.push(dailyExpected * d);
         }
