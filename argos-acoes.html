@@ -944,16 +944,13 @@ let acoes   = [];
 let editingId = null; // null = new
 
 async function loadData(){
-  // Try localStorage first, fallback to server JSON
-  const sa = localStorage.getItem('argos_acoes');
-  const sp = localStorage.getItem('argos_pessoas');
-  const si = localStorage.getItem('argos_imoveis');
-  if (sa) acoes   = JSON.parse(sa);
-  else { try { acoes   = await fetch('data/acoes.json?v='+Date.now()).then(r=>r.json()); } catch(e){ acoes=[]; } }
-  if (sp) pessoas = JSON.parse(sp);
-  else { try { pessoas = await fetch('data/acoes_pessoas.json?v='+Date.now()).then(r=>r.json()); } catch(e){ pessoas=[]; } }
-  if (si) imoveis = JSON.parse(si);
-  else { try { imoveis = await fetch('data/acoes_imoveis.json?v='+Date.now()).then(r=>r.json()); } catch(e){ imoveis=[]; } }
+  // Server is source of truth — always fetch JSON, localStorage is offline fallback only
+  try { acoes   = await fetch('data/acoes.json?v='+Date.now()).then(r=>r.json()); localStorage.setItem('argos_acoes', JSON.stringify(acoes)); }
+  catch(e){ const s = localStorage.getItem('argos_acoes'); acoes = s ? JSON.parse(s) : []; }
+  try { pessoas = await fetch('data/acoes_pessoas.json?v='+Date.now()).then(r=>r.json()); localStorage.setItem('argos_pessoas', JSON.stringify(pessoas)); }
+  catch(e){ const s = localStorage.getItem('argos_pessoas'); pessoas = s ? JSON.parse(s) : []; }
+  try { imoveis = await fetch('data/acoes_imoveis.json?v='+Date.now()).then(r=>r.json()); localStorage.setItem('argos_imoveis', JSON.stringify(imoveis)); }
+  catch(e){ const s = localStorage.getItem('argos_imoveis'); imoveis = s ? JSON.parse(s) : []; }
 }
 
 function persist(){
