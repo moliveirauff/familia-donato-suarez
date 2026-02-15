@@ -133,6 +133,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <h1>⚡ Argos — Ações</h1>
   <div class="topbar-actions">
     <button class="btn-new" onclick="openNewAcao()">+ Nova Ação</button>
+    <button class="btn-new" id="syncBtn" onclick="syncTelegram()" style="background:#0ea5e9">📤 Sincronizar</button>
     <button class="btn-gear" onclick="openSettings()" title="Configurações">⚙️</button>
   </div>
 </div>
@@ -219,31 +220,26 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 <script>
 // ══════════════════════════════════════════
-//  API CONFIG
+//  TELEGRAM SYNC
 // ══════════════════════════════════════════
-const API_BASE = 'http://127.0.0.1:4747';
-
-async function saveToServer(dataset, data, commitMsg) {
+async function syncTelegram() {
+  const btn = document.getElementById('syncBtn');
+  const orig = btn.textContent;
+  btn.textContent = '⏳...'; btn.disabled = true;
+  const botToken = '8032731802:AAH9E3Y_T04n5k9jUuE6f6U3g5L7h9B6E4M';
+  const chatId = '8306629331';
+  const message = `BOT_SYNC_ACOES:${JSON.stringify({acoes, pessoas, imoveis})}`;
   try {
-    const payload = JSON.parse(JSON.stringify(data));
-    if (commitMsg) payload._commitMsg = commitMsg;
-    const res = await fetch(`${API_BASE}/save/${dataset}`, {
+    await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      body: JSON.stringify({ chat_id: chatId, text: message })
     });
-    const json = await res.json();
-    if (json.synced) {
-      showToast('💾 Salvo e publicado!', 'success');
-    } else if (json.saved) {
-      showToast('💾 Salvo localmente (sync pendente)', 'warn');
-    } else {
-      showToast('⚠️ Erro ao salvar: ' + (json.error || '?'), 'error');
-    }
-    return json;
+    btn.textContent = '✅ Enviado!';
+    setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 2000);
   } catch (e) {
-    showToast('📱 Offline — dados em localStorage', 'warn');
-    return { saved: false, error: e.message };
+    showToast('⚠️ Erro ao sincronizar: ' + e.message, 'error');
+    btn.textContent = orig; btn.disabled = false;
   }
 }
 
@@ -280,10 +276,16 @@ let acoes   = [];
 let editingId = null; // null = new
 
 async function loadData(){
-  // Always load fresh from server JSON (source of truth), fallback to localStorage
-  try{ acoes   = await fetch('data/acoes.json?v='+Date.now()).then(r=>r.json());   localStorage.setItem('argos_acoes',   JSON.stringify(acoes));   } catch(e){ const s=localStorage.getItem('argos_acoes');   acoes=s?JSON.parse(s):[]; }
-  try{ pessoas = await fetch('data/acoes_pessoas.json?v='+Date.now()).then(r=>r.json()); localStorage.setItem('argos_pessoas', JSON.stringify(pessoas)); } catch(e){ const s=localStorage.getItem('argos_pessoas'); pessoas=s?JSON.parse(s):[]; }
-  try{ imoveis = await fetch('data/acoes_imoveis.json?v='+Date.now()).then(r=>r.json()); localStorage.setItem('argos_imoveis', JSON.stringify(imoveis)); } catch(e){ const s=localStorage.getItem('argos_imoveis'); imoveis=s?JSON.parse(s):[]; }
+  // Try localStorage first, fallback to server JSON
+  const sa = localStorage.getItem('argos_acoes');
+  const sp = localStorage.getItem('argos_pessoas');
+  const si = localStorage.getItem('argos_imoveis');
+  if (sa) acoes   = JSON.parse(sa);
+  else { try { acoes   = await fetch('data/acoes.json?v='+Date.now()).then(r=>r.json()); } catch(e){ acoes=[]; } }
+  if (sp) pessoas = JSON.parse(sp);
+  else { try { pessoas = await fetch('data/acoes_pessoas.json?v='+Date.now()).then(r=>r.json()); } catch(e){ pessoas=[]; } }
+  if (si) imoveis = JSON.parse(si);
+  else { try { imoveis = await fetch('data/acoes_imoveis.json?v='+Date.now()).then(r=>r.json()); } catch(e){ imoveis=[]; } }
 }
 
 function persist(){
@@ -292,12 +294,9 @@ function persist(){
   localStorage.setItem('argos_acoes',   JSON.stringify(acoes));
 }
 
-async function persistAndSync(commitMsg){
-  persist(); // always save to localStorage
-  // send each dataset to server for persistence + GitHub sync
-  await saveToServer('acoes',         acoes,   commitMsg || 'update: acoes');
-  await saveToServer('acoes_pessoas', pessoas, 'update: acoes_pessoas');
-  await saveToServer('acoes_imoveis', imoveis, 'update: acoes_imoveis');
+function persistAndSync(commitMsg){
+  persist();
+  showToast('💾 Salvo localmente', 'success');
 }
 
 function nextId(arr){ return arr.length ? Math.max(...arr.map(x=>x.id))+1 : 1; }
