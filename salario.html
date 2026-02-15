@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>💰 Dashboard de Salário</title>
-    <meta name="version" content="v1.13.1">
+    <meta name="version" content="v1.13.2">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         :root {
@@ -160,13 +160,34 @@
         .tab-btn:hover { color: var(--text); border-color: var(--accent); }
         .tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
         /* ─── KPI Cards ─── */
-        .kpi-grid {
+        .kpi-groups {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 14px;
             margin-bottom: 20px;
         }
-        @media (min-width: 600px) { .kpi-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 599px) { .kpi-groups { grid-template-columns: 1fr; } }
+        .kpi-group {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 12px 10px 8px;
+        }
+        .kpi-group-title {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--subtext);
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border);
+        }
+        .kpi-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
         .kpi-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -312,13 +333,28 @@
 
         <div id="loading" class="loading-msg">⏳ Carregando dados...</div>
         <div id="consolidado-content" style="display:none;">
-            <!-- KPIs -->
-            <div class="kpi-grid" id="kpi-grid"></div>
+            <!-- KPIs em dois grupos -->
+            <div class="kpi-groups">
+                <div class="kpi-group">
+                    <div class="kpi-group-title">💰 Salário</div>
+                    <div class="kpi-grid" id="kpi-salario"></div>
+                </div>
+                <div class="kpi-group">
+                    <div class="kpi-group-title">🎁 Benefícios</div>
+                    <div class="kpi-grid" id="kpi-beneficios"></div>
+                </div>
+            </div>
 
-            <!-- Gráfico de barras empilhado -->
+            <!-- Gráfico A: Evolução Mensal de Salário -->
             <div class="card">
-                <div class="card-header"><span>📈 Evolução Mensal por Subcategoria</span></div>
-                <div class="chart-container"><canvas id="cBar"></canvas></div>
+                <div class="card-header"><span>📈 Evolução Mensal — Salário</span></div>
+                <div class="chart-container"><canvas id="cBarSalario"></canvas></div>
+            </div>
+
+            <!-- Gráfico B: Evolução Mensal de Benefícios (empilhado por origem) -->
+            <div class="card">
+                <div class="card-header"><span>📊 Evolução Mensal — Benefícios por Origem</span></div>
+                <div class="chart-container"><canvas id="cBarBeneficios"></canvas></div>
             </div>
 
             <!-- Pizza -->
@@ -411,8 +447,10 @@
         let origens = {};
         const SUBCATS = ['Salário', 'Benefícios', 'Outras Receitas'];
         const SUBCAT_COLORS = ['#48bb78', '#667eea', '#ed8936'];
+        // Paleta para origens (benefícios empilhados)
+        const ORIGEM_PALETTE = ['#667eea','#48bb78','#ed8936','#f56565','#9f7aea','#4299e1','#38b2ac','#d69e2e','#e53e3e','#805ad5'];
         let currentPeriod = 'ano_atual';
-        let filteredData = [];
+        let filteredData = [];       // Aba 2: sem "Outras Receitas"
         let charts = {};
         let editingIndex = null;
         let currentTab = 2;
@@ -455,6 +493,7 @@
         }
 
         function applyFilter(period) {
+            // Receitas completas (para Aba 3)
             const receitas = allData.filter(r => r.categoria === 'receitas');
             if (!receitas.length) { filteredData = []; return; }
 
@@ -463,16 +502,20 @@
             const refDate = lastKey ? new Date(lastKey + 'T00:00') : new Date();
             const curYear = refDate.getFullYear();
 
+            let base;
             if (period === 'todos') {
-                filteredData = receitas;
+                base = receitas;
             } else if (period === 'ano_atual') {
-                filteredData = receitas.filter(r => r.data.startsWith(String(curYear)));
+                base = receitas.filter(r => r.data.startsWith(String(curYear)));
             } else {
                 const months = parseInt(period);
                 const cutoff = new Date(refDate.getFullYear(), refDate.getMonth() - months + 1, 1);
                 const cutKey = `${cutoff.getFullYear()}-${String(cutoff.getMonth() + 1).padStart(2, '0')}`;
-                filteredData = receitas.filter(r => r.data.substring(0, 7) >= cutKey);
+                base = receitas.filter(r => r.data.substring(0, 7) >= cutKey);
             }
+
+            // Aba 2: exclui "Outras Receitas"
+            filteredData = base.filter(r => r.subcategoria !== 'Outras Receitas');
         }
 
         // ─── Tab Navigation ───────────────────────────────────────────────────
@@ -492,65 +535,115 @@
         function renderConsolidado() {
             if (!filteredData.length) return;
 
-            // KPIs
-            const total = filteredData.reduce((s, r) => s + Math.abs(r.valor), 0);
+            const salData = filteredData.filter(r => r.subcategoria === 'Salário');
+            const benData = filteredData.filter(r => r.subcategoria === 'Benefícios');
+
             const monthKeys = [...new Set(filteredData.map(r => r.data.substring(0, 7)))].sort();
             const numMonths = monthKeys.length || 1;
-            const avg = total / numMonths;
 
-            const monthTotals = {};
-            filteredData.forEach(r => {
-                const k = r.data.substring(0, 7);
-                monthTotals[k] = (monthTotals[k] || 0) + Math.abs(r.valor);
-            });
-            const bestMonth = Object.entries(monthTotals).sort((a, b) => b[1] - a[1])[0];
-            const bestMonthLabel = bestMonth ? monthLabel(bestMonth[0]) : '—';
-            const bestMonthVal = bestMonth ? bestMonth[1] : 0;
+            // ── KPI helpers ──────────────────────────────────────────────────
+            function kpiSet(data, label) {
+                const total = data.reduce((s, r) => s + Math.abs(r.valor), 0);
+                const mKeys = [...new Set(data.map(r => r.data.substring(0, 7)))];
+                const avg = mKeys.length ? total / mKeys.length : 0;
+                const mTotals = {};
+                data.forEach(r => {
+                    const k = r.data.substring(0, 7);
+                    mTotals[k] = (mTotals[k] || 0) + Math.abs(r.valor);
+                });
+                const best = Object.entries(mTotals).sort((a, b) => b[1] - a[1])[0];
+                return { total, avg, bestLabel: best ? monthLabel(best[0]) : '—', bestVal: best ? best[1] : 0 };
+            }
 
-            document.getElementById('kpi-grid').innerHTML = `
-                <div class="kpi-card">
-                    <span class="kpi-emoji">💰</span>
-                    <span class="kpi-label">Total no Período</span>
-                    <span class="kpi-value">${brl(total)}</span>
-                    <span class="kpi-sub">${numMonths} mese(s)</span>
-                </div>
-                <div class="kpi-card">
-                    <span class="kpi-emoji">📊</span>
-                    <span class="kpi-label">Média Mensal</span>
-                    <span class="kpi-value">${brl(avg)}</span>
-                    <span class="kpi-sub">por mês</span>
-                </div>
-                <div class="kpi-card">
-                    <span class="kpi-emoji">🏆</span>
-                    <span class="kpi-label">Mês de Maior Entrada</span>
-                    <span class="kpi-value">${bestMonthLabel}</span>
-                    <span class="kpi-sub">${brl(bestMonthVal)}</span>
-                </div>
-            `;
+            const sal = kpiSet(salData);
+            const ben = kpiSet(benData);
 
-            // Bar chart — stacked by subcategory
-            const subcatMonthly = {};
-            SUBCATS.forEach(s => { subcatMonthly[s] = {}; });
-            filteredData.forEach(r => {
-                const k = r.data.substring(0, 7);
-                const sub = r.subcategoria || 'Outras Receitas';
-                if (!subcatMonthly[sub]) subcatMonthly[sub] = {};
-                subcatMonthly[sub][k] = (subcatMonthly[sub][k] || 0) + Math.abs(r.valor);
-            });
+            function kpiCard(emoji, label, value, sub) {
+                return `<div class="kpi-card">
+                    <span class="kpi-emoji">${emoji}</span>
+                    <span class="kpi-label">${label}</span>
+                    <span class="kpi-value">${value}</span>
+                    <span class="kpi-sub">${sub}</span>
+                </div>`;
+            }
+
+            document.getElementById('kpi-salario').innerHTML =
+                kpiCard('💰', 'Total Salário', brl(sal.total), `${[...new Set(salData.map(r=>r.data.substring(0,7)))].length} mese(s)`) +
+                kpiCard('📅', 'Média Salário', brl(sal.avg), 'por mês') +
+                kpiCard('🏆', 'Mês Maior Salário', sal.bestLabel, brl(sal.bestVal));
+
+            document.getElementById('kpi-beneficios').innerHTML =
+                kpiCard('🎁', 'Total Benefícios', brl(ben.total), `${[...new Set(benData.map(r=>r.data.substring(0,7)))].length} mese(s)`) +
+                kpiCard('📅', 'Média Benefícios', brl(ben.avg), 'por mês') +
+                kpiCard('🏆', 'Mês Maior Benefício', ben.bestLabel, brl(ben.bestVal));
 
             const barLabels = monthKeys.map(monthLabel);
-            const datasets = SUBCATS.map((sub, i) => ({
-                label: sub,
-                data: monthKeys.map(k => subcatMonthly[sub][k] || 0),
-                backgroundColor: SUBCAT_COLORS[i],
-                borderRadius: 4,
-                stack: 'stack'
-            }));
 
-            if (charts['cBar']) charts['cBar'].destroy();
-            charts['cBar'] = new Chart(document.getElementById('cBar'), {
+            // ── Gráfico A: Salário (barras simples por origem) ────────────────
+            const salOrigens = [...new Set(salData.map(r => r.origem).filter(Boolean))];
+            const salDatasets = salOrigens.length
+                ? salOrigens.map((orig, i) => {
+                    const monthly = {};
+                    salData.filter(r => r.origem === orig).forEach(r => {
+                        const k = r.data.substring(0, 7);
+                        monthly[k] = (monthly[k] || 0) + Math.abs(r.valor);
+                    });
+                    return {
+                        label: origens[orig] || orig,
+                        data: monthKeys.map(k => monthly[k] || 0),
+                        backgroundColor: ORIGEM_PALETTE[i % ORIGEM_PALETTE.length],
+                        borderRadius: 4
+                    };
+                })
+                : [{
+                    label: 'Salário',
+                    data: (() => {
+                        const m = {};
+                        salData.forEach(r => { const k=r.data.substring(0,7); m[k]=(m[k]||0)+Math.abs(r.valor); });
+                        return monthKeys.map(k => m[k] || 0);
+                    })(),
+                    backgroundColor: '#48bb78',
+                    borderRadius: 4
+                }];
+
+            if (charts['cBarSalario']) charts['cBarSalario'].destroy();
+            charts['cBarSalario'] = new Chart(document.getElementById('cBarSalario'), {
                 type: 'bar',
-                data: { labels: barLabels, datasets },
+                data: { labels: barLabels, datasets: salDatasets },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 8, boxWidth: 12 } },
+                        tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${brl(ctx.parsed.y)}` } }
+                    },
+                    scales: {
+                        x: { ticks: { maxRotation: 45, font: { size: 10 } } },
+                        y: { ticks: { callback: v => 'R$ ' + (v / 1000).toFixed(1) + 'k' } }
+                    }
+                }
+            });
+
+            // ── Gráfico B: Benefícios (empilhado por origem) ──────────────────
+            const benOrigens = [...new Set(benData.map(r => r.origem).filter(Boolean))];
+            const benDatasets = benOrigens.map((orig, i) => {
+                const monthly = {};
+                benData.filter(r => r.origem === orig).forEach(r => {
+                    const k = r.data.substring(0, 7);
+                    monthly[k] = (monthly[k] || 0) + Math.abs(r.valor);
+                });
+                return {
+                    label: origens[orig] || orig,
+                    data: monthKeys.map(k => monthly[k] || 0),
+                    backgroundColor: ORIGEM_PALETTE[i % ORIGEM_PALETTE.length],
+                    borderRadius: 4,
+                    stack: 'ben'
+                };
+            });
+
+            if (charts['cBarBeneficios']) charts['cBarBeneficios'].destroy();
+            charts['cBarBeneficios'] = new Chart(document.getElementById('cBarBeneficios'), {
+                type: 'bar',
+                data: { labels: barLabels, datasets: benDatasets.length ? benDatasets : [{ label: 'Benefícios', data: monthKeys.map(() => 0), backgroundColor: '#667eea' }] },
                 options: {
                     responsive: true, maintainAspectRatio: false,
                     plugins: {
@@ -559,15 +652,15 @@
                     },
                     scales: {
                         x: { stacked: true, ticks: { maxRotation: 45, font: { size: 10 } } },
-                        y: { stacked: true, ticks: { callback: v => 'R$ ' + (v / 1000).toFixed(0) + 'k' } }
+                        y: { stacked: true, ticks: { callback: v => 'R$ ' + (v / 1000).toFixed(1) + 'k' } }
                     }
                 }
             });
 
-            // Pie chart
+            // ── Pizza: Salário vs Benefícios ──────────────────────────────────
             const subcatTotals = {};
             filteredData.forEach(r => {
-                const sub = r.subcategoria || 'Outras Receitas';
+                const sub = r.subcategoria || '—';
                 subcatTotals[sub] = (subcatTotals[sub] || 0) + Math.abs(r.valor);
             });
             const pieEntries = Object.entries(subcatTotals).sort((a, b) => b[1] - a[1]);
