@@ -530,31 +530,82 @@ body.dark-mode .section-nao-iniciado .sec-header { background: rgba(255,255,255,
 .tab-pane { display: none; padding: 14px 16px; flex-direction: column; gap: 10px; }
 .tab-pane.active { display: flex; }
 
-.settings-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
-.settings-table th {
-  text-align: left;
-  padding: 6px 8px;
-  background: var(--bg);
-  color: var(--text-muted);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-  border-bottom: 1px solid var(--border);
-}
-.settings-table td {
-  padding: 4px;
-  vertical-align: middle;
-  border-bottom: 1px solid var(--border);
-}
-.settings-table td input {
+/* ── Clean list for Pessoas / Imóveis ── */
+.cfg-list {
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 4px 6px;
-  font-size: 0.8rem;
-  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
   background: var(--surface);
-  color: var(--text);
 }
+.cfg-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.cfg-list-item:last-child { border-bottom: none; }
+.cfg-list-item:hover { background: rgba(102,126,234,0.05); }
+
+.cfg-item-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.cfg-item-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: rgba(102,126,234,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.cfg-item-name {
+  flex: 1;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cfg-item-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.cfg-item-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.btn-icon {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 32px; height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn-icon:hover { background: var(--bg); border-color: var(--primary); }
+.btn-icon.danger:hover { background: rgba(245,101,101,0.08); border-color: var(--danger); }
+
 .sigla-badge {
   display: inline-flex;
   align-items: center;
@@ -566,32 +617,48 @@ body.dark-mode .section-nao-iniciado .sec-header { background: rgba(255,255,255,
   font-weight: 700;
 }
 
-.imovel-card {
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px;
-  display: flex;
+/* ── Edit sub-panel inside settings modal ── */
+.edit-panel {
+  display: none;
   flex-direction: column;
-  gap: 8px;
-  background: var(--surface);
-}
-.imovel-card .imovel-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.imovel-card .imovel-title { font-weight: 700; font-size: 0.85rem; }
-.imovel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.imovel-grid .full { grid-column: 1 / -1; }
-.imovel-grid input {
+  gap: 12px;
+  background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 5px 8px;
-  font-size: 0.8rem;
-  width: 100%;
-  background: var(--surface);
+  border-radius: 12px;
+  padding: 14px;
+  margin-top: 2px;
+}
+.edit-panel.open { display: flex; }
+.edit-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+.edit-panel-title {
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--text);
 }
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.field-full { grid-column: 1 / -1; }
+.sigla-display {
+  background: var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.imovel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.imovel-grid .full { grid-column: 1 / -1; }
 
 /* ── Responsive ── */
 @media (min-width: 768px) {
@@ -699,20 +766,102 @@ body.dark-mode .section-nao-iniciado .sec-header { background: rgba(255,255,255,
       <button class="tab-btn active" onclick="switchTab('pessoas')">👥 Pessoas</button>
       <button class="tab-btn" onclick="switchTab('imoveis')">🏠 Imóveis</button>
     </div>
-    <div class="tab-pane active" id="tab-pessoas" style="overflow-y:auto;max-height:60vh">
-      <table class="settings-table" id="tbl-pessoas">
-        <thead><tr><th>Sigla</th><th>Nome</th><th>Sobrenome</th><th>Email</th><th>Celular</th><th></th></tr></thead>
-        <tbody id="tbody-pessoas"></tbody>
-      </table>
-      <button class="btn-add" onclick="addPessoa()">+ Adicionar</button>
+
+    <!-- ── Tab Pessoas ── -->
+    <div class="tab-pane active" id="tab-pessoas" style="overflow-y:auto;max-height:65vh">
+      <div id="pessoas-list" class="cfg-list"></div>
+      <button class="btn-add" style="margin-top:6px" onclick="openPessoaEdit(null)">+ Adicionar pessoa</button>
+
+      <!-- Edit panel: Pessoa -->
+      <div class="edit-panel" id="panel-pessoa">
+        <div class="edit-panel-header">
+          <span class="edit-panel-title" id="panel-pessoa-title">Nova Pessoa</span>
+          <button class="btn-close" onclick="closePessoaPanel()">×</button>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Nome</label>
+            <input type="text" id="ep-nome" placeholder="Nome"/>
+          </div>
+          <div class="field">
+            <label>Sobrenome</label>
+            <input type="text" id="ep-sobrenome" placeholder="Sobrenome"/>
+          </div>
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" id="ep-email" placeholder="email@exemplo.com"/>
+        </div>
+        <div class="field">
+          <label>Celular</label>
+          <input type="tel" id="ep-celular" placeholder="(11) 99999-9999"/>
+        </div>
+        <div class="field">
+          <label>Sigla</label>
+          <div class="sigla-display" id="ep-sigla-preview">—</div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:4px">
+          <button class="btn-cancel" onclick="closePessoaPanel()">Cancelar</button>
+          <button class="btn-save" onclick="savePessoaPanel()">✅ Salvar</button>
+        </div>
+      </div>
     </div>
-    <div class="tab-pane" id="tab-imoveis" style="overflow-y:auto;max-height:60vh">
-      <div id="imoveis-list"></div>
-      <button class="btn-add" onclick="addImovel()">+ Adicionar Imóvel</button>
+
+    <!-- ── Tab Imóveis ── -->
+    <div class="tab-pane" id="tab-imoveis" style="overflow-y:auto;max-height:65vh">
+      <div id="imoveis-list" class="cfg-list"></div>
+      <button class="btn-add" style="margin-top:6px" onclick="openImovelEdit(null)">+ Adicionar imóvel</button>
+
+      <!-- Edit panel: Imóvel -->
+      <div class="edit-panel" id="panel-imovel">
+        <div class="edit-panel-header">
+          <span class="edit-panel-title" id="panel-imovel-title">Novo Imóvel</span>
+          <button class="btn-close" onclick="closeImovelPanel()">×</button>
+        </div>
+        <div class="field field-full">
+          <label>Nome do imóvel</label>
+          <input type="text" id="ei-nome" placeholder="Ex: Apartamento SP"/>
+        </div>
+        <div class="imovel-grid">
+          <div class="field">
+            <label>CEP</label>
+            <input type="text" id="ei-cep" placeholder="00000-000" onblur="fetchCEPPanel(this.value)"/>
+          </div>
+          <div class="field">
+            <label>Número</label>
+            <input type="text" id="ei-numero" placeholder="Nº"/>
+          </div>
+          <div class="field full">
+            <label>Logradouro</label>
+            <input type="text" id="ei-logradouro" placeholder="Rua, Av..."/>
+          </div>
+          <div class="field">
+            <label>Complemento</label>
+            <input type="text" id="ei-complemento" placeholder="Apto, Bloco..."/>
+          </div>
+          <div class="field">
+            <label>Bairro</label>
+            <input type="text" id="ei-bairro"/>
+          </div>
+          <div class="field">
+            <label>Cidade</label>
+            <input type="text" id="ei-cidade"/>
+          </div>
+          <div class="field">
+            <label>Estado</label>
+            <input type="text" id="ei-estado" placeholder="UF" maxlength="2" style="text-transform:uppercase"/>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:4px">
+          <button class="btn-cancel" onclick="closeImovelPanel()">Cancelar</button>
+          <button class="btn-save" onclick="saveImovelPanel()">✅ Salvar</button>
+        </div>
+      </div>
     </div>
+
     <div class="modal-footer">
       <button class="btn-cancel" onclick="closeModal('modal-settings')">Fechar</button>
-      <button class="btn-save" onclick="saveSettings()">✅ Salvar</button>
+      <button class="btn-save" onclick="saveSettings()">✅ Salvar tudo</button>
     </div>
   </div>
 </div>
@@ -1103,8 +1252,10 @@ async function deleteAcao(){
 //  SETTINGS MODAL
 // ══════════════════════════════════════════
 function openSettings(){
-  renderPessoasTable();
-  renderImoveisCards();
+  renderPessoasList();
+  renderImoveisList();
+  closePessoaPanel();
+  closeImovelPanel();
   openModal('modal-settings');
 }
 
@@ -1114,81 +1265,159 @@ function switchTab(tab){
   document.getElementById('tab-imoveis').classList.toggle('active',tab==='imoveis');
 }
 
-function renderPessoasTable(){
-  document.getElementById('tbody-pessoas').innerHTML = pessoas.map((p,i)=>`
-    <tr data-pidx="${i}">
-      <td><div class="sigla-badge" style="background:${avatarColor(p.id)}">${sigla(p)}</div></td>
-      <td><input type="text" value="${esc(p.nome||'')}" onchange="updatePessoa(${i},'nome',this.value)"/></td>
-      <td><input type="text" value="${esc(p.sobrenome||'')}" onchange="updatePessoa(${i},'sobrenome',this.value)"/></td>
-      <td><input type="text" value="${esc(p.email||'')}" onchange="updatePessoa(${i},'email',this.value)"/></td>
-      <td><input type="text" value="${esc(p.celular||'')}" onchange="updatePessoa(${i},'celular',this.value)"/></td>
-      <td><button class="btn-del-sm" onclick="removePessoa(${i})">🗑️</button></td>
-    </tr>
-  `).join('');
-}
-
-function updatePessoa(idx, field, val){
-  pessoas[idx][field] = val;
-  const row = document.querySelector(`#tbody-pessoas tr[data-pidx="${idx}"]`);
-  if(row) row.querySelector('.sigla-badge').textContent = sigla(pessoas[idx]);
-}
-function addPessoa(){
-  pessoas.push({id:nextId(pessoas),nome:'',sobrenome:'',email:'',celular:''});
-  renderPessoasTable();
-}
-function removePessoa(idx){
-  pessoas.splice(idx,1);
-  renderPessoasTable();
-}
-
-function renderImoveisCards(){
-  document.getElementById('imoveis-list').innerHTML = imoveis.map((im,i)=>`
-    <div class="imovel-card" data-iidx="${i}">
-      <div class="imovel-header">
-        <span class="imovel-title">🏠 ${esc(im.nome||'Imóvel')}</span>
-        <button class="btn-del-sm" onclick="removeImovel(${i})">🗑️</button>
+// ── Pessoas list ──
+function renderPessoasList(){
+  const el = document.getElementById('pessoas-list');
+  if(!pessoas.length){
+    el.innerHTML = '<div class="empty">Nenhuma pessoa cadastrada</div>';
+    return;
+  }
+  el.innerHTML = pessoas.map((p,i)=>`
+    <div class="cfg-list-item">
+      <div class="cfg-item-avatar" style="background:${avatarColor(p.id)}">${sigla(p)||'?'}</div>
+      <div style="flex:1;min-width:0">
+        <div class="cfg-item-name">${esc(p.nome||'')} ${esc(p.sobrenome||'')}</div>
+        ${p.email ? `<div class="cfg-item-sub">${esc(p.email)}</div>` : ''}
       </div>
-      <div class="imovel-grid">
-        <div class="full"><label style="font-size:.72rem;color:var(--text-muted)">Nome</label><input type="text" value="${esc(im.nome||'')}" placeholder="Nome do imóvel" onchange="updateImovel(${i},'nome',this.value)"/></div>
-        <div><label style="font-size:.72rem;color:var(--text-muted)">CEP</label><input type="text" value="${esc(im.cep||'')}" placeholder="00000-000" onblur="fetchCEP(${i},this.value)" onchange="updateImovel(${i},'cep',this.value)"/></div>
-        <div><label style="font-size:.72rem;color:var(--text-muted)">Número</label><input type="text" value="${esc(im.numero||'')}" placeholder="Nº" onchange="updateImovel(${i},'numero',this.value)"/></div>
-        <div class="full"><label style="font-size:.72rem;color:var(--text-muted)">Logradouro</label><input type="text" id="im-logr-${i}" value="${esc(im.logradouro||'')}" onchange="updateImovel(${i},'logradouro',this.value)"/></div>
-        <div><label style="font-size:.72rem;color:var(--text-muted)">Complemento</label><input type="text" value="${esc(im.complemento||'')}" onchange="updateImovel(${i},'complemento',this.value)"/></div>
-        <div><label style="font-size:.72rem;color:var(--text-muted)">Bairro</label><input type="text" id="im-bairro-${i}" value="${esc(im.bairro||'')}" onchange="updateImovel(${i},'bairro',this.value)"/></div>
-        <div><label style="font-size:.72rem;color:var(--text-muted)">Cidade</label><input type="text" id="im-cidade-${i}" value="${esc(im.cidade||'')}" onchange="updateImovel(${i},'cidade',this.value)"/></div>
-        <div><label style="font-size:.72rem;color:var(--text-muted)">Estado</label><input type="text" id="im-estado-${i}" value="${esc(im.estado||'')}" onchange="updateImovel(${i},'estado',this.value)"/></div>
+      <div class="cfg-item-actions">
+        <button class="btn-icon" onclick="openPessoaEdit(${i})" title="Editar">✏️</button>
+        <button class="btn-icon danger" onclick="removePessoa(${i})" title="Excluir">🗑️</button>
       </div>
     </div>
   `).join('');
 }
 
-function updateImovel(idx, field, val){ imoveis[idx][field] = val; }
-function addImovel(){
-  imoveis.push({id:nextId(imoveis),nome:'Novo Imóvel',cep:'',logradouro:'',numero:'',complemento:'',bairro:'',cidade:'',estado:''});
-  renderImoveisCards();
-}
-function removeImovel(idx){ imoveis.splice(idx,1); renderImoveisCards(); }
+// editing state for pessoa panel
+let _epIdx = null; // null = new
 
-async function fetchCEP(idx, cep){
+function openPessoaEdit(idx){
+  _epIdx = idx;
+  const p = idx !== null ? pessoas[idx] : null;
+  document.getElementById('panel-pessoa-title').textContent = p ? 'Editar Pessoa' : 'Nova Pessoa';
+  document.getElementById('ep-nome').value      = p ? (p.nome||'') : '';
+  document.getElementById('ep-sobrenome').value = p ? (p.sobrenome||'') : '';
+  document.getElementById('ep-email').value     = p ? (p.email||'') : '';
+  document.getElementById('ep-celular').value   = p ? (p.celular||'') : '';
+  updateSiglaPreview();
+  document.getElementById('panel-pessoa').classList.add('open');
+  document.getElementById('ep-nome').focus();
+  // live sigla update
+  ['ep-nome','ep-sobrenome'].forEach(id=>{
+    document.getElementById(id).oninput = updateSiglaPreview;
+  });
+}
+
+function updateSiglaPreview(){
+  const nome = document.getElementById('ep-nome').value;
+  const sob  = document.getElementById('ep-sobrenome').value;
+  const s    = ((nome.charAt(0)) + (sob.substring(0,2))).toUpperCase() || '—';
+  const prev = document.getElementById('ep-sigla-preview');
+  prev.textContent = s;
+}
+
+function closePessoaPanel(){
+  document.getElementById('panel-pessoa').classList.remove('open');
+}
+
+async function savePessoaPanel(){
+  const nome     = document.getElementById('ep-nome').value.trim();
+  const sobrenome= document.getElementById('ep-sobrenome').value.trim();
+  const email    = document.getElementById('ep-email').value.trim();
+  const celular  = document.getElementById('ep-celular').value.trim();
+  if(!nome){ alert('Informe o nome.'); return; }
+  if(_epIdx !== null){
+    Object.assign(pessoas[_epIdx], {nome, sobrenome, email, celular});
+  } else {
+    pessoas.push({id:nextId(pessoas), nome, sobrenome, email, celular});
+  }
+  closePessoaPanel();
+  renderPessoasList();
+  render(); // refresh avatars in action rows
+  await persistAndSync(_epIdx !== null ? `update: pessoa "${nome}"` : `feat: nova pessoa "${nome}"`);
+}
+
+function removePessoa(idx){
+  if(!confirm(`Excluir "${pessoas[idx].nome}"?`)) return;
+  pessoas.splice(idx,1);
+  renderPessoasList();
+}
+
+// ── Imóveis list ──
+function renderImoveisList(){
+  const el = document.getElementById('imoveis-list');
+  if(!imoveis.length){
+    el.innerHTML = '<div class="empty">Nenhum imóvel cadastrado</div>';
+    return;
+  }
+  el.innerHTML = imoveis.map((im,i)=>`
+    <div class="cfg-list-item">
+      <div class="cfg-item-icon">🏠</div>
+      <div style="flex:1;min-width:0">
+        <div class="cfg-item-name">${esc(im.nome||'Imóvel sem nome')}</div>
+        ${im.cidade ? `<div class="cfg-item-sub">${esc(im.cidade)}${im.estado?' — '+esc(im.estado):''}</div>` : ''}
+      </div>
+      <div class="cfg-item-actions">
+        <button class="btn-icon" onclick="openImovelEdit(${i})" title="Editar">✏️</button>
+        <button class="btn-icon danger" onclick="removeImovel(${i})" title="Excluir">🗑️</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+let _eiIdx = null;
+
+function openImovelEdit(idx){
+  _eiIdx = idx;
+  const im = idx !== null ? imoveis[idx] : null;
+  document.getElementById('panel-imovel-title').textContent = im ? 'Editar Imóvel' : 'Novo Imóvel';
+  const fields = ['nome','cep','numero','logradouro','complemento','bairro','cidade','estado'];
+  fields.forEach(f=>{ document.getElementById('ei-'+f).value = im ? (im[f]||'') : ''; });
+  document.getElementById('panel-imovel').classList.add('open');
+  document.getElementById('ei-nome').focus();
+}
+
+function closeImovelPanel(){
+  document.getElementById('panel-imovel').classList.remove('open');
+}
+
+async function fetchCEPPanel(cep){
   const clean = cep.replace(/\D/g,'');
   if(clean.length!==8) return;
   try{
     const data = await fetch(`https://viacep.com.br/ws/${clean}/json/`).then(r=>r.json());
     if(data.erro) return;
-    updateImovel(idx,'logradouro',data.logradouro||'');
-    updateImovel(idx,'bairro',data.bairro||'');
-    updateImovel(idx,'cidade',data.localidade||'');
-    updateImovel(idx,'estado',data.uf||'');
     const set = (id,v)=>{ const el=document.getElementById(id); if(el) el.value=v; };
-    set(`im-logr-${idx}`,  data.logradouro||'');
-    set(`im-bairro-${idx}`,data.bairro||'');
-    set(`im-cidade-${idx}`,data.localidade||'');
-    set(`im-estado-${idx}`,data.uf||'');
+    set('ei-logradouro', data.logradouro||'');
+    set('ei-bairro',     data.bairro||'');
+    set('ei-cidade',     data.localidade||'');
+    set('ei-estado',     data.uf||'');
   }catch(e){}
 }
 
+async function saveImovelPanel(){
+  const nome       = document.getElementById('ei-nome').value.trim();
+  if(!nome){ alert('Informe o nome do imóvel.'); return; }
+  const fields = ['cep','numero','logradouro','complemento','bairro','cidade','estado'];
+  const obj = {nome};
+  fields.forEach(f=>{ obj[f] = document.getElementById('ei-'+f).value.trim(); });
+  if(_eiIdx !== null){
+    Object.assign(imoveis[_eiIdx], obj);
+  } else {
+    imoveis.push({id:nextId(imoveis), ...obj});
+  }
+  closeImovelPanel();
+  renderImoveisList();
+  await persistAndSync(_eiIdx !== null ? `update: imóvel "${nome}"` : `feat: novo imóvel "${nome}"`);
+}
+
+function removeImovel(idx){
+  if(!confirm(`Excluir "${imoveis[idx].nome}"?`)) return;
+  imoveis.splice(idx,1);
+  renderImoveisList();
+}
+
 async function saveSettings(){
-  const btn = document.querySelector('#modal-settings .btn-save');
+  const btn = document.querySelector('#modal-settings .modal-footer .btn-save');
   closeModal('modal-settings');
   render();
   await persistAndSync('update: pessoas e imóveis', btn);
