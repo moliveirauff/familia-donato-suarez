@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>💸 Dashboard de Despesas</title>
-    <meta name="version" content="v1.11.2">
+    <meta name="version" content="v1.11.3">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         :root {
@@ -559,26 +559,10 @@
         // 1. Total no Período
         const totalPeriodo = filteredData.reduce((s, r) => s + Math.abs(r.valor), 0);
 
-        // 2. Média Mensal
-        // Regra: base sempre = N meses do filtro (12/24/36). Para ano_atual/todos, usa monthKeys.length.
-        // Se hoje < dia 25 (mês corrente incompleto), exclui os gastos desse mês do total para a média,
-        // mas mantém o divisor = N (o filtro já cobre um mês extra para trás como compensação).
+        // 2. Média Mensal — divisor = monthKeys.length (meses com dados reais no período)
         const monthKeys = getMonthKeys();
-        const today = new Date();
-        const todayKey = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`;
-        const periodMap = { '12m': 12, '24m': 24, '36m': 36 };
-        const fixedN = periodMap[currentPeriod]; // undefined para ano_atual / todos
-        const mesIncompleto = today.getDate() < 25 && monthKeys.includes(todayKey);
-        let totalParaMedia = totalPeriodo;
-        if (mesIncompleto) {
-            filteredData.forEach(r => {
-                const [y, m] = r.data.split('-');
-                if (`${y}-${m}` === todayKey) totalParaMedia -= Math.abs(r.valor);
-            });
-        }
-        // Divisor: N fixo para 12m/24m/36m; para outros, usa meses com dados (excluindo mês corrente se incompleto)
-        const numMonths = fixedN || Math.max((mesIncompleto ? monthKeys.length - 1 : monthKeys.length), 1);
-        const mediaMensal = totalParaMedia / numMonths;
+        const numMonths = monthKeys.length || 1;
+        const mediaMensal = totalPeriodo / numMonths;
 
         // 3. Maior Categoria
         const catTotals = {};
