@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>💰 Dashboard de Salário</title>
-    <meta name="version" content="v1.13">
+    <meta name="version" content="v1.13.1">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         :root {
@@ -303,10 +303,10 @@
         <!-- Period Filter -->
         <div class="period-bar">
             <span class="period-label">Período:</span>
-            <button class="btn-period active" onclick="setPeriod('12m', this)">12M</button>
+            <button class="btn-period active" onclick="setPeriod('ano_atual', this)">Ano</button>
+            <button class="btn-period" onclick="setPeriod('12m', this)">12M</button>
             <button class="btn-period" onclick="setPeriod('24m', this)">24M</button>
             <button class="btn-period" onclick="setPeriod('36m', this)">36M</button>
-            <button class="btn-period" onclick="setPeriod('ano_atual', this)">Ano</button>
             <button class="btn-period" onclick="setPeriod('todos', this)">Todos</button>
         </div>
 
@@ -411,7 +411,7 @@
         let origens = {};
         const SUBCATS = ['Salário', 'Benefícios', 'Outras Receitas'];
         const SUBCAT_COLORS = ['#48bb78', '#667eea', '#ed8936'];
-        let currentPeriod = '12m';
+        let currentPeriod = 'ano_atual';
         let filteredData = [];
         let charts = {};
         let editingIndex = null;
@@ -458,8 +458,10 @@
             const receitas = allData.filter(r => r.categoria === 'receitas');
             if (!receitas.length) { filteredData = []; return; }
 
-            const today = new Date();
-            const curYear = today.getFullYear();
+            // Usa a data do último lançamento como referência (em vez de hoje)
+            const lastKey = receitas.reduce((max, r) => r.data > max ? r.data : max, '');
+            const refDate = lastKey ? new Date(lastKey + 'T00:00') : new Date();
+            const curYear = refDate.getFullYear();
 
             if (period === 'todos') {
                 filteredData = receitas;
@@ -467,7 +469,7 @@
                 filteredData = receitas.filter(r => r.data.startsWith(String(curYear)));
             } else {
                 const months = parseInt(period);
-                const cutoff = new Date(today.getFullYear(), today.getMonth() - months + 1, 1);
+                const cutoff = new Date(refDate.getFullYear(), refDate.getMonth() - months + 1, 1);
                 const cutKey = `${cutoff.getFullYear()}-${String(cutoff.getMonth() + 1).padStart(2, '0')}`;
                 filteredData = receitas.filter(r => r.data.substring(0, 7) >= cutKey);
             }

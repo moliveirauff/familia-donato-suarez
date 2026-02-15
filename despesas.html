@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>💸 Dashboard de Despesas</title>
-    <meta name="version" content="v1.12.1">
+    <meta name="version" content="v1.13.1">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         :root {
@@ -526,15 +526,21 @@
         return 'R$ ' + Math.abs(v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 
+    // Retorna a data do último lançamento em allData como referência de "hoje"
+    function getRefDate() {
+        const lastKey = allData.reduce((max, r) => r.data > max ? r.data : max, '');
+        return lastKey ? new Date(lastKey + 'T00:00') : new Date();
+    }
+
     function getDateBoundary(period) {
-        const today = new Date();
-        today.setHours(0,0,0,0);
+        const refDate = getRefDate();
+        refDate.setHours(0,0,0,0);
         if (period === 'todos') return new Date('2000-01-01');
-        if (period === 'ano_atual') return new Date(today.getFullYear(), 0, 1);
+        if (period === 'ano_atual') return new Date(refDate.getFullYear(), 0, 1);
         const monthsMap = { '12m': 12, '24m': 24, '36m': 36 };
         const m = monthsMap[period] || 12;
-        // Mês atual + M meses anteriores completos (total M+1 meses)
-        return new Date(today.getFullYear(), today.getMonth() - m, 1);
+        // Mês de referência + M meses anteriores completos (total M+1 meses)
+        return new Date(refDate.getFullYear(), refDate.getMonth() - m, 1);
     }
 
     function applyFilter(period) {
@@ -552,7 +558,19 @@
             const [y, m] = r.data.split('-');
             set.add(`${y}-${m}`);
         });
-        return Array.from(set).sort();
+        const keys = Array.from(set).sort();
+
+        // Regra dia 25: se o último lançamento for do mês corrente real E o dia atual < 25,
+        // excluir o mês corrente do divisor da média (mês incompleto).
+        // Se o último lançamento for de mês anterior ao real, não aplicar a exclusão.
+        const realToday = new Date();
+        const realTodayKey = `${realToday.getFullYear()}-${String(realToday.getMonth() + 1).padStart(2, '0')}`;
+        const refDate = getRefDate();
+        const refKey = `${refDate.getFullYear()}-${String(refDate.getMonth() + 1).padStart(2, '0')}`;
+        if (refKey === realTodayKey && realToday.getDate() < 25) {
+            return keys.filter(k => k !== realTodayKey);
+        }
+        return keys;
     }
 
     function monthLabel(key) {
@@ -887,15 +905,15 @@
     }
 
     function getInitialMonth() {
-        const today = new Date();
-        const curKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;
+        const refDate = getRefDate();
+        const refKey = `${refDate.getFullYear()}-${String(refDate.getMonth() + 1).padStart(2, '0')}`;
         const despesas = allData.filter(r => r.valor < 0 && r.categoria !== 'receitas');
-        const hasCur = despesas.some(r => r.data.startsWith(curKey));
-        if (hasCur) return { year: today.getFullYear(), month: today.getMonth() + 1, key: curKey };
+        const hasCur = despesas.some(r => r.data.startsWith(refKey));
+        if (hasCur) return { year: refDate.getFullYear(), month: refDate.getMonth() + 1, key: refKey };
         
         const keys = [...new Set(despesas.map(r => r.data.substring(0, 7)))].sort();
         const last = keys[keys.length - 1];
-        if (!last) return { year: today.getFullYear(), month: today.getMonth() + 1, key: curKey };
+        if (!last) return { year: refDate.getFullYear(), month: refDate.getMonth() + 1, key: refKey };
         const [y, m] = last.split('-').map(Number);
         return { year: y, month: m, key: last };
     }
@@ -946,12 +964,12 @@
         if (!selectedMonth) return;
         const { year, month, key } = selectedMonth;
         const daysInMonth = getDaysInMonth(year, month);
-        const today = new Date();
+        const refDate = getRefDate();
         
         let currentDay;
-        const todayKey = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}`;
+        const todayKey = `${refDate.getFullYear()}-${String(refDate.getMonth() + 1).padStart(2, '0')}`;
         if (key === todayKey) {
-            currentDay = today.getDate();
+            currentDay = refDate.getDate();
         } else if (key < todayKey) {
             currentDay = daysInMonth;
         } else {
@@ -1130,7 +1148,7 @@
         let runningReal = 0;
         for (let d = 1; d <= daysInMonth; d++) {
             dayLabels.push(`Dia ${d}`);
-            if (d <= (key < todayKey ? daysInMonth : (key === todayKey ? today.getDate() : 0))) {
+            if (d <= (key < todayKey ? daysInMonth : (key === todayKey ? refDate.getDate() : 0))) {
                 runningReal += (dailyMap[d] || 0);
                 realAcc.push(runningReal);
             } else { realAcc.push(null); }
