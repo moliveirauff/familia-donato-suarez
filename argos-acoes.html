@@ -956,9 +956,10 @@ function avatarColor(id) {
 }
 
 function flashBtn(btn) {
-  const oldText = btn.textContent;
-  btn.textContent = '✅';
-  setTimeout(() => btn.textContent = oldText, 2000);
+  if (!btn) return;
+  const oldHtml = btn.innerHTML;
+  btn.innerHTML = '✅';
+  setTimeout(() => btn.innerHTML = oldHtml, 2000);
 }
 
 function showToast(msg, type) {
