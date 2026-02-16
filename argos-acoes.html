@@ -885,19 +885,25 @@ function toggleTheme() {
 })();
 
 // ══════════════════════════════════════════
-//  TELEGRAM SYNC
+//  SYNC LAYER
 // ══════════════════════════════════════════
-async function syncToBot(prefix, payload) {
-  const botToken = '8032731802:AAH9E3Y_T04n5k9jUuE6f6U3g5L7h9B6E4M';
-  const chatId   = '8306629331';
+async function syncToBot(type, id, data) {
+  // Sync to local API server (Family Hub Gateway)
+  const SERVER_URL = 'http://127.0.0.1:4747/sync-granular';
+  const ARGOS_KEY  = 'argos-secret-2026';
 
-  const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+  const res = await fetch(SERVER_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: chatId, text: `${prefix}:${JSON.stringify(payload)}` })
+    headers: { 
+      'Content-Type': 'application/json',
+      'X-Argos-Key': ARGOS_KEY
+    },
+    body: JSON.stringify({ type, id, data })
   });
+  
   const json = await res.json();
-  if (!res.ok || !json.ok) throw new Error(json.description || 'Telegram error');
+  if (!res.ok) throw new Error(json.error || 'Gateway error');
+  return json;
 }
 
 // Visual feedback helper: temporariamente muda texto do btn para ✅
@@ -957,11 +963,11 @@ function persist(){
   localStorage.setItem('argos_acoes',   JSON.stringify(acoes));
 }
 
-async function persistAndSync(prefix, payload, btn) {
+async function persistAndSync(type, id, data, btn) {
   persist();
   try {
-    if (prefix && payload) {
-      await syncToBot(prefix, payload);
+    if (type && id && data) {
+      await syncToBot(type, id, data);
     }
     if (btn) flashBtn(btn);
     showToast('✅ Salvo e sincronizado', 'success');
@@ -1061,7 +1067,7 @@ async function cycleStatus(e, id){
   if(!a) return;
   a.status = STATUS_CYCLE[a.status]||'Não Iniciado';
   render();
-  await persistAndSync('BOT_SYNC_ACAO_PATCH', {id: a.id, data: a});
+  await persistAndSync('acoes', a.id, a);
 }
 
 // ══════════════════════════════════════════
@@ -1236,7 +1242,7 @@ async function saveAcao(){
   }
   closeModal('modal-acao');
   render();
-  await persistAndSync('BOT_SYNC_ACAO_PATCH', {id: a.id, data: a}, btn);
+  await persistAndSync('acoes', a.id, a, btn);
 }
 
 async function deleteAcao(){
@@ -1245,7 +1251,7 @@ async function deleteAcao(){
   acoes = acoes.filter(a=>a.id!==id);
   closeModal('modal-acao');
   render();
-  await persistAndSync('BOT_SYNC_DELETE', {type: 'acoes', id: id});
+  await persistAndSync('acoes', id, { _deleted: true });
 }
 
 // ══════════════════════════════════════════
@@ -1336,7 +1342,7 @@ async function savePessoaPanel(){
   closePessoaPanel();
   renderPessoasList();
   render(); // refresh avatars in action rows
-  await persistAndSync('BOT_SYNC_PESSOA_PATCH', {id: p.id, data: p});
+  await persistAndSync('acoes_pessoas', p.id, p);
 }
 
 async function removePessoa(idx){
@@ -1346,7 +1352,7 @@ async function removePessoa(idx){
   pessoas.splice(idx,1);
   renderPessoasList();
   render();
-  await persistAndSync('BOT_SYNC_DELETE', {type: 'pessoas', id: id});
+  await persistAndSync('acoes_pessoas', id, { _deleted: true });
 }
 
 // ── Imóveis list ──
@@ -1417,7 +1423,7 @@ async function saveImovelPanel(){
   }
   closeImovelPanel();
   renderImoveisList();
-  await persistAndSync('BOT_SYNC_IMOVEL_PATCH', {id: im.id, data: im});
+  await persistAndSync('acoes_imoveis', im.id, im);
 }
 
 async function removeImovel(idx){
@@ -1426,7 +1432,7 @@ async function removeImovel(idx){
   const id = im.id;
   imoveis.splice(idx,1);
   renderImoveisList();
-  await persistAndSync('BOT_SYNC_DELETE', {type: 'imoveis', id: id});
+  await persistAndSync('acoes_imoveis', id, { _deleted: true });
 }
 
 async function saveSettings(){
