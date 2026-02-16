@@ -888,18 +888,22 @@ function toggleTheme() {
 //  TELEGRAM SYNC
 // ══════════════════════════════════════════
 async function syncToBot() {
-  const data = {
-    acoes:   JSON.parse(localStorage.getItem('argos_acoes')   || '[]'),
-    pessoas: JSON.parse(localStorage.getItem('argos_pessoas') || '[]'),
-    imoveis: JSON.parse(localStorage.getItem('argos_imoveis') || '[]')
-  };
   const botToken = '8032731802:AAH9E3Y_T04n5k9jUuE6f6U3g5L7h9B6E4M';
   const chatId   = '8306629331';
-  await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ chat_id: chatId, text: `BOT_SYNC_ACOES:${JSON.stringify(data)}` })
-  });
+
+  async function sendMsg(text) {
+    const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: chatId, text })
+    });
+    const json = await res.json();
+    if (!res.ok || !json.ok) throw new Error(json.description || 'Telegram error');
+  }
+
+  await sendMsg(`BOT_SYNC_ACOES_PESSOAS:${JSON.stringify(JSON.parse(localStorage.getItem('argos_pessoas') || '[]'))}`);
+  await sendMsg(`BOT_SYNC_ACOES_IMOVEIS:${JSON.stringify(JSON.parse(localStorage.getItem('argos_imoveis') || '[]'))}`);
+  await sendMsg(`BOT_SYNC_ACOES:${JSON.stringify(JSON.parse(localStorage.getItem('argos_acoes') || '[]'))}`);
 }
 
 // Visual feedback helper: temporariamente muda texto do btn para ✅
@@ -966,7 +970,8 @@ async function persistAndSync(commitMsg, btn) {
     if (btn) flashBtn(btn);
     showToast('✅ Salvo e sincronizado', 'success');
   } catch(e) {
-    showToast('⚠️ Salvo, mas sync falhou: ' + e.message, 'warn');
+    if (btn) { btn.textContent = '⚠️'; setTimeout(() => { btn.textContent = commitMsg || 'Salvar'; btn.disabled = false; }, 2000); }
+    showToast('⚠️ Salvo localmente, sync falhou: ' + e.message, 'warn');
   }
 }
 
