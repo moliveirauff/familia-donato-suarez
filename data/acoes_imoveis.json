@@ -1,31 +1,9 @@
 [
   {
     "id": 1,
-    "nome": "Argos Safira",
-    "cep": "22011001",
-    "logradouro": "Rua Barata Ribeiro",
-    "numero": "211",
-    "complemento": "Apto 204",
-    "bairro": "Copacabana",
-    "cidade": "Rio de Janeiro",
-    "estado": "RJ"
-  },
-  {
-    "id": 2,
-    "nome": "Argos Esmeralda",
-    "cep": "22011001",
-    "numero": "211",
-    "logradouro": "Rua Barata Ribeiro",
-    "complemento": "Apto 206",
-    "bairro": "Copacabana",
-    "cidade": "Rio de Janeiro",
-    "estado": "RJ"
-  },
-  {
-    "id": 3,
-    "nome": "Teste",
+    "nome": "Tefte",
     "cep": "22290070",
-    "numero": "150",
+    "numero": "55",
     "logradouro": "Avenida Lauro Sodré",
     "complemento": "",
     "bairro": "Botafogo",
