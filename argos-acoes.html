@@ -884,7 +884,7 @@ body.dark-mode .section-nao-iniciado .sec-header { background: rgba(255,255,255,
 
     <div class="modal-footer">
       <button class="btn-cancel" onclick="closeModal('modal-settings')">Fechar</button>
-      <button class="btn-save" onclick="saveSettings()">✅ Salvar tudo</button>
+      <button class="btn-save" onclick="saveSettings(this)">✅ Salvar tudo</button>
     </div>
   </div>
 </div>
@@ -1464,10 +1464,15 @@ async function removeImovel(idx){
   await persistAndSync('acoes_imoveis');
 }
 
-async function saveSettings(){
-  closeModal('modal-settings');
-  render();
-  // Settings are now saved per-item in panels
+async function saveSettings(btn){
+  try {
+    await persistAndSync('acoes_pessoas', btn);
+    await persistAndSync('acoes_imoveis', btn);
+    closeModal('modal-settings');
+    render();
+  } catch(e) {
+    showToast('Erro ao sincronizar configurações: ' + e.message, 'error');
+  }
 }
 
 // ══════════════════════════════════════════
