@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "nome": "Copacabana",
-    "cep": "",
-    "logradouro": "",
-    "numero": "",
-    "complemento": "",
-    "bairro": "",
-    "cidade": "",
-    "estado": ""
+    "nome": "Argos Safira",
+    "cep": "22011001",
+    "logradouro": "Rua Barata Ribeiro",
+    "numero": "211",
+    "complemento": "Apto 204",
+    "bairro": "Copacabana",
+    "cidade": "Rio de Janeiro",
+    "estado": "RJ"
   }
 ]
