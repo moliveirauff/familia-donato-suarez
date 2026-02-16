@@ -887,23 +887,17 @@ function toggleTheme() {
 // ══════════════════════════════════════════
 //  TELEGRAM SYNC
 // ══════════════════════════════════════════
-async function syncToBot() {
+async function syncToBot(prefix, payload) {
   const botToken = '8032731802:AAH9E3Y_T04n5k9jUuE6f6U3g5L7h9B6E4M';
   const chatId   = '8306629331';
 
-  async function sendMsg(text) {
-    const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text })
-    });
-    const json = await res.json();
-    if (!res.ok || !json.ok) throw new Error(json.description || 'Telegram error');
-  }
-
-  await sendMsg(`BOT_SYNC_ACOES_PESSOAS:${JSON.stringify(JSON.parse(localStorage.getItem('argos_pessoas') || '[]'))}`);
-  await sendMsg(`BOT_SYNC_ACOES_IMOVEIS:${JSON.stringify(JSON.parse(localStorage.getItem('argos_imoveis') || '[]'))}`);
-  await sendMsg(`BOT_SYNC_ACOES:${JSON.stringify(JSON.parse(localStorage.getItem('argos_acoes') || '[]'))}`);
+  const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: chatId, text: `${prefix}:${JSON.stringify(payload)}` })
+  });
+  const json = await res.json();
+  if (!res.ok || !json.ok) throw new Error(json.description || 'Telegram error');
 }
 
 // Visual feedback helper: temporariamente muda texto do btn para ✅
@@ -963,14 +957,16 @@ function persist(){
   localStorage.setItem('argos_acoes',   JSON.stringify(acoes));
 }
 
-async function persistAndSync(commitMsg, btn) {
+async function persistAndSync(prefix, payload, btn) {
   persist();
   try {
-    await syncToBot();
+    if (prefix && payload) {
+      await syncToBot(prefix, payload);
+    }
     if (btn) flashBtn(btn);
     showToast('✅ Salvo e sincronizado', 'success');
   } catch(e) {
-    if (btn) { btn.textContent = '⚠️'; setTimeout(() => { btn.textContent = commitMsg || 'Salvar'; btn.disabled = false; }, 2000); }
+    if (btn) { btn.textContent = '⚠️'; setTimeout(() => { btn.textContent = 'Salvar'; btn.disabled = false; }, 2000); }
     showToast('⚠️ Salvo localmente, sync falhou: ' + e.message, 'warn');
   }
 }
@@ -1065,7 +1061,7 @@ async function cycleStatus(e, id){
   if(!a) return;
   a.status = STATUS_CYCLE[a.status]||'Não Iniciado';
   render();
-  await persistAndSync(`update: status "${a.titulo}" → ${a.status}`);
+  await persistAndSync('BOT_SYNC_ACAO_PATCH', {id: a.id, data: a});
 }
 
 // ══════════════════════════════════════════
@@ -1227,27 +1223,29 @@ async function saveAcao(){
   if(!data) return;
   if(!data.titulo){ alert('Informe um título.'); return; }
   const btn = document.querySelector('#modal-acao .btn-save');
-  let commitMsg;
+  let a;
   if(editingId){
-    const idx = acoes.findIndex(a=>a.id===editingId);
-    if(idx>=0) acoes[idx] = {...acoes[idx], ...data};
-    commitMsg = `update: ação "${data.titulo}"`;
+    const idx = acoes.findIndex(x=>x.id===editingId);
+    if(idx>=0) {
+      acoes[idx] = {...acoes[idx], ...data};
+      a = acoes[idx];
+    }
   } else {
-    acoes.push({id:nextId(acoes), ...data});
-    commitMsg = `feat: nova ação "${data.titulo}"`;
+    a = {id:nextId(acoes), ...data};
+    acoes.push(a);
   }
   closeModal('modal-acao');
   render();
-  await persistAndSync(commitMsg, btn);
+  await persistAndSync('BOT_SYNC_ACAO_PATCH', {id: a.id, data: a}, btn);
 }
 
 async function deleteAcao(){
   if(!confirm('Excluir esta ação?')) return;
-  const titulo = acoes.find(a=>a.id===editingId)?.titulo || 'ação';
-  acoes = acoes.filter(a=>a.id!==editingId);
+  const id = editingId;
+  acoes = acoes.filter(a=>a.id!==id);
   closeModal('modal-acao');
   render();
-  await persistAndSync(`delete: ação "${titulo}"`);
+  await persistAndSync('BOT_SYNC_DELETE', {type: 'acoes', id: id});
 }
 
 // ══════════════════════════════════════════
@@ -1327,24 +1325,28 @@ async function savePessoaPanel(){
   const email    = document.getElementById('ep-email').value.trim();
   const celular  = document.getElementById('ep-celular').value.trim();
   if(!nome){ alert('Informe o nome.'); return; }
+  let p;
   if(_epIdx !== null){
     Object.assign(pessoas[_epIdx], {nome, sobrenome, email, celular});
+    p = pessoas[_epIdx];
   } else {
-    pessoas.push({id:nextId(pessoas), nome, sobrenome, email, celular});
+    p = {id:nextId(pessoas), nome, sobrenome, email, celular};
+    pessoas.push(p);
   }
   closePessoaPanel();
   renderPessoasList();
   render(); // refresh avatars in action rows
-  await persistAndSync(_epIdx !== null ? `update: pessoa "${nome}"` : `feat: nova pessoa "${nome}"`);
+  await persistAndSync('BOT_SYNC_PESSOA_PATCH', {id: p.id, data: p});
 }
 
 async function removePessoa(idx){
-  const nome = pessoas[idx].nome || 'pessoa';
-  if(!confirm(`Excluir "${nome}"?`)) return;
+  const p = pessoas[idx];
+  if(!confirm(`Excluir "${p.nome}"?`)) return;
+  const id = p.id;
   pessoas.splice(idx,1);
   renderPessoasList();
   render();
-  await persistAndSync(`delete: pessoa "${nome}"`);
+  await persistAndSync('BOT_SYNC_DELETE', {type: 'pessoas', id: id});
 }
 
 // ── Imóveis list ──
@@ -1403,31 +1405,34 @@ async function saveImovelPanel(){
   const nome       = document.getElementById('ei-nome').value.trim();
   if(!nome){ alert('Informe o nome do imóvel.'); return; }
   const fields = ['cep','numero','logradouro','complemento','bairro','cidade','estado'];
-  const obj = {nome};
-  fields.forEach(f=>{ obj[f] = document.getElementById('ei-'+f).value.trim(); });
+  const data = {nome};
+  fields.forEach(f=>{ data[f] = document.getElementById('ei-'+f).value.trim(); });
+  let im;
   if(_eiIdx !== null){
-    Object.assign(imoveis[_eiIdx], obj);
+    Object.assign(imoveis[_eiIdx], data);
+    im = imoveis[_eiIdx];
   } else {
-    imoveis.push({id:nextId(imoveis), ...obj});
+    im = {id:nextId(imoveis), ...data};
+    imoveis.push(im);
   }
   closeImovelPanel();
   renderImoveisList();
-  await persistAndSync(_eiIdx !== null ? `update: imóvel "${nome}"` : `feat: novo imóvel "${nome}"`);
+  await persistAndSync('BOT_SYNC_IMOVEL_PATCH', {id: im.id, data: im});
 }
 
 async function removeImovel(idx){
-  const nome = imoveis[idx].nome || 'imóvel';
-  if(!confirm(`Excluir "${nome}"?`)) return;
+  const im = imoveis[idx];
+  if(!confirm(`Excluir "${im.nome}"?`)) return;
+  const id = im.id;
   imoveis.splice(idx,1);
   renderImoveisList();
-  await persistAndSync(`delete: imóvel "${nome}"`);
+  await persistAndSync('BOT_SYNC_DELETE', {type: 'imoveis', id: id});
 }
 
 async function saveSettings(){
-  const btn = document.querySelector('#modal-settings .modal-footer .btn-save');
   closeModal('modal-settings');
   render();
-  await persistAndSync('update: pessoas e imóveis', btn);
+  // Settings are now saved per-item in panels
 }
 
 // ══════════════════════════════════════════
