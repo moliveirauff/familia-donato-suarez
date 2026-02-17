@@ -1,7 +1,7 @@
 #!/bin/bash
 # sync_data.sh - Sync data/ directory to GitHub
 
-REPO_DIR="/root/clawd/familia-donato-suarez"
+REPO_DIR="/root/.openclaw/familia-donato-suarez"
 cd "$REPO_DIR"
 
 git add data/

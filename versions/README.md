@@ -34,10 +34,10 @@ versions/
 
 ```bash
 # Atualizar versão do hub
-/root/clawd/scripts/bump_hub_version.sh
+/root/.openclaw/scripts/bump_hub_version.sh
 
 # Ou major
-/root/clawd/scripts/bump_hub_version.sh major
+/root/.openclaw/scripts/bump_hub_version.sh major
 ```
 
 Documentação completa: `sub_agents/desenvolvimento.md`
