@@ -220,19 +220,15 @@
         </div>
 
         <div class="card">
-            <span class="chart-header-center">Total Salário Base por Ano</span>
-            <div class="chart-container"><canvas id="cTotalBaseAno"></canvas></div>
-        </div>
-
-        <div class="grid-2">
-            <div class="card">
-                <span class="chart-header-center">Total Bruto por Ano</span>
-                <div class="chart-container"><canvas id="cTotalBrutoAno"></canvas></div>
+            <span class="chart-header-center">Totais Anuais</span>
+            <div class="nav-header-center">
+                <select id="annual-metric" onchange="renderContraCheque()" style="background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px; font-size: 0.85rem; font-weight: 700;">
+                    <option value="base">Salário Base</option>
+                    <option value="bruto">Salário Bruto</option>
+                    <option value="liquido">Salário Líquido</option>
+                </select>
             </div>
-            <div class="card">
-                <span class="chart-header-center">Total Líquido por Ano</span>
-                <div class="chart-container"><canvas id="cTotalLiqAno"></canvas></div>
-            </div>
+            <div class="chart-container"><canvas id="cTotaisAnuais"></canvas></div>
         </div>
 
         <div class="grid-2">
@@ -387,39 +383,43 @@
             const ratioBruto = brutoAvg12 / baseAvg12;
             const ratioLiq = liqAvg12 / baseAvg12;
             const chartYears = Object.keys(yearsMap).filter(y => parseInt(y) >= startYear && parseInt(y) <= endYear).sort();
-            const dataBase = [];
-            const dataBrutoReal = [];
-            const dataBrutoProj = [];
-            const dataLiqReal = [];
-            const dataLiqProj = [];
-            const dataDescAnual = [];
-            chartYears.forEach(y => {
+            const annualMetric = document.getElementById('annual-metric').value;
+            const datasetsAnnual = [];
+
+            if (annualMetric === 'base') {
+                const dataBase = chartYears.map(y => getProjBase(yearsMap[y], current.salario_base, yearsMap[y].length === 12));
+                datasetsAnnual.push({ label: 'Total Base', data: dataBase, backgroundColor: '#667eea' });
+            } else if (annualMetric === 'bruto') {
+                const dataReal = []; const dataProj = [];
+                chartYears.forEach(y => {
+                    const yearData = yearsMap[y];
+                    const isComplete = yearData.length === 12;
+                    const realBruto = yearData.reduce((s, d) => s + d.salario_bruto, 0);
+                    dataReal.push(realBruto);
+                    dataProj.push(isComplete ? 0 : (getProjBase(yearData, current.salario_base, false) * ratioBruto) - realBruto);
+                });
+                datasetsAnnual.push({ label: 'Realizado', data: dataReal, backgroundColor: '#3498db', stack: 'a' });
+                datasetsAnnual.push({ label: 'Projetado', data: dataProj, backgroundColor: 'rgba(52, 152, 219, 0.4)', stack: 'a' });
+            } else {
+                const dataReal = []; const dataProj = [];
+                chartYears.forEach(y => {
+                    const yearData = yearsMap[y];
+                    const isComplete = yearData.length === 12;
+                    const realLiq = yearData.reduce((s, d) => s + d.salario_liquido, 0);
+                    dataReal.push(realLiq);
+                    dataProj.push(isComplete ? 0 : (getProjBase(yearData, current.salario_base, false) * ratioLiq) - realLiq);
+                });
+                datasetsAnnual.push({ label: 'Realizado', data: dataReal, backgroundColor: '#2ecc71', stack: 'a' });
+                datasetsAnnual.push({ label: 'Projetado', data: dataProj, backgroundColor: 'rgba(46, 204, 113, 0.4)', stack: 'a' });
+            }
+
+            renderChart('cTotaisAnuais', 'bar', chartYears, datasetsAnnual, annualMetric !== 'base');
+
+            const dataDescAnual = chartYears.map(y => {
                 const yearData = yearsMap[y];
-                const isComplete = yearData.length === 12;
-                const baseProj = getProjBase(yearData, current.salario_base, isComplete);
-                dataBase.push(baseProj);
-                const realBruto = yearData.reduce((s, d) => s + d.salario_bruto, 0);
-                const realLiq = yearData.reduce((s, d) => s + d.salario_liquido, 0);
-                dataDescAnual.push((1 - (realLiq / realBruto)) * 100);
-                if (isComplete) {
-                    dataBrutoReal.push(realBruto); dataBrutoProj.push(0);
-                    dataLiqReal.push(realLiq); dataLiqProj.push(0);
-                } else {
-                    const totalProjBruto = baseProj * ratioBruto;
-                    const totalProjLiq = baseProj * ratioLiq;
-                    dataBrutoReal.push(realBruto); dataBrutoProj.push(totalProjBruto - realBruto);
-                    dataLiqReal.push(realLiq); dataLiqProj.push(totalProjLiq - realLiq);
-                }
+                return (1 - (yearData.reduce((s, d) => s + d.salario_liquido, 0) / yearData.reduce((s, d) => s + d.salario_bruto, 0))) * 100;
             });
-            renderChart('cTotalBaseAno', 'bar', chartYears, [{ label: 'Total Base', data: dataBase, backgroundColor: '#667eea' }]);
-            renderChart('cTotalBrutoAno', 'bar', chartYears, [
-                { label: 'Realizado', data: dataBrutoReal, backgroundColor: '#3498db', stack: 'a' },
-                { label: 'Projetado', data: dataBrutoProj, backgroundColor: 'rgba(52, 152, 219, 0.4)', stack: 'a' }
-            ], true);
-            renderChart('cTotalLiqAno', 'bar', chartYears, [
-                { label: 'Realizado', data: dataLiqReal, backgroundColor: '#2ecc71', stack: 'a' },
-                { label: 'Projetado', data: dataLiqProj, backgroundColor: 'rgba(46, 204, 113, 0.4)', stack: 'a' }
-            ], true);
+
             renderChart('cLinhaDescontos', 'line', chartYears, [{ label: '% Médio Anual', data: dataDescAnual, borderColor: '#f56565', tension: 0.3, fill: false }]);
             updatePizza();
             updateEvoChart();
