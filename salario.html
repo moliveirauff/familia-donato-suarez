@@ -98,7 +98,6 @@
             .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
             h1 { font-size: 1.75rem; }
         }
-        /* ─── Contra-cheque v2 ─── */
         .cc-kpi-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -106,7 +105,6 @@
             margin-bottom: 20px;
         }
         @media (max-width: 599px) { .cc-kpi-grid { grid-template-columns: 1fr 1fr; } }
-        
         .cc-kpi-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -118,7 +116,6 @@
         .cc-kpi-label { font-size: 0.6rem; font-weight: 800; color: var(--subtext); text-transform: uppercase; margin-bottom: 4px; display: block; letter-spacing: 0.05em; }
         .cc-kpi-value { font-size: 1.05rem; font-weight: 800; color: var(--text); line-height: 1.2; }
         .cc-kpi-ratio { font-size: 0.65rem; color: var(--text-muted); margin-top: 2px; font-weight: 600; }
-        
         .slider-section {
             background: var(--card-bg);
             padding: 25px 25px 15px 25px;
@@ -140,7 +137,6 @@
         }
         .noUi-handle:before, .noUi-handle:after { display: none; }
         .slider-labels { display: flex; justify-content: space-between; margin-top: 15px; font-size: 0.85rem; font-weight: 800; color: var(--accent); }
-
         .chart-header-center {
             text-align: center;
             font-size: 0.95rem;
@@ -150,7 +146,6 @@
             display: block;
             width: 100%;
         }
-
         .nav-header-center {
             display: flex;
             align-items: center;
@@ -356,7 +351,7 @@
             const cTotal = cagr(contraChequeData[0].salario_base, current.salario_base, contraChequeData.length / 12);
             document.getElementById('kpi-base-atual').innerText = brl(current.salario_base);
             document.getElementById('kpi-bruto-avg').innerText = brl(brutoAvg12);
-            document.getElementById('kpi-bruto-ratio').innerText = `Ratio: ${(brutoAvg12 / baseAvg12).toFixed(2)}x (Bruto/Base)`;
+            document.getElementById('kpi-bruto-ratio').innerText = `${(brutoAvg12 / baseAvg12).toFixed(2)}x (Bruto/Base)`;
             document.getElementById('kpi-liq-avg').innerText = brl(liqAvg12);
             document.getElementById('kpi-liq-ratio').innerText = `Ratio: ${(liqAvg12 / baseAvg12).toFixed(2)}x (Líq/Base)`;
             document.getElementById('kpi-bruto-total').innerText = brl(brutoTotal12);
