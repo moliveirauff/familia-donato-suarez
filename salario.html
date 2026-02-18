@@ -471,7 +471,11 @@
                     responsive: true, maintainAspectRatio: false,
                     plugins: { 
                         legend: { display: type !== 'bar', position: 'bottom', labels: { boxWidth: 10, font: { size: 9 } } },
-                        tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${type === 'line' ? ctx.parsed.y.toFixed(1)+'%' : brl(ctx.parsed.y)}` } }
+                        tooltip: { callbacks: { label: ctx => {
+                            const label = ctx.dataset.label || ctx.label || '';
+                            const value = ctx.parsed.y !== undefined ? ctx.parsed.y : ctx.parsed;
+                            return ` ${label}: ${type === 'line' ? value.toFixed(1)+'%' : brl(value)}`;
+                        } } }
                     },
                     scales: type === 'pie' ? {} : {
                         x: { stacked, ticks: { font: { size: 9 } } },
