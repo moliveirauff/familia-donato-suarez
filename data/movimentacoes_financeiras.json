@@ -1,5 +1,5 @@
 {
-  "versao": "2026.2.4",
+  "versao": "2026.2.5",
   "data_atualizacao": "2026-02-19",
   "movimentacoes": [
     {
@@ -8545,14 +8545,6 @@
       "subclasse": "4.2_urbano"
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2021-07-15",
-      "tipo": "APORTE",
-      "valor_total": 140000.0,
-      "preco_unitario": 380393.19,
-      "quantidade": 0.4
-    },
-    {
       "ativo": "XP",
       "data": "2021-07-21",
       "tipo": "RETIRADA",
@@ -10135,14 +10127,6 @@
       "subclasse": "2.2_high_yield"
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2022-03-05",
-      "tipo": "APORTE",
-      "valor_total": 2598.29,
-      "preco_unitario": 380393.19,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "ARX Denali Previ",
       "data": "2022-03-19",
       "tipo": "APORTE",
@@ -10429,14 +10413,6 @@
       "quantidade": 6.8
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2022-04-05",
-      "tipo": "APORTE",
-      "valor_total": 2598.3,
-      "preco_unitario": 380393.19,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "ODPV3",
       "data": "2022-04-05",
       "tipo": "APORTE",
@@ -10661,14 +10637,6 @@
       "subclasse": "4.1_logistico"
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2022-05-05",
-      "tipo": "APORTE",
-      "valor_total": 2653.74,
-      "preco_unitario": 388509.65,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "VGIP11",
       "data": "2022-05-09",
       "tipo": "APORTE",
@@ -10851,14 +10819,6 @@
       "subclasse": "7.1_multimercado"
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2022-06-05",
-      "tipo": "APORTE",
-      "valor_total": 2598.3,
-      "preco_unitario": 380393.19,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "OLD_PETR4",
       "data": "2022-06-23",
       "tipo": "APORTE",
@@ -10969,14 +10929,6 @@
       "subclasse": "4.1_logistico"
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2022-08-22",
-      "tipo": "APORTE",
-      "valor_total": 262.65,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "VT",
       "data": "2022-08-29",
       "tipo": "APORTE",
@@ -11077,14 +11029,6 @@
       "quantidade": 10.4
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2022-09-10",
-      "tipo": "APORTE",
-      "valor_total": 525.29,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "XPBR31",
       "data": "2022-09-15",
       "tipo": "RETIRADA",
@@ -11171,14 +11115,6 @@
       "valor_total": 1342.53,
       "preco_unitario": 102.25,
       "quantidade": 13.1
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2022-10-10",
-      "tipo": "APORTE",
-      "valor_total": 698.62,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "XLRE",
@@ -11303,14 +11239,6 @@
       "subclasse": "7.1_multimercado"
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2022-11-10",
-      "tipo": "APORTE",
-      "valor_total": 698.62,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "QQQ",
       "data": "2022-11-11",
       "tipo": "APORTE",
@@ -11391,14 +11319,6 @@
       "quantidade": 3557.0,
       "macro_classe": "7_alternativos_estratega",
       "subclasse": "7.1_multimercado"
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2022-12-10",
-      "tipo": "APORTE",
-      "valor_total": 698.62,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "Arca Previ",
@@ -11643,14 +11563,6 @@
       "quantidade": 9.0
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-01-02",
-      "tipo": "APORTE",
-      "valor_total": 525.29,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "Verde Mundi Previ",
       "data": "2023-01-15",
       "tipo": "APORTE",
@@ -11687,14 +11599,6 @@
       "quantidade": 4586.4,
       "macro_classe": "7_alternativos_estratega",
       "subclasse": "7.1_multimercado"
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-02-10",
-      "tipo": "APORTE",
-      "valor_total": 525.29,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "XP Superprev 2",
@@ -11809,22 +11713,6 @@
       "subclasse": "7.1_multimercado"
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-02-28",
-      "tipo": "APORTE",
-      "valor_total": 300014.8,
-      "preco_unitario": 496189.51,
-      "quantidade": 0.6
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-03-01",
-      "tipo": "APORTE",
-      "valor_total": 10522.69,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "ENBR3",
       "data": "2023-03-02",
       "tipo": "RETIRADA",
@@ -11861,38 +11749,6 @@
       "quantidade": 100.0,
       "macro_classe": "",
       "subclasse": "3.3_dividendos"
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-03-02",
-      "tipo": "APORTE",
-      "valor_total": 131.64,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-03-03",
-      "tipo": "APORTE",
-      "valor_total": 525.29,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-03-06",
-      "tipo": "APORTE",
-      "valor_total": 3200.0,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-03-08",
-      "tipo": "APORTE",
-      "valor_total": 2707.69,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "XP Superprev 2",
@@ -11987,14 +11843,6 @@
       "subclasse": "5.2_real_estate"
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-04-20",
-      "tipo": "APORTE",
-      "valor_total": 2498.83,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "IRDM11",
       "data": "2023-04-26",
       "tipo": "APORTE",
@@ -12067,22 +11915,6 @@
       "valor_total": 29942.99,
       "preco_unitario": 1.35,
       "quantidade": 22098.8
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-04-30",
-      "tipo": "APORTE",
-      "valor_total": 2900.0,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-05-01",
-      "tipo": "APORTE",
-      "valor_total": 525.29,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "XLRE",
@@ -12239,22 +12071,6 @@
       "valor_total": 200.0,
       "preco_unitario": 32.71,
       "quantidade": 6.1
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-06-01",
-      "tipo": "APORTE",
-      "valor_total": 525.29,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-06-01",
-      "tipo": "APORTE",
-      "valor_total": 3950.0,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "HGLG11",
@@ -12445,14 +12261,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-07-01",
-      "tipo": "APORTE",
-      "valor_total": 525.29,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "XP Superprev 2",
       "data": "2023-07-15",
       "tipo": "APORTE",
@@ -12479,30 +12287,6 @@
       "valor_total": 1000.0,
       "preco_unitario": 1.02,
       "quantidade": 984.8
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-07-16",
-      "tipo": "APORTE",
-      "valor_total": 872.0,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-07-17",
-      "tipo": "APORTE",
-      "valor_total": 850.0,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-07-17",
-      "tipo": "APORTE",
-      "valor_total": 71.0,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "Vitreo Superprev 2",
@@ -12553,30 +12337,6 @@
       "valor_total": 24000.0,
       "preco_unitario": 1.0,
       "quantidade": 24000.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-08-01",
-      "tipo": "APORTE",
-      "valor_total": 589.17,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-08-01",
-      "tipo": "APORTE",
-      "valor_total": 2500.0,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-08-01",
-      "tipo": "APORTE",
-      "valor_total": 3025.25,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "XP Superprev 2",
@@ -12633,30 +12393,6 @@
       "quantidade": 34.3
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-09-15",
-      "tipo": "APORTE",
-      "valor_total": 3025.2,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-09-15",
-      "tipo": "APORTE",
-      "valor_total": 3000.0,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-09-15",
-      "tipo": "APORTE",
-      "valor_total": 589.61,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "Verde Mundi Previ",
       "data": "2023-09-15",
       "tipo": "RETIRADA",
@@ -12701,14 +12437,6 @@
       "quantidade": 4579.4,
       "macro_classe": "7_alternativos_estratega",
       "subclasse": "7.1_multimercado"
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-10-15",
-      "tipo": "APORTE",
-      "valor_total": 903.14,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "Arca Previ",
@@ -12847,14 +12575,6 @@
       "quantidade": 10.0,
       "macro_classe": "",
       "subclasse": "4.2_urbano"
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2023-11-05",
-      "tipo": "APORTE",
-      "valor_total": 589.17,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "Kapitalo K10 Prvi",
@@ -102193,14 +101913,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2024-01-09",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2103.12,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "BBDC4",
       "data": "2024-01-02",
       "tipo": "PROVENTO_JCP",
@@ -102457,14 +102169,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2024-02-07",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2002.25,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "VRTA11",
       "data": "2024-02-15",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -102631,14 +102335,6 @@
       "data": "2024-02-23",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 125.21,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2024-03-05",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2202.25,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -102897,14 +102593,6 @@
       "quantidade": 0.0,
       "macro_classe": "",
       "subclasse": "3.3_dividendos"
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2024-04-05",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2202.25,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "PVBI11",
@@ -103187,14 +102875,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2024-05-05",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2202.25,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "BBDC4",
       "data": "2024-05-02",
       "tipo": "PROVENTO_JCP",
@@ -103399,14 +103079,6 @@
       "data": "2024-05-24",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 115.23,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2024-06-05",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2202.25,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -103667,14 +103339,6 @@
       "subclasse": "3.3_dividendos"
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2024-07-05",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2202.25,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "ITUB4",
       "data": "2024-07-01",
       "tipo": "PROVENTO_JCP",
@@ -103913,14 +103577,6 @@
       "quantidade": 0.0,
       "macro_classe": "",
       "subclasse": "3.3_dividendos"
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2024-08-05",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2202.26,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "ITUB4",
@@ -104167,14 +103823,6 @@
       "quantidade": 0.0,
       "macro_classe": "",
       "subclasse": "3.3_dividendos"
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2024-09-01",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2202.25,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "ITUB4",
@@ -104541,14 +104189,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2024-10-08",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2202.25,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "ITUB4",
       "data": "2024-10-01",
       "tipo": "PROVENTO_JCP",
@@ -104765,14 +104405,6 @@
       "data": "2024-10-25",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 122.24,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2024-11-05",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2202.25,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -105011,14 +104643,6 @@
       "quantidade": 0.0,
       "macro_classe": "",
       "subclasse": "3.3_dividendos"
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2024-12-05",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2202.25,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "ITUB4",
@@ -105433,14 +105057,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2025-01-05",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2202.25,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "BBDC4",
       "data": "2025-01-02",
       "tipo": "PROVENTO_JCP",
@@ -105703,14 +105319,6 @@
       "quantidade": 0.0,
       "macro_classe": "",
       "subclasse": "3.3_dividendos"
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2025-02-10",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2202.25,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "BBDC4",
@@ -106873,22 +106481,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2025-05-10",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 803.94,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2025-06-10",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2377.47,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "ITUB4",
       "data": "2025-06-02",
       "tipo": "PROVENTO_JCP",
@@ -107217,14 +106809,6 @@
       "subclasse": "5.2_real_estate"
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2025-07-10",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2377.47,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "RDOR3",
       "data": "2025-07-01",
       "tipo": "PROVENTO_JCP",
@@ -107475,14 +107059,6 @@
       "quantidade": 0.0,
       "macro_classe": "4_ativos_reais",
       "subclasse": "4.1_logistico"
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2025-08-10",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2377.47,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
     },
     {
       "ativo": "ITUB4",
@@ -107773,14 +107349,6 @@
       "data": "2025-08-29",
       "tipo": "PROVENTO_??",
       "valor_total": 15.0,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2025-09-10",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2377.47,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -108113,14 +107681,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "Imóvel - Trulli",
-      "data": "2025-10-10",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2377.47,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "ITUB4",
       "data": "2025-10-01",
       "tipo": "PROVENTO_JCP",
@@ -108415,14 +107975,6 @@
       "data": "2025-11-06",
       "tipo": "PROVENTO_DIVIDENDO",
       "valor_total": 188.87,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2025-11-10",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2377.47,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -108743,14 +108295,6 @@
       "data": "2025-11-28",
       "tipo": "PROVENTO_DIVIDENDO",
       "valor_total": 15.0,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "Imóvel - Trulli",
-      "data": "2025-12-05",
-      "tipo": "PROVENTO_ALUGUEL",
-      "valor_total": 2377.6,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
