@@ -1,5 +1,5 @@
 {
-  "versao": "2026.2.6",
+  "versao": "2026.2.7",
   "data_atualizacao": "2026-02-19",
   "movimentacoes": [
     {
@@ -85273,6 +85273,70 @@
       "valor_total": 0.0,
       "preco_unitario": 0.0,
       "quantidade": 0.0
+    },
+    {
+      "ativo": "Vitreo Superprev 2",
+      "data": "2026-02-19",
+      "tipo": "APORTE (Ajuste Balanço)",
+      "valor_total": 0.0,
+      "preco_unitario": 0.0,
+      "quantidade": 0.28
+    },
+    {
+      "ativo": "Arca Previ",
+      "data": "2026-02-19",
+      "tipo": "RETIRADA (Ajuste Balanço)",
+      "valor_total": 0.0,
+      "preco_unitario": 0.0,
+      "quantidade": 0.26
+    },
+    {
+      "ativo": "VNQ",
+      "data": "2026-02-19",
+      "tipo": "APORTE (Ajuste Balanço)",
+      "valor_total": 0.0,
+      "preco_unitario": 0.0,
+      "quantidade": 0.1
+    },
+    {
+      "ativo": "ETHA",
+      "data": "2026-02-19",
+      "tipo": "APORTE (Ajuste Balanço)",
+      "valor_total": 0.0,
+      "preco_unitario": 0.0,
+      "quantidade": 0.1
+    },
+    {
+      "ativo": "Quest Luce Previ",
+      "data": "2026-02-19",
+      "tipo": "RETIRADA (Ajuste Balanço)",
+      "valor_total": 0.0,
+      "preco_unitario": 0.0,
+      "quantidade": 0.08
+    },
+    {
+      "ativo": "Icatu Previ",
+      "data": "2026-02-19",
+      "tipo": "RETIRADA (Ajuste Balanço)",
+      "valor_total": 0.0,
+      "preco_unitario": 0.0,
+      "quantidade": 0.07
+    },
+    {
+      "ativo": "XP Superprev 2",
+      "data": "2026-02-19",
+      "tipo": "RETIRADA (Ajuste Balanço)",
+      "valor_total": 0.0,
+      "preco_unitario": 0.0,
+      "quantidade": 0.08
+    },
+    {
+      "ativo": "Arca Grão RF Previ",
+      "data": "2026-02-19",
+      "tipo": "RETIRADA (Ajuste Balanço)",
+      "valor_total": 0.0,
+      "preco_unitario": 0.0,
+      "quantidade": 0.02
     }
   ],
   "descricao": "Historico de aportes e retiradas (trades) de ativos financeiros"
