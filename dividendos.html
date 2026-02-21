@@ -780,6 +780,8 @@ function renderTop() {
         data: sorted.map(s => s[1].total),
         backgroundColor: sorted.map(s => COLORS[s[1].class] || '#667eea'),
         borderRadius: 4,
+        barPercentage: 0.7,
+        categoryPercentage: 0.9,
         datalabels: {
           display: true,
           anchor: 'end',
@@ -796,7 +798,7 @@ function renderTop() {
       responsive: true,
       maintainAspectRatio: false,
       layout: {
-        padding: { right: 45 }
+        padding: { right: 50 }
       },
       plugins: { 
         legend: { display: false },
@@ -846,7 +848,7 @@ function renderDYAtivo() {
         label: 'DY (%)',
         data: sorted.map(([ativo, d]) => d.dy),
         backgroundColor: sorted.map(([ativo, d]) => COLORS[d.class] || '#95a5a6'),
-        borderRadius: 3,
+        borderRadius: 4,
         barPercentage: 0.7,
         categoryPercentage: 0.9,
         datalabels: {
