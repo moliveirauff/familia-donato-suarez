@@ -338,18 +338,36 @@
 
   function renderAportes() {
     const ctx = document.getElementById('chartAportes').getContext('2d');
+    
+    if (charts.aportes) charts.aportes.destroy();
+    
     charts.aportes = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: rawData.aportes_liquidos.map(d => d.ano),
-        datasets: [{
-          label: 'Aporte Líquido',
-          data: rawData.aportes_liquidos.map(d => d.aporte),
-          backgroundColor: ctx => ctx.raw >= 0 ? '#48bb78' : '#f56565',
-          borderRadius: 4
-        }]
+        datasets: [
+          {
+            label: 'Aporte Real',
+            data: rawData.aportes_liquidos.map(d => d.aporte_real),
+            backgroundColor: '#48bb78',
+            borderRadius: 4
+          },
+          {
+            label: 'Dividendos Reinvestidos',
+            data: rawData.aportes_liquidos.map(d => d.dividendos_reinvestidos),
+            backgroundColor: '#f6e05e',
+            borderRadius: 4
+          }
+        ]
       },
-      options: { responsive: true, maintainAspectRatio: false }
+      options: { 
+        responsive: true, 
+        maintainAspectRatio: false,
+        scales: {
+          x: { stacked: true },
+          y: { stacked: true }
+        }
+      }
     });
   }
 
