@@ -584,9 +584,9 @@ function updateKPIs() {
   oneYearAgo.setMonth(now.getMonth() - 12);
   const l12mTotal = rawData.filter(d => d.date >= oneYearAgo).reduce((s, d) => s + d.val, 0);
   
-  // DY Geral (SEM previdência privada)
-  const totalValueDY = Object.values(portfolioValueDY).reduce((s, v) => s + v, 0);
-  const dyGeral = totalValueDY > 0 ? (l12mTotal / totalValueDY) * 100 : 0;
+  // DY Geral (COM previdência privada - valor total da carteira)
+  const totalValue = Object.values(portfolioValue).reduce((s, v) => s + v, 0);
+  const dyGeral = totalValue > 0 ? (l12mTotal / totalValue) * 100 : 0;
 
   setTxt('kpiTotal', fmt(total));
   setTxt('kpiYTD', fmt(ytd));
@@ -792,7 +792,7 @@ function renderDYCategoria() {
     catData[d.class].divs += d.val;
   });
   
-  // 2. Somar valor ATUAL da carteira por categoria (SEM previdência privada)
+  // 2. Somar valor ATUAL da carteira por categoria (SEM previdência privada para categorias)
   Object.keys(portfolioValueDY).forEach(ativo => {
     const ticker = ativo.split('_')[0];
     const cls = tickerClassMap[ticker] || 'Outros';
@@ -815,10 +815,10 @@ function renderDYCategoria() {
     return dy;
   });
 
-  // DY Geral
+  // DY Geral (usando carteira COMPLETA com previdência)
   const totalDivs = Object.values(catData).reduce((s, v) => s + v.divs, 0);
-  const totalValue = Object.values(catData).reduce((s, v) => s + v.value, 0);
-  const dyGeral = totalValue > 0 ? (totalDivs / totalValue) * 100 : 0;
+  const totalValueFull = Object.values(portfolioValue).reduce((s, v) => s + v, 0);
+  const dyGeral = totalValueFull > 0 ? (totalDivs / totalValueFull) * 100 : 0;
 
   if (charts.dyCategoria) charts.dyCategoria.destroy();
   charts.dyCategoria = new Chart(ctx, {
