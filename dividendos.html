@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>📊 Dashboard de Dividendos</title>
-  <meta name="version" content="v1.2">
+  <meta name="version" content="v1.3">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
   <style>
     :root {
       --bg: #f7fafc;
@@ -295,18 +296,23 @@
     </div>
   </div>
 
-  <!-- Chart: DY por Ativo -->
+  <!-- Chart: DY por Ativo (com scroll) -->
   <div class="card">
     <div class="card-header">
       <div class="card-title"><span>📈</span> Dividend Yield por Ativo (12M)</div>
     </div>
-    <div class="chart-container">
+    <div style="position: relative; height: 800px; overflow-y: auto;">
       <canvas id="chartDYAtivo"></canvas>
     </div>
   </div>
 </main>
 
 <script>
+// Desabilitar datalabels globalmente (ativar apenas onde necessário)
+Chart.defaults.set('plugins.datalabels', {
+  display: false
+});
+
 // === CONFIG ===
 const COLORS = {
   '1_renda_fixa_soberana': '#3498db',
@@ -628,7 +634,8 @@ function renderDYCategoria() {
     catData[d.class].value += d.value;
   });
 
-  const classes = Object.keys(catData).sort();
+  // Filtrar categorias vazias (sem valor)
+  const classes = Object.keys(catData).filter(c => catData[c].value > 0).sort();
   const dyValues = classes.map(c => {
     const dy = catData[c].value > 0 ? (catData[c].divs / catData[c].value) * 100 : 0;
     return dy;
@@ -648,7 +655,15 @@ function renderDYCategoria() {
         label: 'DY (%)',
         data: [...dyValues, dyGeral],
         backgroundColor: [...classes.map(c => COLORS[c] || '#95a5a6'), '#34495e'],
-        borderRadius: 4
+        borderRadius: 4,
+        datalabels: {
+          display: true,
+          anchor: 'end',
+          align: 'top',
+          formatter: (value) => value.toFixed(2) + '%',
+          font: { weight: 'bold', size: 10 },
+          color: '#2d3748'
+        }
       }]
     },
     options: {
@@ -668,7 +683,8 @@ function renderDYCategoria() {
           }
         }
       }
-    }
+    },
+    plugins: [ChartDataLabels]
   });
 }
 
@@ -677,12 +693,17 @@ function renderTop() {
   const oneYearAgo = new Date();
   oneYearAgo.setMonth(new Date().getMonth() - 12);
   
-  const grouped = {};
+  const grouped = {}; // { ticker: { total, class } }
   rawData.filter(d => d.date >= oneYearAgo).forEach(d => {
-    grouped[d.ticker] = (grouped[d.ticker] || 0) + d.val;
+    if (!grouped[d.ticker]) {
+      grouped[d.ticker] = { total: 0, class: d.class };
+    }
+    grouped[d.ticker].total += d.val;
   });
 
-  const sorted = Object.entries(grouped).sort((a,b) => b[1] - a[1]).slice(0, 10);
+  const sorted = Object.entries(grouped)
+    .sort((a,b) => b[1].total - a[1].total)
+    .slice(0, 10);
   
   if (charts.top) charts.top.destroy();
   charts.top = new Chart(ctx, {
@@ -691,9 +712,17 @@ function renderTop() {
       labels: sorted.map(s => s[0]),
       datasets: [{
         label: 'Total 12M',
-        data: sorted.map(s => s[1]),
-        backgroundColor: '#667eea',
-        borderRadius: 4
+        data: sorted.map(s => s[1].total),
+        backgroundColor: sorted.map(s => COLORS[s[1].class] || '#667eea'),
+        borderRadius: 4,
+        datalabels: {
+          display: true,
+          anchor: 'end',
+          align: 'right',
+          formatter: (value) => compactFmt(value),
+          font: { weight: 'bold', size: 10 },
+          color: '#2d3748'
+        }
       }]
     },
     options: {
@@ -701,7 +730,22 @@ function renderTop() {
       responsive: true,
       maintainAspectRatio: false,
       plugins: { 
-        legend: { display: false },
+        legend: { 
+          display: true,
+          position: 'bottom',
+          labels: {
+            generateLabels: () => {
+              const classes = [...new Set(sorted.map(s => s[1].class))];
+              return classes.map(c => ({
+                text: LABELS[c] || c,
+                fillStyle: COLORS[c] || '#95a5a6',
+                hidden: false
+              }));
+            },
+            boxWidth: 12,
+            font: { size: 10 }
+          }
+        },
         tooltip: {
           callbacks: {
             label: ctx => fmt(ctx.raw)
@@ -711,18 +755,23 @@ function renderTop() {
       scales: {
         x: { ticks: { callback: v => compactFmt(v) } }
       }
-    }
+    },
+    plugins: [ChartDataLabels]
   });
 }
 
 function renderDYAtivo() {
   const ctx = getCtx('chartDYAtivo');
   
-  // Ranquear por DY
+  // Ranquear por DY - TODOS os ativos com dividendos
   const sorted = Object.entries(dyData)
-    .filter(([ativo, d]) => d.dy > 0)
-    .sort((a, b) => b[1].dy - a[1].dy)
-    .slice(0, 15);
+    .filter(([ativo, d]) => d.divs12m > 0) // Filtrar apenas ativos que pagaram dividendos
+    .sort((a, b) => b[1].dy - a[1].dy);
+  
+  // Altura dinâmica baseada no número de ativos
+  const chartHeight = Math.max(800, sorted.length * 25);
+  const canvas = document.getElementById('chartDYAtivo');
+  canvas.height = chartHeight;
   
   if (charts.dyAtivo) charts.dyAtivo.destroy();
   charts.dyAtivo = new Chart(ctx, {
@@ -733,7 +782,15 @@ function renderDYAtivo() {
         label: 'DY (%)',
         data: sorted.map(([ativo, d]) => d.dy),
         backgroundColor: sorted.map(([ativo, d]) => COLORS[d.class] || '#95a5a6'),
-        borderRadius: 4
+        borderRadius: 4,
+        datalabels: {
+          display: true,
+          anchor: 'end',
+          align: 'right',
+          formatter: (value) => value.toFixed(2) + '%',
+          font: { weight: 'bold', size: 9 },
+          color: '#2d3748'
+        }
       }]
     },
     options: {
@@ -741,7 +798,22 @@ function renderDYAtivo() {
       responsive: true,
       maintainAspectRatio: false,
       plugins: { 
-        legend: { display: false },
+        legend: { 
+          display: true,
+          position: 'bottom',
+          labels: {
+            generateLabels: () => {
+              const classes = [...new Set(sorted.map(s => s[1].class))];
+              return classes.map(c => ({
+                text: LABELS[c] || c,
+                fillStyle: COLORS[c] || '#95a5a6',
+                hidden: false
+              }));
+            },
+            boxWidth: 12,
+            font: { size: 10 }
+          }
+        },
         tooltip: {
           callbacks: {
             label: ctx => `DY: ${ctx.raw.toFixed(2)}%`
@@ -753,7 +825,8 @@ function renderDYAtivo() {
           ticks: { callback: v => v.toFixed(1) + '%' }
         }
       }
-    }
+    },
+    plugins: [ChartDataLabels]
   });
 }
 
