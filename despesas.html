@@ -221,17 +221,21 @@
     <h1>💸 Dashboard de Despesas</h1>
     <p id="last-update" class="page-subtitle" style="display:none; font-size: 0.72rem; margin-top: 4px; opacity: 0.8;"></p>
 
-    <!-- Tab Navigation removed -->
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab(1)">📊 Consolidado</button>
+        <button class="tab-btn" onclick="switchTab(2)">📅 Análise Mensal</button>
+    </div>
 
     <!-- Month Selector (Tab 2) -->
-    <div id="month-selector" style="display:flex; text-align:center; margin-bottom: 16px; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
+    <div id="month-selector" style="display:none; text-align:center; margin-bottom: 16px; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
         <button onclick="changeMonth(-1)" style="background:var(--card-bg); border:1px solid var(--border); border-radius: 50%; width: 36px; height: 36px; cursor: pointer; color: var(--text); font-weight: bold;">&lt;</button>
         <select id="month-dropdown" onchange="onMonthDropdownChange()" style="background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:6px 12px; font-size:0.9rem; font-weight:700; color:var(--text); cursor:pointer; outline:none;"></select>
         <button onclick="changeMonth(1)" style="background:var(--card-bg); border:1px solid var(--border); border-radius: 50%; width: 36px; height: 36px; cursor: pointer; color: var(--text); font-weight: bold;">&gt;</button>
     </div>
 
     <!-- Period Filter -->
-    <div class="period-bar" id="period-bar" style="justify-content: center;">
+    <div class="period-bar" id="period-bar">
         <span class="period-label">Período:</span>
         <button class="btn-period" onclick="setPeriod('ano_atual', this)">Ano Atual</button>
         <button class="btn-period active" onclick="setPeriod('12m', this)">12M</button>
@@ -242,8 +246,8 @@
 
     <div id="loading" class="loading-msg">⏳ Carregando dados...</div>
 
-    <!-- ═══ Seção Análise Mensal (Antes Aba 2) ════════════════════════════════ -->
-    <div id="tab2">
+    <!-- ═══ ABA 2 — Análise Mensal ═══════════════════════════════════════════ -->
+    <div id="tab2" style="display:none;">
 
         <!-- 1: KPI Cards -->
         <div class="kpi-grid" id="kpi-grid"></div>
@@ -311,10 +315,8 @@
 
     </div>
 
-    <!-- ═══ Seção Consolidado (Antes Aba 1) ══════════════════════════════════ -->
+    <!-- ═══ ABA 1 — Consolidado ══════════════════════════════════════════════ -->
     <div id="dashboard">
-
-        <h2 style="text-align: center; margin: 30px 0 20px; font-size: 1.2rem;">📊 Visão Consolidada</h2>
 
         <!-- 1: KPI Cards (Aba 1) -->
         <div class="kpi-grid" id="kpi-grid-aba1"></div>
@@ -752,9 +754,23 @@
         renderH();
     }
 
-    // ─── Tab Navigation removed ───
-    let currentTab = 1;
-    let selectedMonth = null; // { year, month, key }
+    // ─── Tab Navigation ───
+    function switchTab(tab) {
+        currentTab = tab;
+        document.querySelectorAll('.tab-btn').forEach((b, i) => {
+            b.classList.toggle('active', i + 1 === tab);
+        });
+        document.getElementById('period-bar').style.display = tab === 1 ? '' : 'none';
+        document.getElementById('month-selector').style.display = tab === 2 ? 'flex' : 'none';
+        
+        document.getElementById('tab2').style.display = tab === 2 ? 'block' : 'none';
+        document.getElementById('dashboard').style.display = tab === 1 ? 'block' : 'none';
+        
+        if (tab === 2 && allData.length > 0) {
+            if (!selectedMonth) selectedMonth = getInitialMonth();
+            renderTab2();
+        }
+    }
 
     function getInitialMonth() {
         const refDate = getRefDate();
