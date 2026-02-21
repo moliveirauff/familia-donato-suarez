@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📥 Dashboard de Entradas</title>
-    <meta name="version" content="v1.13.2">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         :root {
@@ -292,16 +291,12 @@
     <h1>📥 Dashboard de Entradas</h1>
     <p id="last-update" class="page-subtitle" style="display:none;"></p>
 
-    <!-- Tab Navigation -->
-    <div class="tab-nav">
-        <button class="tab-btn active" onclick="switchTab(1)">📊 Consolidado</button>
-        <a href="movimentacoes.html" class="tab-btn" style="text-decoration:none; display:flex; align-items:center; justify-content:center;">✏️ Lançamentos</a>
-    </div>
+    <!-- Tab Navigation removed -->
 
-    <!-- ═══ ABA 1 — Consolidado ══════════════════════════════════════════════ -->
+    <!-- ═══ Seção Consolidado ══════════════════════════════════════════════ -->
     <div id="tab1">
         <!-- Period Filter -->
-        <div class="period-bar">
+        <div class="period-bar" style="justify-content: center;">
             <span class="period-label">Período:</span>
             <button class="btn-period active" onclick="setPeriod('ano_atual', this)">Ano</button>
             <button class="btn-period" onclick="setPeriod('12m', this)">12M</button>
@@ -340,82 +335,6 @@
             <div class="card">
                 <div class="card-header"><span>🥧 % por Subcategoria no Período</span></div>
                 <div class="chart-container"><canvas id="cPie"></canvas></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ═══ ABA 2 — Lançamentos ══════════════════════════════════════════════ -->
-    <div id="tab2" style="display:none;">
-        <div id="tab2-content" style="display:none;">
-            <!-- Filters -->
-            <div class="editor-filters">
-                <select id="f-month" class="f-select" onchange="renderLancamentos()">
-                    <option value="__all__">Todos os meses</option>
-                </select>
-                <select id="f-subcat" class="f-select" onchange="renderLancamentos()">
-                    <option value="__all__">Todas as subcategorias</option>
-                </select>
-                <select id="f-orig" class="f-select" onchange="renderLancamentos()">
-                    <option value="__all__">Todas as origens</option>
-                </select>
-            </div>
-
-            <div class="ed-summary" id="lanc-summary"></div>
-
-            <div class="ed-table-wrap">
-                <table class="ed-table">
-                    <thead>
-                        <tr>
-                            <th>Data</th>
-                            <th>Descrição</th>
-                            <th>Subcategoria</th>
-                            <th>Origem</th>
-                            <th style="text-align:right;">Valor</th>
-                            <th style="text-align:center;">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody id="lanc-tbody"></tbody>
-                </table>
-            </div>
-        </div>
-        <div id="tab2-loading" class="loading-msg" style="display:none;">⏳ Carregando...</div>
-    </div>
-
-    <!-- Modal de Edição -->
-    <div class="modal-overlay" id="ed-modal" onclick="if(event.target===this)closeModal()">
-        <div class="modal-box">
-            <div class="modal-title" id="modal-title">✏️ Editar Lançamento</div>
-            <div class="modal-field">
-                <label>Data</label>
-                <input type="date" id="m-data">
-            </div>
-            <div class="modal-field">
-                <label>Descrição</label>
-                <input type="text" id="m-desc" placeholder="Descrição">
-            </div>
-            <div class="modal-field">
-                <label>Subcategoria</label>
-                <select id="m-subcat">
-                    <option value="">-- Selecionar --</option>
-                    <option value="Salário">Salário</option>
-                    <option value="Benefícios">Benefícios</option>
-                    <option value="Outras Receitas">Outras Receitas</option>
-                </select>
-            </div>
-            <div class="modal-field">
-                <label>Origem</label>
-                <select id="m-orig">
-                    <option value="">-- Selecionar --</option>
-                </select>
-            </div>
-            <div class="modal-field">
-                <label>Valor (R$)</label>
-                <input type="number" id="m-valor" placeholder="Ex: 5000.00" step="0.01">
-            </div>
-            <div class="modal-error" id="modal-error"></div>
-            <div class="modal-actions">
-                <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
-                <button class="btn-save" onclick="saveModal()">Salvar</button>
             </div>
         </div>
     </div>
@@ -461,263 +380,155 @@
             if (currentTab === 1 && filteredData.length > 0) renderConsolidado();
         }
 
-        // ─── Period Filter ────────────────────────────────────────────────────
-        function setPeriod(period, btn) {
-            currentPeriod = period;
-            document.querySelectorAll('.btn-period').forEach(b => b.classList.remove('active'));
-            if (btn) btn.classList.add('active');
-            applyFilter(period);
-            if (currentTab === 1) renderConsolidado();
+    // ─── Period Filter ───
+    function setPeriod(period, btn) {
+        currentPeriod = period;
+        document.querySelectorAll('.btn-period').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+        applyFilter(period);
+        renderConsolidado();
+    }
+
+    function applyFilter(period) {
+        const receitas = allData.filter(r => r.categoria === 'receitas');
+        if (!receitas.length) { filteredData = []; return; }
+        const lastKey = receitas.reduce((max, r) => r.data > max ? r.data : max, '');
+        const refDate = lastKey ? new Date(lastKey + 'T00:00') : new Date();
+        const curYear = refDate.getFullYear();
+
+        let base;
+        if (period === 'todos') {
+            base = receitas;
+        } else if (period === 'ano_atual') {
+            base = receitas.filter(r => r.data.startsWith(String(curYear)));
+        } else {
+            const months = parseInt(period);
+            const cutoff = new Date(refDate.getFullYear(), refDate.getMonth() - months + 1, 1);
+            const cutKey = `${cutoff.getFullYear()}-${String(cutoff.getMonth() + 1).padStart(2, '0')}`;
+            base = receitas.filter(r => r.data.substring(0, 7) >= cutKey);
+        }
+        filteredData = base.filter(r => r.subcategoria !== 'Outras Receitas');
+    }
+
+    // ─── Consolidado ───
+    function renderConsolidado() {
+        if (!filteredData.length) return;
+        const salData = filteredData.filter(r => r.subcategoria === 'Salário');
+        const benData = filteredData.filter(r => r.subcategoria === 'Benefícios');
+        const monthKeys = [...new Set(filteredData.map(r => r.data.substring(0, 7)))].sort();
+
+        function kpiSet(data) {
+            const total = data.reduce((s, r) => s + Math.abs(r.valor), 0);
+            const mKeys = [...new Set(data.map(r => r.data.substring(0, 7)))];
+            const avg = mKeys.length ? total / mKeys.length : 0;
+            const mTotals = {};
+            data.forEach(r => {
+                const k = r.data.substring(0, 7);
+                mTotals[k] = (mTotals[k] || 0) + Math.abs(r.valor);
+            });
+            const best = Object.entries(mTotals).sort((a, b) => b[1] - a[1])[0];
+            return { total, avg, bestLabel: best ? monthLabel(best[0]) : '—', bestVal: best ? best[1] : 0 };
         }
 
-        function applyFilter(period) {
-            const receitas = allData.filter(r => r.categoria === 'receitas');
-            if (!receitas.length) { filteredData = []; return; }
-            const lastKey = receitas.reduce((max, r) => r.data > max ? r.data : max, '');
-            const refDate = lastKey ? new Date(lastKey + 'T00:00') : new Date();
-            const curYear = refDate.getFullYear();
+        const sal = kpiSet(salData);
+        const ben = kpiSet(benData);
 
-            let base;
-            if (period === 'todos') {
-                base = receitas;
-            } else if (period === 'ano_atual') {
-                base = receitas.filter(r => r.data.startsWith(String(curYear)));
-            } else {
-                const months = parseInt(period);
-                const cutoff = new Date(refDate.getFullYear(), refDate.getMonth() - months + 1, 1);
-                const cutKey = `${cutoff.getFullYear()}-${String(cutoff.getMonth() + 1).padStart(2, '0')}`;
-                base = receitas.filter(r => r.data.substring(0, 7) >= cutKey);
+        function kpiCard(emoji, label, value, sub) {
+            return `<div class="kpi-card">
+                <span class="kpi-emoji">${emoji}</span>
+                <span class="kpi-label">${label}</span>
+                <span class="kpi-value">${value}</span>
+                <span class="kpi-sub">${sub}</span>
+            </div>`;
+        }
+
+        document.getElementById('kpi-salario').innerHTML =
+            kpiCard('💰', 'Total Salário', brl(sal.total), `${[...new Set(salData.map(r=>r.data.substring(0,7)))].length} mese(s)`) +
+            kpiCard('📅', 'Média Salário', brl(sal.avg), 'por mês') +
+            kpiCard('🏆', 'Mês Maior Salário', sal.bestLabel, brl(sal.bestVal));
+
+        document.getElementById('kpi-beneficios').innerHTML =
+            kpiCard('🎁', 'Total Benefícios', brl(ben.total), `${[...new Set(benData.map(r=>r.data.substring(0,7)))].length} mese(s)`) +
+            kpiCard('📅', 'Média Benefícios', brl(ben.avg), 'por mês') +
+            kpiCard('🏆', 'Mês Maior Benefício', ben.bestLabel, brl(ben.bestVal));
+
+        const barLabels = monthKeys.map(monthLabel);
+
+        // Gráfico A: Salário
+        const salOrigens = [...new Set(salData.map(r => r.origem).filter(Boolean))];
+        const salDatasets = salOrigens.length ? salOrigens.map((orig, i) => {
+            const monthly = {};
+            salData.filter(r => r.origem === orig).forEach(r => {
+                const k = r.data.substring(0, 7);
+                monthly[k] = (monthly[k] || 0) + Math.abs(r.valor);
+            });
+            return { label: origens[orig] || orig, data: monthKeys.map(k => monthly[k] || 0), backgroundColor: ORIGEM_PALETTE[i % ORIGEM_PALETTE.length], borderRadius: 4 };
+        }) : [{ label: 'Salário', data: monthKeys.map(k => { const m={}; salData.forEach(r=>{const k2=r.data.substring(0,7); m[k2]=(m[k2]||0)+Math.abs(r.valor);}); return m[k]||0; }), backgroundColor: '#48bb78', borderRadius: 4 }];
+
+        if (charts['cBarSalario']) charts['cBarSalario'].destroy();
+        charts['cBarSalario'] = new Chart(document.getElementById('cBarSalario'), {
+            type: 'bar', data: { labels: barLabels, datasets: salDatasets },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 8, boxWidth: 12 } } }, scales: { x: { ticks: { maxRotation: 45, font: { size: 10 } } }, y: { ticks: { callback: v => 'R$ ' + (v / 1000).toFixed(1) + 'k' } } } }
+        });
+
+        // Gráfico B: Benefícios
+        const benOrigens = [...new Set(benData.map(r => r.origem).filter(Boolean))];
+        const benDatasets = benOrigens.map((orig, i) => {
+            const monthly = {};
+            benData.filter(r => r.origem === orig).forEach(r => {
+                const k = r.data.substring(0, 7);
+                monthly[k] = (monthly[k] || 0) + Math.abs(r.valor);
+            });
+            return { label: origens[orig] || orig, data: monthKeys.map(k => monthly[k] || 0), backgroundColor: ORIGEM_PALETTE[i % ORIGEM_PALETTE.length], borderRadius: 4, stack: 'ben' };
+        });
+
+        if (charts['cBarBeneficios']) charts['cBarBeneficios'].destroy();
+        charts['cBarBeneficios'] = new Chart(document.getElementById('cBarBeneficios'), {
+            type: 'bar', data: { labels: barLabels, datasets: benDatasets.length ? benDatasets : [{ label: 'Benefícios', data: monthKeys.map(() => 0), backgroundColor: '#667eea' }] },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 8, boxWidth: 12 } } }, scales: { x: { stacked: true, ticks: { maxRotation: 45, font: { size: 10 } } }, y: { stacked: true, ticks: { callback: v => 'R$ ' + (v / 1000).toFixed(1) + 'k' } } } }
+        });
+
+        // Pizza
+        const subcatTotals = {};
+        filteredData.forEach(r => { const sub = r.subcategoria || '—'; subcatTotals[sub] = (subcatTotals[sub] || 0) + Math.abs(r.valor); });
+        const pieEntries = Object.entries(subcatTotals).sort((a, b) => b[1] - a[1]);
+        const pieLabels = pieEntries.map(([k]) => k);
+        const pieValues = pieEntries.map(([, v]) => v);
+        const pieColors = pieLabels.map(l => { const i = SUBCATS.indexOf(l); return i >= 0 ? SUBCAT_COLORS[i] : '#a0aec0'; });
+        const pieTotal = pieValues.reduce((a, b) => a + b, 0);
+
+        if (charts['cPie']) charts['cPie'].destroy();
+        charts['cPie'] = new Chart(document.getElementById('cPie'), {
+            type: 'pie', data: { labels: pieLabels, datasets: [{ data: pieValues, backgroundColor: pieColors, borderWidth: 2 }] },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 8, boxWidth: 12 } }, tooltip: { callbacks: { label: ctx => { const pct = ((ctx.parsed / pieTotal) * 100).toFixed(1); return ` ${brl(ctx.parsed)} (${pct}%)`; } } } } }
+        });
+    }
+
+    async function init() {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('theme-toggle').textContent = '☀️';
+        }
+        try {
+            const [lancData, origData] = await Promise.all([
+                fetch('./data/lancamentos.json?v=' + Date.now()).then(r => r.json()),
+                fetch('./data/origens.json?v=' + Date.now()).then(r => r.json())
+            ]);
+            origData.origens.forEach(o => { origens[o.id] = o.nome; });
+            allData = Array.isArray(lancData) ? lancData : (lancData.lancamentos || []);
+            const lastDate = allData.reduce((max, r) => r.data > max ? r.data : max, '');
+            if (lastDate) {
+                const [y, m, d] = lastDate.split('-');
+                document.getElementById('last-update').textContent = `Última atualização: ${d}/${m}/${y}`;
+                document.getElementById('last-update').style.display = 'block';
             }
-            filteredData = base.filter(r => r.subcategoria !== 'Outras Receitas');
-        }
-
-        // ─── Tab Navigation ───────────────────────────────────────────────────
-        function switchTab(tab) {
-            currentTab = tab;
-            document.querySelectorAll('.tab-btn').forEach((b, i) => {
-                b.classList.toggle('active', i + 1 === tab);
-            });
-            document.getElementById('tab1').style.display = tab === 1 ? 'block' : 'none';
-            document.getElementById('tab2').style.display = tab === 2 ? 'block' : 'none';
-            if (tab === 2 && allData.length > 0) renderLancamentos();
-        }
-
-        // ─── Consolidado ──────────────────────────────────────────────────────
-        function renderConsolidado() {
-            if (!filteredData.length) return;
-            const salData = filteredData.filter(r => r.subcategoria === 'Salário');
-            const benData = filteredData.filter(r => r.subcategoria === 'Benefícios');
-            const monthKeys = [...new Set(filteredData.map(r => r.data.substring(0, 7)))].sort();
-
-            function kpiSet(data) {
-                const total = data.reduce((s, r) => s + Math.abs(r.valor), 0);
-                const mKeys = [...new Set(data.map(r => r.data.substring(0, 7)))];
-                const avg = mKeys.length ? total / mKeys.length : 0;
-                const mTotals = {};
-                data.forEach(r => {
-                    const k = r.data.substring(0, 7);
-                    mTotals[k] = (mTotals[k] || 0) + Math.abs(r.valor);
-                });
-                const best = Object.entries(mTotals).sort((a, b) => b[1] - a[1])[0];
-                return { total, avg, bestLabel: best ? monthLabel(best[0]) : '—', bestVal: best ? best[1] : 0 };
-            }
-
-            const sal = kpiSet(salData);
-            const ben = kpiSet(benData);
-
-            function kpiCard(emoji, label, value, sub) {
-                return `<div class="kpi-card">
-                    <span class="kpi-emoji">${emoji}</span>
-                    <span class="kpi-label">${label}</span>
-                    <span class="kpi-value">${value}</span>
-                    <span class="kpi-sub">${sub}</span>
-                </div>`;
-            }
-
-            document.getElementById('kpi-salario').innerHTML =
-                kpiCard('💰', 'Total Salário', brl(sal.total), `${[...new Set(salData.map(r=>r.data.substring(0,7)))].length} mese(s)`) +
-                kpiCard('📅', 'Média Salário', brl(sal.avg), 'por mês') +
-                kpiCard('🏆', 'Mês Maior Salário', sal.bestLabel, brl(sal.bestVal));
-
-            document.getElementById('kpi-beneficios').innerHTML =
-                kpiCard('🎁', 'Total Benefícios', brl(ben.total), `${[...new Set(benData.map(r=>r.data.substring(0,7)))].length} mese(s)`) +
-                kpiCard('📅', 'Média Benefícios', brl(ben.avg), 'por mês') +
-                kpiCard('🏆', 'Mês Maior Benefício', ben.bestLabel, brl(ben.bestVal));
-
-            const barLabels = monthKeys.map(monthLabel);
-
-            // Gráfico A: Salário
-            const salOrigens = [...new Set(salData.map(r => r.origem).filter(Boolean))];
-            const salDatasets = salOrigens.length ? salOrigens.map((orig, i) => {
-                const monthly = {};
-                salData.filter(r => r.origem === orig).forEach(r => {
-                    const k = r.data.substring(0, 7);
-                    monthly[k] = (monthly[k] || 0) + Math.abs(r.valor);
-                });
-                return { label: origens[orig] || orig, data: monthKeys.map(k => monthly[k] || 0), backgroundColor: ORIGEM_PALETTE[i % ORIGEM_PALETTE.length], borderRadius: 4 };
-            }) : [{ label: 'Salário', data: monthKeys.map(k => { const m={}; salData.forEach(r=>{const k2=r.data.substring(0,7); m[k2]=(m[k2]||0)+Math.abs(r.valor);}); return m[k]||0; }), backgroundColor: '#48bb78', borderRadius: 4 }];
-
-            if (charts['cBarSalario']) charts['cBarSalario'].destroy();
-            charts['cBarSalario'] = new Chart(document.getElementById('cBarSalario'), {
-                type: 'bar', data: { labels: barLabels, datasets: salDatasets },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 8, boxWidth: 12 } } }, scales: { x: { ticks: { maxRotation: 45, font: { size: 10 } } }, y: { ticks: { callback: v => 'R$ ' + (v / 1000).toFixed(1) + 'k' } } } }
-            });
-
-            // Gráfico B: Benefícios
-            const benOrigens = [...new Set(benData.map(r => r.origem).filter(Boolean))];
-            const benDatasets = benOrigens.map((orig, i) => {
-                const monthly = {};
-                benData.filter(r => r.origem === orig).forEach(r => {
-                    const k = r.data.substring(0, 7);
-                    monthly[k] = (monthly[k] || 0) + Math.abs(r.valor);
-                });
-                return { label: origens[orig] || orig, data: monthKeys.map(k => monthly[k] || 0), backgroundColor: ORIGEM_PALETTE[i % ORIGEM_PALETTE.length], borderRadius: 4, stack: 'ben' };
-            });
-
-            if (charts['cBarBeneficios']) charts['cBarBeneficios'].destroy();
-            charts['cBarBeneficios'] = new Chart(document.getElementById('cBarBeneficios'), {
-                type: 'bar', data: { labels: barLabels, datasets: benDatasets.length ? benDatasets : [{ label: 'Benefícios', data: monthKeys.map(() => 0), backgroundColor: '#667eea' }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 8, boxWidth: 12 } } }, scales: { x: { stacked: true, ticks: { maxRotation: 45, font: { size: 10 } } }, y: { stacked: true, ticks: { callback: v => 'R$ ' + (v / 1000).toFixed(1) + 'k' } } } }
-            });
-
-            // Pizza
-            const subcatTotals = {};
-            filteredData.forEach(r => { const sub = r.subcategoria || '—'; subcatTotals[sub] = (subcatTotals[sub] || 0) + Math.abs(r.valor); });
-            const pieEntries = Object.entries(subcatTotals).sort((a, b) => b[1] - a[1]);
-            const pieLabels = pieEntries.map(([k]) => k);
-            const pieValues = pieEntries.map(([, v]) => v);
-            const pieColors = pieLabels.map(l => { const i = SUBCATS.indexOf(l); return i >= 0 ? SUBCAT_COLORS[i] : '#a0aec0'; });
-            const pieTotal = pieValues.reduce((a, b) => a + b, 0);
-
-            if (charts['cPie']) charts['cPie'].destroy();
-            charts['cPie'] = new Chart(document.getElementById('cPie'), {
-                type: 'pie', data: { labels: pieLabels, datasets: [{ data: pieValues, backgroundColor: pieColors, borderWidth: 2 }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 8, boxWidth: 12 } }, tooltip: { callbacks: { label: ctx => { const pct = ((ctx.parsed / pieTotal) * 100).toFixed(1); return ` ${brl(ctx.parsed)} (${pct}%)`; } } } } }
-            });
-        }
-
-        // ─── Lançamentos ──────────────────────────────────────────────────────
-        function getLancFiltered() {
-            const monthVal = document.getElementById('f-month').value;
-            const subcatVal = document.getElementById('f-subcat').value;
-            const origVal = document.getElementById('f-orig').value;
-            const receitas = allData.filter(r => r.categoria === 'receitas');
-            return receitas.map((r, i) => ({ ...r, __idx: allData.indexOf(r) }))
-                .filter(r => {
-                    if (monthVal !== '__all__' && !r.data.startsWith(monthVal)) return false;
-                    if (subcatVal !== '__all__' && r.subcategoria !== subcatVal) return false;
-                    if (origVal !== '__all__' && r.origem !== origVal) return false;
-                    return true;
-                }).sort((a, b) => b.data.localeCompare(a.data));
-        }
-
-        function renderLancamentos() {
-            const rows = getLancFiltered();
-            const tbody = document.getElementById('lanc-tbody');
-            if (!tbody) return;
-            const total = rows.reduce((s, r) => s + Math.abs(r.valor || 0), 0);
-            document.getElementById('lanc-summary').innerHTML = `<strong>${rows.length}</strong> lançamento(s) · Total: <strong>${brl(total)}</strong>`;
-            tbody.innerHTML = rows.map(r => {
-                const orig = r.origem ? (origens[r.origem] || r.origem) : '';
-                return `<tr style="border-top:1px solid var(--border);">
-                    <td style="padding:9px 10px; white-space:nowrap; color:var(--subtext);">${fmtDate(r.data)}</td>
-                    <td style="padding:9px 10px; max-width:200px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="${(r.descricao||'').replace(/"/g,'&quot;')}">${r.descricao || ''}</td>
-                    <td style="padding:9px 10px; color:var(--subtext);">${r.subcategoria || ''}</td>
-                    <td style="padding:9px 10px; color:var(--subtext);">${orig}</td>
-                    <td style="padding:9px 10px; text-align:right; font-weight:700; color:var(--green); white-space:nowrap;">+${brl(Math.abs(r.valor||0))}</td>
-                    <td style="padding:9px 10px; text-align:center; white-space:nowrap;">
-                        <button onclick="openEditModal(${r.__idx})" style="background:var(--accent); color:white; border:none; padding:4px 10px; border-radius:6px; font-size:0.75rem; font-weight:700; cursor:pointer; margin-right:4px;">✏️</button>
-                        <button onclick="deleteEntry(${r.__idx})" style="background:#dc2626; color:white; border:none; padding:4px 10px; border-radius:6px; font-size:0.75rem; font-weight:700; cursor:pointer;">🗑️</button>
-                    </td>
-                </tr>`;
-            }).join('');
-        }
-
-        function populateLancFilters() {
-            const receitas = allData.filter(r => r.categoria === 'receitas');
-            const monthSel = document.getElementById('f-month');
-            const keys = [...new Set(receitas.map(r => r.data.substring(0, 7)))].sort().reverse();
-            monthSel.innerHTML = '<option value="__all__">Todos os meses</option>';
-            keys.forEach(k => {
-                const [y, m] = k.split('-');
-                const label = new Date(parseInt(y), parseInt(m)-1, 1).toLocaleString('pt-BR', { month: 'long', year: 'numeric' });
-                const opt = document.createElement('option');
-                opt.value = k; opt.textContent = label.charAt(0).toUpperCase() + label.slice(1);
-                monthSel.appendChild(opt);
-            });
-            const subcatSel = document.getElementById('f-subcat');
-            subcatSel.innerHTML = '<option value="__all__">Todas as subcategorias</option>';
-            const subs = [...new Set(receitas.map(r => r.subcategoria).filter(Boolean))].sort();
-            subs.forEach(s => { const opt = document.createElement('option'); opt.value = s; opt.textContent = s; subcatSel.appendChild(opt); });
-            const origSel = document.getElementById('f-orig');
-            origSel.innerHTML = '<option value="__all__">Todas as origens</option>';
-            Object.entries(origens).forEach(([id, nome]) => { const opt = document.createElement('option'); opt.value = id; opt.textContent = nome; origSel.appendChild(opt); });
-        }
-
-        // Modal
-        function openEditModal(idx) {
-            editingIndex = idx;
-            const r = allData[idx];
-            document.getElementById('m-data').value = r.data || '';
-            document.getElementById('m-desc').value = r.descricao || '';
-            document.getElementById('m-subcat').value = r.subcategoria || '';
-            document.getElementById('m-valor').value = r.valor !== undefined ? Math.abs(r.valor) : '';
-            document.getElementById('m-orig').value = r.origem || '';
-            document.getElementById('ed-modal').style.display = 'flex';
-        }
-        function closeModal() { document.getElementById('ed-modal').style.display = 'none'; }
-        function saveModal() {
-            const data = document.getElementById('m-data').value;
-            const desc = document.getElementById('m-desc').value.trim();
-            const subcat = document.getElementById('m-subcat').value;
-            const valorStr = document.getElementById('m-valor').value;
-            const orig = document.getElementById('m-orig').value;
-            if (!data || !desc || !valorStr) return;
-            const valor = Math.abs(parseFloat(valorStr));
-            allData[editingIndex] = { ...allData[editingIndex], descricao: desc, data, subcategoria: subcat, valor, origem: orig, categoria: 'receitas' };
-            closeModal();
             applyFilter(currentPeriod);
-            if (currentTab === 1) renderConsolidado();
-            if (currentTab === 2) renderLancamentos();
-        }
-
-        function deleteEntry(idx) {
-            if (!confirm('Excluir este lançamento?')) return;
-            allData.splice(idx, 1);
-            applyFilter(currentPeriod);
-            if (currentTab === 1) renderConsolidado();
-            if (currentTab === 2) renderLancamentos();
-        }
-
-        async function init() {
-            const saved = localStorage.getItem('theme');
-            if (saved === 'dark') {
-                document.body.classList.add('dark-mode');
-                document.getElementById('theme-toggle').textContent = '☀️';
-            }
-            try {
-                const [lancData, origData] = await Promise.all([
-                    fetch('./data/lancamentos.json?v=' + Date.now()).then(r => r.json()),
-                    fetch('./data/origens.json?v=' + Date.now()).then(r => r.json())
-                ]);
-                origData.origens.forEach(o => { origens[o.id] = o.nome; });
-                allData = Array.isArray(lancData) ? lancData : (lancData.lancamentos || []);
-                const mOrig = document.getElementById('m-orig');
-                Object.entries(origens).forEach(([id, nome]) => { const opt = document.createElement('option'); opt.value = id; opt.textContent = nome; mOrig.appendChild(opt); });
-                const lastDate = allData.reduce((max, r) => r.data > max ? r.data : max, '');
-                if (lastDate) {
-                    const [y, m, d] = lastDate.split('-');
-                    document.getElementById('last-update').textContent = `Última atualização: ${d}/${m}/${y}`;
-                    document.getElementById('last-update').style.display = 'block';
-                }
-                applyFilter(currentPeriod);
-                populateLancFilters();
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('consolidado-content').style.display = 'block';
-                document.getElementById('tab2-content').style.display = 'block';
-                renderConsolidado();
-            } catch(err) { console.error(err); }
-        }
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('consolidado-content').style.display = 'block';
+            renderConsolidado();
+        } catch(err) { console.error(err); }
+    }
         init();
     </script>
 </body>

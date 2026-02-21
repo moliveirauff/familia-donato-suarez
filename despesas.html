@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>💸 Dashboard de Despesas</title>
-    <meta name="version" content="v1.13.3">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         :root {
@@ -222,22 +221,17 @@
     <h1>💸 Dashboard de Despesas</h1>
     <p id="last-update" class="page-subtitle" style="display:none; font-size: 0.72rem; margin-top: 4px; opacity: 0.8;"></p>
 
-    <!-- Tab Navigation -->
-    <div class="tab-nav">
-        <button class="tab-btn active" onclick="switchTab(1)">📊 Consolidado</button>
-        <button class="tab-btn" onclick="switchTab(2)">📅 Análise Mensal</button>
-        <a href="movimentacoes.html" class="tab-btn" style="text-decoration:none; display:flex; align-items:center; justify-content:center;">✏️ Editor</a>
-    </div>
+    <!-- Tab Navigation removed -->
 
     <!-- Month Selector (Tab 2) -->
-    <div id="month-selector" style="display:none; text-align:center; margin-bottom: 16px; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
+    <div id="month-selector" style="display:flex; text-align:center; margin-bottom: 16px; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
         <button onclick="changeMonth(-1)" style="background:var(--card-bg); border:1px solid var(--border); border-radius: 50%; width: 36px; height: 36px; cursor: pointer; color: var(--text); font-weight: bold;">&lt;</button>
         <select id="month-dropdown" onchange="onMonthDropdownChange()" style="background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:6px 12px; font-size:0.9rem; font-weight:700; color:var(--text); cursor:pointer; outline:none;"></select>
         <button onclick="changeMonth(1)" style="background:var(--card-bg); border:1px solid var(--border); border-radius: 50%; width: 36px; height: 36px; cursor: pointer; color: var(--text); font-weight: bold;">&gt;</button>
     </div>
 
     <!-- Period Filter -->
-    <div class="period-bar" id="period-bar">
+    <div class="period-bar" id="period-bar" style="justify-content: center;">
         <span class="period-label">Período:</span>
         <button class="btn-period" onclick="setPeriod('ano_atual', this)">Ano Atual</button>
         <button class="btn-period active" onclick="setPeriod('12m', this)">12M</button>
@@ -248,8 +242,8 @@
 
     <div id="loading" class="loading-msg">⏳ Carregando dados...</div>
 
-    <!-- ═══ ABA 2 — Mês Atual ═══════════════════════════════════════════════ -->
-    <div id="tab2" style="display:none;">
+    <!-- ═══ Seção Análise Mensal (Antes Aba 2) ════════════════════════════════ -->
+    <div id="tab2">
 
         <!-- 1: KPI Cards -->
         <div class="kpi-grid" id="kpi-grid"></div>
@@ -317,131 +311,10 @@
 
     </div>
 
-    <!-- ═══ ABA 3 — Editor ═══════════════════════════════════════════════════ -->
-    <div id="tab3" style="display:none;">
+    <!-- ═══ Seção Consolidado (Antes Aba 1) ══════════════════════════════════ -->
+    <div id="dashboard">
 
-        <!-- Filter Bar -->
-        <div class="card" style="margin-bottom:14px;">
-            <div class="editor-filters" style="display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end;">
-                <div>
-                    <label style="font-size:0.72rem; font-weight:700; color:var(--subtext); display:block; margin-bottom:3px;">📅 MÊS</label>
-                    <select id="ed-month" class="cat-select" onchange="onEdCatChange()" style="min-width:130px;">
-                        <option value="__all__">Todos os meses</option>
-                    </select>
-                </div>
-                <div>
-                    <label style="font-size:0.72rem; font-weight:700; color:var(--subtext); display:block; margin-bottom:3px;">🗂️ CATEGORIA</label>
-                    <select id="ed-cat" class="cat-select" onchange="onEdCatChange()" style="min-width:140px;">
-                        <option value="__all__">Todas</option>
-                        <option value="__sem__" style="color:#f87171; font-weight:700;">⚠️ Sem Categoria</option>
-                    </select>
-                </div>
-                <div>
-                    <label style="font-size:0.72rem; font-weight:700; color:var(--subtext); display:block; margin-bottom:3px;">📂 SUBCATEGORIA</label>
-                    <select id="ed-subcat" class="cat-select" onchange="renderEditor()" style="min-width:130px;">
-                        <option value="__all__">Todas</option>
-                    </select>
-                </div>
-                <div>
-                    <label style="font-size:0.72rem; font-weight:700; color:var(--subtext); display:block; margin-bottom:3px;">🏦 ORIGEM</label>
-                    <select id="ed-orig" class="cat-select" onchange="renderEditor()" style="min-width:120px;">
-                        <option value="__all__">Todas</option>
-                    </select>
-                </div>
-                <div>
-                    <label style="font-size:0.72rem; font-weight:700; color:var(--subtext); display:block; margin-bottom:3px;">🔍 BUSCA</label>
-                    <input id="ed-search" type="text" placeholder="Descrição..." oninput="renderEditor()"
-                        style="background:var(--border); border:none; padding:5px 10px; border-radius:8px; font-size:0.8rem; color:var(--text); outline:none; min-width:150px;">
-                </div>
-                <div style="display:flex; gap:6px; padding-bottom:1px;">
-                    <button onclick="toggleEditorFilter('sem')" id="btn-filter-sem" class="btn-period"
-                        style="white-space:nowrap; font-size:0.75rem;">⚠️ Sem Cat.</button>
-                    <button onclick="toggleEditorFilter('todos')" id="btn-filter-todos" class="btn-period active"
-                        style="white-space:nowrap; font-size:0.75rem;">Todos</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Summary -->
-        <div id="ed-summary" style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px; padding: 0 4px;"></div>
-
-        <!-- Button Bar -->
-        <div style="margin-bottom: 14px; padding: 0 4px;">
-            <button onclick="openAddModal()"
-                style="background:var(--primary); color:white; border:none; padding:9px 18px; border-radius:8px; font-size:0.85rem; font-weight:700; cursor:pointer; min-height:44px; transition:opacity 0.2s;">
-                ➕ Novo Lançamento
-            </button>
-        </div>
-
-        <!-- Table -->
-        <div class="card" style="padding:0; overflow:hidden;">
-            <div style="overflow-x:auto;">
-                <table id="ed-table" style="width:100%; border-collapse:collapse; font-size:0.82rem;">
-                    <thead>
-                        <tr style="background:var(--border); text-align:left;">
-                            <th style="padding:10px 10px; font-weight:700; white-space:nowrap;">Data</th>
-                            <th style="padding:10px 10px; font-weight:700;">Descrição</th>
-                            <th style="padding:10px 10px; font-weight:700;">Categoria</th>
-                            <th style="padding:10px 10px; font-weight:700;">Subcategoria</th>
-                            <th style="padding:10px 10px; font-weight:700; text-align:right; white-space:nowrap;">Valor</th>
-                            <th style="padding:10px 10px; font-weight:700;">Origem</th>
-                            <th style="padding:10px 10px; font-weight:700; text-align:center;">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody id="ed-tbody"></tbody>
-                </table>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- ═══ MODAL — Add/Edit ══════════════════════════════════════════════════ -->
-    <div id="ed-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.65); z-index:1000; align-items:center; justify-content:center; padding:20px;">
-        <div style="background:var(--card-bg); border-radius:16px; padding:22px; width:100%; max-width:480px; border:1px solid var(--border);">
-            <h3 id="modal-title" style="font-size:1rem; font-weight:800; margin-bottom:16px;">Lançamento</h3>
-            <div style="display:grid; gap:12px;">
-                <div>
-                    <label style="font-size:0.75rem; font-weight:700; color:var(--subtext); display:block; margin-bottom:3px;">Data *</label>
-                    <input id="m-data" type="date" style="width:100%; background:var(--border); border:1px solid var(--border); border-radius:8px; padding:7px 10px; color:var(--text); font-size:0.85rem; outline:none;">
-                </div>
-                <div>
-                    <label style="font-size:0.75rem; font-weight:700; color:var(--subtext); display:block; margin-bottom:3px;">Descrição *</label>
-                    <input id="m-desc" type="text" placeholder="Ex: Supermercado Extra" style="width:100%; background:var(--border); border:1px solid var(--border); border-radius:8px; padding:7px 10px; color:var(--text); font-size:0.85rem; outline:none;">
-                </div>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                    <div>
-                        <label style="font-size:0.75rem; font-weight:700; color:var(--subtext); display:block; margin-bottom:3px;">Categoria *</label>
-                        <select id="m-cat" style="width:100%; background:var(--border); border:1px solid var(--border); border-radius:8px; padding:7px 10px; color:var(--text); font-size:0.85rem; outline:none;" onchange="updateModalSubcat()">
-                            <option value="">-- Selecionar --</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label style="font-size:0.75rem; font-weight:700; color:var(--subtext); display:block; margin-bottom:3px;">Subcategoria</label>
-                        <select id="m-subcat" style="width:100%; background:var(--border); border:1px solid var(--border); border-radius:8px; padding:7px 10px; color:var(--text); font-size:0.85rem; outline:none;">
-                            <option value="">-- Selecionar --</option>
-                        </select>
-                    </div>
-                </div>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                    <div>
-                        <label style="font-size:0.75rem; font-weight:700; color:var(--subtext); display:block; margin-bottom:3px;">Valor (R$) *</label>
-                        <input id="m-valor" type="number" step="0.01" placeholder="Ex: -150.00" style="width:100%; background:var(--border); border:1px solid var(--border); border-radius:8px; padding:7px 10px; color:var(--text); font-size:0.85rem; outline:none;">
-                    </div>
-                    <div>
-                        <label style="font-size:0.75rem; font-weight:700; color:var(--subtext); display:block; margin-bottom:3px;">Origem</label>
-                        <select id="m-orig" style="width:100%; background:var(--border); border:1px solid var(--border); border-radius:8px; padding:7px 10px; color:var(--text); font-size:0.85rem; outline:none;"></select>
-                    </div>
-                </div>
-            </div>
-            <div id="modal-error" style="color:#f87171; font-size:0.8rem; margin-top:8px; display:none;"></div>
-            <div style="display:flex; gap:10px; margin-top:18px; justify-content:flex-end;">
-                <button onclick="closeModal()" style="background:var(--border); border:none; padding:8px 18px; border-radius:8px; font-size:0.85rem; font-weight:600; color:var(--text); cursor:pointer; min-height:44px;">Cancelar</button>
-                <button onclick="saveModal()" style="background:var(--primary); color:white; border:none; padding:8px 18px; border-radius:8px; font-size:0.85rem; font-weight:700; cursor:pointer; min-height:44px;">Salvar</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="dashboard" style="display:none;">
+        <h2 style="text-align: center; margin: 30px 0 20px; font-size: 1.2rem;">📊 Visão Consolidada</h2>
 
         <!-- 1: KPI Cards (Aba 1) -->
         <div class="kpi-grid" id="kpi-grid-aba1"></div>
@@ -879,30 +752,9 @@
         renderH();
     }
 
-    // ─── Tab Navigation ───────────────────────────────────────────────────────
+    // ─── Tab Navigation removed ───
     let currentTab = 1;
     let selectedMonth = null; // { year, month, key }
-
-    function switchTab(tab) {
-        currentTab = tab;
-        document.querySelectorAll('.tab-btn').forEach((b, i) => {
-            b.classList.toggle('active', i + 1 === tab);
-        });
-        document.getElementById('period-bar').style.display = tab === 1 ? '' : 'none';
-        document.getElementById('month-selector').style.display = tab === 2 ? 'flex' : 'none';
-        
-        document.getElementById('tab2').style.display = tab === 2 ? 'block' : 'none';
-        document.getElementById('dashboard').style.display = tab === 1 ? 'block' : 'none';
-        document.getElementById('tab3').style.display = tab === 3 ? 'block' : 'none';
-        
-        if (tab === 2 && allData.length > 0) {
-            if (!selectedMonth) selectedMonth = getInitialMonth();
-            renderTab2();
-        }
-        if (tab === 3 && allData.length > 0) {
-            renderEditor();
-        }
-    }
 
     function getInitialMonth() {
         const refDate = getRefDate();
@@ -955,7 +807,7 @@
         if (selectedMonth) dd.value = selectedMonth.key;
     }
 
-    // ─── Aba 2 helpers ────────────────────────────────────────────────────────
+    // ─── Aba 2 helpers ───
     function getDaysInMonth(year, month) {
         return new Date(year, month, 0).getDate();
     }
@@ -1180,7 +1032,7 @@
             }
         });
 
-        // ─── Pizzas mensais ───────────────────────────────────────────────────
+        // ─── Pizzas mensais ───
         window._curMonthDataForPizzas = curMonthData;
         renderT2P1(curMonthData);
         renderT2P2(curMonthData);
