@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>📊 Dashboard de Dividendos</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js?v=3.23"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js?v=3.23"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js?v=3.24"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js?v=3.24"></script>
   <style>
+    /* Force Light Mode variables as default, override if class is present */
     :root {
+      color-scheme: light; /* Default to light scheme to prevent browser auto-darkening */
       --bg: #f7fafc;
       --text: #2d3748;
       --surface: #ffffff;
@@ -21,7 +23,10 @@
       --warning: #ed8936;
       --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
     }
+    
+    /* Apply Dark Mode only when class is present */
     body.dark-mode {
+      color-scheme: dark; /* Switch to dark scheme */
       --bg: #1a202c;
       --text: #f7fafc;
       --surface: #2d3748;
@@ -34,12 +39,16 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      background-color: var(--bg); /* Ensure html background follows theme */
+    }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       transition: background-color 0.3s, color 0.3s;
       padding: 10px 10px 60px 10px;
+      min-height: 100vh;
     }
 
     /* Header */
@@ -50,7 +59,10 @@
       display: flex; align-items: center; justify-content: center;
       z-index: 10; transition: background 0.2s;
     }
+    /* In dark mode (which is class .dark-mode), toggle button background should be visible */
     body.dark-mode #theme-toggle { background: rgba(255,255,255,0.1); }
+    /* In light mode (no class), toggle button background should be visible against light bg */
+    body:not(.dark-mode) #theme-toggle { background: rgba(0,0,0,0.05); }
     .nav-link {
       text-decoration: none;
       color: var(--primary);
@@ -1088,7 +1100,14 @@ function initTheme() {
   const savedTheme = localStorage.getItem('theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   
-  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+  // Prioridade: Salvo > Sistema
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    document.getElementById('theme-toggle').textContent = '☀️';
+  } else if (savedTheme === 'light') {
+    document.body.classList.remove('dark-mode');
+    document.getElementById('theme-toggle').textContent = '🌙';
+  } else if (prefersDark) {
     document.body.classList.add('dark-mode');
     document.getElementById('theme-toggle').textContent = '☀️';
   } else {
