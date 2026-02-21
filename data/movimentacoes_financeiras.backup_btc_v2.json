@@ -11557,7 +11557,7 @@
         {
             "ativo": "BITCOIN (BTC)_2025.02.02",
             "data": "2023-05-30",
-            "tipo": "RETIRADA",
+            "tipo": "APORTE",
             "valor_total": 1787.33,
             "preco_unitario": 132747.9243,
             "quantidade": 0.01346409
@@ -12869,7 +12869,7 @@
         {
             "ativo": "BITCOIN (BTC)_2025.02.02",
             "data": "2024-04-30",
-            "tipo": "RETIRADA",
+            "tipo": "APORTE",
             "valor_total": 34486.12,
             "preco_unitario": 344861.2,
             "quantidade": 0.1
@@ -13373,7 +13373,7 @@
         {
             "ativo": "BITCOIN (BTC)_2025.02.02",
             "data": "2024-07-31",
-            "tipo": "RETIRADA",
+            "tipo": "APORTE",
             "valor_total": 2476.23,
             "preco_unitario": 409456.644,
             "quantidade": 0.0060476
@@ -13765,7 +13765,7 @@
         {
             "ativo": "BITCOIN (BTC)_2025.02.02",
             "data": "2024-11-22",
-            "tipo": "RETIRADA",
+            "tipo": "APORTE",
             "valor_total": 550.92,
             "preco_unitario": 572004.07,
             "quantidade": 0.00096314
@@ -14261,7 +14261,7 @@
         {
             "ativo": "BITCOIN (BTC)_2025.02.02",
             "data": "2025-01-20",
-            "tipo": "RETIRADA",
+            "tipo": "APORTE",
             "valor_total": 32438.66,
             "preco_unitario": 648773.2,
             "quantidade": 0.05
@@ -14285,7 +14285,7 @@
         {
             "ativo": "BITCOIN (BTC)_2025.02.02",
             "data": "2025-02-02",
-            "tipo": "RETIRADA",
+            "tipo": "APORTE",
             "valor_total": 28443.21,
             "preco_unitario": 551867.7762,
             "quantidade": 0.0515399

@@ -1103,8 +1103,8 @@
             "data": "2017-08-26",
             "tipo": "APORTE",
             "valor_total": 116.01,
-            "preco_unitario": 16399.88521,
-            "quantidade": 0.00707383
+            "preco_unitario": 16399.89,
+            "quantidade": 0.0
         },
         {
             "ativo": "Sulamérica Previ_2019.02.21",
@@ -1143,8 +1143,8 @@
             "data": "2017-09-04",
             "tipo": "APORTE",
             "valor_total": 1001.85,
-            "preco_unitario": 16930.53756,
-            "quantidade": 0.05917414
+            "preco_unitario": 16930.54,
+            "quantidade": 0.1
         },
         {
             "ativo": "NTN-B 2019_2017.09.12",
@@ -1197,10 +1197,10 @@
         {
             "ativo": "BITCOIN (BTC)_2025.02.02",
             "data": "2017-09-28",
-            "tipo": "APORTE",
-            "valor_total": 843.3584593,
-            "preco_unitario": 14410.30696,
-            "quantidade": 0.05852467
+            "tipo": "Aporte",
+            "valor_total": 843.36,
+            "preco_unitario": 14410.31,
+            "quantidade": 0.1
         },
         {
             "ativo": "NTN-B 2035_2018.12.17",
@@ -1319,8 +1319,8 @@
             "data": "2017-12-27",
             "tipo": "APORTE",
             "valor_total": 543.13,
-            "preco_unitario": 53750.97976,
-            "quantidade": 0.01010456
+            "preco_unitario": 53750.98,
+            "quantidade": 0.0
         },
         {
             "ativo": "Sulamérica Previ_2019.02.21",
@@ -1334,9 +1334,9 @@
             "ativo": "BITCOIN (BTC)_2025.02.02",
             "data": "2018-01-07",
             "tipo": "APORTE",
-            "valor_total": 1330.04906,
-            "preco_unitario": 65704.14759,
-            "quantidade": 0.020243
+            "valor_total": 1330.05,
+            "preco_unitario": 65704.15,
+            "quantidade": 0.0
         },
         {
             "ativo": "ALMI11_2018.01.18",
@@ -1414,9 +1414,9 @@
             "ativo": "BITCOIN (BTC)_2025.02.02",
             "data": "2018-03-10",
             "tipo": "APORTE",
-            "valor_total": 265.5427703,
-            "preco_unitario": 28212.07498,
-            "quantidade": 0.00941238
+            "valor_total": 265.54,
+            "preco_unitario": 28212.07,
+            "quantidade": 0.0
         },
         {
             "ativo": "DEB ALGA26_2020.02.17",
@@ -1494,9 +1494,9 @@
             "ativo": "BITCOIN (BTC)_2025.02.02",
             "data": "2018-04-08",
             "tipo": "APORTE",
-            "valor_total": 558.8833846,
-            "preco_unitario": 15384.61538,
-            "quantidade": 0.03632742
+            "valor_total": 558.88,
+            "preco_unitario": 15384.62,
+            "quantidade": 0.0
         },
         {
             "ativo": "Sulamérica Previ_2019.02.21",
@@ -11043,6 +11043,22 @@
             "quantidade": 2.3
         },
         {
+            "ativo": "BITCOIN (BTC)_2025.02.02",
+            "data": "2022-12-30",
+            "tipo": "APORTE",
+            "valor_total": 50.5,
+            "preco_unitario": 74271.64,
+            "quantidade": 0.0
+        },
+        {
+            "ativo": "BITCOIN (BTC)_2025.02.02",
+            "data": "2022-12-30",
+            "tipo": "APORTE",
+            "valor_total": 1000.0,
+            "preco_unitario": 74271.64,
+            "quantidade": 0.0
+        },
+        {
             "ativo": "THE SANDBOX (SAND)_2022.12.30",
             "data": "2022-12-30",
             "tipo": "RETIRADA",
@@ -11057,22 +11073,6 @@
             "preco_unitario": 0.0,
             "quantidade": 0.1,
             "tipo": "RETIRADA (Ajuste Zeramento)"
-        },
-        {
-            "ativo": "BITCOIN (BTC)_2025.02.02",
-            "data": "2022-12-30",
-            "tipo": "APORTE",
-            "valor_total": 50.49728574,
-            "preco_unitario": 74271.63663,
-            "quantidade": 0.0006799
-        },
-        {
-            "ativo": "BITCOIN (BTC)_2025.02.02",
-            "data": "2022-12-30",
-            "tipo": "APORTE",
-            "valor_total": 1000.0,
-            "preco_unitario": 74271.63663,
-            "quantidade": 0.01346409
         },
         {
             "ativo": "QQQ_2025.08.18",
@@ -11491,6 +11491,14 @@
             "quantidade": 11.0
         },
         {
+            "ativo": "BITCOIN (BTC)_2025.02.02",
+            "data": "2023-05-30",
+            "tipo": "RETIRADA",
+            "valor_total": 1787.33,
+            "preco_unitario": 132747.92,
+            "quantidade": 0.0
+        },
+        {
             "ativo": "ETHEREUM (ETH)_2024.12.16",
             "data": "2023-05-30",
             "tipo": "APORTE",
@@ -11553,14 +11561,6 @@
             "valor_total": 200.0,
             "preco_unitario": 32.71,
             "quantidade": 6.1
-        },
-        {
-            "ativo": "BITCOIN (BTC)_2025.02.02",
-            "data": "2023-05-30",
-            "tipo": "RETIRADA",
-            "valor_total": 1787.33,
-            "preco_unitario": 132747.9243,
-            "quantidade": 0.01346409
         },
         {
             "ativo": "FLRY3",
@@ -12835,6 +12835,14 @@
             "quantidade": 0.7
         },
         {
+            "ativo": "BITCOIN (BTC)_2025.02.02",
+            "data": "2024-04-30",
+            "tipo": "RETIRADA",
+            "valor_total": 34486.12,
+            "preco_unitario": 344861.2,
+            "quantidade": 0.1
+        },
+        {
             "ativo": "ETHEREUM (ETH)_2024.12.16",
             "data": "2024-04-30",
             "tipo": "APORTE",
@@ -12865,14 +12873,6 @@
             "valor_total": 5599.58,
             "preco_unitario": 1.22,
             "quantidade": 4572.4
-        },
-        {
-            "ativo": "BITCOIN (BTC)_2025.02.02",
-            "data": "2024-04-30",
-            "tipo": "RETIRADA",
-            "valor_total": 34486.12,
-            "preco_unitario": 344861.2,
-            "quantidade": 0.1
         },
         {
             "ativo": "BTLG11",
@@ -12987,6 +12987,14 @@
             "quantidade": 4546.4
         },
         {
+            "ativo": "BITCOIN (BTC)_2025.02.02",
+            "data": "2024-05-30",
+            "tipo": "APORTE",
+            "valor_total": 1200.0,
+            "preco_unitario": 345287.97,
+            "quantidade": 0.0
+        },
+        {
             "ativo": "POLYGON (POL)_2025.08.10",
             "data": "2024-05-30",
             "tipo": "APORTE",
@@ -13001,14 +13009,6 @@
             "valor_total": 400.0,
             "preco_unitario": 66.92,
             "quantidade": 6.0
-        },
-        {
-            "ativo": "BITCOIN (BTC)_2025.02.02",
-            "data": "2024-05-30",
-            "tipo": "APORTE",
-            "valor_total": 1200.0,
-            "preco_unitario": 345287.9702,
-            "quantidade": 0.00347536
         },
         {
             "ativo": "EQTL3",
@@ -13187,6 +13187,14 @@
             "quantidade": 5009.2
         },
         {
+            "ativo": "BITCOIN (BTC)_2025.02.02",
+            "data": "2024-06-30",
+            "tipo": "APORTE",
+            "valor_total": 900.0,
+            "preco_unitario": 349889.59,
+            "quantidade": 0.0
+        },
+        {
             "ativo": "ETHEREUM (ETH)_2024.12.16",
             "data": "2024-06-30",
             "tipo": "APORTE",
@@ -13209,14 +13217,6 @@
             "valor_total": 200.0,
             "preco_unitario": 11.72,
             "quantidade": 17.1
-        },
-        {
-            "ativo": "BITCOIN (BTC)_2025.02.02",
-            "data": "2024-06-30",
-            "tipo": "APORTE",
-            "valor_total": 900.0,
-            "preco_unitario": 349889.5904,
-            "quantidade": 0.00257224
         },
         {
             "ativo": "RADL3",
@@ -13339,6 +13339,14 @@
             "quantidade": 67.2
         },
         {
+            "ativo": "BITCOIN (BTC)_2025.02.02",
+            "data": "2024-07-31",
+            "tipo": "RETIRADA",
+            "valor_total": 2476.23,
+            "preco_unitario": 409456.64,
+            "quantidade": 0.0
+        },
+        {
             "ativo": "ETHEREUM (ETH)_2024.12.16",
             "data": "2024-07-31",
             "tipo": "RETIRADA",
@@ -13369,14 +13377,6 @@
             "valor_total": 500.23,
             "preco_unitario": 32.53,
             "quantidade": 15.4
-        },
-        {
-            "ativo": "BITCOIN (BTC)_2025.02.02",
-            "data": "2024-07-31",
-            "tipo": "RETIRADA",
-            "valor_total": 2476.23,
-            "preco_unitario": 409456.644,
-            "quantidade": 0.0060476
         },
         {
             "ativo": "IBIT",
@@ -13651,20 +13651,20 @@
             "quantidade": 5029.3
         },
         {
+            "ativo": "BITCOIN (BTC)_2025.02.02",
+            "data": "2024-10-30",
+            "tipo": "APORTE",
+            "valor_total": 300.0,
+            "preco_unitario": 311481.2,
+            "quantidade": 0.0
+        },
+        {
             "ativo": "ETHEREUM (ETH)_2024.12.16",
             "data": "2024-10-30",
             "tipo": "APORTE",
             "valor_total": 700.0,
             "preco_unitario": 13824.62,
             "quantidade": 0.1
-        },
-        {
-            "ativo": "BITCOIN (BTC)_2025.02.02",
-            "data": "2024-10-30",
-            "tipo": "APORTE",
-            "valor_total": 300.0,
-            "preco_unitario": 311481.1969,
-            "quantidade": 0.00096314
         },
         {
             "ativo": "BRCO11",
@@ -13755,20 +13755,20 @@
             "quantidade": 7.3
         },
         {
+            "ativo": "BITCOIN (BTC)_2025.02.02",
+            "data": "2024-11-22",
+            "tipo": "RETIRADA",
+            "valor_total": 550.92,
+            "preco_unitario": 572004.07,
+            "quantidade": 0.0
+        },
+        {
             "ativo": "CELESTIA (TIA)_2024.11.22",
             "data": "2024-11-22",
             "valor_total": 0.0,
             "preco_unitario": 0.0,
             "quantidade": 0.1,
             "tipo": "RETIRADA (Ajuste Zeramento)"
-        },
-        {
-            "ativo": "BITCOIN (BTC)_2025.02.02",
-            "data": "2024-11-22",
-            "tipo": "RETIRADA",
-            "valor_total": 550.92,
-            "preco_unitario": 572004.07,
-            "quantidade": 0.00096314
         },
         {
             "ativo": "Tesouro Selic 2029_2025.08.30",
@@ -14243,6 +14243,14 @@
             "quantidade": 88.9
         },
         {
+            "ativo": "BITCOIN (BTC)_2025.02.02",
+            "data": "2025-01-20",
+            "tipo": "RETIRADA",
+            "valor_total": 32438.66,
+            "preco_unitario": 648773.2,
+            "quantidade": 0.1
+        },
+        {
             "ativo": "RADL3",
             "data": "2025-01-20",
             "tipo": "APORTE",
@@ -14259,20 +14267,20 @@
             "quantidade": 100.0
         },
         {
-            "ativo": "BITCOIN (BTC)_2025.02.02",
-            "data": "2025-01-20",
-            "tipo": "RETIRADA",
-            "valor_total": 32438.66,
-            "preco_unitario": 648773.2,
-            "quantidade": 0.05
-        },
-        {
             "ativo": "Vitreo Superprev 2",
             "data": "2025-01-30",
             "tipo": "APORTE",
             "valor_total": 6358.96,
             "preco_unitario": 1.25,
             "quantidade": 5081.5
+        },
+        {
+            "ativo": "BITCOIN (BTC)_2025.02.02",
+            "data": "2025-02-02",
+            "tipo": "RETIRADA",
+            "valor_total": 28443.21,
+            "preco_unitario": 551867.78,
+            "quantidade": 0.1
         },
         {
             "ativo": "BITH11_2025.07.21",
@@ -14285,10 +14293,10 @@
         {
             "ativo": "BITCOIN (BTC)_2025.02.02",
             "data": "2025-02-02",
-            "tipo": "RETIRADA",
-            "valor_total": 28443.21,
-            "preco_unitario": 551867.7762,
-            "quantidade": 0.0515399
+            "valor_total": 0.0,
+            "preco_unitario": 0.0,
+            "quantidade": 0.1,
+            "tipo": "APORTE (Ajuste Zeramento)"
         },
         {
             "ativo": "BRCO11",
