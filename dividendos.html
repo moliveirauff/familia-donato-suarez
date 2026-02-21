@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>📊 Dashboard de Dividendos</title>
-  <meta name="version" content="v1.5">
+  <meta name="version" content="v1.6">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
   <style>
@@ -63,14 +63,8 @@
       text-align: center;
       font-size: 1.5rem;
       font-weight: 800;
-      margin: 10px 44px 4px 44px;
+      margin: 10px 44px 20px 44px;
       color: var(--text);
-    }
-    .page-subtitle {
-      text-align: center;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-bottom: 18px;
     }
 
     /* KPIs */
@@ -161,7 +155,13 @@
     }
 
     /* Controls */
-    .controls { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .controls { 
+      display: flex; 
+      gap: 6px; 
+      align-items: center; 
+      flex-wrap: wrap;
+      justify-content: center;
+    }
     select.filter-select {
       background: var(--border);
       border: none;
@@ -220,7 +220,6 @@
 <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
 <a href="index.html" class="nav-link">← Voltar</a>
 <h1>📊 Dividendos &amp; Proventos</h1>
-<p class="page-subtitle">Histórico completo de dividendos, JCP e rendimentos</p>
 
 <main>
   <!-- KPIs -->
@@ -829,9 +828,12 @@ function renderDYAtivo() {
   
   const sorted = filtered.sort((a, b) => b[1].dy - a[1].dy);
   
-  // Altura dinâmica para scroll
-  const barHeight = 30;
-  const chartHeight = Math.max(1200, sorted.length * barHeight);
+  // Altura dinâmica: 38px por ativo (mesmo que Top Pagadores: 380px / 10 ativos)
+  const barHeight = 38;
+  const paddingTop = 20;
+  const paddingBottom = 20;
+  const chartHeight = (sorted.length * barHeight) + paddingTop + paddingBottom;
+  
   const canvas = document.getElementById('chartDYAtivo');
   canvas.style.height = chartHeight + 'px';
   canvas.height = chartHeight;
@@ -846,7 +848,8 @@ function renderDYAtivo() {
         data: sorted.map(([ativo, d]) => d.dy),
         backgroundColor: sorted.map(([ativo, d]) => COLORS[d.class] || '#95a5a6'),
         borderRadius: 3,
-        barThickness: 20,
+        barPercentage: 0.7,
+        categoryPercentage: 0.9,
         datalabels: {
           display: true,
           anchor: 'end',
@@ -863,7 +866,7 @@ function renderDYAtivo() {
       responsive: true,
       maintainAspectRatio: false,
       layout: {
-        padding: { right: 50 }
+        padding: { top: paddingTop, right: 50, bottom: paddingBottom }
       },
       plugins: { 
         legend: { display: false },
