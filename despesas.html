@@ -17,7 +17,6 @@
             --primary: #667eea;
             --primary-dark: #5568d3;
             --accent: var(--primary);
-            --accent-light: #ebf4ff;
             --success: #48bb78;
             --warning: #ed8936;
             --danger: #f56565;
@@ -36,7 +35,6 @@
             --subtext: var(--text-muted);
             --primary: #7f9cf5;
             --accent: var(--primary);
-            --accent-light: #2a3a6e;
             --green: #68d391;
             --yellow: #f6ad55;
             --red: #fc8181;
@@ -68,21 +66,15 @@
             text-align: center;
             font-size: 1.5rem;
             font-weight: 800;
-            margin: 10px 44px 4px 44px;
+            margin: 10px 44px 15px 44px;
             color: var(--text);
-        }
-        .page-subtitle {
-            text-align: center;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-bottom: 18px;
         }
         .period-bar {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 10px 14px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -171,12 +163,11 @@
             body { max-width: 960px; margin: 0 auto; padding: 16px 16px 60px 16px; }
             .chart-container { height: 380px; }
             .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-            .two-col-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
             h1 { font-size: 1.75rem; }
         }
         .kpi-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
             margin-bottom: 20px;
         }
@@ -200,7 +191,6 @@
     <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
     <a href="index.html" class="nav-link">← Voltar para Início</a>
     <h1>💸 Dashboard de Despesas</h1>
-    <p id="last-update" class="page-subtitle" style="display:none;"></p>
 
     <div class="period-bar">
         <span class="period-label">Período:</span>
@@ -213,14 +203,14 @@
 
     <div id="loading" class="loading-msg">⏳ Carregando dados...</div>
 
-    <div id="dashboard" style="display:none;">
-        <!-- Visão Consolidada -->
-        <div class="kpi-grid" id="kpi-grid-aba1"></div>
+    <div id="dashboard-container" style="display:none;">
+        <!-- KPIs Consolidados -->
+        <div class="kpi-grid" id="kpi-grid-consolidado"></div>
 
-        <!-- C: Gastos por Mês (Filtro Unificado) -->
+        <!-- Gráfico Consolidado/Categoria por Mês -->
         <div class="card">
             <div class="card-header">
-                <span>📅 Gastos por Mês</span>
+                <span>📅 Histórico de Gastos</span>
                 <div class="card-controls">
                     <select id="selC" class="cat-select" onchange="onSelCChange()"></select>
                     <select id="selCSub" class="cat-select" onchange="renderC()"></select>
@@ -230,12 +220,10 @@
         </div>
 
         <div class="grid-2">
-            <!-- D: Pizza por Categoria -->
             <div class="card">
                 <div class="card-header"><span>🥧 % por Categoria</span></div>
                 <div class="chart-container"><canvas id="cD"></canvas></div>
             </div>
-            <!-- E: Pizza por Subcategoria -->
             <div class="card">
                 <div class="card-header">
                     <span>🥧 % por Subcategoria</span>
@@ -247,48 +235,51 @@
             </div>
         </div>
 
-        <div class="section-divider">Análise Detalhada Mensal</div>
+        <div class="section-divider">Análise Mensal Detalhada</div>
 
-        <!-- Seletor de Mês -->
+        <!-- Seletor de Mês Detalhado -->
         <div id="month-selector" style="display:flex; text-align:center; margin-bottom: 20px; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
             <button onclick="changeMonth(-1)" style="background:var(--card-bg); border:1px solid var(--border); border-radius: 50%; width: 36px; height: 36px; cursor: pointer; color: var(--text); font-weight: bold;">&lt;</button>
             <select id="month-dropdown" onchange="onMonthDropdownChange()" style="background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:6px 12px; font-size:0.9rem; font-weight:700; color:var(--text); cursor:pointer; outline:none;"></select>
             <button onclick="changeMonth(1)" style="background:var(--card-bg); border:1px solid var(--border); border-radius: 50%; width: 36px; height: 36px; cursor: pointer; color: var(--text); font-weight: bold;">&gt;</button>
         </div>
 
-        <!-- Análise Mensal -->
-        <div id="tab2">
-            <div class="card">
-                <div class="card-header"><span id="kpi-bar-title">📊 Gastos por Categoria no Mês</span></div>
-                <div class="chart-container"><canvas id="cT2B"></canvas></div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <span id="kpi-subcat-title">📊 Detalhe por Categoria no Mês</span>
-                    <div class="card-controls">
-                        <select id="selT2D" class="cat-select" onchange="renderTab2()"></select>
-                    </div>
+        <div class="card">
+            <div class="card-header"><span>📊 Gastos por Categoria no Mês</span></div>
+            <div class="chart-container"><canvas id="cT2B"></canvas></div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span>📊 Detalhe por Categoria no Mês</span>
+                <div class="card-controls">
+                    <select id="selT2D" class="cat-select" onchange="renderMonthlyDetail()"></select>
                 </div>
-                <div class="chart-container"><canvas id="cT2D"></canvas></div>
             </div>
-            <div class="card">
-                <div class="card-header"><span>🎯 Comparação com Orçamento Mensal</span></div>
-                <div id="budgetChartTab2"></div>
-            </div>
-            <div class="card">
-                <div class="card-header"><span id="kpi-acc-title">📈 Gasto Acumulado Dia a Dia</span></div>
-                <div class="chart-container"><canvas id="cT2C"></canvas></div>
-            </div>
-            <div class="card">
-                <div class="card-header"><span>🏦 Gastos por Origem no Mês</span></div>
-                <div class="chart-container"><canvas id="cT2P3"></canvas></div>
-            </div>
+            <div class="chart-container"><canvas id="cT2D"></canvas></div>
+        </div>
+
+        <div class="card">
+            <div class="card-header"><span>🎯 Comparação com Orçamento Mensal</span></div>
+            <div id="budgetChartDetail"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-header"><span>📈 Gasto Acumulado Dia a Dia</span></div>
+            <div class="chart-container"><canvas id="cT2C"></canvas></div>
+        </div>
+
+        <div class="card">
+            <div class="card-header"><span>🏦 Gastos por Origem no Mês</span></div>
+            <div class="chart-container"><canvas id="cT2P3"></canvas></div>
         </div>
     </div>
 
     <script>
     let allData = [], filteredData = [], categorias = {}, subcategoriasPorCat = {}, origens = {}, orcamento = {};
     let currentPeriod = '12m', charts = {}, selectedMonth = null;
+
+    const CAT_COLORS = ['#2563eb','#16a34a','#dc2626','#ca8a04','#7c3aed','#0891b2','#ea580c','#be185d','#059669','#4b5563'];
 
     function toggleTheme() {
         document.body.classList.toggle('dark-mode');
@@ -301,7 +292,12 @@
     }
 
     function brl(v) { return 'R$ ' + Math.abs(v).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
-    function getRefDate() { const lastKey = allData.reduce((max, r) => r.data > max ? r.data : max, ''); return lastKey ? new Date(lastKey + 'T00:00') : new Date(); }
+    
+    function getRefDate() { 
+        const lastKey = allData.reduce((max, r) => r.data > max ? r.data : max, ''); 
+        return lastKey ? new Date(lastKey + 'T00:00') : new Date(); 
+    }
+
     function getDateBoundary(period) {
         const refDate = getRefDate();
         if (period === 'todos') return new Date('2000-01-01');
@@ -309,14 +305,17 @@
         const m = { '12m': 12, '24m': 24, '36m': 36 }[period] || 12;
         return new Date(refDate.getFullYear(), refDate.getMonth() - (m - 1), 1);
     }
+
     function applyFilter(period) {
         const boundary = getDateBoundary(period);
         filteredData = allData.filter(r => new Date(r.data) >= boundary && r.valor < 0 && r.categoria !== 'receitas');
     }
 
-    function getMonthLabel(key) { const [y, m] = key.split('-'); return `${m}/${y}`; }
-
-    const CAT_COLORS = ['#2563eb','#16a34a','#dc2626','#ca8a04','#7c3aed','#0891b2','#ea580c','#be185d','#059669','#4b5563'];
+    function getMonthLabel(key) { 
+        if (!key) return '-';
+        const [y, m] = key.split('-'); 
+        return `${m}/${y}`; 
+    }
 
     function setPeriod(period, btn) {
         currentPeriod = period;
@@ -327,12 +326,13 @@
     }
 
     function renderConsolidado() {
-        const container = document.getElementById('kpi-grid-aba1');
+        const container = document.getElementById('kpi-grid-consolidado');
+        if (!container) return;
+
         const totalPeriodo = filteredData.reduce((s, r) => s + Math.abs(r.valor), 0);
         const monthKeys = [...new Set(filteredData.map(r => r.data.substring(0, 7)))].sort();
         const mediaMensal = totalPeriodo / (monthKeys.length || 1);
 
-        // KPI: Total no Mês Atual (Baseado na Aba 2)
         const refDate = getRefDate();
         const curKey = `${refDate.getFullYear()}-${String(refDate.getMonth() + 1).padStart(2, '0')}`;
         const totalMesAtual = allData.filter(r => r.data.startsWith(curKey) && r.valor < 0 && r.categoria !== 'receitas')
@@ -348,10 +348,15 @@
             <div class="kpi-card"><span class="kpi-emoji">📅</span><span class="kpi-label">Média Mensal</span><span class="kpi-value">${brl(mediaMensal)}</span><span class="kpi-sub">Base: ${monthKeys.length} meses</span></div>
             <div class="kpi-card"><span class="kpi-emoji">🔥</span><span class="kpi-label">Mês Mais Caro</span><span class="kpi-value">${bestMonth ? getMonthLabel(bestMonth[0]) : '-'}</span><span class="kpi-sub">${bestMonth ? brl(bestMonth[1]) : '-'}</span></div>
         `;
+
         renderC(); renderD(); renderE();
     }
 
-    function onSelCChange() { populateSubcatSelect(document.getElementById('selC').value); renderC(); }
+    function onSelCChange() { 
+        populateSubcatSelect(document.getElementById('selC').value); 
+        renderC(); 
+    }
+
     function populateSubcatSelect(catId) {
         const sel = document.getElementById('selCSub');
         sel.innerHTML = '<option value="__all__">Todas Subcategorias</option>';
@@ -367,6 +372,7 @@
         filteredData.filter(r => (cat === '__all__' || r.categoria === cat) && (sub === '__all__' || r.subcategoria === sub))
                    .forEach(r => { const k = r.data.substring(0, 7); monthly[k] = (monthly[k] || 0) + Math.abs(r.valor); });
         const keys = Object.keys(monthly).sort(), labels = keys.map(getMonthLabel), values = keys.map(k => monthly[k]);
+        
         if (charts['cC']) charts['cC'].destroy();
         charts['cC'] = new Chart(document.getElementById('cC'), {
             type: 'bar', data: { labels, datasets: [{ label: 'Total (R$)', data: values, backgroundColor: cat === '__all__' ? '#2563eb' : '#7c3aed', borderRadius: 6 }] },
@@ -375,9 +381,11 @@
     }
 
     function renderD() {
-        const totals = {}; filteredData.forEach(r => { totals[r.categoria] = (totals[r.categoria] || 0) + Math.abs(r.valor); });
+        const totals = {}; 
+        filteredData.forEach(r => { totals[r.categoria] = (totals[r.categoria] || 0) + Math.abs(r.valor); });
         const sorted = Object.entries(totals).sort((a,b) => b[1]-a[1]);
         const total = sorted.reduce((a,b)=>a+b[1],0);
+        
         if (charts['cD']) charts['cD'].destroy();
         charts['cD'] = new Chart(document.getElementById('cD'), {
             type: 'pie', data: { labels: sorted.map(e => categorias[e[0]] || e[0]), datasets: [{ data: sorted.map(e => e[1]), backgroundColor: CAT_COLORS, borderWidth: 2 }] },
@@ -387,9 +395,11 @@
 
     function renderE() {
         const cat = document.getElementById('selE').value;
-        const totals = {}; filteredData.filter(r => r.categoria === cat).forEach(r => { const s = r.subcategoria || 'Outros'; totals[s] = (totals[s] || 0) + Math.abs(r.valor); });
+        const totals = {}; 
+        filteredData.filter(r => r.categoria === cat).forEach(r => { const s = r.subcategoria || 'Outros'; totals[s] = (totals[s] || 0) + Math.abs(r.valor); });
         const sorted = Object.entries(totals).sort((a,b) => b[1]-a[1]);
         const total = sorted.reduce((a,b)=>a+b[1],0);
+        
         if (charts['cE']) charts['cE'].destroy();
         charts['cE'] = new Chart(document.getElementById('cE'), {
             type: 'pie', data: { labels: sorted.map(e => e[0]), datasets: [{ data: sorted.map(e => e[1]), backgroundColor: CAT_COLORS, borderWidth: 2 }] },
@@ -401,21 +411,34 @@
         const refDate = getRefDate(), refKey = `${refDate.getFullYear()}-${String(refDate.getMonth() + 1).padStart(2, '0')}`;
         if (allData.some(r => r.data.startsWith(refKey) && r.valor < 0)) return { year: refDate.getFullYear(), month: refDate.getMonth() + 1, key: refKey };
         const keys = [...new Set(allData.filter(r => r.valor < 0).map(r => r.data.substring(0, 7)))].sort();
-        const last = keys[keys.length - 1] || refKey; const [y, m] = last.split('-').map(Number);
+        const last = keys[keys.length - 1] || refKey; 
+        const [y, m] = last.split('-').map(Number);
         return { year: y, month: m, key: last };
     }
 
     function changeMonth(offset) {
+        if (!selectedMonth) return;
         const d = new Date(selectedMonth.year, selectedMonth.month - 1 + offset, 1);
         selectedMonth = { year: d.getFullYear(), month: d.getMonth() + 1, key: `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2, '0')}` };
-        document.getElementById('month-dropdown').value = selectedMonth.key; renderTab2();
+        document.getElementById('month-dropdown').value = selectedMonth.key; 
+        renderMonthlyDetail();
     }
-    function onMonthDropdownChange() { const v = document.getElementById('month-dropdown').value; const [y, m] = v.split('-').map(Number); selectedMonth = { year: y, month: m, key: v }; renderTab2(); }
 
-    function renderTab2() {
-        const key = selectedMonth.key, despesas = allData.filter(r => r.valor < 0 && r.categoria !== 'receitas');
+    function onMonthDropdownChange() { 
+        const v = document.getElementById('month-dropdown').value; 
+        const [y, m] = v.split('-').map(Number); 
+        selectedMonth = { year: y, month: m, key: v }; 
+        renderMonthlyDetail(); 
+    }
+
+    function renderMonthlyDetail() {
+        if (!selectedMonth) return;
+        const key = selectedMonth.key;
+        const despesas = allData.filter(r => r.valor < 0 && r.categoria !== 'receitas');
         const curMonthData = despesas.filter(r => r.data.startsWith(key));
-        const catTotals = {}; curMonthData.forEach(r => { catTotals[r.categoria] = (catTotals[r.categoria] || 0) + Math.abs(r.valor); });
+        
+        const catTotals = {}; 
+        curMonthData.forEach(r => { catTotals[r.categoria] = (catTotals[r.categoria] || 0) + Math.abs(r.valor); });
         const catSorted = Object.entries(catTotals).sort((a,b) => b[1] - a[1]);
 
         if (charts['cT2B']) charts['cT2B'].destroy();
@@ -425,25 +448,31 @@
         });
 
         const selCat = document.getElementById('selT2D').value || 'alimentacao';
-        const subTotals = {}; curMonthData.filter(r => r.categoria === selCat).forEach(r => { const s = r.subcategoria || 'Outros'; subTotals[s] = (subTotals[s] || 0) + Math.abs(r.valor); });
+        const subTotals = {}; 
+        curMonthData.filter(r => r.categoria === selCat).forEach(r => { const s = r.subcategoria || 'Outros'; subTotals[s] = (subTotals[s] || 0) + Math.abs(r.valor); });
         const subSorted = Object.entries(subTotals).sort((a,b) => b[1] - a[1]);
+        
         if (charts['cT2D']) charts['cT2D'].destroy();
         charts['cT2D'] = new Chart(document.getElementById('cT2D'), {
             type: 'bar', data: { labels: subSorted.map(e => e[0]), datasets: [{ data: subSorted.map(e => e[1]), backgroundColor: '#7c3aed', borderRadius: 6 }] },
             options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
         });
 
-        const budgetContainer = document.getElementById('budgetChartTab2'); budgetContainer.innerHTML = '';
-        Object.keys(orcamento).forEach(catId => {
-            const orcV = orcamento[catId], realV = catTotals[catId] || 0, pct = orcV > 0 ? (realV / orcV * 100) : 0;
-            const cls = pct < 80 ? 'green' : pct <= 100 ? 'yellow' : 'red';
-            budgetContainer.innerHTML += `<div class="budget-item"><div class="budget-row"><span class="budget-cat">${categorias[catId] || catId}</span><span class="budget-vals">${brl(realV)} / ${brl(orcV)} · <strong style="color:var(--${cls})">${pct.toFixed(0)}%</strong></span></div><div class="budget-track"><div class="budget-fill ${cls}" style="width:${Math.min(pct, 100)}%"></div></div></div>`;
-        });
+        const budgetContainer = document.getElementById('budgetChartDetail'); 
+        if (budgetContainer) {
+            budgetContainer.innerHTML = '';
+            Object.keys(orcamento).forEach(catId => {
+                const orcV = orcamento[catId], realV = catTotals[catId] || 0, pct = orcV > 0 ? (realV / orcV * 100) : 0;
+                const cls = pct < 80 ? 'green' : pct <= 100 ? 'yellow' : 'red';
+                budgetContainer.innerHTML += `<div class="budget-item"><div class="budget-row"><span class="budget-cat">${categorias[catId] || catId}</span><span class="budget-vals">${brl(realV)} / ${brl(orcV)} · <strong style="color:var(--${cls})">${pct.toFixed(0)}%</strong></span></div><div class="budget-track"><div class="budget-fill ${cls}" style="width:${Math.min(pct, 100)}%"></div></div></div>`;
+            });
+        }
 
         const dailyMap = {}; curMonthData.forEach(r => { const d = parseInt(r.data.split('-')[2]); dailyMap[d] = (dailyMap[d] || 0) + Math.abs(r.valor); });
         const dayLabels = [], realAcc = []; let running = 0;
         const daysInMonth = new Date(selectedMonth.year, selectedMonth.month, 0).getDate();
         for (let d = 1; d <= daysInMonth; d++) { dayLabels.push(`Dia ${d}`); running += (dailyMap[d] || 0); realAcc.push(running); }
+        
         if (charts['cT2C']) charts['cT2C'].destroy();
         charts['cT2C'] = new Chart(document.getElementById('cT2C'), {
             type: 'line', data: { labels: dayLabels, datasets: [{ label: 'Acumulado', data: realAcc, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,0.1)', fill: true, tension: 0.3 }] },
@@ -452,6 +481,7 @@
 
         const origTotals = {}; curMonthData.forEach(r => { const n = origens[r.origem] || r.origem; origTotals[n] = (origTotals[n] || 0) + Math.abs(r.valor); });
         const origSorted = Object.entries(origTotals).sort((a,b) => b[1]-a[1]);
+        
         if (charts['cT2P3']) charts['cT2P3'].destroy();
         charts['cT2P3'] = new Chart(document.getElementById('cT2P3'), {
             type: 'doughnut', data: { labels: origSorted.map(e => e[0]), datasets: [{ data: origSorted.map(e => e[1]), backgroundColor: CAT_COLORS }] },
@@ -497,10 +527,16 @@
             monthKeys.forEach(k => { const opt = document.createElement('option'); opt.value = k; opt.textContent = getMonthLabel(k); dd.appendChild(opt); });
             dd.value = selectedMonth.key;
 
-            applyFilter(currentPeriod); renderAll(); renderTab2();
+            applyFilter(currentPeriod); 
+            renderConsolidado(); 
+            renderMonthlyDetail();
+
             document.getElementById('loading').style.display = 'none';
-            document.getElementById('dashboard').style.display = 'block';
-        } catch(err) { console.error(err); document.getElementById('loading').textContent = '❌ Erro ao carregar dados.'; }
+            document.getElementById('dashboard-container').style.display = 'block';
+        } catch(err) { 
+            console.error(err); 
+            document.getElementById('loading').textContent = '❌ Erro ao carregar dados.'; 
+        }
     }
     init();
     </script>
