@@ -218,7 +218,7 @@
 
 <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
 <a href="index.html" class="nav-link">← Voltar</a>
-<h1>📊 Dividendos &amp; Proventos</h1>
+<h1>📊 Dividendos</h1>
 
 <main>
   <!-- KPIs -->
@@ -830,18 +830,13 @@ function renderDYAtivo() {
   const sorted = filtered.sort((a, b) => b[1].dy - a[1].dy);
   
   // Altura dinâmica: 38px por ativo — mesmo ritmo do Top Pagadores (380px / 10 ativos)
-  // O container (.chart-scroll) tem height: 380px com overflow-y: auto — scroll quando necessário
+  // Configuração idêntica ao Top Pagadores para barras com mesma altura
   const barHeight = 38;
-  const paddingTop = 20;
-  const paddingBottom = 20;
-  const chartHeight = (sorted.length * barHeight) + paddingTop + paddingBottom;
+  const chartHeight = sorted.length * barHeight;
   
-  const canvas = document.getElementById('chartDYAtivo');
-  const containerWidth = canvas.parentElement.clientWidth;
-  canvas.style.width = containerWidth + 'px';
-  canvas.style.height = chartHeight + 'px';
-  canvas.width = containerWidth;
-  canvas.height = chartHeight;
+  // Setar altura do container, não do canvas — Chart.js gerencia com responsive: true
+  const scrollContainer = document.getElementById('chartDYAtivo').parentElement;
+  scrollContainer.style.height = chartHeight + 'px';
   
   if (charts.dyAtivo) charts.dyAtivo.destroy();
   charts.dyAtivo = new Chart(ctx, {
@@ -868,10 +863,10 @@ function renderDYAtivo() {
     },
     options: {
       indexAxis: 'y',
-      responsive: false,
+      responsive: true,
       maintainAspectRatio: false,
       layout: {
-        padding: { top: paddingTop, right: 50, bottom: paddingBottom }
+        padding: { right: 50 }
       },
       plugins: { 
         legend: { display: false },
