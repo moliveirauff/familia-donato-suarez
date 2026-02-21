@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="only light">
+  <meta name="supported-color-schemes" content="light">
   <title>📊 Dashboard de Dividendos</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js?v=3.26"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js?v=3.26"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js?v=3.27"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js?v=3.27"></script>
   <style>
     /* Force Light Mode variables as default, override if class is present */
     :root {
       color-scheme: only light !important; /* Force light scheme to opt-out of Android Auto Dark Theme */
+      isolation: isolate;
       --bg: #f7fafc;
       --text: #2d3748;
       --surface: #ffffff;
@@ -36,6 +39,9 @@
       --subtext: var(--text-muted);
       --primary: #7f9cf5;
       --accent: var(--primary);
+      /* Ensure no background image overrides dark mode */
+      background-image: none;
+      background-color: var(--bg);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -45,7 +51,10 @@
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg);
+      /* Nuclear option: base64 white pixel to trick dark mode inversion */
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=');
+      background-repeat: repeat;
+      background-color: var(--bg); /* Fallback */
       color: var(--text);
       transition: background-color 0.3s, color 0.3s;
       padding: 10px 10px 60px 10px;
