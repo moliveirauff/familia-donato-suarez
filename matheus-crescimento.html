@@ -129,18 +129,28 @@
         order: 3;
     }
 
-    /* Filters Style similar to Dividendos */
-    .filter-select {
+    /* Filters Style */
+    .filter-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-filter {
       background: var(--border);
       border: none;
-      padding: 4px 10px;
-      border-radius: 8px;
+      padding: 5px 12px;
+      border-radius: 20px;
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--text);
       cursor: pointer;
-      outline: none;
+      transition: all 0.2s;
     }
+
+    .btn-filter:hover { opacity: 0.8; }
+    .btn-filter.active { background: var(--primary); color: white; }
 
     /* === CARDS === */
     .card {
@@ -242,11 +252,11 @@
     <div class="card">
       <div class="chart-header">
         <div class="chart-title">⚖️ Peso por Idade (Curvas OMS)</div>
-        <select class="filter-select" onchange="updateChartFilter('peso', this.value)">
-          <option value="3">3 Meses</option>
-          <option value="6">6 Meses</option>
-          <option value="all" selected>Tudo</option>
-        </select>
+        <div class="filter-group">
+          <button class="btn-filter" onclick="updateChartFilter('peso', '3', this)">3M</button>
+          <button class="btn-filter" onclick="updateChartFilter('peso', '6', this)">6M</button>
+          <button class="btn-filter active" onclick="updateChartFilter('peso', 'all', this)">Tudo</button>
+        </div>
       </div>
       <div class="chart-container">
         <canvas id="chartPeso"></canvas>
@@ -257,11 +267,11 @@
     <div class="card">
       <div class="chart-header">
         <div class="chart-title">📏 Altura por Idade (Curvas OMS)</div>
-        <select class="filter-select" onchange="updateChartFilter('altura', this.value)">
-          <option value="3">3 Meses</option>
-          <option value="6">6 Meses</option>
-          <option value="all" selected>Tudo</option>
-        </select>
+        <div class="filter-group">
+          <button class="btn-filter" onclick="updateChartFilter('altura', '3', this)">3M</button>
+          <button class="btn-filter" onclick="updateChartFilter('altura', '6', this)">6M</button>
+          <button class="btn-filter active" onclick="updateChartFilter('altura', 'all', this)">Tudo</button>
+        </div>
       </div>
       <div class="chart-container">
         <canvas id="chartAltura"></canvas>
@@ -431,7 +441,11 @@
       renderPeso(data, 'all');
       renderAltura(data, 'all');
       
-      window.updateChartFilter = (type, val) => {
+      window.updateChartFilter = (type, val, btn) => {
+        const parent = btn.parentNode;
+        parent.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
         const p = val === 'all' ? 'all' : parseInt(val);
         if(type === 'peso') renderPeso(data, p);
         else renderAltura(data, p);
