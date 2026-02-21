@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="only light">
+  <title>📈 Gestão Patrimonial</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg: #f7fafc;
+      --text: #2d3748;
+      --surface: #ffffff;
+      --card-bg: var(--surface);
+      --border: #e2e8f0;
+      --text-muted: #718096;
+      --subtext: var(--text-muted);
+      --primary: #667eea;
+      --accent: var(--primary);
+      --success: #48bb78;
+      --warning: #ed8936;
+      --danger: #f56565;
+      --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+    }
+    
+    body.dark-mode {
+      --bg: #1a202c;
+      --text: #f7fafc;
+      --surface: #2d3748;
+      --card-bg: var(--surface);
+      --border: #4a5568;
+      --text-muted: #cbd5e0;
+      --subtext: var(--text-muted);
+      --primary: #7f9cf5;
+      --accent: var(--primary);
+      background-color: var(--bg);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s, color 0.3s;
+      padding: 10px 10px 60px 10px;
+      min-height: 100vh;
+    }
+
+    #theme-toggle {
+      position: absolute; top: 12px; right: 12px;
+      background: rgba(0,0,0,0.05); border: none; font-size: 1.2rem; cursor: pointer;
+      padding: 8px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10;
+    }
+    body.dark-mode #theme-toggle { background: rgba(255,255,255,0.1); }
+
+    .nav-link { text-decoration: none; color: var(--primary); font-size: 0.9rem; margin: 10px 0 0 4px; display: inline-block; }
+    h1 { text-align: center; font-size: 1.5rem; font-weight: 800; margin: 10px 44px 20px 44px; }
+
+    /* KPIs */
+    .kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 8px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .kpi-label { font-size: 0.6rem; font-weight: 800; color: var(--subtext); text-transform: uppercase; }
+    .kpi-value { font-size: 1.05rem; font-weight: 800; }
+    .kpi-sub { font-size: 0.65rem; color: var(--text-muted); }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+    }
+    .card-header {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .card-title { display: flex; align-items: center; gap: 6px; text-align: center; justify-content: center; }
+
+    .chart-container { position: relative; height: 300px; width: 100%; }
+
+    /* Controls */
+    .controls { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px; }
+    .filter-btn {
+      background: var(--border); border: none; padding: 5px 12px; border-radius: 20px;
+      font-size: 0.8rem; font-weight: 600; color: var(--text); cursor: pointer;
+    }
+    .filter-btn.active { background: var(--accent); color: white; }
+
+    #loading {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+      display: flex; align-items: center; justify-content: center; z-index: 1000; color: white;
+    }
+
+    @media (min-width: 768px) {
+      body { max-width: 1100px; margin: 0 auto; }
+      .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .chart-container { height: 380px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="loading">Carregando patrimônio...</div>
+<button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+<a href="index.html" class="nav-link">← Voltar</a>
+<h1>📈 Gestão Patrimonial</h1>
+
+<main>
+  <!-- KPIs -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <span class="kpi-label">💰 Patrimônio Total</span>
+      <span class="kpi-value" id="kpiPatrimonio">—</span>
+      <span class="kpi-sub" id="lastUpdate">Sincronizando...</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">📖 Total Investido</span>
+      <span class="kpi-value" id="kpiInvestido">—</span>
+      <span class="kpi-sub">Book Value</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">📈 Rentabilidade</span>
+      <span class="kpi-value" id="kpiRent">—</span>
+      <span class="kpi-sub">Nominal Total</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">🚀 CAGR (5 anos)</span>
+      <span class="kpi-value" id="kpiCAGR">—</span>
+      <span class="kpi-sub">Retorno Composto</span>
+    </div>
+  </div>
+
+  <!-- Evolução 12m e Anual -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header"><div class="card-title">📊 Evolução (24 Meses)</div></div>
+      <div class="chart-container"><canvas id="chartEvolMes"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">🗓️ Evolução Histórica (Anual)</div></div>
+      <div class="chart-container"><canvas id="chartEvolAno"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Aportes -->
+  <div class="card">
+    <div class="card-header"><div class="card-title">💸 Aportes Líquidos por Ano</div></div>
+    <div class="chart-container"><canvas id="chartAportes"></canvas></div>
+  </div>
+
+  <!-- Rentabilidade -->
+  <div class="card">
+    <div class="card-header"><div class="card-title">🎯 Rentabilidade Real vs Total (Com Proventos)</div></div>
+    <div class="chart-container"><canvas id="chartRentabilidade"></canvas></div>
+  </div>
+
+  <!-- Benchmarks -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">🏆 Comparativo vs Benchmarks</div>
+      <div class="controls">
+        <button class="filter-btn active" onclick="setBenchRange('12m', this)">12M</button>
+        <button class="filter-btn" onclick="setBenchRange('24m', this)">24M</button>
+        <button class="filter-btn" onclick="setBenchRange('total', this)">Total</button>
+      </div>
+    </div>
+    <div class="chart-container"><canvas id="chartBenchmarks"></canvas></div>
+  </div>
+
+  <!-- Alocação -->
+  <div class="card">
+    <div class="card-header"><div class="card-title">⚖️ Alocação Tática (Real vs Meta)</div></div>
+    <div class="chart-container" style="height: 450px;"><canvas id="chartAlocacao"></canvas></div>
+  </div>
+
+  <!-- Ranking -->
+  <div class="card">
+    <div class="card-header"><div class="card-title">🥇 Top Ativos (Investido vs Atual)</div></div>
+    <div id="rankingContainer" style="max-height: 600px; overflow-y: auto;">
+        <canvas id="chartRanking"></canvas>
+    </div>
+  </div>
+</main>
+
+<script>
+  let rawData = null;
+  let charts = {};
+
+  const COLORS = {
+    carteira: '#667eea',
+    cdi: '#4299e1',
+    ibov: '#f56565',
+    meta: '#48bb78',
+    meta_bg: '#e2e8f0',
+    meta_dark_bg: '#4a5568'
+  };
+
+  async function init() {
+    try {
+      const resp = await fetch('data/dashboard_investimentos.json?v=' + Date.now());
+      rawData = await resp.json();
+      
+      updateKPIs();
+      renderEvolucao();
+      renderAportes();
+      renderRentabilidade();
+      renderBenchmarks('12m');
+      renderAlocacao();
+      renderRanking();
+      
+      document.getElementById('loading').style.display = 'none';
+    } catch (e) {
+      console.error(e);
+      document.getElementById('loading').innerHTML = "❌ Erro ao carregar dados do dashboard.";
+    }
+  }
+
+  function fmt(v) { return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+
+  function updateKPIs() {
+    const k = rawData.kpis;
+    document.getElementById('kpiPatrimonio').textContent = fmt(k.patrimonio_total);
+    document.getElementById('kpiInvestido').textContent = fmt(k.total_investido);
+    document.getElementById('kpiRent').textContent = k.rentabilidade_nominal.toFixed(2) + '%';
+    document.getElementById('kpiCAGR').textContent = k.cagr_5anos.toFixed(2) + '%';
+    document.getElementById('lastUpdate').textContent = 'Último processamento: ' + rawData.last_update;
+  }
+
+  function renderEvolucao() {
+    // Mensal
+    const ctxM = document.getElementById('chartEvolMes').getContext('2d');
+    charts.evolMes = new Chart(ctxM, {
+      type: 'bar',
+      data: {
+        labels: rawData.evolucao_mensal.map(d => d.mes.split('-').reverse().join('/')),
+        datasets: [{
+          label: 'Patrimônio',
+          data: rawData.evolucao_mensal.map(d => d.patrimonio),
+          backgroundColor: '#667eea', borderRadius: 4
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+    });
+
+    // Anual
+    const ctxA = document.getElementById('chartEvolAno').getContext('2d');
+    charts.evolAno = new Chart(ctxA, {
+      type: 'bar',
+      data: {
+        labels: rawData.evolucao_anual.map(d => d.ano),
+        datasets: [{
+          label: 'Patrimônio',
+          data: rawData.evolucao_anual.map(d => d.patrimonio),
+          backgroundColor: '#48bb78', borderRadius: 4
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+    });
+  }
+
+  function renderAportes() {
+    const ctx = document.getElementById('chartAportes').getContext('2d');
+    charts.aportes = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: rawData.aportes_liquidos.map(d => d.ano),
+        datasets: [{
+          label: 'Aporte Líquido',
+          data: rawData.aportes_liquidos.map(d => d.aporte),
+          backgroundColor: ctx => ctx.raw >= 0 ? '#48bb78' : '#f56565',
+          borderRadius: 4
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+  }
+
+  function renderRentabilidade() {
+    const ctx = document.getElementById('chartRentabilidade').getContext('2d');
+    charts.rent = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: rawData.rentabilidade_anual.map(d => d.ano),
+        datasets: [
+          { label: 'Sem Dividendos', data: rawData.rentabilidade_anual.map(d => d.sem_dividendos), backgroundColor: '#4299e1', borderRadius: 4 },
+          { label: 'Com Dividendos', data: rawData.rentabilidade_anual.map(d => d.com_dividendos), backgroundColor: '#48bb78', borderRadius: 4 }
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+  }
+
+  function setBenchRange(range, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderBenchmarks(range);
+  }
+
+  function renderBenchmarks(range) {
+    const ctx = document.getElementById('chartBenchmarks').getContext('2d');
+    const data = rawData.benchmarks[range];
+    
+    if (charts.bench) charts.bench.destroy();
+    charts.bench = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: data.labels,
+        datasets: [
+          { label: 'Carteira', data: data.series.carteira, borderColor: COLORS.carteira, tension: 0.3, pointRadius: 0 },
+          { label: 'CDI', data: data.series.cdi, borderColor: COLORS.cdi, tension: 0.3, pointRadius: 0 },
+          { label: 'Ibovespa', data: data.series.ibov, borderColor: COLORS.ibov, tension: 0.3, pointRadius: 0 },
+          { label: 'IPCA+6%', data: data.series.ipca_plus_6, borderColor: COLORS.meta, tension: 0.3, pointRadius: 0 }
+        ]
+      },
+      options: { 
+        responsive: true, maintainAspectRatio: false,
+        scales: { y: { ticks: { callback: v => v + '%' } } }
+      }
+    });
+  }
+
+  function renderAlocacao() {
+    const ctx = document.getElementById('chartAlocacao').getContext('2d');
+    const labels = rawData.alocacao.map(d => d.categoria.replace(/_/g, ' ').toUpperCase());
+    
+    charts.aloc = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Real',
+            data: rawData.alocacao.map(d => d.real_rs),
+            backgroundColor: d => {
+              const meta = rawData.alocacao[d.dataIndex].meta_rs;
+              const real = rawData.alocacao[d.dataIndex].real_rs;
+              return real >= meta ? '#48bb78' : '#f56565';
+            },
+            borderRadius: 6,
+            barPercentage: 0.6,
+            order: 1 // Desenha por cima
+          },
+          {
+            label: 'Meta',
+            data: rawData.alocacao.map(d => d.meta_rs),
+            backgroundColor: 'rgba(160, 174, 192, 0.4)',
+            borderRadius: 6,
+            barPercentage: 0.8, // Mais larga para fazer o fundo
+            order: 2 // Desenha por baixo
+          }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { stacked: false }, // Importante: não empilhar, sobrepor
+          y: { stacked: true }   // Mantém alinhamento no eixo Y
+        }
+      }
+    });
+  }
+
+  function renderRanking() {
+    const ctx = document.getElementById('chartRanking').getContext('2d');
+    const data = rawData.ranking_ativos.slice(0, 20); // Top 20
+    
+    // Set dynamic height
+    document.getElementById('chartRanking').height = data.length * 35;
+
+    charts.ranking = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: data.map(d => d.ticker),
+        datasets: [
+            {
+                label: 'Atual',
+                data: data.map(d => d.atual),
+                backgroundColor: ctx => {
+                    const d = data[ctx.dataIndex];
+                    return d.atual >= d.investido ? '#48bb78' : 'rgba(255, 99, 132, 0.1)';
+                },
+                borderColor: ctx => {
+                    const d = data[ctx.dataIndex];
+                    return d.atual < d.investido ? '#f56565' : 'transparent';
+                },
+                borderWidth: 2,
+                borderRadius: 4
+            },
+            {
+                label: 'Investido',
+                data: data.map(d => d.investido),
+                backgroundColor: 'rgba(160, 174, 192, 0.2)',
+                borderRadius: 4
+            }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    afterLabel: (ctx) => {
+                        const d = data[ctx.dataIndex];
+                        return `Rent: ${d.rent_pct}%`;
+                    }
+                }
+            }
+        }
+      }
+    });
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    document.getElementById('theme-toggle').textContent = isDark ? '☀️' : '🌙';
+    setTimeout(() => Object.values(charts).forEach(c => c && c.update()), 100);
+  }
+
+  // Init theme
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    document.getElementById('theme-toggle').textContent = '☀️';
+  }
+
+  init();
+</script>
+</body>
+</html>
