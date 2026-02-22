@@ -1301,11 +1301,11 @@
       },
       {
         "ano": 2021,
-        "patrimonio": 58357.48
+        "patrimonio": 61764.83
       },
       {
         "ano": 2022,
-        "patrimonio": 24931.13
+        "patrimonio": 25810.98
       },
       {
         "ano": 2023,
@@ -1425,11 +1425,11 @@
       },
       {
         "ano": 2021,
-        "patrimonio": 3407.36
+        "patrimonio": 0.0
       },
       {
         "ano": 2022,
-        "patrimonio": 879.85
+        "patrimonio": 0.0
       },
       {
         "ano": 2023,
@@ -3047,5 +3047,5 @@
       "categoria": "3_acoes_brasil"
     }
   ],
-  "last_update": "2026-02-21 21:13"
+  "last_update": "2026-02-21 21:17"
 }

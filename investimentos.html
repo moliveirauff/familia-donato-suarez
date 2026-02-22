@@ -267,13 +267,18 @@
       '4_ativos_reais': 'Ativos Reais (FIIs)',
       '5_internacional': 'Internacional',
       '6_criptoativos': 'Criptoativos',
-      '7_alternativos_estratega': 'Alternativos'
+      '7_alternativos_estratega': 'Alternativos',
+      '9_uncategorized': 'Não Categorizado'
     };
     
     const filterMes = document.getElementById('filterEvolMes');
     const filterAno = document.getElementById('filterEvolAno');
     
     categorias.forEach(cat => {
+      // Regra: Só mostrar a categoria se ela tiver algum valor maior que zero em algum momento
+      const hasValue = rawData.evolucao_mensal_por_categoria[cat].some(d => d.patrimonio > 0);
+      if (!hasValue) return;
+
       const opt1 = document.createElement('option');
       opt1.value = cat;
       opt1.textContent = NOMES_CAT[cat] || cat;
