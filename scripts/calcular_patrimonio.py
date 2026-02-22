@@ -29,7 +29,7 @@ def load_json(filename):
     with open(path, 'r', encoding='utf-8') as f: return json.load(f)
 
 def run():
-    print("🚀 Iniciando processamento patrimonial v3.8...")
+    print("🚀 Iniciando processamento patrimonial v3.42...")
     
     movimentacoes_data = load_json("movimentacoes_financeiras.json")
     cotacoes_data = load_json("invest_cotacoes_mensais.json")
@@ -45,7 +45,7 @@ def run():
     movs = sorted(movimentacoes_data.get("movimentacoes", []), key=lambda x: x["data"])
     divs = sorted(dividendos_data.get("movimentacoes", []), key=lambda x: x["data"])
     base_class_map = {a["nome"]: a["macro_classe"] for a in ativos_data.get("ativos", [])}
-    categorias_unicas = sorted(list(set(base_class_map.values())))
+    categorias_unicas = sorted(list(set(list(base_class_map.values()) + ["9_uncategorized"])))
     
     TIPOS_SOMA = ['APORTE', 'APORTE (Ajuste Zeramento)', 'COMPRA']
     TIPOS_SUBTRAI = ['RETIRADA', 'RETIRADA (Ajuste Zeramento)', 'RESGATE', 'VENDA']
@@ -94,7 +94,6 @@ def run():
             if m_date > last_day: break
             asset_full = m["ativo"]
             qty = float(m.get("quantidade", 0))
-            price = float(m.get("preco_unitario", 0))
             valor_mov = m["valor_total"]
             
             if m["tipo"] in TIPOS_SOMA:
@@ -134,7 +133,11 @@ def run():
             if not asset_cots:
                 asset_cots = cotacoes_data.get(base_name, {})
             
-            cat = base_class_map.get(base_name, "7_alternativos_estratega")
+            # Buscar categoria: primeiro nome completo, depois base_name
+            cat = base_class_map.get(asset_full)
+            if not cat:
+                cat = base_class_map.get(base_name, "9_uncategorized")
+            
             if cat not in pat_por_cat_mes: pat_por_cat_mes[cat] = 0.0
             
             cot_key = f"{MESES_PT[month_val]}/{year_val}"
@@ -215,7 +218,11 @@ def run():
     for asset_full, qty in positions.items():
         if qty <= 0.001: continue
         base_name = get_base_name(asset_full)
-        cat = base_class_map.get(base_name, "7_alternativos_estratega")
+        # Buscar categoria: primeiro nome completo, depois base_name
+        cat = base_class_map.get(asset_full)
+        if not cat:
+            cat = base_class_map.get(base_name, "9_uncategorized")
+            
         cot_data = cotacoes_data.get(asset_full, {}) or cotacoes_data.get(base_name, {})
         price = cot_data.get(f"{MESES_PT[int(months[-1].split('-')[1])]}/{months[-1].split('-')[0]}", 0) or 0
         val_atual = qty * price
