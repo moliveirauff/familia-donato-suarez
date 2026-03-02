@@ -518,7 +518,7 @@
       el1.className = 'kpi-value ' + (fluxoTotal >= 0 ? 'positive' : 'negative');
 
       const mesAtual = new Date().toISOString().slice(0,7);
-      const fluxoMes = fluxoData.fluxo_mensal.find(m => m.mes === mesAtual)?.total_brl || 0;
+      const fluxoMes = fluxoData.detalhamento_mensal.find(m => m.mes === mesAtual)?.fluxo_total || 0;
       const el2 = document.getElementById('kpiFluxoMes');
       el2.textContent = brl(fluxoMes);
       el2.className = 'kpi-value ' + (fluxoMes >= 0 ? 'positive' : 'negative');
@@ -542,9 +542,9 @@
       const textColor = getComputedStyle(document.body).getPropertyValue('--text').trim();
       const gridColor = getComputedStyle(document.body).getPropertyValue('--border').trim();
       
-      const labels = fluxoData.fluxo_mensal.map(m => monthLabel(m.mes));
-      const dataBR = fluxoData.fluxo_mensal.map(m => m.br_brl);
-      const dataUS = fluxoData.fluxo_mensal.map(m => m.us_brl);
+      const labels = fluxoData.detalhamento_mensal.map(m => monthLabel(m.mes));
+      const dataBR = fluxoData.detalhamento_mensal.map(m => m.fluxo_br);
+      const dataUS = fluxoData.detalhamento_mensal.map(m => m.fluxo_us);
 
       if (globalData.chartFluxoMensal) globalData.chartFluxoMensal.destroy();
       globalData.chartFluxoMensal = new Chart(ctx, {
@@ -619,19 +619,19 @@
       }
 
       // Filtrar apenas meses que tenham saldo disponível (saldoTotal > 0 garante)
-      const mesesComSaldo = fluxoData.fluxo_mensal.filter(m => m.total_brl !== undefined);
+      const mesesComSaldo = fluxoData.detalhamento_mensal.filter(m => m.fluxo_total !== undefined);
 
       const labels = mesesComSaldo.map(m => monthLabel(m.mes));
       
       // Calcular % retorno mensal
       const retornoMensal = mesesComSaldo.map(m => 
-        (m.total_brl / saldoTotal) * 100
+        (m.fluxo_total / saldoTotal) * 100
       );
 
       // Calcular % retorno acumulado
       let acumulado = 0;
       const retornoAcumulado = mesesComSaldo.map(m => {
-        acumulado += m.total_brl;
+        acumulado += m.fluxo_total;
         return (acumulado / saldoTotal) * 100;
       });
 
