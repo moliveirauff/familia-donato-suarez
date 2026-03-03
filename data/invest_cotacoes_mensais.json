@@ -9473,7 +9473,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 20.2
   },
   "EGIE3": {
     "jan/2012": null,
@@ -9679,7 +9680,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 32.26
   },
   "FLRY3": {
     "jan/2012": null,
@@ -9885,7 +9887,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 16.42
   },
   "BBSE3_2022.01.10": {
     "jan/2012": null,
@@ -10297,7 +10300,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 44.38
   },
   "PSSA3": {
     "jan/2012": null,
@@ -10503,7 +10507,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 50.63
   },
   "SAPR11": {
     "jan/2012": null,
@@ -10709,7 +10714,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 42.71
   },
   "RDOR3": {
     "jan/2012": null,
@@ -10915,7 +10921,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 38.65
   },
   "TAEE11_2025.11.21": {
     "jan/2012": null,
@@ -11327,7 +11334,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 41.57
   },
   "PETR4_2022.08.15": {
     "jan/2012": null,
@@ -11739,7 +11747,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 40.49
   },
   "WEGE3": {
     "jan/2012": null,
@@ -11945,7 +11954,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 47.4
   },
   "RADL3": {
     "jan/2012": null,
@@ -12151,7 +12161,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 23.93
   },
   "VALE3": {
     "jan/2012": null,
@@ -12357,7 +12368,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 84.48
   },
   "ABEV3_2025.12.19": {
     "jan/2012": null,
@@ -18743,7 +18755,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 103.32
   },
   "HGLG11": {
     "jan/2012": null,
@@ -18949,7 +18962,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 158.15
   },
   "HGRU11": {
     "jan/2012": null,
@@ -19155,7 +19169,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 126.88
   },
   "PMLL11": {
     "jan/2012": null,
@@ -19361,7 +19376,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 106.92
   },
   "MCCI11": {
     "jan/2012": null,
@@ -19567,7 +19583,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 96.2
   },
   "VISC11_2020.02.17": {
     "jan/2012": null,
@@ -19979,7 +19996,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 78.31
   },
   "XPLG11": {
     "jan/2012": null,
@@ -20185,7 +20203,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 101.53
   },
   "XPML11": {
     "jan/2012": null,
@@ -20391,7 +20410,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 110.7
   },
   "VGIP11": {
     "jan/2012": null,
@@ -20597,7 +20617,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 80.33
   },
   "PVBI11": {
     "jan/2012": null,
@@ -20803,7 +20824,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 79.39
   },
   "RECR11": {
     "jan/2012": null,
@@ -21009,7 +21031,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 82.18
   },
   "TRXF11": {
     "jan/2012": null,
@@ -21215,7 +21238,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 92.54
   },
   "LVBI11_2025.10.29": {
     "jan/2012": null,
@@ -21627,7 +21651,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 78.66
   },
   "BRCO11": {
     "jan/2012": null,
@@ -21833,7 +21858,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 122.28
   },
   "KNRI11_2021.05.11": {
     "jan/2012": null,
@@ -22245,7 +22271,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 104.63
   },
   "RBRY11": {
     "jan/2012": null,
@@ -22451,7 +22478,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 97.45
   },
   "GARE11": {
     "jan/2012": null,
@@ -22657,7 +22685,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 8.52
   },
   "FATN11": {
     "jan/2012": null,
@@ -22863,7 +22892,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 86.95
   },
   "IRDM11_2025.12.22": {
     "jan/2012": null,
@@ -27601,7 +27631,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 504.49
   },
   "SGOV": {
     "jan/2012": null,
@@ -27807,7 +27838,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 530.81
   },
   "SPYM_2025.11.21": {
     "jan/2012": null,
@@ -34811,7 +34843,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 204.61
   },
   "ETHA": {
     "jan/2012": null,
@@ -35017,7 +35050,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 78.93
   },
   "SOLH11_2025.08.11": {
     "jan/2012": null,
@@ -42436,7 +42470,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 111.39
   },
   "KNRI11": {
     "jan/2012": null,
@@ -42642,7 +42677,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 164.75
   },
   "PETR4": {
     "jan/2012": null,
@@ -42848,7 +42884,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 40.95
   },
   "BBSE3": {
     "jan/2012": null,
@@ -43054,7 +43091,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 34.4
   },
   "SPY": {
     "jan/2012": null,
@@ -43260,7 +43298,8 @@
     "set/2028": null,
     "out/2028": null,
     "nov/2028": null,
-    "dez/2028": null
+    "dez/2028": null,
+    "2026-03": 3596.9
   },
   "Tesouro IPCA+ 2050": {
     "jan/2012": null,
@@ -43674,6 +43713,6 @@
     "nov/2028": null,
     "dez/2028": null
   },
-  "data_atualizacao": "2026-02-27",
+  "data_atualizacao": "2026-03-03",
   "versao": "2026.2.27c"
 }
