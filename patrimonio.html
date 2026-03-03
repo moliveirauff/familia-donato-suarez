@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="only light">
   <meta name="supported-color-schemes" content="light">
-  <title>🏛️ Patrimônio Total</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js?v=1.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js?v=1.0"></script>
+  <title>Patrimônio Total - Hub Família</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
   <style>
     :root {
       color-scheme: only light !important;
@@ -18,6 +19,7 @@
       --border: #e2e8f0;
       --text-muted: #718096;
       --primary: #667eea;
+      --accent: var(--primary);
       --success: #48bb78;
       --warning: #ed8936;
       --danger: #fc8181;
@@ -27,373 +29,258 @@
       --argos: #ed8936;
       --fgts: #9f7aea;
     }
+    body.dark-mode {
+      color-scheme: only dark !important;
+      --bg: #1a202c;
+      --text: #f7fafc;
+      --surface: #2d3748;
+      --border: #4a5568;
+      --text-muted: #cbd5e0;
+      --primary: #7f9cf5;
+      --accent: var(--primary);
+      background-image: none;
+      background-color: var(--bg);
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { background-color: var(--bg); min-height: 100vh; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg);
       color: var(--text);
+      transition: background-color 0.3s, color 0.3s;
       padding: 10px 10px 60px 10px;
       min-height: 100vh;
+    }
+
+    /* === NAV === */
+    nav {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-bottom: 4px;
     }
     .nav-link {
       text-decoration: none;
       color: var(--primary);
       font-size: 0.9rem;
-      margin: 10px 0 4px 4px;
+      margin: 10px 0 0 4px;
       display: inline-block;
     }
-    h1 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--text);
-      margin: 8px 4px 4px;
+    #theme-toggle {
+      position: absolute; top: 8px; right: 4px;
+      background: rgba(0,0,0,0.05); border: none; font-size: 1.2rem; cursor: pointer;
+      padding: 8px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10; transition: background 0.2s;
     }
-    .subtitle {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin: 0 4px 16px;
-    }
-    /* KPI Cards */
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .kpi-card {
-      background: var(--surface);
-      border-radius: 12px;
-      padding: 14px;
-      box-shadow: var(--shadow);
-    }
+    body.dark-mode #theme-toggle { background: rgba(255,255,255,0.1); }
+    body:not(.dark-mode) #theme-toggle { background: rgba(0,0,0,0.05); }
+
+    h1 { font-size: 1.4rem; font-weight: 700; color: var(--text); margin: 8px 4px 4px; }
+    .subtitle { font-size: 0.8rem; color: var(--text-muted); margin: 0 4px 16px; }
+
+    /* === KPI Cards === */
+    .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    .kpi-card { background: var(--surface); border-radius: 12px; padding: 14px; box-shadow: var(--shadow); }
     .kpi-card.full-width { grid-column: 1 / -1; }
-    .kpi-label {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 4px;
-    }
-    .kpi-value {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.1;
-    }
+    .kpi-label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+    .kpi-value { font-size: 1.3rem; font-weight: 700; color: var(--text); line-height: 1.1; }
     .kpi-value.large { font-size: 1.6rem; }
-    .kpi-value.positive { color: var(--success); }
-    .kpi-value.negative { color: var(--danger); }
-    .kpi-sub {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-    /* Progress bar */
-    .progress-bar-wrap {
-      margin-top: 8px;
-      background: var(--border);
-      border-radius: 8px;
-      height: 10px;
-      overflow: hidden;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      border-radius: 8px;
-      background: linear-gradient(90deg, var(--primary), var(--success));
-      transition: width 0.8s ease;
-    }
-    .progress-pct {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-      text-align: right;
-    }
-    /* Section */
-    .section-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin: 20px 4px 10px;
-    }
-    /* Chart card */
-    .chart-card {
-      background: var(--surface);
-      border-radius: 12px;
-      padding: 14px;
-      box-shadow: var(--shadow);
-      margin-bottom: 16px;
-    }
-    .chart-card h3 {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--text);
-    }
+    .kpi-sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+
+    /* === Progress bar === */
+    .progress-bar-wrap { margin-top: 8px; background: var(--border); border-radius: 8px; height: 10px; overflow: hidden; }
+    .progress-bar-fill { height: 100%; border-radius: 8px; background: linear-gradient(90deg, var(--primary), var(--success)); transition: width 0.8s ease; }
+    .progress-pct { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; text-align: right; }
+
+    /* === Section title === */
+    .section-title { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin: 20px 4px 10px; }
+
+    /* === Chart card === */
+    .chart-card { background: var(--surface); border-radius: 12px; padding: 14px; box-shadow: var(--shadow); margin-bottom: 16px; }
+    .chart-card h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--text); text-align: center; }
     .chart-wrap { position: relative; width: 100%; }
     .chart-wrap canvas { width: 100% !important; }
-    /* Class cards */
-    .class-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 16px;
+
+    /* === Filter buttons === */
+    .controls { display: flex; justify-content: center; gap: 6px; margin-bottom: 12px; }
+    .filter-btn {
+      padding: 4px 12px; border: 1px solid var(--border); border-radius: 9999px;
+      background: transparent; color: var(--text); font-size: 0.75rem; cursor: pointer;
+      font-family: 'Inter', sans-serif; transition: all 0.2s;
     }
-    .class-card {
-      background: var(--surface);
-      border-radius: 12px;
-      padding: 14px;
-      box-shadow: var(--shadow);
-      border-top: 3px solid transparent;
-    }
+    .filter-btn:hover { opacity: 0.8; }
+    .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+    /* === Class cards === */
+    .class-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    .class-card { background: var(--surface); border-radius: 12px; padding: 14px; box-shadow: var(--shadow); border-top: 3px solid transparent; }
     .class-card.invest { border-top-color: var(--invest); }
     .class-card.imovel { border-top-color: var(--imovel); }
     .class-card.argos  { border-top-color: var(--argos); }
     .class-card.fgts   { border-top-color: var(--fgts); }
-    .class-card-title {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-    .class-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 5px;
-    }
-    .class-row-label {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-    }
-    .class-row-value {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-    .class-row-value.muted {
-      font-size: 0.72rem;
-      font-weight: 400;
-      color: var(--text-muted);
-    }
-    /* Legend */
-    .legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.75rem;
-      color: var(--text);
-    }
-    .legend-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    /* Footer */
-    footer {
-      text-align: center;
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      margin-top: 24px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-    }
-    /* Loading */
-    #loading {
-      text-align: center;
-      padding: 40px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
+    .class-card-title { font-size: 0.78rem; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    .class-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+    .class-row-label { font-size: 0.7rem; color: var(--text-muted); }
+    .class-row-value { font-size: 0.8rem; font-weight: 600; color: var(--text); }
+    .class-row-value.muted { font-size: 0.72rem; font-weight: 400; color: var(--text-muted); }
+
+    /* === Footer === */
+    footer { text-align: center; font-size: 0.7rem; color: var(--text-muted); margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--border); }
+
+    /* === Loading === */
+    #loading { text-align: center; padding: 40px; color: var(--text-muted); font-size: 0.9rem; }
     #content { display: none; }
   </style>
 </head>
 <body>
-  <a class="nav-link" href="index.html">← Hub</a>
-  <h1>🏛️ Patrimônio Total</h1>
-  <p class="subtitle" id="update-date">Carregando...</p>
+  <nav>
+    <a class="nav-link" href="index.html">← Hub</a>
+    <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+  </nav>
 
-  <div id="loading">⏳ Carregando dados...</div>
-  <div id="content">
+  <main>
+    <h1>🏛️ Patrimônio Total</h1>
+    <p class="subtitle" id="update-date">Carregando...</p>
 
-    <!-- KPIs -->
-    <div class="kpi-grid">
-      <div class="kpi-card full-width">
-        <div class="kpi-label">Patrimônio Total</div>
-        <div class="kpi-value large" id="kpi-total">—</div>
-        <div class="kpi-sub" id="kpi-ytd">Variação YTD: —</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Meta (USD 1,5M)</div>
-        <div class="kpi-value" id="kpi-meta">—</div>
-        <div class="kpi-sub" id="kpi-ptax">Cotação: —</div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">% da Meta</div>
-        <div class="kpi-value" id="kpi-meta-pct">—</div>
-        <div class="progress-bar-wrap">
-          <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+    <div id="loading">⏳ Carregando dados...</div>
+    <div id="content">
+
+      <!-- KPIs -->
+      <div class="kpi-grid">
+        <div class="kpi-card full-width">
+          <div class="kpi-label">Patrimônio Total</div>
+          <div class="kpi-value large" id="kpi-total">—</div>
+          <div class="kpi-sub" id="kpi-ytd">Variação YTD: —</div>
         </div>
-        <div class="progress-pct" id="progress-label">—</div>
+        <div class="kpi-card">
+          <div class="kpi-label">Meta (USD 1,5M)</div>
+          <div class="kpi-value" id="kpi-meta">—</div>
+          <div class="kpi-sub" id="kpi-ptax">Cotação: —</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">% da Meta</div>
+          <div class="kpi-value" id="kpi-meta-pct">—</div>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+          </div>
+          <div class="progress-pct" id="progress-label">—</div>
+        </div>
       </div>
+
+      <!-- Gráfico 1: Barras Empilhadas Anual -->
+      <div class="chart-card">
+        <h3>📅 Evolução Anual por Classe</h3>
+        <div class="chart-wrap"><canvas id="chart-anual"></canvas></div>
+      </div>
+
+      <!-- Gráfico 2: Barras Empilhadas Mensal (com filtro) -->
+      <div class="chart-card">
+        <h3>📆 Evolução Mensal por Classe</h3>
+        <div class="controls">
+          <button class="filter-btn active" onclick="filterMensal(12, this)">12M</button>
+          <button class="filter-btn" onclick="filterMensal(24, this)">24M</button>
+          <button class="filter-btn" onclick="filterMensal(36, this)">36M</button>
+          <button class="filter-btn" onclick="filterMensal(0, this)">Todos</button>
+        </div>
+        <div class="chart-wrap"><canvas id="chart-mensal"></canvas></div>
+      </div>
+
+      <!-- Gráfico 3: Donut -->
+      <div class="chart-card">
+        <h3>🥧 Composição Atual (%)</h3>
+        <div class="chart-wrap" style="max-width:320px;margin:0 auto"><canvas id="chart-donut"></canvas></div>
+      </div>
+
+      <!-- Cards por Classe -->
+      <div class="section-title">Detalhe por Classe</div>
+      <div class="class-grid">
+        <div class="class-card invest">
+          <div class="class-card-title">📈 Investimentos</div>
+          <div class="class-row"><span class="class-row-label">Patrimônio</span><span class="class-row-value" id="inv-patrimonio">—</span></div>
+          <div class="class-row"><span class="class-row-label">CAGR 5 anos</span><span class="class-row-value" id="inv-cagr">—</span></div>
+          <div class="class-row"><span class="class-row-label">Rent. nominal</span><span class="class-row-value" id="inv-rent">—</span></div>
+        </div>
+        <div class="class-card imovel">
+          <div class="class-card-title">🏠 Imóvel de Renda</div>
+          <div class="class-row"><span class="class-row-label">Valor mercado</span><span class="class-row-value" id="im-mercado">—</span></div>
+          <div class="class-row"><span class="class-row-label">Valor aquisição</span><span class="class-row-value" id="im-aquis">—</span></div>
+          <div class="class-row"><span class="class-row-label">Valorização</span><span class="class-row-value" id="im-valorizacao">—</span></div>
+        </div>
+        <div class="class-card argos">
+          <div class="class-card-title">🏢 Argos (minha parte)</div>
+          <div class="class-row"><span class="class-row-label">Valor corrigido</span><span class="class-row-value" id="ar-valor">—</span></div>
+          <div class="class-row"><span class="class-row-label">Total investido</span><span class="class-row-value" id="ar-investido">—</span></div>
+          <div class="class-row"><span class="class-row-label">Rendimento</span><span class="class-row-value" id="ar-rendimento">—</span></div>
+        </div>
+        <div class="class-card fgts">
+          <div class="class-card-title">💼 FGTS</div>
+          <div class="class-row"><span class="class-row-label">Saldo real</span><span class="class-row-value" id="fg-saldo">—</span></div>
+          <div class="class-row"><span class="class-row-label">Aportes 12m</span><span class="class-row-value" id="fg-aportes">—</span></div>
+          <div class="class-row"><span class="class-row-label">Teórico rescisão</span><span class="class-row-value muted" id="fg-teorico">—</span></div>
+        </div>
+      </div>
+
+      <footer>Patrimônio Total · <span id="footer-date"></span></footer>
     </div>
-
-    <!-- Legend -->
-    <div class="legend">
-      <div class="legend-item"><div class="legend-dot" style="background:var(--invest)"></div>Investimentos</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--imovel)"></div>Imóvel de Renda</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--argos)"></div>Argos</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--fgts)"></div>FGTS</div>
-    </div>
-
-    <!-- Gráfico 1: Barras Empilhadas Anual -->
-    <div class="chart-card">
-      <h3>📅 Evolução Anual por Classe</h3>
-      <div class="chart-wrap"><canvas id="chart-anual"></canvas></div>
-    </div>
-
-    <!-- Gráfico 2: Barras Empilhadas Mensal -->
-    <div class="chart-card">
-      <h3>📆 Últimos 12 Meses por Classe</h3>
-      <div class="chart-wrap"><canvas id="chart-mensal"></canvas></div>
-    </div>
-
-    <!-- Gráfico 3: Donut -->
-    <div class="chart-card">
-      <h3>🥧 Composição Atual (%)</h3>
-      <div class="chart-wrap" style="max-width:320px;margin:0 auto"><canvas id="chart-donut"></canvas></div>
-    </div>
-
-    <!-- Cards por Classe -->
-    <div class="section-title">Detalhe por Classe</div>
-    <div class="class-grid">
-      <div class="class-card invest">
-        <div class="class-card-title">📈 Investimentos</div>
-        <div class="class-row">
-          <span class="class-row-label">Patrimônio</span>
-          <span class="class-row-value" id="inv-patrimonio">—</span>
-        </div>
-        <div class="class-row">
-          <span class="class-row-label">CAGR 5 anos</span>
-          <span class="class-row-value" id="inv-cagr">—</span>
-        </div>
-        <div class="class-row">
-          <span class="class-row-label">Rent. nominal</span>
-          <span class="class-row-value" id="inv-rent">—</span>
-        </div>
-      </div>
-      <div class="class-card imovel">
-        <div class="class-card-title">🏠 Imóvel de Renda</div>
-        <div class="class-row">
-          <span class="class-row-label">Valor mercado</span>
-          <span class="class-row-value" id="im-mercado">—</span>
-        </div>
-        <div class="class-row">
-          <span class="class-row-label">Valor aquisição</span>
-          <span class="class-row-value" id="im-aquis">—</span>
-        </div>
-        <div class="class-row">
-          <span class="class-row-label">Valorização</span>
-          <span class="class-row-value" id="im-valorizacao">—</span>
-        </div>
-      </div>
-      <div class="class-card argos">
-        <div class="class-card-title">🏢 Argos (minha parte)</div>
-        <div class="class-row">
-          <span class="class-row-label">Valor corrigido</span>
-          <span class="class-row-value" id="ar-valor">—</span>
-        </div>
-        <div class="class-row">
-          <span class="class-row-label">Total investido</span>
-          <span class="class-row-value" id="ar-investido">—</span>
-        </div>
-        <div class="class-row">
-          <span class="class-row-label">Rendimento</span>
-          <span class="class-row-value" id="ar-rendimento">—</span>
-        </div>
-      </div>
-      <div class="class-card fgts">
-        <div class="class-card-title">💼 FGTS</div>
-        <div class="class-row">
-          <span class="class-row-label">Saldo real</span>
-          <span class="class-row-value" id="fg-saldo">—</span>
-        </div>
-        <div class="class-row">
-          <span class="class-row-label">Aportes 12m</span>
-          <span class="class-row-value" id="fg-aportes">—</span>
-        </div>
-        <div class="class-row">
-          <span class="class-row-label">Teórico rescisão</span>
-          <span class="class-row-value muted" id="fg-teorico">—</span>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      v1.0 · Patrimônio Total · <span id="footer-date"></span>
-    </footer>
-  </div>
+  </main>
 
   <script>
-    const BRL = v => new Intl.NumberFormat('pt-BR', {style:'currency', currency:'BRL', maximumFractionDigits: 0}).format(v);
-    const PCT = v => (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
-    const COLORS = {
-      invest: '#667eea',
-      imovel: '#48bb78',
-      argos:  '#ed8936',
-      fgts:   '#9f7aea',
-    };
+    // === THEME ===
+    function getTextColor() { return getComputedStyle(document.body).getPropertyValue('--text').trim(); }
+    function getBorderColor() { return getComputedStyle(document.body).getPropertyValue('--border').trim(); }
+    function getSurfaceColor() { return getComputedStyle(document.body).getPropertyValue('--surface').trim(); }
 
-    async function fetchPTAX() {
-      try {
-        const today = new Date();
-        // Try last 5 business days in case of holiday
-        for (let i = 0; i < 5; i++) {
-          const d = new Date(today);
-          d.setDate(d.getDate() - i);
-          const mm = String(d.getMonth()+1).padStart(2,'0');
-          const dd = String(d.getDate()).padStart(2,'0');
-          const yyyy = d.getFullYear();
-          const dateStr = `${mm}-${dd}-${yyyy}`;
-          const url = `https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='${dateStr}'&$format=json&$select=cotacaoVenda`;
-          const res = await fetch(url);
-          const data = await res.json();
-          if (data.value && data.value.length > 0) {
-            return { rate: data.value[data.value.length-1].cotacaoVenda, date: `${dd}/${mm}/${yyyy}` };
-          }
-        }
-      } catch(e) {}
-      return { rate: 5.80, date: 'fallback' };
+    function updateMetaThemeColor(isDark) {
+      const color = isDark ? '#1a202c' : '#f7fafc';
+      const scheme = isDark ? 'only dark' : 'only light';
+      let m = document.querySelector('meta[name="theme-color"]');
+      if (!m) { m = document.createElement('meta'); m.name = 'theme-color'; document.head.appendChild(m); }
+      m.content = color;
+      let s = document.querySelector('meta[name="color-scheme"]');
+      if (!s) { s = document.createElement('meta'); s.name = 'color-scheme'; document.head.appendChild(s); }
+      s.content = scheme;
     }
+    function initTheme() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = saved === 'dark' || (!saved && prefersDark);
+      if (isDark) { document.body.classList.add('dark-mode'); document.getElementById('theme-toggle').textContent = '☀️'; }
+      else { document.body.classList.remove('dark-mode'); document.getElementById('theme-toggle').textContent = '🌙'; }
+      updateMetaThemeColor(isDark);
+    }
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      document.getElementById('theme-toggle').textContent = isDark ? '☀️' : '🌙';
+      updateMetaThemeColor(isDark);
+      setTimeout(renderCharts, 50);
+    }
+    initTheme();
 
-    function buildAnnualData(invest, fgts, argos, imovel) {
+    // === GLOBALS ===
+    Chart.defaults.set('plugins.datalabels', { display: false });
+
+    const BRL = v => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(v);
+    const PCT = v => (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
+    const COLORS = { invest: '#667eea', imovel: '#48bb78', argos: '#ed8936', fgts: '#9f7aea' };
+
+    let chartAnual = null, chartMensal = null, chartDonut = null;
+    let investMensal = [], fgtsAnualArr = [], argosMes = [], imovelSeries = [];
+    let cachedDonut = null;
+
+    // === DATA BUILDERS ===
+    function buildAnnualData(investAnual, fgtsAnual, argos, imovel) {
       const anos = [...new Set([
-        ...invest.map(x => x[0]),
-        ...fgts.map(x => parseInt(x[0])),
+        ...investAnual.map(x => x[0]),
+        ...fgtsAnual.map(x => parseInt(x[0])),
       ])].sort();
-
-      const fgtsMap = Object.fromEntries(fgts.map(x => [parseInt(x[0]), x[1]]));
-      const investMap = Object.fromEntries(invest.map(x => [x[0], x[1]]));
-
-      // Argos: aggregate by year (last value per year)
+      const fgtsMap = Object.fromEntries(fgtsAnual.map(x => [parseInt(x[0]), x[1]]));
+      const investMap = Object.fromEntries(investAnual.map(x => [x[0], x[1]]));
       const argosMap = {};
-      argos.forEach(([mes, val]) => {
-        const ano = parseInt(mes.split('-')[0]);
-        argosMap[ano] = val;
-      });
-
-      // Imovel: already by year
+      argos.forEach(([mes, val]) => { const ano = parseInt(mes.split('-')[0]); argosMap[ano] = val; });
       const imovelMap = Object.fromEntries(imovel.map(x => [x.ano, x.valor]));
-
       return {
         labels: anos.map(String),
         invest: anos.map(a => investMap[a] || 0),
@@ -403,51 +290,28 @@
       };
     }
 
-    function buildMonthlyData(investMensal, fgtsPorAno, argosMes, imovelSeries) {
-      // Last 12 months from invest (has most granular data)
-      const last12 = investMensal.slice(-12);
-      const labels = last12.map(x => {
-        const [y, m] = x[0].split('-');
-        return `${m}/${y.slice(2)}`;
-      });
-
-      // Build maps
+    function buildMonthlyData(count) {
+      const src = count === 0 ? investMensal : investMensal.slice(-count);
+      const labels = src.map(x => { const [y, m] = x[0].split('-'); return `${m}/${y.slice(2)}`; });
       const investMap = Object.fromEntries(investMensal.map(x => [x[0], x[1]]));
-
-      // FGTS: by year, distribute evenly (last year value for months in that year)
-      const fgtsYearMap = Object.fromEntries(fgtsPorAno.map(x => [String(x[0]), x[1]]));
-
-      // Argos: by month
+      const fgtsYearMap = Object.fromEntries(fgtsAnualArr.map(x => [String(x[0]), x[1]]));
       const argosMonthMap = Object.fromEntries(argosMes.map(([m, v]) => [m, v]));
-
-      // Imovel: last known value per month (use valor_por_ano → fill months)
       const imovelYearMap = Object.fromEntries(imovelSeries.map(x => [String(x.ano), x.valor]));
-
-      function getFGTS(mes) {
-        const yr = mes.split('-')[0];
-        return fgtsYearMap[yr] || 0;
-      }
+      function getFGTS(mes) { return fgtsYearMap[mes.split('-')[0]] || 0; }
       function getArgos(mes) {
-        // find closest prior month
         const keys = Object.keys(argosMonthMap).sort();
         let val = 0;
-        for (const k of keys) {
-          if (k <= mes) val = argosMonthMap[k];
-        }
+        for (const k of keys) { if (k <= mes) val = argosMonthMap[k]; }
         return val;
       }
       function getImovel(mes) {
         const yr = mes.split('-')[0];
-        // find closest prior year
         const years = Object.keys(imovelYearMap).sort();
         let val = 0;
-        for (const y of years) {
-          if (parseInt(y) <= parseInt(yr)) val = imovelYearMap[y];
-        }
+        for (const y of years) { if (parseInt(y) <= parseInt(yr)) val = imovelYearMap[y]; }
         return val;
       }
-
-      const meses = last12.map(x => x[0]);
+      const meses = src.map(x => x[0]);
       return {
         labels,
         invest: meses.map(m => investMap[m] || 0),
@@ -457,42 +321,51 @@
       };
     }
 
-    function makeStackedChart(canvasId, data) {
+    // === CHART FACTORIES ===
+    function makeStackedChart(canvasId, data, existing) {
+      if (existing) existing.destroy();
       const ctx = document.getElementById(canvasId).getContext('2d');
+      const textColor = getTextColor();
+      const borderColor = getBorderColor();
       return new Chart(ctx, {
         type: 'bar',
         data: {
           labels: data.labels,
           datasets: [
-            { label: 'Investimentos', data: data.invest, backgroundColor: COLORS.invest, stack: 's' },
-            { label: 'Imóvel de Renda', data: data.imovel, backgroundColor: COLORS.imovel, stack: 's' },
-            { label: 'Argos', data: data.argos, backgroundColor: COLORS.argos, stack: 's' },
-            { label: 'FGTS', data: data.fgts, backgroundColor: COLORS.fgts, stack: 's' },
+            { label: 'Investimentos', data: data.invest, backgroundColor: COLORS.invest, stack: 's', borderRadius: 4 },
+            { label: 'Imóvel de Renda', data: data.imovel, backgroundColor: COLORS.imovel, stack: 's', borderRadius: 4 },
+            { label: 'Argos',           data: data.argos,  backgroundColor: COLORS.argos,  stack: 's', borderRadius: 4 },
+            { label: 'FGTS',            data: data.fgts,   backgroundColor: COLORS.fgts,   stack: 's', borderRadius: 4 },
           ]
         },
         options: {
           responsive: true,
           plugins: {
-            legend: { display: false },
-            datalabels: { display: false },
+            legend: { display: true, position: 'bottom', labels: { color: textColor, font: { family: 'Inter', size: 11 }, padding: 12 } },
             tooltip: {
               callbacks: {
                 label: ctx => ` ${ctx.dataset.label}: ${BRL(ctx.raw)}`,
-                footer: items => ` Total: ${BRL(items.reduce((s,i) => s + i.raw, 0))}`,
+                footer: items => ` Total: ${BRL(items.reduce((s, i) => s + i.raw, 0))}`,
               }
             }
           },
           scales: {
-            x: { stacked: true, ticks: { font: { size: 10 } } },
-            y: { stacked: true, ticks: { callback: v => 'R$' + (v >= 1e6 ? (v/1e6).toFixed(1)+'M' : (v/1e3).toFixed(0)+'k'), font: { size: 10 } } }
+            x: { stacked: true, ticks: { color: textColor, font: { family: 'Inter', size: 10 } }, grid: { color: borderColor } },
+            y: {
+              stacked: true,
+              ticks: { color: textColor, font: { family: 'Inter', size: 10 }, callback: v => v >= 1e6 ? 'R$' + (v / 1e6).toFixed(1) + 'M' : 'R$' + (v / 1e3).toFixed(0) + 'k' },
+              grid: { color: borderColor }
+            }
           }
         }
       });
     }
 
-    function makeDonut(canvasId, values, labels) {
-      const total = values.reduce((a,b) => a+b, 0);
-      const ctx = document.getElementById(canvasId).getContext('2d');
+    function makeDonut(values, labels) {
+      if (chartDonut) chartDonut.destroy();
+      const total = values.reduce((a, b) => a + b, 0);
+      const ctx = document.getElementById('chart-donut').getContext('2d');
+      const textColor = getTextColor();
       return new Chart(ctx, {
         type: 'doughnut',
         data: {
@@ -501,98 +374,119 @@
             data: values,
             backgroundColor: [COLORS.invest, COLORS.imovel, COLORS.argos, COLORS.fgts],
             borderWidth: 2,
-            borderColor: '#fff',
+            borderColor: getSurfaceColor(),
           }]
         },
-        plugins: [ChartDataLabels],
         options: {
           responsive: true,
           plugins: {
-            legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 12 } },
+            legend: { position: 'bottom', labels: { color: textColor, font: { family: 'Inter', size: 11 }, padding: 12 } },
             datalabels: {
+              display: true,
               color: '#fff',
-              font: { weight: 'bold', size: 11 },
-              formatter: (v) => ((v/total)*100).toFixed(1) + '%',
+              font: { weight: 'bold', size: 11, family: 'Inter' },
+              formatter: v => ((v / total) * 100).toFixed(1) + '%',
             },
-            tooltip: {
-              callbacks: {
-                label: ctx => ` ${ctx.label}: ${BRL(ctx.raw)} (${((ctx.raw/total)*100).toFixed(1)}%)`,
-              }
-            }
+            tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${BRL(ctx.raw)} (${((ctx.raw / total) * 100).toFixed(1)}%)` } }
           }
         }
       });
     }
 
+    // === FILTER MENSAL ===
+    function filterMensal(count, btn) {
+      if (btn) {
+        document.querySelectorAll('.controls .filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      const data = buildMonthlyData(count);
+      chartMensal = makeStackedChart('chart-mensal', data, chartMensal);
+    }
+
+    // === RE-RENDER ON THEME CHANGE ===
+    function renderCharts() {
+      if (!cachedDonut) return;
+      const activeBtn = document.querySelector('.controls .filter-btn.active');
+      const activeText = activeBtn ? activeBtn.textContent : '12M';
+      const count = activeText === 'Todos' ? 0 : parseInt(activeText);
+
+      const investAnualArr = cachedDonut._investAnual;
+      const fgtsAnualPairs = cachedDonut._fgtsAnual;
+      const annData = buildAnnualData(investAnualArr, fgtsAnualPairs, argosMes, imovelSeries);
+      chartAnual = makeStackedChart('chart-anual', annData, chartAnual);
+      filterMensal(count, null);
+      chartDonut = makeDonut(cachedDonut.values, cachedDonut.labels);
+    }
+
+    // === INIT ===
     async function init() {
       try {
+        const v = Date.now();
         const [dInvest, dFgts, dArgos, dImovel, ptax] = await Promise.all([
-          fetch('data/dashboard_investimentos.json').then(r => r.json()),
-          fetch('data/fgts_dashboard.json').then(r => r.json()),
-          fetch('data/argos_dashboard.json').then(r => r.json()),
-          fetch('data/imoveis_renda_dashboard.json').then(r => r.json()),
+          fetch(`data/dashboard_investimentos.json?v=${v}`).then(r => r.json()),
+          fetch(`data/fgts_dashboard.json?v=${v}`).then(r => r.json()),
+          fetch(`data/argos_dashboard.json?v=${v}`).then(r => r.json()),
+          fetch(`data/imoveis_renda_dashboard.json?v=${v}`).then(r => r.json()),
           fetchPTAX(),
         ]);
 
-        // --- KPIs ---
+        // Valores atuais
         const vInvest = dInvest.kpis.patrimonio_total;
         const vImovel = dImovel.kpis.valor_mercado_atual;
         const vArgos  = dArgos.kpis.valor_mercado;
         const vFgts   = dFgts.kpis.saldo_total;
         const total   = vInvest + vImovel + vArgos + vFgts;
 
-        // YTD: compare to dez/2025
+        // Séries globais
+        imovelSeries  = dImovel.series.valor_por_ano;
+        argosMes      = dArgos.por_mes.map(x => [x.mes, x.vm_minha_parte]);
+        fgtsAnualArr  = dFgts.por_ano;
+        investMensal  = dInvest.mensal.evolucao.map(x => [x.mes, x.patrimonio]);
+
+        // YTD
         const anualInvest = dInvest.anual.evolucao;
         const dez2025Invest = anualInvest.find(x => x.ano === 2025)?.patrimonio || vInvest;
-        // For others, use year-end 2025 approximations
-        const imovelSeries = dImovel.series.valor_por_ano;
         const dez2025Imovel = imovelSeries.find(x => x.ano === 2025)?.valor || vImovel;
-        const argosDez2025 = dArgos.por_mes.find(x => x.mes === '2025-12')?.vm_minha_parte || vArgos;
-        const fgtsAnual = dFgts.por_ano;
-        const fgtsDez2025 = fgtsAnual.find(x => x.ano === '2025')?.saldo_fim_ano || vFgts;
-        const total2025 = dez2025Invest + dez2025Imovel + argosDez2025 + fgtsDez2025;
-        const ytdPct = ((total - total2025) / total2025) * 100;
+        const argosDez2025  = dArgos.por_mes.find(x => x.mes === '2025-12')?.vm_minha_parte || vArgos;
+        const fgtsDez2025   = fgtsAnualArr.find(x => x.ano === '2025')?.saldo_fim_ano || vFgts;
+        const total2025     = dez2025Invest + dez2025Imovel + argosDez2025 + fgtsDez2025;
+        const ytdPct        = ((total - total2025) / total2025) * 100;
 
+        // KPIs
         document.getElementById('kpi-total').textContent = BRL(total);
         const ytdEl = document.getElementById('kpi-ytd');
         ytdEl.textContent = `YTD: ${PCT(ytdPct)} vs dez/2025`;
         ytdEl.style.color = ytdPct >= 0 ? 'var(--success)' : 'var(--danger)';
 
-        // Meta
         const meta = 1_500_000 * ptax.rate;
         document.getElementById('kpi-meta').textContent = BRL(meta);
         document.getElementById('kpi-ptax').textContent = `USD/BRL: R$ ${ptax.rate.toFixed(2)} (${ptax.date})`;
 
         const pct = Math.min((total / meta) * 100, 100);
-        document.getElementById('kpi-meta-pct').textContent = ((total/meta)*100).toFixed(1) + '%';
+        document.getElementById('kpi-meta-pct').textContent = ((total / meta) * 100).toFixed(1) + '%';
         document.getElementById('progress-fill').style.width = pct + '%';
         document.getElementById('progress-label').textContent = `${BRL(total)} / ${BRL(meta)}`;
 
-        // Update date
         const now = new Date();
-        document.getElementById('update-date').textContent =
-          `Atualizado em ${now.toLocaleDateString('pt-BR')}`;
+        document.getElementById('update-date').textContent = `Atualizado em ${now.toLocaleDateString('pt-BR')}`;
         document.getElementById('footer-date').textContent = now.toLocaleDateString('pt-BR');
 
-        // --- Gráfico Anual ---
-        const investAnual = anualInvest.map(x => [x.ano, x.patrimonio]);
-        const fgtsAnualArr = fgtsAnual.map(x => [x.ano, x.saldo_fim_ano]);
-        const argosMes = dArgos.por_mes.map(x => [x.mes, x.vm_minha_parte]);
-        const annData = buildAnnualData(investAnual, fgtsAnualArr, argosMes, imovelSeries);
-        makeStackedChart('chart-anual', annData);
+        // Annual chart
+        const investAnualArr = anualInvest.map(x => [x.ano, x.patrimonio]);
+        const fgtsAnualPairs = fgtsAnualArr.map(x => [x.ano, x.saldo_fim_ano]);
+        const annData = buildAnnualData(investAnualArr, fgtsAnualPairs, argosMes, imovelSeries);
+        chartAnual = makeStackedChart('chart-anual', annData, null);
 
-        // --- Gráfico Mensal ---
-        const investMensal = dInvest.mensal.evolucao.map(x => [x.mes, x.patrimonio]);
-        const monData = buildMonthlyData(investMensal, fgtsAnualArr, argosMes, imovelSeries);
-        makeStackedChart('chart-mensal', monData);
+        // Cache for re-render
+        cachedDonut = { values: [vInvest, vImovel, vArgos, vFgts], labels: ['Investimentos', 'Imóvel de Renda', 'Argos', 'FGTS'], _investAnual: investAnualArr, _fgtsAnual: fgtsAnualPairs };
 
-        // --- Donut ---
-        makeDonut('chart-donut',
-          [vInvest, vImovel, vArgos, vFgts],
-          ['Investimentos', 'Imóvel de Renda', 'Argos', 'FGTS']
-        );
+        // Monthly chart (default 12M)
+        filterMensal(12, document.querySelector('.controls .filter-btn.active'));
 
-        // --- Cards por Classe ---
+        // Donut
+        chartDonut = makeDonut([vInvest, vImovel, vArgos, vFgts], ['Investimentos', 'Imóvel de Renda', 'Argos', 'FGTS']);
+
+        // Cards por Classe
         document.getElementById('inv-patrimonio').textContent = BRL(vInvest);
         document.getElementById('inv-cagr').textContent = dInvest.kpis.cagr_5anos.toFixed(2) + '% a.a.';
         document.getElementById('inv-rent').textContent = '+' + dInvest.kpis.rentabilidade_nominal.toFixed(2) + '%';
@@ -600,13 +494,13 @@
         document.getElementById('im-mercado').textContent = BRL(vImovel);
         document.getElementById('im-aquis').textContent = BRL(dImovel.metadata.total_investido);
         const imValorizacao = ((vImovel / dImovel.metadata.total_investido) - 1) * 100;
-        document.getElementById('im-valorizacao').textContent = PCT(imValorizacao);
-        document.getElementById('im-valorizacao').style.color = imValorizacao >= 0 ? 'var(--success)' : 'var(--danger)';
+        const imEl = document.getElementById('im-valorizacao');
+        imEl.textContent = PCT(imValorizacao);
+        imEl.style.color = imValorizacao >= 0 ? 'var(--success)' : 'var(--danger)';
 
         document.getElementById('ar-valor').textContent = BRL(vArgos);
         document.getElementById('ar-investido').textContent = BRL(dArgos.kpis.total_investido);
-        document.getElementById('ar-rendimento').textContent =
-          BRL(dArgos.kpis.rendimento) + ' (+' + dArgos.kpis.rentabilidade_pct.toFixed(2) + '%)';
+        document.getElementById('ar-rendimento').textContent = BRL(dArgos.kpis.rendimento) + ' (+' + dArgos.kpis.rentabilidade_pct.toFixed(2) + '%)';
 
         document.getElementById('fg-saldo').textContent = BRL(vFgts);
         document.getElementById('fg-aportes').textContent = BRL(dFgts.kpis.investido_12m);
@@ -615,10 +509,29 @@
         document.getElementById('loading').style.display = 'none';
         document.getElementById('content').style.display = 'block';
 
-      } catch(e) {
+      } catch (e) {
         document.getElementById('loading').textContent = '❌ Erro ao carregar dados: ' + e.message;
         console.error(e);
       }
+    }
+
+    async function fetchPTAX() {
+      try {
+        const today = new Date();
+        for (let i = 0; i < 5; i++) {
+          const d = new Date(today);
+          d.setDate(d.getDate() - i);
+          const mm = String(d.getMonth() + 1).padStart(2, '0');
+          const dd = String(d.getDate()).padStart(2, '0');
+          const yyyy = d.getFullYear();
+          const dateStr = `${mm}-${dd}-${yyyy}`;
+          const url = `https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='${dateStr}'&$format=json&$select=cotacaoVenda`;
+          const res = await fetch(url);
+          const data = await res.json();
+          if (data.value && data.value.length > 0) return { rate: data.value[data.value.length - 1].cotacaoVenda, date: `${dd}/${mm}/${yyyy}` };
+        }
+      } catch (e) {}
+      return { rate: 5.80, date: 'fallback' };
     }
 
     init();
