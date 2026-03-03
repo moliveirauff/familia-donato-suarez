@@ -2187,13 +2187,26 @@
     "mes_referencia": "jan/26",
     "salario_base": 56415.01,
     "salario_bruto": 64692.66,
-    "salario_liquido": 52654.00,
+    "salario_liquido": 52654.0,
     "descontos": {
       "inss": 988.07,
       "irrf": 7042.04,
       "previdencia_privada": 3949.05,
-      "outros": 59.50
+      "outros": 59.5
     },
     "fgts": 5114.96
+  },
+  {
+    "mes_referencia": "fev/26",
+    "salario_base": 56415.01,
+    "salario_bruto": 56565.01,
+    "salario_liquido": 37167.14,
+    "descontos": {
+      "inss": 988.07,
+      "irrf": 13247.69,
+      "previdencia_privada": 3949.05,
+      "outros": 1213.06
+    },
+    "fgts": 4513.2
   }
 ]
