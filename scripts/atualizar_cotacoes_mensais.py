@@ -81,7 +81,8 @@ def get_spots_br(tickers):
 
 def main():
     today = date.today()
-    mes = today.strftime("%Y-%m")  # ex: "2026-03"
+    MESES_PT = {1:"jan",2:"fev",3:"mar",4:"abr",5:"mai",6:"jun",7:"jul",8:"ago",9:"set",10:"out",11:"nov",12:"dez"}
+    mes = f"{MESES_PT[today.month]}/{today.year}"  # ex: "mar/2026" (formato PT obrigatorio)
 
     with open(f"{REPO}/data/invest_cotacoes_mensais.json") as f:
         cotacoes = json.load(f)
