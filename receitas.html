@@ -364,13 +364,11 @@
 
         .hidden { display: none !important; }
 
+        /* Last update */
+        .last-update { text-align: center; font-size: 0.72rem; color: var(--text-muted); margin: -12px 0 18px 0; font-weight: 500; }
         /* Desktop */
         @media (min-width: 768px) {
-            body {
-                max-width: 960px;
-                margin: 0 auto;
-                padding: 16px 16px 60px 16px;
-            }
+            body { padding: 16px 24px 60px 24px; }
             h1 { font-size: 1.75rem; }
             .recipes-grid {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -383,6 +381,7 @@
 <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
 <a href="index.html" class="nav-link">← Voltar</a>
 <h1>👨‍🍳 Livro de Receitas</h1>
+<p class="last-update">Atualizado em: <span id="lastUpdate">—</span></p>
 
 <div class="controls">
     <button class="btn-add" onclick="openForm()">+ Nova Receita</button>
@@ -511,6 +510,7 @@ async function loadData() {
         const response = await fetch('data/receitas.json?v=' + Date.now());
         recipes = await response.json();
         filteredRecipes = [...recipes];
+        try { document.getElementById('lastUpdate').textContent = new Date().toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }); } catch(e) {}
         renderRecipes();
     } catch (e) {
         console.error(e);
