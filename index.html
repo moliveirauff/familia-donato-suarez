@@ -190,15 +190,6 @@
             opacity: 0.6;
         }
 
-        /* Hero Card */
-        .hero-card {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(85, 104, 211, 0.04) 100%);
-            border-left: 4px solid var(--primary);
-        }
-        body.dark-mode .hero-card {
-            background: linear-gradient(135deg, rgba(127, 156, 245, 0.12) 0%, rgba(127, 156, 245, 0.04) 100%);
-        }
-
         /* Desktop */
         @media (min-width: 768px) {
             body { 
@@ -222,21 +213,9 @@
 </head>
 <body>
 
-<div class="version-badge">v4.0</div>
+<div class="version-badge">v3.65</div>
 <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
 <h1>🏠 Hub da Família</h1>
-
-<!-- Hero Card: LifeOS -->
-<div class="card hero-card" style="margin-bottom: 20px;">
-    <div class="agent-badge">🤖 S.P.I.N.</div>
-    <div class="card-icon">🎯</div>
-    <h2>LifeOS</h2>
-    <p>Objetivos do ano e plano de vida de longo prazo.</p>
-    <div class="card-links">
-        <a href="objetivos.html" class="disabled">Objetivos 2026</a>
-        <a href="lifecharter.html" class="disabled">Life Charter</a>
-    </div>
-</div>
 
 <main class="dashboard-grid">
     <!-- 1. Matheus (MatheusBot) -->
@@ -285,35 +264,9 @@
         <h2>Investimentos</h2>
         <p>Visão de patrimônio, alocação de ativos e rentabilidade histórica.</p>
         <div class="card-links">
-            <a href="carteiradeinvestimentos.html">Carteira</a>
+            <a href="investimentos.html">Carteira</a>
             <a href="dividendos.html">Dividendos</a>
             <a href="opcoes.html">Opções</a>
-            <a href="imoveis_renda.html">Imóveis</a>
-            <a href="aplicacoes.html">Aplicações</a>
-            <a href="fgts.html">FGTS</a>
-        </div>
-    </div>
-    <!-- 5. Argos (ArgosBot) -->
-    <div class="card">
-        <div class="agent-badge">🤖 ArgosBot</div>
-        <div class="card-icon">🏢</div>
-        <h2>Argos</h2>
-        <p>Gestão da empresa de aluguel de imóveis por temporada.</p>
-        <div class="card-links">
-            <a href="argos.html">Valuation</a>
-            <a href="argos-acoes.html" class="disabled">Ações</a>
-        </div>
-    </div>
-
-    <!-- 6. Patrimônio (SPIN) -->
-    <div class="card">
-        <div class="agent-badge">🤖 S.P.I.N.</div>
-        <div class="card-icon">📊</div>
-        <h2>Patrimônio</h2>
-        <p>Visão consolidada do patrimônio atual e projeções futuras.</p>
-        <div class="card-links">
-            <a href="patrimonio.html">Patrimônio Total</a>
-            <a href="projecao.html" class="disabled">Projeção</a>
         </div>
     </div>
 </main>

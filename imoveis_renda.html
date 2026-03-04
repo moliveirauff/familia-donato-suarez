@@ -152,39 +152,13 @@
       width: 100%;
       justify-content: center;
     }
-    .card-header .controls {
-      width: 100%;
-      justify-content: center;
-    }
 
     /* Chart */
     .chart-container {
       position: relative;
-      height: 300px;
+      height: 450px;
       width: 100%;
     }
-
-    /* Controls */
-    .controls { 
-      display: flex; 
-      gap: 6px; 
-      align-items: center; 
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .filter-btn {
-      background: var(--border);
-      border: none;
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .filter-btn:hover { opacity: 0.8; }
-    .filter-btn.active { background: var(--accent); color: white; }
 
     /* Loading */
     #loading {
@@ -201,12 +175,20 @@
     }
     .hidden { display: none !important; }
 
+    /* Last update */
+    .last-update {
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin: -12px 0 18px 0;
+      font-weight: 500;
+    }
+
     /* Desktop */
     @media (min-width: 768px) {
-      body { max-width: 960px; margin: 0 auto; padding: 16px 16px 60px 16px; }
+      body { padding: 16px 24px 60px 24px; }
       h1 { font-size: 1.75rem; }
       .kpi-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
-      .chart-container { height: 380px; }
     }
   </style>
 </head>
@@ -217,6 +199,7 @@
 <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
 <a href="index.html" class="nav-link">← Voltar</a>
 <h1>🏠 Imóveis de Renda</h1>
+<p class="last-update">Atualizado em: <span id="lastUpdate">—</span></p>
 
 <main>
   <!-- KPIs -->
@@ -243,39 +226,33 @@
     </div>
   </div>
 
-  <!-- Gráfico 1: Valor do Imóvel + Rentabilidade Acumulada -->
+  <!-- Gráfico 1: Valor do Imóvel por Ano -->
   <div class="card">
     <div class="card-header">
-      <div class="card-title"><span>📊</span> Valor do Imóvel + Rentabilidade Acumulada</div>
+      <div class="card-title"><span>📊</span> Valor do Imóvel por Ano</div>
     </div>
     <div class="chart-container">
       <canvas id="chartValor"></canvas>
     </div>
   </div>
 
-  <!-- Gráfico 2: Aluguéis Anuais + DY Anual -->
+  <!-- Gráfico 2: Total de Aluguéis Recebidos por Ano -->
   <div class="card">
     <div class="card-header">
-      <div class="card-title"><span>💵</span> Aluguéis Anuais + DY Anual</div>
+      <div class="card-title"><span>💵</span> Total de Aluguéis Recebidos por Ano</div>
     </div>
     <div class="chart-container">
       <canvas id="chartAlugueis"></canvas>
     </div>
   </div>
 
-  <!-- Gráfico 3: Aluguéis Recebidos por Mês -->
+  <!-- Gráfico 3: Rentabilidade Acumulada por Ano -->
   <div class="card">
     <div class="card-header">
-      <div class="card-title"><span>📅</span> Aluguéis Recebidos por Mês</div>
-      <div class="controls">
-        <button class="filter-btn active" onclick="filterMensal(12)">12M</button>
-        <button class="filter-btn" onclick="filterMensal(24)">24M</button>
-        <button class="filter-btn" onclick="filterMensal(36)">36M</button>
-        <button class="filter-btn" onclick="filterMensal(0)">Todos</button>
-      </div>
+      <div class="card-title"><span>📈</span> Rentabilidade Acumulada por Ano</div>
     </div>
     <div class="chart-container">
-      <canvas id="chartAlugueisMensal"></canvas>
+      <canvas id="chartRentabilidade"></canvas>
     </div>
   </div>
 </main>
@@ -283,25 +260,23 @@
 <script>
 // === STATE ===
 let data = null;
-let alugueisHistorico = null;
-let aportesHistorico = null;
 let charts = {};
-let currentFilterMensal = 12;
 
 // === INIT ===
 async function init() {
   try {
-    const v = Date.now();
-    const [dashResp, alugResp, aportResp] = await Promise.all([
-      fetch(`data/imoveis_renda_dashboard.json?v=${v}`),
-      fetch(`data/recebimento_aluguel_historico.json?v=${v}`),
-      fetch(`data/imovel_trulli_historico.json?v=${v}`)
-    ]);
-    
-    data = await dashResp.json();
-    alugueisHistorico = await alugResp.json();
-    aportesHistorico = await aportResp.json();
-    
+    const response = await fetch('data/imoveis_renda_dashboard.json');
+    data = await response.json();
+
+    // Última data dos dados
+    try {
+      const gen = data.metadata && data.metadata.data_geracao;
+      if (gen) {
+        const d = new Date(gen);
+        document.getElementById('lastUpdate').textContent = d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+      }
+    } catch(e) {}
+
     renderAll();
     document.getElementById('loading').classList.add('hidden');
   } catch (e) {
@@ -314,7 +289,7 @@ function renderAll() {
   updateKPIs();
   renderValor();
   renderAlugueis();
-  renderAlugueisMensal();
+  renderRentabilidade();
 }
 
 // === KPIS ===
@@ -328,112 +303,33 @@ function updateKPIs() {
   setTxt('kpiRentabilidade', kpis.rentabilidade_total.toFixed(2) + '%');
 }
 
-// === CALCULAR INVESTIMENTO ACUMULADO POR ANO ===
-function calcularInvestidoAteAno() {
-  const movs = aportesHistorico.movimentacoes || [];
-  const aportesPorAno = {};
-
-  // Agrupar aportes por ano
-  movs.forEach(m => {
-    if (m.tipo === 'APORTE' && m.data) {
-      const ano = parseInt(m.data.substring(0, 4));
-      if (!aportesPorAno[ano]) aportesPorAno[ano] = 0;
-      aportesPorAno[ano] += m.valor_total || 0;
-    }
-  });
-
-  // Percorrer TODOS os anos do dashboard em ordem,
-  // propagando o acumulado para anos sem aportes (ex: 2024, 2025)
-  const todosAnos = data.series.valor_por_ano.map(s => s.ano).sort((a, b) => a - b);
-  const investidoPorAno = {};
-  let acumulado = 0;
-
-  todosAnos.forEach(ano => {
-    acumulado += aportesPorAno[ano] || 0; // 0 se não houve aporte naquele ano
-    investidoPorAno[ano] = acumulado;
-  });
-
-  return investidoPorAno;
-}
-
-// === CALCULAR ALUGUÉIS ACUMULADOS POR ANO ===
-function calcularAlugueisAteAno() {
-  const movs = alugueisHistorico.movimentacoes || [];
-  const alugueisPorAno = {};
-  
-  let acumulado = 0;
-  
-  // Agrupar aluguéis por ano
-  const recebidasPorAno = {};
-  movs.forEach(m => {
-    if (m.tipo === 'PROVENTO_ALUGUEL' && m.data) {
-      const ano = parseInt(m.data.substring(0, 4));
-      if (!recebidasPorAno[ano]) recebidasPorAno[ano] = 0;
-      recebidasPorAno[ano] += m.valor_total || 0;
-    }
-  });
-  
-  // Calcular acumulado até cada ano
-  const anos = Object.keys(recebidasPorAno).sort();
-  anos.forEach(ano => {
-    acumulado += recebidasPorAno[ano];
-    alugueisPorAno[ano] = acumulado;
-  });
-  
-  return alugueisPorAno;
-}
-
-// === GRÁFICO 1: VALOR DO IMÓVEL + RENTABILIDADE ACUMULADA ===
+// === GRÁFICO 1: VALOR POR ANO ===
 function renderValor() {
   const ctx = getCtx('chartValor');
-  const seriesValor = data.series.valor_por_ano;
-  const investidoPorAno = calcularInvestidoAteAno();
-  const alugueisAteAno = calcularAlugueisAteAno();
+  const series = data.series.valor_por_ano;
   
-  const anos = seriesValor.map(s => s.ano);
-  const valores = seriesValor.map(s => s.valor);
-  
-  // Recalcular rentabilidade: ((valor + aluguéis - investido) / investido) × 100
-  const rentabilidades = seriesValor.map(s => {
-    const investido = investidoPorAno[s.ano];
-    if (!investido || investido <= 0) return 0;
-    const alugueis = alugueisAteAno[s.ano] || 0;
-    return (((s.valor + alugueis - investido) / investido) * 100);
-  });
+  const anos = series.map(s => s.ano);
+  const valores = series.map(s => s.valor);
 
   if (charts.valor) charts.valor.destroy();
   charts.valor = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
       labels: anos,
-      datasets: [
-        {
-          label: 'Valor do Imóvel',
-          data: valores,
-          backgroundColor: '#10b981',
-          borderRadius: 4,
-          barPercentage: 0.6,
-          yAxisID: 'y',
-          order: 1
-        },
-        {
-          label: 'Rentabilidade Acumulada (%)',
-          data: rentabilidades,
-          type: 'line',
-          borderColor: '#667eea',
-          backgroundColor: 'rgba(102, 126, 234, 0.1)',
-          borderWidth: 3,
-          fill: false,
-          tension: 0.4,
-          pointRadius: 6,
-          pointHoverRadius: 8,
-          pointBackgroundColor: '#667eea',
-          pointBorderColor: '#fff',
-          pointBorderWidth: 2,
-          yAxisID: 'y1',
-          order: 0
-        }
-      ]
+      datasets: [{
+        label: 'Valor de Mercado',
+        data: valores,
+        borderColor: '#10b981',
+        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+        borderWidth: 3,
+        fill: true,
+        tension: 0.4,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        pointBackgroundColor: '#10b981',
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2
+      }]
     },
     options: {
       responsive: true,
@@ -443,278 +339,59 @@ function renderValor() {
         intersect: false
       },
       plugins: {
-        legend: {
-          display: true,
-          position: 'top',
-          labels: {
-            color: getTextColor(),
-            usePointStyle: true,
-            padding: 15,
-            font: { family: 'Inter', size: 11 }
-          }
-        },
+        legend: { display: false },
         tooltip: {
           callbacks: {
-            label: (ctx) => {
-              if (ctx.dataset.label.includes('Valor')) {
-                return 'Valor: ' + fmt(ctx.raw);
-              } else {
-                return 'Rentabilidade: ' + ctx.raw.toFixed(2) + '%';
-              }
-            }
+            label: ctx => fmt(ctx.raw)
           }
         }
       },
       scales: {
         x: {
-          ticks: { color: getTextColor(), font: { family: 'Inter' } },
-          grid: { display: false }
+          ticks: {
+            color: getTextColor()
+          },
+          grid: {
+            color: getBorderColor()
+          }
         },
         y: {
-          type: 'linear',
-          position: 'left',
           ticks: {
             callback: (v) => compactFmt(v),
-            color: getTextColor(),
-            font: { family: 'Inter' }
+            color: getTextColor()
           },
-          grid: { color: getBorderColor() }
-        },
-        y1: {
-          type: 'linear',
-          position: 'right',
-          ticks: {
-            callback: (v) => v.toFixed(1) + '%',
-            color: getTextColor(),
-            font: { family: 'Inter' }
-          },
-          grid: { display: false }
+          grid: {
+            color: getBorderColor()
+          }
         }
       },
       animation: {
-        duration: 800,
+        duration: 1000,
         easing: 'easeInOutQuart'
       }
     }
   });
 }
 
-// === GRÁFICO 2: ALUGUÉIS ANUAIS + DY ANUAL ===
+// === GRÁFICO 2: ALUGUÉIS POR ANO ===
 function renderAlugueis() {
   const ctx = getCtx('chartAlugueis');
-  const seriesAlug = data.series.alugueis_por_ano;
-  const seriesValor = data.series.valor_por_ano;
-
-  const anos = seriesAlug.map(s => s.ano);
-  const valores = seriesAlug.map(s => s.total);
-
-  // DY anual: (aluguéis do ano / valor fim do ano) × 100
-  const dyAnual = seriesAlug.map(alug => {
-    const valorFimAno = seriesValor.find(v => v.ano === alug.ano);
-    if (!valorFimAno || valorFimAno.valor === 0) return 0;
-    return (alug.total / valorFimAno.valor) * 100;
-  });
-
-  // Rentabilidade no ano: (aluguéis + valorização) / valor início do ano × 100
-  const rentAnual = seriesAlug.map(alug => {
-    const idxValor = seriesValor.findIndex(v => v.ano === alug.ano);
-    if (idxValor < 0) return null;
-    const valorFim = seriesValor[idxValor].valor;
-    const valorIni = idxValor > 0 ? seriesValor[idxValor - 1].valor : valorFim;
-    if (!valorIni || valorIni === 0) return null;
-    const valorizacao = valorFim - valorIni;
-    return ((alug.total + valorizacao) / valorIni) * 100;
-  });
+  const series = data.series.alugueis_por_ano;
+  
+  const anos = series.map(s => s.ano);
+  const valores = series.map(s => s.total);
 
   if (charts.alugueis) charts.alugueis.destroy();
   charts.alugueis = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: anos,
-      datasets: [
-        {
-          label: 'Aluguéis Recebidos',
-          data: valores,
-          backgroundColor: '#3b82f6',
-          borderRadius: 4,
-          barPercentage: 0.6,
-          yAxisID: 'y',
-          order: 1
-        },
-        {
-          label: 'DY Anual (%)',
-          data: dyAnual,
-          type: 'line',
-          borderColor: '#f39c12',
-          backgroundColor: 'rgba(243, 156, 18, 0.1)',
-          borderWidth: 3,
-          fill: false,
-          tension: 0.4,
-          pointRadius: 6,
-          pointHoverRadius: 8,
-          pointBackgroundColor: '#f39c12',
-          pointBorderColor: '#fff',
-          pointBorderWidth: 2,
-          yAxisID: 'y1',
-          order: 0
-        },
-        {
-          label: 'Rent. Ano (%)',
-          data: rentAnual,
-          type: 'line',
-          borderColor: '#10b981',
-          backgroundColor: 'rgba(16, 185, 129, 0.1)',
-          borderWidth: 3,
-          fill: false,
-          tension: 0.4,
-          pointRadius: 6,
-          pointHoverRadius: 8,
-          pointBackgroundColor: '#10b981',
-          pointBorderColor: '#fff',
-          pointBorderWidth: 2,
-          spanGaps: true,
-          yAxisID: 'y1',
-          order: 0
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      interaction: {
-        mode: 'index',
-        intersect: false
-      },
-      plugins: {
-        legend: {
-          display: true,
-          position: 'top',
-          labels: {
-            color: getTextColor(),
-            usePointStyle: true,
-            padding: 15,
-            font: { family: 'Inter', size: 11 }
-          }
-        },
-        tooltip: {
-          callbacks: {
-            label: (ctx) => {
-              if (ctx.dataset.label.includes('Aluguéis')) {
-                return ' Aluguéis: ' + fmt(ctx.raw);
-              } else {
-                return ` ${ctx.dataset.label}: ${ctx.raw !== null ? ctx.raw.toFixed(2) + '%' : '—'}`;
-              }
-            }
-          }
-        }
-      },
-      scales: {
-        x: {
-          ticks: { color: getTextColor(), font: { family: 'Inter' } },
-          grid: { display: false }
-        },
-        y: {
-          type: 'linear',
-          position: 'left',
-          ticks: {
-            callback: (v) => compactFmt(v),
-            color: getTextColor(),
-            font: { family: 'Inter' }
-          },
-          grid: { color: getBorderColor() }
-        },
-        y1: {
-          type: 'linear',
-          position: 'right',
-          ticks: {
-            callback: (v) => v.toFixed(1) + '%',
-            color: getTextColor(),
-            font: { family: 'Inter' }
-          },
-          grid: { display: false }
-        }
-      },
-      animation: {
-        duration: 800,
-        easing: 'easeInOutQuart'
-      }
-    }
-  });
-}
-
-// === GRÁFICO 3: ALUGUÉIS RECEBIDOS POR MÊS ===
-function renderAlugueisMensal() {
-  const ctx = getCtx('chartAlugueisMensal');
-  
-  // Processar histórico de aluguéis
-  const movs = alugueisHistorico.movimentacoes || [];
-  const alugueisMensais = {};
-  
-  movs.forEach(m => {
-    if (m.tipo === 'PROVENTO_ALUGUEL' && m.data) {
-      const mesAno = m.data.substring(0, 7); // YYYY-MM
-      if (!alugueisMensais[mesAno]) {
-        alugueisMensais[mesAno] = 0;
-      }
-      alugueisMensais[mesAno] += m.valor_total || 0;
-    }
-  });
-  
-  // Ordenar todos os meses (sem pular zeros)
-  const mesesUnicos = Object.keys(alugueisMensais).sort();
-  if (mesesUnicos.length === 0) return;
-  
-  const primeiroMes = mesesUnicos[0];
-  const ultimoMes = mesesUnicos[mesesUnicos.length - 1];
-  
-  // Gerar range contínuo de meses
-  const todosMeses = [];
-  let mesAtual = primeiroMes;
-  
-  while (mesAtual <= ultimoMes) {
-    todosMeses.push(mesAtual);
-    
-    // Incrementar mês
-    let [ano, mes] = mesAtual.split('-').map(Number);
-    mes++;
-    if (mes > 12) {
-      mes = 1;
-      ano++;
-    }
-    mesAtual = `${ano}-${String(mes).padStart(2, '0')}`;
-  }
-  
-  // Preencher valores (0 se não houver)
-  const valores = todosMeses.map(m => alugueisMensais[m] || 0);
-  
-  // Aplicar filtro temporal
-  let mesesFiltrados = todosMeses;
-  let valoresFiltrados = valores;
-  
-  if (currentFilterMensal > 0) {
-    const inicio = Math.max(0, todosMeses.length - currentFilterMensal);
-    mesesFiltrados = todosMeses.slice(inicio);
-    valoresFiltrados = valores.slice(inicio);
-  }
-  
-  // Formatar labels (MMM/YY)
-  const labels = mesesFiltrados.map(m => {
-    const [ano, mes] = m.split('-');
-    const mesesNome = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-    return `${mesesNome[parseInt(mes) - 1]}/${ano.substring(2)}`;
-  });
-
-  if (charts.alugueisMensal) charts.alugueisMensal.destroy();
-  charts.alugueisMensal = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: labels,
       datasets: [{
-        label: 'Aluguéis Mensais',
-        data: valoresFiltrados,
-        backgroundColor: '#1abc9c',
-        borderRadius: 4,
-        barPercentage: 0.7
+        label: 'Aluguéis Recebidos',
+        data: valores,
+        backgroundColor: '#3b82f6',
+        borderRadius: 8,
+        barPercentage: 0.6
       }]
     },
     options: {
@@ -731,10 +408,7 @@ function renderAlugueisMensal() {
       scales: {
         x: {
           ticks: {
-            color: getTextColor(),
-            maxRotation: 45,
-            minRotation: 45,
-            font: { family: 'Inter', size: 10 }
+            color: getTextColor()
           },
           grid: {
             display: false
@@ -743,8 +417,7 @@ function renderAlugueisMensal() {
         y: {
           ticks: {
             callback: (v) => compactFmt(v),
-            color: getTextColor(),
-            font: { family: 'Inter' }
+            color: getTextColor()
           },
           grid: {
             color: getBorderColor()
@@ -752,24 +425,104 @@ function renderAlugueisMensal() {
         }
       },
       animation: {
-        duration: 800,
+        duration: 1000,
         easing: 'easeInOutQuart'
       }
     }
   });
 }
 
-// === FILTER MENSAL ===
-function filterMensal(months) {
-  currentFilterMensal = months;
+// === GRÁFICO 3: RENTABILIDADE ACUMULADA ===
+function renderRentabilidade() {
+  const ctx = getCtx('chartRentabilidade');
+  const series = data.series.rentabilidade_acumulada;
   
-  // Update button states
-  document.querySelectorAll('.controls .filter-btn').forEach(btn => {
-    btn.classList.remove('active');
+  const anos = series.map(s => s.ano);
+  const percentuais = series.map(s => s.percentual);
+
+  // Cores dinâmicas: verde positivo, vermelho negativo
+  const pointColors = percentuais.map(p => p >= 0 ? '#10b981' : '#ef4444');
+  const borderColor = '#667eea';
+
+  if (charts.rentabilidade) charts.rentabilidade.destroy();
+  charts.rentabilidade = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: anos,
+      datasets: [{
+        label: 'Rentabilidade (%)',
+        data: percentuais,
+        borderColor: borderColor,
+        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+        borderWidth: 3,
+        fill: false,
+        tension: 0.4,
+        pointRadius: 6,
+        pointHoverRadius: 8,
+        pointBackgroundColor: pointColors,
+        pointBorderColor: '#fff',
+        pointBorderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.raw.toFixed(2)}%`
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: getTextColor()
+          },
+          grid: {
+            color: getBorderColor()
+          }
+        },
+        y: {
+          ticks: {
+            callback: (v) => v.toFixed(1) + '%',
+            color: getTextColor()
+          },
+          grid: {
+            color: getBorderColor()
+          }
+        }
+      },
+      animation: {
+        duration: 1000,
+        easing: 'easeInOutQuart'
+      }
+    },
+    plugins: [{
+      // Plugin customizado para linha horizontal no zero
+      beforeDraw: (chart) => {
+        const ctx = chart.ctx;
+        const yScale = chart.scales.y;
+        const yZero = yScale.getPixelForValue(0);
+        const xScale = chart.scales.x;
+        
+        ctx.save();
+        ctx.beginPath();
+        ctx.strokeStyle = '#95a5a6';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 5]);
+        ctx.moveTo(xScale.left, yZero);
+        ctx.lineTo(xScale.right, yZero);
+        ctx.stroke();
+        ctx.restore();
+      }
+    }]
   });
-  event.target.classList.add('active');
-  
-  renderAlugueisMensal();
 }
 
 // === UTILS ===

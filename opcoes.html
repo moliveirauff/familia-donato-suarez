@@ -179,7 +179,18 @@
       height: auto !important;
     }
 
+    /* Last update */
+    .last-update {
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin: -12px 0 18px 0;
+      font-weight: 500;
+    }
+
     @media (min-width: 768px) {
+      body { padding: 16px 24px 60px 24px; }
+      h1 { font-size: 1.75rem; }
       .kpi-grid {
         grid-template-columns: repeat(4, 1fr);
       }
@@ -247,8 +258,6 @@
       background: rgba(255,224,178,0.3) !important;
     }
 
-    .itm-alert { font-weight: bold; color: #d32f2f; }
-
     footer {
       text-align: center;
       margin-top: 40px;
@@ -276,6 +285,7 @@
   <a href="index.html" class="nav-link">← Voltar ao Hub</a>
   
   <h1>📊 Dashboard de Opções</h1>
+  <p class="last-update">Atualizado em: <span id="lastUpdate">—</span></p>
 
   <div id="loading" class="loading">Carregando dados...</div>
 
@@ -335,13 +345,11 @@
               <th>Ativo</th>
               <th>Ticker</th>
               <th>Tipo</th>
-              <th>Spot</th>
               <th>Strike</th>
               <th>Dias</th>
               <th>Vencimento</th>
               <th>Qtd</th>
               <th>Preço</th>
-              <th>Teórico BS</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -462,9 +470,10 @@
     function diasAteVencimento(dataVenc) {
       const hoje = new Date();
       hoje.setHours(0, 0, 0, 0);
-      const [y, m, d] = dataVenc.split('-').map(Number);
-      const venc = new Date(y, m - 1, d); // local time — evita bug de UTC parsing
-      return Math.round((venc - hoje) / (1000 * 60 * 60 * 24));
+      const venc = new Date(dataVenc);
+      venc.setHours(0, 0, 0, 0);
+      const diff = Math.ceil((venc - hoje) / (1000*60*60*24));
+      return diff;
     }
 
     function monthLabel(mesStr) {
@@ -614,23 +623,20 @@
       const saldoTotal = saldoAcoes + saldoInternacional + saldoCripto;
 
       if (saldoTotal === 0) {
-        // Sem saldo cadastrado: omitir gráfico completamente
+        // Criar gráfico vazio se não houver saldo
         return;
       }
 
-      // Filtrar apenas meses que tenham saldo disponível (saldoTotal > 0 garante)
-      const mesesComSaldo = fluxoData.fluxo_mensal.filter(m => m.total_brl !== undefined);
-
-      const labels = mesesComSaldo.map(m => monthLabel(m.mes));
+      const labels = fluxoData.fluxo_mensal.map(m => monthLabel(m.mes));
       
       // Calcular % retorno mensal
-      const retornoMensal = mesesComSaldo.map(m => 
+      const retornoMensal = fluxoData.fluxo_mensal.map(m => 
         (m.total_brl / saldoTotal) * 100
       );
 
       // Calcular % retorno acumulado
       let acumulado = 0;
-      const retornoAcumulado = mesesComSaldo.map(m => {
+      const retornoAcumulado = fluxoData.fluxo_mensal.map(m => {
         acumulado += m.total_brl;
         return (acumulado / saldoTotal) * 100;
       });
@@ -832,43 +838,22 @@
         }
 
         const preco = op.moeda === 'BRL' 
-          ? 'R$ ' + op.preco_opcao_abertura.toFixed(2).replace('.', ',')
+          ? 'R$ ' + op.preco_opcao_abertura.toFixed(2)
           : '$' + op.preco_opcao_abertura.toFixed(2);
 
         const strike = op.strike 
-          ? (op.moeda === 'BRL' ? 'R$ ' + op.strike.toFixed(2).replace('.', ',') : '$' + op.strike.toFixed(2))
+          ? (op.moeda === 'BRL' ? 'R$ ' + op.strike.toFixed(2) : '$' + op.strike.toFixed(2))
           : '--';
-
-        // Spot atual
-        const spot = op.spot_atual != null
-          ? (op.moeda === 'BRL' ? 'R$ ' + op.spot_atual.toFixed(2).replace('.', ',') : '$' + op.spot_atual.toFixed(2))
-          : '--';
-
-        // ITM check
-        const itm = op.spot_atual != null && op.strike != null &&
-          ((op.tipo_contrato === 'CALL' && op.spot_atual > op.strike) ||
-           (op.tipo_contrato === 'PUT'  && op.spot_atual < op.strike));
-        const ativoClass = itm ? ' class="itm-alert"' : '';
-
-        // Teórico Black-Scholes
-        const teorico = op.preco_teorico != null
-          ? (op.moeda === 'BRL' ? 'R$ ' + op.preco_teorico.toFixed(2).replace('.', ',') : '$' + op.preco_teorico.toFixed(2))
-          : '--';
-        const teoricoCor = op.preco_teorico != null
-          ? (op.preco_teorico > op.preco_opcao_abertura ? '#d32f2f' : '#388e3c')
-          : '';
 
         tr.innerHTML = `
-          <td${ativoClass}>${op.ativo}</td>
+          <td>${op.ativo}</td>
           <td>${op.tickerOpcao || '--'}</td>
           <td>${op.tipo_contrato}</td>
-          <td>${spot}</td>
           <td>${strike}</td>
           <td>${dias}</td>
           <td>${formatDate(op.vencimento)}</td>
           <td>${op.quantidade}</td>
           <td>${preco}</td>
-          <td style="color:${teoricoCor}">${teorico}</td>
         `;
         
         tbody.appendChild(tr);
@@ -901,6 +886,15 @@
         globalData.brData = await brReq.json();
         globalData.usData = await usReq.json();
         globalData.investData = await investReq.json();
+
+        // Última data dos dados
+        try {
+          const dateStr = globalData.brData.data_atualizacao || globalData.fluxoData.data_calculo;
+          if (dateStr) {
+            const d = new Date(dateStr);
+            document.getElementById('lastUpdate').textContent = d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+          }
+        } catch(e) {}
 
         renderAll();
         renderTabela(globalData.brData, globalData.usData);

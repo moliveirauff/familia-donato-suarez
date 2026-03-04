@@ -5,8 +5,7 @@ Calcula valorização mensal (0,2% a.m.) e agrega dados para visualização
 """
 
 import json
-import calendar
-from datetime import datetime, timedelta, date
+from datetime import datetime, timedelta
 from pathlib import Path
 from collections import defaultdict
 
@@ -34,9 +33,7 @@ def calcular_valorizacao_mensal(movimentacoes_imoveis):
     # Primeira data: primeiro aporte
     data_inicio = datetime.strptime(mov_sorted[0]["data"], "%Y-%m-%d")
     # Última data: 31/dez/2025 (data de corte)
-    hoje = date.today()
-    ultimo_dia = calendar.monthrange(hoje.year, hoje.month)[1]
-    data_fim = datetime(hoje.year, hoje.month, ultimo_dia)
+    data_fim = datetime(2025, 12, 31)
     
     # Criar dicionário de aportes por mês
     aportes_por_mes = defaultdict(float)

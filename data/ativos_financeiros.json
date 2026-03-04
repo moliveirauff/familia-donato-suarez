@@ -1,16 +1,16 @@
 {
   "versao": "2026.2.5",
-  "data_atualizacao": "2026-02-27",
+  "data_atualizacao": "2026-02-19",
   "ativos": [
     {
       "nome": "SGOV",
-      "macro_classe": "5_internacional",
+      "macro_classe": "1_renda_fixa_soberana",
       "subclasse": "1.1_liquidez",
       "status": "aberto"
     },
     {
       "nome": "TETHER (USDT)_2024.03.30",
-      "macro_classe": "6_criptoativos",
+      "macro_classe": "1_renda_fixa_soberana",
       "subclasse": "1.1_liquidez",
       "status": "fechado"
     },
@@ -1279,24 +1279,6 @@
       "macro_classe": "5_internacional",
       "subclasse": "5.1_acoes_globais",
       "status": "fechado"
-    },
-    {
-      "nome": "Tesouro IPCA+ 2050",
-      "macro_classe": "1_renda_fixa_soberana",
-      "subclasse": "1.3_ipca_longo",
-      "status": "aberto"
-    },
-    {
-      "nome": "Tesouro Educa+ 2043",
-      "macro_classe": "1_renda_fixa_soberana",
-      "subclasse": "1.3_ipca_longo",
-      "status": "aberto"
-    },
-    {
-      "nome": "Imóvel - Trulli",
-      "macro_classe": "4_ativos_reais",
-      "subclasse": "4.2_urbano",
-      "status": "aberto"
     }
   ]
 }
