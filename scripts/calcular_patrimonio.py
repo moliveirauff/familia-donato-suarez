@@ -13,6 +13,15 @@ MESES_PT = {
     1: 'jan', 2: 'fev', 3: 'mar', 4: 'abr', 5: 'mai', 6: 'jun',
     7: 'jul', 8: 'ago', 9: 'set', 10: 'out', 11: 'nov', 12: 'dez'
 }
+MESES_PT_INV = {v: k for k, v in MESES_PT.items()}  # {'jan':1, 'fev':2, ...}
+
+def parse_mes_pt(key):
+    """Converte 'fev/2026' -> date(2026, 2, 1). Retorna date.min se invalido."""
+    try:
+        mes_str, ano_str = key.split('/')
+        return date(int(ano_str), MESES_PT_INV[mes_str], 1)
+    except Exception:
+        return date.min
 
 # Benchmarks Oficiais (Anual %)
 BENCHMARKS = {
@@ -146,7 +155,11 @@ def run():
             if not price:
                 try:
                     valid = {k: v for k, v in asset_cots.items() if v is not None and v > 0}
-                    price = valid[max([k for k in valid.keys() if (datetime.strptime(k, "%b/%Y").date() if '/' in k else date.min) <= last_day])]
+                    candidatos = [k for k in valid.keys() if parse_mes_pt(k) <= last_day]
+                    if candidatos:
+                        price = valid[max(candidatos, key=parse_mes_pt)]
+                    else:
+                        price = 0.0
                 except: price = 0.0
             
             valor = qty * price
