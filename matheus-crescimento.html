@@ -40,8 +40,9 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
-      padding: 1rem;
+      padding: 10px 12px 60px 12px;
       transition: background 0.3s, color 0.3s;
+      min-height: 100vh;
     }
 
     /* === NAVBAR === */
@@ -63,9 +64,10 @@
     
     .subtitle { 
       text-align: center; 
-      font-size: 0.75rem; 
+      font-size: 0.72rem; 
       color: var(--text-muted); 
-      margin-bottom: 20px; 
+      margin: -12px 0 18px 0;
+      font-weight: 500;
     }
     
     #theme-toggle { 
@@ -212,8 +214,10 @@
     }
 
     /* Desktop */
+    .last-update { text-align: center; font-size: 0.72rem; color: var(--text-muted); margin: -12px 0 18px 0; font-weight: 500; }
+    html { background-color: var(--bg); min-height: 100vh; }
     @media (min-width: 768px) {
-      body { max-width: 960px; margin: 0 auto; padding: 16px 16px 60px 16px; }
+      body { padding: 16px 24px 60px 24px; }
       h1 { font-size: 1.75rem; }
       .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     }
@@ -434,7 +438,7 @@
         document.getElementById('statAlturaData').textContent = new Date(lastA.data).toLocaleDateString() + ' (' + perc + ')';
       }
       
-      document.getElementById('last-update').textContent = 'Última atualização: ' + new Date(data.crianca.metadata.ultima_atualizacao).toLocaleDateString();
+      document.getElementById('last-update').innerHTML = 'Atualizado em: <span id=\"lastUpdate\">' + new Date(data.crianca.metadata.ultima_atualizacao).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }) + '</span>';
       document.getElementById('loading').style.display = 'none';
       document.getElementById('content').style.display = 'block';
       
