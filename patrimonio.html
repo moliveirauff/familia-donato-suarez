@@ -467,7 +467,7 @@ function buildMonthlyData(count) {
     return `${meses[parseInt(m) - 1]}/${y.slice(2)}`;
   });
   const investMap = Object.fromEntries(investMensal.map(x => [x[0], x[1]]));
-  const fgtsYearMap = Object.fromEntries(fgtsAnualArr.map(x => [String(x[0]), x[1]]));
+  const fgtsYearMap = Object.fromEntries(fgtsAnualArr.map(x => [String(x.ano), x.saldo_fim_ano]));
   const argosMonthMap = Object.fromEntries(argosMes.map(([m, v]) => [m, v]));
   const imovelYearMap = Object.fromEntries(imovelSeries.map(x => [String(x.ano), x.valor]));
 
