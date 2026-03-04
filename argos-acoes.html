@@ -683,9 +683,10 @@ body.dark-mode .section-nao-iniciado .sec-header { background: rgba(255,255,255,
 .imovel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .imovel-grid .full { grid-column: 1 / -1; }
 
+.last-update { text-align: center; font-size: 0.72rem; color: var(--text-muted); margin: -12px 0 18px 0; font-weight: 500; }
 /* ── Responsive ── */
 @media (min-width: 768px) {
-  body { max-width: 720px; margin: 0 auto; padding: 16px 16px 60px 16px; }
+  body { padding: 16px 24px 60px 24px; }
   h1 { font-size: 1.75rem; }
 }
 @media (max-width: 400px) {
@@ -703,6 +704,7 @@ body.dark-mode .section-nao-iniciado .sec-header { background: rgba(255,255,255,
 
 <!-- PAGE TITLE -->
 <h1>⚡ Argos — Ações</h1>
+<p class="last-update">Atualizado em: <span id="lastUpdate">—</span></p>
 <p class="page-subtitle">Gestão de ações e tarefas</p>
 
 <!-- HEADER ACTIONS -->
@@ -925,6 +927,7 @@ async function loadData() {
     acoes = resA || [];
     pessoas = resP || [];
     imoveis = resI || [];
+    try { document.getElementById('lastUpdate').textContent = new Date().toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }); } catch(e) {}
     persist();
   } catch (e) {
     console.warn('Fetch failed, loading from local:', e);

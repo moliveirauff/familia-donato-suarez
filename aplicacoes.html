@@ -231,8 +231,11 @@
       table { font-size: 0.75rem; }
       th, td { padding: 8px 6px; }
     }
+    /* Last update */
+    .last-update { text-align: center; font-size: 0.72rem; color: var(--text-muted); margin: -12px 0 18px 0; font-weight: 500; }
     @media (min-width: 768px) {
-      body { max-width: 1200px; margin: 0 auto; }
+      body { padding: 16px 24px 60px 24px; }
+      h1 { font-size: 1.75rem; }
     }
   </style>
 </head>
@@ -242,6 +245,7 @@
 <button id="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
 <a href="index.html" class="nav-link">← Voltar</a>
 <h1>📋 Aplicações</h1>
+<p class="last-update">Atualizado em: <span id="lastUpdate">—</span></p>
 
 <div class="card">
 
@@ -393,6 +397,16 @@
       movData    = await respMov.json();
       divData    = await respDiv.json();
       ativosData = await respAtivos.json();
+
+      // Última data dos dados
+      try {
+        const movs = movData.movimentacoes || movData;
+        const dates = movs.map(m => m.data).filter(Boolean).sort();
+        if (dates.length) {
+          const d = new Date(dates[dates.length-1]);
+          document.getElementById('lastUpdate').textContent = d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+        }
+      } catch(e) {}
 
       // Build ativo → classe map
       ativosData.ativos.forEach(a => { ativoClasseMap[a.nome] = a.macro_classe; });

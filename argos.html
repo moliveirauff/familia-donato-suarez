@@ -89,9 +89,10 @@
     .method-note { font-size: .7rem; color: var(--text-muted); text-align: center; margin-top: 10px; font-style: italic; line-height: 1.6; }
     #loading { position: fixed; inset: 0; background: rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center; z-index: 1000; color: white; font-weight: 600; font-size: 1.1rem; backdrop-filter: blur(4px); }
     .hidden { display: none !important; }
+    .last-update { text-align: center; font-size: 0.72rem; color: var(--text-muted); margin: -12px 0 18px 0; font-weight: 500; }
 
     @media (min-width: 768px) {
-      body { max-width: 960px; margin: 0 auto; padding: 16px 16px 60px; }
+      body { padding: 16px 24px 60px 24px; }
       h1 { font-size: 1.75rem; }
       .kpi-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
       .chart-container { height: 380px; }
@@ -106,6 +107,7 @@
 <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
 <a href="index.html" class="nav-link">← Voltar</a>
 <h1>🏢 Argos — Valuation</h1>
+<p class="last-update">Atualizado em: <span id="lastUpdate">—</span></p>
 
 <main>
   <div class="kpi-grid">
@@ -220,6 +222,13 @@ async function init() {
   try {
     const r = await fetch('data/argos_dashboard.json?v=' + Date.now());
     data = await r.json();
+    try {
+      const gen = data.metadata && data.metadata.data_geracao;
+      if (gen) {
+        const d = new Date(gen);
+        document.getElementById('lastUpdate').textContent = d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+      }
+    } catch(e) {}
     renderAll();
     document.getElementById('loading').classList.add('hidden');
   } catch(e) {
