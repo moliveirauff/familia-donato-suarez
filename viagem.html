@@ -313,12 +313,9 @@
         .collapsed .arrow { transform: rotate(-90deg); }
 
         /* Desktop */
+        .last-update { text-align: center; font-size: 0.72rem; color: var(--text-muted); margin: -12px 0 18px 0; font-weight: 500; }
         @media (min-width: 768px) {
-            body {
-                max-width: 960px;
-                margin: 0 auto;
-                padding: 16px 16px 60px 16px;
-            }
+            body { padding: 16px 24px 60px 24px; }
             h1 { font-size: 1.75rem; }
         }
     </style>
@@ -328,6 +325,7 @@
 <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
 <a href="index.html" class="nav-link">← Voltar</a>
 <h1>✈️ Checklist de Viagem</h1>
+<p class="last-update">Atualizado em: <span id="lastUpdate">—</span></p>
 
 <div class="progress-card">
     <div id="progressText">0% concluído</div>
@@ -460,7 +458,12 @@ async function loadData() {
     try {
         const response = await fetch('data/viagem.json?t=' + Date.now());
         const serverData = await response.json();
-        
+
+        // Última data — operacional, usar data atual
+        try {
+          document.getElementById('lastUpdate').textContent = new Date().toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+        } catch(e) {}
+
         const localState = loadStateFromLocalStorage();
         
         if (localState && localState.length > 0) {
