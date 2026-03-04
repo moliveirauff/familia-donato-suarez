@@ -209,13 +209,11 @@
             font-weight: 600;
         }
 
+        /* Last update */
+        .last-update { text-align: center; font-size: 0.72rem; color: var(--text-muted); margin: -12px 0 18px 0; font-weight: 500; }
         /* Desktop */
         @media (min-width: 768px) {
-            body {
-                max-width: 960px;
-                margin: 0 auto;
-                padding: 16px 16px 60px 16px;
-            }
+            body { padding: 16px 24px 60px 24px; }
             h1 { font-size: 1.75rem; }
             .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             .chart-container { height: 380px; }
@@ -227,6 +225,7 @@
 <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
 <a href="index.html" class="nav-link">← Voltar</a>
 <h1>🍼 Mamadas do Matheus</h1>
+<p class="last-update">Atualizado em: <span id="lastUpdate">—</span></p>
 <div class="subtitle" id="last-update">Carregando dados...</div>
 
 <div id="loading">⏳ Conectando aos dados...</div>
@@ -408,6 +407,14 @@ let lastDataDate;
 fetch(LOCAL_DATA_URL + '?v=' + Date.now())
     .then(response => response.json())
     .then(data => {
+        try {
+          const dates = data.map(r => r['Data']).filter(Boolean).sort();
+          if (dates.length) {
+            const parts = dates[dates.length-1].split('/');
+            const d = new Date(parseInt(parts[2]), parseInt(parts[1])-1, parseInt(parts[0]));
+            document.getElementById('lastUpdate').textContent = d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+          }
+        } catch(e) {}
         processAndRender(data);
     })
     .catch(err => {

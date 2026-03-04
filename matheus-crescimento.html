@@ -36,11 +36,13 @@
       box-sizing: border-box;
     }
 
+    html { background-color: var(--bg); min-height: 100vh; }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
-      padding: 1rem;
+      padding: 10px 12px 60px 12px;
       transition: background 0.3s, color 0.3s;
     }
 
@@ -211,9 +213,11 @@
       to { transform: rotate(360deg); }
     }
 
+    /* Last update */
+    .last-update { text-align: center; font-size: 0.72rem; color: var(--text-muted); margin: -12px 0 18px 0; font-weight: 500; }
     /* Desktop */
     @media (min-width: 768px) {
-      body { max-width: 960px; margin: 0 auto; padding: 16px 16px 60px 16px; }
+      body { padding: 16px 24px 60px 24px; }
       h1 { font-size: 1.75rem; }
       .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     }
@@ -223,6 +227,7 @@
   <button id="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema claro/escuro">🌙</button>
   <a href="index.html" class="nav-link">← Voltar</a>
   <h1>📊 Crescimento do Matheus</h1>
+  <p class="last-update">Atualizado em: <span id="lastUpdate">—</span></p>
   <div class="subtitle" id="last-update">Carregando dados...</div>
 
   <!-- Loading -->
@@ -314,6 +319,13 @@
     async function loadData() {
       const resp = await fetch(`data/matheus-crescimento.json?v=${Date.now()}`);
       const crianca = await resp.json();
+      try {
+        const dates = crianca.medicoes.map(m => m.data).filter(Boolean).sort();
+        if (dates.length) {
+          const d = new Date(dates[dates.length-1]);
+          document.getElementById('lastUpdate').textContent = d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+        }
+      } catch(e) {}
       return { pesoRef: PESO_REF_EMBEDDED, alturaRef: ALTURA_REF_EMBEDDED, crianca };
     }
 
