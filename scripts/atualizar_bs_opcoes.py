@@ -131,12 +131,16 @@ def main():
             df = chain.calls if tipo == "CALL" else chain.puts
             row = df[abs(df["strike"] - strike) < 0.5]
             if not row.empty:
-                mkt = float(row.iloc[0]["lastPrice"])
-                iv  = float(row.iloc[0]["impliedVolatility"])
+                bid  = float(row.iloc[0].get("bid", 0) or 0)
+                ask  = float(row.iloc[0].get("ask", 0) or 0)
+                last = float(row.iloc[0]["lastPrice"] or 0)
+                # mid-price quando mercado aberto; lastPrice como fallback (bid/ask=0 fora do horário)
+                mkt = (bid + ask) / 2 if bid > 0 and ask > 0 else last
         except Exception:
             pass
 
-        if mkt and mkt > 0 and iv is None:
+        # Sempre calcular IV via bisection — nunca usar impliedVolatility do yfinance (lixo fora do horário)
+        if mkt and mkt > 0:
             iv = calc_iv(S, strike, T, r_tbill, mkt, tipo)
         teorico = round(bs(S, strike, T, r_tbill, iv, tipo), 2) if iv else None
         o["iv_calculada"] = round(iv, 4) if iv else None
