@@ -55,8 +55,10 @@
       background-color: var(--bg);
       color: var(--text);
       transition: background-color 0.3s, color 0.3s;
-      padding: 10px 12px 60px 12px;
+      padding: 10px 10px 60px 10px;
       min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     /* --- HEADER --- */
@@ -243,8 +245,6 @@
 
     /* --- RESPONSIVE --- */
     @media (min-width: 768px) {
-      body { padding: 16px 24px 60px 24px; }
-      h1 { font-size: 1.75rem; }
       .kpi-grid { grid-template-columns: repeat(4, 1fr); }
       .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
       .chart-container { height: 380px; }
@@ -266,7 +266,6 @@
 <button id="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
 <a href="index.html" class="nav-link">← Voltar</a>
 <h1>📈 Carteira de Investimentos</h1>
-<p style="text-align:center;font-size:0.72rem;color:var(--text-muted);margin:-12px 0 18px 0;font-weight:500;">Atualizado em: <span id="lastUpdateHeader">—</span></p>
 <main>
   <!-- KPIs -->
   <div class="kpi-grid">
@@ -473,16 +472,7 @@
     document.getElementById('kpiAportesLiquidos').textContent = fmt(k.aportes_liquido_total);
     document.getElementById('kpiRent').textContent = k.rentabilidade_nominal.toFixed(2) + '%';
     document.getElementById('kpiCAGR').textContent = k.cagr_5anos.toFixed(2) + '%';
-    try {
-      const lu = rawData.last_update;
-      if (lu) {
-        const d = new Date(lu);
-        const fmt = d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
-        document.getElementById('lastUpdate').textContent = fmt;
-        const hdr = document.getElementById('lastUpdateHeader');
-        if (hdr) hdr.textContent = fmt;
-      }
-    } catch(e) { document.getElementById('lastUpdate').textContent = rawData.last_update || '—'; }
+    document.getElementById('lastUpdate').textContent = 'Sync: ' + rawData.last_update;
   }
 
   function populateFilters() {

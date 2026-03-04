@@ -47,7 +47,6 @@
             --red: #fc8181;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { background-color: var(--bg); min-height: 100vh; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
@@ -93,16 +92,8 @@
             transition: background-color 0.3s, border-color 0.3s;
         }
         .chart-container { position: relative; height: 300px; width: 100%; }
-        .last-update {
-            text-align: center;
-            font-size: 0.72rem;
-            color: var(--text-muted);
-            margin: -12px 0 18px 0;
-            font-weight: 500;
-        }
-
         @media (min-width: 768px) {
-            body { padding: 16px 24px 60px 24px; }
+            body { max-width: 960px; margin: 0 auto; padding: 16px 16px 60px 16px; }
             .chart-container { height: 380px; }
             .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
             h1 { font-size: 1.75rem; }
@@ -184,7 +175,6 @@
     <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
     <a href="index.html" class="nav-link">← Voltar para Início</a>
     <h1>💰 Dashboard de Salário</h1>
-    <p class="last-update">Atualizado em: <span id="lastUpdate">—</span></p>
     <p id="last-update" class="page-subtitle" style="display:none;"></p>
 
     <div id="tab1">
@@ -312,18 +302,6 @@
             try {
                 const res = await fetch('./data/contra_cheque.json?v=' + Date.now());
                 contraChequeData = await res.json();
-
-                // Última data dos dados
-                try {
-                  const dates = contraChequeData.map(d => d.mes_referencia).filter(Boolean).sort();
-                  if (dates.length) {
-                    const last = dates[dates.length - 1]; // format MM/YY
-                    const [mm, yy] = last.split('/');
-                    const d = new Date(2000 + parseInt(yy), parseInt(mm) - 1, 1);
-                    document.getElementById('lastUpdate').textContent = d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
-                  }
-                } catch(e) {}
-
                 const years = [...new Set(contraChequeData.map(d => '20'+d.mes_referencia.split('/')[1]))].sort();
                 sortedYears = years;
                 pieYearIdx = years.length - 1;
