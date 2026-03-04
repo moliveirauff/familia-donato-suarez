@@ -504,15 +504,26 @@ function renderAlugueis() {
   const ctx = getCtx('chartAlugueis');
   const seriesAlug = data.series.alugueis_por_ano;
   const seriesValor = data.series.valor_por_ano;
-  
+
   const anos = seriesAlug.map(s => s.ano);
   const valores = seriesAlug.map(s => s.total);
-  
-  // Calcular DY anual: (total aluguel ano / valor imóvel fim do ano) × 100
+
+  // DY anual: (aluguéis do ano / valor fim do ano) × 100
   const dyAnual = seriesAlug.map(alug => {
     const valorFimAno = seriesValor.find(v => v.ano === alug.ano);
     if (!valorFimAno || valorFimAno.valor === 0) return 0;
     return (alug.total / valorFimAno.valor) * 100;
+  });
+
+  // Rentabilidade no ano: (aluguéis + valorização) / valor início do ano × 100
+  const rentAnual = seriesAlug.map(alug => {
+    const idxValor = seriesValor.findIndex(v => v.ano === alug.ano);
+    if (idxValor < 0) return null;
+    const valorFim = seriesValor[idxValor].valor;
+    const valorIni = idxValor > 0 ? seriesValor[idxValor - 1].valor : valorFim;
+    if (!valorIni || valorIni === 0) return null;
+    const valorizacao = valorFim - valorIni;
+    return ((alug.total + valorizacao) / valorIni) * 100;
   });
 
   if (charts.alugueis) charts.alugueis.destroy();
@@ -546,6 +557,24 @@ function renderAlugueis() {
           pointBorderWidth: 2,
           yAxisID: 'y1',
           order: 0
+        },
+        {
+          label: 'Rent. Ano (%)',
+          data: rentAnual,
+          type: 'line',
+          borderColor: '#10b981',
+          backgroundColor: 'rgba(16, 185, 129, 0.1)',
+          borderWidth: 3,
+          fill: false,
+          tension: 0.4,
+          pointRadius: 6,
+          pointHoverRadius: 8,
+          pointBackgroundColor: '#10b981',
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          spanGaps: true,
+          yAxisID: 'y1',
+          order: 0
         }
       ]
     },
@@ -571,9 +600,9 @@ function renderAlugueis() {
           callbacks: {
             label: (ctx) => {
               if (ctx.dataset.label.includes('Aluguéis')) {
-                return 'Aluguéis: ' + fmt(ctx.raw);
+                return ' Aluguéis: ' + fmt(ctx.raw);
               } else {
-                return 'DY: ' + ctx.raw.toFixed(2) + '%';
+                return ` ${ctx.dataset.label}: ${ctx.raw !== null ? ctx.raw.toFixed(2) + '%' : '—'}`;
               }
             }
           }
