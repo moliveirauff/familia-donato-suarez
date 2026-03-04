@@ -39,6 +39,7 @@ def run():
     dividendos_data = load_json("dividendos_historico.json")
     ativos_data = load_json("ativos_financeiros.json")
     meta_alocacao_data = load_json("meta_alocacao.json")
+    trulli_data = load_json("imovel_trulli_historico.json")
 
     if not all([movimentacoes_data, cotacoes_data, dividendos_data, ativos_data]):
         print("❌ Erro: Dados base incompletos.")
@@ -49,6 +50,13 @@ def run():
     base_class_map = {a["nome"]: a["macro_classe"] for a in ativos_data.get("ativos", [])}
     categorias_unicas = sorted(list(set(list(base_class_map.values()) + ["9_uncategorized"])))
     
+    # --- IMÓVEL TRULLI: dados para projeção ---
+    trulli_movs = sorted(
+        [m for m in (trulli_data.get("movimentacoes", []) if trulli_data else []) if m["tipo"] == "APORTE"],
+        key=lambda x: x["data"]
+    )
+    TRULLI_INICIO = date(2021, 7, 15)  # Primeiro aporte
+
     TIPOS_SOMA = ['APORTE', 'APORTE (Ajuste Zeramento)', 'COMPRA']
     TIPOS_SUBTRAI = ['RETIRADA', 'RETIRADA (Ajuste Zeramento)', 'RESGATE', 'VENDA']
 
@@ -145,6 +153,18 @@ def run():
             pat_mes_total += valor
             cat = base_class_map.get(asset_full) or base_class_map.get(get_base_name(asset_full), "9_uncategorized")
             pat_por_cat_mes[cat] += valor
+
+        # 3b. Imóvel Trulli: injetar valor projetado em 4_ativos_reais
+        if trulli_movs:
+            total_aportado_trulli = sum(
+                m["valor_total"] for m in trulli_movs
+                if datetime.strptime(m["data"], "%Y-%m-%d").date() <= last_day
+            )
+            n_meses_trulli = (year_val - 2021) * 12 + (month_val - 7)
+            if n_meses_trulli >= 0 and total_aportado_trulli > 0:
+                valor_trulli = total_aportado_trulli * (1.002 ** n_meses_trulli)
+                pat_mes_total += valor_trulli
+                pat_por_cat_mes["4_ativos_reais"] = pat_por_cat_mes.get("4_ativos_reais", 0.0) + valor_trulli
 
         # 4. Cálculo de Lucro e Aportes
         liq_mes = aportes_mes - retiradas_mes
@@ -288,6 +308,15 @@ def run():
     # Alocação
     pat_cat_atual = defaultdict(float)
     for r in ranking: pat_cat_atual[r["categoria"]] += r["atual"]
+    # Adicionar Imóvel Trulli à alocação (não está no ranking)
+    if trulli_movs:
+        last_m_key = months[-1]
+        ly, lm = map(int, last_m_key.split('-'))
+        last_day_fin = (datetime(ly, lm, 1) + relativedelta(months=1, days=-1)).date()
+        total_ap_fin = sum(mv["valor_total"] for mv in trulli_movs if datetime.strptime(mv["data"], "%Y-%m-%d").date() <= last_day_fin)
+        n_m_fin = (ly - 2021) * 12 + (lm - 7)
+        if n_m_fin >= 0 and total_ap_fin > 0:
+            pat_cat_atual["4_ativos_reais"] += total_ap_fin * (1.002 ** n_m_fin)
     for cid, pm in meta_alocacao_data.get("metas", {}).items():
         output["alocacao"].append({"categoria": cid, "meta_rs": round(pat_atual * pm, 2), "real_rs": round(pat_cat_atual.get(cid, 0), 2)})
 

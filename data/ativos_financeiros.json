@@ -1291,6 +1291,12 @@
       "macro_classe": "1_renda_fixa_soberana",
       "subclasse": "1.3_ipca_longo",
       "status": "aberto"
+    },
+    {
+      "nome": "Imóvel - Trulli",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "aberto"
     }
   ]
 }
