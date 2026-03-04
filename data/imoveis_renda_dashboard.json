@@ -4,7 +4,7 @@
     "valor_mercado_atual": 540245.2,
     "alugueis_12m": 21850.86,
     "dy_12m": 4.04,
-    "rentabilidade_total": 18.02
+    "rentabilidade_total": 18.97
   },
   "series": {
     "valor_por_ano": [
@@ -37,6 +37,10 @@
       {
         "ano": 2025,
         "total": 21850.86
+      },
+      {
+        "ano": 2026,
+        "total": 4754.94
       }
     ],
     "rentabilidade_acumulada": [
@@ -63,9 +67,9 @@
     ]
   },
   "metadata": {
-    "data_geracao": "2026-03-03 21:26:44",
+    "data_geracao": "2026-03-03 21:47:49",
     "total_investido": 498424.36,
-    "total_alugueis": 47978.74,
+    "total_alugueis": 52733.68,
     "taxa_valorizacao_mensal": 0.002
   }
 }
