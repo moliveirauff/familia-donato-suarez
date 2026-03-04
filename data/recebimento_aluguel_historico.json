@@ -1,6 +1,6 @@
 {
   "versao": "2026.2.normalizado",
-  "data_atualizacao": "2026-02-19",
+  "data_atualizacao": "2026-03-03",
   "descricao": "Historico de recebimentos de aluguel (Trulli e outros)",
   "movimentacoes": [
     {
@@ -176,6 +176,22 @@
       "data": "2025-12-05",
       "tipo": "PROVENTO_ALUGUEL",
       "valor_total": 2377.6,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "Imóvel - Trulli",
+      "data": "2026-01-10",
+      "tipo": "PROVENTO_ALUGUEL",
+      "valor_total": 2377.47,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "Imóvel - Trulli",
+      "data": "2026-02-10",
+      "tipo": "PROVENTO_ALUGUEL",
+      "valor_total": 2377.47,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     }
