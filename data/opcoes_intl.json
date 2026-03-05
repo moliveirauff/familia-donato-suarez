@@ -1,10 +1,10 @@
 {
   "versao": "2.3",
-  "data_atualizacao": "2026-02-26 11:53:41",
+  "data_atualizacao": "2026-03-05",
   "descricao": "Operações de opções US - taxa abertura (CSV) + $0,12 por 100 contratos fechamento",
   "estatisticas": {
-    "total_operacoes": 171,
-    "operacoes_fechadas": 165,
+    "total_operacoes": 173,
+    "operacoes_fechadas": 167,
     "operacoes_abertas": 6,
     "resultado_total_realizado_usd": 7840.87,
     "vitorias": 79,
@@ -3268,18 +3268,14 @@
       "strike": 38.0,
       "quantidade": 100,
       "preco_opcao_abertura": 1.07,
-      "data_fechamento": null,
-      "preco_acao_fechamento": null,
-      "preco_opcao_fechamento": null,
+      "data_fechamento": "2026-03-05",
+      "preco_acao_fechamento": 40.16,
+      "preco_opcao_fechamento": 0.06,
       "taxas_abertura": 1.12,
-      "taxas_fechamento": null,
-      "taxas_total": 1.12,
-      "resultado": null,
-      "status": "aberta",
-      "spot_atual": 41.44,
-      "iv_calculada": null,
-      "preco_teorico": null,
-      "bs_data_calculo": "2026-03-05"
+      "taxas_fechamento": 0.12,
+      "taxas_total": 1.24,
+      "resultado": 99.76,
+      "status": "fechada"
     },
     {
       "ticker": "ETHA",
@@ -3303,6 +3299,25 @@
       "iv_calculada": null,
       "preco_teorico": null,
       "bs_data_calculo": "2026-03-05"
+    },
+    {
+      "ticker": "IBIT",
+      "data_operacao": "2026-03-05",
+      "preco_acao_na_operacao": 40.16,
+      "operacao": "Venda",
+      "tipo_contrato": "PUT",
+      "vencimento": "2026-03-13",
+      "strike": 38.5,
+      "quantidade": 100,
+      "preco_opcao_abertura": 0.66,
+      "data_fechamento": null,
+      "preco_acao_fechamento": null,
+      "preco_opcao_fechamento": null,
+      "taxas_abertura": 1.12,
+      "taxas_fechamento": null,
+      "taxas_total": 1.12,
+      "resultado": null,
+      "status": "aberta"
     }
   ]
 }
