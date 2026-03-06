@@ -10362,7 +10362,7 @@
     {
       "categoria": "1_renda_fixa_soberana",
       "meta_rs": 115963.42,
-      "real_rs": 0.0
+      "real_rs": 2051.05
     },
     {
       "categoria": "2_credito_privado",
@@ -10760,18 +10760,18 @@
       "ticker": "Tesouro IPCA+ 2050",
       "quantidade": 1.13,
       "investido": 1003.45,
-      "atual": 0.0,
-      "rent_pct": -100.0,
+      "atual": 1030.98,
+      "rent_pct": 2.74,
       "categoria": "1_renda_fixa_soberana"
     },
     {
       "ticker": "Tesouro Educa+ 2043",
       "quantidade": 0.8,
       "investido": 997.0,
-      "atual": 0.0,
-      "rent_pct": -100.0,
+      "atual": 1020.07,
+      "rent_pct": 2.31,
       "categoria": "1_renda_fixa_soberana"
     }
   ],
-  "last_update": "2026-03-06 01:41"
+  "last_update": "2026-03-06 01:43"
 }
