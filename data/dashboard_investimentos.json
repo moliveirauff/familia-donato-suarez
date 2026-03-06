@@ -10367,7 +10367,7 @@
     {
       "categoria": "2_credito_privado",
       "meta_rs": 347890.25,
-      "real_rs": 89411.44
+      "real_rs": 543105.3
     },
     {
       "categoria": "3_acoes_brasil",
@@ -10392,7 +10392,7 @@
     {
       "categoria": "7_alternativos_estratega",
       "meta_rs": 347890.25,
-      "real_rs": 0.0
+      "real_rs": 401444.73
     }
   ],
   "ranking_ativos": [
@@ -10405,12 +10405,52 @@
       "categoria": "5_internacional"
     },
     {
+      "ticker": "Icatu Previ",
+      "quantidade": 142643.1243,
+      "investido": 167479.12,
+      "atual": 260163.58,
+      "rent_pct": 55.34,
+      "categoria": "2_credito_privado"
+    },
+    {
+      "ticker": "Quest Luce Previ",
+      "quantidade": 76300.4046,
+      "investido": 126824.26,
+      "atual": 143023.52,
+      "rent_pct": 12.77,
+      "categoria": "2_credito_privado"
+    },
+    {
+      "ticker": "Vitreo Superprev 2",
+      "quantidade": 97298.6,
+      "investido": 115437.12,
+      "atual": 141604.7,
+      "rent_pct": 22.67,
+      "categoria": "7_alternativos_estratega"
+    },
+    {
+      "ticker": "Arca Previ",
+      "quantidade": 82132.5,
+      "investido": 97181.83,
+      "atual": 132803.87,
+      "rent_pct": 36.66,
+      "categoria": "7_alternativos_estratega"
+    },
+    {
       "ticker": "IBIT",
       "quantidade": 622.0,
       "investido": 183203.16,
       "atual": 127267.42,
       "rent_pct": -30.53,
       "categoria": "6_criptoativos"
+    },
+    {
+      "ticker": "XP Superprev 2",
+      "quantidade": 85769.7,
+      "investido": 88131.22,
+      "atual": 127036.16,
+      "rent_pct": 44.14,
+      "categoria": "7_alternativos_estratega"
     },
     {
       "ticker": "SGOV",
@@ -10435,6 +10475,14 @@
       "atual": 50688.0,
       "rent_pct": 43.32,
       "categoria": "3_acoes_brasil"
+    },
+    {
+      "ticker": "Arca Grão RF Previ",
+      "quantidade": 31235.8863,
+      "investido": 44829.15,
+      "atual": 50506.76,
+      "rent_pct": 12.66,
+      "categoria": "2_credito_privado"
     },
     {
       "ticker": "VNQ",
@@ -10709,54 +10757,6 @@
       "categoria": "6_criptoativos"
     },
     {
-      "ticker": "Icatu Previ",
-      "quantidade": 142643.1243,
-      "investido": 167479.12,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "2_credito_privado"
-    },
-    {
-      "ticker": "Vitreo Superprev 2",
-      "quantidade": 97298.6,
-      "investido": 115437.12,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "7_alternativos_estratega"
-    },
-    {
-      "ticker": "XP Superprev 2",
-      "quantidade": 85769.7,
-      "investido": 88131.22,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "7_alternativos_estratega"
-    },
-    {
-      "ticker": "Arca Previ",
-      "quantidade": 82132.5,
-      "investido": 97181.83,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "7_alternativos_estratega"
-    },
-    {
-      "ticker": "Quest Luce Previ",
-      "quantidade": 76300.4046,
-      "investido": 126824.26,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "2_credito_privado"
-    },
-    {
-      "ticker": "Arca Grão RF Previ",
-      "quantidade": 31235.8863,
-      "investido": 44829.15,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "2_credito_privado"
-    },
-    {
       "ticker": "Tesouro IPCA+ 2050",
       "quantidade": 1.13,
       "investido": 1003.45,
@@ -10773,5 +10773,5 @@
       "categoria": "1_renda_fixa_soberana"
     }
   ],
-  "last_update": "2026-03-06 01:37"
+  "last_update": "2026-03-06 01:41"
 }
