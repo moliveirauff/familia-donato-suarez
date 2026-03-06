@@ -1,9 +1,9 @@
 {
   "kpis": {
-    "patrimonio_total": 2295577.62,
-    "aportes_liquido_total": 1729166.49,
-    "rentabilidade_nominal": 32.76,
-    "cagr_5anos": 18.45
+    "patrimonio_total": 2308161.41,
+    "aportes_liquido_total": 1737064.59,
+    "rentabilidade_nominal": 32.88,
+    "cagr_5anos": 18.58
   },
   "anual": {
     "evolucao": [
@@ -65,7 +65,7 @@
       },
       {
         "ano": 2026,
-        "patrimonio": 2295577.62
+        "patrimonio": 2308161.41
       }
     ],
     "evolucao_por_cat": {
@@ -190,7 +190,7 @@
         },
         {
           "ano": 2026,
-          "patrimonio": 525260.55
+          "patrimonio": 537844.34
         }
       ],
       "3_acoes_brasil": [
@@ -653,9 +653,9 @@
       },
       {
         "ano": 2026,
-        "aporte_real": 27779.95,
+        "aporte_real": 35678.05,
         "dividendos": 8510.15,
-        "total": 36290.1
+        "total": 44188.2
       }
     ],
     "aportes_por_cat": {
@@ -809,7 +809,7 @@
         },
         {
           "ano": 2026,
-          "aporte_real": 7083.62,
+          "aporte_real": 14981.72,
           "dividendos": 1860.08
         }
       ],
@@ -1363,9 +1363,9 @@
       },
       {
         "ano": 2026,
-        "valorizacao": -18487.38,
+        "valorizacao": -13801.69,
         "dividendos": 8510.15,
-        "total": -9977.23
+        "total": -5291.54
       }
     ],
     "rentabilidade_pct": [
@@ -1497,8 +1497,8 @@
       },
       {
         "ano": 2026,
-        "sem_dividendos": -1.17,
-        "com_dividendos": -0.8,
+        "sem_dividendos": -0.96,
+        "com_dividendos": -0.59,
         "cdi": 12.0,
         "ifix": 5.0,
         "dolar": 2.0,
@@ -1656,8 +1656,8 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": 0.25,
-          "com_dividendos": 0.61
+          "sem_dividendos": 1.13,
+          "com_dividendos": 1.48
         }
       ],
       "3_acoes_brasil": [
@@ -2804,11 +2804,11 @@
       },
       {
         "mes": "2026-02",
-        "patrimonio": 2295783.76
+        "patrimonio": 2308367.55
       },
       {
         "mes": "2026-03",
-        "patrimonio": 2295577.62
+        "patrimonio": 2308161.41
       }
     ],
     "evolucao_por_cat": {
@@ -4177,11 +4177,11 @@
         },
         {
           "mes": "2026-02",
-          "patrimonio": 526114.75
+          "patrimonio": 538698.54
         },
         {
           "mes": "2026-03",
-          "patrimonio": 525260.55
+          "patrimonio": 537844.34
         }
       ],
       "3_acoes_brasil": [
@@ -9318,9 +9318,9 @@
       },
       {
         "mes": "2026-02",
-        "aporte_real": 21729.41,
+        "aporte_real": 29627.51,
         "dividendos": 3616.54,
-        "total": 25345.95
+        "total": 33244.05
       },
       {
         "mes": "2026-03",
@@ -10346,9 +10346,9 @@
       },
       {
         "mes": "2026-02",
-        "valorizacao": -43559.77,
+        "valorizacao": -38874.08,
         "dividendos": 3616.54,
-        "total": -39943.23
+        "total": -35257.54
       },
       {
         "mes": "2026-03",
@@ -10361,37 +10361,37 @@
   "alocacao": [
     {
       "categoria": "1_renda_fixa_soberana",
-      "meta_rs": 114778.88,
+      "meta_rs": 115408.07,
       "real_rs": 0.0
     },
     {
       "categoria": "2_credito_privado",
-      "meta_rs": 344336.64,
+      "meta_rs": 346224.21,
       "real_rs": 89411.44
     },
     {
       "categoria": "3_acoes_brasil",
-      "meta_rs": 573894.41,
+      "meta_rs": 577040.35,
       "real_rs": 484534.72
     },
     {
       "categoria": "4_ativos_reais",
-      "meta_rs": 344336.64,
+      "meta_rs": 346224.21,
       "real_rs": 266396.46
     },
     {
       "categoria": "5_internacional",
-      "meta_rs": 459115.52,
+      "meta_rs": 461632.28,
       "real_rs": 486575.64
     },
     {
       "categoria": "6_criptoativos",
-      "meta_rs": 114778.88,
+      "meta_rs": 115408.07,
       "real_rs": 135160.42
     },
     {
       "categoria": "7_alternativos_estratega",
-      "meta_rs": 344336.64,
+      "meta_rs": 346224.21,
       "real_rs": 0.0
     }
   ],
@@ -10710,8 +10710,8 @@
     },
     {
       "ticker": "Icatu Previ",
-      "quantidade": 138312.7347,
-      "investido": 159581.02,
+      "quantidade": 142643.1243,
+      "investido": 167479.12,
       "atual": 0.0,
       "rent_pct": -100.0,
       "categoria": "2_credito_privado"
@@ -10773,5 +10773,5 @@
       "categoria": "1_renda_fixa_soberana"
     }
   ],
-  "last_update": "2026-03-05 13:13"
+  "last_update": "2026-03-06 01:08"
 }

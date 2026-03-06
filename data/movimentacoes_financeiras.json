@@ -16041,6 +16041,14 @@
       "valor_total": 1045.6,
       "preco_unitario": 1.55807076,
       "quantidade": 671.08633761
+    },
+    {
+      "ativo": "Icatu Previ",
+      "data": "2026-02-27",
+      "tipo": "APORTE",
+      "valor_total": 7898.1,
+      "preco_unitario": 1.8238775,
+      "quantidade": 4330.38951356
     }
   ],
   "descricao": "Historico de aportes e retiradas (trades) de ativos financeiros"
