@@ -81,13 +81,15 @@ def run():
     lucro_mensal_reais = []
     aportes_mensais_detalhe = []
     
-    # NOVO: Rastreamento mensal por categoria
-    aportes_mensais_por_cat = defaultdict(lambda: defaultdict(float))  # {categoria: {mes: valor}}
-    divs_mensais_por_cat = defaultdict(lambda: defaultdict(float))     # {categoria: {mes: valor}}
+    # Rastreamento mensal por categoria
+    aportes_mensais_por_cat = defaultdict(lambda: defaultdict(float))  # {categoria: {mes: aporte_liq}}
+    divs_mensais_por_cat = defaultdict(lambda: defaultdict(float))     # {categoria: {mes: dividendos}}
+    lucro_mensais_por_cat = {cat: [] for cat in categorias_unicas}     # exportado ao JSON
     
     mov_idx = 0
     div_idx = 0
     pat_anterior_mes = 0.0
+    pat_anterior_cat = {cat: 0.0 for cat in categorias_unicas}
 
     print(f"📊 Processando {len(months)} meses...")
 
@@ -187,6 +189,20 @@ def run():
             evolucao_anual.append({"ano": year_val, "patrimonio": round(pat_mes_total, 2)})
             for cat in categorias_unicas:
                 evolucao_anual_por_cat[cat].append({"ano": year_val, "patrimonio": round(pat_por_cat_mes[cat], 2)})
+
+        # Lucro mensal por categoria
+        for cat in categorias_unicas:
+            variacao_cat = pat_por_cat_mes[cat] - pat_anterior_cat[cat]
+            liq_cat = aportes_mensais_por_cat[cat][month_key]
+            div_cat = divs_mensais_por_cat[cat].get(month_key, 0.0)
+            valorizacao_cat = variacao_cat - liq_cat
+            lucro_mensais_por_cat[cat].append({
+                "mes": month_key,
+                "valorizacao": round(valorizacao_cat, 2),
+                "dividendos": round(div_cat, 2),
+                "total": round(valorizacao_cat + div_cat, 2)
+            })
+            pat_anterior_cat[cat] = pat_por_cat_mes[cat]
 
         pat_anterior_mes = pat_mes_total
 
@@ -292,7 +308,20 @@ def run():
             "evolucao": evolucao_mensal_full,
             "evolucao_por_cat": evolucao_mensal_por_cat,
             "aportes": aportes_mensais_detalhe,
-            "lucro_reais": lucro_mensal_reais
+            "aportes_por_cat": {
+                cat: [
+                    {
+                        "mes": month_key,
+                        "aporte_real": round(aportes_mensais_por_cat[cat].get(month_key, 0.0) - divs_mensais_por_cat[cat].get(month_key, 0.0), 2),
+                        "dividendos": round(divs_mensais_por_cat[cat].get(month_key, 0.0), 2),
+                        "total": round(aportes_mensais_por_cat[cat].get(month_key, 0.0), 2)
+                    }
+                    for month_key in months
+                ]
+                for cat in categorias_unicas
+            },
+            "lucro_reais": lucro_mensal_reais,
+            "lucro_reais_por_cat": lucro_mensais_por_cat
         },
         "alocacao": [],
         "ranking_ativos": ranking,

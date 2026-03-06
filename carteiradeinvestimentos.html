@@ -344,6 +344,12 @@
   <hr>
 
   <!-- SEÇÃO MENSAL -->
+  <!-- Controle de link entre filtros mensais -->
+  <div style="display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-bottom:10px;">
+    <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;">Filtros de classe:</span>
+    <button class="filter-btn active" id="btnLinkFiltros" onclick="toggleLinkFiltros()" title="Vincular filtros de classe entre os 3 cards">🔗 Vinculado</button>
+  </div>
+
   <div class="grid-2">
     <div class="card">
       <div class="card-header">
@@ -352,7 +358,7 @@
           <button class="filter-btn" id="btnMesPrevEvol" onclick="navMes(-1)">←</button>
           <span id="labelMesEvol" style="font-size:0.9rem;font-weight:700;padding:0 8px;min-width:72px;text-align:center;display:inline-block;">—</span>
           <button class="filter-btn" id="btnMesNextEvol" onclick="navMes(1)">→</button>
-          <select id="filterEvolMes" class="filter-select" aria-label="Filtrar Categoria">
+          <select id="filterEvolMes" class="filter-select" aria-label="Filtrar Classe" onchange="onCatChange('evol')">
             <option value="todas">Todas as Classes</option>
           </select>
         </div>
@@ -366,6 +372,9 @@
           <button class="filter-btn" id="btnMesPrevAportes" onclick="navMes(-1)">←</button>
           <span id="labelMesAportes" style="font-size:0.9rem;font-weight:700;padding:0 8px;min-width:72px;text-align:center;display:inline-block;">—</span>
           <button class="filter-btn" id="btnMesNextAportes" onclick="navMes(1)">→</button>
+          <select id="filterAportesMes" class="filter-select" aria-label="Filtrar Classe" onchange="onCatChange('aportes')">
+            <option value="todas">Todas as Classes</option>
+          </select>
         </div>
       </div>
       <div class="chart-container"><canvas id="chartAportesMes"></canvas></div>
@@ -379,6 +388,9 @@
         <button class="filter-btn" id="btnMesPrevLucro" onclick="navMes(-1)">←</button>
         <span id="labelMesLucro" style="font-size:0.9rem;font-weight:700;padding:0 8px;min-width:72px;text-align:center;display:inline-block;">—</span>
         <button class="filter-btn" id="btnMesNextLucro" onclick="navMes(1)">→</button>
+        <select id="filterLucroMes" class="filter-select" aria-label="Filtrar Classe" onchange="onCatChange('lucro')">
+          <option value="todas">Todas as Classes</option>
+        </select>
       </div>
     </div>
     <div class="chart-container"><canvas id="chartLucroMes"></canvas></div>
@@ -430,8 +442,9 @@
   let rawData = null;
   let cotacoesData = null;
   let mesesDisp = [];
-  let currentMesIdx = 0;   // compartilhado: 3 cards mensais + variações
-  let varMode = '1m';       // '1m' | '12m'
+  let currentMesIdx = 0;      // compartilhado: 3 cards mensais + variações
+  let varMode = '1m';          // '1m' | '12m'
+  let filtersLinked = true;    // 🔗 filtros de classe vinculados entre os 3 cards mensais
   let charts = {};
 
   const COLORS = {
@@ -496,7 +509,8 @@
   // === FILTERS ===
   function populateFilters() {
     const categorias = Object.keys(rawData.anual.evolucao_por_cat || {}).sort();
-    const catDropdowns = ['filterEvolAno', 'filterAportesAno', 'filterPerfAno', 'filterEvolMes', 'filterRanking'];
+    const catDropdowns = ['filterEvolAno', 'filterAportesAno', 'filterPerfAno',
+                          'filterEvolMes', 'filterAportesMes', 'filterLucroMes', 'filterRanking'];
     categorias.forEach(cat => {
       const hasValue = rawData.anual.evolucao_por_cat[cat].some(d => d.patrimonio > 0);
       if (!hasValue) return;
@@ -512,8 +526,45 @@
     document.getElementById('filterEvolAno').addEventListener('change', renderEvolucaoAnual);
     document.getElementById('filterAportesAno').addEventListener('change', renderAportesAnual);
     document.getElementById('filterPerfAno').addEventListener('change', renderPerformanceAnual);
-    document.getElementById('filterEvolMes').addEventListener('change', renderEvolucaoMensal);
     document.getElementById('filterRanking').addEventListener('change', renderRanking);
+    // Mensais: onCatChange trata via onchange inline (com lógica de link)
+  }
+
+  // Gerencia mudança de filtro de classe num dos 3 cards mensais
+  function onCatChange(origem) {
+    if (!filtersLinked) {
+      // Renderiza só o card que mudou
+      if (origem === 'evol')    renderEvolucaoMensal();
+      if (origem === 'aportes') renderAportesMensal();
+      if (origem === 'lucro')   renderLucroMensal();
+      return;
+    }
+    // Propaga o valor para os outros dois selects
+    const val = document.getElementById(
+      origem === 'evol' ? 'filterEvolMes' : origem === 'aportes' ? 'filterAportesMes' : 'filterLucroMes'
+    ).value;
+    ['filterEvolMes','filterAportesMes','filterLucroMes'].forEach(id => {
+      document.getElementById(id).value = val;
+    });
+    renderEvolucaoMensal();
+    renderAportesMensal();
+    renderLucroMensal();
+  }
+
+  function toggleLinkFiltros() {
+    filtersLinked = !filtersLinked;
+    const btn = document.getElementById('btnLinkFiltros');
+    btn.classList.toggle('active', filtersLinked);
+    btn.textContent = filtersLinked ? '🔗 Vinculado' : '🔓 Independente';
+    if (filtersLinked) {
+      // Sincroniza tudo com o valor atual do primeiro select
+      const val = document.getElementById('filterEvolMes').value;
+      ['filterAportesMes','filterLucroMes'].forEach(id => {
+        document.getElementById(id).value = val;
+      });
+      renderAportesMensal();
+      renderLucroMensal();
+    }
   }
 
   // === ANNUAL CHARTS ===
@@ -728,7 +779,11 @@
   function renderAportesMensal() {
     const mesAlvo = mesesDisp[currentMesIdx];
     if (!mesAlvo) return;
-    const data = getMensal12(rawData.mensal.aportes, mesAlvo);
+    const cat = document.getElementById('filterAportesMes').value;
+    const source = cat === 'todas'
+      ? rawData.mensal.aportes
+      : (rawData.mensal.aportes_por_cat && rawData.mensal.aportes_por_cat[cat]) || rawData.mensal.aportes;
+    const data = getMensal12(source, mesAlvo);
     if (charts.aportesMes) charts.aportesMes.destroy();
     charts.aportesMes = new Chart(document.getElementById('chartAportesMes'), {
       type: 'bar',
@@ -752,7 +807,11 @@
   function renderLucroMensal() {
     const mesAlvo = mesesDisp[currentMesIdx];
     if (!mesAlvo) return;
-    const data = getMensal12(rawData.mensal.lucro_reais, mesAlvo);
+    const cat = document.getElementById('filterLucroMes').value;
+    const source = cat === 'todas'
+      ? rawData.mensal.lucro_reais
+      : (rawData.mensal.lucro_reais_por_cat && rawData.mensal.lucro_reais_por_cat[cat]) || rawData.mensal.lucro_reais;
+    const data = getMensal12(source, mesAlvo);
     if (charts.lucroMes) charts.lucroMes.destroy();
     charts.lucroMes = new Chart(document.getElementById('chartLucroMes'), {
       type: 'bar',
