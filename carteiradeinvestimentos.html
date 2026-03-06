@@ -350,21 +350,22 @@
     <button class="filter-btn active" id="btnLinkFiltros" onclick="toggleLinkFiltros()" title="Vincular filtros de classe entre os 3 cards">🔗 Vinculado</button>
   </div>
 
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title">📊 Evolução Mensal — Últimos 12 Meses</div>
-        <div class="controls">
-          <button class="filter-btn" id="btnMesPrevEvol" onclick="navMes(-1)">←</button>
-          <span id="labelMesEvol" style="font-size:0.9rem;font-weight:700;padding:0 8px;min-width:72px;text-align:center;display:inline-block;">—</span>
-          <button class="filter-btn" id="btnMesNextEvol" onclick="navMes(1)">→</button>
-          <select id="filterEvolMes" class="filter-select" aria-label="Filtrar Classe" onchange="onCatChange('evol')">
-            <option value="todas">Todas as Classes</option>
-          </select>
-        </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">📊 Evolução Mensal — Últimos 12 Meses</div>
+      <div class="controls">
+        <button class="filter-btn" id="btnMesPrevEvol" onclick="navMes(-1)">←</button>
+        <span id="labelMesEvol" style="font-size:0.9rem;font-weight:700;padding:0 8px;min-width:72px;text-align:center;display:inline-block;">—</span>
+        <button class="filter-btn" id="btnMesNextEvol" onclick="navMes(1)">→</button>
+        <select id="filterEvolMes" class="filter-select" aria-label="Filtrar Classe" onchange="onCatChange('evol')">
+          <option value="todas">Todas as Classes</option>
+        </select>
       </div>
-      <div class="chart-container"><canvas id="chartEvolMes"></canvas></div>
     </div>
+    <div class="chart-container"><canvas id="chartEvolMes"></canvas></div>
+  </div>
+
+  <div class="grid-2">
     <div class="card">
       <div class="card-header">
         <div class="card-title">💸 Aporte Líquido — Últimos 12 Meses</div>
@@ -379,21 +380,20 @@
       </div>
       <div class="chart-container"><canvas id="chartAportesMes"></canvas></div>
     </div>
-  </div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">🎯 Lucro Nominal — Últimos 12 Meses (R$)</div>
-      <div class="controls">
-        <button class="filter-btn" id="btnMesPrevLucro" onclick="navMes(-1)">←</button>
-        <span id="labelMesLucro" style="font-size:0.9rem;font-weight:700;padding:0 8px;min-width:72px;text-align:center;display:inline-block;">—</span>
-        <button class="filter-btn" id="btnMesNextLucro" onclick="navMes(1)">→</button>
-        <select id="filterLucroMes" class="filter-select" aria-label="Filtrar Classe" onchange="onCatChange('lucro')">
-          <option value="todas">Todas as Classes</option>
-        </select>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🎯 Lucro Nominal — Últimos 12 Meses (R$)</div>
+        <div class="controls">
+          <button class="filter-btn" id="btnMesPrevLucro" onclick="navMes(-1)">←</button>
+          <span id="labelMesLucro" style="font-size:0.9rem;font-weight:700;padding:0 8px;min-width:72px;text-align:center;display:inline-block;">—</span>
+          <button class="filter-btn" id="btnMesNextLucro" onclick="navMes(1)">→</button>
+          <select id="filterLucroMes" class="filter-select" aria-label="Filtrar Classe" onchange="onCatChange('lucro')">
+            <option value="todas">Todas as Classes</option>
+          </select>
+        </div>
       </div>
+      <div class="chart-container"><canvas id="chartLucroMes"></canvas></div>
     </div>
-    <div class="chart-container"><canvas id="chartLucroMes"></canvas></div>
   </div>
 
   <!-- TOP 10 VARIAÇÕES MENSAIS -->
