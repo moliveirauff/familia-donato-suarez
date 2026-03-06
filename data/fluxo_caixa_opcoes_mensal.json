@@ -1,6 +1,6 @@
 {
   "versao": "1.0",
-  "data_geracao": "2026-03-05 13:13:20",
+  "data_geracao": "2026-03-06 04:15:41",
   "descricao": "Fluxo de caixa mensal de operações de opções (BR + US)",
   "observacao": "Valores positivos = entrada de caixa, valores negativos = saída de caixa",
   "totais": {

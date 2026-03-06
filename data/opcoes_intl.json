@@ -2747,10 +2747,10 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 95.54,
-      "iv_calculada": 0.2178,
-      "preco_teorico": 4.1,
-      "bs_data_calculo": "2026-03-05"
+      "spot_atual": 94.58,
+      "iv_calculada": 0.2393,
+      "preco_teorico": 3.42,
+      "bs_data_calculo": "2026-03-06"
     },
     {
       "ticker": "ETHA",
@@ -3131,10 +3131,10 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 685.13,
-      "iv_calculada": 0.1221,
-      "preco_teorico": 1.19,
-      "bs_data_calculo": "2026-03-05"
+      "spot_atual": 681.31,
+      "iv_calculada": 0.126,
+      "preco_teorico": 0.73,
+      "bs_data_calculo": "2026-03-06"
     },
     {
       "ticker": "IBIT",
@@ -3230,10 +3230,10 @@
       "taxas_total": 7.87,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 41.44,
+      "spot_atual": 40.39,
       "iv_calculada": null,
       "preco_teorico": null,
-      "bs_data_calculo": "2026-03-05"
+      "bs_data_calculo": "2026-03-06"
     },
     {
       "ticker": "IBIT",
@@ -3253,10 +3253,10 @@
       "taxas_total": 7.89,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 41.44,
+      "spot_atual": 40.39,
       "iv_calculada": null,
       "preco_teorico": null,
-      "bs_data_calculo": "2026-03-05"
+      "bs_data_calculo": "2026-03-06"
     },
     {
       "ticker": "IBIT",
@@ -3295,10 +3295,10 @@
       "taxas_total": 1.12,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 16.25,
+      "spot_atual": 15.8,
       "iv_calculada": null,
       "preco_teorico": null,
-      "bs_data_calculo": "2026-03-05"
+      "bs_data_calculo": "2026-03-06"
     },
     {
       "ticker": "IBIT",
@@ -3317,7 +3317,11 @@
       "taxas_fechamento": null,
       "taxas_total": 1.12,
       "resultado": null,
-      "status": "aberta"
+      "status": "aberta",
+      "spot_atual": 40.39,
+      "bs_data_calculo": "2026-03-06",
+      "iv_calculada": 0.64,
+      "preco_teorico": 0.64
     }
   ]
 }
