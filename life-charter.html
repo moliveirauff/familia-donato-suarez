@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="only light">
+  <meta name="supported-color-schemes" content="light">
+  <title>Life Charter — Mauricio Suarez</title>
+  <style>
+    /* ── FORCE LIGHT MODE (anti-dark-mode hack) ── */
+    :root {
+      color-scheme: only light !important;
+      isolation: isolate;
+    }
+    html {
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwADhQGAWjR9awAAAABJRU5ErkJggg==");
+      background-color: #f0f4f8;
+      min-height: 100vh;
+    }
+
+    /* ── VARIABLES ── */
+    :root {
+      --navy:   #0A1928;
+      --navy2:  #0d2137;
+      --cyan:   #00B0FF;
+      --cyan-light: #e0f4ff;
+      --bg:     #f0f4f8;
+      --surface: #ffffff;
+      --border: #dde3ea;
+      --text:   #1a2533;
+      --muted:  #5a6a7a;
+      --shadow: 0 2px 8px rgba(10,25,40,.08), 0 1px 3px rgba(10,25,40,.05);
+      --shadow-md: 0 4px 20px rgba(10,25,40,.12), 0 2px 6px rgba(10,25,40,.07);
+      --radius: 12px;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── BASE ── */
+    body {
+      font-family: "Inter", "Calibri", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: #f0f4f8;
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0 0 60px;
+    }
+
+    /* ── HEADER ── */
+    .page-header {
+      background-color: var(--navy);
+      background-image: linear-gradient(135deg, #0A1928 60%, #0d2d4a 100%);
+      color: #fff;
+      padding: 40px 24px 36px;
+      text-align: center;
+      position: relative;
+    }
+    .page-header .eyebrow {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 8px;
+    }
+    .page-header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.15;
+    }
+    .page-header .subtitle {
+      margin-top: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.01em;
+    }
+    .page-header .revised {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.04em;
+    }
+    .cyan-bar {
+      width: 48px;
+      height: 3px;
+      background-color: var(--cyan);
+      border-radius: 2px;
+      margin: 14px auto 0;
+    }
+
+    /* ── MAIN CONTAINER ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 36px 20px 0;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 14px;
+    }
+
+    /* ── PROPÓSITO ── */
+    .purpose-card {
+      background-color: var(--navy);
+      border-radius: var(--radius);
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 32px;
+    }
+    .purpose-card::before {
+      content: "\201C";
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 8rem;
+      line-height: 1;
+      color: var(--cyan);
+      opacity: 0.12;
+      font-family: Georgia, serif;
+    }
+    .purpose-card .section-title {
+      color: rgba(255,255,255,0.5);
+    }
+    .purpose-card p {
+      font-size: 1.35rem;
+      line-height: 1.65;
+      font-weight: 500;
+      color: #ffffff;
+      position: relative;
+      z-index: 1;
+    }
+    .purpose-card p span {
+      color: var(--cyan);
+    }
+
+    /* ── CARD BASE ── */
+    .card {
+      background-color: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    /* ── VISÃO 2031 ── */
+    .vision-card {
+      margin-bottom: 32px;
+    }
+    .vision-card .section-title {
+      color: var(--navy);
+      opacity: 0.6;
+    }
+    .vision-card h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+    .vision-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .vision-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.975rem;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    .vision-list li .icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .vision-list li .label {
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .vision-list li .desc {
+      color: var(--muted);
+    }
+    .vision-sep {
+      color: var(--border);
+      margin: 0 4px;
+    }
+
+    /* ── VALORES ── */
+    .valores-section {
+      margin-bottom: 32px;
+    }
+    .valores-section > .section-title-wrap {
+      margin-bottom: 16px;
+    }
+    .valores-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 560px) {
+      .valores-grid { grid-template-columns: 1fr; }
+    }
+    .valor-card {
+      background-color: var(--surface);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .valor-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .valor-emoji {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+    .valor-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .valor-desc {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .valor-accent {
+      width: 28px;
+      height: 3px;
+      background-color: var(--cyan);
+      border-radius: 2px;
+      margin-top: 2px;
+    }
+
+    /* ── PILARES ── */
+    .pilares-section {
+      margin-bottom: 32px;
+    }
+    .pilares-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .pilar-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 18px 8px 10px;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s, border-color 0.2s;
+    }
+    .pilar-badge:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(0,176,255,0.12);
+    }
+    .pilar-num {
+      width: 26px;
+      height: 26px;
+      background-color: var(--navy);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .pilar-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.01em;
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      text-align: center;
+      padding: 36px 20px 0;
+      font-size: 0.75rem;
+      color: #a0aec0;
+      letter-spacing: 0.03em;
+    }
+    .page-footer a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 0 32px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <div class="eyebrow">Mauricio Suarez</div>
+    <h1>Life Charter</h1>
+    <div class="subtitle">Quem sou, para onde vou, pelo que luto</div>
+    <div class="cyan-bar"></div>
+    <span class="revised">Revisado em março 2026</span>
+  </header>
+
+  <main class="container">
+
+    <!-- PROPÓSITO -->
+    <div class="purpose-card">
+      <div class="section-title">— Propósito</div>
+      <p>
+        Construir <span>liberdade real</span> — financeira, de tempo e de escolha —
+        para estar presente onde importa, com a família,
+        e fazendo o que realmente gosto.
+      </p>
+    </div>
+
+    <!-- VISÃO 2031 -->
+    <div class="card vision-card">
+      <div class="section-title" style="color:#0A1928;opacity:.55;">— Visão 2031</div>
+      <h2>Onde estarei em 5 anos</h2>
+      <ul class="vision-list">
+        <li>
+          <span class="icon">🌎</span>
+          <span>
+            <span class="label">Liberdade Geográfica</span>
+            <span class="vision-sep">—</span>
+            <span class="desc">morando em Teresópolis, se for essa a vontade</span>
+          </span>
+        </li>
+        <li>
+          <span class="icon">❤️</span>
+          <span>
+            <span class="label">Família como centro</span>
+            <span class="vision-sep">—</span>
+            <span class="desc">presente no dia a dia com a Fernanda e nossos dois filhos</span>
+          </span>
+        </li>
+        <li>
+          <span class="icon">🚪</span>
+          <span>
+            <span class="label">Fora do corporativo</span>
+            <span class="vision-sep">—</span>
+            <span class="desc">empreendedor full-time</span>
+          </span>
+        </li>
+        <li>
+          <span class="icon">💰</span>
+          <span>
+            <span class="label">Renda passiva: R$30k/mês</span>
+          </span>
+        </li>
+        <li>
+          <span class="icon">🏦</span>
+          <span>
+            <span class="label">Patrimônio: R$10,6M / USD 1,5M</span>
+          </span>
+        </li>
+        <li>
+          <span class="icon">🏢</span>
+          <span>
+            <span class="label">Negócios próprios</span>
+            <span class="vision-sep">—</span>
+            <span class="desc">gerando renda sem consumir meu tempo integral</span>
+          </span>
+        </li>
+        <li>
+          <span class="icon">💪</span>
+          <span>
+            <span class="label">Saúde em dia</span>
+            <span class="vision-sep">—</span>
+            <span class="desc">tênis, preparo físico, energia para décadas e para os netos</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- VALORES -->
+    <div class="valores-section">
+      <div class="section-title-wrap">
+        <div class="section-title" style="color:#0A1928;opacity:.55;">— Valores</div>
+      </div>
+      <div class="valores-grid">
+
+        <div class="valor-card">
+          <div class="valor-emoji">🔓</div>
+          <div class="valor-accent"></div>
+          <div class="valor-title">Liberdade</div>
+          <div class="valor-desc">
+            O que tudo está a serviço de. Não só financeira —
+            de tempo, de lugar, de escolha.
+          </div>
+        </div>
+
+        <div class="valor-card">
+          <div class="valor-emoji">🏠</div>
+          <div class="valor-accent"></div>
+          <div class="valor-title">Presença</div>
+          <div class="valor-desc">
+            Estar de corpo e alma nos momentos que importam.
+            O maior arrependimento possível é ter construído tudo e perdido o caminho.
+          </div>
+        </div>
+
+        <div class="valor-card">
+          <div class="valor-emoji">❤️</div>
+          <div class="valor-accent"></div>
+          <div class="valor-title">Família como âncora</div>
+          <div class="valor-desc">
+            Fernanda e os filhos não são um item da agenda.
+            São a agenda.
+          </div>
+        </div>
+
+        <div class="valor-card">
+          <div class="valor-emoji">💪</div>
+          <div class="valor-accent"></div>
+          <div class="valor-title">Disciplina</div>
+          <div class="valor-desc">
+            O que você faz hoje é o presente que dá pro Mauricio de 2031.
+            Aportes, saúde, rotina — a consistência de agora compra a liberdade de depois.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PILARES -->
+    <div class="pilares-section">
+      <div class="section-title" style="color:#0A1928;opacity:.55;margin-bottom:14px;">— Pilares</div>
+      <div class="pilares-row">
+        <div class="pilar-badge">
+          <div class="pilar-num">1</div>
+          <div class="pilar-label">Família</div>
+        </div>
+        <div class="pilar-badge">
+          <div class="pilar-num">2</div>
+          <div class="pilar-label">Saúde</div>
+        </div>
+        <div class="pilar-badge">
+          <div class="pilar-num">3</div>
+          <div class="pilar-label">Finanças & Patrimônio</div>
+        </div>
+        <div class="pilar-badge">
+          <div class="pilar-num">4</div>
+          <div class="pilar-label">Negócios próprios</div>
+        </div>
+        <div class="pilar-badge">
+          <div class="pilar-num">5</div>
+          <div class="pilar-label">Carreira (trampolim até 2030)</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <p>Mauricio Suarez · <a href="index.html">← Hub da Família</a> · Março 2026</p>
+  </footer>
+
+</body>
+</html>
