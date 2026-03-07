@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="only light">
+  <meta name="supported-color-schemes" content="light">
+  <title>🔭 Projeção Financeira 2026–2035</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+  <style>
+    :root {
+      color-scheme: only light !important;
+      isolation: isolate;
+      --bg: #f7fafc;
+      --text: #2d3748;
+      --surface: #ffffff;
+      --card-bg: var(--surface);
+      --border: #e2e8f0;
+      --text-muted: #718096;
+      --subtext: var(--text-muted);
+      --primary: #667eea;
+      --accent: var(--primary);
+      --success: #48bb78;
+      --warning: #ed8936;
+      --danger: #f56565;
+      --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+    }
+    body.dark-mode {
+      color-scheme: only dark !important;
+      --bg: #1a202c;
+      --text: #f7fafc;
+      --surface: #2d3748;
+      --card-bg: var(--surface);
+      --border: #4a5568;
+      --text-muted: #cbd5e0;
+      --subtext: var(--text-muted);
+      --primary: #7f9cf5;
+      --accent: var(--primary);
+      background-image: none;
+      background-color: var(--bg);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background-color: var(--bg); min-height: 100vh; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s, color 0.3s;
+      padding: 10px 10px 60px 10px;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    #theme-toggle {
+      position: absolute; top: 12px; right: 12px;
+      background: rgba(0,0,0,0.05); border: none; font-size: 1.2rem; cursor: pointer;
+      padding: 8px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10; transition: background 0.2s;
+    }
+    body.dark-mode #theme-toggle { background: rgba(255,255,255,0.1); }
+    body:not(.dark-mode) #theme-toggle { background: rgba(0,0,0,0.05); }
+    .nav-link {
+      text-decoration: none; color: var(--primary);
+      font-size: 0.9rem; margin: 10px 0 0 4px; display: inline-block;
+    }
+    h1 {
+      text-align: center; font-size: 1.5rem; font-weight: 800;
+      margin: 10px 44px 20px 44px; color: var(--text);
+    }
+    .last-update { text-align: center; font-size: 0.72rem; color: var(--text-muted); margin: -12px 0 18px 0; font-weight: 500; }
+
+    /* KPIs */
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 10px; margin-bottom: 20px;
+    }
+    .kpi-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 12px; padding: 12px 8px; text-align: center;
+      box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 4px;
+    }
+    .kpi-label { font-size: 0.6rem; font-weight: 800; color: var(--subtext); text-transform: uppercase; letter-spacing: 0.05em; }
+    .kpi-value { font-size: 1.05rem; font-weight: 800; color: var(--text); line-height: 1.2; }
+    .kpi-sub { font-size: 0.65rem; color: var(--text-muted); font-weight: 600; }
+
+    /* Progress bar */
+    .progress-wrap { margin-top: 6px; background: var(--border); border-radius: 99px; height: 6px; overflow: hidden; }
+    .progress-bar { height: 100%; border-radius: 99px; transition: width 0.8s ease; }
+
+    /* Cards */
+    .card {
+      background: var(--surface); border-radius: 12px; box-shadow: var(--shadow);
+      padding: 15px; margin-bottom: 20px; border: 1px solid var(--border);
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    .card-header {
+      font-size: 0.95rem; font-weight: 700; color: var(--text);
+      margin-bottom: 14px; display: flex; flex-direction: column;
+      align-items: center; gap: 8px;
+    }
+    .card-title {
+      display: flex; align-items: center; gap: 6px;
+      text-align: center; width: 100%; justify-content: center;
+    }
+
+    /* Charts */
+    .chart-container { position: relative; height: 320px; width: 100%; }
+
+    /* Loading */
+    #loading {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 1000; color: white; font-weight: bold; backdrop-filter: blur(4px);
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      body { padding: 16px 24px 60px 24px; }
+      h1 { font-size: 1.75rem; }
+      .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+      .chart-container { height: 380px; }
+      .card-header { flex-direction: row; justify-content: space-between; }
+      .card-title { justify-content: flex-start; width: auto; }
+    }
+    @media (max-width: 767px) {
+      .kpi-value { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+<div id="loading">🔄 Carregando projeção...</div>
+<button id="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
+<a href="index.html" class="nav-link">← Voltar</a>
+<h1>🔭 Projeção Financeira 2026–2035</h1>
+<p class="last-update" id="lastUpdate">—</p>
+
+<main>
+  <!-- KPIs -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <span class="kpi-label">🎯 Meta USD 1,5M</span>
+      <span class="kpi-value">2031</span>
+      <span class="kpi-sub">US$ 1.56M projetado</span>
+      <div class="progress-wrap"><div class="progress-bar" id="progUSD" style="width:49.3%;background:#667eea;"></div></div>
+      <span class="kpi-sub" style="font-size:0.6rem;color:var(--primary);">49,3% atingido hoje</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">💚 Meta R$30k/mês</span>
+      <span class="kpi-value">2031</span>
+      <span class="kpi-sub">R$32.2k projetado</span>
+      <div class="progress-wrap"><div class="progress-bar" id="progRenda" style="width:37.8%;background:#48bb78;"></div></div>
+      <span class="kpi-sub" style="font-size:0.6rem;color:#48bb78;">37,8% atingido hoje</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">💰 Patrimônio Atual</span>
+      <span class="kpi-value" id="kpiPat">—</span>
+      <span class="kpi-sub" id="kpiPatSub">—</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">📈 Renda Passiva Atual</span>
+      <span class="kpi-value" id="kpiRenda">—</span>
+      <span class="kpi-sub" id="kpiRendaSub">—</span>
+    </div>
+  </div>
+
+  <!-- Gráfico 1: Patrimônio Total -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">🏦 Patrimônio Total Consolidado</div>
+    </div>
+    <div class="chart-container"><canvas id="chartPatrimonio"></canvas></div>
+  </div>
+
+  <!-- Gráfico 2: Renda Passiva Mensal -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">💸 Renda Passiva Mensal</div>
+    </div>
+    <div class="chart-container"><canvas id="chartRenda"></canvas></div>
+  </div>
+
+  <!-- Gráfico 3: Fluxo de Caixa Anual -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">💼 Fluxo de Caixa Anual</div>
+    </div>
+    <div class="chart-container"><canvas id="chartFluxo"></canvas></div>
+  </div>
+
+  <!-- Gráfico 4: Cobertura de Despesas -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">🛡️ % Despesas Cobertas por Renda Passiva</div>
+    </div>
+    <div class="chart-container"><canvas id="chartCobertura"></canvas></div>
+  </div>
+</main>
+
+<script>
+  // Disable datalabels globally by default
+  Chart.defaults.set('plugins.datalabels', { display: false });
+  Chart.defaults.plugins.legend.position = 'bottom';
+  Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+
+  let charts = {};
+
+  function fmtBRL(v) { return 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 0 }); }
+  function fmtM(v)   { return 'R$ ' + (v/1e6).toFixed(2) + 'M'; }
+  function fmtK(v)   { return 'R$ ' + (v/1000).toFixed(0) + 'k'; }
+  function getTC()   { return getComputedStyle(document.body).getPropertyValue('--text').trim() || '#2d3748'; }
+  function getBC()   { return getComputedStyle(document.body).getPropertyValue('--border').trim() || '#e2e8f0'; }
+
+  async function init() {
+    try {
+      const r = await fetch('./data/projecao_financeira.json?v=' + Date.now());
+      const d = await r.json();
+      const anos = d.projecao_anual;
+
+      // Last update
+      document.getElementById('lastUpdate').textContent = 'Gerado em: ' + (d.data_geracao || '—');
+
+      // KPIs dinâmicos (ano 0 = 2026 = atual)
+      const a0 = anos[0];
+      const pat0 = a0.patrimonio_total_consolidado;
+      const inv0 = a0.investimentos;
+      const meta0 = a0.metas;
+
+      document.getElementById('kpiPat').textContent = fmtM(pat0.total);
+      document.getElementById('kpiPatSub').textContent =
+        'US$ ' + (meta0.patrimonio_usd.patrimonio_usd / 1000).toFixed(0) + 'k · ' +
+        new Date().toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' }).replace('.', '');
+
+      document.getElementById('kpiRenda').textContent =
+        'R$ ' + inv0.renda_passiva.mensal.toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 0 }) + '/mês';
+      document.getElementById('kpiRendaSub').textContent =
+        inv0.renda_passiva.pct_meta_30k.toFixed(1) + '% da meta';
+
+      renderPatrimonio(anos);
+      renderRenda(anos);
+      renderFluxo(anos);
+      renderCobertura(anos);
+
+      document.getElementById('loading').style.display = 'none';
+    } catch (e) {
+      console.error(e);
+      document.getElementById('loading').innerHTML = '❌ Erro ao carregar dados.';
+    }
+  }
+
+  // === GRÁFICO 1 — Patrimônio Total (barras empilhadas + linha USD) ===
+  function renderPatrimonio(anos) {
+    const labels = anos.map(a => a.ano);
+    const carteira = anos.map(a => a.patrimonio_total_consolidado.carteira_financeira);
+    const fgts    = anos.map(a => a.patrimonio_total_consolidado.fgts);
+    const trulli  = anos.map(a => a.patrimonio_total_consolidado.imovel_trulli);
+    const argos   = anos.map(a => a.patrimonio_total_consolidado.argos_parte_mauricio);
+    const usd     = anos.map(a => a.metas.patrimonio_usd.patrimonio_usd);
+    const ptax    = anos.map(a => a.metas.patrimonio_usd.ptax_projetado || 5.85);
+    const metaUSD = new Array(anos.length).fill(1500000);
+
+    if (charts.pat) charts.pat.destroy();
+    charts.pat = new Chart(document.getElementById('chartPatrimonio'), {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [
+          { label: 'Carteira Financeira', data: carteira, backgroundColor: '#667eea', borderRadius: 3, stack: 'pat', order: 2 },
+          { label: 'FGTS',               data: fgts,    backgroundColor: '#ed8936', borderRadius: 3, stack: 'pat', order: 2 },
+          { label: 'Trulli',             data: trulli,  backgroundColor: '#48bb78', borderRadius: 3, stack: 'pat', order: 2 },
+          { label: 'Argos',              data: argos,   backgroundColor: '#9f7aea', borderRadius: 3, stack: 'pat', order: 2 },
+          {
+            label: 'Patrimônio USD', type: 'line',
+            data: usd,
+            borderColor: '#e53e3e', backgroundColor: 'transparent',
+            borderWidth: 2.5, borderDash: [6, 3],
+            pointBackgroundColor: '#e53e3e', pointRadius: 4,
+            tension: 0.3, yAxisID: 'y2', order: 1
+          },
+          {
+            label: 'Meta USD 1,5M', type: 'line',
+            data: metaUSD,
+            borderColor: '#a0aec0', backgroundColor: 'transparent',
+            borderWidth: 1.5, borderDash: [4, 4],
+            pointRadius: 0, yAxisID: 'y2', order: 0
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { mode: 'index' },
+        plugins: {
+          legend: { position: 'bottom' },
+          tooltip: {
+            callbacks: {
+              label: ctx => {
+                if (ctx.dataset.yAxisID === 'y2') return ` ${ctx.dataset.label}: US$ ${(ctx.raw/1000).toFixed(0)}k`;
+                return ` ${ctx.dataset.label}: ${fmtK(ctx.raw)}`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: { stacked: true, ticks: { color: getTC() }, grid: { color: getBC() } },
+          y: {
+            stacked: true, position: 'left',
+            ticks: { color: getTC(), callback: v => fmtM(v) },
+            grid: { color: getBC() },
+            title: { display: true, text: 'R$', color: getTC(), font: { size: 11 } }
+          },
+          y2: {
+            position: 'right', grid: { display: false },
+            ticks: { color: '#e53e3e', callback: v => 'US$ ' + (v/1000).toFixed(0) + 'k' },
+            title: { display: true, text: 'USD', color: '#e53e3e', font: { size: 11 } }
+          }
+        }
+      }
+    });
+  }
+
+  // === GRÁFICO 2 — Renda Passiva Mensal (barras empilhadas + linha meta) ===
+  function renderRenda(anos) {
+    const labels = anos.map(a => a.ano);
+    const divMes  = anos.map(a => +(a.investimentos.patrimonio_financeiro_inicio * 0.030 / 12).toFixed(0));
+    const opcMes  = anos.map(a => +(a.investimentos.patrimonio_financeiro_inicio * 0.029 / 12).toFixed(0));
+    const totalMes = divMes.map((d, i) => d + opcMes[i]);
+    const metaLinha = new Array(anos.length).fill(30000);
+
+    if (charts.renda) charts.renda.destroy();
+    charts.renda = new Chart(document.getElementById('chartRenda'), {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [
+          { label: 'Dividendos (3,0%/a)', data: divMes, backgroundColor: '#667eea', borderRadius: 3, stack: 'renda', order: 2 },
+          { label: 'Opções/Prêmios (2,9%/a)', data: opcMes, backgroundColor: '#ed8936', borderRadius: 3, stack: 'renda', order: 2 },
+          {
+            label: 'Meta R$30k/mês', type: 'line',
+            data: metaLinha,
+            borderColor: '#e53e3e', backgroundColor: 'transparent',
+            borderWidth: 2, borderDash: [6, 3],
+            pointRadius: 0, order: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { mode: 'index' },
+        plugins: {
+          legend: { position: 'bottom' },
+          tooltip: {
+            callbacks: {
+              label: ctx => {
+                if (ctx.dataset.type === 'line') return ` ${ctx.dataset.label}: ${fmtBRL(ctx.raw)}/mês`;
+                return ` ${ctx.dataset.label}: ${fmtBRL(ctx.raw)}/mês`;
+              },
+              afterBody: items => {
+                const idx = items[0].dataIndex;
+                const total = divMes[idx] + opcMes[idx];
+                const anual = total * 12;
+                return [`Total: ${fmtBRL(total)}/mês`, `Anual: ${fmtK(anual)}`];
+              }
+            }
+          },
+          annotation: {
+            annotations: {
+              meta2031: {
+                type: 'line', xMin: 5, xMax: 5,
+                borderColor: 'rgba(229,62,62,0.3)', borderWidth: 1, borderDash: [4, 4]
+              }
+            }
+          }
+        },
+        scales: {
+          x: { stacked: true, ticks: { color: getTC() }, grid: { color: getBC() } },
+          y: {
+            stacked: true, position: 'left',
+            ticks: { color: getTC(), callback: v => fmtBRL(v) + '/mês' },
+            grid: { color: getBC() },
+            title: { display: true, text: 'R$/mês', color: getTC(), font: { size: 11 } }
+          },
+          y2: {
+            position: 'right', grid: { display: false },
+            ticks: { color: getTC(), callback: v => fmtK(v * 12) + '/ano' },
+            title: { display: true, text: 'R$/ano', color: getTC(), font: { size: 11 } }
+          }
+        }
+      }
+    });
+  }
+
+  // === GRÁFICO 3 — Fluxo de Caixa Anual ===
+  function renderFluxo(anos) {
+    const labels   = anos.map(a => a.ano);
+    const salario  = anos.map(a => a.salario.anual.total_liquido);
+    const trulli   = anos.map(a => a.imovel_trulli.aluguel_anual);
+    const prev     = anos.map(a => a.previdencia_privada.contribuicao_empresa.anual);
+    const rPassiva = anos.map(a => a.investimentos.renda_passiva.anual);
+    const despesas = anos.map(a => a.despesas.anual_projetado);
+
+    if (charts.fluxo) charts.fluxo.destroy();
+    charts.fluxo = new Chart(document.getElementById('chartFluxo'), {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [
+          { label: 'Salário Líquido',       data: salario,  backgroundColor: '#667eea', borderRadius: 3, stack: 'fluxo', order: 2 },
+          { label: 'Aluguel Trulli',         data: trulli,   backgroundColor: '#48bb78', borderRadius: 3, stack: 'fluxo', order: 2 },
+          { label: 'Contrib. Empresa Prev.', data: prev,     backgroundColor: '#9f7aea', borderRadius: 3, stack: 'fluxo', order: 2 },
+          { label: 'Renda Passiva Reinv.',   data: rPassiva, backgroundColor: '#ed8936', borderRadius: 3, stack: 'fluxo', order: 2 },
+          {
+            label: 'Despesas', type: 'line',
+            data: despesas,
+            borderColor: '#e53e3e', backgroundColor: 'transparent',
+            borderWidth: 2.5, borderDash: [6, 3],
+            pointBackgroundColor: '#e53e3e', pointRadius: 4,
+            tension: 0.3, order: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { mode: 'index' },
+        plugins: {
+          legend: { position: 'bottom' },
+          tooltip: {
+            callbacks: {
+              label: ctx => ` ${ctx.dataset.label}: ${fmtK(ctx.raw)}`
+            }
+          }
+        },
+        scales: {
+          x: { stacked: true, ticks: { color: getTC() }, grid: { color: getBC() } },
+          y: {
+            stacked: true,
+            ticks: { color: getTC(), callback: v => fmtK(v) },
+            grid: { color: getBC() },
+            title: { display: true, text: 'R$/ano', color: getTC(), font: { size: 11 } }
+          }
+        }
+      }
+    });
+  }
+
+  // === GRÁFICO 4 — % Despesas Cobertas por Renda Passiva ===
+  function renderCobertura(anos) {
+    const labels = anos.map(a => a.ano);
+    const pcts   = anos.map(a => +((a.investimentos.renda_passiva.anual / a.despesas.anual_projetado) * 100).toFixed(1));
+    const colors = pcts.map(p => p < 50 ? '#fc8181' : p < 80 ? '#f6ad55' : p < 100 ? '#68d391' : '#48bb78');
+    const metaLinha = new Array(anos.length).fill(100);
+
+    if (charts.cob) charts.cob.destroy();
+    charts.cob = new Chart(document.getElementById('chartCobertura'), {
+      type: 'bar',
+      plugins: [ChartDataLabels],
+      data: {
+        labels,
+        datasets: [
+          { label: '% Cobertura', data: pcts, backgroundColor: colors, borderRadius: 4, order: 2 },
+          {
+            label: 'Cobertura Total (100%)', type: 'line',
+            data: metaLinha,
+            borderColor: '#e53e3e', backgroundColor: 'transparent',
+            borderWidth: 2, borderDash: [6, 3],
+            pointRadius: 0, order: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { mode: 'index' },
+        plugins: {
+          legend: { position: 'bottom' },
+          datalabels: {
+            display: ctx => ctx.datasetIndex === 0,
+            anchor: 'end', align: 'end',
+            color: getTC(),
+            font: { weight: '700', size: 11 },
+            formatter: v => v.toFixed(0) + '%',
+            padding: { bottom: 2 }
+          },
+          tooltip: {
+            callbacks: {
+              label: ctx => ctx.datasetIndex === 0
+                ? ` Cobertura: ${ctx.raw.toFixed(1)}%`
+                : ` Meta: 100%`
+            }
+          }
+        },
+        scales: {
+          x: { ticks: { color: getTC() }, grid: { color: getBC() } },
+          y: {
+            min: 0, max: Math.max(...pcts) > 100 ? Math.ceil(Math.max(...pcts) / 10) * 10 + 10 : 120,
+            ticks: { color: getTC(), callback: v => v + '%' },
+            grid: { color: getBC() }
+          }
+        }
+      }
+    });
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    document.getElementById('theme-toggle').textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    setTimeout(() => { Object.values(charts).forEach(c => c && c.update()); }, 100);
+  }
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    document.getElementById('theme-toggle').textContent = '☀️';
+  }
+
+  init();
+</script>
+</body>
+</html>
