@@ -149,13 +149,24 @@
     <div class="chart-container"><canvas id="chartFluxo"></canvas></div>
   </div>
 
-  <!-- 3. Renda Passiva Mensal -->
+  <!-- 3. % Outras Fontes vs. Salário Base (NOVO) -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">📊 % das Outras Fontes vs. Salário Base</div>
+    </div>
+    <p style="text-align:center;font-size:0.72rem;color:var(--text-muted);margin:-8px 0 12px;font-weight:500;">
+      Base = Salário líquido + Contrib. Empresa Prev. + Benefícios
+    </p>
+    <div class="chart-container"><canvas id="chartOutrasFontes"></canvas></div>
+  </div>
+
+  <!-- 4. Renda Passiva Mensal -->
   <div class="card">
     <div class="card-header"><div class="card-title">💸 Renda Passiva Mensal</div></div>
     <div class="chart-container"><canvas id="chartRenda"></canvas></div>
   </div>
 
-  <!-- 4. Cobertura de Despesas -->
+  <!-- 5. Cobertura de Despesas -->
   <div class="card">
     <div class="card-header"><div class="card-title">🛡️ Cobertura de Despesas pela Renda Passiva</div></div>
     <div class="chart-container"><canvas id="chartCobertura"></canvas></div>
@@ -214,6 +225,7 @@
 
       renderPatrimonio(anos);
       renderFluxo(anos);
+      renderOutrasFontes(anos);
       renderRenda(anos);
       renderCobertura(anos);
 
@@ -270,11 +282,15 @@
   // === 2. FLUXO DE CAIXA ANUAL ===
   function renderFluxo(anos) {
     const labels   = anos.map(a => a.ano);
-    const salario  = anos.map(a => a.salario.anual.total_liquido);
-    const provent  = anos.map(a => a.investimentos.renda_passiva.anual * (3.0 / 5.9));
-    const opcoes   = anos.map(a => a.investimentos.renda_passiva.anual * (2.9 / 5.9));
-    const aluguel  = anos.map(a => a.imovel_trulli.aluguel_anual);
-    const despesas = anos.map(a => a.despesas.anual_projetado);
+    const fc       = anos.map(a => a.fluxo_caixa);
+    const salario  = fc.map(f => f.salario_liquido);
+    const benef    = fc.map(f => f.beneficios);
+    const provid   = fc.map(f => f.previdencia_empresa_7pct);
+    const divid    = fc.map(f => f.dividendos);
+    const opcoes   = fc.map(f => f.opcoes_premios);
+    const aluguel  = fc.map(f => f.aluguel_imoveis);
+    const argos    = fc.map(f => f.argos_lucro);
+    const despesas = fc.map(f => f.despesas);
 
     if (charts.fluxo) charts.fluxo.destroy();
     charts.fluxo = new Chart(document.getElementById('chartFluxo'), {
@@ -282,27 +298,107 @@
       data: {
         labels,
         datasets: [
-          { label: 'Salário Líquido',       data: salario,  backgroundColor: '#48bb78', borderRadius: 3, stack: 'fluxo', order: 2 },
-          { label: 'Proventos/Dividendos',  data: provent,  backgroundColor: '#f39c12', borderRadius: 3, stack: 'fluxo', order: 2 },
-          { label: 'Opções/Prêmios',        data: opcoes,   backgroundColor: '#e67e22', borderRadius: 3, stack: 'fluxo', order: 2 },
-          { label: 'Aluguéis',             data: aluguel,  backgroundColor: '#1abc9c', borderRadius: 3, stack: 'fluxo', order: 2 },
+          { label: 'Salário Líquido',      data: salario, backgroundColor: '#48bb78', borderRadius: 3, stack: 'fluxo', order: 2 },
+          { label: 'Benefícios',           data: benef,   backgroundColor: '#667eea', borderRadius: 3, stack: 'fluxo', order: 2 },
+          { label: 'Proventos/Dividendos', data: divid,   backgroundColor: '#f39c12', borderRadius: 3, stack: 'fluxo', order: 2 },
+          { label: 'Opções/Prêmios',       data: opcoes,  backgroundColor: '#e67e22', borderRadius: 3, stack: 'fluxo', order: 2 },
+          { label: 'Aluguéis',            data: aluguel, backgroundColor: '#1abc9c', borderRadius: 3, stack: 'fluxo', order: 2 },
+          { label: 'Argos Lucro',          data: argos,   backgroundColor: '#9f7aea', borderRadius: 3, stack: 'fluxo', order: 2 },
+          { label: 'Prev. Empresa 7%',     data: provid,  backgroundColor: '#3498db', borderRadius: 3, stack: 'fluxo', order: 2 },
           {
             label: 'Despesas', type: 'line', data: despesas,
             borderColor: '#e53e3e', backgroundColor: 'transparent',
             borderWidth: 2.5, borderDash: [6, 3],
-            pointBackgroundColor: '#e53e3e', pointRadius: 4,
-            tension: 0.3, order: 1
+            pointBackgroundColor: '#e53e3e', pointRadius: 4, tension: 0.3, order: 1
           }
         ]
       },
       options: {
         responsive: true, maintainAspectRatio: false,
         interaction: { mode: 'index' },
-        plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${fmtK(ctx.raw)}` } } },
+        plugins: {
+          legend: { position: 'bottom' },
+          tooltip: {
+            callbacks: {
+              label: ctx => {
+                const extra = ctx.dataset.label === 'Prev. Empresa 7%'
+                  ? ' ⚠️ renda indireta' : '';
+                return ` ${ctx.dataset.label}: ${fmtK(ctx.raw)}${extra}`;
+              }
+            }
+          }
+        },
         scales: {
           x: { stacked: true, ticks: { color: getTC() }, grid: { color: getBC() } },
           y: { stacked: true, ticks: { color: getTC(), callback: v => fmtK(v) }, grid: { color: getBC() },
                title: { display: true, text: 'R$/ano', color: getTC(), font: { size: 11 } } }
+        }
+      }
+    });
+  }
+
+  // === 3. % OUTRAS FONTES vs. SALÁRIO BASE (NOVO) ===
+  function renderOutrasFontes(anos) {
+    const labels    = anos.map(a => a.ano);
+    const pDiv      = anos.map(a => a.pct_outras_fontes.pct_dividendos);
+    const pOpc      = anos.map(a => a.pct_outras_fontes.pct_opcoes);
+    const pAlug     = anos.map(a => a.pct_outras_fontes.pct_aluguel);
+    const pArgos    = anos.map(a => a.pct_outras_fontes.pct_argos);
+    const pTotal    = anos.map(a => a.pct_outras_fontes.pct_outras_total);
+    const metaLinha = new Array(anos.length).fill(100);
+
+    if (charts.outras) charts.outras.destroy();
+    charts.outras = new Chart(document.getElementById('chartOutrasFontes'), {
+      type: 'bar',
+      plugins: [ChartDataLabels],
+      data: {
+        labels,
+        datasets: [
+          { label: 'Dividendos',  data: pDiv,   backgroundColor: '#f39c12', borderRadius: 3, stack: 's', order: 2 },
+          { label: 'Opções',      data: pOpc,   backgroundColor: '#e67e22', borderRadius: 3, stack: 's', order: 2 },
+          { label: 'Aluguéis',   data: pAlug,  backgroundColor: '#1abc9c', borderRadius: 3, stack: 's', order: 2 },
+          { label: 'Argos Lucro', data: pArgos, backgroundColor: '#9f7aea', borderRadius: 3, stack: 's', order: 2 },
+          {
+            label: 'Equiparado ao salário base (100%)', type: 'line',
+            data: metaLinha,
+            borderColor: '#e53e3e', backgroundColor: 'transparent',
+            borderWidth: 1.5, borderDash: [5, 4], pointRadius: 0, order: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        interaction: { mode: 'index' },
+        plugins: {
+          legend: { position: 'bottom' },
+          datalabels: {
+            display: ctx => ctx.datasetIndex === 3 && pTotal[ctx.dataIndex] > 0,
+            anchor: 'end', align: 'end',
+            color: getTC(), font: { weight: '700', size: 11 },
+            formatter: (_, ctx) => pTotal[ctx.dataIndex].toFixed(1) + '%',
+            padding: { bottom: 2 }
+          },
+          tooltip: {
+            callbacks: {
+              label: ctx => ctx.dataset.type === 'line'
+                ? ` ${ctx.dataset.label}`
+                : ` ${ctx.dataset.label}: ${ctx.raw.toFixed(1)}%`,
+              afterBody: items => {
+                const i = items[0].dataIndex;
+                const base = anos[i].pct_outras_fontes.base_salario_amplo;
+                return [`Total outras fontes: ${pTotal[i].toFixed(1)}%`, `Base: ${fmtK(base)}/ano`];
+              }
+            }
+          }
+        },
+        scales: {
+          x: { stacked: true, ticks: { color: getTC() }, grid: { color: getBC() } },
+          y: {
+            stacked: true,
+            ticks: { color: getTC(), callback: v => v + '%' },
+            grid: { color: getBC() },
+            title: { display: true, text: '% do salário base amplo', color: getTC(), font: { size: 11 } }
+          }
         }
       }
     });

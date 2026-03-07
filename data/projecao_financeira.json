@@ -11,7 +11,10 @@
     "previdencia_privada",
     "investimentos",
     "argos",
-    "patrimonio_total"
+    "patrimonio_total",
+    "argos_lucro",
+    "beneficios",
+    "pct_outras_fontes"
   ],
   "modulos_pendentes": [
     "airbnb",
@@ -99,6 +102,17 @@
       "depreciacao_brl_aa_pct": 3.0,
       "ano_meta_renda_30k": 2031,
       "ano_meta_patrimonio_usd": 2031
+    },
+    "argos_lucro": {
+      "taxa_pct": 10.0,
+      "base_calculo": "valor_argos_inicio_do_ano",
+      "inicio": 2028,
+      "nota": "Distribuição de lucro da Argos — 10% do valuation da parte de Mauricio"
+    },
+    "beneficios": {
+      "base_mensal_2026": 3200.0,
+      "indexador": "IPCA 5% a.a.",
+      "descricao": "Vale refeição, mobilidade, saúde (excl. descontos já no holerite)"
     }
   },
   "projecao_anual": [
@@ -258,14 +272,17 @@
         "nota": "Exclui: imóvel próprio (se houver), bens pessoais"
       },
       "fluxo_caixa": {
-        "receita_salario_liquido": 595293.03,
-        "despesas_total": 372000.0,
-        "disponivel_investimento_salario": 223293.03,
-        "contrib_empresa_prev": 49047.2,
-        "aluguel_trulli": 28529.64,
-        "renda_passiva_reinvestida": 135966.43,
-        "total_investido_ano": 436836.3,
-        "nota": "Renda passiva 100% reinvestida — não entra como receita consumível"
+        "salario_liquido": 595293.03,
+        "beneficios": 38400.0,
+        "previdencia_empresa_7pct": 49047.2,
+        "dividendos": 69135.47,
+        "opcoes_premios": 66830.96,
+        "aluguel_imoveis": 28529.64,
+        "argos_lucro": 0.0,
+        "total_receitas": 847236.3,
+        "despesas": 372000.0,
+        "disponivel_para_aporte": 475236.3,
+        "nota": "Contrib empresa prev entra no denominador do % gráfico mas não é caixa direto do usuário"
       },
       "metas": {
         "patrimonio_usd": {
@@ -283,6 +300,41 @@
           "pct_meta": 37.8,
           "atingida": false
         }
+      },
+      "argos_lucro": {
+        "valor_argos_inicio": 286625.0,
+        "taxa_lucro_pct": 10.0,
+        "anual": 0.0,
+        "mensal": 0.0,
+        "ativo_desde": 2028,
+        "nota": "Não iniciado ainda"
+      },
+      "beneficios": {
+        "descricao": "Vale refeição, mobilidade, saúde — complemento ao salário",
+        "mensal": 3200.0,
+        "anual": 38400.0,
+        "base_2026": 3200.0,
+        "indexador": "IPCA 5% a.a."
+      },
+      "pct_outras_fontes": {
+        "base_salario_amplo": 682740.23,
+        "base_componentes": {
+          "salario_liquido": 595293.03,
+          "contrib_empresa_prev": 49047.2,
+          "beneficios": 38400.0
+        },
+        "outras_receitas": {
+          "dividendos": 69135.47,
+          "opcoes": 66830.96,
+          "aluguel": 28529.64,
+          "argos_lucro": 0.0,
+          "total": 164496.07
+        },
+        "pct_dividendos": 10.1,
+        "pct_opcoes": 9.8,
+        "pct_aluguel": 4.2,
+        "pct_argos": 0.0,
+        "pct_outras_total": 24.1
       }
     },
     {
@@ -441,14 +493,17 @@
         "nota": "Exclui: imóvel próprio (se houver), bens pessoais"
       },
       "fluxo_caixa": {
-        "receita_salario_liquido": 638317.71,
-        "despesas_total": 390600.0,
-        "disponivel_investimento_salario": 247717.71,
-        "contrib_empresa_prev": 52480.5,
-        "aluguel_trulli": 29956.08,
-        "renda_passiva_reinvestida": 171393.39,
-        "total_investido_ano": 501547.68,
-        "nota": "Renda passiva 100% reinvestida — não entra como receita consumível"
+        "salario_liquido": 638317.71,
+        "beneficios": 40320.0,
+        "previdencia_empresa_7pct": 52480.5,
+        "dividendos": 87149.18,
+        "opcoes_premios": 84244.21,
+        "aluguel_imoveis": 29956.08,
+        "argos_lucro": 0.0,
+        "total_receitas": 932467.68,
+        "despesas": 390600.0,
+        "disponivel_para_aporte": 541867.68,
+        "nota": "Contrib empresa prev entra no denominador do % gráfico mas não é caixa direto do usuário"
       },
       "metas": {
         "patrimonio_usd": {
@@ -466,6 +521,41 @@
           "pct_meta": 47.6,
           "atingida": false
         }
+      },
+      "argos_lucro": {
+        "valor_argos_inicio": 372612.5,
+        "taxa_lucro_pct": 10.0,
+        "anual": 0.0,
+        "mensal": 0.0,
+        "ativo_desde": 2028,
+        "nota": "Não iniciado ainda"
+      },
+      "beneficios": {
+        "descricao": "Vale refeição, mobilidade, saúde — complemento ao salário",
+        "mensal": 3360.0,
+        "anual": 40320.0,
+        "base_2026": 3200.0,
+        "indexador": "IPCA 5% a.a."
+      },
+      "pct_outras_fontes": {
+        "base_salario_amplo": 731118.21,
+        "base_componentes": {
+          "salario_liquido": 638317.71,
+          "contrib_empresa_prev": 52480.5,
+          "beneficios": 40320.0
+        },
+        "outras_receitas": {
+          "dividendos": 87149.18,
+          "opcoes": 84244.21,
+          "aluguel": 29956.08,
+          "argos_lucro": 0.0,
+          "total": 201349.47
+        },
+        "pct_dividendos": 11.9,
+        "pct_opcoes": 11.5,
+        "pct_aluguel": 4.1,
+        "pct_argos": 0.0,
+        "pct_outras_total": 27.5
       }
     },
     {
@@ -624,14 +714,17 @@
         "nota": "Exclui: imóvel próprio (se houver), bens pessoais"
       },
       "fluxo_caixa": {
-        "receita_salario_liquido": 684354.13,
-        "despesas_total": 410130.0,
-        "disponivel_investimento_salario": 274224.13,
-        "contrib_empresa_prev": 56154.14,
-        "aluguel_trulli": 31453.92,
-        "renda_passiva_reinvestida": 213153.63,
-        "total_investido_ano": 574985.82,
-        "nota": "Renda passiva 100% reinvestida — não entra como receita consumível"
+        "salario_liquido": 684354.13,
+        "beneficios": 42336.0,
+        "previdencia_empresa_7pct": 56154.14,
+        "dividendos": 108383.2,
+        "opcoes_premios": 104770.43,
+        "aluguel_imoveis": 31453.92,
+        "argos_lucro": 48439.62,
+        "total_receitas": 1075891.44,
+        "despesas": 410130.0,
+        "disponivel_para_aporte": 665761.44,
+        "nota": "Contrib empresa prev entra no denominador do % gráfico mas não é caixa direto do usuário"
       },
       "metas": {
         "patrimonio_usd": {
@@ -649,6 +742,41 @@
           "pct_meta": 59.2,
           "atingida": false
         }
+      },
+      "argos_lucro": {
+        "valor_argos_inicio": 484396.25,
+        "taxa_lucro_pct": 10.0,
+        "anual": 48439.62,
+        "mensal": 4036.64,
+        "ativo_desde": 2028,
+        "nota": "10% do valor Argos no início do ano"
+      },
+      "beneficios": {
+        "descricao": "Vale refeição, mobilidade, saúde — complemento ao salário",
+        "mensal": 3528.0,
+        "anual": 42336.0,
+        "base_2026": 3200.0,
+        "indexador": "IPCA 5% a.a."
+      },
+      "pct_outras_fontes": {
+        "base_salario_amplo": 782844.27,
+        "base_componentes": {
+          "salario_liquido": 684354.13,
+          "contrib_empresa_prev": 56154.14,
+          "beneficios": 42336.0
+        },
+        "outras_receitas": {
+          "dividendos": 108383.2,
+          "opcoes": 104770.43,
+          "aluguel": 31453.92,
+          "argos_lucro": 48439.62,
+          "total": 293047.17
+        },
+        "pct_dividendos": 13.8,
+        "pct_opcoes": 13.4,
+        "pct_aluguel": 4.0,
+        "pct_argos": 6.2,
+        "pct_outras_total": 37.4
       }
     },
     {
@@ -807,14 +935,17 @@
         "nota": "Exclui: imóvel próprio (se houver), bens pessoais"
       },
       "fluxo_caixa": {
-        "receita_salario_liquido": 733613.19,
-        "despesas_total": 430636.56,
-        "disponivel_investimento_salario": 302976.63,
-        "contrib_empresa_prev": 60084.93,
-        "aluguel_trulli": 33026.64,
-        "renda_passiva_reinvestida": 262211.7,
-        "total_investido_ano": 658299.9,
-        "nota": "Renda passiva 100% reinvestida — não entra como receita consumível"
+        "salario_liquido": 733613.19,
+        "beneficios": 44452.8,
+        "previdencia_empresa_7pct": 60084.93,
+        "dividendos": 133327.99,
+        "opcoes_premios": 128883.72,
+        "aluguel_imoveis": 33026.64,
+        "argos_lucro": 62971.51,
+        "total_receitas": 1196360.78,
+        "despesas": 430636.56,
+        "disponivel_para_aporte": 765724.22,
+        "nota": "Contrib empresa prev entra no denominador do % gráfico mas não é caixa direto do usuário"
       },
       "metas": {
         "patrimonio_usd": {
@@ -832,6 +963,41 @@
           "pct_meta": 72.8,
           "atingida": false
         }
+      },
+      "argos_lucro": {
+        "valor_argos_inicio": 629715.12,
+        "taxa_lucro_pct": 10.0,
+        "anual": 62971.51,
+        "mensal": 5247.63,
+        "ativo_desde": 2028,
+        "nota": "10% do valor Argos no início do ano"
+      },
+      "beneficios": {
+        "descricao": "Vale refeição, mobilidade, saúde — complemento ao salário",
+        "mensal": 3704.4,
+        "anual": 44452.8,
+        "base_2026": 3200.0,
+        "indexador": "IPCA 5% a.a."
+      },
+      "pct_outras_fontes": {
+        "base_salario_amplo": 838150.92,
+        "base_componentes": {
+          "salario_liquido": 733613.19,
+          "contrib_empresa_prev": 60084.93,
+          "beneficios": 44452.8
+        },
+        "outras_receitas": {
+          "dividendos": 133327.99,
+          "opcoes": 128883.72,
+          "aluguel": 33026.64,
+          "argos_lucro": 62971.51,
+          "total": 358209.86
+        },
+        "pct_dividendos": 15.9,
+        "pct_opcoes": 15.4,
+        "pct_aluguel": 3.9,
+        "pct_argos": 7.5,
+        "pct_outras_total": 42.7
       }
     },
     {
@@ -990,14 +1156,17 @@
         "nota": "Exclui: imóvel próprio (se houver), bens pessoais"
       },
       "fluxo_caixa": {
-        "receita_salario_liquido": 786320.3,
-        "despesas_total": 452168.28,
-        "disponivel_investimento_salario": 334152.02,
-        "contrib_empresa_prev": 64290.88,
-        "aluguel_trulli": 34677.96,
-        "renda_passiva_reinvestida": 319668.43,
-        "total_investido_ano": 752789.29,
-        "nota": "Renda passiva 100% reinvestida — não entra como receita consumível"
+        "salario_liquido": 786320.3,
+        "beneficios": 46675.44,
+        "previdencia_empresa_7pct": 64290.88,
+        "dividendos": 162543.27,
+        "opcoes_premios": 157125.16,
+        "aluguel_imoveis": 34677.96,
+        "argos_lucro": 75565.81,
+        "total_receitas": 1327198.82,
+        "despesas": 452168.28,
+        "disponivel_para_aporte": 875030.54,
+        "nota": "Contrib empresa prev entra no denominador do % gráfico mas não é caixa direto do usuário"
       },
       "metas": {
         "patrimonio_usd": {
@@ -1015,6 +1184,41 @@
           "pct_meta": 88.8,
           "atingida": false
         }
+      },
+      "argos_lucro": {
+        "valor_argos_inicio": 755658.14,
+        "taxa_lucro_pct": 10.0,
+        "anual": 75565.81,
+        "mensal": 6297.15,
+        "ativo_desde": 2028,
+        "nota": "10% do valor Argos no início do ano"
+      },
+      "beneficios": {
+        "descricao": "Vale refeição, mobilidade, saúde — complemento ao salário",
+        "mensal": 3889.62,
+        "anual": 46675.44,
+        "base_2026": 3200.0,
+        "indexador": "IPCA 5% a.a."
+      },
+      "pct_outras_fontes": {
+        "base_salario_amplo": 897286.62,
+        "base_componentes": {
+          "salario_liquido": 786320.3,
+          "contrib_empresa_prev": 64290.88,
+          "beneficios": 46675.44
+        },
+        "outras_receitas": {
+          "dividendos": 162543.27,
+          "opcoes": 157125.16,
+          "aluguel": 34677.96,
+          "argos_lucro": 75565.81,
+          "total": 429912.2
+        },
+        "pct_dividendos": 18.1,
+        "pct_opcoes": 17.5,
+        "pct_aluguel": 3.9,
+        "pct_argos": 8.4,
+        "pct_outras_total": 47.9
       }
     },
     {
@@ -1173,14 +1377,17 @@
         "nota": "Exclui: imóvel próprio (se houver), bens pessoais"
       },
       "fluxo_caixa": {
-        "receita_salario_liquido": 842716.92,
-        "despesas_total": 474776.76,
-        "disponivel_investimento_salario": 367940.16,
-        "contrib_empresa_prev": 68791.24,
-        "aluguel_trulli": 36411.84,
-        "renda_passiva_reinvestida": 386779.46,
-        "total_investido_ano": 859922.7,
-        "nota": "Renda passiva 100% reinvestida — não entra como receita consumível"
+        "salario_liquido": 842716.92,
+        "beneficios": 49009.2,
+        "previdencia_empresa_7pct": 68791.24,
+        "dividendos": 196667.52,
+        "opcoes_premios": 190111.94,
+        "aluguel_imoveis": 36411.84,
+        "argos_lucro": 90678.98,
+        "total_receitas": 1474387.64,
+        "despesas": 474776.76,
+        "disponivel_para_aporte": 999610.88,
+        "nota": "Contrib empresa prev entra no denominador do % gráfico mas não é caixa direto do usuário"
       },
       "metas": {
         "patrimonio_usd": {
@@ -1198,6 +1405,41 @@
           "pct_meta": 107.4,
           "atingida": true
         }
+      },
+      "argos_lucro": {
+        "valor_argos_inicio": 906789.77,
+        "taxa_lucro_pct": 10.0,
+        "anual": 90678.98,
+        "mensal": 7556.58,
+        "ativo_desde": 2028,
+        "nota": "10% do valor Argos no início do ano"
+      },
+      "beneficios": {
+        "descricao": "Vale refeição, mobilidade, saúde — complemento ao salário",
+        "mensal": 4084.1,
+        "anual": 49009.2,
+        "base_2026": 3200.0,
+        "indexador": "IPCA 5% a.a."
+      },
+      "pct_outras_fontes": {
+        "base_salario_amplo": 960517.36,
+        "base_componentes": {
+          "salario_liquido": 842716.92,
+          "contrib_empresa_prev": 68791.24,
+          "beneficios": 49009.2
+        },
+        "outras_receitas": {
+          "dividendos": 196667.52,
+          "opcoes": 190111.94,
+          "aluguel": 36411.84,
+          "argos_lucro": 90678.98,
+          "total": 513870.28
+        },
+        "pct_dividendos": 20.5,
+        "pct_opcoes": 19.8,
+        "pct_aluguel": 3.8,
+        "pct_argos": 9.4,
+        "pct_outras_total": 53.5
       }
     },
     {
@@ -1356,14 +1598,17 @@
         "nota": "Exclui: imóvel próprio (se houver), bens pessoais"
       },
       "fluxo_caixa": {
-        "receita_salario_liquido": 903061.33,
-        "despesas_total": 498515.52,
-        "disponivel_investimento_salario": 404545.81,
-        "contrib_empresa_prev": 73606.63,
-        "aluguel_trulli": 38232.48,
-        "renda_passiva_reinvestida": 464976.24,
-        "total_investido_ano": 981361.16,
-        "nota": "Renda passiva 100% reinvestida — não entra como receita consumível"
+        "salario_liquido": 903061.33,
+        "beneficios": 51459.72,
+        "previdencia_empresa_7pct": 73606.63,
+        "dividendos": 236428.59,
+        "opcoes_premios": 228547.64,
+        "aluguel_imoveis": 38232.48,
+        "argos_lucro": 99746.88,
+        "total_receitas": 1631083.27,
+        "despesas": 498515.52,
+        "disponivel_para_aporte": 1132567.75,
+        "nota": "Contrib empresa prev entra no denominador do % gráfico mas não é caixa direto do usuário"
       },
       "metas": {
         "patrimonio_usd": {
@@ -1381,6 +1626,41 @@
           "pct_meta": 129.2,
           "atingida": true
         }
+      },
+      "argos_lucro": {
+        "valor_argos_inicio": 997468.75,
+        "taxa_lucro_pct": 10.0,
+        "anual": 99746.88,
+        "mensal": 8312.24,
+        "ativo_desde": 2028,
+        "nota": "10% do valor Argos no início do ano"
+      },
+      "beneficios": {
+        "descricao": "Vale refeição, mobilidade, saúde — complemento ao salário",
+        "mensal": 4288.31,
+        "anual": 51459.72,
+        "base_2026": 3200.0,
+        "indexador": "IPCA 5% a.a."
+      },
+      "pct_outras_fontes": {
+        "base_salario_amplo": 1028127.68,
+        "base_componentes": {
+          "salario_liquido": 903061.33,
+          "contrib_empresa_prev": 73606.63,
+          "beneficios": 51459.72
+        },
+        "outras_receitas": {
+          "dividendos": 236428.59,
+          "opcoes": 228547.64,
+          "aluguel": 38232.48,
+          "argos_lucro": 99746.88,
+          "total": 602955.59
+        },
+        "pct_dividendos": 23.0,
+        "pct_opcoes": 22.2,
+        "pct_aluguel": 3.7,
+        "pct_argos": 9.7,
+        "pct_outras_total": 58.6
       }
     },
     {
@@ -1539,14 +1819,17 @@
         "nota": "Exclui: imóvel próprio (se houver), bens pessoais"
       },
       "fluxo_caixa": {
-        "receita_salario_liquido": 967629.85,
-        "despesas_total": 523441.32,
-        "disponivel_investimento_salario": 444188.53,
-        "contrib_empresa_prev": 78759.09,
-        "aluguel_trulli": 40144.08,
-        "renda_passiva_reinvestida": 555889.86,
-        "total_investido_ano": 1118981.56,
-        "nota": "Renda passiva 100% reinvestida — não entra como receita consumível"
+        "salario_liquido": 967629.85,
+        "beneficios": 54032.64,
+        "previdencia_empresa_7pct": 78759.09,
+        "dividendos": 282655.86,
+        "opcoes_premios": 273234.0,
+        "aluguel_imoveis": 40144.08,
+        "argos_lucro": 109721.56,
+        "total_receitas": 1806177.08,
+        "despesas": 523441.32,
+        "disponivel_para_aporte": 1282735.76,
+        "nota": "Contrib empresa prev entra no denominador do % gráfico mas não é caixa direto do usuário"
       },
       "metas": {
         "patrimonio_usd": {
@@ -1564,6 +1847,41 @@
           "pct_meta": 154.4,
           "atingida": true
         }
+      },
+      "argos_lucro": {
+        "valor_argos_inicio": 1097215.62,
+        "taxa_lucro_pct": 10.0,
+        "anual": 109721.56,
+        "mensal": 9143.46,
+        "ativo_desde": 2028,
+        "nota": "10% do valor Argos no início do ano"
+      },
+      "beneficios": {
+        "descricao": "Vale refeição, mobilidade, saúde — complemento ao salário",
+        "mensal": 4502.72,
+        "anual": 54032.64,
+        "base_2026": 3200.0,
+        "indexador": "IPCA 5% a.a."
+      },
+      "pct_outras_fontes": {
+        "base_salario_amplo": 1100421.58,
+        "base_componentes": {
+          "salario_liquido": 967629.85,
+          "contrib_empresa_prev": 78759.09,
+          "beneficios": 54032.64
+        },
+        "outras_receitas": {
+          "dividendos": 282655.86,
+          "opcoes": 273234.0,
+          "aluguel": 40144.08,
+          "argos_lucro": 109721.56,
+          "total": 705755.5
+        },
+        "pct_dividendos": 25.7,
+        "pct_opcoes": 24.8,
+        "pct_aluguel": 3.6,
+        "pct_argos": 10.0,
+        "pct_outras_total": 64.1
       }
     },
     {
@@ -1722,14 +2040,17 @@
         "nota": "Exclui: imóvel próprio (se houver), bens pessoais"
       },
       "fluxo_caixa": {
-        "receita_salario_liquido": 1036718.12,
-        "despesas_total": 549613.44,
-        "disponivel_investimento_salario": 487104.68,
-        "contrib_empresa_prev": 84272.23,
-        "aluguel_trulli": 42151.32,
-        "renda_passiva_reinvestida": 661377.95,
-        "total_investido_ano": 1274906.18,
-        "nota": "Renda passiva 100% reinvestida — não entra como receita consumível"
+        "salario_liquido": 1036718.12,
+        "beneficios": 56734.32,
+        "previdencia_empresa_7pct": 84272.23,
+        "dividendos": 336293.87,
+        "opcoes_premios": 325084.08,
+        "aluguel_imoveis": 42151.32,
+        "argos_lucro": 120693.72,
+        "total_receitas": 2001947.66,
+        "despesas": 549613.44,
+        "disponivel_para_aporte": 1452334.22,
+        "nota": "Contrib empresa prev entra no denominador do % gráfico mas não é caixa direto do usuário"
       },
       "metas": {
         "patrimonio_usd": {
@@ -1747,6 +2068,41 @@
           "pct_meta": 183.7,
           "atingida": true
         }
+      },
+      "argos_lucro": {
+        "valor_argos_inicio": 1206937.18,
+        "taxa_lucro_pct": 10.0,
+        "anual": 120693.72,
+        "mensal": 10057.81,
+        "ativo_desde": 2028,
+        "nota": "10% do valor Argos no início do ano"
+      },
+      "beneficios": {
+        "descricao": "Vale refeição, mobilidade, saúde — complemento ao salário",
+        "mensal": 4727.86,
+        "anual": 56734.32,
+        "base_2026": 3200.0,
+        "indexador": "IPCA 5% a.a."
+      },
+      "pct_outras_fontes": {
+        "base_salario_amplo": 1177724.67,
+        "base_componentes": {
+          "salario_liquido": 1036718.12,
+          "contrib_empresa_prev": 84272.23,
+          "beneficios": 56734.32
+        },
+        "outras_receitas": {
+          "dividendos": 336293.87,
+          "opcoes": 325084.08,
+          "aluguel": 42151.32,
+          "argos_lucro": 120693.72,
+          "total": 824222.99
+        },
+        "pct_dividendos": 28.6,
+        "pct_opcoes": 27.6,
+        "pct_aluguel": 3.6,
+        "pct_argos": 10.2,
+        "pct_outras_total": 70.0
       }
     },
     {
@@ -1905,14 +2261,17 @@
         "nota": "Exclui: imóvel próprio (se houver), bens pessoais"
       },
       "fluxo_caixa": {
-        "receita_salario_liquido": 1110642.54,
-        "despesas_total": 577094.04,
-        "disponivel_investimento_salario": 533548.5,
-        "contrib_empresa_prev": 90171.28,
-        "aluguel_trulli": 44258.88,
-        "renda_passiva_reinvestida": 783555.25,
-        "total_investido_ano": 1451533.91,
-        "nota": "Renda passiva 100% reinvestida — não entra como receita consumível"
+        "salario_liquido": 1110642.54,
+        "beneficios": 59571.0,
+        "previdencia_empresa_7pct": 90171.28,
+        "dividendos": 398417.92,
+        "opcoes_premios": 385137.33,
+        "aluguel_imoveis": 44258.88,
+        "argos_lucro": 132763.09,
+        "total_receitas": 2220962.04,
+        "despesas": 577094.04,
+        "disponivel_para_aporte": 1643868.0,
+        "nota": "Contrib empresa prev entra no denominador do % gráfico mas não é caixa direto do usuário"
       },
       "metas": {
         "patrimonio_usd": {
@@ -1930,6 +2289,41 @@
           "pct_meta": 217.7,
           "atingida": true
         }
+      },
+      "argos_lucro": {
+        "valor_argos_inicio": 1327630.9,
+        "taxa_lucro_pct": 10.0,
+        "anual": 132763.09,
+        "mensal": 11063.59,
+        "ativo_desde": 2028,
+        "nota": "10% do valor Argos no início do ano"
+      },
+      "beneficios": {
+        "descricao": "Vale refeição, mobilidade, saúde — complemento ao salário",
+        "mensal": 4964.25,
+        "anual": 59571.0,
+        "base_2026": 3200.0,
+        "indexador": "IPCA 5% a.a."
+      },
+      "pct_outras_fontes": {
+        "base_salario_amplo": 1260384.82,
+        "base_componentes": {
+          "salario_liquido": 1110642.54,
+          "contrib_empresa_prev": 90171.28,
+          "beneficios": 59571.0
+        },
+        "outras_receitas": {
+          "dividendos": 398417.92,
+          "opcoes": 385137.33,
+          "aluguel": 44258.88,
+          "argos_lucro": 132763.09,
+          "total": 960577.22
+        },
+        "pct_dividendos": 31.6,
+        "pct_opcoes": 30.6,
+        "pct_aluguel": 3.5,
+        "pct_argos": 10.5,
+        "pct_outras_total": 76.2
       }
     }
   ]
