@@ -467,8 +467,7 @@
   // === 4. COBERTURA DE DESPESAS (eixo Y em R$/mês) ===
   function renderCobertura(anos) {
     const labels    = anos.map(a => a.ano);
-    const rpMes     = anos.map(a =>
-      +(a.investimentos.patrimonio_financeiro_inicio * 0.059 / 12 + a.imovel_trulli.aluguel_mensal).toFixed(0));
+    const rpMes     = anos.map(a => +a.investimentos.renda_passiva.mensal.toFixed(0));
     const despMes   = anos.map(a => +(a.despesas.anual_projetado / 12).toFixed(0));
     const pcts      = rpMes.map((rp, i) => +(rp / despMes[i] * 100).toFixed(1));
     const colors    = pcts.map(p => p < 50 ? '#fc8181' : p < 80 ? '#f6ad55' : p < 100 ? '#68d391' : '#48bb78');
