@@ -120,10 +120,10 @@
     </div>
     <div class="kpi-card">
       <span class="kpi-label">💚 Meta R$30k/mês</span>
-      <span class="kpi-value">2031</span>
-      <span class="kpi-sub">R$35.3k projetado</span>
-      <div class="progress-wrap"><div class="progress-bar" style="width:37.8%;background:#48bb78;"></div></div>
-      <span class="kpi-sub" style="font-size:0.6rem;color:#48bb78;">37,8% atingido hoje</span>
+      <span class="kpi-value">2030</span>
+      <span class="kpi-sub">R$35.826/mês projetado</span>
+      <div class="progress-wrap"><div class="progress-bar" style="width:45.7%;background:#48bb78;"></div></div>
+      <span class="kpi-sub" style="font-size:0.6rem;color:#48bb78;">45,7% atingido hoje</span>
     </div>
     <div class="kpi-card">
       <span class="kpi-label">💰 Patrimônio Atual</span>
@@ -218,10 +218,12 @@
       document.getElementById('kpiPat').textContent    = fmtM(ptc0.total);
       document.getElementById('kpiPatSub').textContent =
         'US$ ' + Math.round(meta0.patrimonio_usd.patrimonio_usd / 1000) + 'k · mar/2026';
+      const pat0 = a0.investimentos.patrimonio_financeiro_inicio;
+      const rpMes0 = pat0 * 0.059 / 12 + a0.imovel_trulli.aluguel_mensal + a0.argos_lucro.mensal;
       document.getElementById('kpiRenda').textContent   =
-        'R$ ' + Math.round(inv0.renda_passiva.mensal).toLocaleString('pt-BR') + '/mês';
+        'R$ ' + Math.round(rpMes0).toLocaleString('pt-BR') + '/mês';
       document.getElementById('kpiRendaSub').textContent =
-        inv0.renda_passiva.pct_meta_30k.toFixed(1) + '% da meta';
+        (rpMes0 / 30000 * 100).toFixed(1) + '% da meta';
 
       renderPatrimonio(anos);
       renderFluxo(anos);
