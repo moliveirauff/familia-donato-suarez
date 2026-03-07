@@ -404,15 +404,16 @@
     });
   }
 
-  // === 3. RENDA PASSIVA MENSAL ===
+  // === 4. RENDA PASSIVA MENSAL ===
   function renderRenda(anos) {
-    const labels  = anos.map(a => a.ano);
-    const divMes  = anos.map(a => +(a.investimentos.patrimonio_financeiro_inicio * 0.030 / 12).toFixed(0));
-    const opcMes  = anos.map(a => +(a.investimentos.patrimonio_financeiro_inicio * 0.029 / 12).toFixed(0));
-    const algMes  = anos.map(a => +a.imovel_trulli.aluguel_mensal.toFixed(0));
-    const metaLin = new Array(anos.length).fill(30000);
-    // índice de 2031 (meta atingida)
-    const idxMeta = anos.findIndex(a => (a.investimentos.patrimonio_financeiro_inicio * 0.059 / 12 + a.imovel_trulli.aluguel_mensal) >= 30000);
+    const labels   = anos.map(a => a.ano);
+    const divMes   = anos.map(a => +(a.investimentos.patrimonio_financeiro_inicio * 0.030 / 12).toFixed(0));
+    const opcMes   = anos.map(a => +(a.investimentos.patrimonio_financeiro_inicio * 0.029 / 12).toFixed(0));
+    const algMes   = anos.map(a => +a.imovel_trulli.aluguel_mensal.toFixed(0));
+    const argosMes = anos.map(a => +a.argos_lucro.mensal.toFixed(0));
+    const metaLin  = new Array(anos.length).fill(30000);
+    const idxMeta  = anos.findIndex(a =>
+      (a.investimentos.patrimonio_financeiro_inicio * 0.059 / 12 + a.imovel_trulli.aluguel_mensal + a.argos_lucro.mensal) >= 30000);
 
     if (charts.renda) charts.renda.destroy();
     charts.renda = new Chart(document.getElementById('chartRenda'), {
@@ -421,9 +422,10 @@
       data: {
         labels,
         datasets: [
-          { label: 'Dividendos (3,0%/a)',    data: divMes, backgroundColor: '#f39c12', borderRadius: 3, stack: 'renda', order: 2 },
-          { label: 'Opções/Prêmios (2,9%/a)',data: opcMes, backgroundColor: '#e67e22', borderRadius: 3, stack: 'renda', order: 2 },
-          { label: 'Aluguel Trulli',          data: algMes, backgroundColor: '#1abc9c', borderRadius: 3, stack: 'renda', order: 2 },
+          { label: 'Dividendos (3,0%/a)',    data: divMes,   backgroundColor: '#f39c12', borderRadius: 3, stack: 'renda', order: 2 },
+          { label: 'Opções/Prêmios (2,9%/a)',data: opcMes,   backgroundColor: '#27ae60', borderRadius: 3, stack: 'renda', order: 2 },
+          { label: 'Aluguel',                data: algMes,   backgroundColor: '#2980b9', borderRadius: 3, stack: 'renda', order: 2 },
+          { label: 'Argos Lucro',            data: argosMes, backgroundColor: '#9b59b6', borderRadius: 3, stack: 'renda', order: 2 },
           {
             label: 'Meta R$30k/mês', type: 'line', data: metaLin,
             borderColor: '#e53e3e', backgroundColor: 'transparent',
@@ -441,8 +443,8 @@
               label: ctx => ` ${ctx.dataset.label}: ${fmtBRL(ctx.raw)}/mês`,
               afterBody: items => {
                 const i = items[0].dataIndex;
-                const total = divMes[i] + opcMes[i] + algMes[i];
-                return [`Total: ${fmtBRL(total)}/mês  |  ${fmtK(total * 12)}/ano`];
+                const total = divMes[i] + opcMes[i] + algMes[i] + argosMes[i];
+                return [`Total: ${fmtBRL(total)}/mês`];
               }
             }
           }
@@ -450,15 +452,10 @@
         scales: {
           x: { stacked: true, ticks: { color: getTC() }, grid: { color: getBC() } },
           y: {
-            stacked: true, position: 'left',
+            stacked: true,
             ticks: { color: getTC(), callback: v => fmtBRL(v) + '/mês' },
             grid: { color: getBC() },
             title: { display: true, text: 'R$/mês', color: getTC(), font: { size: 11 } }
-          },
-          y2: {
-            position: 'right', grid: { display: false },
-            ticks: { color: getTC(), callback: v => fmtK(v * 12) + '/ano' },
-            title: { display: true, text: 'R$/ano', color: getTC(), font: { size: 11 } }
           }
         }
       }
