@@ -4,49 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Carteira de Investimentos - Hub Família</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="hub-design-system.css">
+
   <style>
     /* --- CORE VARIABLES --- */
+    /* ── DS compatibility bridge ── */
     :root {
---bg: #f7fafc;
-      --text: #2d3748;
-      --surface: #ffffff;
-      --card-bg: var(--surface);
-      --border: #e2e8f0;
-      --text-muted: #718096;
+      --bg:      var(--bg-secondary);
+      --surface: var(--bg-card);
+      --card-bg: var(--bg-card);
+      --text:    var(--text-primary);
       --subtext: var(--text-muted);
-      --primary: #667eea;
-      --accent: var(--primary);
-      --success: #48bb78;
-      --warning: #ed8936;
-      --danger: #f56565;
-      --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
+      --primary: var(--cyan-dark);
+      --accent:  var(--cyan-dark);
+      --success: var(--green);
+      --warning: var(--orange);
+      --danger:  var(--red);
+      --shadow:  var(--shadow-md);
+    }
+    body.dark-mode {
+      --primary: var(--cyan);
+      --accent:  var(--cyan);
     }
     
-    /* --- DARK MODE --- */
-    body.dark-mode {
-      color-scheme: only dark !important;
-      --bg: #1a202c;
-      --text: #f7fafc;
-      --surface: #2d3748;
-      --card-bg: var(--surface);
-      --border: #4a5568;
-      --text-muted: #cbd5e0;
-      --subtext: var(--text-muted);
-      --primary: #7f9cf5;
-      --accent: var(--primary);
-      background-image: none;
-      background-color: var(--bg);
-    }
-
-    /* --- BASE RESET --- */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html {
-      background-color: var(--bg);
-      min-height: 100vh;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      /* Anti-Dark Mode Trick for Android */
+/* --- BASE RESET --- */
+body {
+      font-family: var(--font-sans);
       background-color: var(--bg);
       color: var(--text);
       transition: background-color 0.3s, color 0.3s;
@@ -54,26 +37,7 @@
       min-height: 100vh;
     }
 
-    /* --- HEADER --- */
-    #theme-toggle {
-      position: absolute; top: 12px; right: 12px;
-      background: rgba(0,0,0,0.05); border: none; font-size: 1.2rem;
-      cursor: pointer; padding: 8px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      z-index: 10; transition: background 0.2s;
-    }
-    body.dark-mode #theme-toggle { background: rgba(255,255,255,0.1); }
-    body:not(.dark-mode) #theme-toggle { background: rgba(0,0,0,0.05); }
-
-    .nav-link {
-      text-decoration: none;
-      color: var(--primary);
-      font-size: 0.9rem;
-      margin: 10px 0 0 4px;
-      display: inline-block;
-      font-weight: 500;
-    }
-    h1 {
+h1 {
       text-align: center;
       font-size: 1.5rem;
       font-weight: 800;
@@ -456,7 +420,7 @@
   const MESES_MAP   = { jan:0,fev:1,mar:2,abr:3,mai:4,jun:5,jul:6,ago:7,set:8,out:9,nov:10,dez:11 };
 
   Chart.defaults.plugins.legend.position = 'bottom';
-  Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+  Chart.defaults.font.family = ''Inter', 'Segoe UI', system-ui, sans-serif';
 
   // === INIT ===
   async function init() {

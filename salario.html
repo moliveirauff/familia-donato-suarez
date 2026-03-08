@@ -8,69 +8,35 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css">
     <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
+  <link rel="stylesheet" href="hub-design-system.css">
+
     <style>
-        :root {
-            --bg: #f7fafc;
-            --text: #2d3748;
-            --surface: #ffffff;
-            --card-bg: var(--surface);
-            --border: #e2e8f0;
-            --text-muted: #718096;
-            --subtext: var(--text-muted);
-            --primary: #667eea;
-            --primary-dark: #5568d3;
-            --accent: #48bb78;
-            --accent-dark: #38a169;
-            --accent-light: #f0fff4;
-            --success: #48bb78;
-            --warning: #ed8936;
-            --danger: #f56565;
-            --green: #48bb78;
-            --yellow: #ed8936;
-            --red: #f56565;
-            --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.06);
-        }
-        body.dark-mode {
-            --bg: #1a202c;
-            --text: #f7fafc;
-            --surface: #2d3748;
-            --card-bg: var(--surface);
-            --border: #4a5568;
-            --text-muted: #cbd5e0;
-            --subtext: var(--text-muted);
-            --primary: #7f9cf5;
-            --accent: #68d391;
-            --accent-dark: #48bb78;
-            --accent-light: #1c3a2a;
-            --green: #68d391;
-            --yellow: #f6ad55;
-            --red: #fc8181;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { background-color: var(--bg); min-height: 100vh; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* ── DS compatibility bridge ── */
+    :root {
+      --bg:      var(--bg-secondary);
+      --surface: var(--bg-card);
+      --card-bg: var(--bg-card);
+      --text:    var(--text-primary);
+      --subtext: var(--text-muted);
+      --primary: var(--cyan-dark);
+      --accent:  var(--cyan-dark);
+      --success: var(--green);
+      --warning: var(--orange);
+      --danger:  var(--red);
+      --shadow:  var(--shadow-md);
+    }
+    body.dark-mode {
+      --primary: var(--cyan);
+      --accent:  var(--cyan);
+    }
+body {
+            font-family: var(--font-sans);
             background-color: var(--bg);
             color: var(--text);
             transition: background-color 0.3s, color 0.3s;
             padding: 10px 10px 60px 10px;
         }
-        #theme-toggle {
-            position: absolute; top: 12px; right: 12px;
-            background: rgba(0,0,0,0.05); border: none; font-size: 1.2rem; cursor: pointer;
-            padding: 8px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            z-index: 10; transition: background 0.2s;
-        }
-        body.dark-mode #theme-toggle { background: rgba(255,255,255,0.1); }
-        .nav-link {
-            text-decoration: none;
-            color: var(--primary);
-            font-size: 0.9rem;
-            margin: 10px 0 0 4px;
-            display: inline-block;
-        }
-        h1 {
+h1 {
             text-align: center;
             font-size: 1.5rem;
             font-weight: 800;
