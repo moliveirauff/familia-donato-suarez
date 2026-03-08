@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Metas 2026 — Hub Família</title>
+  <style>
+    :root {
+}
+    html {
+background-color: #f0f4f8;
+      min-height: 100vh;
+    }
+
+    /* ── VARIABLES ── */
+    :root {
+      --navy:       #0A1928;
+      --navy2:      #0d2137;
+      --cyan:       #00B0FF;
+      --cyan-light: #e0f4ff;
+      --bg:         #f0f4f8;
+      --surface:    #ffffff;
+      --border:     #dde3ea;
+      --text:       #1a2533;
+      --muted:      #5a6a7a;
+      --success:    #22c55e;
+      --shadow:     0 2px 8px rgba(10,25,40,.08), 0 1px 3px rgba(10,25,40,.05);
+      --shadow-md:  0 4px 20px rgba(10,25,40,.12), 0 2px 6px rgba(10,25,40,.07);
+      --radius:     12px;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── BASE ── */
+    body {
+      font-family: "Inter", "Calibri", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0 0 60px;
+    }
+
+    /* ── HEADER ── */
+    .page-header {
+      background-color: var(--navy);
+      background-image: linear-gradient(135deg, #0A1928 60%, #0d2d4a 100%);
+      color: #fff;
+      padding: 40px 24px 36px;
+      text-align: center;
+      position: relative;
+    }
+    .page-header .eyebrow {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 8px;
+    }
+    .page-header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.15;
+    }
+    .page-header .subtitle {
+      margin-top: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+    }
+    .cyan-bar {
+      width: 48px;
+      height: 3px;
+      background-color: var(--cyan);
+      border-radius: 2px;
+      margin: 14px auto 0;
+    }
+    .back-btn {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .back-btn:hover { background: rgba(255,255,255,0.22); }
+
+    /* ── MAIN CONTAINER ── */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 36px 20px 0;
+    }
+
+    /* ── PROGRESSO GERAL ── */
+    .progress-global {
+      background-color: var(--surface);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      margin-bottom: 36px;
+    }
+    .progress-global-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+    }
+    .progress-global-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .progress-global-count {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+    .progress-global-count span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .progress-track {
+      background-color: var(--border);
+      border-radius: 999px;
+      height: 10px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--cyan) 0%, #0080cc 100%);
+      border-radius: 999px;
+      transition: width 0.4s ease;
+    }
+    .progress-pct {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    /* ── GRID PILARES ── */
+    .pilares-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 640px) {
+      .pilares-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── CARD PILAR ── */
+    .pilar-card {
+      background-color: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .pilar-header {
+      background-color: var(--navy);
+      background-image: linear-gradient(135deg, #0A1928 60%, #0d2d4a 100%);
+      padding: 18px 20px 16px;
+    }
+    .pilar-header-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .pilar-emoji { font-size: 1.4rem; line-height: 1; }
+    .pilar-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+    .pilar-subtitle {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      font-style: italic;
+      margin-top: 2px;
+    }
+    /* mini progress bar dentro do header */
+    .pilar-progress-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pilar-track {
+      flex: 1;
+      background: rgba(255,255,255,0.15);
+      border-radius: 999px;
+      height: 6px;
+      overflow: hidden;
+    }
+    .pilar-fill {
+      height: 100%;
+      background: var(--cyan);
+      border-radius: 999px;
+      transition: width 0.4s ease;
+    }
+    .pilar-count {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.75);
+      white-space: nowrap;
+    }
+
+    /* ── LISTA DE METAS ── */
+    .metas-list {
+      list-style: none;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      flex: 1;
+    }
+    .meta-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .meta-item:last-child { border-bottom: none; }
+    .meta-item:hover { opacity: 0.85; }
+
+    /* Checkbox customizado */
+    .meta-checkbox {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--border);
+      border-radius: 5px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+      background-color: var(--bg);
+    }
+    .meta-item.done .meta-checkbox {
+      background-color: var(--success);
+      border-color: var(--success);
+    }
+    .meta-checkbox::after {
+      content: '';
+      display: none;
+      width: 5px;
+      height: 9px;
+      border: 2px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg) translate(-1px, -1px);
+    }
+    .meta-item.done .meta-checkbox::after { display: block; }
+
+    .meta-text {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text);
+      transition: color 0.2s;
+      flex: 1;
+    }
+    .meta-item.done .meta-text {
+      text-decoration: line-through;
+      color: var(--muted);
+      opacity: 0.7;
+    }
+    .badge-indefinido {
+      display: inline-block;
+      background-color: #e9ecef;
+      color: #6c757d;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 6px;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      text-align: center;
+      padding: 40px 20px 0;
+    }
+    .page-footer p {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+    .page-footer a { color: var(--cyan); text-decoration: none; }
+    .btn-reset {
+      margin-top: 14px;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      padding: 6px 18px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-reset:hover { border-color: #f56565; color: #f56565; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <a class="back-btn" href="index.html">← Hub</a>
+    <div class="eyebrow">Life Charter</div>
+    <h1>Metas 2026</h1>
+    <div class="subtitle">Pilares do Ano</div>
+    <div class="cyan-bar"></div>
+  </header>
+
+  <main class="container">
+
+    <!-- PROGRESSO GERAL -->
+    <div class="progress-global">
+      <div class="progress-global-header">
+        <div class="progress-global-label">Progresso Geral</div>
+        <div class="progress-global-count">
+          <span id="totalDone">0</span> <span>/ 19 metas</span>
+        </div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="globalBar" style="width:0%"></div>
+      </div>
+      <div class="progress-pct" id="globalPct">0% concluído</div>
+    </div>
+
+    <!-- GRID DE PILARES -->
+    <div class="pilares-grid">
+
+      <!-- FAMÍLIA -->
+      <div class="pilar-card">
+        <div class="pilar-header">
+          <div class="pilar-header-top">
+            <span class="pilar-emoji">❤️</span>
+            <div>
+              <div class="pilar-title">Família</div>
+            </div>
+          </div>
+          <div class="pilar-progress-wrap">
+            <div class="pilar-track"><div class="pilar-fill" id="fill-familia" style="width:0%"></div></div>
+            <div class="pilar-count" id="count-familia">0/4</div>
+          </div>
+        </div>
+        <ul class="metas-list" id="pilar-familia">
+          <li class="meta-item" data-id="f1" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Concluir a mudança para Teresópolis</div>
+          </li>
+          <li class="meta-item" data-id="f2" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">1 viagem de família (destino livre)</div>
+          </li>
+          <li class="meta-item" data-id="f3" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">1 noite de casal por mês com a Fernanda</div>
+          </li>
+          <li class="meta-item" data-id="f4" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Estar presente nos marcos do Matheus — rotina, consultas, primeiros momentos</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- SAÚDE -->
+      <div class="pilar-card">
+        <div class="pilar-header">
+          <div class="pilar-header-top">
+            <span class="pilar-emoji">💪</span>
+            <div>
+              <div class="pilar-title">Saúde</div>
+            </div>
+          </div>
+          <div class="pilar-progress-wrap">
+            <div class="pilar-track"><div class="pilar-fill" id="fill-saude" style="width:0%"></div></div>
+            <div class="pilar-count" id="count-saude">0/5</div>
+          </div>
+        </div>
+        <ul class="metas-list" id="pilar-saude">
+          <li class="meta-item" data-id="s1" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">60 dias de tênis no ano</div>
+          </li>
+          <li class="meta-item" data-id="s2" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Resolver a ferritina alta</div>
+          </li>
+          <li class="meta-item" data-id="s3" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Reduzir % de gordura corporal para 22%</div>
+          </li>
+          <li class="meta-item" data-id="s4" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Acompanhamento nutricional regular</div>
+          </li>
+          <li class="meta-item" data-id="s5" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Check-up completo anual</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- FINANÇAS & PATRIMÔNIO -->
+      <div class="pilar-card">
+        <div class="pilar-header">
+          <div class="pilar-header-top">
+            <span class="pilar-emoji">💰</span>
+            <div>
+              <div class="pilar-title">Finanças &amp; Patrimônio</div>
+            </div>
+          </div>
+          <div class="pilar-progress-wrap">
+            <div class="pilar-track"><div class="pilar-fill" id="fill-financas" style="width:0%"></div></div>
+            <div class="pilar-count" id="count-financas">0/4</div>
+          </div>
+        </div>
+        <ul class="metas-list" id="pilar-financas">
+          <li class="meta-item" data-id="fin1" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Aportar R$300k ou 40% da receita total anual — o que for maior</div>
+          </li>
+          <li class="meta-item" data-id="fin2" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Patrimônio investido no mercado financeiro: R$2,9M</div>
+          </li>
+          <li class="meta-item" data-id="fin3" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Patrimônio total: R$3,9M</div>
+          </li>
+          <li class="meta-item" data-id="fin4" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Renda passiva mensal: R$16,5k/mês até dez/2026 (+20% sobre atual)</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- NEGÓCIOS PRÓPRIOS -->
+      <div class="pilar-card">
+        <div class="pilar-header">
+          <div class="pilar-header-top">
+            <span class="pilar-emoji">🏢</span>
+            <div>
+              <div class="pilar-title">Negócios Próprios</div>
+            </div>
+          </div>
+          <div class="pilar-progress-wrap">
+            <div class="pilar-track"><div class="pilar-fill" id="fill-negocios" style="width:0%"></div></div>
+            <div class="pilar-count" id="count-negocios">0/4</div>
+          </div>
+        </div>
+        <ul class="metas-list" id="pilar-negocios">
+          <li class="meta-item" data-id="n1" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Argos: R$150k de receita bruta no ano</div>
+          </li>
+          <li class="meta-item" data-id="n2" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Mobilizar 2 apartamentos próprios (além de Safira e Esmeralda)</div>
+          </li>
+          <li class="meta-item" data-id="n3" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Gerar R$15k em nova fonte de renda <span class="badge-indefinido">a definir</span></div>
+          </li>
+          <li class="meta-item" data-id="n4" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">50% das rotinas da Argos automatizadas via app ou IA</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CARREIRA (full width) -->
+      <div class="pilar-card" style="grid-column: 1 / -1;">
+        <div class="pilar-header">
+          <div class="pilar-header-top">
+            <span class="pilar-emoji">🎓</span>
+            <div>
+              <div class="pilar-title">Carreira</div>
+              <div class="pilar-subtitle">trampolim até 2030</div>
+            </div>
+          </div>
+          <div class="pilar-progress-wrap">
+            <div class="pilar-track"><div class="pilar-fill" id="fill-carreira" style="width:0%"></div></div>
+            <div class="pilar-count" id="count-carreira">0/2</div>
+          </div>
+        </div>
+        <ul class="metas-list" id="pilar-carreira">
+          <li class="meta-item" data-id="c1" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Concluir MBA FGV — julho 2026</div>
+          </li>
+          <li class="meta-item" data-id="c2" onclick="toggleMeta(this)">
+            <div class="meta-checkbox"></div>
+            <div class="meta-text">Melhorar balanço vida-trabalho: menos noites e fins de semana de trabalho, mais presença em casa</div>
+          </li>
+        </ul>
+      </div>
+
+    </div><!-- /pilares-grid -->
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <p>Revisado em março 2026 · Vinculado ao <a href="life-charter.html">Life Charter</a> · <a href="index.html">← Hub da Família</a></p>
+    <button class="btn-reset" onclick="resetProgress()">Resetar progresso</button>
+  </footer>
+
+  <script>
+    // === CONFIGURAÇÃO DOS PILARES ===
+    const PILARES = [
+      { id: 'familia',  listId: 'pilar-familia',  total: 4 },
+      { id: 'saude',    listId: 'pilar-saude',    total: 5 },
+      { id: 'financas', listId: 'pilar-financas', total: 4 },
+      { id: 'negocios', listId: 'pilar-negocios', total: 4 },
+      { id: 'carreira', listId: 'pilar-carreira', total: 2 },
+    ];
+    const TOTAL_METAS = 19;
+    const LS_KEY = 'metas2026';
+
+    // === CARREGAR ESTADO ===
+    function loadState() {
+      try {
+        return JSON.parse(localStorage.getItem(LS_KEY) || '{}');
+      } catch(e) { return {}; }
+    }
+
+    function saveState(state) {
+      localStorage.setItem(LS_KEY, JSON.stringify(state));
+    }
+
+    // === TOGGLE ===
+    function toggleMeta(item) {
+      const id = item.dataset.id;
+      const state = loadState();
+      state[id] = !state[id];
+      saveState(state);
+      applyState(state);
+    }
+
+    // === APLICAR ESTADO ===
+    function applyState(state) {
+      let totalDone = 0;
+
+      PILARES.forEach(pilar => {
+        const items = document.querySelectorAll(`#${pilar.listId} .meta-item`);
+        let done = 0;
+        items.forEach(item => {
+          const checked = !!state[item.dataset.id];
+          item.classList.toggle('done', checked);
+          if (checked) done++;
+        });
+        totalDone += done;
+
+        // Mini barra do pilar
+        const pct = pilar.total > 0 ? (done / pilar.total) * 100 : 0;
+        document.getElementById(`fill-${pilar.id}`).style.width = pct + '%';
+        document.getElementById(`count-${pilar.id}`).textContent = `${done}/${pilar.total}`;
+      });
+
+      // Barra global
+      const globalPct = (totalDone / TOTAL_METAS) * 100;
+      document.getElementById('globalBar').style.width = globalPct + '%';
+      document.getElementById('totalDone').textContent = totalDone;
+      document.getElementById('globalPct').textContent = Math.round(globalPct) + '% concluído';
+    }
+
+    // === RESET ===
+    function resetProgress() {
+      if (confirm('Resetar todo o progresso?')) {
+        localStorage.removeItem(LS_KEY);
+        applyState({});
+      }
+    }
+
+    // === INIT ===
+    applyState(loadState());
+  </script>
+
+</body>
+</html>
