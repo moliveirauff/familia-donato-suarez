@@ -167,6 +167,13 @@
   Chart.defaults.set('plugins.datalabels', { display: false });
   Chart.defaults.plugins.legend.position = 'bottom';
   Chart.defaults.font.family = "'Inter', 'Segoe UI', system-ui, sans-serif";
+  // ── Adaptive color defaults ──
+  function updateChartColors() {
+    const dark = document.body.classList.contains('dark-mode');
+    Chart.defaults.color       = dark ? '#e2e8f0' : '#4a5568';
+    Chart.defaults.borderColor = dark ? '#4a5568' : '#dde3ea';
+  }
+  updateChartColors();
 
   let charts = {};
 
@@ -522,7 +529,21 @@
     const isDark = document.body.classList.contains('dark-mode');
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
     document.getElementById('theme-toggle').textContent = isDark ? '☀️' : '🌙';
-    setTimeout(() => { Object.values(charts).forEach(c => c && c.update()); }, 100);
+    setTimeout(() => {
+      updateChartColors();
+      Object.values(charts).forEach(c => {
+        if (!c) return;
+        const _tc = Chart.defaults.color;
+        const _bc = Chart.defaults.borderColor;
+        Object.values(c.options.scales || {}).forEach(s => {
+          if (s.ticks) s.ticks.color = _tc;
+          if (s.grid)  s.grid.color  = _bc;
+          if (s.title) s.title.color = _tc;
+        });
+        if (c.options.plugins?.legend?.labels) c.options.plugins.legend.labels.color = _tc;
+        c.update();
+      });
+    }, 100);
   }
 
   initTheme();

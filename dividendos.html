@@ -120,7 +120,7 @@ h1 {
     /* Chart */
     .chart-container {
       position: relative;
-      height: 300px;
+      height: 320px;
       width: 100%;
     }
     .chart-scroll {
@@ -401,7 +401,17 @@ let ativoSubclassMap = {}; // { ativo: subclasse }
 let dyData = {}; // { ativo: { divs12m, value, dy, class } }
 
 // === INIT ===
-async function init() {
+  Chart.defaults.plugins.legend.position = 'bottom';
+  Chart.defaults.font.family = "'Inter', 'Segoe UI', system-ui, sans-serif";
+  // ── Adaptive color defaults ──
+  function updateChartColors() {
+    const dark = document.body.classList.contains('dark-mode');
+    Chart.defaults.color       = dark ? '#e2e8f0' : '#4a5568';
+    Chart.defaults.borderColor = dark ? '#4a5568' : '#dde3ea';
+  }
+  updateChartColors();
+
+  async function init() {
   try {
     const [divReq, ativosReq, movReq, cotReq] = await Promise.all([
       fetch('data/dividendos_historico.json'),
@@ -1131,7 +1141,7 @@ function toggleTheme() {
   
   // Re-render charts para pegar novas cores CSS
   // Pequeno delay para garantir que o CSS atualizou
-  setTimeout(renderAll, 50);
+  updateChartColors(); setTimeout(renderAll, 50);
 }
 
 // Inicializar tema ANTES de tudo

@@ -77,7 +77,7 @@ h1 {
     .card-header .controls { width: 100%; justify-content: center; }
 
     /* Charts */
-    .chart-container { position: relative; height: 300px; width: 100%; }
+    .chart-container { position: relative; height: 320px; width: 100%; }
 
     /* Controls / filtros */
     .controls { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: center; }
@@ -255,7 +255,17 @@ function baseOpts(extraPlugins = {}) {
 }
 
 // ─── init ────────────────────────────────────────────────────────────────────
-async function init() {
+  Chart.defaults.plugins.legend.position = 'bottom';
+  Chart.defaults.font.family = "'Inter', 'Segoe UI', system-ui, sans-serif";
+  // ── Adaptive color defaults ──
+  function updateChartColors() {
+    const dark = document.body.classList.contains('dark-mode');
+    Chart.defaults.color       = dark ? '#e2e8f0' : '#4a5568';
+    Chart.defaults.borderColor = dark ? '#4a5568' : '#dde3ea';
+  }
+  updateChartColors();
+
+  async function init() {
   try {
     const resp = await fetch('data/fgts_dashboard.json?v=' + Date.now());
     data = await resp.json();

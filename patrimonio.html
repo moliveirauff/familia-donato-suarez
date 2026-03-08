@@ -142,7 +142,7 @@ h1 {
     /* Chart container */
     .chart-container {
       position: relative;
-      height: 300px;
+      height: 320px;
       width: 100%;
     }
 
@@ -586,7 +586,17 @@ function filterMensal(months) {
 }
 
 // === INIT ===
-async function init() {
+  Chart.defaults.plugins.legend.position = 'bottom';
+  Chart.defaults.font.family = "'Inter', 'Segoe UI', system-ui, sans-serif";
+  // ── Adaptive color defaults ──
+  function updateChartColors() {
+    const dark = document.body.classList.contains('dark-mode');
+    Chart.defaults.color       = dark ? '#e2e8f0' : '#4a5568';
+    Chart.defaults.borderColor = dark ? '#4a5568' : '#dde3ea';
+  }
+  updateChartColors();
+
+  async function init() {
   try {
     const v = Date.now();
     let ptax;
@@ -698,7 +708,7 @@ function toggleTheme() {
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
   document.getElementById('theme-toggle').textContent = isDark ? '☀️' : '🌙';
   updateMetaThemeColor(isDark);
-  setTimeout(renderAll, 50);
+  updateChartColors(); setTimeout(renderAll, 50);
 }
 
 initTheme();

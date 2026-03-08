@@ -59,7 +59,7 @@ h1 { text-align: center; font-size: 1.5rem; font-weight: 800; margin: 10px 44px 
     }
     .card-title { display: flex; align-items: center; gap: 6px; text-align: center; width: 100%; justify-content: center; }
     .card-header .controls { width: 100%; justify-content: center; }
-    .chart-container { position: relative; height: 300px; width: 100%; }
+    .chart-container { position: relative; height: 320px; width: 100%; }
     .controls { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: center; }
     .filter-btn {
       background: var(--border); border: none; padding: 5px 12px;
@@ -211,7 +211,17 @@ function baseOpts(extra = {}) {
   };
 }
 
-async function init() {
+  Chart.defaults.plugins.legend.position = 'bottom';
+  Chart.defaults.font.family = "'Inter', 'Segoe UI', system-ui, sans-serif";
+  // ── Adaptive color defaults ──
+  function updateChartColors() {
+    const dark = document.body.classList.contains('dark-mode');
+    Chart.defaults.color       = dark ? '#e2e8f0' : '#4a5568';
+    Chart.defaults.borderColor = dark ? '#4a5568' : '#dde3ea';
+  }
+  updateChartColors();
+
+  async function init() {
   try {
     const r = await fetch('data/argos_dashboard.json?v=' + Date.now());
     data = await r.json();

@@ -99,7 +99,7 @@ h1 {
     /* --- CHARTS --- */
     .chart-container {
       position: relative;
-      height: 300px;
+      height: 320px;
       width: 100%;
     }
 
@@ -378,7 +378,14 @@ h1 {
   };
 
   Chart.defaults.plugins.legend.position = 'bottom';
-  Chart.defaults.font.family = ''Inter', 'Segoe UI', system-ui, sans-serif';
+  Chart.defaults.font.family = "'Inter', 'Segoe UI', system-ui, sans-serif";
+  // ── Adaptive color defaults ──
+  function updateChartColors() {
+    const dark = document.body.classList.contains('dark-mode');
+    Chart.defaults.color       = dark ? '#e2e8f0' : '#4a5568';
+    Chart.defaults.borderColor = dark ? '#4a5568' : '#dde3ea';
+  }
+  updateChartColors();
 
   async function init() {
     try {
@@ -630,7 +637,7 @@ h1 {
     document.body.classList.toggle('dark-mode');
     localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
     document.getElementById('theme-toggle').textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-    setTimeout(() => Object.values(charts).forEach(c => c && c.update()), 100);
+    setTimeout(() => { updateChartColors(); renderAll(); }, 100);
   }
   if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); document.getElementById('theme-toggle').textContent = '☀️'; }
   init();

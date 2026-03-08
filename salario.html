@@ -58,7 +58,7 @@ h1 {
             border: 1px solid var(--border);
             transition: background-color 0.3s, border-color 0.3s;
         }
-        .chart-container { position: relative; height: 300px; width: 100%; }
+        .chart-container { position: relative; height: 320px; width: 100%; }
         .last-update { text-align: center; font-size: 0.72rem; color: var(--text-muted); margin: -12px 0 18px 0; font-weight: 500; }
         @media (min-width: 768px) {
             body { padding: 16px 24px 60px 24px; }
@@ -494,7 +494,17 @@ h1 {
             });
         }
 
-        async function init() {
+          Chart.defaults.plugins.legend.position = 'bottom';
+  Chart.defaults.font.family = "'Inter', 'Segoe UI', system-ui, sans-serif";
+  // ── Adaptive color defaults ──
+  function updateChartColors() {
+    const dark = document.body.classList.contains('dark-mode');
+    Chart.defaults.color       = dark ? '#e2e8f0' : '#4a5568';
+    Chart.defaults.borderColor = dark ? '#4a5568' : '#dde3ea';
+  }
+  updateChartColors();
+
+  async function init() {
             const saved = localStorage.getItem('theme');
             if (saved === 'dark') {
                 document.body.classList.add('dark-mode');

@@ -88,7 +88,7 @@ h1 {
             gap: 8px;
         }
         .card-controls { display: flex; align-items: center; gap: 8px; }
-        .chart-container { position: relative; height: 300px; width: 100%; }
+        .chart-container { position: relative; height: 320px; width: 100%; }
         select.cat-select {
             background: var(--border);
             border: none;
@@ -433,7 +433,17 @@ h1 {
         }
     }
 
-    async function init() {
+      Chart.defaults.plugins.legend.position = 'bottom';
+  Chart.defaults.font.family = "'Inter', 'Segoe UI', system-ui, sans-serif";
+  // ── Adaptive color defaults ──
+  function updateChartColors() {
+    const dark = document.body.classList.contains('dark-mode');
+    Chart.defaults.color       = dark ? '#e2e8f0' : '#4a5568';
+    Chart.defaults.borderColor = dark ? '#4a5568' : '#dde3ea';
+  }
+  updateChartColors();
+
+  async function init() {
         const saved = localStorage.getItem('theme'); if (saved === 'dark') document.body.classList.add('dark-mode');
         try {
             const [lancD, catD, origD, orcD] = await Promise.all([
