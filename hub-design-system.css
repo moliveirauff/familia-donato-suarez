@@ -227,7 +227,7 @@ body.dark-mode .value-lg {
   background-color: var(--navy);
   background-image: linear-gradient(135deg, #0A1928 60%, #0d2d4a 100%);
   color: #ffffff;
-  padding: 64px var(--space-lg) 36px;
+  padding: 40px var(--space-lg) 36px;
   text-align: center;
   position: relative;
 }

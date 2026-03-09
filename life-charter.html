@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="hub-design-system.css">
   <style>
     /* ── Page-specific overrides para life-charter ── */
-    body { padding: 0 0 60px; }
+    body { padding: 10px 10px 60px 10px; }
 
     /* ── Muted text — usa --text-muted do DS ── */
     .muted { color: var(--text-muted); }
@@ -177,28 +177,15 @@
     }
     .pilar-accent { width: 20px; height: 2px; background-color: var(--cyan); border-radius: 2px; }
 
-    /* ── PAGE HEADER — revised tag ── */
-    .page-header .revised {
-      display: inline-block;
-      margin-top: 14px;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.45);
-      letter-spacing: 0.04em;
-    }
+
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="page-header">
-    <a class="back-btn" href="index.html">← Hub</a>
-    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn" aria-label="Alternar tema">🌙</button>
-    <div class="eyebrow">Mauricio Suarez</div>
-    <h1>Life Charter</h1>
-    <div class="subtitle">Quem sou, para onde vou, pelo que luto</div>
-    <div class="cyan-bar"></div>
-    <span class="revised">Revisado em março 2026</span>
-  </header>
+  <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+  <a href="index.html" class="nav-link">← Voltar</a>
+  <h1>📋 Life Charter</h1>
+  <p class="last-update">Mauricio Suarez · Quem sou, para onde vou, pelo que luto · Revisado em março 2026</p>
 
   <main class="container">
 
@@ -407,7 +394,7 @@
       const isDark = saved === 'dark' || (!saved && prefersDark);
       if (isDark) {
         document.body.classList.add('dark-mode');
-        document.getElementById('themeBtn').textContent = '☀️';
+        document.getElementById('theme-toggle').textContent = '☀️';
       }
     })();
 
@@ -415,7 +402,7 @@
       document.body.classList.toggle('dark-mode');
       const isDark = document.body.classList.contains('dark-mode');
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      document.getElementById('themeBtn').textContent = isDark ? '☀️' : '🌙';
+      document.getElementById('theme-toggle').textContent = isDark ? '☀️' : '🌙';
     }
   </script>
 

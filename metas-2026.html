@@ -236,14 +236,10 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="page-header">
-    <a class="back-btn" href="index.html">← Hub</a>
-    <div class="eyebrow">Life Charter</div>
-    <h1>Metas 2026</h1>
-    <div class="subtitle">Pilares do Ano</div>
-    <div class="cyan-bar"></div>
-  </header>
+  <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+  <a href="index.html" class="nav-link">← Voltar</a>
+  <h1>🎯 Desafios 2026</h1>
+  <p class="last-update">Pilares do Ano · Life Charter</p>
 
   <main class="container">
 
@@ -487,6 +483,22 @@
     }
 
     applyState(loadState());
+
+    // === DARK MODE ===
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('theme-toggle').textContent = '☀️';
+      }
+    })();
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      document.getElementById('theme-toggle').textContent = isDark ? '☀️' : '🌙';
+    }
   </script>
 
 </body>
