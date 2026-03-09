@@ -227,7 +227,7 @@ body.dark-mode .value-lg {
   background-color: var(--navy);
   background-image: linear-gradient(135deg, #0A1928 60%, #0d2d4a 100%);
   color: #ffffff;
-  padding: 40px var(--space-lg) 36px;
+  padding: 64px var(--space-lg) 36px;
   text-align: center;
   position: relative;
 }
@@ -259,9 +259,8 @@ body.dark-mode .value-lg {
 .page-header .back-btn,
 .hub-back-btn {
   position: absolute;
-  top: 50%;
+  top: var(--space-md);
   left: var(--space-md);
-  transform: translateY(-50%);
   background: rgba(255,255,255,0.12);
   border: 1px solid rgba(255,255,255,0.20);
   border-radius: var(--radius-full);
@@ -322,13 +321,12 @@ body.dark-mode #theme-toggle:hover { background: rgba(255,255,255,0.16); }
 .page-header .theme-toggle,
 .page-header #theme-toggle {
   position: absolute;
-  top: 50%;
+  top: var(--space-md);
   right: var(--space-md);
-  transform: translateY(-50%);
+  transform: none;
   background: rgba(255,255,255,0.12);
   border: 1px solid rgba(255,255,255,0.20);
   color: #ffffff;
-  position: absolute;
 }
 .page-header .theme-toggle:hover,
 .page-header #theme-toggle:hover { background: rgba(255,255,255,0.22); }
