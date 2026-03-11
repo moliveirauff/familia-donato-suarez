@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Alô Bebê - Bebê Conforto",
+    "data": "2026-01-08",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -3885.74,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "Drogaria Jan/26",
     "data": "2026-01-06",
     "categoria": "saude",
