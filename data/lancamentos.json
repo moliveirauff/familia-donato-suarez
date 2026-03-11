@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Seguro Cartão Itaú",
+    "data": "2026-01-05",
+    "categoria": "outros",
+    "subcategoria": "Seguros",
+    "valor": -27.2,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "PAG TIT INT - Aluguel Jan/26",
     "data": "2026-01-05",
     "categoria": "moradia",
