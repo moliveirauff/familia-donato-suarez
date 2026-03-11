@@ -255,17 +255,6 @@ h1 {
             flex-wrap: wrap;
         }
 
-        .btn-shop {
-            background: var(--warning);
-            color: white;
-            flex-grow: 1;
-            padding: 12px;
-            border-radius: 8px;
-            border: none;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
         .btn-edit {
             background: var(--text-muted);
             color: white;
@@ -532,7 +521,6 @@ function showDetails(idx) {
         <h3 style="border-bottom: 2px solid var(--accent); padding-bottom:5px; font-size: 1rem; font-weight: 700; margin: 16px 0 8px 0; color: var(--text)">Modo de Preparo</h3>
         <div class="preparo-text">${r.preparo}</div>
         <div class="recipe-actions">
-            <button class="btn-shop" onclick="sendToShop(${idx})">🛒 Mandar para Compras</button>
             <button class="btn-edit" onclick="openForm(${idx})">✏️ Editar</button>
         </div>
     `;
@@ -616,29 +604,6 @@ function deleteRecipe() {
         recipes.splice(idx, 1);
         renderRecipes();
         closeForm();
-    }
-}
-
-function sendToShop(idx) {
-    const r = recipes[idx];
-    if(confirm(`Adicionar ingredientes de "${r.nome}" à lista de compras?`)) {
-        const message = `BOT_RECEITA_PARA_COMPRAS:${JSON.stringify(r)}`;
-        sendToBot(message);
-        alert("🛒 Pedido enviado ao Bot!");
-    }
-}
-
-async function sendToBot(text) {
-    const botToken = ""; // REMOVED_FOR_SECURITY 
-    const chatId = "8306629331"; 
-    try {
-        await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: chatId, text: text })
-        });
-    } catch (e) {
-        console.error(e);
     }
 }
 
