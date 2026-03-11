@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Juros Limite da Conta Fev/26",
+    "data": "2026-02-05",
+    "categoria": "outros",
+    "subcategoria": "Juros",
+    "valor": -497.74,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "CEG-GAS Fev/26",
     "data": "2026-02-05",
     "categoria": "moradia",
