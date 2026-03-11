@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Taxi - Pagar.me Fev/26",
+    "data": "2026-02-18",
+    "categoria": "transporte",
+    "subcategoria": "Táxi e Uber",
+    "valor": -17.91,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "Taxi - Romuald Fev/26",
     "data": "2026-02-18",
     "categoria": "transporte",
