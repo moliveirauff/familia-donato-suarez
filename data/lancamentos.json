@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Salário Quinzenal Subsea7 Fev/26",
+    "data": "2026-02-12",
+    "categoria": "receitas",
+    "subcategoria": "Salário",
+    "valor": 22566.0,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "Juros Limite da Conta Fev/26",
     "data": "2026-02-05",
     "categoria": "outros",
