@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Seguro Cartão Itaú Fev/26",
+    "data": "2026-02-05",
+    "categoria": "outros",
+    "subcategoria": "Seguros",
+    "valor": -27.2,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "Taxi - Sergio Fev/26",
     "data": "2026-02-05",
     "categoria": "transporte",
