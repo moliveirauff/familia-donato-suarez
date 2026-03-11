@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "CEG-GAS Jan/26",
+    "data": "2026-01-05",
+    "categoria": "moradia",
+    "subcategoria": "Conta de Gás",
+    "valor": -352.08,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "Seguro Cartão Itaú",
     "data": "2026-01-05",
     "categoria": "outros",
