@@ -35374,5 +35374,23 @@
     "subcategoria": "Restaurante",
     "valor": -73.8,
     "origem": "ticket_restaurante"
+  },
+  {
+    "id": "98e5cb3f-613a-46df-9e94-03da64bd01c9",
+    "data": "2026-01-23",
+    "descricao": "Westwing - Reembolso/Devolução",
+    "categoria": "compras",
+    "subcategoria": "Móveis e Utensílios Domésticos",
+    "valor": 1139.8,
+    "origem": "conta_corrente_itau"
+  },
+  {
+    "id": "df9f4130-9564-4516-a4b4-c0987c7c2119",
+    "data": "2026-01-30",
+    "descricao": "Méliuz - Cashback Reembolso",
+    "categoria": "compras",
+    "subcategoria": "Móveis e Utensílios Domésticos",
+    "valor": 1225.88,
+    "origem": "conta_corrente_itau"
   }
 ]
