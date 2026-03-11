@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Light Jan/26",
+    "data": "2026-01-22",
+    "categoria": "moradia",
+    "subcategoria": "Conta de Luz",
+    "valor": -575.81,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "Salário Quinzenal Subsea7 Jan/26",
     "data": "2026-01-14",
     "categoria": "receitas",
