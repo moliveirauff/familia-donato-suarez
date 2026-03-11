@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Salário Final Subsea7 Fev/26",
+    "data": "2026-02-26",
+    "categoria": "receitas",
+    "subcategoria": "Salário",
+    "valor": 14601.14,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "Light Fev/26",
     "data": "2026-02-23",
     "categoria": "moradia",
