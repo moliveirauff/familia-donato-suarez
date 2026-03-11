@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Taxi - Sergio Fev/26",
+    "data": "2026-02-05",
+    "categoria": "transporte",
+    "subcategoria": "Táxi e Uber",
+    "valor": -42.0,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "PAG BOLETO CONFI - Aluguel Fev/26",
     "data": "2026-02-04",
     "categoria": "moradia",
