@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Drogaria Jan/26",
+    "data": "2026-01-06",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -103.72,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "IOF Jan/26",
     "data": "2026-01-05",
     "categoria": "outros",
