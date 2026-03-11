@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Drogaria Jan/26",
+    "data": "2026-01-23",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -91.35,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "Light Jan/26",
     "data": "2026-01-22",
     "categoria": "moradia",
