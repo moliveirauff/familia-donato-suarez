@@ -945,45 +945,7 @@ function showToast(msg, type) {
   console.log(`TOAST [${type}]: ${msg}`);
 }
 
-// ══════════════════════════════════════════
-//  SYNC LAYER (API HUB v2.0)
-// ══════════════════════════════════════════
-const API_CONFIG = {
-  baseUrl: 'https://attempted-uncertainty-currencies-camps.trycloudflare.com',
-  apiKey: 'argos-secret-2026'
-};
 
-async function syncToApi(module, data) {
-  const res = await fetch(`${API_CONFIG.baseUrl}/sync/${module}`, {
-    method: 'POST',
-    headers: { 
-      'Content-Type': 'application/json',
-      'X-API-Key': API_CONFIG.apiKey
-    },
-    body: JSON.stringify(data)
-  });
-  if (!res.ok) throw new Error('Falha na resposta da API: ' + res.status);
-  return res.json();
-}
-
-async function persistAndSync(module, btn) {
-  persist();
-  try {
-    let data;
-    if (module === 'acoes') data = acoes;
-    else if (module === 'acoes_pessoas') data = pessoas;
-    else if (module === 'acoes_imoveis') data = imoveis;
-    
-    await syncToApi(module, data);
-
-    if (btn) flashBtn(btn);
-    showToast('✅ Salvo e sincronizado', 'success');
-  } catch(e) {
-    console.error(e);
-    if (btn) { btn.textContent = '⚠️'; setTimeout(() => { btn.textContent = 'Salvar'; btn.disabled = false; }, 2000); }
-    showToast('⚠️ Salvo localmente, sync falhou: ' + e.message, 'warn');
-  }
-}
 
 
 function nextId(arr){ return arr.length ? Math.max(...arr.map(x=>x.id))+1 : 1; }
@@ -1076,7 +1038,7 @@ async function cycleStatus(e, id){
   if(!a) return;
   a.status = STATUS_CYCLE[a.status]||'Não Iniciado';
   render();
-  await persistAndSync('acoes');
+  persist();
 }
 
 // ══════════════════════════════════════════
@@ -1251,7 +1213,7 @@ async function saveAcao(){
   }
   closeModal('modal-acao');
   render();
-  await persistAndSync('acoes', btn);
+  persist(); if(btn) flashBtn(btn);
 }
 
 async function deleteAcao(){
@@ -1260,7 +1222,7 @@ async function deleteAcao(){
   acoes = acoes.filter(a=>a.id!==id);
   closeModal('modal-acao');
   render();
-  await persistAndSync('acoes');
+  persist();
 }
 
 // ══════════════════════════════════════════
@@ -1351,7 +1313,7 @@ async function savePessoaPanel(){
   closePessoaPanel();
   renderPessoasList();
   render(); // refresh avatars in action rows
-  await persistAndSync('acoes_pessoas');
+  persist();
 }
 
 async function removePessoa(idx){
@@ -1361,7 +1323,7 @@ async function removePessoa(idx){
   pessoas.splice(idx,1);
   renderPessoasList();
   render();
-  await persistAndSync('acoes_pessoas');
+  persist();
 }
 
 // ── Imóveis list ──
@@ -1432,7 +1394,7 @@ async function saveImovelPanel(){
   }
   closeImovelPanel();
   renderImoveisList();
-  await persistAndSync('acoes_imoveis');
+  persist();
 }
 
 async function removeImovel(idx){
@@ -1441,18 +1403,14 @@ async function removeImovel(idx){
   const id = im.id;
   imoveis.splice(idx,1);
   renderImoveisList();
-  await persistAndSync('acoes_imoveis');
+  persist();
 }
 
-async function saveSettings(btn){
-  try {
-    await persistAndSync('acoes_pessoas', btn);
-    await persistAndSync('acoes_imoveis', btn);
-    closeModal('modal-settings');
-    render();
-  } catch(e) {
-    showToast('Erro ao sincronizar configurações: ' + e.message, 'error');
-  }
+function saveSettings(btn){
+  persist();
+  if(btn) flashBtn(btn);
+  closeModal('modal-settings');
+  render();
 }
 
 // ══════════════════════════════════════════

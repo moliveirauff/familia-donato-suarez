@@ -299,7 +299,6 @@ h1 {
         <span>Ocultar riscados</span>
     </label>
     <button class="btn-conclude" onclick="concludeShoppingConfirm()">✅ Concluir</button>
-    <button class="btn-sync" onclick="syncWithBot()" id="syncBtn">☁️ Sincronizar</button>
 </div>
 
 <div id="filters-mestre" class="filters hidden">
@@ -307,7 +306,6 @@ h1 {
         <input type="checkbox" id="hide-in-list" checked onchange="render()">
         <span>Ocultar itens da lista</span>
     </label>
-    <button class="btn-sync" onclick="syncWithBot()" id="syncBtnMestre">☁️ Sincronizar</button>
 </div>
 
 <div id="total-proxima"></div>
@@ -579,44 +577,6 @@ function concludeShoppingConfirm() {
         shoppingList = shoppingList.filter(i => !i.checked);
         saveState(); 
         render();
-    }
-}
-
-const API_CONFIG = {
-    baseUrl: 'https://attempted-uncertainty-currencies-camps.trycloudflare.com',
-    apiKey: 'argos-secret-2026'
-};
-
-async function syncToApi(module, data) {
-    const res = await fetch(`${API_CONFIG.baseUrl}/sync/${module}`, {
-        method: 'POST',
-        headers: { 
-            'Content-Type': 'application/json',
-            'X-API-Key': API_CONFIG.apiKey
-        },
-        body: JSON.stringify(data)
-    });
-    if (!res.ok) throw new Error('Falha na resposta da API');
-    return res.json();
-}
-
-async function syncWithBot() {
-    const btn = document.getElementById('syncBtn') || event.target; 
-    const oldText = btn.innerText;
-    btn.innerText = "⏳..."; 
-    btn.disabled = true;
-    try {
-        await syncToApi('compras', {shoppingList, masterData});
-        btn.innerText = "✅";
-        setTimeout(() => { 
-            btn.innerText = oldText; 
-            btn.disabled = false; 
-        }, 2000);
-    } catch (e) { 
-        console.error(e);
-        alert("Erro na sincronização!"); 
-        btn.innerText = oldText; 
-        btn.disabled = false; 
     }
 }
 

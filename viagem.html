@@ -297,7 +297,7 @@ h1 {
 
 <div class="controls">
     <button class="btn-add" onclick="openModal()">+ Novo Item</button>
-    <button class="btn-sync" onclick="saveData()" id="syncBtn">☁️ Sincronizar</button>
+
     <button class="btn-filter" onclick="toggleFilter()" id="filterBtn">Ocultar Riscados</button>
     <button class="btn-reset" onclick="resetList()">🗑️ Zerar</button>
 </div>
@@ -574,44 +574,6 @@ function deleteItem() {
         saveStateToLocalStorage();
         closeModal();
         renderList();
-    }
-}
-
-const API_CONFIG = {
-    baseUrl: 'https://attempted-uncertainty-currencies-camps.trycloudflare.com',
-    apiKey: 'argos-secret-2026'
-};
-
-async function syncToApi(module, data) {
-    const res = await fetch(`${API_CONFIG.baseUrl}/sync/${module}`, {
-        method: 'POST',
-        headers: { 
-            'Content-Type': 'application/json',
-            'X-API-Key': API_CONFIG.apiKey
-        },
-        body: JSON.stringify(data)
-    });
-    if (!res.ok) throw new Error('Falha na resposta da API');
-    return res.json();
-}
-
-async function saveData() {
-    const syncBtn = document.getElementById('syncBtn');
-    const originalText = syncBtn.innerText;
-    syncBtn.innerText = "⏳...";
-    syncBtn.disabled = true;
-    try {
-        await syncToApi('viagem', listData);
-        syncBtn.innerText = "✅";
-        setTimeout(() => {
-            syncBtn.innerText = originalText;
-            syncBtn.disabled = false;
-        }, 2000);
-    } catch (e) {
-        console.error(e);
-        alert("Erro na sincronização!");
-        syncBtn.innerText = originalText;
-        syncBtn.disabled = false;
     }
 }
 
