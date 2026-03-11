@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "OKX - Débito Viagem Fev/26",
+    "data": "2026-02-13",
+    "categoria": "lazer",
+    "subcategoria": "Viagem",
+    "valor": -500.0,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "Salário Quinzenal Subsea7 Fev/26",
     "data": "2026-02-12",
     "categoria": "receitas",
