@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Taxi - Haman Fev/26",
+    "data": "2026-02-23",
+    "categoria": "transporte",
+    "subcategoria": "Táxi e Uber",
+    "valor": -43.0,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "Taxi - Pagar.me Fev/26",
     "data": "2026-02-18",
     "categoria": "transporte",
