@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "IOF Fev/26",
+    "data": "2026-02-03",
+    "categoria": "outros",
+    "subcategoria": "Juros",
+    "valor": -88.87,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "Drogaria Jan/26",
     "data": "2026-01-23",
     "categoria": "saude",
