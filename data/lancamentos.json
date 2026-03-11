@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Light Fev/26",
+    "data": "2026-02-23",
+    "categoria": "moradia",
+    "subcategoria": "Conta de Luz",
+    "valor": -765.13,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "Taxi - Haman Fev/26",
     "data": "2026-02-23",
     "categoria": "transporte",
