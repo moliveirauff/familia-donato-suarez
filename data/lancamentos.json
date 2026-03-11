@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Amoedo Jan/26",
+    "data": "2026-01-08",
+    "categoria": "compras",
+    "subcategoria": "Móveis e Utensílios Domésticos",
+    "valor": -89.9,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "Alô Bebê - Bebê Conforto",
     "data": "2026-01-08",
     "categoria": "compras",
