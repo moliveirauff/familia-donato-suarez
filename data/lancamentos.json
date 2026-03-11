@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "PAG BOLETO CONFI - Aluguel Fev/26",
+    "data": "2026-02-04",
+    "categoria": "moradia",
+    "subcategoria": "Aluguel",
+    "valor": -11373.6,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "IOF Fev/26",
     "data": "2026-02-03",
     "categoria": "outros",
