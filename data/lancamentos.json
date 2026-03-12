@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "HTM*ASIMOV ACADEMY 03/12 Jan/26",
+    "data": "2026-01-04",
+    "categoria": "educacao",
+    "subcategoria": "Cursos",
+    "valor": -167.01,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "DROGARIAS PACHECO 04/06 Jan/26",
     "data": "2026-01-04",
     "categoria": "saude",
