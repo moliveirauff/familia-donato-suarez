@@ -36402,5 +36402,653 @@
     "subcategoria": "Cursos",
     "valor": -107.84,
     "origem": "cartao_itau"
+  },
+  {
+    "id": "6a14e7bb-5916-4b1d-833f-0486487f1f60",
+    "data": "2026-02-06",
+    "descricao": "Amazon Prime Canais Mar/26",
+    "categoria": "lazer",
+    "subcategoria": "Streaming",
+    "valor": -27.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "ffcc2d5e-dad5-41be-b37c-a54684c41122",
+    "data": "2026-02-06",
+    "descricao": "IFD*GG RS ALIMENTOS LT Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -259.29,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "d86d91c4-b2d5-4252-88e9-fe313499de75",
+    "data": "2026-02-06",
+    "descricao": "IFD*BRAZRIO COMERCIO D Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -155.99,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "ea3fae63-f579-4207-b2d2-9029f2cceb39",
+    "data": "2026-02-06",
+    "descricao": "ANTHROPIC API Mar/26",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -38.57,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "a08d566b-0984-48d9-af77-24ac8c2769aa",
+    "data": "2026-02-07",
+    "descricao": "PURA BRASA Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -157.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "84173ba9-7d03-4a5e-9b46-e43c8024f3c6",
+    "data": "2026-02-07",
+    "descricao": "HAUS COMERCIO DE CHOCO Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Outros Alimentação",
+    "valor": -24.5,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "dc3fabb9-829c-4ec3-bbe1-8104eb88d414",
+    "data": "2026-02-07",
+    "descricao": "DROGARIAS PACHECO SA Mar/26",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -706.98,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "7b2f1194-4f52-4b89-9cec-d423842bbc6a",
+    "data": "2026-02-07",
+    "descricao": "IFD*CHURRASCARIA FOGO Fernanda Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -180.98,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "a68a8ede-f858-4521-9f54-d747ee9e03d7",
+    "data": "2026-02-08",
+    "descricao": "SSP DFA RESTAURANTES B Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Outros Alimentação",
+    "valor": -89.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "97ace859-8809-4f8b-bde2-d4093a561c77",
+    "data": "2026-02-08",
+    "descricao": "MUNDO VERDE Fernanda Mar/26",
+    "categoria": "saude",
+    "subcategoria": "Suplementos",
+    "valor": -110.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "ddc1c8d5-4ca4-465e-8b2e-cff4914416da",
+    "data": "2026-02-08",
+    "descricao": "ANTHROPIC API Mar/26",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -26.47,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "a22d8027-7654-43a1-9c29-d13a31ad3a62",
+    "data": "2026-02-10",
+    "descricao": "FGV MBA 50pct Mar/26",
+    "categoria": "educacao",
+    "subcategoria": "Cursos",
+    "valor": -777.97,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "e212fa07-f9d0-4f31-90b2-9ce0877ad398",
+    "data": "2026-02-11",
+    "descricao": "ESGH E-LENS Mar/26",
+    "categoria": "despesas_pessoais",
+    "subcategoria": "Outros Despesas Pessoais",
+    "valor": -736.32,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "124a8219-827b-43c6-91ce-df6b9d766e2b",
+    "data": "2026-02-11",
+    "descricao": "IFD*CENTRO GASTRONOMIC Fernanda Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -141.11,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "c33bb67a-4a34-4572-8126-a0748f6990c6",
+    "data": "2026-02-14",
+    "descricao": "DROGACENTER Mar/26",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -2.5,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "cb3aabfa-b1f1-423e-b58f-c31c8c3f1453",
+    "data": "2026-02-14",
+    "descricao": "MERCADOLIVRE*MERCADOL Moveis Mar/26",
+    "categoria": "compras",
+    "subcategoria": "Móveis e Utensílios Domésticos",
+    "valor": -663.06,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "a770173d-0928-47bf-a83b-ba3153a0e622",
+    "data": "2026-02-16",
+    "descricao": "TATU FILMES Mar/26",
+    "categoria": "lazer",
+    "subcategoria": "Cinema",
+    "valor": -65.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "70007db8-a810-4e92-87b5-fc045d36a0a8",
+    "data": "2026-02-16",
+    "descricao": "TATU FILMES Mar/26",
+    "categoria": "lazer",
+    "subcategoria": "Cinema",
+    "valor": -29.4,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "4a442f2c-8a1c-4b18-b084-6257c5dfbe9c",
+    "data": "2026-02-16",
+    "descricao": "DM*hostingercomb Mar/26",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -89.99,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "1bb80da7-2f7e-47cc-a268-c6d1cf518683",
+    "data": "2026-02-16",
+    "descricao": "ANTHROPIC API Mar/26",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -85.31,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "ea7c3fed-a6d6-4e18-b9bb-615feea4478c",
+    "data": "2026-02-17",
+    "descricao": "IFD*VENANCIO PRODUTOS Mar/26",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -174.44,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "56fab683-97a3-4f2a-8592-768b2ad74fbc",
+    "data": "2026-02-17",
+    "descricao": "IFD*E VERO GASTRONOMIA Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -176.84,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "f3d29af4-a4aa-4bed-825c-7df1fe289d43",
+    "data": "2026-02-17",
+    "descricao": "AMAZON BR Fernanda Mar/26",
+    "categoria": "compras",
+    "subcategoria": "Móveis e Utensílios Domésticos",
+    "valor": -113.45,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "233edde3-19f4-4627-8183-bb2169b1ebcd",
+    "data": "2026-02-17",
+    "descricao": "AMAZON BR Fernanda Mar/26",
+    "categoria": "compras",
+    "subcategoria": "Móveis e Utensílios Domésticos",
+    "valor": -113.45,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "4f5fff01-4861-404b-9f71-d2f2e5a46970",
+    "data": "2026-02-17",
+    "descricao": "ANTHROPIC API Mar/26",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -51.11,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "3ce34935-e460-4057-8390-f270926b9460",
+    "data": "2026-02-18",
+    "descricao": "RESTAURANTE TEMPERO CO Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -468.35,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "f53bc04a-2cef-47bf-8108-ab717481ad8b",
+    "data": "2026-02-18",
+    "descricao": "Google Claude by Anth Mar/26",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -110.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "9569263e-ab89-4ce5-8e88-ebcf394b192f",
+    "data": "2026-02-19",
+    "descricao": "AdaptaOrg 08/12 Mar/26",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -99.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "cb0df102-351f-4137-9060-6ceb4bb26d74",
+    "data": "2026-02-19",
+    "descricao": "CloSaintPaes Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -26.5,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "d937004d-231b-48b5-9e27-4340911b7f80",
+    "data": "2026-02-19",
+    "descricao": "PREMMIER CAR Fernanda Mar/26",
+    "categoria": "transporte",
+    "subcategoria": "Outros Transporte",
+    "valor": -350.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "5c79a8e9-7282-4002-adac-13dad5ae4bc1",
+    "data": "2026-02-20",
+    "descricao": "PONTO DE BALA Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Outros Alimentação",
+    "valor": -13.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "4a996e54-d21f-4a76-8e17-137d3e7cfb9a",
+    "data": "2026-02-21",
+    "descricao": "RDSAUDE ONLINE Mar/26",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -1861.39,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "b42c327c-98e5-4c5e-97c7-1aa52ce81932",
+    "data": "2026-02-21",
+    "descricao": "IFD*RAIA DROGASIL SA Mar/26",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -307.98,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "c545306c-f798-44e0-9c84-4fd661ab34e4",
+    "data": "2026-02-21",
+    "descricao": "SESC CENTRO Fernanda Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -116.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "45175741-42b0-4db2-b341-56b3468f19fb",
+    "data": "2026-02-21",
+    "descricao": "MERCADOLIVRE*MERCADOL Fernanda Mar/26",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -46.84,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "9a39f206-abb4-4083-bd85-87b34490956b",
+    "data": "2026-02-21",
+    "descricao": "LOVABLE AI Mar/26",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -147.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "e4525576-9a42-48b0-94b7-811809c363bf",
+    "data": "2026-02-22",
+    "descricao": "Tun*Goomer*VivaItalia Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -155.95,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "acdfded8-334e-4099-9949-17b58aac3c53",
+    "data": "2026-02-22",
+    "descricao": "IFD*DROGARIA CIPRIANO Mar/26",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -230.88,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "78e977fd-9a1e-4d53-b487-6ac0a9e67ae4",
+    "data": "2026-02-22",
+    "descricao": "IFD*VENANCIO PRODUTOS Mar/26",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -551.97,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "70f0d87b-e7ee-4469-bb73-d5b9a9c8e321",
+    "data": "2026-02-25",
+    "descricao": "IFD*OAK RIO3 Fernanda Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -50.97,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "945c21c5-115c-4d25-9773-4ff2d6be09d7",
+    "data": "2026-02-26",
+    "descricao": "TRMF CONSULT*SunoM 04/12 Mar/26",
+    "categoria": "educacao",
+    "subcategoria": "Cursos",
+    "valor": -29.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "5c1ead13-7ef1-4133-958d-1bddb204fe93",
+    "data": "2026-02-26",
+    "descricao": "GURUME RIO SUL Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -249.7,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "4f6e9acd-0944-4a79-b7ab-dac18f3b4651",
+    "data": "2026-02-26",
+    "descricao": "Google Claude by Anth Mar/26",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -687.5,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "91994e89-789a-4658-bd49-e78f9f58cabf",
+    "data": "2026-02-26",
+    "descricao": "AmazonPrimeBR Mar/26",
+    "categoria": "lazer",
+    "subcategoria": "Streaming",
+    "valor": -19.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "3236d66d-9830-43be-ad1c-8ed9691ca2eb",
+    "data": "2026-02-26",
+    "descricao": "CONTA VIVO Mar/26",
+    "categoria": "despesas_pessoais",
+    "subcategoria": "Celular",
+    "valor": -522.69,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "ada91146-0c2f-4ca1-af4f-40b612986f17",
+    "data": "2026-02-26",
+    "descricao": "IFD*GG RS ALIMENTOS LT Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -184.39,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "b86d7449-0e8c-4918-aca3-4075cfec287e",
+    "data": "2026-02-27",
+    "descricao": "IRAJA REDUX RIO SUL Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -219.3,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "3e84eeae-a3ad-403d-9077-8ed78374d879",
+    "data": "2026-02-27",
+    "descricao": "CloSaintPaes Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -17.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "a67f8a7b-62cb-4fc1-93d5-8d434b3c76b0",
+    "data": "2026-02-27",
+    "descricao": "Bacio di Latte Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Outros Alimentação",
+    "valor": -47.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "0565f857-444e-45eb-a918-c47ff27e1d75",
+    "data": "2026-02-27",
+    "descricao": "BEEP SAUDE Mar/26",
+    "categoria": "saude",
+    "subcategoria": "Médicos e Terapeutas",
+    "valor": -958.55,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "610644c6-973b-45d5-8fa8-bf3a2eabe3cc",
+    "data": "2026-02-28",
+    "descricao": "RODA CONVENIENCIA Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Mercado",
+    "valor": -11.78,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "b7941cd3-6582-4418-a0b0-6cd2228ae5e0",
+    "data": "2026-02-28",
+    "descricao": "DROGARIAS CRISTAL Mar/26",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -1903.99,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "29b3731f-68c4-4815-9a18-73736f618ec2",
+    "data": "2026-02-28",
+    "descricao": "IFD*IFOOD CLUB Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -12.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "1af784c0-e07d-4afe-b216-794657981333",
+    "data": "2026-02-28",
+    "descricao": "IFD*RMISTICA ALIMENTAC Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -204.69,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "8ca6b2f6-54b2-4154-8c84-bbacd9f5b914",
+    "data": "2026-02-28",
+    "descricao": "PB*TRUESOURCE 02/02 Mar/26",
+    "categoria": "saude",
+    "subcategoria": "Suplementos",
+    "valor": -199.93,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "3d4c8791-454d-4c3b-a588-6816705e97e0",
+    "data": "2026-02-28",
+    "descricao": "ML*MERCA 02/02 Vestuario Mar/26",
+    "categoria": "compras",
+    "subcategoria": "Vestuário",
+    "valor": -433.41,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "09477d2c-42b2-49d4-b5bf-622bf8409d9f",
+    "data": "2026-02-28",
+    "descricao": "ML*MERCA 02/02 Moveis Mar/26",
+    "categoria": "compras",
+    "subcategoria": "Móveis e Utensílios Domésticos",
+    "valor": -684.5,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "20f1d0ef-786b-436b-9802-712030ae5cfd",
+    "data": "2026-02-28",
+    "descricao": "AMAZON BR Fernanda Mar/26",
+    "categoria": "compras",
+    "subcategoria": "Móveis e Utensílios Domésticos",
+    "valor": -129.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "45bb51db-66d1-4409-846e-ac8b20d78916",
+    "data": "2026-02-28",
+    "descricao": "IOF Internacional Anthropic/Lovable Mar/26",
+    "categoria": "outros",
+    "subcategoria": "Outros Outros",
+    "valor": -12.23,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "33628210-fe41-41b4-a7e3-b13edead41fa",
+    "data": "2026-03-01",
+    "descricao": "IFD*VENANCIO PRODUTOS Mar/26",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -274.41,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "9be73d9b-faf6-478a-a1f7-cd8ccfacbb8e",
+    "data": "2026-03-01",
+    "descricao": "MERCADOLIVRE*MERCADOL Moveis Mar/26",
+    "categoria": "compras",
+    "subcategoria": "Móveis e Utensílios Domésticos",
+    "valor": -599.99,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "c2a44de6-1583-4c69-819f-ce520ddb4c0e",
+    "data": "2026-03-03",
+    "descricao": "AMAZONMKTPLC*COMERCIAL Fernanda Mar/26",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -49.89,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "60450233-17e0-4034-bc11-0234d5042ba0",
+    "data": "2026-03-03",
+    "descricao": "AMAZONMKTPLC*MIXCOMERC Fernanda Mar/26",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -65.89,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "d5c36ef6-b7a2-4650-bcec-b611c248f35d",
+    "data": "2026-03-03",
+    "descricao": "AMAZON BR Fernanda Mar/26",
+    "categoria": "compras",
+    "subcategoria": "Móveis e Utensílios Domésticos",
+    "valor": -159.99,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "5d0dd2f4-7365-43d9-b375-8238afa998b4",
+    "data": "2026-03-04",
+    "descricao": "DROGARIAS PACHECO 06/06 Mar/26",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -433.18,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "6de8f8a6-12b0-4dc1-9273-7b2c843aa830",
+    "data": "2026-03-04",
+    "descricao": "IFD*CENCOSUD BRASIL CO Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Mercado",
+    "valor": -65.65,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "9860051b-40c2-419c-be60-a474520f9ec4",
+    "data": "2026-03-04",
+    "descricao": "IFD*PADARIA BTG VOLUNT Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -179.14,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "0e7de2b6-eac0-4b5c-8cff-d82261a67b5b",
+    "data": "2026-03-04",
+    "descricao": "HTM*ASIMOV ACADEMY 05/12 Mar/26",
+    "categoria": "educacao",
+    "subcategoria": "Cursos",
+    "valor": -167.01,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "17b9f2eb-d76e-4fa1-a10c-9bdb21aff1d4",
+    "data": "2026-03-05",
+    "descricao": "FLUKE Mar/26",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -9.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "e25205fe-48b8-497e-b46a-db001852c9b1",
+    "data": "2026-03-05",
+    "descricao": "IFD*GG RS ALIMENTOS LT Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -179.19,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "aae4a17a-54b3-4d17-a111-c13ae3267bd5",
+    "data": "2026-03-05",
+    "descricao": "JIM.COM* CASTELINHO U Mar/26",
+    "categoria": "alimentacao",
+    "subcategoria": "Outros Alimentação",
+    "valor": -5.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "id": "040cbdd2-528b-43c8-9d05-1f7fb1cb95a9",
+    "data": "2026-03-07",
+    "descricao": "HTM*DANILO GATO 05/06 Mar/26",
+    "categoria": "educacao",
+    "subcategoria": "Cursos",
+    "valor": -107.84,
+    "origem": "cartao_itau"
   }
 ]
