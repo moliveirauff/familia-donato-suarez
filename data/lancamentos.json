@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "CloSaintPaes Jan/26",
+    "data": "2026-01-02",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -54.0,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "IFD*DIGITAL RESTAURANT Jan/26",
     "data": "2026-01-01",
     "categoria": "alimentacao",
