@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "IFD*CSB DROGARIAS SA Jan/26",
+    "data": "2026-01-02",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -300.89,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "CloSaintPaes Jan/26",
     "data": "2026-01-02",
     "categoria": "alimentacao",
