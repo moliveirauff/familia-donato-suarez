@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "IFD*GFH BAR E PIZZARIA Jan/26",
+    "data": "2026-01-04",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -63.89,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "DROGARIAS CRISTAL 01/02 Jan/26",
     "data": "2026-01-02",
     "categoria": "saude",
