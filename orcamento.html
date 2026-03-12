@@ -252,6 +252,20 @@ h1 {
     <div class="chart-container"><canvas id="cTaxaAnual"></canvas></div>
   </div>
 
+  <!-- Chart: Taxa de Poupança Mensal -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title"><span>💰</span> Taxa de Poupança por Mês</div>
+      <div class="controls">
+        <button class="btn-period active" onclick="setPeriodTaxaMensal('12m', this)">12M</button>
+        <button class="btn-period" onclick="setPeriodTaxaMensal('24m', this)">24M</button>
+        <button class="btn-period" onclick="setPeriodTaxaMensal('36m', this)">36M</button>
+        <button class="btn-period" onclick="setPeriodTaxaMensal('todos', this)">Todos</button>
+      </div>
+    </div>
+    <div class="chart-container"><canvas id="cTaxaMensal"></canvas></div>
+  </div>
+
   <!-- Chart: Renda Passiva -->
   <div class="card">
     <div class="card-header">
@@ -305,8 +319,10 @@ let allData = {
 };
 let filteredData12M = {};
 let filteredDataMensal = {};
+let filteredDataTaxaMensal = {};
 let filteredDataPassiva = {};
 let currentPeriodMensal = '12m';
+let currentPeriodTaxaMensal = '12m';
 let currentPeriodPassiva = '12m';
 let charts = {};
 
@@ -402,6 +418,15 @@ function setPeriodMensal(period, btn) {
   renderMensal();
 }
 
+function setPeriodTaxaMensal(period, btn) {
+  currentPeriodTaxaMensal = period;
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.btn-period').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilterTaxaMensal();
+  renderTaxaMensal();
+}
+
 function setPeriodPassiva(period, btn) {
   currentPeriodPassiva = period;
   const parent = btn.parentElement;
@@ -485,6 +510,46 @@ function applyFilterMensal() {
   };
 }
 
+function applyFilterTaxaMensal() {
+  const combinedReceitas = [
+    ...allData.salario,
+    ...allData.beneficios,
+    ...allData.outrasReceitas,
+    ...allData.proventos,
+    ...allData.opcoes,
+    ...allData.alugueis,
+    ...allData.receitaIndireta
+  ];
+
+  if (!combinedReceitas.length) {
+    filteredDataTaxaMensal = { salario: [], beneficios: [], outrasReceitas: [], proventos: [], opcoes: [], alugueis: [], receitaIndireta: [], despesas: [] };
+    return;
+  }
+
+  const lastKey = combinedReceitas.reduce((max, r) => r.data > max ? r.data : max, '');
+  const refDate = lastKey ? new Date(lastKey + 'T00:00') : new Date();
+
+  let cutKey = '';
+  if (currentPeriodTaxaMensal === 'todos') {
+    cutKey = '0000-00';
+  } else {
+    const months = parseInt(currentPeriodTaxaMensal);
+    const cutoff = new Date(refDate.getFullYear(), refDate.getMonth() - months + 1, 1);
+    cutKey = `${cutoff.getFullYear()}-${String(cutoff.getMonth() + 1).padStart(2, '0')}`;
+  }
+
+  filteredDataTaxaMensal = {
+    salario: allData.salario.filter(r => r.data.substring(0, 7) >= cutKey),
+    beneficios: allData.beneficios.filter(r => r.data.substring(0, 7) >= cutKey),
+    outrasReceitas: allData.outrasReceitas.filter(r => r.data.substring(0, 7) >= cutKey),
+    proventos: allData.proventos.filter(r => r.data.substring(0, 7) >= cutKey),
+    opcoes: allData.opcoes.filter(r => r.data.substring(0, 7) >= cutKey),
+    alugueis: allData.alugueis.filter(r => r.data.substring(0, 7) >= cutKey),
+    receitaIndireta: allData.receitaIndireta.filter(r => r.data.substring(0, 7) >= cutKey),
+    despesas: allData.despesas.filter(r => r.data.substring(0, 7) >= cutKey)
+  };
+}
+
 function applyFilterPassiva() {
   const combinedPassiva = [...allData.proventos, ...allData.opcoes, ...allData.alugueis];
   
@@ -520,6 +585,7 @@ function renderAll() {
   renderMensal();
   renderDonut();
   renderTaxaAnual();
+  renderTaxaMensal();
   renderPassiva();
 }
 
@@ -867,6 +933,81 @@ function renderTaxaAnual() {
   });
 }
 
+function renderTaxaMensal() {
+  const ctx = document.getElementById('cTaxaMensal').getContext('2d');
+  const textColor = getComputedStyle(document.body).getPropertyValue('--text').trim();
+  const gridColor = getComputedStyle(document.body).getPropertyValue('--border').trim();
+
+  const allMonths = [...new Set([
+    ...filteredDataTaxaMensal.salario.map(r => r.data.substring(0, 7)),
+    ...filteredDataTaxaMensal.beneficios.map(r => r.data.substring(0, 7)),
+    ...filteredDataTaxaMensal.outrasReceitas.map(r => r.data.substring(0, 7)),
+    ...filteredDataTaxaMensal.proventos.map(r => r.data.substring(0, 7)),
+    ...filteredDataTaxaMensal.opcoes.map(r => r.data.substring(0, 7)),
+    ...filteredDataTaxaMensal.alugueis.map(r => r.data.substring(0, 7)),
+    ...filteredDataTaxaMensal.receitaIndireta.map(r => r.data.substring(0, 7))
+  ])].sort();
+
+  const taxas = allMonths.map(m => {
+    const rec = somaValores([
+      ...filteredDataTaxaMensal.salario.filter(r => r.data.substring(0, 7) === m),
+      ...filteredDataTaxaMensal.beneficios.filter(r => r.data.substring(0, 7) === m),
+      ...filteredDataTaxaMensal.outrasReceitas.filter(r => r.data.substring(0, 7) === m),
+      ...filteredDataTaxaMensal.proventos.filter(r => r.data.substring(0, 7) === m),
+      ...filteredDataTaxaMensal.opcoes.filter(r => r.data.substring(0, 7) === m),
+      ...filteredDataTaxaMensal.alugueis.filter(r => r.data.substring(0, 7) === m),
+      ...filteredDataTaxaMensal.receitaIndireta.filter(r => r.data.substring(0, 7) === m)
+    ]);
+    const desp = Math.abs(somaValores(filteredDataTaxaMensal.despesas.filter(r => r.data.substring(0, 7) === m)));
+    return rec > 0 ? ((rec - desp) / rec) * 100 : 0;
+  });
+
+  const labels = allMonths.map(monthLabel);
+
+  if (charts.taxaMensal) charts.taxaMensal.destroy();
+  charts.taxaMensal = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Taxa de Poupança (%)',
+        data: taxas,
+        backgroundColor: taxas.map(v => v >= 0 ? '#48bb78' : '#f56565'),
+        borderRadius: 4,
+        datalabels: {
+          display: true,
+          anchor: 'end',
+          align: v => v.dataset.data[v.dataIndex] >= 0 ? 'top' : 'bottom',
+          offset: 4,
+          formatter: v => v.toFixed(1) + '%',
+          font: { weight: 'bold', size: 9 },
+          color: textColor
+        }
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 25, bottom: 10 } },
+      scales: {
+        y: {
+          ticks: { callback: v => v.toFixed(0) + '%', color: textColor },
+          grid: { color: gridColor }
+        },
+        x: {
+          ticks: { maxRotation: 45, font: { size: 10 }, color: textColor },
+          grid: { display: false }
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => `Taxa: ${ctx.raw.toFixed(1)}%` } }
+      }
+    },
+    plugins: [ChartDataLabels]
+  });
+}
+
 function renderPassiva() {
   const ctx = document.getElementById('cPassiva').getContext('2d');
   const textColor = getComputedStyle(document.body).getPropertyValue('--text').trim();
@@ -1091,6 +1232,7 @@ function renderPassiva() {
     
     applyFilter12M();
     applyFilterMensal();
+    applyFilterTaxaMensal();
     applyFilterPassiva();
     renderAll();
     document.getElementById('loading').classList.add('hidden');
