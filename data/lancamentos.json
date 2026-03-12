@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "MERCADOLIVRE - Moveis Jan/26",
+    "data": "2026-01-05",
+    "categoria": "compras",
+    "subcategoria": "Móveis e Utensílios Domésticos",
+    "valor": -299.35,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "IFD*RAIA DROGASIL SA Jan/26",
     "data": "2026-01-05",
     "categoria": "saude",
