@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "IFD*DIGITAL RESTAURANT Jan/26",
+    "data": "2026-01-01",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -203.69,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Salário Final Subsea7 Fev/26",
     "data": "2026-02-26",
     "categoria": "receitas",
