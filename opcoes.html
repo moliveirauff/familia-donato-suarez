@@ -304,7 +304,7 @@ h1 {
               <th>Vencimento</th>
               <th>Qtd</th>
               <th>Preço</th>
-              <th>Teórico BS</th>
+              <th>Preço Atual</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -813,12 +813,15 @@ h1 {
            (op.tipo_contrato === 'PUT'  && op.spot_atual < op.strike));
         const ativoClass = itm ? ' class="itm-alert"' : '';
 
-        // Teórico Black-Scholes
-        const teorico = op.preco_teorico != null
-          ? (op.moeda === 'BRL' ? 'R$ ' + op.preco_teorico.toFixed(2).replace('.', ',') : '$' + op.preco_teorico.toFixed(2))
+        // Preço Atual: real de mercado (US) ou teórico BS (BR)
+        const precoAtualVal = op.moeda === 'BRL'
+          ? op.preco_teorico
+          : (op.preco_mercado ?? op.preco_teorico);
+        const teorico = precoAtualVal != null
+          ? (op.moeda === 'BRL' ? 'R$ ' + precoAtualVal.toFixed(2).replace('.', ',') : '$' + precoAtualVal.toFixed(2))
           : '--';
-        const teoricoCor = op.preco_teorico != null
-          ? (op.preco_teorico > op.preco_opcao_abertura ? '#d32f2f' : '#388e3c')
+        const teoricoCor = precoAtualVal != null
+          ? (precoAtualVal > op.preco_opcao_abertura ? '#d32f2f' : '#388e3c')
           : '';
 
         tr.innerHTML = `
