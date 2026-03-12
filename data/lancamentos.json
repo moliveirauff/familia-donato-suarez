@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "IFD*VENANCIO PRODUTOS Jan/26",
+    "data": "2026-01-02",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -311.98,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "IFD*CSB DROGARIAS SA Jan/26",
     "data": "2026-01-02",
     "categoria": "saude",
