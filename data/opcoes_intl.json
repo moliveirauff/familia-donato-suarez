@@ -2747,10 +2747,10 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 93.62,
-      "iv_calculada": 0.2635,
-      "preco_teorico": 2.53,
-      "bs_data_calculo": "2026-03-11",
+      "spot_atual": 92.65,
+      "iv_calculada": 0.2511,
+      "preco_teorico": 1.76,
+      "bs_data_calculo": "2026-03-12",
       "preco_mercado": 2.43
     },
     {
@@ -3132,10 +3132,10 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 677.18,
-      "iv_calculada": 0.1322,
-      "preco_teorico": 0.16,
-      "bs_data_calculo": "2026-03-11",
+      "spot_atual": 676.33,
+      "iv_calculada": 0.1271,
+      "preco_teorico": 0.07,
+      "bs_data_calculo": "2026-03-12",
       "preco_mercado": 0.46
     },
     {
@@ -3312,10 +3312,10 @@
       "taxas_total": 1.12,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 39.71,
-      "bs_data_calculo": "2026-03-11",
-      "iv_calculada": 0.7298,
-      "preco_teorico": 0.37,
+      "spot_atual": 40.07,
+      "bs_data_calculo": "2026-03-12",
+      "iv_calculada": null,
+      "preco_teorico": null,
       "preco_mercado": 1.1
     },
     {
@@ -3336,11 +3336,11 @@
       "taxas_total": 7.9,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 39.71,
+      "spot_atual": 40.07,
       "preco_mercado": 0.48,
-      "iv_calculada": 0.705,
-      "bs_data_calculo": "2026-03-11",
-      "preco_teorico": 0.35
+      "iv_calculada": null,
+      "bs_data_calculo": "2026-03-12",
+      "preco_teorico": null
     },
     {
       "ticker": "IBIT",
@@ -3360,11 +3360,11 @@
       "taxas_total": 7.87,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 39.71,
+      "spot_atual": 40.07,
       "preco_mercado": 0.14,
-      "iv_calculada": 0.7297,
-      "bs_data_calculo": "2026-03-11",
-      "preco_teorico": 0.07
+      "iv_calculada": null,
+      "bs_data_calculo": "2026-03-12",
+      "preco_teorico": null
     },
     {
       "ticker": "ETHA",
@@ -3384,11 +3384,11 @@
       "taxas_total": 1.12,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 15.4,
+      "spot_atual": 15.69,
       "preco_mercado": 0.68,
-      "iv_calculada": 0.9315,
-      "bs_data_calculo": "2026-03-11",
-      "preco_teorico": 0.65
+      "iv_calculada": null,
+      "bs_data_calculo": "2026-03-12",
+      "preco_teorico": null
     }
   ]
 }
