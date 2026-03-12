@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "DROGARIAS CRISTAL 01/02 Jan/26",
+    "data": "2026-01-02",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -762.1,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "IFD*IRAJA ALIFE NINO R Jan/26",
     "data": "2026-01-02",
     "categoria": "alimentacao",
