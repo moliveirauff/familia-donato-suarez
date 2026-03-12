@@ -4,6 +4,14 @@
     "data": "2026-01-05",
     "categoria": "alimentacao",
     "subcategoria": "Mercado",
+    "valor": -14.78,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "RODA CONVENIENCIA Jan/26",
+    "data": "2026-01-05",
+    "categoria": "alimentacao",
+    "subcategoria": "Mercado",
     "valor": -116.53,
     "origem": "cartao_itau"
   },
