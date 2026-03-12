@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "DROGARIA VENANCIO - Fernanda Jan/26",
+    "data": "2026-01-07",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -162.79,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "WBA EXPORTACAO - Fernanda Jan/26",
     "data": "2026-01-07",
     "categoria": "compras",
