@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Amazon Prime Canais Jan/26",
+    "data": "2026-01-06",
+    "categoria": "lazer",
+    "subcategoria": "Streaming",
+    "valor": -27.9,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "MERCADOLIVRE - Moveis Jan/26",
     "data": "2026-01-05",
     "categoria": "compras",
