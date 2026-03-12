@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "IFD*IRAJA ALIFE NINO R Jan/26",
+    "data": "2026-01-02",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -124.79,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "IFD*VENANCIO PRODUTOS Jan/26",
     "data": "2026-01-02",
     "categoria": "saude",
