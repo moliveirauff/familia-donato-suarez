@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "WBA EXPORTACAO - Fernanda Jan/26",
+    "data": "2026-01-07",
+    "categoria": "compras",
+    "subcategoria": "Móveis e Utensílios Domésticos",
+    "valor": -111.0,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "HTM*DANILO GATO 03/06 Jan/26",
     "data": "2026-01-07",
     "categoria": "educacao",
