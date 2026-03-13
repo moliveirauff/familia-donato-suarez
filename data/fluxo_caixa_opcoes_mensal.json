@@ -1,13 +1,13 @@
 {
   "versao": "1.0",
-  "data_geracao": "2026-03-13 04:15:42",
+  "data_geracao": "2026-03-13 13:54:55",
   "descricao": "Fluxo de caixa mensal de operações de opções (BR + US)",
   "observacao": "Valores positivos = entrada de caixa, valores negativos = saída de caixa",
   "totais": {
     "br_total_brl": 18053.74,
-    "us_total_usd": 9227.64,
-    "us_total_brl": 49069.62,
-    "total_geral_brl": 67123.36
+    "us_total_usd": 9863.31,
+    "us_total_brl": 52401.76,
+    "total_geral_brl": 70455.5
   },
   "fluxo_mensal": [
     {
@@ -97,9 +97,9 @@
     {
       "mes": "2026-03",
       "br_brl": 0,
-      "us_usd": 311.89,
-      "us_brl": 1652.39,
-      "total_brl": 1652.39
+      "us_usd": 947.56,
+      "us_brl": 4984.52,
+      "total_brl": 4984.52
     }
   ]
 }
