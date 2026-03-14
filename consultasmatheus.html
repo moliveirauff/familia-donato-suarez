@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultas Médicas — Matheus - Hub Família</title>
+  <link rel="stylesheet" href="hub-design-system.css">
+
+  <style>
+    /* ── DS compatibility bridge ── */
+    :root {
+      --bg:      #f0f4f8;
+      --surface: #ffffff;
+      --card-bg: #ffffff;
+      --text:    #0A1928;
+      --subtext: #718096;
+      --primary: #0088CC;
+      --accent:  #0088CC;
+      --success: #43A047;
+      --warning: #FF6D00;
+      --danger:  #E53935;
+      --shadow:  var(--shadow-md);
+    }
+    body.dark-mode {
+      --bg:      #171923;
+      --surface: #2d3748;
+      --card-bg: #2d3748;
+      --text:    #f7fafc;
+      --subtext: #a0aec0;
+      --border:  #4a5568;
+      --primary: #00B0FF;
+      --accent:  #00B0FF;
+      --shadow:  0 2px 8px rgba(0,0,0,.25), 0 1px 3px rgba(0,0,0,.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      padding: 10px 12px 60px 12px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 10px 44px 5px 44px;
+      color: var(--text);
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    #theme-toggle {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-link {
+      display: inline-block;
+      margin: 4px 0 8px 0;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .nav-link:hover { text-decoration: underline; }
+
+    @media (min-width: 768px) {
+      body { padding: 16px 24px 60px 24px; }
+      h1 { font-size: 1.75rem; }
+    }
+
+    /* ===== MÓDULO CONSULTAS MÉDICAS ===== */
+    :root {
+      --consulta-accent: #00B0FF;
+      --consulta-green: #43A047;
+      --consulta-orange: #FF6D00;
+      --consulta-red: #E53935;
+      --consulta-surface-alt: #f0f4f8;
+    }
+    body.dark-mode {
+      --consulta-accent: #33C3FF;
+      --consulta-green: #66BB6A;
+      --consulta-orange: #FF8F00;
+      --consulta-red: #EF5350;
+      --consulta-surface-alt: #1e2a3a;
+    }
+    .consultas-section { max-width: 700px; margin: 0 auto; padding: 0 0 2rem; }
+    .consultas-subtitle { text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .consultas-filter-group { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 1.5rem; }
+    .consultas-filter-group .btn-filter { padding: 4px 14px; border-radius: 9999px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); font-size: 0.75rem; cursor: pointer; transition: all 0.2s; }
+    .consultas-filter-group .btn-filter.active, .consultas-filter-group .btn-filter:hover { background: var(--consulta-accent); color: #fff; border-color: var(--consulta-accent); }
+    .consulta-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .consulta-card-collapsed { padding: 14px 16px; }
+    .consulta-card-date { font-weight: 700; font-size: 0.9rem; color: var(--text); }
+    .consulta-card-meta { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px; }
+    .consulta-card-local { font-size: 0.75rem; color: var(--text-muted); font-style: italic; margin-bottom: 8px; }
+    .consulta-snapshot-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .consulta-snapshot-badge { background: var(--consulta-surface-alt); border-radius: 6px; padding: 2px 8px; font-size: 0.7rem; font-weight: 600; color: var(--text); }
+    .consulta-card-motivo { font-size: 0.8rem; color: var(--text); margin-bottom: 8px; font-style: italic; }
+    .consulta-diag-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .consulta-diag-badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 9999px; font-size: 0.7rem; font-weight: 600; }
+    .consulta-diag-badge--confirmado { background: rgba(67,160,71,0.15); color: var(--consulta-green); }
+    .consulta-diag-badge--suspeito { background: rgba(255,109,0,0.15); color: var(--consulta-orange); }
+    .consulta-diag-badge--descartado { background: rgba(229,57,53,0.15); color: var(--consulta-red); }
+    .consulta-expand-btn { background: transparent; border: none; color: var(--consulta-accent); font-size: 0.8rem; cursor: pointer; display: block; width: 100%; text-align: center; padding-top: 4px; }
+    .consulta-card-expanded { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .consulta-card-expanded.open { max-height: 4000px; }
+    .consulta-card-expanded-inner { padding: 0 16px 16px; border-top: 1px solid var(--border); }
+    .consulta-detail-header { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--consulta-accent); margin-top: 16px; margin-bottom: 8px; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+    .consulta-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; font-size: 0.8rem; }
+    .consulta-detail-label { font-weight: 600; font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); }
+    .consulta-detail-value { color: var(--text); }
+    .consulta-snapshot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .consulta-snapshot-kpi { background: var(--consulta-surface-alt); border-radius: 8px; padding: 8px 10px; text-align: center; }
+    .consulta-snapshot-kpi-label { font-size: 0.65rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+    .consulta-snapshot-kpi-value { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .consulta-text-block { font-size: 0.8rem; color: var(--text); background: var(--consulta-surface-alt); border-radius: 8px; padding: 8px 10px; line-height: 1.5; }
+    .consulta-diag-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+    .consulta-conduta-subheader { font-size: 0.72rem; font-weight: 700; color: var(--text-muted); margin-top: 10px; margin-bottom: 4px; }
+    .consulta-medicamento { background: var(--consulta-surface-alt); border-radius: 8px; padding: 8px 10px; margin-bottom: 6px; font-size: 0.78rem; }
+    .consulta-medicamento-nome { font-weight: 700; color: var(--text); }
+    .consulta-medicamento-detalhe { color: var(--text-muted); font-size: 0.72rem; margin-top: 2px; }
+    .consulta-list-item { font-size: 0.78rem; color: var(--text); padding: 3px 0 3px 12px; position: relative; }
+    .consulta-list-item::before { content: "•"; position: absolute; left: 0; color: var(--consulta-accent); }
+    .consulta-proxima { background: var(--consulta-surface-alt); border-radius: 8px; padding: 8px 10px; font-size: 0.8rem; }
+    .consulta-proxima-data { font-weight: 700; color: var(--consulta-accent); }
+    .consulta-alerta { background: rgba(255,109,0,0.08); border-left: 3px solid var(--consulta-orange); border-radius: 0 8px 8px 0; padding: 6px 10px; font-size: 0.78rem; color: var(--text); margin-bottom: 6px; }
+    .consulta-transcript-btn { background: transparent; border: 1px dashed var(--consulta-accent); color: var(--consulta-accent); padding: 8px 16px; border-radius: 8px; font-size: 0.8rem; cursor: pointer; width: 100%; text-align: center; margin-top: 6px; transition: all 0.2s; }
+    .consulta-transcript-btn:hover { background: rgba(0,176,255,0.08); }
+    .consulta-transcript-content { background: var(--consulta-surface-alt); border-radius: 8px; padding: 12px; font-family: monospace; font-size: 0.72rem; white-space: pre-wrap; max-height: 400px; overflow-y: auto; margin-top: 8px; display: none; }
+    .consulta-transcript-content.visible { display: block; }
+    .consulta-transcript-error { font-size: 0.75rem; color: var(--consulta-red); margin-top: 6px; text-align: center; }
+    .consulta-transcript-na { font-size: 0.75rem; color: var(--text-muted); font-style: italic; text-align: center; padding: 8px 0; }
+    .consultas-empty-state, .consultas-error-state { text-align: center; padding: 40px 20px; }
+    .consultas-empty-emoji { font-size: 3rem; display: block; margin-bottom: 12px; }
+    .consultas-empty-state h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .consultas-empty-state p { font-size: 0.8rem; color: var(--text-muted); max-width: 280px; margin: 0 auto; }
+    .consultas-error-state { font-size: 0.85rem; color: var(--consulta-red); }
+    @media (max-width: 767px) {
+      .consulta-detail-grid { grid-template-columns: 1fr; }
+      .consulta-snapshot-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+<a href="index.html" class="nav-link">← Voltar ao Hub</a>
+
+<h1>🏥 Consultas Médicas</h1>
+<p class="subtitle">Histórico de consultas do Matheus</p>
+
+<div class="consultas-section">
+  <p id="consultas-counter" class="consultas-subtitle">Carregando...</p>
+  <div id="consultas-filter-group" class="consultas-filter-group"></div>
+  <div id="consultas-loading" class="consultas-subtitle">⏳ Carregando consultas...</div>
+  <div id="consultas-error" class="consultas-error-state" style="display:none;">❌ Não foi possível carregar o histórico de consultas.</div>
+  <div id="consultas-empty" class="consultas-empty-state" style="display:none;">
+    <span class="consultas-empty-emoji">🏥</span>
+    <h3>Nenhuma consulta registrada</h3>
+    <p>As consultas do Matheus aparecerão aqui quando adicionadas ao sistema.</p>
+  </div>
+  <div id="consultas-list"></div>
+</div>
+
+<script>
+function initTheme() {
+  const saved = localStorage.getItem('theme');
+  const toggle = document.getElementById('theme-toggle');
+  if (saved === 'dark') {
+    document.body.classList.add('dark-mode');
+    if (toggle) toggle.textContent = '☀️';
+  } else {
+    document.body.classList.remove('dark-mode');
+    if (toggle) toggle.textContent = '🌙';
+  }
+}
+function toggleTheme() {
+  const isDark = document.body.classList.toggle('dark-mode');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) toggle.textContent = isDark ? '☀️' : '🌙';
+}
+
+// ===== MÓDULO CONSULTAS MÉDICAS =====
+(function() {
+  var MESES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+
+  function fmtData(isoDate) {
+    if (!isoDate) return '—';
+    var parts = isoDate.split('-');
+    return parseInt(parts[2]) + '/' + MESES[parseInt(parts[1])-1] + '/' + parts[0];
+  }
+
+  function truncate(str, n) {
+    if (!str) return '';
+    return str.length > n ? str.substring(0, n) + '...' : str;
+  }
+
+  function badgeEmoji(status) {
+    return {confirmado:'✅', suspeito:'⚠️', descartado:'❌'}[status] || '';
+  }
+
+  function renderDiagBadges(diagnosticos) {
+    if (!diagnosticos || diagnosticos.length === 0) return '';
+    var visible = diagnosticos.slice(0, 3);
+    var extra = diagnosticos.length - 3;
+    var html = visible.map(function(d) {
+      return '<span class="consulta-diag-badge consulta-diag-badge--' + d.status + '">' + badgeEmoji(d.status) + ' ' + d.nome + '</span>';
+    }).join('');
+    if (extra > 0) html += '<span class="consulta-diag-badge consulta-diag-badge--suspeito">+' + extra + ' mais</span>';
+    return html;
+  }
+
+  function renderCardCollapsed(c, idx) {
+    var snap = c.snapshot_matheus || {};
+    var snapBadges = '';
+    if (snap.peso_kg) snapBadges += '<span class="consulta-snapshot-badge">' + snap.peso_kg + ' kg</span>';
+    if (snap.altura_cm) snapBadges += '<span class="consulta-snapshot-badge">' + snap.altura_cm + ' cm</span>';
+    if (snap.perimetro_cefalico_cm) snapBadges += '<span class="consulta-snapshot-badge">' + snap.perimetro_cefalico_cm + ' cm PC</span>';
+    if (snap.idade_texto) snapBadges += '<span class="consulta-snapshot-badge">' + snap.idade_texto + '</span>';
+    return '<div class="consulta-card-collapsed">' +
+      '<div class="consulta-card-date">📅 ' + fmtData(c.identificacao.data) + '</div>' +
+      '<div class="consulta-card-meta">' + c.identificacao.especialidade + ' • ' + c.identificacao.medico + '</div>' +
+      '<div class="consulta-card-local">' + c.identificacao.local + '</div>' +
+      '<div class="consulta-snapshot-badges">' + snapBadges + '</div>' +
+      '<div class="consulta-card-motivo">"' + truncate(c.motivo, 120) + '"</div>' +
+      '<div class="consulta-diag-badges">' + renderDiagBadges(c.diagnosticos) + '</div>' +
+      '<button class="consulta-expand-btn" data-idx="' + idx + '" onclick="toggleConsultaDetail(' + idx + ')">Ver Detalhes ▼</button>' +
+      '</div>' +
+      '<div id="consulta-detail-' + idx + '" class="consulta-card-expanded">' +
+        '<div class="consulta-card-expanded-inner" id="consulta-detail-inner-' + idx + '"></div>' +
+      '</div>';
+  }
+
+  function renderConsultasList(consultas, filtro) {
+    var loading = document.getElementById('consultas-loading');
+    var errorEl = document.getElementById('consultas-error');
+    var emptyEl = document.getElementById('consultas-empty');
+    var list = document.getElementById('consultas-list');
+    var counter = document.getElementById('consultas-counter');
+
+    if (loading) loading.style.display = 'none';
+    if (errorEl) errorEl.style.display = 'none';
+
+    var filtered = (filtro && filtro !== 'Todas')
+      ? consultas.filter(function(c) { return c.identificacao.especialidade === filtro; })
+      : consultas;
+
+    var sorted = filtered.slice().sort(function(a, b) {
+      return b.identificacao.data.localeCompare(a.identificacao.data);
+    });
+
+    if (sorted.length === 0) {
+      if (emptyEl) emptyEl.style.display = 'block';
+      if (list) list.innerHTML = '';
+      var msg = (filtro && filtro !== 'Todas') ? 'Nenhuma consulta de ' + filtro + ' registrada' : 'Nenhuma consulta registrada';
+      if (counter) counter.textContent = msg;
+      return;
+    }
+
+    if (emptyEl) emptyEl.style.display = 'none';
+    var n = sorted.length;
+    if (counter) counter.textContent = n + ' consulta' + (n !== 1 ? 's' : '') + ' registrada' + (n !== 1 ? 's' : '');
+    if (list) list.innerHTML = sorted.map(function(c, i) {
+      return '<div class="consulta-card">' + renderCardCollapsed(c, i) + '</div>';
+    }).join('');
+
+    window._consultasData = sorted;
+  }
+
+  function buildFilters(consultas) {
+    var fg = document.getElementById('consultas-filter-group');
+    if (!fg) return;
+    var especialidades = [];
+    consultas.forEach(function(c) {
+      if (especialidades.indexOf(c.identificacao.especialidade) === -1) especialidades.push(c.identificacao.especialidade);
+    });
+    var all = ['Todas'].concat(especialidades);
+    fg.innerHTML = all.map(function(e) {
+      return '<button class="btn-filter' + (e === 'Todas' ? ' active' : '') + '" onclick="consultasFiltrar(\'' + e + '\', this)">' + e + '</button>';
+    }).join('');
+  }
+
+  window.consultasFiltrar = function(filtro, btn) {
+    document.querySelectorAll('#consultas-filter-group .btn-filter').forEach(function(b) { b.classList.remove('active'); });
+    if (btn) btn.classList.add('active');
+    renderConsultasList(window._consultasRaw || [], filtro);
+  };
+
+  fetch('data/matheus_consultas.json?v=' + Date.now())
+    .then(function(r) { if (!r.ok) throw new Error('fail'); return r.json(); })
+    .then(function(data) {
+      window._consultasRaw = data.consultas || [];
+      buildFilters(window._consultasRaw);
+      renderConsultasList(window._consultasRaw, 'Todas');
+    })
+    .catch(function() {
+      var loading = document.getElementById('consultas-loading');
+      var errorEl = document.getElementById('consultas-error');
+      var counter = document.getElementById('consultas-counter');
+      if (loading) loading.style.display = 'none';
+      if (errorEl) errorEl.style.display = 'block';
+      if (counter) counter.textContent = '';
+    });
+
+  window._transcricaoCache = {};
+
+  window.toggleTranscricao = function(idx, filePath, btn) {
+    var content = document.getElementById('consulta-transcript-' + idx);
+    var errDiv = document.getElementById('consulta-transcript-err-' + idx);
+    if (!content) return;
+    if (window._transcricaoCache[idx] !== undefined) {
+      content.classList.toggle('visible');
+      btn.textContent = content.classList.contains('visible') ? '📄 Ocultar Transcrição' : '📄 Ver Transcrição Completa';
+      return;
+    }
+    btn.textContent = '⏳ Carregando...';
+    btn.disabled = true;
+    fetch('data/' + filePath + '?v=' + Date.now())
+      .then(function(r) { if (!r.ok) throw new Error('fail'); return r.text(); })
+      .then(function(text) {
+        window._transcricaoCache[idx] = text;
+        content.textContent = text;
+        content.classList.add('visible');
+        btn.textContent = '📄 Ocultar Transcrição';
+        btn.disabled = false;
+      })
+      .catch(function() {
+        window._transcricaoCache[idx] = null;
+        if (errDiv) { errDiv.textContent = '❌ Não foi possível carregar a transcrição'; errDiv.style.display = 'block'; }
+        btn.textContent = '📄 Ver Transcrição Completa';
+        btn.disabled = false;
+      });
+  };
+
+})();
+
+window.toggleConsultaDetail = function(idx) {
+  var detail = document.getElementById('consulta-detail-' + idx);
+  var inner = document.getElementById('consulta-detail-inner-' + idx);
+  var btn = document.querySelector('[data-idx="' + idx + '"].consulta-expand-btn');
+  var consulta = window._consultasData && window._consultasData[idx];
+  if (!detail || !consulta) return;
+  var isOpen = detail.classList.contains('open');
+  if (isOpen) {
+    detail.classList.remove('open');
+    if (btn) btn.textContent = 'Ver Detalhes ▼';
+  } else {
+    if (!inner.innerHTML) inner.innerHTML = renderConsultaDetail(consulta, idx);
+    detail.classList.add('open');
+    if (btn) btn.textContent = 'Recolher ▲';
+  }
+};
+
+function renderConsultaDetail(c, idx) {
+  var MESES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+  function fmtD(iso) { if (!iso) return '—'; var p=iso.split('-'); return parseInt(p[2])+'/'+MESES[parseInt(p[1])-1]+'/'+p[0]; }
+  function badgeE(s) { return {confirmado:'✅',suspeito:'⚠️',descartado:'❌'}[s]||''; }
+  function sec(title, content) { return '<div class="consulta-detail-header">'+title+'</div>'+content; }
+  function optSec(title, content, cond) { return cond ? sec(title, content) : ''; }
+
+  var ident = c.identificacao || {};
+  var snap = c.snapshot_matheus || {};
+  var conduta = c.conduta || {};
+  var meds = conduta.medicamentos || [];
+  var exames = conduta.exames_solicitados || [];
+  var dieta = conduta.orientacoes_dieta || [];
+  var outros = conduta.outros || [];
+  var prox = c.proxima_consulta || {};
+  var alertas = c.alertas || [];
+
+  var sIdent = sec('📋 Identificação',
+    '<div class="consulta-detail-grid">' +
+    '<div><div class="consulta-detail-label">Data</div><div class="consulta-detail-value">'+fmtD(ident.data)+'</div></div>' +
+    '<div><div class="consulta-detail-label">Especialidade</div><div class="consulta-detail-value">'+(ident.especialidade||'—')+'</div></div>' +
+    '<div><div class="consulta-detail-label">Médico</div><div class="consulta-detail-value">'+(ident.medico||'—')+'</div></div>' +
+    '<div><div class="consulta-detail-label">Local</div><div class="consulta-detail-value">'+(ident.local||'—')+'</div></div>' +
+    '</div>');
+
+  var sSnap = sec('📏 Snapshot do Matheus',
+    '<div class="consulta-snapshot-grid">' +
+    '<div class="consulta-snapshot-kpi"><div class="consulta-snapshot-kpi-label">Idade</div><div class="consulta-snapshot-kpi-value" style="font-size:0.8rem">'+(snap.idade_texto||'—')+'</div></div>' +
+    '<div class="consulta-snapshot-kpi"><div class="consulta-snapshot-kpi-label">Peso</div><div class="consulta-snapshot-kpi-value">'+(snap.peso_kg?snap.peso_kg+' kg':'—')+'</div></div>' +
+    '<div class="consulta-snapshot-kpi"><div class="consulta-snapshot-kpi-label">Altura</div><div class="consulta-snapshot-kpi-value">'+(snap.altura_cm?snap.altura_cm+' cm':'—')+'</div></div>' +
+    '<div class="consulta-snapshot-kpi"><div class="consulta-snapshot-kpi-label">Per. Cefálico</div><div class="consulta-snapshot-kpi-value">'+(snap.perimetro_cefalico_cm?snap.perimetro_cefalico_cm+' cm':'—')+'</div></div>' +
+    '</div>');
+
+  var sMotivo = sec('💬 Motivo da Consulta', '<div class="consulta-text-block">'+(c.motivo||'—')+'</div>');
+  var sAval = optSec('🔍 Avaliação', '<div class="consulta-text-block">'+c.avaliacao+'</div>', c.avaliacao);
+
+  var diagItems = (c.diagnosticos||[]).map(function(d) {
+    return '<li><span class="consulta-diag-badge consulta-diag-badge--'+d.status+'">'+badgeE(d.status)+' '+d.nome+' <span style="font-size:0.65rem;opacity:0.7;margin-left:4px">'+d.status+'</span></span></li>';
+  }).join('') || '<li style="font-size:0.8rem;color:var(--text-muted)">Nenhum diagnóstico registrado</li>';
+  var sDiag = sec('🩺 Diagnósticos', '<ul class="consulta-diag-list">'+diagItems+'</ul>');
+
+  var condutaHtml = '';
+  if (meds.length) {
+    condutaHtml += '<div class="consulta-conduta-subheader">Medicamentos</div>';
+    condutaHtml += meds.map(function(m) {
+      return '<div class="consulta-medicamento"><div class="consulta-medicamento-nome">'+m.nome+'</div>' +
+        '<div class="consulta-medicamento-detalhe">'+m.dose+' · '+m.frequencia+' · '+m.duracao+'</div>' +
+        '<div class="consulta-medicamento-detalhe" style="font-style:italic">'+m.motivo+'</div></div>';
+    }).join('');
+  }
+  if (exames.length) {
+    condutaHtml += '<div class="consulta-conduta-subheader">Exames Solicitados</div>';
+    condutaHtml += exames.map(function(e) { return '<div class="consulta-list-item">'+e+'</div>'; }).join('');
+  }
+  if (dieta.length) {
+    condutaHtml += '<div class="consulta-conduta-subheader">Orientações Dietéticas</div>';
+    condutaHtml += dieta.map(function(d) { return '<div class="consulta-list-item">'+d+'</div>'; }).join('');
+  }
+  if (outros.length) {
+    condutaHtml += '<div class="consulta-conduta-subheader">Outros</div>';
+    condutaHtml += outros.map(function(o) { return '<div class="consulta-list-item">'+o+'</div>'; }).join('');
+  }
+  if (!condutaHtml) condutaHtml = '<div style="font-size:0.8rem;color:var(--text-muted)">Nenhuma conduta registrada</div>';
+  var sConduta = sec('💊 Conduta', condutaHtml);
+
+  var sProx = sec('📅 Próxima Consulta',
+    '<div class="consulta-proxima"><div class="consulta-proxima-data">'+(prox.data_prevista?fmtD(prox.data_prevista):'A definir')+'</div>' +
+    '<div style="font-size:0.78rem;color:var(--text);margin-top:4px">'+(prox.objetivo||'')+'</div></div>');
+
+  var alertasHtml = alertas.length
+    ? alertas.map(function(a) { return '<div class="consulta-alerta">'+a+'</div>'; }).join('')
+    : '<div style="font-size:0.78rem;color:var(--text-muted);font-style:italic">Nenhum alerta registrado</div>';
+  var sAlertas = sec('⚠️ Alertas', alertasHtml);
+
+  var sNotas = optSec('📝 Notas Livres', '<div class="consulta-text-block">'+c.notas_livres+'</div>', c.notas_livres);
+
+  var transcHtml;
+  if (c.transcript_file) {
+    transcHtml = '<button class="consulta-transcript-btn" onclick="toggleTranscricao('+idx+', \''+c.transcript_file+'\', this)">📄 Ver Transcrição Completa</button>' +
+      '<div id="consulta-transcript-'+idx+'" class="consulta-transcript-content"></div>' +
+      '<div id="consulta-transcript-err-'+idx+'" class="consulta-transcript-error" style="display:none"></div>';
+  } else {
+    transcHtml = '<div class="consulta-transcript-na">Transcrição não disponível</div>';
+  }
+  var sTransc = sec('📄 Transcrição', transcHtml);
+
+  return [sIdent, sSnap, sMotivo, sAval, sDiag, sConduta, sProx, sAlertas, sNotas, sTransc].join('');
+}
+
+initTheme();
+</script>
+</body>
+</html>

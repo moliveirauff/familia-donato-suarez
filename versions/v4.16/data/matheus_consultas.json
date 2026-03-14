@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "version": "1.0",
+    "last_updated": "2026-03-14T10:00:00",
+    "total_consultas": 2
+  },
+  "consultas": [
+    {
+      "identificacao": {
+        "data": "2025-12-10",
+        "especialidade": "Pediatria",
+        "medico": "Dra. Carolina Mendes",
+        "local": "Clínica Perinatal Barra"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "4 meses e 18 dias",
+        "peso_kg": 6.9,
+        "altura_cm": 63.5,
+        "perimetro_cefalico_cm": 41.8
+      },
+      "motivo": "Consulta de rotina (puericultura 4 meses). Pais relatam cólicas à noite e refluxo leve após mamadas.",
+      "avaliacao": "Bom estado geral. Fontanela normotensa. Abdome sem distensão. Marcos do desenvolvimento adequados para idade — sustenta cabeça, segue objetos, sorriso social presente.",
+      "diagnosticos": [
+        { "nome": "Cólica do lactente", "status": "confirmado" },
+        { "nome": "Refluxo gastroesofágico fisiológico", "status": "suspeito" }
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "Vitamina D (Addera D3)",
+            "dose": "400 UI (2 gotas)",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Suplementação obrigatória SBP"
+          },
+          {
+            "nome": "Simeticona (Luftal)",
+            "dose": "5 gotas",
+            "frequencia": "Antes das mamadas, até 3x/dia",
+            "duracao": "Até melhora das cólicas",
+            "motivo": "Alívio de cólicas e gases"
+          }
+        ],
+        "exames_solicitados": [],
+        "orientacoes_dieta": [
+          "Manter aleitamento materno exclusivo até 6 meses",
+          "Mãe pode reduzir laticínios se cólicas persistirem"
+        ],
+        "outros": [
+          "Manter posição elevada 30min após mamadas (refluxo)"
+        ]
+      },
+      "proxima_consulta": {
+        "data_prevista": "2026-01-22",
+        "objetivo": "Puericultura 6 meses + orientação para introdução alimentar"
+      },
+      "alertas": [
+        "Monitorar refluxo — se piorar com arqueamento, recusa alimentar ou baixo ganho de peso, agendar gastropediatra"
+      ],
+      "notas_livres": "Matheus interagiu bem durante consulta. Pais tranquilos.",
+      "transcript_file": "transcricoes/2025-12-10_pediatria.txt"
+    },
+    {
+      "identificacao": {
+        "data": "2026-01-22",
+        "especialidade": "Pediatria",
+        "medico": "Dra. Carolina Mendes",
+        "local": "Clínica Perinatal Barra"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "6 meses e 0 dias",
+        "peso_kg": 7.8,
+        "altura_cm": 67.2,
+        "perimetro_cefalico_cm": 43.0
+      },
+      "motivo": "Puericultura 6 meses. Dúvidas sobre introdução alimentar. Cólicas resolveram há ~3 semanas.",
+      "avaliacao": "Crescimento adequado (p50-p75 peso, p50 estatura). Sentando com apoio. Início de dentição (incisivos inferiores). Sem sinais de refluxo patológico.",
+      "diagnosticos": [
+        { "nome": "Refluxo gastroesofágico fisiológico", "status": "descartado" },
+        { "nome": "Desenvolvimento neuropsicomotor adequado", "status": "confirmado" }
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "Vitamina D (Addera D3)",
+            "dose": "400 UI (2 gotas)",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Suplementação obrigatória SBP"
+          },
+          {
+            "nome": "Sulfato Ferroso",
+            "dose": "1 mg/kg/dia",
+            "frequencia": "1x/dia",
+            "duracao": "até 2 anos",
+            "motivo": "Profilaxia de anemia ferropriva (SBP)"
+          }
+        ],
+        "exames_solicitados": [
+          "Hemograma completo",
+          "Ferritina sérica"
+        ],
+        "orientacoes_dieta": [
+          "Iniciar introdução alimentar BLW + papinha",
+          "Começar com frutas (banana, abacate, mamão) e legumes (batata-doce, cenoura, abóbora)",
+          "Sem sal, sem açúcar, sem mel até 1 ano",
+          "Oferecer água filtrada em copo aberto nas refeições"
+        ],
+        "outros": [
+          "Vacinação em dia — próxima dose: Influenza (campanha março)"
+        ]
+      },
+      "proxima_consulta": {
+        "data_prevista": "2026-04-22",
+        "objetivo": "Puericultura 9 meses"
+      },
+      "alertas": [],
+      "notas_livres": "Família animada com IA. Fernanda perguntou sobre BLW. Orientação detalhada fornecida.",
+      "transcript_file": null
+    }
+  ]
+}
