@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "RAIA3992 - Fernanda Jan/26",
+    "data": "2026-01-07",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -256.82,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "DROGARIA VENANCIO - Fernanda Jan/26",
     "data": "2026-01-07",
     "categoria": "saude",
