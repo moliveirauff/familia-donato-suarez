@@ -1,0 +1,36 @@
+[
+  {"categoria": "Documentos", "item": "Passaporte", "obs": "Verificar validade", "checked": false},
+  {"categoria": "Documentos", "item": "Boarding pass (EasyJet)", "obs": "Check-in online antecipado — evitar taxa", "checked": false},
+  {"categoria": "Documentos", "item": "Confirmação do hotel", "obs": "", "checked": false},
+  {"categoria": "Documentos", "item": "Cartão de crédito/débito", "obs": "Sem taxa internacional se possível (Revolut/Wise)", "checked": false},
+  {"categoria": "Documentos", "item": "Seguro viagem", "obs": "", "checked": false},
+
+  {"categoria": "Trabalho", "item": "Laptop + carregador", "obs": "Cabo USB-C se possível — mais leve", "checked": false},
+  {"categoria": "Trabalho", "item": "Caderno/bloco de notas + caneta", "obs": "Reunião Subsea7", "checked": false},
+  {"categoria": "Trabalho", "item": "Adaptador de tomada (UK→EU)", "obs": "Obrigatório — Reino Unido usa plug tipo G", "checked": false},
+  {"categoria": "Trabalho", "item": "Powerbank", "obs": "Verificar limite de mAh EasyJet (max 27.000 mAh)", "checked": false},
+  {"categoria": "Trabalho", "item": "Fones de ouvido", "obs": "", "checked": false},
+
+  {"categoria": "Roupa", "item": "Terno/blazer de negócios", "obs": "Usar no voo — não ocupa espaço na bolsa", "checked": false},
+  {"categoria": "Roupa", "item": "Calça social ou chino", "obs": "1 peça — usar no voo", "checked": false},
+  {"categoria": "Roupa", "item": "Camisa social extra (1)", "obs": "2ª reunião ou dia 2", "checked": false},
+  {"categoria": "Roupa", "item": "Camiseta básica (2)", "obs": "Hotel/casual", "checked": false},
+  {"categoria": "Roupa", "item": "Cueca (3)", "obs": "Ida + 2 dias + volta", "checked": false},
+  {"categoria": "Roupa", "item": "Meias (3 pares)", "obs": "", "checked": false},
+  {"categoria": "Roupa", "item": "Casaco/jaqueta quente", "obs": "Usar no voo — frio real em Milão (5–15°C)", "checked": false},
+  {"categoria": "Roupa", "item": "Sapato social (usar no pé)", "obs": "Reunião Subsea7", "checked": false},
+
+  {"categoria": "Higiene — Líquidos ≤100ml", "item": "Pasta de dente (mini)", "obs": "≤100ml", "checked": false},
+  {"categoria": "Higiene — Líquidos ≤100ml", "item": "Shampoo sólido ou mini", "obs": "Sólido evita contagem no limite", "checked": false},
+  {"categoria": "Higiene — Líquidos ≤100ml", "item": "Desodorante roll-on mini", "obs": "≤100ml", "checked": false},
+  {"categoria": "Higiene — Líquidos ≤100ml", "item": "Hidratante facial mini", "obs": "≤100ml — avião resseca", "checked": false},
+  {"categoria": "Higiene — Líquidos ≤100ml", "item": "Protetor labial", "obs": "Frio seco", "checked": false},
+  {"categoria": "Higiene — Sólidos", "item": "Escova de dente", "obs": "", "checked": false},
+  {"categoria": "Higiene — Sólidos", "item": "Barbeador descartável", "obs": "", "checked": false},
+
+  {"categoria": "Bagagem", "item": "Mochila ou trolley cabine", "obs": "EasyJet: 56×45×25cm — checar se 'large cabin bag' está incluso no bilhete", "checked": false},
+  {"categoria": "Bagagem", "item": "Bolsa underseater (pequena)", "obs": "Cabe sob o assento — inclusa em todos os bilhetes EasyJet", "checked": false},
+
+  {"categoria": "Conforto / Voo", "item": "Garrafa d'água vazia", "obs": "Encher após a segurança", "checked": false},
+  {"categoria": "Conforto / Voo", "item": "Snack (barrinha/castanhas)", "obs": "Voo low-cost — comida paga a bordo", "checked": false}
+]
