@@ -2747,11 +2747,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 92.01,
-      "iv_calculada": 0.2938,
-      "preco_teorico": 1.53,
-      "bs_data_calculo": "2026-03-13",
-      "preco_mercado": 1.53
+      "spot_atual": 92.16,
+      "iv_calculada": 0.2989,
+      "preco_teorico": 1.25,
+      "bs_data_calculo": "2026-03-16",
+      "preco_mercado": 1.25
     },
     {
       "ticker": "ETHA",
@@ -3407,7 +3407,12 @@
       "taxas_fechamento": null,
       "taxas_total": 1.12,
       "resultado": null,
-      "status": "aberta"
+      "status": "aberta",
+      "spot_atual": 40.37,
+      "bs_data_calculo": "2026-03-16",
+      "preco_mercado": 0.67,
+      "iv_calculada": 0.7496,
+      "preco_teorico": 0.67
     },
     {
       "ticker": "IBIT",
@@ -3426,7 +3431,12 @@
       "taxas_fechamento": null,
       "taxas_total": 7.89,
       "resultado": null,
-      "status": "aberta"
+      "status": "aberta",
+      "spot_atual": 40.37,
+      "bs_data_calculo": "2026-03-16",
+      "preco_mercado": 0.39,
+      "iv_calculada": 0.6655,
+      "preco_teorico": 0.39
     },
     {
       "ticker": "IBIT",
@@ -3445,7 +3455,12 @@
       "taxas_fechamento": null,
       "taxas_total": 7.86,
       "resultado": null,
-      "status": "aberta"
+      "status": "aberta",
+      "spot_atual": 40.37,
+      "bs_data_calculo": "2026-03-16",
+      "preco_mercado": 0.13,
+      "iv_calculada": 0.6941,
+      "preco_teorico": 0.13
     },
     {
       "ticker": "ETHA",
@@ -3464,7 +3479,12 @@
       "taxas_fechamento": null,
       "taxas_total": 1.12,
       "resultado": null,
-      "status": "aberta"
+      "status": "aberta",
+      "spot_atual": 15.89,
+      "bs_data_calculo": "2026-03-16",
+      "preco_mercado": 1.16,
+      "iv_calculada": 0.9469,
+      "preco_teorico": 1.16
     },
     {
       "ticker": "SPY",
@@ -3483,7 +3503,12 @@
       "taxas_fechamento": null,
       "taxas_total": 1.12,
       "resultado": null,
-      "status": "aberta"
+      "status": "aberta",
+      "spot_atual": 662.29,
+      "bs_data_calculo": "2026-03-16",
+      "preco_mercado": 4.09,
+      "iv_calculada": 0.1746,
+      "preco_teorico": 4.09
     }
   ]
 }
