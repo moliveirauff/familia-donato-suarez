@@ -2747,11 +2747,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 92.16,
-      "iv_calculada": 0.2989,
-      "preco_teorico": 1.25,
-      "bs_data_calculo": "2026-03-16",
-      "preco_mercado": 1.25
+      "spot_atual": 92.93,
+      "iv_calculada": 0.3149,
+      "preco_teorico": 1.6,
+      "bs_data_calculo": "2026-03-17",
+      "preco_mercado": 1.6
     },
     {
       "ticker": "ETHA",
@@ -3408,11 +3408,11 @@
       "taxas_total": 1.12,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 40.37,
-      "bs_data_calculo": "2026-03-16",
-      "preco_mercado": 0.67,
-      "iv_calculada": 0.7496,
-      "preco_teorico": 0.67
+      "spot_atual": 41.94,
+      "bs_data_calculo": "2026-03-17",
+      "preco_mercado": 0.2,
+      "iv_calculada": 0.7515,
+      "preco_teorico": 0.2
     },
     {
       "ticker": "IBIT",
@@ -3432,11 +3432,11 @@
       "taxas_total": 7.89,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 40.37,
-      "bs_data_calculo": "2026-03-16",
-      "preco_mercado": 0.39,
-      "iv_calculada": 0.6655,
-      "preco_teorico": 0.39
+      "spot_atual": 41.94,
+      "bs_data_calculo": "2026-03-17",
+      "preco_mercado": 0.69,
+      "iv_calculada": 0.6147,
+      "preco_teorico": 0.69
     },
     {
       "ticker": "IBIT",
@@ -3456,11 +3456,11 @@
       "taxas_total": 7.86,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 40.37,
-      "bs_data_calculo": "2026-03-16",
-      "preco_mercado": 0.13,
-      "iv_calculada": 0.6941,
-      "preco_teorico": 0.13
+      "spot_atual": 41.94,
+      "bs_data_calculo": "2026-03-17",
+      "preco_mercado": 0.19,
+      "iv_calculada": 0.6265,
+      "preco_teorico": 0.19
     },
     {
       "ticker": "ETHA",
@@ -3480,11 +3480,11 @@
       "taxas_total": 1.12,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 15.89,
-      "bs_data_calculo": "2026-03-16",
-      "preco_mercado": 1.16,
-      "iv_calculada": 0.9469,
-      "preco_teorico": 1.16
+      "spot_atual": 17.61,
+      "bs_data_calculo": "2026-03-17",
+      "preco_mercado": 2.67,
+      "iv_calculada": 1.2053,
+      "preco_teorico": 2.67
     },
     {
       "ticker": "SPY",
@@ -3504,10 +3504,10 @@
       "taxas_total": 1.12,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 662.29,
-      "bs_data_calculo": "2026-03-16",
+      "spot_atual": 669.03,
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 4.09,
-      "iv_calculada": 0.1746,
+      "iv_calculada": 0.1515,
       "preco_teorico": 4.09
     }
   ]

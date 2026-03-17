@@ -5551,11 +5551,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 18.99,
+      "spot_atual": 19,
       "mkt_atual": 5.34,
       "iv_calculada": null,
       "preco_teorico": null,
-      "bs_data_calculo": "2026-03-16",
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 3.48
     },
     {
@@ -5577,11 +5577,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 18.99,
+      "spot_atual": 19,
       "mkt_atual": 0.33,
       "iv_calculada": null,
       "preco_teorico": null,
-      "bs_data_calculo": "2026-03-16",
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 1.07
     },
     {
@@ -5603,11 +5603,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 36.6,
+      "spot_atual": 37.04,
       "mkt_atual": 6.86,
-      "iv_calculada": 4.5807,
-      "preco_teorico": 6.86,
-      "bs_data_calculo": "2026-03-16",
+      "iv_calculada": 0.6325,
+      "preco_teorico": 0.97,
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 6.86
     },
     {
@@ -5629,11 +5629,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 40,
+      "spot_atual": 40.54,
       "mkt_atual": 3.1,
-      "iv_calculada": 0.8493,
-      "preco_teorico": 1.71,
-      "bs_data_calculo": "2026-03-16",
+      "iv_calculada": 0.5751,
+      "preco_teorico": 1.49,
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 2.04
     },
     {
@@ -5655,11 +5655,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 15.39,
+      "spot_atual": 15.55,
       "mkt_atual": 3.75,
-      "iv_calculada": 2.6107,
+      "iv_calculada": 2.7918,
       "preco_teorico": 2.41,
-      "bs_data_calculo": "2026-03-16",
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 2.81
     },
     {
@@ -5681,11 +5681,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 42.4,
+      "spot_atual": 43,
       "mkt_atual": null,
       "iv_calculada": null,
       "preco_teorico": null,
-      "bs_data_calculo": "2026-03-16",
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 8.45
     },
     {
@@ -5707,11 +5707,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 42.4,
+      "spot_atual": 43,
       "mkt_atual": null,
       "iv_calculada": null,
       "preco_teorico": null,
-      "bs_data_calculo": "2026-03-16",
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 3.5
     },
     {
@@ -5733,11 +5733,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 44.67,
+      "spot_atual": 45.58,
       "mkt_atual": 7.08,
-      "iv_calculada": 1.716,
-      "preco_teorico": 11.94,
-      "bs_data_calculo": "2026-03-16",
+      "iv_calculada": 1.9021,
+      "preco_teorico": 12.79,
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 7.94
     },
     {
@@ -5759,11 +5759,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 49.31,
+      "spot_atual": 47.34,
       "mkt_atual": 2.45,
-      "iv_calculada": 0.3679,
-      "preco_teorico": 0.28,
-      "bs_data_calculo": "2026-03-16",
+      "iv_calculada": 0.4893,
+      "preco_teorico": 0.06,
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 0.99
     },
     {
@@ -5785,11 +5785,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 39.47,
+      "spot_atual": 40.73,
       "mkt_atual": 11.6,
-      "iv_calculada": 3.4191,
+      "iv_calculada": 3.231,
       "preco_teorico": 7.66,
-      "bs_data_calculo": "2026-03-16",
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 7.66
     },
     {
@@ -5811,11 +5811,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 78.3,
+      "spot_atual": 78.84,
       "mkt_atual": 29.18,
-      "iv_calculada": 0.7245,
-      "preco_teorico": 19.75,
-      "bs_data_calculo": "2026-03-16",
+      "iv_calculada": 0.7484,
+      "preco_teorico": 20.27,
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 25.14
     },
     {
@@ -5837,11 +5837,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 78.3,
+      "spot_atual": 78.84,
       "mkt_atual": 0.86,
-      "iv_calculada": 0.5559,
-      "preco_teorico": 5.14,
-      "bs_data_calculo": "2026-03-16",
+      "iv_calculada": null,
+      "preco_teorico": 3.97,
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 3.33
     },
     {
@@ -5863,11 +5863,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 40.64,
+      "spot_atual": 40.59,
       "mkt_atual": null,
       "iv_calculada": null,
       "preco_teorico": null,
-      "bs_data_calculo": "2026-03-16",
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 6.81
     },
     {
@@ -5889,11 +5889,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 46.21,
+      "spot_atual": 45.97,
       "mkt_atual": 11.11,
-      "iv_calculada": null,
-      "preco_teorico": 4.9,
-      "bs_data_calculo": "2026-03-16",
+      "iv_calculada": 0.5151,
+      "preco_teorico": 4.91,
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 6.37
     },
     {
@@ -5915,11 +5915,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 46.21,
+      "spot_atual": 45.97,
       "mkt_atual": null,
       "iv_calculada": null,
       "preco_teorico": null,
-      "bs_data_calculo": "2026-03-16",
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": null
     },
     {
@@ -5941,11 +5941,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 31.55,
+      "spot_atual": 31.98,
       "mkt_atual": 2.42,
-      "iv_calculada": 0.4152,
-      "preco_teorico": 0.58,
-      "bs_data_calculo": "2026-03-16",
+      "iv_calculada": 0.4552,
+      "preco_teorico": 0.8,
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 1.21
     },
     {
@@ -5967,11 +5967,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 23.58,
+      "spot_atual": 23.36,
       "mkt_atual": 6.95,
-      "iv_calculada": 0.871,
-      "preco_teorico": 5.2,
-      "bs_data_calculo": "2026-03-16",
+      "iv_calculada": 0.4732,
+      "preco_teorico": 4.45,
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 5.33
     },
     {
@@ -5993,11 +5993,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 35.05,
+      "spot_atual": 34.88,
       "mkt_atual": 0.7,
-      "iv_calculada": 0.3355,
-      "preco_teorico": 0.58,
-      "bs_data_calculo": "2026-03-16",
+      "iv_calculada": 0.409,
+      "preco_teorico": 0.51,
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 0.3
     },
     {
@@ -6019,11 +6019,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 15,
+      "spot_atual": 15.1,
       "mkt_atual": 2.55,
-      "iv_calculada": 0.8638,
-      "preco_teorico": 1.23,
-      "bs_data_calculo": "2026-03-16",
+      "iv_calculada": 0.8842,
+      "preco_teorico": 1.27,
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 1.61
     },
     {
@@ -6045,11 +6045,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 15,
+      "spot_atual": 15.1,
       "mkt_atual": 0.86,
-      "iv_calculada": 0.4514,
-      "preco_teorico": 0.07,
-      "bs_data_calculo": "2026-03-16",
+      "iv_calculada": 0.4457,
+      "preco_teorico": 0.06,
+      "bs_data_calculo": "2026-03-17",
       "preco_mercado": 0.24
     }
   ]
