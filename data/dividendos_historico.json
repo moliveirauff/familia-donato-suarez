@@ -1,6 +1,6 @@
 {
   "versao": "2026.2.27b",
-  "data_atualizacao": "2026-02-27",
+  "data_atualizacao": "2026-03-20",
   "descricao": "Historico de dividendos, JCP e rendimentos de ativos financeiros",
   "movimentacoes": [
     {
@@ -19834,6 +19834,30 @@
       "valor_total": 22.04,
       "preco_unitario": 0.0,
       "quantidade": 0.0
+    },
+    {
+      "ativo": "SGOV",
+      "data": "2026-03-05",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 143.97,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "valor_usd": 27.45,
+      "valor_bruto_usd": 39.22,
+      "wht_usd": -11.77,
+      "cotacao_usd_brl": 5.2447
+    },
+    {
+      "ativo": "SGOV",
+      "data": "2026-03-19",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 366.22,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "valor_usd": 69.64,
+      "valor_bruto_usd": 69.64,
+      "wht_usd": 0.0,
+      "cotacao_usd_brl": 5.2587
     }
   ]
 }
