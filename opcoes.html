@@ -710,6 +710,9 @@ h1 {
       const canvas = document.getElementById('chartFluxoAtivo');
       canvas.style.height = alturaTotal + 'px';
 
+      const maxAbsoluto = Math.max(...valoresAbsolutos);
+      const xMax = maxAbsoluto * 1.35; // margem para labels externos
+
       if (globalData.chartFluxoAtivo) globalData.chartFluxoAtivo.destroy();
       globalData.chartFluxoAtivo = new Chart(canvas.getContext('2d'), {
         type: 'bar',
@@ -735,9 +738,10 @@ h1 {
           indexAxis: 'y',
           responsive: true,
           maintainAspectRatio: false,
-          layout: { padding: { right: 65 } },
+          layout: { padding: { right: 8 } },
           scales: {
             x: {
+              max: xMax,
               ticks: {
                 callback: (value) => brl(value),
                 font: { size: 9 },
