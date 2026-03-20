@@ -723,11 +723,11 @@ h1 {
             datalabels: {
               display: true,
               anchor: 'end',
-              align: 'end',
-              offset: 4,
+              align: (ctx) => ctx.dataIndex === 0 ? 'start' : 'end',
+              offset: (ctx) => ctx.dataIndex === 0 ? 6 : 4,
               formatter: (value, ctx) => brl(valoresReais[ctx.dataIndex]),
               font: { size: 8, weight: 'bold' },
-              color: textColor
+              color: (ctx) => ctx.dataIndex === 0 ? '#ffffff' : textColor
             }
           }]
         },
@@ -735,7 +735,7 @@ h1 {
           indexAxis: 'y',
           responsive: true,
           maintainAspectRatio: false,
-          layout: { padding: { right: 80 } },
+          layout: { padding: { right: 65 } },
           scales: {
             x: {
               ticks: {
