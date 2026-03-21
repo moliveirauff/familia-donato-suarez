@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marcos do Desenvolvimento 🧒 — Hub Família</title>
+  <link rel="stylesheet" href="hub-design-system.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+  <style>
+    /* ── DS compatibility bridge ── */
+    :root {
+      --bg:      #f0f4f8;
+      --surface: #ffffff;
+      --card-bg: #ffffff;
+      --text:    #0A1928;
+      --subtext: #718096;
+      --primary: #0088CC;
+      --accent:  #0088CC;
+      --success: #43A047;
+      --warning: #FF6D00;
+      --danger:  #E53935;
+      --border:  #e2e8f0;
+      --shadow:  0 2px 8px rgba(10,25,40,0.08), 0 1px 3px rgba(10,25,40,0.05);
+
+      /* Categorias */
+      --cat-motor-grosso:    #43A047;
+      --cat-motor-fino:      #1976D2;
+      --cat-linguagem:       #FF6D00;
+      --cat-social-emocional:#E91E63;
+      --cat-cognitivo:       #9C27B0;
+    }
+    body.dark-mode {
+      --bg:      #171923;
+      --surface: #2d3748;
+      --card-bg: #2d3748;
+      --text:    #f7fafc;
+      --subtext: #a0aec0;
+      --border:  #4a5568;
+      --primary: #00B0FF;
+      --accent:  #00B0FF;
+      --shadow:  0 2px 8px rgba(0,0,0,.25), 0 1px 3px rgba(0,0,0,.15);
+    }
+
+    /* ── Base ── */
+    body {
+      font-family: var(--font-sans, 'Inter', sans-serif);
+      background: var(--bg);
+      color: var(--text);
+      transition: background-color .3s, color .3s;
+      padding: 10px 10px 80px;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .page-header {
+      position: relative;
+      text-align: center;
+      margin: 8px 0 20px;
+    }
+    .btn-home {
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition: opacity .2s;
+    }
+    .btn-home:hover { opacity: .75; }
+    .btn-theme {
+      position: absolute;
+      right: 0; top: 50%;
+      transform: translateY(-50%);
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: opacity .2s;
+    }
+    .btn-theme:hover { opacity: .75; }
+    h1 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin: 0 50px 4px;
+      color: var(--text);
+    }
+    .subtitle {
+      font-size: 0.78rem;
+      color: var(--subtext);
+      font-weight: 600;
+    }
+
+    /* ── KPIs ── */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    @media (min-width: 1024px) {
+      .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 10px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .kpi-label {
+      font-size: 0.58rem;
+      font-weight: 800;
+      color: var(--subtext);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .kpi-value {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .kpi-sub {
+      font-size: 0.62rem;
+      color: var(--subtext);
+      font-weight: 500;
+    }
+    .kpi-progress-bar {
+      height: 4px;
+      background: var(--border);
+      border-radius: 9999px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+    .kpi-progress-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 9999px;
+      transition: width .6s ease;
+    }
+
+    /* ── Seção Analítica ── */
+    .section-collapse {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .section-collapse-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 15px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .section-collapse-header:hover { background: rgba(0,0,0,.03); }
+    body.dark-mode .section-collapse-header:hover { background: rgba(255,255,255,.04); }
+    .section-collapse-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .section-collapse-arrow {
+      font-size: 0.8rem;
+      color: var(--subtext);
+      transition: transform .25s;
+    }
+    .section-collapse-arrow.open { transform: rotate(180deg); }
+    .section-collapse-body {
+      display: none;
+      padding: 0 15px 15px;
+    }
+    .section-collapse-body.open { display: block; }
+
+    .radar-wrap {
+      max-width: 360px;
+      margin: 0 auto 16px;
+    }
+    .analytic-kpis {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .analytic-kpi {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 8px;
+      text-align: center;
+    }
+    .analytic-kpi .ak-label {
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: var(--subtext);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .analytic-kpi .ak-value {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-top: 2px;
+    }
+
+    /* ── Controls ── */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+      align-items: center;
+    }
+    .search-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 180px;
+    }
+    .search-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px 32px 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card-bg);
+      color: var(--text);
+      font-size: 0.82rem;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .search-input:focus { border-color: var(--primary); }
+    .search-clear {
+      position: absolute;
+      right: 8px; top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--subtext);
+      font-size: 0.9rem;
+      display: none;
+      padding: 0;
+    }
+    .cat-select {
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card-bg);
+      color: var(--text);
+      font-size: 0.82rem;
+      outline: none;
+      cursor: pointer;
+    }
+    .toggle-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--subtext);
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .toggle-wrap input { cursor: pointer; }
+
+    /* ── Accordion por mês ── */
+    .month-group {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .month-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 15px;
+      cursor: pointer;
+      user-select: none;
+      transition: background .15s;
+    }
+    .month-header:hover { background: rgba(0,0,0,.03); }
+    body.dark-mode .month-header:hover { background: rgba(255,255,255,.04); }
+    .month-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .month-badge {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-weight: 700;
+    }
+    .month-badge.done { background: rgba(67,160,71,.15); color: #43A047; }
+    .month-badge.partial { background: rgba(0,136,204,.12); color: var(--primary); }
+    .month-progress-mini {
+      height: 3px;
+      background: var(--border);
+      border-radius: 9999px;
+      overflow: hidden;
+      width: 60px;
+    }
+    .month-progress-mini-fill {
+      height: 100%;
+      background: var(--primary);
+      border-radius: 9999px;
+      transition: width .4s;
+    }
+    .month-arrow {
+      font-size: 0.75rem;
+      color: var(--subtext);
+      transition: transform .25s;
+    }
+    .month-arrow.open { transform: rotate(180deg); }
+    .month-body { display: none; }
+    .month-body.open { display: block; }
+
+    /* ── Categoria dentro do mês ── */
+    .cat-group {
+      border-top: 1px solid var(--border);
+      padding: 10px 15px 6px;
+    }
+    .cat-group:first-child { border-top: none; }
+    .cat-label {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* ── Item de marco ── */
+    .milestone-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      transition: opacity .2s;
+      cursor: pointer;
+    }
+    .milestone-item:last-child { border-bottom: none; }
+    .milestone-item:hover { background: rgba(0,0,0,.02); border-radius: 6px; }
+    body.dark-mode .milestone-item:hover { background: rgba(255,255,255,.03); }
+    .milestone-item.is-key {
+      border-left: 3px solid var(--cat-color, var(--primary));
+      padding-left: 8px;
+      margin-left: -8px;
+    }
+    .milestone-item.completed {
+      opacity: .5;
+    }
+    .milestone-checkbox {
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+      line-height: 1;
+    }
+    .milestone-content { flex: 1; min-width: 0; }
+    .milestone-desc {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .milestone-item.is-key .milestone-desc { font-weight: 700; }
+    .milestone-item.completed .milestone-desc {
+      text-decoration: line-through;
+      color: var(--subtext);
+    }
+    .milestone-meta {
+      font-size: 0.68rem;
+      color: var(--subtext);
+      margin-top: 2px;
+    }
+    .milestone-completed-date {
+      font-size: 0.68rem;
+      color: var(--success);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .alert-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: rgba(255,179,0,.15);
+      color: #b87700;
+      border-radius: 6px;
+      padding: 2px 7px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+    body.dark-mode .alert-tag { color: #ffc107; background: rgba(255,193,7,.15); }
+    .notes-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: rgba(0,136,204,.1);
+      color: var(--primary);
+      border-radius: 6px;
+      padding: 2px 7px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      margin-top: 4px;
+      margin-left: 4px;
+    }
+    .milestone-empty {
+      font-size: 0.8rem;
+      color: var(--subtext);
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    /* ── Sinais de alerta ── */
+    .alert-list { list-style: none; padding: 0; margin: 0; }
+    .alert-list li {
+      font-size: 0.8rem;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 6px;
+    }
+    .alert-list li:last-child { border-bottom: none; }
+    .alert-section-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--subtext);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin: 10px 0 6px;
+    }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 20px;
+      width: 100%;
+      max-width: 360px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.3);
+    }
+    .modal-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .modal-desc {
+      font-size: 0.8rem;
+      color: var(--subtext);
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+    .modal-label {
+      font-size: 0.73rem;
+      font-weight: 700;
+      color: var(--subtext);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 4px;
+    }
+    .modal-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 0.82rem;
+      outline: none;
+      margin-bottom: 12px;
+      font-family: inherit;
+    }
+    .modal-input:focus { border-color: var(--primary); }
+    textarea.modal-input { resize: vertical; min-height: 70px; }
+    .modal-actions {
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+    .btn-cancel {
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: none;
+      color: var(--subtext);
+      font-size: 0.82rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn-save {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.82rem;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .btn-save:hover { opacity: .88; }
+    .btn-undo {
+      padding: 8px 16px;
+      border: 1px solid var(--danger);
+      border-radius: 8px;
+      background: none;
+      color: var(--danger);
+      font-size: 0.82rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* ── No results ── */
+    .no-results {
+      text-align: center;
+      color: var(--subtext);
+      font-size: 0.85rem;
+      padding: 30px 0;
+    }
+
+    /* ── Responsive ── */
+    @media (min-width: 768px) {
+      body { max-width: 820px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Modal de data/confirmação -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <div class="modal-title" id="modalTitle">📅 Quando o Matheus atingiu esse marco?</div>
+    <div class="modal-desc" id="modalDesc"></div>
+    <div class="modal-label">Data</div>
+    <input type="date" class="modal-input" id="modalDate">
+    <div class="modal-label">Observações (opcional)</div>
+    <textarea class="modal-input" id="modalNotes" placeholder="Ex: fez pela primeira vez no parque..."></textarea>
+    <div class="modal-actions" id="modalActions">
+      <button class="btn-cancel" id="modalCancel">Cancelar</button>
+      <button class="btn-save" id="modalSave">✅ Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<div class="page-header">
+  <a href="index.html" class="btn-home">🏠</a>
+  <h1>Marcos do Desenvolvimento 🧒</h1>
+  <div class="subtitle" id="subtitleAge">Matheus · carregando...</div>
+  <button class="btn-theme" id="btnTheme">🌙</button>
+</div>
+
+<!-- KPI Cards -->
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-label">Progresso Total</div>
+    <div class="kpi-value" id="kpiTotal">—</div>
+    <div class="kpi-progress-bar"><div class="kpi-progress-fill" id="kpiTotalBar" style="width:0%"></div></div>
+    <div class="kpi-sub" id="kpiTotalPct">0%</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Mês Atual</div>
+    <div class="kpi-value" id="kpiMes">—</div>
+    <div class="kpi-sub" id="kpiMesSub">—</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Próximo Marco</div>
+    <div class="kpi-value" id="kpiProximo" style="font-size:.8rem; line-height:1.3">—</div>
+    <div class="kpi-sub" id="kpiProximoSub">—</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Categoria Líder</div>
+    <div class="kpi-value" id="kpiLider">—</div>
+    <div class="kpi-sub" id="kpiLiderSub">—</div>
+  </div>
+</div>
+
+<!-- Seção Analítica -->
+<div class="section-collapse">
+  <div class="section-collapse-header" onclick="toggleSection(this)">
+    <span class="section-collapse-title">📊 Análise Detalhada</span>
+    <span class="section-collapse-arrow" id="arrowAnalytic">▼</span>
+  </div>
+  <div class="section-collapse-body" id="bodyAnalytic">
+    <div class="radar-wrap">
+      <canvas id="radarChart"></canvas>
+    </div>
+    <div class="analytic-kpis">
+      <div class="analytic-kpi">
+        <div class="ak-label">Marcos-Chave</div>
+        <div class="ak-value" id="akKey">—</div>
+      </div>
+      <div class="analytic-kpi">
+        <div class="ak-label">Timing Médio</div>
+        <div class="ak-value" id="akTiming">—</div>
+      </div>
+      <div class="analytic-kpi">
+        <div class="ak-label">Alertas Ativos</div>
+        <div class="ak-value" id="akAlertas">—</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Controls -->
+<div class="controls">
+  <div class="search-wrap">
+    <input type="text" class="search-input" id="searchInput" placeholder="Buscar marco... (ex: engatinhar, pinça, palavra)">
+    <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
+  </div>
+  <select class="cat-select" id="catFilter">
+    <option value="">Todas as categorias</option>
+    <option value="motor_grosso">🟢 Motor Grosso</option>
+    <option value="motor_fino">🔵 Motor Fino</option>
+    <option value="linguagem">🗣️ Linguagem</option>
+    <option value="social_emocional">😊 Social/Emocional</option>
+    <option value="cognitivo">🧠 Cognitivo</option>
+  </select>
+  <label class="toggle-wrap">
+    <input type="checkbox" id="toggleCompleted">
+    Mostrar concluídos
+  </label>
+</div>
+
+<!-- Accordion de meses -->
+<div id="accordionContainer"></div>
+
+<!-- Sinais de alerta -->
+<div class="section-collapse" id="alertSection">
+  <div class="section-collapse-header" onclick="toggleSection(this)">
+    <span class="section-collapse-title" id="alertSectionTitle">🚨 Sinais de Alerta — N meses</span>
+    <span class="section-collapse-arrow">▼</span>
+  </div>
+  <div class="section-collapse-body" id="bodyAlerts">
+    <div id="alertsContent"></div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════
+// DADOS ESTÁTICOS — Sinais de Alerta por Idade
+// ═══════════════════════════════════════════════════
+const alertsByAge = {
+  4: [
+    "Não acompanha objetos em movimento com os olhos",
+    "Não sorri para pessoas",
+    "Não leva as mãos à boca",
+    "Não sustenta a cabeça em tummy time",
+    "Não faz sons (arrulhos)",
+    "Perdeu habilidades que tinha antes"
+  ],
+  6: [
+    "Não tenta alcançar objetos",
+    "Não responde a sons ao redor",
+    "Não ri ou faz sons de guincho",
+    "Não rola em nenhuma direção (frente-costas ou costas-frente)",
+    "Parece muito rígido ou muito mole (hipotonia/hipertonia)",
+    "Não mostra afeto pelo cuidador",
+    "Perdeu habilidades que tinha antes"
+  ],
+  9: [
+    "Não senta com apoio",
+    "Não balbucia ('mama', 'baba')",
+    "Não responde ao próprio nome",
+    "Não reconhece pessoas familiares",
+    "Não olha para onde você aponta",
+    "Não transfere brinquedos de uma mão para outra",
+    "Não sustenta peso nas pernas com apoio",
+    "Perdeu habilidades que tinha antes"
+  ],
+  12: [
+    "Não engatinha (nem variante)",
+    "Não fica de pé com apoio",
+    "Não diz nenhuma palavra (nem 'mama'/'dada')",
+    "Não usa gestos (acenar, apontar, sacudir cabeça)",
+    "Não procura objetos que vê esconderem",
+    "Não aponta para coisas",
+    "Perdeu habilidades que tinha antes"
+  ],
+  15: [
+    "Não dá passos",
+    "Não aponta para mostrar coisas",
+    "Não imita ações simples",
+    "Não usa pelo menos 1 palavra além de mama/dada",
+    "Não segue instruções simples com gesto",
+    "Não sabe para que servem objetos comuns",
+    "Perdeu habilidades que tinha antes"
+  ],
+  18: [
+    "Não anda sozinho — avaliar urgente",
+    "Não aponta para mostrar coisas a outros",
+    "Não percebe quando cuidador sai ou volta",
+    "Tem menos de 3 palavras",
+    "Não segue instruções simples de 1 passo sem gesto",
+    "Não copia ações dos outros",
+    "Não usa objetos de forma funcional (copo, colher, telefone)",
+    "Não olha quando você aponta algo",
+    "Perdeu habilidades que tinha antes"
+  ]
+};
+
+const universalAlerts = [
+  "Regressão: Perda de habilidades já adquiridas — sempre investigar",
+  "Assimetria: Usa apenas um lado do corpo consistentemente",
+  "Hipotonia severa: Bebê muito mole, não sustenta peso",
+  "Hipertonia: Bebê muito rígido, pernas em tesoura",
+  "Ausência de contato visual consistente",
+  "Não responde a sons (possível perda auditiva)",
+  "Movimentos estereotipados repetitivos sem propósito"
+];
+
+// ═══════════════════════════════════════════════════
+// MAPEAMENTO DE CATEGORIAS
+// ═══════════════════════════════════════════════════
+const CAT_META = {
+  motor_grosso:    { emoji: '🟢', label: 'Motor Grosso',    color: '#43A047', css: '--cat-motor-grosso' },
+  motor_fino:      { emoji: '🔵', label: 'Motor Fino',      color: '#1976D2', css: '--cat-motor-fino' },
+  linguagem:       { emoji: '🗣️', label: 'Linguagem',       color: '#FF6D00', css: '--cat-linguagem' },
+  social_emocional:{ emoji: '😊', label: 'Social/Emocional', color: '#E91E63', css: '--cat-social-emocional' },
+  cognitivo:       { emoji: '🧠', label: 'Cognitivo',       color: '#9C27B0', css: '--cat-cognitivo' }
+};
+const CAT_ORDER = ['motor_grosso','motor_fino','linguagem','social_emocional','cognitivo'];
+
+// ═══════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════
+let allMilestones = [];
+let metadata = {};
+let currentAgeMonths = 4;
+let radarChart = null;
+
+// localStorage: { [id]: { completed, completedDate, notes } }
+function loadLocalState() {
+  try { return JSON.parse(localStorage.getItem('marcos_state') || '{}'); } catch { return {}; }
+}
+function saveLocalState(state) {
+  localStorage.setItem('marcos_state', JSON.stringify(state));
+}
+function getMilestoneState(id) {
+  const s = loadLocalState();
+  return s[id] || null;
+}
+function setMilestoneState(id, data) {
+  const s = loadLocalState();
+  s[id] = data;
+  saveLocalState(s);
+}
+function clearMilestoneState(id) {
+  const s = loadLocalState();
+  delete s[id];
+  saveLocalState(s);
+}
+
+// Merge JSON + localStorage → retorna cópia dos milestones com estado local aplicado
+function getMergedMilestones() {
+  const s = loadLocalState();
+  return allMilestones.map(m => {
+    if (s[m.id]) return { ...m, ...s[m.id] };
+    return { ...m };
+  });
+}
+
+// ═══════════════════════════════════════════════════
+// UTILS
+// ═══════════════════════════════════════════════════
+function calcAgeMonths(birthDate) {
+  const birth = new Date(birthDate + 'T12:00:00');
+  const today = new Date();
+  let months = (today.getFullYear() - birth.getFullYear()) * 12 + (today.getMonth() - birth.getMonth());
+  if (today.getDate() < birth.getDate()) months--;
+  return Math.max(4, Math.min(18, months));
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  const d = new Date(dateStr + 'T12:00:00');
+  return d.toLocaleDateString('pt-BR');
+}
+
+function todayISO() {
+  return new Date().toISOString().split('T')[0];
+}
+
+function debounce(fn, ms) {
+  let t;
+  return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+
+// ═══════════════════════════════════════════════════
+// KPI CALCULATIONS
+// ═══════════════════════════════════════════════════
+function calcKPIs(milestones) {
+  const total = milestones.length;
+  const completed = milestones.filter(m => m.completed).length;
+  const pct = total ? Math.round(completed / total * 100) : 0;
+
+  // Mês atual
+  const monthMs = milestones.filter(m => m.month === currentAgeMonths);
+  const monthCompleted = monthMs.filter(m => m.completed).length;
+
+  // Próximo marco (não completado do mês atual, priorizando key milestones)
+  let nextMs = milestones.filter(m => !m.completed && m.month === currentAgeMonths);
+  nextMs.sort((a, b) => (b.isKeyMilestone ? 1 : 0) - (a.isKeyMilestone ? 1 : 0));
+  const nextMilestone = nextMs[0] || milestones.filter(m => !m.completed)[0] || null;
+
+  // Categoria Líder
+  let leaderCat = null, leaderPct = -1;
+  for (const cat of CAT_ORDER) {
+    const catMs = milestones.filter(m => m.category === cat);
+    if (!catMs.length) continue;
+    const catComp = catMs.filter(m => m.completed).length;
+    const catPct = catComp / catMs.length * 100;
+    if (catPct > leaderPct) { leaderPct = catPct; leaderCat = cat; }
+  }
+
+  return { total, completed, pct, monthMs, monthCompleted, nextMilestone, leaderCat, leaderPct };
+}
+
+function renderKPIs(milestones) {
+  const { total, completed, pct, monthMs, monthCompleted, nextMilestone, leaderCat, leaderPct } = calcKPIs(milestones);
+
+  document.getElementById('kpiTotal').textContent = `${completed}/${total}`;
+  document.getElementById('kpiTotalBar').style.width = pct + '%';
+  document.getElementById('kpiTotalPct').textContent = pct + '%';
+
+  document.getElementById('kpiMes').textContent = `${monthCompleted}/${monthMs.length}`;
+  document.getElementById('kpiMesSub').textContent = `${currentAgeMonths} meses`;
+
+  if (nextMilestone) {
+    const desc = nextMilestone.description;
+    const short = desc.length > 40 ? desc.slice(0, 38) + '…' : desc;
+    document.getElementById('kpiProximo').textContent = CAT_META[nextMilestone.category].emoji + ' ' + short;
+    document.getElementById('kpiProximoSub').textContent = `${nextMilestone.month}m — ${nextMilestone.avgAge}`;
+  } else {
+    document.getElementById('kpiProximo').textContent = '🎉 Todos concluídos!';
+    document.getElementById('kpiProximoSub').textContent = '';
+  }
+
+  if (leaderCat) {
+    document.getElementById('kpiLider').textContent = CAT_META[leaderCat].emoji + ' ' + CAT_META[leaderCat].label;
+    document.getElementById('kpiLiderSub').textContent = Math.round(leaderPct) + '% concluídos';
+  } else {
+    document.getElementById('kpiLider').textContent = '—';
+    document.getElementById('kpiLiderSub').textContent = 'Sem dados';
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// ANALYTIC KPIs + RADAR
+// ═══════════════════════════════════════════════════
+function renderAnalytics(milestones) {
+  // Marcos-chave
+  const keyMs = milestones.filter(m => m.isKeyMilestone);
+  const keyComp = keyMs.filter(m => m.completed).length;
+  document.getElementById('akKey').textContent = `${keyComp}/${keyMs.length}`;
+
+  // Timing médio
+  const completedWithDate = milestones.filter(m => m.completed && m.completedDate);
+  if (completedWithDate.length > 0) {
+    const diffs = completedWithDate.map(m => {
+      const avgMonths = parseFloat(m.avgAge);
+      if (isNaN(avgMonths)) return null;
+      const birth = new Date(metadata.birthDate + 'T12:00:00');
+      const expected = new Date(birth);
+      expected.setMonth(expected.getMonth() + avgMonths);
+      const done = new Date(m.completedDate + 'T12:00:00');
+      return Math.round((done - expected) / (1000*60*60*24));
+    }).filter(d => d !== null);
+    if (diffs.length) {
+      const avg = Math.round(diffs.reduce((a,b)=>a+b,0)/diffs.length);
+      document.getElementById('akTiming').textContent = avg === 0 ? 'Na média' : (avg > 0 ? `+${avg}d` : `${avg}d`);
+    } else {
+      document.getElementById('akTiming').textContent = 'Sem dados';
+    }
+  } else {
+    document.getElementById('akTiming').textContent = 'Sem dados';
+  }
+
+  // Alertas ativos (com alertNote, mês ≤ idade atual, não completados)
+  const activeAlerts = milestones.filter(m => m.alertNote && !m.completed && m.month <= currentAgeMonths);
+  document.getElementById('akAlertas').textContent = activeAlerts.length || '0';
+  document.getElementById('akAlertas').style.color = activeAlerts.length > 0 ? '#E53935' : '';
+
+  // Radar
+  const relevantMs = milestones.filter(m => m.month <= currentAgeMonths);
+  const radarData = CAT_ORDER.map(cat => {
+    const catMs = relevantMs.filter(m => m.category === cat);
+    if (!catMs.length) return 0;
+    return Math.round(catMs.filter(m => m.completed).length / catMs.length * 100);
+  });
+
+  const isDark = document.body.classList.contains('dark-mode');
+  const textColor = isDark ? '#f7fafc' : '#0A1928';
+  const gridColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)';
+
+  const radarConfig = {
+    type: 'radar',
+    data: {
+      labels: ['Motor Grosso','Motor Fino','Linguagem','Social/Emocional','Cognitivo'],
+      datasets: [
+        {
+          label: 'Matheus',
+          data: radarData,
+          backgroundColor: 'rgba(0,136,204,0.2)',
+          borderColor: '#0088CC',
+          pointBackgroundColor: '#0088CC',
+          borderWidth: 2,
+          pointRadius: 4,
+        },
+        {
+          label: 'Referência 75%',
+          data: [75,75,75,75,75],
+          backgroundColor: 'rgba(67,160,71,0.07)',
+          borderColor: 'rgba(67,160,71,0.6)',
+          borderDash: [6,4],
+          borderWidth: 1.5,
+          pointRadius: 0,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: { color: textColor, font: { size: 11 }, boxWidth: 12 }
+        }
+      },
+      scales: {
+        r: {
+          min: 0, max: 100,
+          ticks: { stepSize: 25, color: textColor, backdropColor: 'transparent', font: { size: 9 } },
+          grid: { color: gridColor },
+          angleLines: { color: gridColor },
+          pointLabels: { color: textColor, font: { size: 10 } }
+        }
+      }
+    }
+  };
+
+  if (radarChart) { radarChart.destroy(); }
+  const ctx = document.getElementById('radarChart').getContext('2d');
+  radarChart = new Chart(ctx, radarConfig);
+}
+
+// ═══════════════════════════════════════════════════
+// ACCORDION RENDERING
+// ═══════════════════════════════════════════════════
+function getCurrentFilters() {
+  const search = document.getElementById('searchInput').value.trim().toLowerCase();
+  const cat = document.getElementById('catFilter').value;
+  const showCompleted = document.getElementById('toggleCompleted').checked;
+  return { search, cat, showCompleted };
+}
+
+function renderAccordion() {
+  const milestones = getMergedMilestones();
+  const { search, cat, showCompleted } = getCurrentFilters();
+  const container = document.getElementById('accordionContainer');
+  container.innerHTML = '';
+  let anyVisible = false;
+
+  const months = [...new Set(allMilestones.map(m => m.month))].sort((a,b)=>a-b);
+
+  for (const month of months) {
+    let monthMs = milestones.filter(m => m.month === month);
+
+    // Filtro categoria
+    if (cat) monthMs = monthMs.filter(m => m.category === cat);
+
+    // Filtro busca
+    if (search) monthMs = monthMs.filter(m => m.description.toLowerCase().includes(search));
+
+    // Contagem para header (antes do toggle de completados)
+    const monthCompleted = monthMs.filter(m => m.completed).length;
+    const monthTotal = monthMs.length;
+
+    // Aplicar toggle de completados na lista visível
+    const visibleMs = showCompleted ? monthMs : monthMs.filter(m => !m.completed);
+
+    if (monthTotal === 0) continue; // mês sem marcos nessa categoria/busca
+    anyVisible = true;
+
+    // Estado padrão do accordion
+    const hasSearch = !!search;
+    const isPast = month <= currentAgeMonths;
+    const isCurrent = month === currentAgeMonths;
+    const allDone = monthCompleted === monthTotal;
+    const hasPending = monthCompleted < monthTotal;
+    const isOpen = hasSearch || isCurrent || (isPast && hasPending && !allDone);
+
+    const group = document.createElement('div');
+    group.className = 'month-group';
+    group.dataset.month = month;
+
+    // Header badge
+    let badgeHtml = '';
+    if (allDone && monthTotal > 0) {
+      badgeHtml = `<span class="month-badge done">✅ ${monthCompleted}/${monthTotal}</span>`;
+    } else if (monthCompleted > 0) {
+      const pct = Math.round(monthCompleted / monthTotal * 100);
+      badgeHtml = `<span class="month-badge partial">${monthCompleted}/${monthTotal}</span>
+        <div class="month-progress-mini"><div class="month-progress-mini-fill" style="width:${pct}%"></div></div>`;
+    } else {
+      badgeHtml = `<span style="font-size:.7rem;color:var(--subtext)">${monthTotal} marcos</span>`;
+    }
+
+    group.innerHTML = `
+      <div class="month-header" onclick="toggleMonth(this)">
+        <div class="month-title">
+          ${month === currentAgeMonths ? '📍 ' : ''}${month} meses
+          ${badgeHtml}
+        </div>
+        <span class="month-arrow ${isOpen ? 'open' : ''}">▼</span>
+      </div>
+      <div class="month-body ${isOpen ? 'open' : ''}" id="monthBody-${month}"></div>
+    `;
+    container.appendChild(group);
+
+    // Preencher corpo do mês por categoria
+    const body = document.getElementById(`monthBody-${month}`);
+
+    for (const catKey of CAT_ORDER) {
+      const catMs = visibleMs.filter(m => m.category === catKey);
+      if (catMs.length === 0) continue;
+
+      const meta = CAT_META[catKey];
+      const catDiv = document.createElement('div');
+      catDiv.className = 'cat-group';
+
+      let itemsHtml = catMs.map(m => buildMilestoneHTML(m)).join('');
+
+      catDiv.innerHTML = `
+        <div class="cat-label" style="color:${meta.color}">${meta.emoji} ${meta.label}</div>
+        ${itemsHtml}
+      `;
+      body.appendChild(catDiv);
+    }
+
+    // Vazio depois de filtrar
+    if (body.children.length === 0) {
+      body.innerHTML = '<div class="milestone-empty">Nenhum marco para exibir neste mês.</div>';
+    }
+  }
+
+  if (!anyVisible) {
+    container.innerHTML = '<div class="no-results">🔍 Nenhum marco encontrado para os filtros selecionados.</div>';
+  }
+}
+
+function buildMilestoneHTML(m) {
+  const meta = CAT_META[m.category];
+  const checkbox = m.completed ? '✅' : '☐';
+  const keyClass = m.isKeyMilestone ? 'is-key' : '';
+  const completedClass = m.completed ? 'completed' : '';
+  const catColor = meta.color;
+
+  let alertHtml = '';
+  if (m.alertNote) alertHtml = `<div><span class="alert-tag">⚠️ ${m.alertNote}</span></div>`;
+
+  let notesHtml = '';
+  if (m.notes) notesHtml = `<span class="notes-tag">📝 ${m.notes}</span>`;
+
+  let completedDateHtml = '';
+  if (m.completed && m.completedDate) {
+    completedDateHtml = `<div class="milestone-completed-date">✅ Atingido em ${formatDate(m.completedDate)}</div>`;
+  }
+
+  const style = m.isKeyMilestone ? `style="--cat-color:${catColor}"` : '';
+
+  return `<div class="milestone-item ${keyClass} ${completedClass}" 
+    data-id="${m.id}" 
+    data-completed="${m.completed}" 
+    ${style}
+    onclick="handleMilestoneClick('${m.id}', ${m.completed})">
+    <div class="milestone-checkbox">${checkbox}</div>
+    <div class="milestone-content">
+      <div class="milestone-desc">${m.description}</div>
+      <div class="milestone-meta">Idade média: ${m.avgAge} · Faixa: ${m.normalRange}</div>
+      ${completedDateHtml}
+      ${alertHtml}
+      ${notesHtml}
+    </div>
+  </div>`;
+}
+
+// ═══════════════════════════════════════════════════
+// SINAIS DE ALERTA
+// ═══════════════════════════════════════════════════
+function renderAlerts() {
+  const ageKeys = [4, 6, 9, 12, 15, 18];
+  const relevantAge = ageKeys.filter(a => a <= currentAgeMonths).pop() || 4;
+
+  document.getElementById('alertSectionTitle').textContent = `🚨 Sinais de Alerta — ${relevantAge} meses`;
+
+  const alerts = alertsByAge[relevantAge] || [];
+  const content = document.getElementById('alertsContent');
+
+  let html = `<div class="alert-section-title">Para ${relevantAge} meses</div>
+    <ul class="alert-list">
+      ${alerts.map(a => `<li><span>❌</span><span>${a}</span></li>`).join('')}
+    </ul>
+    <div class="alert-section-title" style="margin-top:14px">🔴 Alertas Universais (qualquer idade)</div>
+    <ul class="alert-list">
+      ${universalAlerts.map(a => `<li><span>🔴</span><span>${a}</span></li>`).join('')}
+    </ul>`;
+
+  content.innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════════
+// TOGGLE / INTERAÇÕES
+// ═══════════════════════════════════════════════════
+function toggleMonth(header) {
+  const arrow = header.querySelector('.month-arrow');
+  const monthGroup = header.closest('.month-group');
+  const month = monthGroup.dataset.month;
+  const body = document.getElementById(`monthBody-${month}`);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  arrow.classList.toggle('open', !isOpen);
+}
+
+function toggleSection(header) {
+  const arrow = header.querySelector('.section-collapse-arrow');
+  const parent = header.closest('.section-collapse');
+  const body = parent.querySelector('.section-collapse-body');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  arrow.classList.toggle('open', !isOpen);
+  // Renderizar radar ao abrir
+  if (!isOpen && body.querySelector('#radarChart')) {
+    renderAnalytics(getMergedMilestones());
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// MODAL — Marcar / Desmarcar Marco
+// ═══════════════════════════════════════════════════
+let _pendingId = null;
+let _pendingUndo = false;
+
+function handleMilestoneClick(id, isCompleted) {
+  _pendingId = id;
+  const m = getMergedMilestones().find(m => m.id === id);
+  if (!m) return;
+
+  const modal = document.getElementById('modal');
+  document.getElementById('modalDesc').textContent = m.description;
+
+  if (isCompleted) {
+    // Modo: desfazer
+    _pendingUndo = true;
+    document.getElementById('modalTitle').textContent = '↩️ Desfazer este marco?';
+    document.getElementById('modalDate').parentElement.style.display = 'none';
+    document.getElementById('modalNotes').parentElement.previousElementSibling.style.display = 'none';
+    document.getElementById('modalNotes').parentElement.style.display = 'none';
+    // Ajustar botões
+    document.getElementById('modalActions').innerHTML = `
+      <button class="btn-cancel" id="modalCancel" onclick="closeModal()">Cancelar</button>
+      <button class="btn-undo" id="modalUndo" onclick="undoMilestone()">↩️ Desfazer</button>
+    `;
+  } else {
+    // Modo: marcar como concluído
+    _pendingUndo = false;
+    document.getElementById('modalTitle').textContent = '📅 Quando o Matheus atingiu esse marco?';
+    // Restaurar visibilidade
+    const inputs = modal.querySelectorAll('.modal-label, .modal-input');
+    inputs.forEach(el => el.parentElement && (el.parentElement.style.display = ''));
+    inputs.forEach(el => el.style.display = '');
+    document.getElementById('modalDate').style.display = '';
+    document.getElementById('modalNotes').style.display = '';
+    document.getElementById('modalDate').previousElementSibling.style.display = '';
+    document.getElementById('modalNotes').previousElementSibling.style.display = '';
+    document.getElementById('modalDate').value = todayISO();
+    document.getElementById('modalNotes').value = m.notes || '';
+    document.getElementById('modalActions').innerHTML = `
+      <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+      <button class="btn-save" onclick="saveMilestone()">✅ Salvar</button>
+    `;
+  }
+
+  modal.classList.add('open');
+}
+
+function saveMilestone() {
+  if (!_pendingId) return;
+  const date = document.getElementById('modalDate').value || todayISO();
+  const notes = document.getElementById('modalNotes').value.trim() || null;
+  setMilestoneState(_pendingId, { completed: true, completedDate: date, notes });
+  closeModal();
+  refreshAll();
+}
+
+function undoMilestone() {
+  if (!_pendingId) return;
+  clearMilestoneState(_pendingId);
+  closeModal();
+  refreshAll();
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  _pendingId = null;
+  // Restaurar modal para estado padrão
+  document.getElementById('modalTitle').textContent = '📅 Quando o Matheus atingiu esse marco?';
+  const labels = document.querySelectorAll('.modal-label');
+  const inputs = document.querySelectorAll('.modal-input');
+  labels.forEach(el => el.style.display = '');
+  inputs.forEach(el => el.style.display = '');
+  document.getElementById('modalActions').innerHTML = `
+    <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+    <button class="btn-save" onclick="saveMilestone()">✅ Salvar</button>
+  `;
+}
+
+// Fechar modal ao clicar fora
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function refreshAll() {
+  const merged = getMergedMilestones();
+  renderKPIs(merged);
+  renderAccordion();
+  // Radar só se aberto
+  const bodyAnalytic = document.getElementById('bodyAnalytic');
+  if (bodyAnalytic.classList.contains('open')) renderAnalytics(merged);
+}
+
+// ═══════════════════════════════════════════════════
+// SEARCH / FILTERS
+// ═══════════════════════════════════════════════════
+const debouncedSearch = debounce(() => {
+  const val = document.getElementById('searchInput').value;
+  document.getElementById('searchClear').style.display = val ? 'block' : 'none';
+  renderAccordion();
+}, 200);
+
+document.getElementById('searchInput').addEventListener('input', debouncedSearch);
+document.getElementById('catFilter').addEventListener('change', () => renderAccordion());
+document.getElementById('toggleCompleted').addEventListener('change', () => renderAccordion());
+
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchClear').style.display = 'none';
+  renderAccordion();
+}
+
+// ═══════════════════════════════════════════════════
+// TEMA
+// ═══════════════════════════════════════════════════
+function applyTheme(dark) {
+  document.body.classList.toggle('dark-mode', dark);
+  document.getElementById('btnTheme').textContent = dark ? '☀️' : '🌙';
+  // Recriar radar se aberto
+  const bodyAnalytic = document.getElementById('bodyAnalytic');
+  if (bodyAnalytic.classList.contains('open')) renderAnalytics(getMergedMilestones());
+}
+
+document.getElementById('btnTheme').addEventListener('click', () => {
+  const isDark = document.body.classList.contains('dark-mode');
+  localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  applyTheme(!isDark);
+});
+
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+async function init() {
+  // Tema
+  const savedTheme = localStorage.getItem('theme');
+  applyTheme(savedTheme === 'dark');
+
+  // Fetch JSON
+  try {
+    const resp = await fetch(`data/marcos_desenvolvimento.json?v=${Date.now()}`);
+    if (!resp.ok) throw new Error('Falha ao carregar dados');
+    const data = await resp.json();
+    metadata = data.metadata;
+    allMilestones = data.milestones;
+  } catch (e) {
+    document.getElementById('accordionContainer').innerHTML =
+      '<div class="no-results">⚠️ Não foi possível carregar os marcos. Verifique o arquivo JSON.</div>';
+    return;
+  }
+
+  // Calcular idade
+  currentAgeMonths = calcAgeMonths(metadata.birthDate);
+  document.getElementById('subtitleAge').textContent = `Matheus · ${currentAgeMonths} meses`;
+
+  // Renderizar
+  const merged = getMergedMilestones();
+  renderKPIs(merged);
+  renderAccordion();
+  renderAlerts();
+}
+
+init();
+</script>
+</body>
+</html>
