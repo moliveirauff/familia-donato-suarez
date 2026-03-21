@@ -53,50 +53,19 @@
     }
 
     /* ── Header ── */
-    .page-header {
-      position: relative;
-      text-align: center;
-      margin: 8px 0 20px;
-    }
-    .btn-home {
-      position: absolute;
-      left: 0; top: 50%;
-      transform: translateY(-50%);
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 6px 10px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: var(--shadow);
-      transition: opacity .2s;
-    }
-    .btn-home:hover { opacity: .75; }
-    .btn-theme {
-      position: absolute;
-      right: 0; top: 50%;
-      transform: translateY(-50%);
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 6px 10px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      box-shadow: var(--shadow);
-      transition: opacity .2s;
-    }
-    .btn-theme:hover { opacity: .75; }
     h1 {
       font-size: 1.45rem;
       font-weight: 800;
-      margin: 0 50px 4px;
+      margin: 10px 44px 4px;
       color: var(--text);
+      text-align: center;
     }
     .subtitle {
       font-size: 0.78rem;
       color: var(--subtext);
       font-weight: 600;
+      text-align: center;
+      margin-bottom: 16px;
     }
 
     /* ── KPIs ── */
@@ -580,12 +549,10 @@
 </div>
 
 <!-- Header -->
-<div class="page-header">
-  <a href="index.html" class="btn-home">🏠</a>
-  <h1>Marcos do Desenvolvimento 🧒</h1>
-  <div class="subtitle" id="subtitleAge">Matheus · carregando...</div>
-  <button class="btn-theme" id="btnTheme">🌙</button>
-</div>
+<button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+<a href="index.html" class="nav-link">← Voltar</a>
+<h1>Marcos do Desenvolvimento</h1>
+<div class="subtitle" id="subtitleAge">Matheus · carregando...</div>
 
 <!-- KPI Cards -->
 <div class="kpi-grid">
@@ -1288,17 +1255,17 @@ function clearSearch() {
 // ═══════════════════════════════════════════════════
 function applyTheme(dark) {
   document.body.classList.toggle('dark-mode', dark);
-  document.getElementById('btnTheme').textContent = dark ? '☀️' : '🌙';
+  document.getElementById('theme-toggle').textContent = dark ? '☀️' : '🌙';
   // Recriar radar se aberto
   const bodyAnalytic = document.getElementById('bodyAnalytic');
   if (bodyAnalytic.classList.contains('open')) renderAnalytics(getMergedMilestones());
 }
 
-document.getElementById('btnTheme').addEventListener('click', () => {
+function toggleTheme() {
   const isDark = document.body.classList.contains('dark-mode');
   localStorage.setItem('theme', isDark ? 'light' : 'dark');
   applyTheme(!isDark);
-});
+}
 
 // ═══════════════════════════════════════════════════
 // INIT

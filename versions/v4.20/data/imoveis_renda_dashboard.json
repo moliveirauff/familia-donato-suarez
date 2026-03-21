@@ -1,0 +1,83 @@
+{
+  "kpis": {
+    "num_imoveis": 1,
+    "valor_mercado_atual": 543493.16,
+    "alugueis_12m": 21850.86,
+    "dy_12m": 4.02,
+    "rentabilidade_total": 19.62
+  },
+  "series": {
+    "valor_por_ano": [
+      {
+        "ano": 2021,
+        "valor": 141688.42
+      },
+      {
+        "ano": 2022,
+        "valor": 158653.21
+      },
+      {
+        "ano": 2023,
+        "valor": 514950.64
+      },
+      {
+        "ano": 2024,
+        "valor": 527446.31
+      },
+      {
+        "ano": 2025,
+        "valor": 540245.2
+      },
+      {
+        "ano": 2026,
+        "valor": 543493.16
+      }
+    ],
+    "alugueis_por_ano": [
+      {
+        "ano": 2024,
+        "total": 26127.88
+      },
+      {
+        "ano": 2025,
+        "total": 21850.86
+      },
+      {
+        "ano": 2026,
+        "total": 4754.94
+      }
+    ],
+    "rentabilidade_acumulada": [
+      {
+        "ano": 2021,
+        "percentual": -71.57
+      },
+      {
+        "ano": 2022,
+        "percentual": -68.17
+      },
+      {
+        "ano": 2023,
+        "percentual": 3.32
+      },
+      {
+        "ano": 2024,
+        "percentual": 11.06
+      },
+      {
+        "ano": 2025,
+        "percentual": 18.02
+      },
+      {
+        "ano": 2026,
+        "percentual": 19.62
+      }
+    ]
+  },
+  "metadata": {
+    "data_geracao": "2026-03-21 04:11:17",
+    "total_investido": 498424.36,
+    "total_alugueis": 52733.68,
+    "taxa_valorizacao_mensal": 0.002
+  }
+}
