@@ -139,12 +139,15 @@ def main():
         except Exception:
             pass
 
+        # Salvar preço real de mercado (lastPrice ou mid) — campo principal para dashboard US
+        o["preco_mercado"] = round(mkt, 2) if mkt else None
+
         # Sempre calcular IV via bisection — nunca usar impliedVolatility do yfinance (lixo fora do horário)
         if mkt and mkt > 0:
             iv = calc_iv(S, strike, T, r_tbill, mkt, tipo)
         teorico = round(bs(S, strike, T, r_tbill, iv, tipo), 2) if iv else None
         o["iv_calculada"] = round(iv, 4) if iv else None
-        o["preco_teorico"] = teorico
+        o["preco_teorico"] = teorico  # mantido como referência, não exibido no dashboard
 
     with open(f"{REPO}/data/opcoes_br.json", "w") as f:
         json.dump(br_json, f, ensure_ascii=False, indent=2)
@@ -164,13 +167,16 @@ def main():
         strike  = o["strike"]
         tipo    = o["tipo_contrato"]
         itm     = bool(S and ((tipo == "CALL" and S > strike) or (tipo == "PUT" and S < strike)))
+        # Para US: usar preco_mercado (real). Para BR: usar preco_teorico (BS).
+        preco_exibir = o.get("preco_mercado") if mercado == "US" else o.get("preco_teorico")
         resumo.append({
             "mercado": mercado, "acao": acao,
             "ticker": o.get("ticker_opcao", o.get("ticker")),
             "tipo": tipo, "strike": strike, "spot": S,
             "vencimento": o["vencimento"], "dias": (venc - today).days,
             "abertura": o["preco_opcao_abertura"],
-            "teorico": o.get("preco_teorico"),
+            "preco_atual": preco_exibir,   # real (US) ou teórico BS (BR)
+            "teorico": o.get("preco_teorico"),  # sempre presente para referência
             "itm": itm, "quantidade": o["quantidade"],
         })
 
