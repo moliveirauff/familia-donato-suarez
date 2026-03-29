@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "1.0",
-    "last_updated": "2026-03-14T10:00:00",
-    "total_consultas": 2
+    "last_updated": "2026-03-29T21:00:00",
+    "total_consultas": 3
   },
   "consultas": [
     {
@@ -21,8 +21,14 @@
       "motivo": "Consulta de rotina (puericultura 4 meses). Pais relatam cólicas à noite e refluxo leve após mamadas.",
       "avaliacao": "Bom estado geral. Fontanela normotensa. Abdome sem distensão. Marcos do desenvolvimento adequados para idade — sustenta cabeça, segue objetos, sorriso social presente.",
       "diagnosticos": [
-        { "nome": "Cólica do lactente", "status": "confirmado" },
-        { "nome": "Refluxo gastroesofágico fisiológico", "status": "suspeito" }
+        {
+          "nome": "Cólica do lactente",
+          "status": "confirmado"
+        },
+        {
+          "nome": "Refluxo gastroesofágico fisiológico",
+          "status": "suspeito"
+        }
       ],
       "conduta": {
         "medicamentos": [
@@ -76,8 +82,14 @@
       "motivo": "Puericultura 6 meses. Dúvidas sobre introdução alimentar. Cólicas resolveram há ~3 semanas.",
       "avaliacao": "Crescimento adequado (p50-p75 peso, p50 estatura). Sentando com apoio. Início de dentição (incisivos inferiores). Sem sinais de refluxo patológico.",
       "diagnosticos": [
-        { "nome": "Refluxo gastroesofágico fisiológico", "status": "descartado" },
-        { "nome": "Desenvolvimento neuropsicomotor adequado", "status": "confirmado" }
+        {
+          "nome": "Refluxo gastroesofágico fisiológico",
+          "status": "descartado"
+        },
+        {
+          "nome": "Desenvolvimento neuropsicomotor adequado",
+          "status": "confirmado"
+        }
       ],
       "conduta": {
         "medicamentos": [
@@ -117,6 +129,165 @@
       "alertas": [],
       "notas_livres": "Família animada com IA. Fernanda perguntou sobre BLW. Orientação detalhada fornecida.",
       "transcript_file": null
+    },
+    {
+      "identificacao": {
+        "data": "2026-02-26",
+        "especialidade": "Pediatria",
+        "medico": "Dra. Alana Benevides Kohn",
+        "crm": "52.86364-0",
+        "local": "Consultório Dra. Alana"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "5 meses e 8 dias",
+        "idade_corrigida_texto": "4 meses e 8 dias (prematuro 33 semanas)",
+        "peso_kg": 7.6,
+        "altura_cm": 68.5,
+        "perimetro_cefalico_cm": null
+      },
+      "motivo": "Puericultura 5 meses. Acompanhamento de refluxo/GI, APLV (Neokate + espessante), desenvolvimento motor e sono.",
+      "avaliacao": "Excelente estado geral. Desenvolvimento muito acima do esperado para idade corrigida — está no nível de 5 meses cronológicos mesmo com 33 semanas de prematuridade. Peso e comprimento na curva (acima do P50 corrigindo a idade). Vira de bruços sozinho desde ~faltando 1 dia para 5 meses. Hipotonia leve compatível com prematuridade — sem indicação de fisioterapia no momento, apenas estimulação domiciliar. Pele sensível — assadura e miliária presentes. Plagiocefalia leve (amassado posterior) — estagnação leve desde última consulta; orientação de reposicionamento. Orelhas sem sinais de otite. Dra. Alana liberou saídas sociais (shopping, churrasco, crianças) — não precisa mais de bolha.",
+      "diagnosticos": [
+        {
+          "nome": "APLV (Alergia à Proteína do Leite de Vaca)",
+          "status": "confirmado — em tratamento com Neokate"
+        },
+        {
+          "nome": "Refluxo gastroesofágico com esofagite ácida",
+          "status": "em tratamento — esomeprazol"
+        },
+        {
+          "nome": "Hipotonia leve (prematuridade)",
+          "status": "monitorado — sem fisioterapia por ora"
+        },
+        {
+          "nome": "Plagiocefalia posicional leve",
+          "status": "monitorado — reposicionamento"
+        },
+        {
+          "nome": "Miliária / assadura",
+          "status": "em tratamento — Cetrilan + Amide SOS"
+        },
+        {
+          "nome": "Desenvolvimento neuropsicomotor",
+          "status": "muito bom — acima do esperado para idade corrigida"
+        }
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "Dexfer Gotas (ferripolimaltose)",
+            "dose": "3 gotas",
+            "frequencia": "dias alternados",
+            "duracao": "contínuo",
+            "motivo": "Suplementação de ferro — dose aumentada de 2 para 3 gotas nesta consulta",
+            "observacao": "Confirmado pela Eurofarma: sem derivados de leite, seguro para APLV"
+          },
+          {
+            "nome": "Growvit solução",
+            "dose": "6 gotas",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Suplementação vitamínica (contém vitamina D)"
+          },
+          {
+            "nome": "Vitamina D 200 UI/gt",
+            "dose": "1 gota",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Suplementação vitamina D"
+          },
+          {
+            "nome": "Nan Care",
+            "dose": "5 gotas",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Suplementação nutricional"
+          },
+          {
+            "nome": "Esomeprazol 10mg (manipulado Farmacopa)",
+            "dose": "10 gotas (= 10mg em 10 gotas)",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Refluxo — dose mantida. Médica optou por não aumentar (estava em dose máxima antes); reavaliar se piorar clínica — ajuste para 15 gotas",
+            "observacao": "Mecanismo: reduz acidez do leite golfado, não o volume de golfada nem fecha esfíncter"
+          },
+          {
+            "nome": "Paracetamol 200mg/mL",
+            "dose": "7 gotas",
+            "frequencia": "a cada 6/6h SOS",
+            "duracao": "SOS",
+            "motivo": "Febre / dor"
+          },
+          {
+            "nome": "Amide Creme",
+            "dose": "aplicar no tronco",
+            "frequencia": "SOS",
+            "duracao": "SOS",
+            "motivo": "Brotoeja / miliária — não comprar, usar SOS quando necessário"
+          },
+          {
+            "nome": "Cetrilan",
+            "dose": "quantidade adequada",
+            "frequencia": "após cada troca de fralda",
+            "duracao": "contínuo",
+            "motivo": "Barreira protetora — pele sensível, assadura"
+          }
+        ],
+        "dieta": {
+          "formula": "Neokate",
+          "preparo": "120ml água + 4 colheres Neokate + espessante (Neo Spoon) — rende 150ml",
+          "volume_mamadeira": "150ml",
+          "volume_diario_media": "650-800ml (chegou a 900ml em Teresópolis)",
+          "observacao": "Mantido Neokate + espessante. Próxima consulta: avaliar troca de fórmula nos 6 meses"
+        },
+        "vacinas_aplicadas": [
+          {
+            "nome": "Meningococo B",
+            "data": "2026-02-26",
+            "observacao": "5 meses — dose de reforço"
+          }
+        ],
+        "vacinas_programadas": [
+          {
+            "nome": "Rotavírus + Pneumo + Hexa",
+            "data_prevista": "2026-03-24",
+            "observacao": "A partir do dia 24/03 — tomar no mesmo dia"
+          },
+          {
+            "nome": "COVID + Gripe",
+            "data_prevista": "2026-04-08",
+            "observacao": "~15 dias após a rodada de 24/03. Gripe disponível no particular. COVID no SUS."
+          }
+        ],
+        "orientacoes": [
+          "Estimular postura sentada: não ficar deitado no corpo, ficar sentadinho virado para frente no colo",
+          "Exercício de gangorra: dar a mão e deixar ele fazer força para sentar (estimula abdômen)",
+          "Daqui a 15 dias: botar sentado na mão (apoio de mão) para sentar firme",
+          "Cadeirinha do carro: ajustar para posição mais sentada (cadeira 360°)",
+          "Berço: avaliar cama montessoriana — ele está ficando apertado, braço prendendo nas grades",
+          "Pele: trocar para fralda maior (está ficando vermelho — fralda apertada)",
+          "Pele: Cetrilan a cada troca. Amide SOS para brotoeja",
+          "Plagiocefalia: manter o máximo possível encostado no lado menos amassado",
+          "Sono: pode dormir de bruços e de lado — tônus suficiente desde que vira sozinho",
+          "Exposição solar: não necessária para vitamina D (suplementado), mas benéfica para olhos; sol da manhã ou final de tarde, sem neura",
+          "Piscina doméstica (piscininha de plástico): liberada já",
+          "Saídas sociais: liberadas (shopping, churrascos, crianças) — evitar crianças doentes",
+          "Próxima consulta: introdução alimentar — começar a conversar. Previsão 6 meses e meio (corrigido). Ideal resolver GI e tirar esomeprazol antes de iniciar"
+        ]
+      },
+      "proxima_consulta": {
+        "data_prevista": "2026-03-18",
+        "objetivo": "Puericultura 6 meses — vacinas, avaliação GI, orientação introdução alimentar, possível troca de fórmula"
+      },
+      "alertas": [
+        "Se golfada aumentar com sinais de dor (choro, arqueamento, recusa), aumentar esomeprazol para 15 gotas",
+        "Monitorar hipotonia — se não melhorar com estimulação, iniciar fisioterapia",
+        "Plagiocefalia: observar se piora; encaminhar para especialista se não melhorar",
+        "Fralda: trocar tamanho — está ficando apertada e causando vermelhidão"
+      ],
+      "notas_livres": "Dra. Alana muito impressionada com desenvolvimento — disse que Matheus se comporta como bebê a termo de 5 meses, não como prematuro de 33 semanas corrigido. Família em ótimo estado. Primeiros dias em Teresópolis foram muito bons (mama mais, dorme melhor). Matheus adorou restaurante. Família animada com liberação social.",
+      "transcript_file": "transcricoes/Consulta_Alana_26-02-2026.docx"
     }
   ]
 }
