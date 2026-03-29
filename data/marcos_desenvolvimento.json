@@ -254,8 +254,8 @@
       "normalRange": "3–6m",
       "isKeyMilestone": false,
       "alertNote": null,
-      "completed": true,
-      "completedDate": "2026-03-29",
+      "completed": false,
+      "completedDate": null,
       "notes": null
     },
     {
@@ -384,8 +384,8 @@
       "normalRange": "4–7m",
       "isKeyMilestone": false,
       "alertNote": null,
-      "completed": true,
-      "completedDate": "2026-03-29",
+      "completed": false,
+      "completedDate": null,
       "notes": null
     },
     {
@@ -397,8 +397,8 @@
       "normalRange": "4–7m",
       "isKeyMilestone": false,
       "alertNote": null,
-      "completed": true,
-      "completedDate": "2026-03-29",
+      "completed": false,
+      "completedDate": null,
       "notes": null
     },
     {
@@ -553,8 +553,8 @@
       "normalRange": "4–7m",
       "isKeyMilestone": true,
       "alertNote": "️ Se não rola em nenhuma direção aos 6m, discutir com pediatra",
-      "completed": true,
-      "completedDate": "2026-03-29",
+      "completed": false,
+      "completedDate": null,
       "notes": null
     },
     {
@@ -592,8 +592,8 @@
       "normalRange": "5–8m",
       "isKeyMilestone": true,
       "alertNote": null,
-      "completed": true,
-      "completedDate": "2026-03-29",
+      "completed": false,
+      "completedDate": null,
       "notes": null
     },
     {
@@ -618,8 +618,8 @@
       "normalRange": "5–8m",
       "isKeyMilestone": false,
       "alertNote": null,
-      "completed": true,
-      "completedDate": "2026-03-29",
+      "completed": false,
+      "completedDate": null,
       "notes": null
     },
     {
@@ -644,8 +644,8 @@
       "normalRange": "5–7m",
       "isKeyMilestone": false,
       "alertNote": null,
-      "completed": true,
-      "completedDate": "2026-03-29",
+      "completed": false,
+      "completedDate": null,
       "notes": null
     },
     {
@@ -657,8 +657,8 @@
       "normalRange": "5–7m",
       "isKeyMilestone": false,
       "alertNote": null,
-      "completed": true,
-      "completedDate": "2026-03-29",
+      "completed": false,
+      "completedDate": null,
       "notes": null
     },
     {
@@ -670,8 +670,8 @@
       "normalRange": "4–7m",
       "isKeyMilestone": false,
       "alertNote": null,
-      "completed": true,
-      "completedDate": "2026-03-29",
+      "completed": false,
+      "completedDate": null,
       "notes": null
     },
     {
@@ -696,8 +696,8 @@
       "normalRange": "4–7m",
       "isKeyMilestone": false,
       "alertNote": null,
-      "completed": true,
-      "completedDate": "2026-03-29",
+      "completed": false,
+      "completedDate": null,
       "notes": null
     },
     {
@@ -709,8 +709,8 @@
       "normalRange": "5–8m",
       "isKeyMilestone": false,
       "alertNote": null,
-      "completed": true,
-      "completedDate": "2026-03-29",
+      "completed": false,
+      "completedDate": null,
       "notes": null
     },
     {
@@ -748,8 +748,8 @@
       "normalRange": "5–8m",
       "isKeyMilestone": false,
       "alertNote": null,
-      "completed": true,
-      "completedDate": "2026-03-29",
+      "completed": false,
+      "completedDate": null,
       "notes": null
     },
     {
@@ -800,8 +800,8 @@
       "normalRange": "5–8m",
       "isKeyMilestone": false,
       "alertNote": null,
-      "completed": true,
-      "completedDate": "2026-03-29",
+      "completed": false,
+      "completedDate": null,
       "notes": null
     },
     {
@@ -813,8 +813,8 @@
       "normalRange": "5–8m",
       "isKeyMilestone": false,
       "alertNote": null,
-      "completed": true,
-      "completedDate": "2026-03-29",
+      "completed": false,
+      "completedDate": null,
       "notes": null
     },
     {
