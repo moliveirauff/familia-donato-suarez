@@ -1,10 +1,104 @@
 {
   "meta": {
     "version": "1.0",
-    "last_updated": "2026-03-29T21:30:00",
-    "total_consultas": 1
+    "last_updated": "2026-03-29T22:00:00",
+    "total_consultas": 2
   },
   "consultas": [
+    {
+      "identificacao": {
+        "data": "2025-12-19",
+        "especialidade": "Gastroenterologia Pediátrica",
+        "medico": "Dr. Junqueira",
+        "local": "Consultório Dr. Junqueira"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "3 meses e 1 dia",
+        "idade_corrigida_texto": "~1 mês e 20 dias corrigido (prematuro 33 semanas)",
+        "peso_kg": 5.906,
+        "altura_cm": 59.0,
+        "perimetro_cefalico_cm": null,
+        "observacao": "Ganhou 1,260 kg no mês desde última consulta (19/11 → 19/12)"
+      },
+      "motivo": "Acompanhamento gastroenterológico: APLV, refluxo com dependência de espessante, prisão de ventre severa (fezes tipo charuto), avaliação de vacina rotavírus e fórmula.",
+      "avaliacao": "Bom estado geral, crescimento excelente. Refluxo controlado com Neokate + espessante (Neo Spoon). Prisão de ventre severa com fezes duras (tipo cocô de cachorro/charutão) — esvaziamento gástrico atrasado. Overfeeding observado em episódio de 180ml. Golfada de líquido aquoso (soro do leite separado do coalho) horas após mamada — compatível com esvaziamento gástrico retardado. Sucrafilme suspenso (não indicado para esta fase). Ferro suspenso pela pediatra — confirma que piorava prisão de ventre.",
+      "diagnosticos": [
+        {
+          "nome": "APLV (Alergia à Proteína do Leite de Vaca)",
+          "status": "confirmado — Neokate + espessante"
+        },
+        {
+          "nome": "Refluxo gastroesofágico com esvaziamento gástrico retardado",
+          "status": "controlado com espessante"
+        },
+        {
+          "nome": "Constipação funcional / disquesia do lactente",
+          "status": "ativo — novo tratamento iniciado"
+        },
+        {
+          "nome": "Refluxo líquido tardio (soro do leite)",
+          "status": "esperado — esvaziamento atrasado, sem nova conduta"
+        }
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "PegLax 4000 (polietilenoglicol 4000)",
+            "dose": "4,5 ml (≈3g — ~0,5 g/kg/dia para ~5,9 kg)",
+            "frequencia": "1x/dia, de manhã, antes de mamar",
+            "duracao": "Até melhora da evacuação — desmame gradual: dia sim/dia não → dia sim/dois não → suspender",
+            "motivo": "Constipação — amolece fezes sem depender de supositório",
+            "observacao": "Pode misturar com outros medicamentos na colherzinha. Sabor doce — pode gerar careta mas não é ruim. Novo: aprovado para qualquer idade (antes era 6m+)"
+          },
+          {
+            "nome": "Nan Care Colle Comfort (probiótico)",
+            "dose": "conforme amostra",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Desconforto intestinal / cólicas — resultado positivo mantido"
+          }
+        ],
+        "suspensos_nesta_consulta": [
+          {
+            "nome": "Sucrafilme",
+            "motivo": "Não indicado para esta fase — suspenso"
+          },
+          {
+            "nome": "Ferro (ferripolimaltose)",
+            "motivo": "Piorava constipação — aguardar melhora da evacuação para reintroduzir"
+          }
+        ],
+        "dieta": {
+          "formula": "Neokate LCP",
+          "espessante": "Neo Spoon",
+          "preparo": "120ml água + 4 colheres Neokate + 1 colher Neo Spoon",
+          "volume_mamadeira": "120-150ml (pode ir até 150ml de água)",
+          "observacao": "Manter Neo Spoon na mesma medida. Trocar fórmula no 5º-6º mês de vida (para extensamente hidrolisada) SE: sem golfada + conseguir suspender espessante + sem cólica + evacuação regular"
+        },
+        "vacinas": {
+          "rotavirus": "Aguardar ~4 meses de idade cronológica. Primeira dose pode ser dada até 1 ano, segunda dose até 2 anos. Prazo tranquilo."
+        },
+        "orientacoes": [
+          "Não fazer overfeeding — máximo 150ml por mamada",
+          "Golfada aquosa horas depois: normal — é o soro do leite separando no estômago",
+          "Supositório: pode usar como estímulo (não inserir — apenas estimular); ou usar cotonete com óleo vegetal",
+          "Se PegLax resolver a evacuação: desmame gradual até suspender",
+          "Reintroduzir ferro após evacuação normalizada",
+          "Atenção: não comprar Neokate de fontes não confiáveis online (risco de latas com 'proibida a venda')"
+        ]
+      },
+      "proxima_consulta": {
+        "data_prevista": "2026-02-01",
+        "objetivo": "Retorno com ~4,5 meses — avaliar evacuação, possível troca de fórmula, reintrodução do ferro"
+      },
+      "alertas": [
+        "Se evacuação não melhorar com PegLax, reavaliar dose (range: 0,5–1,3 g/kg/dia)",
+        "Troca de fórmula só se: sem golfada + sem espessante + evacuação regular + sem cólica",
+        "Rotavírus: dar com ~4 meses cronológico (Dr. Junqueira recomenda esperar mais um mês)"
+      ],
+      "notas_livres": "Dr. Junqueira impressionado com ganho de peso: +1,260kg em 1 mês. Comentou que Matheus 'golfa de tanto que mama'. Consulta dia 19/12 — Matheus tomou vacinas de 3 meses nesse mesmo dia. Família perguntou sobre programa público de fórmula (PRODP) — Dr. Junqueira confirmou que programa foi cortado em out/2025, restam apenas crianças já cadastradas.",
+      "transcript_file": "transcricoes/Consulta_Junqueira_19-12-2025.txt"
+    },
     {
       "identificacao": {
         "data": "2026-02-26",
