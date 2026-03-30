@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "1.0",
-    "last_updated": "2026-03-29T23:00:00",
-    "total_consultas": 4
+    "last_updated": "2026-03-30T20:45:00",
+    "total_consultas": 5
   },
   "consultas": [
     {
@@ -528,6 +528,92 @@
       ],
       "notas_livres": "Dra. Alana muito impressionada com desenvolvimento — disse que Matheus se comporta como bebê a termo de 5 meses, não como prematuro de 33 semanas corrigido. Família em ótimo estado. Primeiros dias em Teresópolis foram muito bons (mama mais, dorme melhor). Matheus adorou restaurante. Família animada com liberação social.",
       "transcript_file": "transcricoes/Consulta_Alana_26-02-2026.txt"
+    },
+    {
+      "identificacao": {
+        "data": "2026-03-30",
+        "especialidade": "Gastroenterologia Pediátrica",
+        "medico": "Dr. Junqueira",
+        "local": "Rua Dona Mariana, 77, sala 423 — Botafogo, RJ"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "6 meses e ~12 dias (cronológico)",
+        "idade_corrigida_texto": "~5 meses corrigido (prematuro 33 semanas)",
+        "peso_kg": 7.98,
+        "altura_cm": 70.0,
+        "perimetro_cefalico_cm": null,
+        "observacao": "Peso na mediana OMS. Altura acima da mediana. Excelente evolução para ex-prematuro de 33 semanas."
+      },
+      "motivo": "Retorno de acompanhamento — APLV/Refluxo (6 meses de tratamento). Avaliação clínica e planejamento de desmame medicamentoso + transição de fórmula + introdução alimentar.",
+      "avaliacao": "Excelente evolução. Matheus está na mediana das curvas de peso e altura para a idade, tendo saído do desvio padrão negativo onde nasceu. Sem sintomas associados de preocupação. Golfadas com coloração rosada confirmadas como NÃO sendo sangue — provavelmente corante/componente do Esomeprazol manipulado em Teresópolis. Dr. Junqueira confirma que Matheus pode receber alta do acompanhamento gastroenterológico em ~3 meses se evoluir bem com as transições planejadas.",
+      "diagnosticos": [
+        {
+          "nome": "APLV (Alergia à Proteína do Leite de Vaca)",
+          "status": "em_tratamento"
+        },
+        {
+          "nome": "Refluxo Gastroesofágico",
+          "status": "em_desmame_medicacao"
+        }
+      ],
+      "observacoes_clinicas": [
+        "Golfadas com coloração rosada nos dias 29 e 30/03 — Dr. Junqueira confirmou: NÃO é sangue. Coloração provavelmente do Esomeprazol manipulado em Teresópolis (diferente corante/formulação). Sem indicação de preocupação.",
+        "Esomeprazol de Teresópolis: tecnologia não-Pellets, validade 2 meses, sem geladeira, sem sabor — considerada melhor. Farmacopa: tecnologia Pellets, validade 13 dias, requer refrigeração.",
+        "Durante introdução alimentar, a curva de peso pode dar uma leve queda — é normal e esperado.",
+        "Matheus demonstra forte interesse em alimentos sólidos — vira a cabeça para comida, ansioso para começar."
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "Esomeprazol 10mg (manipulado)",
+            "dose": "12 gotas",
+            "frequencia": "DESMAME — ver protocolo",
+            "status": "desmame",
+            "protocolo_desmame": "Dia 0 (30/03) = não deu. Fase 1 (~7-10 dias): dia SIM / dia NÃO — 12 gotas 1x/dia. Fase 2 (~1 semana): dia SIM / 2 dias NÃO. Fase 3: suspender totalmente. Razão: produção excessiva de gastrina durante bloqueio — retirada abrupta causa hipersecreção ácida rebote.",
+            "mecanismo": "Bloqueio prolongado cria hipergastrinemia. Retirada abrupta → pico ácido. Desmame gradual evita o rebote."
+          },
+          {
+            "nome": "Probiótico (Nan Care)",
+            "dose": "—",
+            "frequencia": "SUSPENSO",
+            "status": "suspenso",
+            "motivo": "Suspenso por indicação do Dr. Junqueira nesta consulta."
+          }
+        ],
+        "dieta": {
+          "formula_atual": "Neocate LCP (4 medidas) + Neos Pum",
+          "formula_nova": "Pregomin Pepti",
+          "transicao": "APÓS desmame completo do Esomeprazol. A cada 3 dias, substituir 1 medida de Neocate por 1 medida de Pregomin Pepti, até ficar 100% Pregomin Pepti. Neos Pum: manter durante transição.",
+          "observacao_formulas": "NÃO confundir Pregomin Pepti com Pregomin Plus (este é para crianças com dificuldade de ganho de peso — mais concentrado). 9 latas de Neocate disponíveis — trocar na Cristal.",
+          "volume_mamadeira": "120ml (4 medidas)"
+        },
+        "introducao_alimentar": {
+          "status": "LIBERADA — pode iniciar já (não precisa esperar desmame)",
+          "inicio_recomendado": "Banana cozida, maçã cozida, pera cozida",
+          "prazo_cozimento": "~15 dias cozidos (reduz potencial alérgico, especialmente da banana)",
+          "observacao_aplv": "APLV ≠ alergia a múltiplos alimentos (condição rarísima). Oferecer alimentos normalmente sem restrições além das já conhecidas (lactose/PLV).",
+          "dica_pratica": "Fazer purê de maçã ou pera em quantidade e guardar na geladeira — mais prático do que fazer individual."
+        }
+      },
+      "plano_tratamento": [
+        "1. DESMAME ESOMEPRAZOL: iniciar imediatamente (fase 1 ativa). ~9 dias até suspensão total.",
+        "2. TRANSIÇÃO FÓRMULA: iniciar APÓS desmame. Neocate → Pregomin Pepti, 1 medida a cada 3 dias.",
+        "3. INTRODUÇÃO ALIMENTAR: pode iniciar já. Frutas cozidas (banana, maçã, pera) por ~15 dias.",
+        "4. Se sintomas persistentes durante transição de fórmula → voltar para Neocate e avisar Dr. Junqueira.",
+        "5. Após adaptação ao Pregomin Pepti (~1-2 meses), nova troca para fórmula convencional.",
+        "6. Alta gastroenterológica prevista em ~3 meses se evoluir bem."
+      ],
+      "alertas": [
+        "⚠️ Golfada rosada (29-30/03): não é sangue — corante do manipulado de Teresópolis. Esclarecido.",
+        "⚠️ Durante desmame: aumento temporário de golfadas é NORMAL. Só preocupar com dor, irritação, insônia.",
+        "⚠️ Durante introdução alimentar: leve queda na curva de peso é NORMAL — adaptação."
+      ],
+      "proxima_consulta": {
+        "data_prevista": "2026-05-30",
+        "objetivo": "Retorno em 2 meses — avaliar transição alimentar, adaptação ao Pregomin Pepti, curva de peso. Se tudo bem, programar alta e última troca para fórmula convencional."
+      },
+      "notas_livres": "Consulta muito positiva. Dr. Junqueira impressionado com evolução de Matheus, especialmente considerando prematuridade de 33 semanas. Peso 7,98kg e altura 70cm — ambos na mediana ou acima. Família animada com perspectiva de alta em 3 meses e início da introdução alimentar. Matheus quer participar das refeições há semanas.",
+      "transcript_file": "transcricoes/Consulta_Junqueira_30-03-2026.txt"
     }
   ]
 }
