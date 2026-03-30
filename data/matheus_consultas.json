@@ -1,10 +1,139 @@
 {
   "meta": {
     "version": "1.0",
-    "last_updated": "2026-03-29T22:00:00",
-    "total_consultas": 2
+    "last_updated": "2026-03-29T22:30:00",
+    "total_consultas": 3
   },
   "consultas": [
+    {
+      "identificacao": {
+        "data": "2025-12-13",
+        "especialidade": "Pediatria",
+        "medico": "Dra. Alana Benevides Kohn",
+        "crm": "52.86364-0",
+        "local": "Consultório Dra. Alana"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "2 meses e ~25 dias cronológico",
+        "idade_corrigida_texto": "~1 mês e 10 dias corrigido (prematuro 33 semanas)",
+        "peso_kg": 5.54,
+        "altura_cm": 59.0,
+        "perimetro_cefalico_cm": null,
+        "observacao": "Na última consulta com Junqueira (19/12): 5,906 kg. Essa é alguns dias antes, 13/12."
+      },
+      "motivo": "Puericultura ~3 meses. Acompanhamento de refluxo, APLV, constipação, desenvolvimento neuromotor e vacinas.",
+      "avaliacao": "Ótimo estado geral. Peso acima da média na curva OMS. Comprimento cresceu mais do que esperado — muito bem. Desenvolvimento neuromotor avançado para idade corrigida: faz tummy time, segue objetos, emite vogais, sorri. Sucrafilme suspenso por Junqueira — pode ser usado como SOS nos momentos de crise. Constipação melhorando mas ainda irregular. Mão fechada — reflexo do prematuro, estimular a abrir. Discreta assimetria de plagiocefalia (cabeça levemente quadradinha posterior, lado direito levemente mais plano) — observar. Crosta láctea iniciando.",
+      "diagnosticos": [
+        {
+          "nome": "APLV (Alergia à Proteína do Leite de Vaca)",
+          "status": "confirmado — Neokate + Neo Spoon"
+        },
+        {
+          "nome": "Refluxo gastroesofágico",
+          "status": "controlado — espessante voltou dose inteira"
+        },
+        {
+          "nome": "Constipação / disquesia do lactente",
+          "status": "melhorando — sem ferro, aguardando amadurecimento GI"
+        },
+        {
+          "nome": "Hipotonia leve (prematuridade)",
+          "status": "monitorado — exercícios domiciliares"
+        },
+        {
+          "nome": "Plagiocefalia posicional leve",
+          "status": "observação — discreta assimetria posterior"
+        },
+        {
+          "nome": "Desenvolvimento neuropsicomotor",
+          "status": "excelente — acima do esperado para idade corrigida"
+        }
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "Sucrafilme",
+            "dose": "SOS",
+            "frequencia": "Apenas nos momentos de crise (não contínuo)",
+            "duracao": "SOS",
+            "motivo": "Barreira gástrica em momento de caos — não usar rotina"
+          },
+          {
+            "nome": "Growvit (vitamina D + multivitamínico)",
+            "dose": "conforme prescrição anterior",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Suplementação vitamínica"
+          },
+          {
+            "nome": "Paracetamol 200mg/mL",
+            "dose": "5 gotas",
+            "frequencia": "SOS febre/dor/pós-vacina",
+            "duracao": "SOS",
+            "motivo": "Analgesia e antitérmico — especialmente após vacinas de 3 meses"
+          }
+        ],
+        "suspensos": [
+          {
+            "nome": "Ferro",
+            "motivo": "Piorava constipação — manter suspenso"
+          }
+        ],
+        "dieta": {
+          "formula": "Neokate LCP",
+          "espessante": "Neo Spoon",
+          "preparo": "4 colheres Neokate + 1 Neo Spoon — voltou dose inteira do espessante",
+          "volume_mamadeira": "120ml (pode chegar a 150ml se aceitar)",
+          "bico": "Testar bico Avent maior ou MAM 3 meses — bico atual pode estar com fluxo elevado (babando muito, possivelmente overfeeding rápido)",
+          "observacao": "Se mamada dura só 6-7 min e baba muito: bico com fluxo inadequado"
+        },
+        "vacinas_aplicadas": [],
+        "vacinas_programadas": [
+          {
+            "nome": "Meningococo B + Rotavírus",
+            "data_prevista": "2025-12-18 ou 19 (sexta após consulta)",
+            "observacao": "Vacinas de 3 meses. Rotavírus liberado agora que GI está melhor. Esperar 2 meses para 2ª dose rotavírus."
+          },
+          {
+            "nome": "Hexa + Pneumo 20",
+            "data_prevista": "2026-02 (~4 meses)",
+            "observacao": "Vacinas de 4 meses — agendar com ~4 meses"
+          }
+        ],
+        "orientacoes_desenvolvimento": [
+          "Tummy time: pelo menos 3x/dia (manhã, tarde, noite) — pelo menos 15 min total/dia; na cama/sofá em cima dos pais",
+          "Tummy time com almofadinha: braço apoiado na frente — verificar se almofada não é alta demais",
+          "Tapetinho com mobile: 1h/dia barriga pra cima",
+          "Canguru/mochila ergonômica: aguardar mais 15 dias (3 meses corrigidos) — risco de apneia por hipotonia cervical",
+          "Mão fechada: massagear para abrir, oferecer brinquedos finos (argolinhas, panos, mordedores finos tipo madeira)",
+          "Posição no colo: sentar virado para frente, bumbum no colo, cabeça livre para escolher onde olhar",
+          "Pé descalço em casa: botar pezinho em contato com texturas (sofá, mesa) — evitar meia e sapato dentro de casa",
+          "Pé encostado no próprio pé: exercício abdominal — perna levantada longe do colchão",
+          "Estimular olhar para cima: usar chocalhos e brinquedos acima da cabeça quando estiver tendendo a olhar para baixo",
+          "Temperatura: testar quarto mais frio (~22°C) — bebês prematuros podem dormir melhor no frio"
+        ],
+        "orientacoes_gerais": [
+          "Supositório/estímulo retal: pode usar se >3 dias sem evacuar; limite máximo 3 dias",
+          "Crosta láctea: passar óleo ou produto Mustela específico — aplicar, aguardar 6h, retirar (aplicação única)",
+          "Fórmula SUS: Dra. Alana vai fazer encaminhamento para posto de saúde tentar entrar no programa de fórmula pelo SUS",
+          "Saídas: liberadas com ressalvas — restaurante tranquilo ok; evitar shopping fechado lotado e aglomerações; Natal em família pequena ok",
+          "Perfume: evitar usar no bebê até 6 meses; família pode usar mas evitar contato direto com roupinha/pele dele",
+          "ASQ-3 (questionário desenvolvimento 2 meses): preencher em 15 dias e enviar se tiver algo não fazendo; trazer na próxima se tudo ok"
+        ]
+      },
+      "proxima_consulta": {
+        "data_prevista": "2026-01-xx",
+        "objetivo": "Puericultura ~4 meses — avaliar evacuação, desenvolvimento motor, bico da mamadeira, considerar troca de fórmula (Neokate → extensamente hidrolisada)"
+      },
+      "alertas": [
+        "Constipação: se não melhorar espontaneamente, discutir PegLax ou outra estratégia na próxima consulta",
+        "Canguru: não usar antes de 3 meses corrigidos — risco de apneia por hipotonia",
+        "Tummy time: se plagiocefalia não melhorar, considerar fisioterapia/ortese",
+        "Mão fechada persistente: monitorar — reflexo de prematuro normal, mas estimular abertura"
+      ],
+      "notas_livres": "Dra. Alana muito animada com desenvolvimento — 'prematura abusado', 'foi um arraso'. Primeiro Natal e primeiro Réveillon do Matheus. Família aliviada com melhora geral. Matheus pesando 5,540 kg, 59cm — acima da média na curva OMS. Dra. Alana vai fornecer encaminhamento para programa de fórmula no SUS.",
+      "transcript_file": "transcricoes/Consulta_Alana_13-12-2025.txt"
+    },
     {
       "identificacao": {
         "data": "2025-12-19",
