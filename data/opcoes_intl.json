@@ -3504,11 +3504,11 @@
       "taxas_total": 1.12,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 634.09,
-      "bs_data_calculo": "2026-03-30",
-      "preco_mercado": 0.25,
-      "iv_calculada": 0.1967,
-      "preco_teorico": 0.25
+      "spot_atual": 631.97,
+      "bs_data_calculo": "2026-03-31",
+      "preco_mercado": 0.15,
+      "iv_calculada": 0.1939,
+      "preco_teorico": 0.15
     },
     {
       "ticker": "ETHA",
@@ -3528,11 +3528,11 @@
       "taxas_total": 1.12,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 15.01,
-      "bs_data_calculo": "2026-03-30",
-      "preco_mercado": 0.34,
-      "iv_calculada": 0.9954,
-      "preco_teorico": 0.34
+      "spot_atual": 15.27,
+      "bs_data_calculo": "2026-03-31",
+      "preco_mercado": 0.29,
+      "iv_calculada": 0.8655,
+      "preco_teorico": 0.29
     },
     {
       "ticker": "VNQ",
@@ -3552,11 +3552,11 @@
       "taxas_total": 1.12,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 87.0,
-      "bs_data_calculo": "2026-03-30",
-      "preco_mercado": 0.34,
-      "iv_calculada": 0.2302,
-      "preco_teorico": 0.34
+      "spot_atual": 87.33,
+      "bs_data_calculo": "2026-03-31",
+      "preco_mercado": 0.32,
+      "iv_calculada": 0.2213,
+      "preco_teorico": 0.32
     },
     {
       "ticker": "IBIT",
@@ -3600,8 +3600,8 @@
       "taxas_total": 7.86,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 37.4,
-      "bs_data_calculo": "2026-03-30",
+      "spot_atual": 37.68,
+      "bs_data_calculo": "2026-03-31",
       "preco_mercado": 0.01,
       "iv_calculada": null,
       "preco_teorico": null
@@ -3648,11 +3648,11 @@
       "taxas_total": 1.12,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 15.01,
-      "bs_data_calculo": "2026-03-30",
-      "preco_mercado": 0.54,
-      "iv_calculada": 1.0088,
-      "preco_teorico": 0.54
+      "spot_atual": 15.27,
+      "bs_data_calculo": "2026-03-31",
+      "preco_mercado": 0.3,
+      "iv_calculada": 0.9457,
+      "preco_teorico": 0.3
     },
     {
       "ticker": "IBIT",
@@ -3672,11 +3672,11 @@
       "taxas_total": 7.88,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 37.4,
-      "bs_data_calculo": "2026-03-30",
-      "preco_mercado": 0.05,
-      "iv_calculada": 0.7528,
-      "preco_teorico": 0.05
+      "spot_atual": 37.68,
+      "bs_data_calculo": "2026-03-31",
+      "preco_mercado": 0.03,
+      "iv_calculada": 0.7945,
+      "preco_teorico": 0.03
     },
     {
       "ticker": "IBIT",
@@ -3696,11 +3696,11 @@
       "taxas_total": 7.86,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 37.4,
-      "bs_data_calculo": "2026-03-30",
-      "preco_mercado": 0.03,
-      "iv_calculada": 0.905,
-      "preco_teorico": 0.03
+      "spot_atual": 37.68,
+      "bs_data_calculo": "2026-03-31",
+      "preco_mercado": 0.01,
+      "iv_calculada": 0.9092,
+      "preco_teorico": 0.01
     },
     {
       "ticker": "IBIT",
@@ -3720,11 +3720,11 @@
       "taxas_total": 1.12,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 37.4,
-      "bs_data_calculo": "2026-03-30",
-      "preco_mercado": 1.26,
-      "iv_calculada": 0.6869,
-      "preco_teorico": 1.26
+      "spot_atual": 37.68,
+      "bs_data_calculo": "2026-03-31",
+      "preco_mercado": 0.87,
+      "iv_calculada": 0.629,
+      "preco_teorico": 0.87
     }
   ]
 }
