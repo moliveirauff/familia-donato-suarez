@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "1.0",
-    "last_updated": "2026-03-30T20:45:00",
-    "total_consultas": 5
+    "last_updated": "2026-03-31T09:00:00",
+    "total_consultas": 6
   },
   "consultas": [
     {
@@ -614,6 +614,137 @@
       },
       "notas_livres": "Consulta muito positiva. Dr. Junqueira impressionado com evolução de Matheus, especialmente considerando prematuridade de 33 semanas. Peso 7,98kg e altura 70cm — ambos na mediana ou acima. Família animada com perspectiva de alta em 3 meses e início da introdução alimentar. Matheus quer participar das refeições há semanas.",
       "transcript_file": "transcricoes/Consulta_Junqueira_30-03-2026.txt"
+    },
+    {
+      "identificacao": {
+        "data": "2026-03-30",
+        "especialidade": "Pediatria",
+        "medico": "Dra. Alana Benevides Kohn",
+        "crm": "52.96364-0",
+        "local": "Rua Visconde de Pirajá, 595, sala 401 — Ipanema, RJ"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "6 meses e 12 dias (cronológico)",
+        "idade_corrigida_texto": "~5 meses corrigido (prematuro 33 semanas)",
+        "peso_kg": 7.99,
+        "altura_cm": 70.0,
+        "perimetro_cefalico_cm": null,
+        "observacao": "Peso na mediana OMS; altura acima da mediana. Excelente evolução para ex-prematuro 33 semanas."
+      },
+      "motivo": "Puericultura 6 meses. Acompanhamento APLV/refluxo. Avaliação de desmame do esomeprazol, transição de fórmula e início da introdução alimentar.",
+      "avaliacao": "Excelente estado geral. Peso ~8kg na mediana OMS, altura acima da mediana — crescimento excepcional para ex-prematuro. Desenvolvimento neuromotor ótimo. Golfada rosada (sáb e dom) investigada: NÃO é sangue — corante do esomeprazol manipulado em Teresópolis (diferente do Pellet de Copacabana). Refluxo sem sintomas associados → fisiológico controlado. Recall voluntário Aptamil Pepti (Danone): substância em quantidade ínfima permitida pela Anvisa — sem risco.",
+      "diagnosticos": [
+        {
+          "nome": "APLV (Alergia à Proteína do Leite de Vaca)",
+          "status": "confirmado — em transição para Pregomin Pepti"
+        },
+        {
+          "nome": "Refluxo gastroesofágico",
+          "status": "em_desmame_medicacao — fisiológico controlado"
+        },
+        {
+          "nome": "Desenvolvimento neuropsicomotor",
+          "status": "excelente — acima do esperado para idade corrigida"
+        }
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "Growvit solução",
+            "dose": "6 gotas",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Suplementação vitamínica"
+          },
+          {
+            "nome": "Dexfer 100 (ferripolimaltose)",
+            "dose": "3 gotas",
+            "frequencia": "dias alternados",
+            "duracao": "contínuo",
+            "motivo": "Suplementação de ferro"
+          },
+          {
+            "nome": "Vitamina D 200 UI/gt",
+            "dose": "1 gota",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Suplementação vitamina D"
+          },
+          {
+            "nome": "Esomeprazol 10mg (manipulado)",
+            "dose": "12 gotas",
+            "frequencia": "DESMAME — dia sim/dia não → dia sim/2 dias não → suspender",
+            "status": "desmame",
+            "protocolo_desmame": "Dia 0 (30/03) = não deu. Fase 1 (~7 dias): dia SIM/dia NÃO — 12gt. Fase 2 (~7 dias): dia SIM/2 dias NÃO. Fase 3: suspender totalmente.",
+            "motivo": "Desmame gradual para evitar hipersecreção ácida de rebote (hipergastrinemia)"
+          },
+          {
+            "nome": "Paracetamol 200mg/mL",
+            "dose": "8 gotas",
+            "frequencia": "a cada 6/6h SOS",
+            "duracao": "SOS",
+            "motivo": "Febre / dor"
+          },
+          {
+            "nome": "Amide Creme",
+            "dose": "aplicar no tronco",
+            "frequencia": "SOS",
+            "duracao": "SOS",
+            "motivo": "Brotoeja / miliária"
+          },
+          {
+            "nome": "Cetrilan",
+            "dose": "quantidade adequada",
+            "frequencia": "após cada troca de fralda",
+            "duracao": "contínuo",
+            "motivo": "Barreira protetora pele sensível"
+          }
+        ],
+        "suspensos": [
+          {
+            "nome": "Probiótico (Nan Care)",
+            "motivo": "⚠️ DIVERGÊNCIA: Dra. Alana mantém (vs. Dr. Junqueira suspendeu em 30/03). Decisão dos pais pendente."
+          }
+        ],
+        "dieta": {
+          "formula_atual": "Neocate LCP",
+          "formula_nova": "Pregomin Pepti",
+          "transicao": "APÓS desmame completo do Esomeprazol (~9 dias). A cada 3 dias, substituir 1 medida: 3+1 → 2+2 → 1+3 → 0+4.",
+          "preparo_atual": "120ml água + 3 Neocate + 1 Pregomin Pepti + 1 Neospoon",
+          "volume_mamadeira": "120ml",
+          "observacao": "NÃO confundir com Pregomin Plus (mais concentrado — não indicado). Neos Pum manter durante transição."
+        },
+        "introducao_alimentar": {
+          "status": "LIBERADA — iniciar frutas JÁ (não esperar fim do desmame)",
+          "inicio_recomendado": "Banana cozida, maçã cozida, pera cozida",
+          "prazo_cozimento": "~15 dias cozidos para reduzir potencial alérgico",
+          "demais_alimentos": "Aguardar fim do desmame (~9 dias)",
+          "observacao_aplv": "APLV isolada ≠ alergia múltipla alimentar (rarísima). Oferecer tudo com tranquilidade."
+        },
+        "orientacoes": [
+          "Fazer uma coisa de cada vez: (1) desmame esomeprazol → (2) trocar fórmula → (3) IA completa",
+          "Golfadas leves durante desmame: NORMAIS — aguardar. Só preocupar com dor, irritação intensa, insônia.",
+          "Leve platô de peso durante adaptação à nova fórmula: NORMAL",
+          "Contato por mensagem se precisar"
+        ]
+      },
+      "plano_tratamento": [
+        "1. DESMAME ESOMEPRAZOL: ativo. ~9 dias para suspensão total.",
+        "2. INTRODUÇÃO ALIMENTAR: frutas cozidas já. Demais alimentos após desmame.",
+        "3. TRANSIÇÃO FÓRMULA: iniciar após desmame. 1 medida a cada 3 dias.",
+        "4. Em ~1-2 meses no Pregomin Pepti → avaliar fórmula padrão."
+      ],
+      "alertas": [
+        "⚠️ Golfada rosada (29-30/03): NÃO é sangue — corante esomeprazol Teresópolis. Esclarecido.",
+        "⚠️ Probiótico: divergência Dra. Alana (manter) x Dr. Junqueira (suspender) — aguardar decisão.",
+        "⚠️ Aumento golfadas durante desmame: normal. Atenção com dor/irritação persistente."
+      ],
+      "proxima_consulta": {
+        "data_prevista": "2026-05-30",
+        "objetivo": "Puericultura ~8 meses — avaliar adaptação ao Pregomin Pepti, introdução alimentar, curva de peso."
+      },
+      "notas_livres": "Consulta muito positiva. Crescimento excepcional para ex-prematuro 33 semanas. Matheus pesando 7,99kg e 70cm — na mediana ou acima. Família animada com início da IA. Recall Aptamil Pepti esclarecido — sem risco. Golfada rosada investigada — sem sangue.",
+      "transcript_file": "transcricoes/consulta_alana_30mar2026_transcricao.txt"
     }
   ]
 }
