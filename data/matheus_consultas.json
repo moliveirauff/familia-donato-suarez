@@ -620,7 +620,7 @@
         "data": "2026-03-30",
         "especialidade": "Pediatria",
         "medico": "Dra. Alana Benevides Kohn",
-        "crm": "52.96364-0",
+        "crm": "52.86364-0",
         "local": "Rua Visconde de Pirajá, 595, sala 401 — Ipanema, RJ"
       },
       "snapshot_matheus": {
@@ -700,16 +700,19 @@
             "motivo": "Barreira protetora pele sensível"
           }
         ],
-        "suspensos": [
+        "suspensos": [],
+        "divergencias": [
           {
-            "nome": "Probiótico (Nan Care)",
-            "motivo": "⚠️ DIVERGÊNCIA: Dra. Alana mantém (vs. Dr. Junqueira suspendeu em 30/03). Decisão dos pais pendente."
+            "medicamento": "Probiótico (Nan Care)",
+            "dra_alana": "MANTER — explicitamente manteve na consulta de 30/03",
+            "dr_junqueira": "SUSPENSO — indicou suspensão em 30/03",
+            "status": "⚠️ DIVERGÊNCIA ATIVA — aguardar decisão dos pais / alinhamento entre médicos"
           }
         ],
         "dieta": {
           "formula_atual": "Neocate LCP",
           "formula_nova": "Pregomin Pepti",
-          "transicao": "APÓS desmame completo do Esomeprazol (~9 dias). A cada 3 dias, substituir 1 medida: 3+1 → 2+2 → 1+3 → 0+4.",
+          "transicao": "INICIADA em 30/03 (simultâneo ao desmame do Esomeprazol). A cada 3 dias, substituir 1 medida: 3+1 → 2+2 → 1+3 → 0+4. ⚠️ Dra. Alana iniciou imediatamente; Dr. Junqueira preferiu após desmame — família segue Dra. Alana.",
           "preparo_atual": "120ml água + 3 Neocate + 1 Pregomin Pepti + 1 Neospoon",
           "volume_mamadeira": "120ml",
           "observacao": "NÃO confundir com Pregomin Plus (mais concentrado — não indicado). Neos Pum manter durante transição."
