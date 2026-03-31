@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_updated": "2026-03-31T11:50:00",
+    "last_updated": "2026-03-31T12:15:00",
     "total_consultas": 6
   },
   "consultas": [
@@ -558,7 +558,7 @@
       ],
       "observacoes_clinicas": [
         "Golfadas com coloração rosada nos dias 29 e 30/03 — Dr. Junqueira confirmou: NÃO é sangue. Coloração provavelmente do Esomeprazol manipulado em Teresópolis (diferente corante/formulação). Sem indicação de preocupação.",
-        "Esomeprazol de Teresópolis: tecnologia não-Pellets, validade 2 meses, sem geladeira, sem sabor — considerada melhor. Farmacopa: tecnologia Pellets, validade 13 dias, requer refrigeração.",
+        "Esomeprazol de Teresópolis: tecnologia PELLETS (cada grânulo protegido da ação da luz), validade 2 meses, sem geladeira, sem sabor — considerada melhor. Farmacopa (Copacabana): tecnologia NÃO-PELLETS, validade 13 dias, requer refrigeração, tinha sabor (Matheus odiou).",
         "Durante introdução alimentar, a curva de peso pode dar uma leve queda — é normal e esperado.",
         "Matheus demonstra forte interesse em alimentos sólidos — vira a cabeça para comida, ansioso para começar."
       ],
@@ -577,13 +577,14 @@
             "dose": "—",
             "frequencia": "SUSPENSO",
             "status": "suspenso",
-            "motivo": "Suspenso por indicação do Dr. Junqueira nesta consulta."
+            "motivo": "Suspenso — Dra. Alana pediu a suspensão, Dr. Junqueira concordou nesta consulta."
           }
         ],
         "dieta": {
           "formula_atual": "Neocate LCP (4 medidas) + Neos Pum",
           "formula_nova": "Pregomin Pepti",
-          "transicao": "APÓS desmame completo do Esomeprazol. A cada 3 dias, substituir 1 medida de Neocate por 1 medida de Pregomin Pepti, até ficar 100% Pregomin Pepti. Neos Pum: manter durante transição.",
+          "transicao": "APÓS desmame completo do Esomeprazol. Começar com 120ml água + 3 medidas Neocate + 1 medida Pregomin Pepti. A cada 3 dias, substituir 1 medida (3+1 → 2+2 → 1+3 → 0+4). Neospoon: manter durante transição.",
+          "volume_mamadeira": "120ml água (4 medidas fórmula)",
           "observacao_formulas": "NÃO confundir Pregomin Pepti com Pregomin Plus (este é para crianças com dificuldade de ganho de peso — mais concentrado). 9 latas de Neocate disponíveis — trocar na Cristal.",
           "volume_mamadeira": "120ml (4 medidas)"
         },
@@ -600,20 +601,21 @@
         "2. TRANSIÇÃO FÓRMULA: iniciar APÓS desmame. Neocate → Pregomin Pepti, 1 medida a cada 3 dias.",
         "3. INTRODUÇÃO ALIMENTAR: pode iniciar já. Frutas cozidas (banana, maçã, pera) por ~15 dias.",
         "4. Se sintomas persistentes durante transição de fórmula → voltar para Neocate e avisar Dr. Junqueira.",
-        "5. Após adaptação ao Pregomin Pepti (~1-2 meses), nova troca para fórmula convencional.",
-        "6. Alta gastroenterológica prevista em ~3 meses se evoluir bem."
+        "5. Após adaptação ao Pregomin Pepti (~1-1,5 meses), nova troca para fórmula normal (convencional).",
+        "6. Alta gastroenterológica prevista após trocar para fórmula normal com sucesso (~2-3 meses)."
       ],
       "alertas": [
-        "⚠️ Golfada rosada (29-30/03): não é sangue — corante do manipulado de Teresópolis. Esclarecido.",
+        "⚠️ Golfada rosada (29-30/03): NÃO é sangue — confirmado categoricamente por Junqueira. Se fosse sangue seria sangue mesmo; o halo rosado tipo 'água de carne' é normal.",
         "⚠️ Durante desmame: aumento temporário de golfadas é NORMAL. Só preocupar com dor, irritação, insônia.",
         "⚠️ Durante introdução alimentar: leve queda na curva de peso é NORMAL — adaptação."
       ],
       "proxima_consulta": {
         "data_prevista": "2026-05-30",
-        "objetivo": "Retorno em 2 meses — avaliar transição alimentar, adaptação ao Pregomin Pepti, curva de peso. Se tudo bem, programar alta e última troca para fórmula convencional."
+        "objetivo": "Retorno em ~2 meses (final de maio) — avaliar adaptação ao Pregomin Pepti, curva de peso pós-IA. Se tudo bem, trocar para fórmula normal → alta."
       },
-      "notas_livres": "Consulta muito positiva. Dr. Junqueira impressionado com evolução de Matheus, especialmente considerando prematuridade de 33 semanas. Peso 7,98kg e altura 70cm — ambos na mediana ou acima. Família animada com perspectiva de alta em 3 meses e início da introdução alimentar. Matheus quer participar das refeições há semanas.",
-      "transcript_file": "transcricoes/Consulta_Junqueira_30-03-2026.txt"
+      "notas_livres": "Consulta muito positiva. Peso 7980g ('se não tivesse feito xixi tava com 8kg') e altura 70cm (Mauricio: '70! 70!'). Peso cravado na mediana OMS, altura ACIMA da mediana — excelente para prematuro 33sem. Olho azul confirmado ('esse não vai mudar'). Junqueira explicou mecanismo gastrina/ácido para desmame gradual. Sabor Neocate comparado a 'ração de cachorro'. Mencionou NutoCurvas (canal familiar, só após 2 anos). Família animada com perspectiva de alta. Matheus desesperado para comer há semanas.",
+      "transcript_file": "transcricoes/Consulta_Junqueira_30-03-2026.txt",
+      "transcript_source": "Transcrição revisada manualmente (substituiu STT automático em 31/03/2026)"
     },
     {
       "identificacao": {
