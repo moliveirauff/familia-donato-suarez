@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0",
-    "last_updated": "2026-03-31T09:00:00",
+    "last_updated": "2026-03-31T11:50:00",
     "total_consultas": 6
   },
   "consultas": [
@@ -618,21 +618,23 @@
     {
       "identificacao": {
         "data": "2026-03-30",
-        "especialidade": "Pediatria",
+        "especialidade": "Pediatria / Nutrição Infantil",
         "medico": "Dra. Alana Benevides Kohn",
         "crm": "52.86364-0",
         "local": "Rua Visconde de Pirajá, 595, sala 401 — Ipanema, RJ"
       },
       "snapshot_matheus": {
         "idade_texto": "6 meses e 12 dias (cronológico)",
-        "idade_corrigida_texto": "~5 meses corrigido (prematuro 33 semanas)",
-        "peso_kg": 7.99,
-        "altura_cm": 70.0,
+        "idade_corrigida_texto": "4 meses e 25 dias corrigido (prematuro 33 semanas)",
+        "peso_kg": 7.9,
+        "peso_anterior_kg": 7.6,
+        "ganho_peso_g": 300,
+        "altura_cm": 69.0,
         "perimetro_cefalico_cm": null,
-        "observacao": "Peso na mediana OMS; altura acima da mediana. Excelente evolução para ex-prematuro 33 semanas."
+        "observacao": "Ganhou ~300g desde consulta anterior (7.600→7.900). Manteve curva OMS. Altura e peso adequados. Excelente evolução para ex-prematuro 33 semanas."
       },
-      "motivo": "Puericultura 6 meses. Acompanhamento APLV/refluxo. Avaliação de desmame do esomeprazol, transição de fórmula e início da introdução alimentar.",
-      "avaliacao": "Excelente estado geral. Peso ~8kg na mediana OMS, altura acima da mediana — crescimento excepcional para ex-prematuro. Desenvolvimento neuromotor ótimo. Golfada rosada (sáb e dom) investigada: NÃO é sangue — corante do esomeprazol manipulado em Teresópolis (diferente do Pellet de Copacabana). Refluxo sem sintomas associados → fisiológico controlado. Recall voluntário Aptamil Pepti (Danone): substância em quantidade ínfima permitida pela Anvisa — sem risco.",
+      "motivo": "Puericultura 6 meses. Acompanhamento APLV/refluxo. Orientação completa de introdução alimentar. Avaliação de desmame do esomeprazol, transição de fórmula. Avaliação de pele (orelha, umbigo, dermatite perioral). Revisão de manobra de desengasgo.",
+      "avaliacao": "Excelente estado geral. Peso 7.9kg na mediana OMS (idade corrigida), altura adequada — crescimento excepcional para ex-prematuro. Desenvolvimento neuromotor ótimo: passa brinquedo de mão para outra, pega com duas mãos, rola (mais para direita), começa a sentar com apoio. Golfada rosada (29-30/03) investigada: NÃO é sangue — teste no papel branco negativo, corante do esomeprazol manipulado em Teresópolis. Dermatite perioral (rosto/boca), dermatite no umbigo, orelha com casquinha/ressecamento. Matheus muito resistente a mamar — aceita melhor quando está sonolento. Demonstra forte interesse em comida sólida (abre a boca quando pais comem).",
       "diagnosticos": [
         {
           "nome": "APLV (Alergia à Proteína do Leite de Vaca)",
@@ -643,6 +645,22 @@
           "status": "em_desmame_medicacao — fisiológico controlado"
         },
         {
+          "nome": "Dermatite perioral",
+          "status": "ativo — tratamento com hidratante"
+        },
+        {
+          "nome": "Dermatite umbilical",
+          "status": "ativo — hidratante + limpeza com cotonete"
+        },
+        {
+          "nome": "Crosta láctea (recorrente)",
+          "status": "ativo — Stella Care da Mustela"
+        },
+        {
+          "nome": "Ressecamento/casquinha na orelha",
+          "status": "ativo — Stella Care da Mustela"
+        },
+        {
           "nome": "Desenvolvimento neuropsicomotor",
           "status": "excelente — acima do esperado para idade corrigida"
         }
@@ -650,32 +668,25 @@
       "conduta": {
         "medicamentos": [
           {
-            "nome": "Growvit solução",
+            "nome": "Growvit solução (multivitamínico)",
             "dose": "6 gotas",
             "frequencia": "1x/dia",
-            "duracao": "contínuo",
+            "duracao": "até 1 ano de idade",
             "motivo": "Suplementação vitamínica"
           },
           {
             "nome": "Dexfer 100 (ferripolimaltose)",
             "dose": "3 gotas",
-            "frequencia": "dias alternados",
+            "frequencia": "dia sim / dia não",
             "duracao": "contínuo",
-            "motivo": "Suplementação de ferro"
-          },
-          {
-            "nome": "Vitamina D 200 UI/gt",
-            "dose": "1 gota",
-            "frequencia": "1x/dia",
-            "duracao": "contínuo",
-            "motivo": "Suplementação vitamina D"
+            "motivo": "Suplementação de ferro. Dose mantida — 'tá dando certo, o time tá ganhando'"
           },
           {
             "nome": "Esomeprazol 10mg (manipulado)",
             "dose": "12 gotas",
             "frequencia": "DESMAME — dia sim/dia não → dia sim/2 dias não → suspender",
             "status": "desmame",
-            "protocolo_desmame": "Dia 0 (30/03) = não deu. Fase 1 (~7 dias): dia SIM/dia NÃO — 12gt. Fase 2 (~7 dias): dia SIM/2 dias NÃO. Fase 3: suspender totalmente.",
+            "protocolo_desmame": "Dia 0 (30/03) = não deu. Fase 1 (~7-10 dias): dia SIM / dia NÃO — 12gt. Fase 2 (~7 dias): dia SIM / 2 dias NÃO. Fase 3: suspender totalmente. Total: ~2 semanas.",
             "motivo": "Desmame gradual para evitar hipersecreção ácida de rebote (hipergastrinemia)"
           },
           {
@@ -686,67 +697,241 @@
             "motivo": "Febre / dor"
           },
           {
-            "nome": "Amide Creme",
-            "dose": "aplicar no tronco",
-            "frequencia": "SOS",
-            "duracao": "SOS",
-            "motivo": "Brotoeja / miliária"
-          },
-          {
             "nome": "Cetrilan",
             "dose": "quantidade adequada",
-            "frequencia": "após cada troca de fralda",
-            "duracao": "contínuo",
-            "motivo": "Barreira protetora pele sensível"
+            "frequencia": "SOS — só quando assado",
+            "duracao": "SOS",
+            "motivo": "Assadura períneo. Não usar no dia a dia. 2 dias resolve."
+          },
+          {
+            "nome": "Allegra",
+            "dose": "2,5 ml",
+            "frequencia": "SOS",
+            "duracao": "SOS",
+            "motivo": "Ter em casa para emergência de reação alérgica alimentar"
+          }
+        ],
+        "tratamento_pele": [
+          {
+            "area": "Orelha (casquinha/ressecamento)",
+            "produto": "Stella Care da Mustela",
+            "instrucao": "Aplicar com cotonete. Deixar 6h antes do banho."
+          },
+          {
+            "area": "Crosta láctea (cabeça — recorrente)",
+            "produto": "Stella Care da Mustela",
+            "instrucao": "Mesmo produto da orelha. Aplicar, deixar 6h, enxaguar. Puramente estético."
+          },
+          {
+            "area": "Umbigo (dermatite — vermelho há 1 semana)",
+            "produto": "Hidratante",
+            "instrucao": "Tirar casquinha com cotonete + hidratante/óleo. Caprichar de hidratante. Se não melhorar em 2 dias, avisar Alana."
+          },
+          {
+            "area": "Rosto/boca (dermatite perioral)",
+            "produto": "Hidratante",
+            "instrucao": "Passar hidratante na região."
+          },
+          {
+            "area": "Base do pênis (vermelhinho)",
+            "produto": "Cetrilan",
+            "instrucao": "Cetrilan SOS, 2 dias resolve."
           }
         ],
         "suspensos": [],
         "divergencias": [
           {
             "medicamento": "Probiótico (Nan Care)",
-            "dra_alana": "MANTER — explicitamente manteve na consulta de 30/03",
+            "dra_alana": "Reconheceu que 'não fez a menor diferença' — não insistiu em manter",
             "dr_junqueira": "SUSPENSO — indicou suspensão em 30/03",
-            "status": "⚠️ DIVERGÊNCIA ATIVA — aguardar decisão dos pais / alinhamento entre médicos"
+            "status": "SUSPENSO de fato (Junqueira tirou, Alana não contestou)"
           }
         ],
         "dieta": {
           "formula_atual": "Neocate LCP",
           "formula_nova": "Pregomin Pepti",
-          "transicao": "INICIADA em 30/03 (simultâneo ao desmame do Esomeprazol). A cada 3 dias, substituir 1 medida: 3+1 → 2+2 → 1+3 → 0+4. ⚠️ Dra. Alana iniciou imediatamente; Dr. Junqueira preferiu após desmame — família segue Dra. Alana.",
-          "preparo_atual": "120ml água + 3 Neocate + 1 Pregomin Pepti + 1 Neospoon",
-          "volume_mamadeira": "120ml",
-          "observacao": "NÃO confundir com Pregomin Plus (mais concentrado — não indicado). Neos Pum manter durante transição."
+          "transicao": "APÓS desmame do esomeprazol. Protocolo Junqueira: a cada 3 dias, substituir 1 medida de Neocate por 1 de Pregomin (3+1→2+2→1+3→0+4). Depois: Pregomin → Aptamil Pepti.",
+          "volume_mamadeira": "110-120ml por mamada",
+          "volume_diario_media": "~700ml/dia",
+          "mamadas_por_dia": "5-8x/dia (variável)",
+          "espessante": "Neos Pum — manter durante transição",
+          "observacao": "Matheus resiste muito a mamar — aceita melhor quando está sonolento. NÃO confundir Pregomin Pepti com Pregomin Plus."
         },
         "introducao_alimentar": {
-          "status": "LIBERADA — iniciar frutas JÁ (não esperar fim do desmame)",
-          "inicio_recomendado": "Banana cozida, maçã cozida, pera cozida",
-          "prazo_cozimento": "~15 dias cozidos para reduzir potencial alérgico",
-          "demais_alimentos": "Aguardar fim do desmame (~9 dias)",
-          "observacao_aplv": "APLV isolada ≠ alergia múltipla alimentar (rarísima). Oferecer tudo com tranquilidade."
+          "status": "LIBERADA — mas Alana PREFERE esperar desmame do esomeprazol primeiro (~2 semanas)",
+          "razao_espera": "Sem esomeprazol o estômago não fica 'básico' — melhor proteção contra infecção (frutas não são estéreis como fórmula). Também evita embolamento de variáveis.",
+          "pode_iniciar_junto": "Pode introduzir frutas ENQUANTO troca o leite (Neocate→Pregomin) — sem problema.",
+          "protocolo_semanal": {
+            "semana_1": "Fruta 1x/dia (ex: 9h)",
+            "semana_2": "Fruta 2x/dia (ex: 9h + 15h)",
+            "semana_3": "Fruta 9h + ALMOÇO 12h + Fruta 15h",
+            "semana_4": "Semana 3 + JANTAR 18h"
+          },
+          "metodo": "PARTICIPATIVO (meio-termo entre tradicional e BLW): descascar/amassar na frente do bebê, deixar tocar, explorar. BLW puro NÃO recomendado.",
+          "frutas": {
+            "inicio": "Banana (ou qualquer uma)",
+            "preparo": "Sempre amassada — evitar liquidificar/triturar/peneirar (destrói fibras). Exceções (abacaxi, jaca) podem ir no triturador.",
+            "porcao": "Meia banana, 1/4 maçã, 1 fatia mamão — porção pequenininha",
+            "restricoes": "Uva NUNCA inteira. Suco NÃO até 1 ano. Mel NÃO até 1 ano. Açúcar meta 2 anos sem.",
+            "dicas": "Comer junto com a criança. Deixar tocar no alimento. Pode precisar oferecer 10x até aceitar. Não forçar."
+          },
+          "comida_salgada": {
+            "inicio": "A partir da semana 3",
+            "prato_ideal": "5 grupos/cores: cereais+tubérculos, leguminosas, proteínas, hortaliças, legumes",
+            "proteinas": "TUDO liberado: peixe, ovo, víscera, frango, carne bovina",
+            "preparo": "Tudo amassado. Só carne no mini processador.",
+            "sal": "NÃO até 1 ano (SBP)",
+            "temperos": "TODOS naturais liberados: alho, cebola, coentro, manjericão, alho-poró, noz moscada"
+          },
+          "alergenicos": {
+            "castanhas_gluten_camarao": "SÓ COM 9 MESES",
+            "pasta_amendoim": "Comprar pronta (ingrediente único). Colocar gotinha no meio de banana amassada.",
+            "camarao": "Oferecer aos 9 meses. Lagosta NÃO precisa.",
+            "primeiras_3_exposicoes": "Cozido (reduz potencial alérgico). Depois pode oferecer cru.",
+            "observacao": "APLV ≠ alergia alimentar múltipla (raríssimo — sem relação)"
+          },
+          "agua": {
+            "inicio": "Junto com a primeira fruta",
+            "meta_minima": "50ml/dia (mas cocô indica se precisa mais)",
+            "regra": "Toda vez que os pais beberem água, oferecer para ele",
+            "copo": "Com bico flexível (Matheus rejeita bico duro). Se nenhum copo funcionar: mamadeira como plano B.",
+            "cocô_referencia": "Consistência de sorvete do McDonald's — se mais duro, mais água"
+          },
+          "congelamento": {
+            "recipiente": "Forminha de gelo com tampa — 1 cubinho = 1 porção",
+            "duracao_maxima": "15 dias no congelador",
+            "preferencia": "Fresquinho é melhor, congelado OK"
+          },
+          "contaminacao_cruzada_aplv": {
+            "esponja": "SEPARADA só para ele",
+            "panelinha": "SEPARADA só para ele",
+            "mini_processador": "SEPARADO (comprar um para ele)",
+            "colher_prato": "Pode usar os mesmos — higienizar com esponja dele",
+            "motivo": "Evitar contaminação durante transição de fórmula (~2 meses)"
+          },
+          "higiene_alimentos": {
+            "organico": "Sempre preferência",
+            "nao_organico": "(1) molho bicarbonato → enxaguar → (2) molho clorido",
+            "descascaveis": "Descascar já remove agrotóxico"
+          },
+          "sinais_alergia": {
+            "sintomas": "Pele vermelha, vômito, sonolência → ligar IMEDIATAMENTE",
+            "medicacao_sos": "Allegra 2,5ml"
+          },
+          "lista_compras": [
+            "☐ Copinho com bico flexível (Skip Hop ou Avenge)",
+            "☐ Prato com ventosa (cor única, sem divisória)",
+            "☐ Cadeirão (Maxi Cosi ou similar — clean, sem acolchoado; usa ~1,5 ano)",
+            "☐ Forminha de gelo com tampa",
+            "☐ Mini processador separado (para carnes)",
+            "☐ Esponja separada",
+            "☐ Panelinha separada",
+            "☐ Pastas de castanhas (amendoim, castanha de caju — ingrediente único)"
+          ]
         },
         "orientacoes": [
-          "Fazer uma coisa de cada vez: (1) desmame esomeprazol → (2) trocar fórmula → (3) IA completa",
-          "Golfadas leves durante desmame: NORMAIS — aguardar. Só preocupar com dor, irritação intensa, insônia.",
-          "Leve platô de peso durante adaptação à nova fórmula: NORMAL",
-          "Contato por mensagem se precisar"
+          "Fazer uma coisa de cada vez: (1) desmame esomeprazol → (2) iniciar frutas → (3) trocar fórmula + salgado",
+          "Golfadas leves durante desmame: NORMAIS — só preocupar com dor, irritação intensa, insônia",
+          "Leve platô de peso durante adaptação: NORMAL",
+          "Trocador: considerar trocar para chão/cama — Matheus vira muito, risco de queda",
+          "Estimular rolar para ESQUERDA (rola quase sempre para direita)",
+          "Pode dormir de bruços à vontade",
+          "Babá contratada — deve fazer curso de desengasgo",
+          "Todo dia 1º do mês: relembrar manobra de desengasgo até 1 ano"
+        ]
+      },
+      "manobra_desengasgo": {
+        "menor_1_ano_solido": {
+          "passo_1": "Virar de barriga para baixo (cabeça mais baixa que bumbum)",
+          "passo_2": "Mão sustenta mandíbula, apoiada na perna ou em pé",
+          "passo_3": "Bater com BASE da mão (não inteira) nas costas: 5 golpes",
+          "passo_4": "Se não resolveu: virar de barriga para cima",
+          "passo_5": "Linha dos mamilos — base da mão — afundar 1/3 do tórax: 5 compressões",
+          "passo_6": "Repetir até resolver"
+        },
+        "menor_1_ano_liquido": "Virar de lado, tirar excesso da boca, estímulo nas costas",
+        "gague_fruta_amassada": "NADA a fazer — deixar o bebê resolver sozinho. Só intervir em obstrução TOTAL.",
+        "maior_1_ano": "Heimlich: joinha no umbigo + 5 golpes nas costas primeiro, depois movimento de gancho"
+      },
+      "vacinas": {
+        "prioridades": ["BeeFop (pode no posto a partir de 6 meses)", "Gripe (particular)", "COVID (particular)"],
+        "ordem": "BeeFop + Gripe primeiro. COVID depois.",
+        "podem_fazer_mesmo_dia": "Sim, mas Alana acha muita coisa — esperar ~1 semana entre rodadas",
+        "clinicas_sugeridas": ["Felipe Mattoso", "Kinder", "Vaccini"],
+        "calendario": {
+          "7_meses": "Só reforço de gripe e COVID",
+          "8_meses": "Nenhuma",
+          "9_meses": "Só Bexsero",
+          "10_meses": "Nenhuma",
+          "11_meses": "Nenhuma"
+        },
+        "observacao": "Vacina de 6 meses não costuma dar reação forte (diferente da de 5 meses)"
+      },
+      "sono": {
+        "horario_dormir": "~19h",
+        "primeiro_periodo": "Ótimo",
+        "despertar_principal": "~2h da manhã — despertares maiores",
+        "frequencia_despertar": "1-2x para mamar, às vezes acorda e quer brincar",
+        "associacao": "Nenhuma identificável"
+      },
+      "coco": {
+        "frequencia": "Quase todo dia — 1x/semana sem",
+        "observacao": "Melhorou em relação ao histórico"
+      },
+      "praia_piscina": {
+        "praia": "LIBERADA",
+        "piscina_cloro": "LIBERADA",
+        "protetor_solar": "Mustela — bastão para rosto + líquido para corpo",
+        "repelente": "Exposis (adesivos de citronela NÃO funcionam)",
+        "observacao": "Se pais usam protetor normal e vão ter contato direto com bebê: usar protetor do bebê nos pais (transfere) ou usar roupa de proteção"
+      },
+      "encaminhamentos": {
+        "oftalmologista": "Consulta pedida para 6 meses — recepcionista vai mandar lista",
+        "relatorio_prematuridade": "Para o plano de saúde — Alana vai providenciar. 'Paciente com 6 meses e IGC de 4 meses e 25 dias.'"
+      },
+      "desenvolvimento_neuromotor": {
+        "marcos_presentes": [
+          "Reconhece familiares (ainda não estranha muito desconhecidos)",
+          "Brinca com pais — ama interação",
+          "Pais percebem feliz vs irritado",
+          "Ama espelho",
+          "Responde a sons (reage muito, mas não 'conversa' muito)",
+          "Junta vogais com 'ai'",
+          "Olha com interesse, pega tudo, leva à boca",
+          "Passa brinquedo de mão para outra",
+          "Pega com duas mãos ao mesmo tempo",
+          "Rola (mais para direita — estimular esquerda)",
+          "No sofá/cama sabe desvirar, no chão ainda não",
+          "Começa a sentar com apoio por segundos"
+        ],
+        "marcos_pendentes": [
+          "Sentar sem apoio — tem mais 2 meses",
+          "Desvirar sozinho no chão — pode esperar"
         ]
       },
       "plano_tratamento": [
-        "1. DESMAME ESOMEPRAZOL: ativo. ~9 dias para suspensão total.",
-        "2. INTRODUÇÃO ALIMENTAR: frutas cozidas já. Demais alimentos após desmame.",
-        "3. TRANSIÇÃO FÓRMULA: iniciar após desmame. 1 medida a cada 3 dias.",
-        "4. Em ~1-2 meses no Pregomin Pepti → avaliar fórmula padrão."
+        "1. DESMAME ESOMEPRAZOL: ativo (~2 semanas para suspensão total).",
+        "2. INTRODUÇÃO ALIMENTAR: iniciar frutas APÓS desmame do esomeprazol. Protocolo 4 semanas.",
+        "3. TRANSIÇÃO FÓRMULA: iniciar APÓS desmame. Neocate → Pregomin Pepti → Aptamil Pepti.",
+        "4. VACINAS: BeeFop + Gripe ASAP. COVID particular.",
+        "5. PELE: Stella Care (orelha + crosta), hidratante (umbigo + rosto).",
+        "6. OFTALMOLOGISTA: agendar consulta 6 meses.",
+        "7. RELATÓRIO PREMATURIDADE: Alana providencia para plano de saúde."
       ],
       "alertas": [
         "⚠️ Golfada rosada (29-30/03): NÃO é sangue — corante esomeprazol Teresópolis. Esclarecido.",
-        "⚠️ Probiótico: divergência Dra. Alana (manter) x Dr. Junqueira (suspender) — aguardar decisão.",
-        "⚠️ Aumento golfadas durante desmame: normal. Atenção com dor/irritação persistente."
+        "⚠️ Aumento golfadas durante desmame: normal. Atenção com dor/irritação persistente.",
+        "⚠️ Umbigo vermelho há 1 semana: hidratante. Se não melhorar em 2 dias, avisar Alana.",
+        "⚠️ Contaminação cruzada: esponja/panelinha/processador separados durante transição de fórmula.",
+        "⚠️ Alergênicos (castanhas/glúten/camarão): SÓ com 9 meses.",
+        "⚠️ Rolar: estimular para ESQUERDA (preferência pela direita)."
       ],
       "proxima_consulta": {
-        "data_prevista": "2026-05-30",
-        "objetivo": "Puericultura ~8 meses — avaliar adaptação ao Pregomin Pepti, introdução alimentar, curva de peso."
+        "data_prevista": "2026-05-04",
+        "horario": "15:30",
+        "objetivo": "Puericultura ~7-8 meses — avaliar início da IA (semanas 3-4, comida salgada), desmame esomeprazol concluído, transição de fórmula, curva de peso."
       },
-      "notas_livres": "Consulta muito positiva. Crescimento excepcional para ex-prematuro 33 semanas. Matheus pesando 7,99kg e 70cm — na mediana ou acima. Família animada com início da IA. Recall Aptamil Pepti esclarecido — sem risco. Golfada rosada investigada — sem sangue.",
+      "notas_livres": "Consulta extensa (~1h12min), focada em orientação de introdução alimentar completa. Matheus pesando 7.9kg (de 7.6), manteve curva OMS. Idade corrigida 4m25d — dentro da janela de IA. Decisão conjunta: esperar desmame do esomeprazol antes de iniciar frutas (proteção gástrica). Alana revisou manobra de desengasgo — babá nova deve fazer curso. Praia e piscina LIBERADOS. Protetor Mustela, repelente Exposis. Oftalmologista e relatório de prematuridade pendentes. Consulta: R$650.",
       "transcript_file": "transcricoes/consulta_alana_30mar2026_transcricao.txt"
     }
   ]
