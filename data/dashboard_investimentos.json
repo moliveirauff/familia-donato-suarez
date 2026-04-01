@@ -1,9 +1,9 @@
 {
   "kpis": {
-    "patrimonio_total": 2264163.39,
+    "patrimonio_total": 2292213.98,
     "aportes_liquido_total": 1740750.78,
-    "rentabilidade_nominal": 30.07,
-    "cagr_5anos": 18.12
+    "rentabilidade_nominal": 31.68,
+    "cagr_5anos": 18.27
   },
   "anual": {
     "evolucao": [
@@ -65,7 +65,7 @@
       },
       {
         "ano": 2026,
-        "patrimonio": 2264163.39
+        "patrimonio": 2292213.98
       }
     ],
     "evolucao_por_cat": {
@@ -190,7 +190,7 @@
         },
         {
           "ano": 2026,
-          "patrimonio": 542374.63
+          "patrimonio": 542203.64
         }
       ],
       "3_acoes_brasil": [
@@ -252,7 +252,7 @@
         },
         {
           "ano": 2026,
-          "patrimonio": 471947.31
+          "patrimonio": 488789.4
         }
       ],
       "4_ativos_reais": [
@@ -314,7 +314,7 @@
         },
         {
           "ano": 2026,
-          "patrimonio": 263051.05
+          "patrimonio": 263344.78
         }
       ],
       "5_internacional": [
@@ -376,7 +376,7 @@
         },
         {
           "ano": 2026,
-          "patrimonio": 453589.04
+          "patrimonio": 461388.72
         }
       ],
       "6_criptoativos": [
@@ -438,7 +438,7 @@
         },
         {
           "ano": 2026,
-          "patrimonio": 129705.58
+          "patrimonio": 132991.66
         }
       ],
       "7_alternativos_estratega": [
@@ -1363,9 +1363,9 @@
       },
       {
         "ano": 2026,
-        "valorizacao": -61485.9,
+        "valorizacao": -33435.31,
         "dividendos": 9020.34,
-        "total": -52465.56
+        "total": -24414.97
       }
     ],
     "rentabilidade_pct": [
@@ -1497,8 +1497,8 @@
       },
       {
         "ano": 2026,
-        "sem_dividendos": -3.03,
-        "com_dividendos": -2.64,
+        "sem_dividendos": -1.83,
+        "com_dividendos": -1.44,
         "cdi": 12.0,
         "ifix": 5.0,
         "dolar": 2.0,
@@ -1656,8 +1656,8 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": 1.28,
-          "com_dividendos": 1.63
+          "sem_dividendos": 1.25,
+          "com_dividendos": 1.6
         }
       ],
       "3_acoes_brasil": [
@@ -1733,8 +1733,8 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": 5.18,
-          "com_dividendos": 5.45
+          "sem_dividendos": 8.94,
+          "com_dividendos": 9.21
         }
       ],
       "4_ativos_reais": [
@@ -1810,8 +1810,8 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": -3.96,
-          "com_dividendos": -2.27
+          "sem_dividendos": -3.85,
+          "com_dividendos": -2.16
         }
       ],
       "5_internacional": [
@@ -1887,8 +1887,8 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": -10.33,
-          "com_dividendos": -10.05
+          "sem_dividendos": -8.78,
+          "com_dividendos": -8.5
         }
       ],
       "6_criptoativos": [
@@ -1964,8 +1964,8 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": -27.96,
-          "com_dividendos": -27.96
+          "sem_dividendos": -26.13,
+          "com_dividendos": -26.13
         }
       ],
       "7_alternativos_estratega": [
@@ -2809,6 +2809,10 @@
       {
         "mes": "2026-03",
         "patrimonio": 2264163.39
+      },
+      {
+        "mes": "2026-04",
+        "patrimonio": 2292213.98
       }
     ],
     "evolucao_por_cat": {
@@ -3496,6 +3500,10 @@
         {
           "mes": "2026-03",
           "patrimonio": 2051.05
+        },
+        {
+          "mes": "2026-04",
+          "patrimonio": 2051.05
         }
       ],
       "2_credito_privado": [
@@ -4182,6 +4190,10 @@
         {
           "mes": "2026-03",
           "patrimonio": 542374.63
+        },
+        {
+          "mes": "2026-04",
+          "patrimonio": 542203.64
         }
       ],
       "3_acoes_brasil": [
@@ -4868,6 +4880,10 @@
         {
           "mes": "2026-03",
           "patrimonio": 471947.31
+        },
+        {
+          "mes": "2026-04",
+          "patrimonio": 488789.4
         }
       ],
       "4_ativos_reais": [
@@ -5554,6 +5570,10 @@
         {
           "mes": "2026-03",
           "patrimonio": 263051.05
+        },
+        {
+          "mes": "2026-04",
+          "patrimonio": 263344.78
         }
       ],
       "5_internacional": [
@@ -6240,6 +6260,10 @@
         {
           "mes": "2026-03",
           "patrimonio": 453589.04
+        },
+        {
+          "mes": "2026-04",
+          "patrimonio": 461388.72
         }
       ],
       "6_criptoativos": [
@@ -6926,6 +6950,10 @@
         {
           "mes": "2026-03",
           "patrimonio": 129705.58
+        },
+        {
+          "mes": "2026-04",
+          "patrimonio": 132991.66
         }
       ],
       "7_alternativos_estratega": [
@@ -7612,6 +7640,10 @@
         {
           "mes": "2026-03",
           "patrimonio": 401444.73
+        },
+        {
+          "mes": "2026-04",
+          "patrimonio": 401444.73
         }
       ],
       "9_uncategorized": [
@@ -8297,6 +8329,10 @@
         },
         {
           "mes": "2026-03",
+          "patrimonio": 0.0
+        },
+        {
+          "mes": "2026-04",
           "patrimonio": 0.0
         }
       ]
@@ -9327,6 +9363,12 @@
         "aporte_real": -510.19,
         "dividendos": 510.19,
         "total": 0.0
+      },
+      {
+        "mes": "2026-04",
+        "aporte_real": 0.0,
+        "dividendos": 0.0,
+        "total": 0.0
       }
     ],
     "aportes_por_cat": {
@@ -10353,6 +10395,12 @@
         },
         {
           "mes": "2026-03",
+          "aporte_real": 0.0,
+          "dividendos": 0.0,
+          "total": 0.0
+        },
+        {
+          "mes": "2026-04",
           "aporte_real": 0.0,
           "dividendos": 0.0,
           "total": 0.0
@@ -11384,6 +11432,12 @@
           "aporte_real": 0.0,
           "dividendos": 0.0,
           "total": 0.0
+        },
+        {
+          "mes": "2026-04",
+          "aporte_real": 0.0,
+          "dividendos": 0.0,
+          "total": 0.0
         }
       ],
       "3_acoes_brasil": [
@@ -12409,6 +12463,12 @@
         },
         {
           "mes": "2026-03",
+          "aporte_real": 0.0,
+          "dividendos": 0.0,
+          "total": 0.0
+        },
+        {
+          "mes": "2026-04",
           "aporte_real": 0.0,
           "dividendos": 0.0,
           "total": 0.0
@@ -13440,6 +13500,12 @@
           "aporte_real": 0.0,
           "dividendos": 0.0,
           "total": 0.0
+        },
+        {
+          "mes": "2026-04",
+          "aporte_real": 0.0,
+          "dividendos": 0.0,
+          "total": 0.0
         }
       ],
       "5_internacional": [
@@ -14468,6 +14534,12 @@
           "aporte_real": -510.19,
           "dividendos": 510.19,
           "total": 0.0
+        },
+        {
+          "mes": "2026-04",
+          "aporte_real": 0.0,
+          "dividendos": 0.0,
+          "total": 0.0
         }
       ],
       "6_criptoativos": [
@@ -15493,6 +15565,12 @@
         },
         {
           "mes": "2026-03",
+          "aporte_real": 0.0,
+          "dividendos": 0.0,
+          "total": 0.0
+        },
+        {
+          "mes": "2026-04",
           "aporte_real": 0.0,
           "dividendos": 0.0,
           "total": 0.0
@@ -16524,6 +16602,12 @@
           "aporte_real": 0.0,
           "dividendos": 0.0,
           "total": 0.0
+        },
+        {
+          "mes": "2026-04",
+          "aporte_real": 0.0,
+          "dividendos": 0.0,
+          "total": 0.0
         }
       ],
       "9_uncategorized": [
@@ -17549,6 +17633,12 @@
         },
         {
           "mes": "2026-03",
+          "aporte_real": 0.0,
+          "dividendos": 0.0,
+          "total": 0.0
+        },
+        {
+          "mes": "2026-04",
           "aporte_real": 0.0,
           "dividendos": 0.0,
           "total": 0.0
@@ -18581,6 +18671,12 @@
         "valorizacao": -55311.08,
         "dividendos": 510.19,
         "total": -54800.89
+      },
+      {
+        "mes": "2026-04",
+        "valorizacao": 28050.59,
+        "dividendos": 0.0,
+        "total": 28050.59
       }
     ],
     "lucro_reais_por_cat": {
@@ -19607,6 +19703,12 @@
         },
         {
           "mes": "2026-03",
+          "valorizacao": 0.0,
+          "dividendos": 0.0,
+          "total": 0.0
+        },
+        {
+          "mes": "2026-04",
           "valorizacao": 0.0,
           "dividendos": 0.0,
           "total": 0.0
@@ -20638,6 +20740,12 @@
           "valorizacao": -1584.88,
           "dividendos": 0.0,
           "total": -1584.88
+        },
+        {
+          "mes": "2026-04",
+          "valorizacao": -170.99,
+          "dividendos": 0.0,
+          "total": -170.99
         }
       ],
       "3_acoes_brasil": [
@@ -21666,6 +21774,12 @@
           "valorizacao": -30189.01,
           "dividendos": 0.0,
           "total": -30189.01
+        },
+        {
+          "mes": "2026-04",
+          "valorizacao": 16842.09,
+          "dividendos": 0.0,
+          "total": 16842.09
         }
       ],
       "4_ativos_reais": [
@@ -22694,6 +22808,12 @@
           "valorizacao": -3282.19,
           "dividendos": 0.0,
           "total": -3282.19
+        },
+        {
+          "mes": "2026-04",
+          "valorizacao": 293.73,
+          "dividendos": 0.0,
+          "total": 293.73
         }
       ],
       "5_internacional": [
@@ -23722,6 +23842,12 @@
           "valorizacao": -23364.36,
           "dividendos": 510.19,
           "total": -22854.17
+        },
+        {
+          "mes": "2026-04",
+          "valorizacao": 7799.68,
+          "dividendos": 0.0,
+          "total": 7799.68
         }
       ],
       "6_criptoativos": [
@@ -24750,6 +24876,12 @@
           "valorizacao": 3109.36,
           "dividendos": 0.0,
           "total": 3109.36
+        },
+        {
+          "mes": "2026-04",
+          "valorizacao": 3286.08,
+          "dividendos": 0.0,
+          "total": 3286.08
         }
       ],
       "7_alternativos_estratega": [
@@ -25775,6 +25907,12 @@
         },
         {
           "mes": "2026-03",
+          "valorizacao": 0.0,
+          "dividendos": 0.0,
+          "total": 0.0
+        },
+        {
+          "mes": "2026-04",
           "valorizacao": 0.0,
           "dividendos": 0.0,
           "total": 0.0
@@ -26806,6 +26944,12 @@
           "valorizacao": 0.0,
           "dividendos": 0.0,
           "total": 0.0
+        },
+        {
+          "mes": "2026-04",
+          "valorizacao": 0.0,
+          "dividendos": 0.0,
+          "total": 0.0
         }
       ]
     }
@@ -26813,38 +26957,38 @@
   "alocacao": [
     {
       "categoria": "1_renda_fixa_soberana",
-      "meta_rs": 113208.17,
-      "real_rs": 2051.05
+      "meta_rs": 114610.7,
+      "real_rs": 0.0
     },
     {
       "categoria": "2_credito_privado",
-      "meta_rs": 339624.51,
-      "real_rs": 542374.62
+      "meta_rs": 343832.1,
+      "real_rs": 88509.77
     },
     {
       "categoria": "3_acoes_brasil",
-      "meta_rs": 566040.85,
-      "real_rs": 471947.31
+      "meta_rs": 573053.49,
+      "real_rs": 488789.4
     },
     {
       "categoria": "4_ativos_reais",
-      "meta_rs": 339624.51,
-      "real_rs": 263051.05
+      "meta_rs": 343832.1,
+      "real_rs": 263344.78
     },
     {
       "categoria": "5_internacional",
-      "meta_rs": 452832.68,
-      "real_rs": 453589.04
+      "meta_rs": 458442.8,
+      "real_rs": 461388.72
     },
     {
       "categoria": "6_criptoativos",
-      "meta_rs": 113208.17,
-      "real_rs": 129705.58
+      "meta_rs": 114610.7,
+      "real_rs": 132991.66
     },
     {
       "categoria": "7_alternativos_estratega",
-      "meta_rs": 339624.51,
-      "real_rs": 401444.73
+      "meta_rs": 343832.1,
+      "real_rs": 0.0
     }
   ],
   "ranking_ativos": [
@@ -26852,378 +26996,378 @@
       "ticker": "SPY",
       "quantidade": 100.0,
       "investido": 355263.66,
-      "atual": 332111.0,
-      "rent_pct": -6.52,
+      "atual": 339438.0,
+      "rent_pct": -4.45,
       "categoria": "5_internacional"
-    },
-    {
-      "ticker": "Icatu Previ",
-      "quantidade": 142643.1243,
-      "investido": 167479.12,
-      "atual": 260163.58,
-      "rent_pct": 55.34,
-      "categoria": "2_credito_privado"
-    },
-    {
-      "ticker": "Quest Luce Previ",
-      "quantidade": 76300.4046,
-      "investido": 126824.26,
-      "atual": 143023.52,
-      "rent_pct": 12.77,
-      "categoria": "2_credito_privado"
-    },
-    {
-      "ticker": "Vitreo Superprev 2",
-      "quantidade": 97298.6,
-      "investido": 115437.12,
-      "atual": 141604.7,
-      "rent_pct": 22.67,
-      "categoria": "7_alternativos_estratega"
-    },
-    {
-      "ticker": "Arca Previ",
-      "quantidade": 82132.5,
-      "investido": 97181.83,
-      "atual": 132803.87,
-      "rent_pct": 36.66,
-      "categoria": "7_alternativos_estratega"
-    },
-    {
-      "ticker": "XP Superprev 2",
-      "quantidade": 85769.7,
-      "investido": 88131.22,
-      "atual": 127036.16,
-      "rent_pct": 44.14,
-      "categoria": "7_alternativos_estratega"
     },
     {
       "ticker": "IBIT",
       "quantidade": 622.0,
       "investido": 183203.16,
-      "atual": 121843.58,
-      "rent_pct": -33.49,
+      "atual": 124729.66,
+      "rent_pct": -31.92,
       "categoria": "6_criptoativos"
     },
     {
       "ticker": "SGOV",
       "quantidade": 144.0,
       "investido": 78728.37,
-      "atual": 75911.04,
-      "rent_pct": -3.58,
+      "atual": 75654.72,
+      "rent_pct": -3.9,
       "categoria": "5_internacional"
     },
     {
       "ticker": "ITUB4",
       "quantidade": 1441.0,
       "investido": 36833.6,
-      "atual": 59729.45,
-      "rent_pct": 62.16,
+      "atual": 62654.68,
+      "rent_pct": 70.1,
       "categoria": "3_acoes_brasil"
-    },
-    {
-      "ticker": "Arca Grão RF Previ",
-      "quantidade": 31235.8863,
-      "investido": 44829.15,
-      "atual": 50506.76,
-      "rent_pct": 12.66,
-      "categoria": "2_credito_privado"
     },
     {
       "ticker": "VALE3",
       "quantidade": 600.0,
       "investido": 35366.07,
-      "atual": 47400.0,
-      "rent_pct": 34.03,
+      "atual": 49488.0,
+      "rent_pct": 39.93,
       "categoria": "3_acoes_brasil"
     },
     {
       "ticker": "VNQ",
       "quantidade": 100.0,
       "investido": 43496.7,
-      "atual": 45567.0,
-      "rent_pct": 4.76,
+      "atual": 46296.0,
+      "rent_pct": 6.44,
       "categoria": "5_internacional"
     },
     {
       "ticker": "BBDC4",
       "quantidade": 2400.0,
       "investido": 39029.22,
-      "atual": 44448.0,
-      "rent_pct": 13.88,
-      "categoria": "3_acoes_brasil"
-    },
-    {
-      "ticker": "EQTL3",
-      "quantidade": 1000.0,
-      "investido": 35494.58,
-      "atual": 39080.0,
-      "rent_pct": 10.1,
-      "categoria": "3_acoes_brasil"
-    },
-    {
-      "ticker": "RADL3",
-      "quantidade": 1630.0,
-      "investido": 33235.28,
-      "atual": 37979.0,
-      "rent_pct": 14.27,
+      "atual": 46008.0,
+      "rent_pct": 17.88,
       "categoria": "3_acoes_brasil"
     },
     {
       "ticker": "WEGE3",
       "quantidade": 800.0,
       "investido": 36175.74,
-      "atual": 37928.0,
-      "rent_pct": 4.84,
+      "atual": 40808.0,
+      "rent_pct": 12.8,
+      "categoria": "3_acoes_brasil"
+    },
+    {
+      "ticker": "EQTL3",
+      "quantidade": 1000.0,
+      "investido": 35494.58,
+      "atual": 40770.0,
+      "rent_pct": 14.86,
       "categoria": "3_acoes_brasil"
     },
     {
       "ticker": "RDOR3",
       "quantidade": 1000.0,
       "investido": 43468.69,
-      "atual": 37710.0,
-      "rent_pct": -13.25,
+      "atual": 38970.0,
+      "rent_pct": -10.35,
+      "categoria": "3_acoes_brasil"
+    },
+    {
+      "ticker": "RADL3",
+      "quantidade": 1630.0,
+      "investido": 33235.28,
+      "atual": 38353.9,
+      "rent_pct": 15.4,
       "categoria": "3_acoes_brasil"
     },
     {
       "ticker": "PETR4",
       "quantidade": 700.0,
       "investido": 22204.0,
-      "atual": 34587.0,
-      "rent_pct": 55.77,
+      "atual": 34069.0,
+      "rent_pct": 53.44,
       "categoria": "3_acoes_brasil"
     },
     {
       "ticker": "SAPR11",
       "quantidade": 700.0,
       "investido": 13298.0,
-      "atual": 29897.0,
-      "rent_pct": 124.82,
+      "atual": 31171.0,
+      "rent_pct": 134.4,
       "categoria": "3_acoes_brasil"
     },
     {
       "ticker": "PSSA3",
       "quantidade": 600.0,
       "investido": 14267.1,
-      "atual": 29238.0,
-      "rent_pct": 104.93,
+      "atual": 30306.0,
+      "rent_pct": 112.42,
       "categoria": "3_acoes_brasil"
     },
     {
       "ticker": "VIVT3",
       "quantidade": 700.0,
       "investido": 16655.99,
-      "atual": 28007.0,
-      "rent_pct": 68.15,
+      "atual": 28861.0,
+      "rent_pct": 73.28,
       "categoria": "3_acoes_brasil"
     },
     {
       "ticker": "HGRU11",
       "quantidade": 154.0,
       "investido": 19617.82,
-      "atual": 19943.0,
-      "rent_pct": 1.66,
+      "atual": 20018.46,
+      "rent_pct": 2.04,
       "categoria": "4_ativos_reais"
     },
     {
       "ticker": "BTLG11",
       "quantidade": 191.0,
       "investido": 18454.29,
-      "atual": 19787.6,
-      "rent_pct": 7.22,
+      "atual": 19739.85,
+      "rent_pct": 6.97,
       "categoria": "4_ativos_reais"
     },
     {
       "ticker": "HGLG11",
       "quantidade": 123.0,
       "investido": 17336.88,
-      "atual": 19379.88,
-      "rent_pct": 11.78,
+      "atual": 19205.22,
+      "rent_pct": 10.78,
       "categoria": "4_ativos_reais"
     },
     {
       "ticker": "KNRI11",
       "quantidade": 113.0,
       "investido": 14484.74,
-      "atual": 18912.81,
-      "rent_pct": 30.57,
+      "atual": 18981.74,
+      "rent_pct": 31.05,
       "categoria": "4_ativos_reais"
     },
     {
       "ticker": "VRTA11",
       "quantidade": 242.0,
       "investido": 23616.77,
-      "atual": 18730.8,
-      "rent_pct": -20.69,
+      "atual": 18784.04,
+      "rent_pct": -20.46,
       "categoria": "2_credito_privado"
     },
     {
       "ticker": "FATN11",
       "quantidade": 215.0,
       "investido": 17421.15,
-      "atual": 18619.0,
-      "rent_pct": 6.88,
-      "categoria": "4_ativos_reais"
-    },
-    {
-      "ticker": "MCCI11",
-      "quantidade": 193.0,
-      "investido": 19052.1,
-      "atual": 18306.05,
-      "rent_pct": -3.92,
-      "categoria": "2_credito_privado"
-    },
-    {
-      "ticker": "PMLL11",
-      "quantidade": 164.0,
-      "investido": 15820.36,
-      "atual": 17671.0,
-      "rent_pct": 11.7,
+      "atual": 18687.8,
+      "rent_pct": 7.27,
       "categoria": "4_ativos_reais"
     },
     {
       "ticker": "EGIE3",
       "quantidade": 559.0,
       "investido": 20174.5,
-      "atual": 17630.86,
-      "rent_pct": -12.61,
+      "atual": 18351.97,
+      "rent_pct": -9.03,
       "categoria": "3_acoes_brasil"
     },
     {
-      "ticker": "VISC11",
-      "quantidade": 158.0,
-      "investido": 16157.94,
-      "atual": 17452.68,
-      "rent_pct": 8.01,
-      "categoria": "4_ativos_reais"
+      "ticker": "MCCI11",
+      "quantidade": 193.0,
+      "investido": 19052.1,
+      "atual": 18109.19,
+      "rent_pct": -4.95,
+      "categoria": "2_credito_privado"
     },
     {
-      "ticker": "TRXF11",
-      "quantidade": 190.0,
-      "investido": 20287.27,
-      "atual": 17430.6,
-      "rent_pct": -14.08,
+      "ticker": "PMLL11",
+      "quantidade": 164.0,
+      "investido": 15820.36,
+      "atual": 17769.4,
+      "rent_pct": 12.32,
       "categoria": "4_ativos_reais"
     },
     {
       "ticker": "RBRY11",
       "quantidade": 179.0,
       "investido": 15368.23,
-      "atual": 17391.64,
-      "rent_pct": 13.17,
+      "atual": 17482.93,
+      "rent_pct": 13.76,
       "categoria": "2_credito_privado"
     },
     {
-      "ticker": "VGIP11",
-      "quantidade": 213.0,
-      "investido": 21061.08,
-      "atual": 17146.5,
-      "rent_pct": -18.59,
-      "categoria": "2_credito_privado"
+      "ticker": "TRXF11",
+      "quantidade": 190.0,
+      "investido": 20287.27,
+      "atual": 17447.7,
+      "rent_pct": -14.0,
+      "categoria": "4_ativos_reais"
     },
     {
-      "ticker": "RECR11",
-      "quantidade": 211.0,
-      "investido": 20119.95,
-      "atual": 17105.77,
-      "rent_pct": -14.98,
-      "categoria": "2_credito_privado"
-    },
-    {
-      "ticker": "XPML11",
+      "ticker": "VISC11",
       "quantidade": 158.0,
-      "investido": 15879.9,
-      "atual": 17064.0,
-      "rent_pct": 7.46,
+      "investido": 16157.94,
+      "atual": 17285.2,
+      "rent_pct": 6.98,
       "categoria": "4_ativos_reais"
     },
     {
       "ticker": "GARE11",
       "quantidade": 2013.0,
       "investido": 18100.55,
-      "atual": 16949.46,
-      "rent_pct": -6.36,
+      "atual": 17231.28,
+      "rent_pct": -4.8,
       "categoria": "4_ativos_reais"
+    },
+    {
+      "ticker": "VGIP11",
+      "quantidade": 213.0,
+      "investido": 21061.08,
+      "atual": 17093.25,
+      "rent_pct": -18.84,
+      "categoria": "2_credito_privado"
+    },
+    {
+      "ticker": "XPML11",
+      "quantidade": 158.0,
+      "investido": 15879.9,
+      "atual": 17078.22,
+      "rent_pct": 7.55,
+      "categoria": "4_ativos_reais"
+    },
+    {
+      "ticker": "RECR11",
+      "quantidade": 211.0,
+      "investido": 20119.95,
+      "atual": 17040.36,
+      "rent_pct": -15.31,
+      "categoria": "2_credito_privado"
     },
     {
       "ticker": "KNUQ11",
       "quantidade": 161.0,
       "investido": 16499.65,
-      "atual": 16887.29,
-      "rent_pct": 2.35,
+      "atual": 17025.75,
+      "rent_pct": 3.19,
       "categoria": "4_ativos_reais"
     },
     {
       "ticker": "BRCO11",
       "quantidade": 146.0,
       "investido": 14434.78,
-      "atual": 16644.0,
-      "rent_pct": 15.3,
+      "atual": 16867.38,
+      "rent_pct": 16.85,
       "categoria": "4_ativos_reais"
     },
     {
       "ticker": "XPLG11",
       "quantidade": 162.0,
       "investido": 19297.7,
-      "atual": 16362.0,
-      "rent_pct": -15.21,
+      "atual": 16295.58,
+      "rent_pct": -15.56,
       "categoria": "4_ativos_reais"
     },
     {
       "ticker": "PVBI11",
       "quantidade": 212.0,
       "investido": 18601.98,
-      "atual": 16205.28,
-      "rent_pct": -12.88,
+      "atual": 16112.0,
+      "rent_pct": -13.39,
       "categoria": "4_ativos_reais"
     },
     {
       "ticker": "FLRY3",
       "quantidade": 945.0,
       "investido": 21348.68,
-      "atual": 14553.0,
-      "rent_pct": -31.83,
+      "atual": 15053.85,
+      "rent_pct": -29.49,
       "categoria": "3_acoes_brasil"
     },
     {
       "ticker": "BBSE3",
       "quantidade": 400.0,
       "investido": 13883.0,
-      "atual": 13760.0,
-      "rent_pct": -0.89,
+      "atual": 13924.0,
+      "rent_pct": 0.3,
       "categoria": "3_acoes_brasil"
     },
     {
       "ticker": "TGAR11",
       "quantidade": 191.0,
       "investido": 21470.35,
-      "atual": 13742.45,
-      "rent_pct": -35.99,
+      "atual": 13599.2,
+      "rent_pct": -36.66,
       "categoria": "4_ativos_reais"
     },
     {
       "ticker": "ETHA",
       "quantidade": 100.0,
       "investido": 17847.78,
-      "atual": 7862.0,
-      "rent_pct": -55.95,
+      "atual": 8262.0,
+      "rent_pct": -53.71,
       "categoria": "6_criptoativos"
+    },
+    {
+      "ticker": "Icatu Previ",
+      "quantidade": 142643.1243,
+      "investido": 167479.12,
+      "atual": 0.0,
+      "rent_pct": -100.0,
+      "categoria": "2_credito_privado"
+    },
+    {
+      "ticker": "Vitreo Superprev 2",
+      "quantidade": 97298.6,
+      "investido": 115437.12,
+      "atual": 0.0,
+      "rent_pct": -100.0,
+      "categoria": "7_alternativos_estratega"
+    },
+    {
+      "ticker": "XP Superprev 2",
+      "quantidade": 85769.7,
+      "investido": 88131.22,
+      "atual": 0.0,
+      "rent_pct": -100.0,
+      "categoria": "7_alternativos_estratega"
+    },
+    {
+      "ticker": "Arca Previ",
+      "quantidade": 82132.5,
+      "investido": 97181.83,
+      "atual": 0.0,
+      "rent_pct": -100.0,
+      "categoria": "7_alternativos_estratega"
+    },
+    {
+      "ticker": "Quest Luce Previ",
+      "quantidade": 76300.4046,
+      "investido": 126824.26,
+      "atual": 0.0,
+      "rent_pct": -100.0,
+      "categoria": "2_credito_privado"
+    },
+    {
+      "ticker": "Arca Grão RF Previ",
+      "quantidade": 31235.8863,
+      "investido": 44829.15,
+      "atual": 0.0,
+      "rent_pct": -100.0,
+      "categoria": "2_credito_privado"
     },
     {
       "ticker": "Tesouro IPCA+ 2050",
       "quantidade": 1.13,
       "investido": 1003.45,
-      "atual": 1030.98,
-      "rent_pct": 2.74,
+      "atual": 0.0,
+      "rent_pct": -100.0,
       "categoria": "1_renda_fixa_soberana"
     },
     {
       "ticker": "Tesouro Educa+ 2043",
       "quantidade": 0.8,
       "investido": 997.0,
-      "atual": 1020.07,
-      "rent_pct": 2.31,
+      "atual": 0.0,
+      "rent_pct": -100.0,
       "categoria": "1_renda_fixa_soberana"
     }
   ],
-  "last_update": "2026-03-31 04:15"
+  "last_update": "2026-04-01 04:07"
 }
