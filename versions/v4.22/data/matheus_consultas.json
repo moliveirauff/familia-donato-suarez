@@ -1,0 +1,940 @@
+{
+  "meta": {
+    "version": "1.0",
+    "last_updated": "2026-03-31T12:15:00",
+    "total_consultas": 6
+  },
+  "consultas": [
+    {
+      "identificacao": {
+        "data": "2025-12-13",
+        "especialidade": "Pediatria",
+        "medico": "Dra. Alana Benevides Kohn",
+        "crm": "52.86364-0",
+        "local": "Consultório Dra. Alana"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "2 meses e ~25 dias cronológico",
+        "idade_corrigida_texto": "~1 mês e 10 dias corrigido (prematuro 33 semanas)",
+        "peso_kg": 5.54,
+        "altura_cm": 59.0,
+        "perimetro_cefalico_cm": null,
+        "observacao": "Na última consulta com Junqueira (19/12): 5,906 kg. Essa é alguns dias antes, 13/12."
+      },
+      "motivo": "Puericultura ~3 meses. Acompanhamento de refluxo, APLV, constipação, desenvolvimento neuromotor e vacinas.",
+      "avaliacao": "Ótimo estado geral. Peso acima da média na curva OMS. Comprimento cresceu mais do que esperado — muito bem. Desenvolvimento neuromotor avançado para idade corrigida: faz tummy time, segue objetos, emite vogais, sorri. Sucrafilme suspenso por Junqueira — pode ser usado como SOS nos momentos de crise. Constipação melhorando mas ainda irregular. Mão fechada — reflexo do prematuro, estimular a abrir. Discreta assimetria de plagiocefalia (cabeça levemente quadradinha posterior, lado direito levemente mais plano) — observar. Crosta láctea iniciando.",
+      "diagnosticos": [
+        {
+          "nome": "APLV (Alergia à Proteína do Leite de Vaca)",
+          "status": "confirmado — Neokate + Neo Spoon"
+        },
+        {
+          "nome": "Refluxo gastroesofágico",
+          "status": "controlado — espessante voltou dose inteira"
+        },
+        {
+          "nome": "Constipação / disquesia do lactente",
+          "status": "melhorando — sem ferro, aguardando amadurecimento GI"
+        },
+        {
+          "nome": "Hipotonia leve (prematuridade)",
+          "status": "monitorado — exercícios domiciliares"
+        },
+        {
+          "nome": "Plagiocefalia posicional leve",
+          "status": "observação — discreta assimetria posterior"
+        },
+        {
+          "nome": "Desenvolvimento neuropsicomotor",
+          "status": "excelente — acima do esperado para idade corrigida"
+        }
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "Sucrafilme",
+            "dose": "SOS",
+            "frequencia": "Apenas nos momentos de crise (não contínuo)",
+            "duracao": "SOS",
+            "motivo": "Barreira gástrica em momento de caos — não usar rotina"
+          },
+          {
+            "nome": "Growvit (vitamina D + multivitamínico)",
+            "dose": "conforme prescrição anterior",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Suplementação vitamínica"
+          },
+          {
+            "nome": "Paracetamol 200mg/mL",
+            "dose": "5 gotas",
+            "frequencia": "SOS febre/dor/pós-vacina",
+            "duracao": "SOS",
+            "motivo": "Analgesia e antitérmico — especialmente após vacinas de 3 meses"
+          }
+        ],
+        "suspensos": [
+          {
+            "nome": "Ferro",
+            "motivo": "Piorava constipação — manter suspenso"
+          }
+        ],
+        "dieta": {
+          "formula": "Neokate LCP",
+          "espessante": "Neo Spoon",
+          "preparo": "4 colheres Neokate + 1 Neo Spoon — voltou dose inteira do espessante",
+          "volume_mamadeira": "120ml (pode chegar a 150ml se aceitar)",
+          "bico": "Testar bico Avent maior ou MAM 3 meses — bico atual pode estar com fluxo elevado (babando muito, possivelmente overfeeding rápido)",
+          "observacao": "Se mamada dura só 6-7 min e baba muito: bico com fluxo inadequado"
+        },
+        "vacinas_aplicadas": [],
+        "vacinas_programadas": [
+          {
+            "nome": "Meningococo B + Rotavírus",
+            "data_prevista": "2025-12-18 ou 19 (sexta após consulta)",
+            "observacao": "Vacinas de 3 meses. Rotavírus liberado agora que GI está melhor. Esperar 2 meses para 2ª dose rotavírus."
+          },
+          {
+            "nome": "Hexa + Pneumo 20",
+            "data_prevista": "2026-02 (~4 meses)",
+            "observacao": "Vacinas de 4 meses — agendar com ~4 meses"
+          }
+        ],
+        "orientacoes_desenvolvimento": [
+          "Tummy time: pelo menos 3x/dia (manhã, tarde, noite) — pelo menos 15 min total/dia; na cama/sofá em cima dos pais",
+          "Tummy time com almofadinha: braço apoiado na frente — verificar se almofada não é alta demais",
+          "Tapetinho com mobile: 1h/dia barriga pra cima",
+          "Canguru/mochila ergonômica: aguardar mais 15 dias (3 meses corrigidos) — risco de apneia por hipotonia cervical",
+          "Mão fechada: massagear para abrir, oferecer brinquedos finos (argolinhas, panos, mordedores finos tipo madeira)",
+          "Posição no colo: sentar virado para frente, bumbum no colo, cabeça livre para escolher onde olhar",
+          "Pé descalço em casa: botar pezinho em contato com texturas (sofá, mesa) — evitar meia e sapato dentro de casa",
+          "Pé encostado no próprio pé: exercício abdominal — perna levantada longe do colchão",
+          "Estimular olhar para cima: usar chocalhos e brinquedos acima da cabeça quando estiver tendendo a olhar para baixo",
+          "Temperatura: testar quarto mais frio (~22°C) — bebês prematuros podem dormir melhor no frio"
+        ],
+        "orientacoes_gerais": [
+          "Supositório/estímulo retal: pode usar se >3 dias sem evacuar; limite máximo 3 dias",
+          "Crosta láctea: passar óleo ou produto Mustela específico — aplicar, aguardar 6h, retirar (aplicação única)",
+          "Fórmula SUS: Dra. Alana vai fazer encaminhamento para posto de saúde tentar entrar no programa de fórmula pelo SUS",
+          "Saídas: liberadas com ressalvas — restaurante tranquilo ok; evitar shopping fechado lotado e aglomerações; Natal em família pequena ok",
+          "Perfume: evitar usar no bebê até 6 meses; família pode usar mas evitar contato direto com roupinha/pele dele",
+          "ASQ-3 (questionário desenvolvimento 2 meses): preencher em 15 dias e enviar se tiver algo não fazendo; trazer na próxima se tudo ok"
+        ]
+      },
+      "proxima_consulta": {
+        "data_prevista": "2026-01-xx",
+        "objetivo": "Puericultura ~4 meses — avaliar evacuação, desenvolvimento motor, bico da mamadeira, considerar troca de fórmula (Neokate → extensamente hidrolisada)"
+      },
+      "alertas": [
+        "Constipação: se não melhorar espontaneamente, discutir PegLax ou outra estratégia na próxima consulta",
+        "Canguru: não usar antes de 3 meses corrigidos — risco de apneia por hipotonia",
+        "Tummy time: se plagiocefalia não melhorar, considerar fisioterapia/ortese",
+        "Mão fechada persistente: monitorar — reflexo de prematuro normal, mas estimular abertura"
+      ],
+      "notas_livres": "Dra. Alana muito animada com desenvolvimento — 'prematura abusado', 'foi um arraso'. Primeiro Natal e primeiro Réveillon do Matheus. Família aliviada com melhora geral. Matheus pesando 5,540 kg, 59cm — acima da média na curva OMS. Dra. Alana vai fornecer encaminhamento para programa de fórmula no SUS.",
+      "transcript_file": "transcricoes/Consulta_Alana_13-12-2025.txt"
+    },
+    {
+      "identificacao": {
+        "data": "2025-12-19",
+        "especialidade": "Gastroenterologia Pediátrica",
+        "medico": "Dr. Junqueira",
+        "local": "Consultório Dr. Junqueira"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "3 meses e 1 dia",
+        "idade_corrigida_texto": "~1 mês e 20 dias corrigido (prematuro 33 semanas)",
+        "peso_kg": 5.906,
+        "altura_cm": 59.0,
+        "perimetro_cefalico_cm": null,
+        "observacao": "Ganhou 1,260 kg no mês desde última consulta (19/11 → 19/12)"
+      },
+      "motivo": "Acompanhamento gastroenterológico: APLV, refluxo com dependência de espessante, prisão de ventre severa (fezes tipo charuto), avaliação de vacina rotavírus e fórmula.",
+      "avaliacao": "Bom estado geral, crescimento excelente. Refluxo controlado com Neokate + espessante (Neo Spoon). Prisão de ventre severa com fezes duras (tipo cocô de cachorro/charutão) — esvaziamento gástrico atrasado. Overfeeding observado em episódio de 180ml. Golfada de líquido aquoso (soro do leite separado do coalho) horas após mamada — compatível com esvaziamento gástrico retardado. Sucrafilme suspenso (não indicado para esta fase). Ferro suspenso pela pediatra — confirma que piorava prisão de ventre.",
+      "diagnosticos": [
+        {
+          "nome": "APLV (Alergia à Proteína do Leite de Vaca)",
+          "status": "confirmado — Neokate + espessante"
+        },
+        {
+          "nome": "Refluxo gastroesofágico com esvaziamento gástrico retardado",
+          "status": "controlado com espessante"
+        },
+        {
+          "nome": "Constipação funcional / disquesia do lactente",
+          "status": "ativo — novo tratamento iniciado"
+        },
+        {
+          "nome": "Refluxo líquido tardio (soro do leite)",
+          "status": "esperado — esvaziamento atrasado, sem nova conduta"
+        }
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "PegLax 4000 (polietilenoglicol 4000)",
+            "dose": "4,5 ml (≈3g — ~0,5 g/kg/dia para ~5,9 kg)",
+            "frequencia": "1x/dia, de manhã, antes de mamar",
+            "duracao": "Até melhora da evacuação — desmame gradual: dia sim/dia não → dia sim/dois não → suspender",
+            "motivo": "Constipação — amolece fezes sem depender de supositório",
+            "observacao": "Pode misturar com outros medicamentos na colherzinha. Sabor doce — pode gerar careta mas não é ruim. Novo: aprovado para qualquer idade (antes era 6m+)"
+          },
+          {
+            "nome": "Nan Care Colle Comfort (probiótico)",
+            "dose": "conforme amostra",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Desconforto intestinal / cólicas — resultado positivo mantido"
+          }
+        ],
+        "suspensos_nesta_consulta": [
+          {
+            "nome": "Sucrafilme",
+            "motivo": "Não indicado para esta fase — suspenso"
+          },
+          {
+            "nome": "Ferro (ferripolimaltose)",
+            "motivo": "Piorava constipação — aguardar melhora da evacuação para reintroduzir"
+          }
+        ],
+        "dieta": {
+          "formula": "Neokate LCP",
+          "espessante": "Neo Spoon",
+          "preparo": "120ml água + 4 colheres Neokate + 1 colher Neo Spoon",
+          "volume_mamadeira": "120-150ml (pode ir até 150ml de água)",
+          "observacao": "Manter Neo Spoon na mesma medida. Trocar fórmula no 5º-6º mês de vida (para extensamente hidrolisada) SE: sem golfada + conseguir suspender espessante + sem cólica + evacuação regular"
+        },
+        "vacinas": {
+          "rotavirus": "Aguardar ~4 meses de idade cronológica. Primeira dose pode ser dada até 1 ano, segunda dose até 2 anos. Prazo tranquilo."
+        },
+        "orientacoes": [
+          "Não fazer overfeeding — máximo 150ml por mamada",
+          "Golfada aquosa horas depois: normal — é o soro do leite separando no estômago",
+          "Supositório: pode usar como estímulo (não inserir — apenas estimular); ou usar cotonete com óleo vegetal",
+          "Se PegLax resolver a evacuação: desmame gradual até suspender",
+          "Reintroduzir ferro após evacuação normalizada",
+          "Atenção: não comprar Neokate de fontes não confiáveis online (risco de latas com 'proibida a venda')"
+        ]
+      },
+      "proxima_consulta": {
+        "data_prevista": "2026-02-01",
+        "objetivo": "Retorno com ~4,5 meses — avaliar evacuação, possível troca de fórmula, reintrodução do ferro"
+      },
+      "alertas": [
+        "Se evacuação não melhorar com PegLax, reavaliar dose (range: 0,5–1,3 g/kg/dia)",
+        "Troca de fórmula só se: sem golfada + sem espessante + evacuação regular + sem cólica",
+        "Rotavírus: dar com ~4 meses cronológico (Dr. Junqueira recomenda esperar mais um mês)"
+      ],
+      "notas_livres": "Dr. Junqueira impressionado com ganho de peso: +1,260kg em 1 mês. Comentou que Matheus 'golfa de tanto que mama'. Consulta dia 19/12 — Matheus tomou vacinas de 3 meses nesse mesmo dia. Família perguntou sobre programa público de fórmula (PRODP) — Dr. Junqueira confirmou que programa foi cortado em out/2025, restam apenas crianças já cadastradas.",
+      "transcript_file": "transcricoes/Consulta_Junqueira_19-12-2025.txt"
+    },
+    {
+      "identificacao": {
+        "data": "2026-01-21",
+        "especialidade": "Pediatria",
+        "medico": "Dra. Alana Benevides Kohn",
+        "crm": "52.86364-0",
+        "local": "Consultório Dra. Alana"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "4 meses cronológico (~3 meses e 20 dias)",
+        "idade_corrigida_texto": "~2 meses e meio corrigido (prematuro 33 semanas)",
+        "peso_kg": null,
+        "altura_cm": null,
+        "perimetro_cefalico_cm": null,
+        "observacao": "Peso exato não identificado na transcrição. Dra. Alana confirmou que ele subiu na curva OMS e ganhou o peso esperado. Cresceu 5cm desde consulta anterior. Estava em ~6,4kg (ref. caderneta — 6,42 em 07/01). Altura estimada ~64-65cm."
+      },
+      "motivo": "Puericultura 4 meses. Piora do refluxo e recusa alimentar nas últimas semanas: gritando durante mamadas, volume irregular (média 750ml/dia, pico 850ml, mínimo 600ml). Vômito em jato x2 no Natal. Plagiocefalia piorou. Constipação melhorando. Crosta láctea.",
+      "avaliacao": "Bom estado geral — surpreendentemente bom crescimento apesar da recusa alimentar. Dra. Alana: 'subiu na curva'. Refluxo voltou com força — queimação (famotidina com 1 semana, parcialmente resolvida). Plagiocefalia: piorou de fato — lado esquerdo mais amassado, está dormindo majoritariamente voltado para esquerda. Sem torcicolo (consegue virar para ambos os lados). Crosta láctea presente. Mão fechada — reflexo do prematuro, pode estar relacionado ao desconforto. Regressão do desenvolvimento: parou de vocalizar/sorrir (correlacionado com piora do desconforto GI). Bico mamadeira: usando de 2 meses, adequado — não trocar ainda (bico 3 é a partir de 4 meses, aguardar 1,5 mês).",
+      "diagnosticos": [
+        {
+          "nome": "APLV (Alergia à Proteína do Leite de Vaca)",
+          "status": "confirmado — Neokate + Neo Spoon"
+        },
+        {
+          "nome": "Refluxo gastroesofágico com esofagite ácida",
+          "status": "piora aguda — famotidina iniciada, sucrafilme reintroduzido"
+        },
+        {
+          "nome": "Recusa alimentar / volume variável",
+          "status": "ativo — correlacionado com dor do refluxo"
+        },
+        {
+          "nome": "Constipação funcional / disquesia",
+          "status": "melhorando — dia sim, dia não, fezes moles"
+        },
+        {
+          "nome": "Plagiocefalia posicional",
+          "status": "piora — intervenção com coxim lateral iniciada"
+        },
+        {
+          "nome": "Crosta láctea (dermatite seborreica)",
+          "status": "ativo — tratamento com Stella Care Mustela"
+        }
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "Famotidina (Famox)",
+            "dose": "0,5 ml",
+            "frequencia": "2x/dia (12/12h — manhã e noite)",
+            "duracao": "contínuo",
+            "motivo": "Inibidor de bomba de prótons — trata refluxo ácido. Com 1 semana, parcialmente resolvido mas ainda incomoda."
+          },
+          {
+            "nome": "Sucrafilme",
+            "dose": "conforme prescrição",
+            "frequencia": "contínuo — regular (não só SOS)",
+            "duracao": "contínuo",
+            "motivo": "Barreira gástrica — reintroduzido de forma regular nesta consulta. Intervalo mínimo 2h do Famotidina.",
+            "observacao": "Sucrafilme + Famotidina são mecanismos diferentes — complementares. Intervalo 2h entre eles."
+          },
+          {
+            "nome": "Luftal (simeticona)",
+            "dose": "6 gotas",
+            "frequencia": "8/8h SOS",
+            "duracao": "SOS",
+            "motivo": "Gases de madrugada que perturbam o sono — efeito colateral das medicações GI"
+          },
+          {
+            "nome": "Vitamina D / Grovit",
+            "dose": "conforme prescrição anterior",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Suplementação vitamínica"
+          },
+          {
+            "nome": "Probiótico (Nan Care / Colle Comfort)",
+            "dose": "conforme prescrição",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Microbiota intestinal"
+          }
+        ],
+        "suspensos": [
+          {
+            "nome": "Ferro",
+            "motivo": "Mantido suspenso — aguardar evacuação normalizar"
+          }
+        ],
+        "dieta": {
+          "formula": "Neokate LCP",
+          "espessante": "Neo Spoon",
+          "volume_diario_media": "750ml/dia (variando 600–850ml)",
+          "observacao": "Mamadas irregulares — de 2/2h a 4/4h dependendo do dia. Aceitar a variação — peso está ótimo.",
+          "bico": "Manter bico 2 meses — trocar para bico 3 somente com ~4 meses de idade corrigida (~5,5 meses cronológico)"
+        },
+        "vacinas": {
+          "pendentes": "Rotavírus + vacinas de 4 meses (Hexa + Pneumo 20) — coordenar com Dr. Junqueira antes de aplicar"
+        },
+        "orientacoes_plagiocefalia": [
+          "Coxim lateral: dobrar toalha ou fronha com arroz (sem pontinha) e posicionar atrás da orelha esquerda — para evitar que ele apoie na região amassada",
+          "Objetivo: deixar a região amassada (esquerda) livre do apoio para crescer",
+          "Pode usar o coxim de noite no berço — sem risco pois não fica próximo ao rosto",
+          "Capote/capacete: sem indicação formal ainda — observar evolução",
+          "Osteopata: avaliar se não melhorar — pode ajudar com massagens"
+        ],
+        "orientacoes_desenvolvimento": [
+          "Continuar tummy time 3x/dia",
+          "Estimular abertura da mão: massagem nos dedos, colocar brinquedos finos/argolinhas, texturas no colo",
+          "Esticar braços para pegar objetos: brinquedo com ventosa na mesa, deixar ele tentar alcançar",
+          "Carregar em cadeirinha ergonômica: aguardar ~15 dias (alcançar 4 meses de idade corrigida)",
+          "Estimular olhar para cima: chocalho/brinquedo acima da cabeça",
+          "Mão em linha média: já está fazendo — manter",
+          "Soneca diurna: máximo 2h por soneca (não deixar dormir mais que 3h de dia para não atrapalhar noite)",
+          "Regressão vocal/social: normal correlacionada com desconforto — tende a melhorar com melhora do GI"
+        ],
+        "orientacoes_crosta_lactea": [
+          "Produto: Stella Care da Mustela",
+          "Aplicar no couro cabeludo, espalhar bem com a mão, impregnar todas as crostas",
+          "Usar pente fino (de sobrancelha/bebê) — pentear de trás pra frente e na diagonal para soltar as cascas",
+          "Reaplicar onde a casquinha saiu, aguardar 6 horas, enxaguar",
+          "Aplicação única geralmente resolve; se não, aguardar 3 dias e reaplicar"
+        ],
+        "monitoramento_xixi": {
+          "instrucao": "Pesar fraldas por 24-48h para monitorar diurese",
+          "meta": "≥1 ml/kg/hora",
+          "observacao": "Suspeita de que a percepção de xixi diminuído é artefato da troca para fralda maior — a confirmar com pesagem"
+        }
+      },
+      "proxima_consulta": {
+        "data_prevista": "2026-02-xx",
+        "objetivo": "Puericultura 5 meses — avaliar resposta ao famotidina + sucrafilme, plagiocefalia, desenvolvimento, introdução alimentar (planeja iniciar com 7 meses cronológico / 4 meses corrigido)"
+      },
+      "alertas": [
+        "Vômito em jato: 2 episódios no Natal — monitorar; se recorrer, comunicar Dr. Junqueira",
+        "Xixi: pesar fraldas por 48h e reportar à Dra. Alana (meta ≥1ml/kg/h)",
+        "Refluxo: 7 dias para famotidina fazer efeito — se não melhorar, reavaliar dose",
+        "Plagiocefalia: se não melhorar com coxim em 3-4 semanas, considerar fisioterapia/osteopata"
+      ],
+      "notas_livres": "Consulta marcada pelo estresse dos pais com a piora do refluxo e recusa alimentar. Dra. Alana tranquilizou: crescimento excelente, subiu na curva OMS. Matheus cresceu 5cm desde a última consulta da Dra. Alana. Regressão vocal transitória — correlacionada ao desconforto GI. Família começando a flexibilizar saídas: café da manhã fora, lugares abertos ok. Natal em Teresópolis — período difícil (calor, fralda seca).",
+      "transcript_file": "transcricoes/Consulta_Alana_21-01-2026.txt"
+    },
+    {
+      "identificacao": {
+        "data": "2026-02-26",
+        "especialidade": "Pediatria",
+        "medico": "Dra. Alana Benevides Kohn",
+        "crm": "52.86364-0",
+        "local": "Consultório Dra. Alana"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "5 meses e 8 dias",
+        "idade_corrigida_texto": "4 meses e 8 dias (prematuro 33 semanas)",
+        "peso_kg": 7.6,
+        "altura_cm": 68.5,
+        "perimetro_cefalico_cm": null
+      },
+      "motivo": "Puericultura 5 meses. Acompanhamento de refluxo/GI, APLV (Neokate + espessante), desenvolvimento motor e sono.",
+      "avaliacao": "Excelente estado geral. Desenvolvimento muito acima do esperado para idade corrigida — está no nível de 5 meses cronológicos mesmo com 33 semanas de prematuridade. Peso e comprimento na curva (acima do P50 corrigindo a idade). Vira de bruços sozinho desde ~faltando 1 dia para 5 meses. Hipotonia leve compatível com prematuridade — sem indicação de fisioterapia no momento, apenas estimulação domiciliar. Pele sensível — assadura e miliária presentes. Plagiocefalia leve (amassado posterior) — estagnação leve desde última consulta; orientação de reposicionamento. Orelhas sem sinais de otite. Dra. Alana liberou saídas sociais (shopping, churrasco, crianças) — não precisa mais de bolha.",
+      "diagnosticos": [
+        {
+          "nome": "APLV (Alergia à Proteína do Leite de Vaca)",
+          "status": "confirmado — em tratamento com Neokate"
+        },
+        {
+          "nome": "Refluxo gastroesofágico com esofagite ácida",
+          "status": "em tratamento — esomeprazol"
+        },
+        {
+          "nome": "Hipotonia leve (prematuridade)",
+          "status": "monitorado — sem fisioterapia por ora"
+        },
+        {
+          "nome": "Plagiocefalia posicional leve",
+          "status": "monitorado — reposicionamento"
+        },
+        {
+          "nome": "Miliária / assadura",
+          "status": "em tratamento — Cetrilan + Amide SOS"
+        },
+        {
+          "nome": "Desenvolvimento neuropsicomotor",
+          "status": "muito bom — acima do esperado para idade corrigida"
+        }
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "Dexfer Gotas (ferripolimaltose)",
+            "dose": "3 gotas",
+            "frequencia": "dias alternados",
+            "duracao": "contínuo",
+            "motivo": "Suplementação de ferro — dose aumentada de 2 para 3 gotas nesta consulta",
+            "observacao": "Confirmado pela Eurofarma: sem derivados de leite, seguro para APLV"
+          },
+          {
+            "nome": "Growvit solução",
+            "dose": "6 gotas",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Suplementação vitamínica (contém vitamina D)"
+          },
+          {
+            "nome": "Vitamina D 200 UI/gt",
+            "dose": "1 gota",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Suplementação vitamina D"
+          },
+          {
+            "nome": "Nan Care",
+            "dose": "5 gotas",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Suplementação nutricional"
+          },
+          {
+            "nome": "Esomeprazol 10mg (manipulado Farmacopa)",
+            "dose": "10 gotas (= 10mg em 10 gotas)",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo",
+            "motivo": "Refluxo — dose mantida. Médica optou por não aumentar (estava em dose máxima antes); reavaliar se piorar clínica — ajuste para 15 gotas",
+            "observacao": "Mecanismo: reduz acidez do leite golfado, não o volume de golfada nem fecha esfíncter"
+          },
+          {
+            "nome": "Paracetamol 200mg/mL",
+            "dose": "7 gotas",
+            "frequencia": "a cada 6/6h SOS",
+            "duracao": "SOS",
+            "motivo": "Febre / dor"
+          },
+          {
+            "nome": "Amide Creme",
+            "dose": "aplicar no tronco",
+            "frequencia": "SOS",
+            "duracao": "SOS",
+            "motivo": "Brotoeja / miliária — não comprar, usar SOS quando necessário"
+          },
+          {
+            "nome": "Cetrilan",
+            "dose": "quantidade adequada",
+            "frequencia": "após cada troca de fralda",
+            "duracao": "contínuo",
+            "motivo": "Barreira protetora — pele sensível, assadura"
+          }
+        ],
+        "dieta": {
+          "formula": "Neokate",
+          "preparo": "120ml água + 4 colheres Neokate + espessante (Neo Spoon) — rende 150ml",
+          "volume_mamadeira": "150ml",
+          "volume_diario_media": "650-800ml (chegou a 900ml em Teresópolis)",
+          "observacao": "Mantido Neokate + espessante. Próxima consulta: avaliar troca de fórmula nos 6 meses"
+        },
+        "vacinas_aplicadas": [
+          {
+            "nome": "Meningococo B",
+            "data": "2026-02-26",
+            "observacao": "5 meses — dose de reforço"
+          }
+        ],
+        "vacinas_programadas": [
+          {
+            "nome": "Rotavírus + Pneumo + Hexa",
+            "data_prevista": "2026-03-24",
+            "observacao": "A partir do dia 24/03 — tomar no mesmo dia"
+          },
+          {
+            "nome": "COVID + Gripe",
+            "data_prevista": "2026-04-08",
+            "observacao": "~15 dias após a rodada de 24/03. Gripe disponível no particular. COVID no SUS."
+          }
+        ],
+        "orientacoes": [
+          "Estimular postura sentada: não ficar deitado no corpo, ficar sentadinho virado para frente no colo",
+          "Exercício de gangorra: dar a mão e deixar ele fazer força para sentar (estimula abdômen)",
+          "Daqui a 15 dias: botar sentado na mão (apoio de mão) para sentar firme",
+          "Cadeirinha do carro: ajustar para posição mais sentada (cadeira 360°)",
+          "Berço: avaliar cama montessoriana — ele está ficando apertado, braço prendendo nas grades",
+          "Pele: trocar para fralda maior (está ficando vermelho — fralda apertada)",
+          "Pele: Cetrilan a cada troca. Amide SOS para brotoeja",
+          "Plagiocefalia: manter o máximo possível encostado no lado menos amassado",
+          "Sono: pode dormir de bruços e de lado — tônus suficiente desde que vira sozinho",
+          "Exposição solar: não necessária para vitamina D (suplementado), mas benéfica para olhos; sol da manhã ou final de tarde, sem neura",
+          "Piscina doméstica (piscininha de plástico): liberada já",
+          "Saídas sociais: liberadas (shopping, churrascos, crianças) — evitar crianças doentes",
+          "Próxima consulta: introdução alimentar — começar a conversar. Previsão 6 meses e meio (corrigido). Ideal resolver GI e tirar esomeprazol antes de iniciar"
+        ]
+      },
+      "proxima_consulta": {
+        "data_prevista": "2026-03-18",
+        "objetivo": "Puericultura 6 meses — vacinas, avaliação GI, orientação introdução alimentar, possível troca de fórmula"
+      },
+      "alertas": [
+        "Se golfada aumentar com sinais de dor (choro, arqueamento, recusa), aumentar esomeprazol para 15 gotas",
+        "Monitorar hipotonia — se não melhorar com estimulação, iniciar fisioterapia",
+        "Plagiocefalia: observar se piora; encaminhar para especialista se não melhorar",
+        "Fralda: trocar tamanho — está ficando apertada e causando vermelhidão"
+      ],
+      "notas_livres": "Dra. Alana muito impressionada com desenvolvimento — disse que Matheus se comporta como bebê a termo de 5 meses, não como prematuro de 33 semanas corrigido. Família em ótimo estado. Primeiros dias em Teresópolis foram muito bons (mama mais, dorme melhor). Matheus adorou restaurante. Família animada com liberação social.",
+      "transcript_file": "transcricoes/Consulta_Alana_26-02-2026.txt"
+    },
+    {
+      "identificacao": {
+        "data": "2026-03-30",
+        "especialidade": "Gastroenterologia Pediátrica",
+        "medico": "Dr. Junqueira",
+        "local": "Rua Dona Mariana, 77, sala 423 — Botafogo, RJ"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "6 meses e ~12 dias (cronológico)",
+        "idade_corrigida_texto": "~5 meses corrigido (prematuro 33 semanas)",
+        "peso_kg": 7.98,
+        "altura_cm": 70.0,
+        "perimetro_cefalico_cm": null,
+        "observacao": "Peso na mediana OMS. Altura acima da mediana. Excelente evolução para ex-prematuro de 33 semanas."
+      },
+      "motivo": "Retorno de acompanhamento — APLV/Refluxo (6 meses de tratamento). Avaliação clínica e planejamento de desmame medicamentoso + transição de fórmula + introdução alimentar.",
+      "avaliacao": "Excelente evolução. Matheus está na mediana das curvas de peso e altura para a idade, tendo saído do desvio padrão negativo onde nasceu. Sem sintomas associados de preocupação. Golfadas com coloração rosada confirmadas como NÃO sendo sangue — provavelmente corante/componente do Esomeprazol manipulado em Teresópolis. Dr. Junqueira confirma que Matheus pode receber alta do acompanhamento gastroenterológico em ~3 meses se evoluir bem com as transições planejadas.",
+      "diagnosticos": [
+        {
+          "nome": "APLV (Alergia à Proteína do Leite de Vaca)",
+          "status": "em_tratamento"
+        },
+        {
+          "nome": "Refluxo Gastroesofágico",
+          "status": "em_desmame_medicacao"
+        }
+      ],
+      "observacoes_clinicas": [
+        "Golfadas com coloração rosada nos dias 29 e 30/03 — Dr. Junqueira confirmou: NÃO é sangue. Coloração provavelmente do Esomeprazol manipulado em Teresópolis (diferente corante/formulação). Sem indicação de preocupação.",
+        "Esomeprazol de Teresópolis: tecnologia PELLETS (cada grânulo protegido da ação da luz), validade 2 meses, sem geladeira, sem sabor — considerada melhor. Farmacopa (Copacabana): tecnologia NÃO-PELLETS, validade 13 dias, requer refrigeração, tinha sabor (Matheus odiou).",
+        "Durante introdução alimentar, a curva de peso pode dar uma leve queda — é normal e esperado.",
+        "Matheus demonstra forte interesse em alimentos sólidos — vira a cabeça para comida, ansioso para começar."
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "Esomeprazol 10mg (manipulado)",
+            "dose": "12 gotas",
+            "frequencia": "DESMAME — ver protocolo",
+            "status": "desmame",
+            "protocolo_desmame": "Dia 0 (30/03) = não deu. Fase 1 (~7-10 dias): dia SIM / dia NÃO — 12 gotas 1x/dia. Fase 2 (~1 semana): dia SIM / 2 dias NÃO. Fase 3: suspender totalmente. Razão: produção excessiva de gastrina durante bloqueio — retirada abrupta causa hipersecreção ácida rebote.",
+            "mecanismo": "Bloqueio prolongado cria hipergastrinemia. Retirada abrupta → pico ácido. Desmame gradual evita o rebote."
+          },
+          {
+            "nome": "Probiótico (Nan Care)",
+            "dose": "—",
+            "frequencia": "SUSPENSO",
+            "status": "suspenso",
+            "motivo": "Suspenso — Dra. Alana pediu a suspensão, Dr. Junqueira concordou nesta consulta."
+          }
+        ],
+        "dieta": {
+          "formula_atual": "Neocate LCP (4 medidas) + Neos Pum",
+          "formula_nova": "Pregomin Pepti",
+          "transicao": "APÓS desmame completo do Esomeprazol. Começar com 120ml água + 3 medidas Neocate + 1 medida Pregomin Pepti. A cada 3 dias, substituir 1 medida (3+1 → 2+2 → 1+3 → 0+4). Neospoon: manter durante transição.",
+          "volume_mamadeira": "120ml água (4 medidas fórmula)",
+          "observacao_formulas": "NÃO confundir Pregomin Pepti com Pregomin Plus (este é para crianças com dificuldade de ganho de peso — mais concentrado). 9 latas de Neocate disponíveis — trocar na Cristal.",
+          "volume_mamadeira": "120ml (4 medidas)"
+        },
+        "introducao_alimentar": {
+          "status": "LIBERADA — pode iniciar já (não precisa esperar desmame)",
+          "inicio_recomendado": "Banana cozida, maçã cozida, pera cozida",
+          "prazo_cozimento": "~15 dias cozidos (reduz potencial alérgico, especialmente da banana)",
+          "observacao_aplv": "APLV ≠ alergia a múltiplos alimentos (condição rarísima). Oferecer alimentos normalmente sem restrições além das já conhecidas (lactose/PLV).",
+          "dica_pratica": "Fazer purê de maçã ou pera em quantidade e guardar na geladeira — mais prático do que fazer individual."
+        }
+      },
+      "plano_tratamento": [
+        "1. DESMAME ESOMEPRAZOL: iniciar imediatamente (fase 1 ativa). ~9 dias até suspensão total.",
+        "2. TRANSIÇÃO FÓRMULA: iniciar APÓS desmame. Neocate → Pregomin Pepti, 1 medida a cada 3 dias.",
+        "3. INTRODUÇÃO ALIMENTAR: pode iniciar já. Frutas cozidas (banana, maçã, pera) por ~15 dias.",
+        "4. Se sintomas persistentes durante transição de fórmula → voltar para Neocate e avisar Dr. Junqueira.",
+        "5. Após adaptação ao Pregomin Pepti (~1-1,5 meses), nova troca para fórmula normal (convencional).",
+        "6. Alta gastroenterológica prevista após trocar para fórmula normal com sucesso (~2-3 meses)."
+      ],
+      "alertas": [
+        "⚠️ Golfada rosada (29-30/03): NÃO é sangue — confirmado categoricamente por Junqueira. Se fosse sangue seria sangue mesmo; o halo rosado tipo 'água de carne' é normal.",
+        "⚠️ Durante desmame: aumento temporário de golfadas é NORMAL. Só preocupar com dor, irritação, insônia.",
+        "⚠️ Durante introdução alimentar: leve queda na curva de peso é NORMAL — adaptação."
+      ],
+      "proxima_consulta": {
+        "data_prevista": "2026-05-30",
+        "objetivo": "Retorno em ~2 meses (final de maio) — avaliar adaptação ao Pregomin Pepti, curva de peso pós-IA. Se tudo bem, trocar para fórmula normal → alta."
+      },
+      "notas_livres": "Consulta muito positiva. Peso 7980g ('se não tivesse feito xixi tava com 8kg') e altura 70cm (Mauricio: '70! 70!'). Peso cravado na mediana OMS, altura ACIMA da mediana — excelente para prematuro 33sem. Olho azul confirmado ('esse não vai mudar'). Junqueira explicou mecanismo gastrina/ácido para desmame gradual. Sabor Neocate comparado a 'ração de cachorro'. Mencionou NutoCurvas (canal familiar, só após 2 anos). Família animada com perspectiva de alta. Matheus desesperado para comer há semanas.",
+      "transcript_file": "transcricoes/Consulta_Junqueira_30-03-2026.txt",
+      "transcript_source": "Transcrição revisada manualmente (substituiu STT automático em 31/03/2026)"
+    },
+    {
+      "identificacao": {
+        "data": "2026-03-30",
+        "especialidade": "Pediatria / Nutrição Infantil",
+        "medico": "Dra. Alana Benevides Kohn",
+        "crm": "52.86364-0",
+        "local": "Rua Visconde de Pirajá, 595, sala 401 — Ipanema, RJ"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "6 meses e 12 dias (cronológico)",
+        "idade_corrigida_texto": "4 meses e 25 dias corrigido (prematuro 33 semanas)",
+        "peso_kg": 7.9,
+        "peso_anterior_kg": 7.6,
+        "ganho_peso_g": 300,
+        "altura_cm": 69.0,
+        "perimetro_cefalico_cm": null,
+        "observacao": "Ganhou ~300g desde consulta anterior (7.600→7.900). Manteve curva OMS. Altura e peso adequados. Excelente evolução para ex-prematuro 33 semanas."
+      },
+      "motivo": "Puericultura 6 meses. Acompanhamento APLV/refluxo. Orientação completa de introdução alimentar. Avaliação de desmame do esomeprazol, transição de fórmula. Avaliação de pele (orelha, umbigo, dermatite perioral). Revisão de manobra de desengasgo.",
+      "avaliacao": "Excelente estado geral. Peso 7.9kg na mediana OMS (idade corrigida), altura adequada — crescimento excepcional para ex-prematuro. Desenvolvimento neuromotor ótimo: passa brinquedo de mão para outra, pega com duas mãos, rola (mais para direita), começa a sentar com apoio. Golfada rosada (29-30/03) investigada: NÃO é sangue — teste no papel branco negativo, corante do esomeprazol manipulado em Teresópolis. Dermatite perioral (rosto/boca), dermatite no umbigo, orelha com casquinha/ressecamento. Matheus muito resistente a mamar — aceita melhor quando está sonolento. Demonstra forte interesse em comida sólida (abre a boca quando pais comem).",
+      "diagnosticos": [
+        {
+          "nome": "APLV (Alergia à Proteína do Leite de Vaca)",
+          "status": "confirmado — em transição para Pregomin Pepti"
+        },
+        {
+          "nome": "Refluxo gastroesofágico",
+          "status": "em_desmame_medicacao — fisiológico controlado"
+        },
+        {
+          "nome": "Dermatite perioral",
+          "status": "ativo — tratamento com hidratante"
+        },
+        {
+          "nome": "Dermatite umbilical",
+          "status": "ativo — hidratante + limpeza com cotonete"
+        },
+        {
+          "nome": "Crosta láctea (recorrente)",
+          "status": "ativo — Stella Care da Mustela"
+        },
+        {
+          "nome": "Ressecamento/casquinha na orelha",
+          "status": "ativo — Stella Care da Mustela"
+        },
+        {
+          "nome": "Desenvolvimento neuropsicomotor",
+          "status": "excelente — acima do esperado para idade corrigida"
+        }
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "Growvit solução (multivitamínico)",
+            "dose": "6 gotas",
+            "frequencia": "1x/dia",
+            "duracao": "até 1 ano de idade",
+            "motivo": "Suplementação vitamínica"
+          },
+          {
+            "nome": "Dexfer 100 (ferripolimaltose)",
+            "dose": "3 gotas",
+            "frequencia": "dia sim / dia não",
+            "duracao": "contínuo",
+            "motivo": "Suplementação de ferro. Dose mantida — 'tá dando certo, o time tá ganhando'"
+          },
+          {
+            "nome": "Esomeprazol 10mg (manipulado)",
+            "dose": "12 gotas",
+            "frequencia": "DESMAME — dia sim/dia não → dia sim/2 dias não → suspender",
+            "status": "desmame",
+            "protocolo_desmame": "Dia 0 (30/03) = não deu. Fase 1 (~7-10 dias): dia SIM / dia NÃO — 12gt. Fase 2 (~7 dias): dia SIM / 2 dias NÃO. Fase 3: suspender totalmente. Total: ~2 semanas.",
+            "motivo": "Desmame gradual para evitar hipersecreção ácida de rebote (hipergastrinemia)"
+          },
+          {
+            "nome": "Paracetamol 200mg/mL",
+            "dose": "8 gotas",
+            "frequencia": "a cada 6/6h SOS",
+            "duracao": "SOS",
+            "motivo": "Febre / dor"
+          },
+          {
+            "nome": "Cetrilan",
+            "dose": "quantidade adequada",
+            "frequencia": "SOS — só quando assado",
+            "duracao": "SOS",
+            "motivo": "Assadura períneo. Não usar no dia a dia. 2 dias resolve."
+          },
+          {
+            "nome": "Allegra",
+            "dose": "2,5 ml",
+            "frequencia": "SOS",
+            "duracao": "SOS",
+            "motivo": "Ter em casa para emergência de reação alérgica alimentar"
+          }
+        ],
+        "tratamento_pele": [
+          {
+            "area": "Orelha (casquinha/ressecamento)",
+            "produto": "Stella Care da Mustela",
+            "instrucao": "Aplicar com cotonete. Deixar 6h antes do banho."
+          },
+          {
+            "area": "Crosta láctea (cabeça — recorrente)",
+            "produto": "Stella Care da Mustela",
+            "instrucao": "Mesmo produto da orelha. Aplicar, deixar 6h, enxaguar. Puramente estético."
+          },
+          {
+            "area": "Umbigo (dermatite — vermelho há 1 semana)",
+            "produto": "Hidratante",
+            "instrucao": "Tirar casquinha com cotonete + hidratante/óleo. Caprichar de hidratante. Se não melhorar em 2 dias, avisar Alana."
+          },
+          {
+            "area": "Rosto/boca (dermatite perioral)",
+            "produto": "Hidratante",
+            "instrucao": "Passar hidratante na região."
+          },
+          {
+            "area": "Base do pênis (vermelhinho)",
+            "produto": "Cetrilan",
+            "instrucao": "Cetrilan SOS, 2 dias resolve."
+          }
+        ],
+        "suspensos": [],
+        "divergencias": [
+          {
+            "medicamento": "Probiótico (Nan Care)",
+            "dra_alana": "Reconheceu que 'não fez a menor diferença' — não insistiu em manter",
+            "dr_junqueira": "SUSPENSO — indicou suspensão em 30/03",
+            "status": "SUSPENSO de fato (Junqueira tirou, Alana não contestou)"
+          }
+        ],
+        "dieta": {
+          "formula_atual": "Neocate LCP",
+          "formula_nova": "Pregomin Pepti",
+          "transicao": "APÓS desmame do esomeprazol. Protocolo Junqueira: a cada 3 dias, substituir 1 medida de Neocate por 1 de Pregomin (3+1→2+2→1+3→0+4). Depois: Pregomin → Aptamil Pepti.",
+          "volume_mamadeira": "110-120ml por mamada",
+          "volume_diario_media": "~700ml/dia",
+          "mamadas_por_dia": "5-8x/dia (variável)",
+          "espessante": "Neos Pum — manter durante transição",
+          "observacao": "Matheus resiste muito a mamar — aceita melhor quando está sonolento. NÃO confundir Pregomin Pepti com Pregomin Plus."
+        },
+        "introducao_alimentar": {
+          "status": "LIBERADA — mas Alana PREFERE esperar desmame do esomeprazol primeiro (~2 semanas)",
+          "razao_espera": "Sem esomeprazol o estômago não fica 'básico' — melhor proteção contra infecção (frutas não são estéreis como fórmula). Também evita embolamento de variáveis.",
+          "pode_iniciar_junto": "Pode introduzir frutas ENQUANTO troca o leite (Neocate→Pregomin) — sem problema.",
+          "protocolo_semanal": {
+            "semana_1": "Fruta 1x/dia (ex: 9h)",
+            "semana_2": "Fruta 2x/dia (ex: 9h + 15h)",
+            "semana_3": "Fruta 9h + ALMOÇO 12h + Fruta 15h",
+            "semana_4": "Semana 3 + JANTAR 18h"
+          },
+          "metodo": "PARTICIPATIVO (meio-termo entre tradicional e BLW): descascar/amassar na frente do bebê, deixar tocar, explorar. BLW puro NÃO recomendado.",
+          "frutas": {
+            "inicio": "Banana (ou qualquer uma)",
+            "preparo": "Sempre amassada — evitar liquidificar/triturar/peneirar (destrói fibras). Exceções (abacaxi, jaca) podem ir no triturador.",
+            "porcao": "Meia banana, 1/4 maçã, 1 fatia mamão — porção pequenininha",
+            "restricoes": "Uva NUNCA inteira. Suco NÃO até 1 ano. Mel NÃO até 1 ano. Açúcar meta 2 anos sem.",
+            "dicas": "Comer junto com a criança. Deixar tocar no alimento. Pode precisar oferecer 10x até aceitar. Não forçar."
+          },
+          "comida_salgada": {
+            "inicio": "A partir da semana 3",
+            "prato_ideal": "5 grupos/cores: cereais+tubérculos, leguminosas, proteínas, hortaliças, legumes",
+            "proteinas": "TUDO liberado: peixe, ovo, víscera, frango, carne bovina",
+            "preparo": "Tudo amassado. Só carne no mini processador.",
+            "sal": "NÃO até 1 ano (SBP)",
+            "temperos": "TODOS naturais liberados: alho, cebola, coentro, manjericão, alho-poró, noz moscada"
+          },
+          "alergenicos": {
+            "castanhas_gluten_camarao": "SÓ COM 9 MESES",
+            "pasta_amendoim": "Comprar pronta (ingrediente único). Colocar gotinha no meio de banana amassada.",
+            "camarao": "Oferecer aos 9 meses. Lagosta NÃO precisa.",
+            "primeiras_3_exposicoes": "Cozido (reduz potencial alérgico). Depois pode oferecer cru.",
+            "observacao": "APLV ≠ alergia alimentar múltipla (raríssimo — sem relação)"
+          },
+          "agua": {
+            "inicio": "Junto com a primeira fruta",
+            "meta_minima": "50ml/dia (mas cocô indica se precisa mais)",
+            "regra": "Toda vez que os pais beberem água, oferecer para ele",
+            "copo": "Com bico flexível (Matheus rejeita bico duro). Se nenhum copo funcionar: mamadeira como plano B.",
+            "cocô_referencia": "Consistência de sorvete do McDonald's — se mais duro, mais água"
+          },
+          "congelamento": {
+            "recipiente": "Forminha de gelo com tampa — 1 cubinho = 1 porção",
+            "duracao_maxima": "15 dias no congelador",
+            "preferencia": "Fresquinho é melhor, congelado OK"
+          },
+          "contaminacao_cruzada_aplv": {
+            "esponja": "SEPARADA só para ele",
+            "panelinha": "SEPARADA só para ele",
+            "mini_processador": "SEPARADO (comprar um para ele)",
+            "colher_prato": "Pode usar os mesmos — higienizar com esponja dele",
+            "motivo": "Evitar contaminação durante transição de fórmula (~2 meses)"
+          },
+          "higiene_alimentos": {
+            "organico": "Sempre preferência",
+            "nao_organico": "(1) molho bicarbonato → enxaguar → (2) molho clorido",
+            "descascaveis": "Descascar já remove agrotóxico"
+          },
+          "sinais_alergia": {
+            "sintomas": "Pele vermelha, vômito, sonolência → ligar IMEDIATAMENTE",
+            "medicacao_sos": "Allegra 2,5ml"
+          },
+          "lista_compras": [
+            "☐ Copinho com bico flexível (Skip Hop ou Avenge)",
+            "☐ Prato com ventosa (cor única, sem divisória)",
+            "☐ Cadeirão (Maxi Cosi ou similar — clean, sem acolchoado; usa ~1,5 ano)",
+            "☐ Forminha de gelo com tampa",
+            "☐ Mini processador separado (para carnes)",
+            "☐ Esponja separada",
+            "☐ Panelinha separada",
+            "☐ Pastas de castanhas (amendoim, castanha de caju — ingrediente único)"
+          ]
+        },
+        "orientacoes": [
+          "Fazer uma coisa de cada vez: (1) desmame esomeprazol → (2) iniciar frutas → (3) trocar fórmula + salgado",
+          "Golfadas leves durante desmame: NORMAIS — só preocupar com dor, irritação intensa, insônia",
+          "Leve platô de peso durante adaptação: NORMAL",
+          "Trocador: considerar trocar para chão/cama — Matheus vira muito, risco de queda",
+          "Estimular rolar para ESQUERDA (rola quase sempre para direita)",
+          "Pode dormir de bruços à vontade",
+          "Babá contratada — deve fazer curso de desengasgo",
+          "Todo dia 1º do mês: relembrar manobra de desengasgo até 1 ano"
+        ]
+      },
+      "manobra_desengasgo": {
+        "menor_1_ano_solido": {
+          "passo_1": "Virar de barriga para baixo (cabeça mais baixa que bumbum)",
+          "passo_2": "Mão sustenta mandíbula, apoiada na perna ou em pé",
+          "passo_3": "Bater com BASE da mão (não inteira) nas costas: 5 golpes",
+          "passo_4": "Se não resolveu: virar de barriga para cima",
+          "passo_5": "Linha dos mamilos — base da mão — afundar 1/3 do tórax: 5 compressões",
+          "passo_6": "Repetir até resolver"
+        },
+        "menor_1_ano_liquido": "Virar de lado, tirar excesso da boca, estímulo nas costas",
+        "gague_fruta_amassada": "NADA a fazer — deixar o bebê resolver sozinho. Só intervir em obstrução TOTAL.",
+        "maior_1_ano": "Heimlich: joinha no umbigo + 5 golpes nas costas primeiro, depois movimento de gancho"
+      },
+      "vacinas": {
+        "prioridades": ["BeeFop (pode no posto a partir de 6 meses)", "Gripe (particular)", "COVID (particular)"],
+        "ordem": "BeeFop + Gripe primeiro. COVID depois.",
+        "podem_fazer_mesmo_dia": "Sim, mas Alana acha muita coisa — esperar ~1 semana entre rodadas",
+        "clinicas_sugeridas": ["Felipe Mattoso", "Kinder", "Vaccini"],
+        "calendario": {
+          "7_meses": "Só reforço de gripe e COVID",
+          "8_meses": "Nenhuma",
+          "9_meses": "Só Bexsero",
+          "10_meses": "Nenhuma",
+          "11_meses": "Nenhuma"
+        },
+        "observacao": "Vacina de 6 meses não costuma dar reação forte (diferente da de 5 meses)"
+      },
+      "sono": {
+        "horario_dormir": "~19h",
+        "primeiro_periodo": "Ótimo",
+        "despertar_principal": "~2h da manhã — despertares maiores",
+        "frequencia_despertar": "1-2x para mamar, às vezes acorda e quer brincar",
+        "associacao": "Nenhuma identificável"
+      },
+      "coco": {
+        "frequencia": "Quase todo dia — 1x/semana sem",
+        "observacao": "Melhorou em relação ao histórico"
+      },
+      "praia_piscina": {
+        "praia": "LIBERADA",
+        "piscina_cloro": "LIBERADA",
+        "protetor_solar": "Mustela — bastão para rosto + líquido para corpo",
+        "repelente": "Exposis (adesivos de citronela NÃO funcionam)",
+        "observacao": "Se pais usam protetor normal e vão ter contato direto com bebê: usar protetor do bebê nos pais (transfere) ou usar roupa de proteção"
+      },
+      "encaminhamentos": {
+        "oftalmologista": "Consulta pedida para 6 meses — recepcionista vai mandar lista",
+        "relatorio_prematuridade": "Para o plano de saúde — Alana vai providenciar. 'Paciente com 6 meses e IGC de 4 meses e 25 dias.'"
+      },
+      "desenvolvimento_neuromotor": {
+        "marcos_presentes": [
+          "Reconhece familiares (ainda não estranha muito desconhecidos)",
+          "Brinca com pais — ama interação",
+          "Pais percebem feliz vs irritado",
+          "Ama espelho",
+          "Responde a sons (reage muito, mas não 'conversa' muito)",
+          "Junta vogais com 'ai'",
+          "Olha com interesse, pega tudo, leva à boca",
+          "Passa brinquedo de mão para outra",
+          "Pega com duas mãos ao mesmo tempo",
+          "Rola (mais para direita — estimular esquerda)",
+          "No sofá/cama sabe desvirar, no chão ainda não",
+          "Começa a sentar com apoio por segundos"
+        ],
+        "marcos_pendentes": [
+          "Sentar sem apoio — tem mais 2 meses",
+          "Desvirar sozinho no chão — pode esperar"
+        ]
+      },
+      "plano_tratamento": [
+        "1. DESMAME ESOMEPRAZOL: ativo (~2 semanas para suspensão total).",
+        "2. INTRODUÇÃO ALIMENTAR: iniciar frutas APÓS desmame do esomeprazol. Protocolo 4 semanas.",
+        "3. TRANSIÇÃO FÓRMULA: iniciar APÓS desmame. Neocate → Pregomin Pepti → Aptamil Pepti.",
+        "4. VACINAS: BeeFop + Gripe ASAP. COVID particular.",
+        "5. PELE: Stella Care (orelha + crosta), hidratante (umbigo + rosto).",
+        "6. OFTALMOLOGISTA: agendar consulta 6 meses.",
+        "7. RELATÓRIO PREMATURIDADE: Alana providencia para plano de saúde."
+      ],
+      "alertas": [
+        "⚠️ Golfada rosada (29-30/03): NÃO é sangue — corante esomeprazol Teresópolis. Esclarecido.",
+        "⚠️ Aumento golfadas durante desmame: normal. Atenção com dor/irritação persistente.",
+        "⚠️ Umbigo vermelho há 1 semana: hidratante. Se não melhorar em 2 dias, avisar Alana.",
+        "⚠️ Contaminação cruzada: esponja/panelinha/processador separados durante transição de fórmula.",
+        "⚠️ Alergênicos (castanhas/glúten/camarão): SÓ com 9 meses.",
+        "⚠️ Rolar: estimular para ESQUERDA (preferência pela direita)."
+      ],
+      "proxima_consulta": {
+        "data_prevista": "2026-05-04",
+        "horario": "15:30",
+        "objetivo": "Puericultura ~7-8 meses — avaliar início da IA (semanas 3-4, comida salgada), desmame esomeprazol concluído, transição de fórmula, curva de peso."
+      },
+      "notas_livres": "Consulta extensa (~1h12min), focada em orientação de introdução alimentar completa. Matheus pesando 7.9kg (de 7.6), manteve curva OMS. Idade corrigida 4m25d — dentro da janela de IA. Decisão conjunta: esperar desmame do esomeprazol antes de iniciar frutas (proteção gástrica). Alana revisou manobra de desengasgo — babá nova deve fazer curso. Praia e piscina LIBERADOS. Protetor Mustela, repelente Exposis. Oftalmologista e relatório de prematuridade pendentes. Consulta: R$650.",
+      "transcript_file": "transcricoes/consulta_alana_30mar2026_transcricao.txt"
+    }
+  ]
+}

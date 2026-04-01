@@ -508,6 +508,7 @@ h1 {
       const labels = fluxoData.fluxo_mensal.map(m => monthLabel(m.mes));
       const dataBR = fluxoData.fluxo_mensal.map(m => m.br_brl);
       const dataUS = fluxoData.fluxo_mensal.map(m => m.us_brl);
+      const dataCripto = fluxoData.fluxo_mensal.map(m => m.cripto_brl || 0);
 
       if (globalData.chartFluxoMensal) globalData.chartFluxoMensal.destroy();
       globalData.chartFluxoMensal = new Chart(ctx, {
@@ -525,6 +526,12 @@ h1 {
               label: 'US',
               data: dataUS,
               backgroundColor: '#4CAF50',
+              borderRadius: 4
+            },
+            {
+              label: 'Cripto',
+              data: dataCripto,
+              backgroundColor: '#FF9800',
               borderRadius: 4
             }
           ]
