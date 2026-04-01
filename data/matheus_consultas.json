@@ -581,12 +581,11 @@
           }
         ],
         "dieta": {
-          "formula_atual": "Neocate LCP (4 medidas) + Neos Pum",
+          "formula_atual": "Neocate LCP (4 medidas) + Neospoon",
           "formula_nova": "Pregomin Pepti",
           "transicao": "APÓS desmame completo do Esomeprazol. Começar com 120ml água + 3 medidas Neocate + 1 medida Pregomin Pepti. A cada 3 dias, substituir 1 medida (3+1 → 2+2 → 1+3 → 0+4). Neospoon: manter durante transição.",
           "volume_mamadeira": "120ml água (4 medidas fórmula)",
-          "observacao_formulas": "NÃO confundir Pregomin Pepti com Pregomin Plus (este é para crianças com dificuldade de ganho de peso — mais concentrado). 9 latas de Neocate disponíveis — trocar na Cristal.",
-          "volume_mamadeira": "120ml (4 medidas)"
+          "observacao_formulas": "NÃO confundir Pregomin Pepti com Pregomin Plus (este é para crianças com dificuldade de ganho de peso — mais concentrado). 9 latas de Neocate disponíveis — trocar na Cristal."
         },
         "introducao_alimentar": {
           "status": "LIBERADA — pode iniciar já (não precisa esperar desmame)",
@@ -744,9 +743,9 @@
         "divergencias": [
           {
             "medicamento": "Probiótico (Nan Care)",
-            "dra_alana": "Reconheceu que 'não fez a menor diferença' — não insistiu em manter",
+            "dra_alana": "CONCORDOU em suspender — 'Tá, vai tirar, vai ficar sem. Achei que vocês já tinham tirado.'",
             "dr_junqueira": "SUSPENSO — indicou suspensão em 30/03",
-            "status": "SUSPENSO de fato (Junqueira tirou, Alana não contestou)"
+            "status": "SUSPENSO — ambos médicos alinhados desde 30/03"
           }
         ],
         "dieta": {
@@ -760,9 +759,9 @@
           "observacao": "Matheus resiste muito a mamar — aceita melhor quando está sonolento. NÃO confundir Pregomin Pepti com Pregomin Plus."
         },
         "introducao_alimentar": {
-          "status": "LIBERADA — mas Alana PREFERE esperar desmame do esomeprazol primeiro (~2 semanas)",
+          "status": "LIBERADA — Alana prefere esperar desmame do esomeprazol (~2 semanas), depois inicia JUNTO com transição de fórmula",
           "razao_espera": "Sem esomeprazol o estômago não fica 'básico' — melhor proteção contra infecção (frutas não são estéreis como fórmula). Também evita embolamento de variáveis.",
-          "pode_iniciar_junto": "Pode introduzir frutas ENQUANTO troca o leite (Neocate→Pregomin) — sem problema.",
+          "pode_iniciar_junto": "Pode introduzir frutas ENQUANTO troca o leite (Neocate→Pregomin) — sem problema. Sequência: 1º desmame esomeprazol → 2º frutas + transição fórmula (simultâneas).",
           "protocolo_semanal": {
             "semana_1": "Fruta 1x/dia (ex: 9h)",
             "semana_2": "Fruta 2x/dia (ex: 9h + 15h)",
