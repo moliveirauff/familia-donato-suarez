@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "DA CEG-GAS 00094282639",
+    "data": "2026-03-05",
+    "categoria": "moradia",
+    "subcategoria": "Conta de Gás",
+    "valor": -235.2,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "SEGURO CARTAO",
     "data": "2026-03-05",
     "categoria": "outros",
