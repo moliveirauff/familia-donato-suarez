@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "CONTA VIVO",
+    "data": "2026-03-26",
+    "categoria": "despesas_pessoais",
+    "subcategoria": "Celular",
+    "valor": -522.69,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "ESGH I L00570 I ELENS",
     "data": "2026-03-11",
     "categoria": "despesas_pessoais",
