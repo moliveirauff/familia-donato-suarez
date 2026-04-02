@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "DA LIGHT 010140727744",
+    "data": "2026-03-23",
+    "categoria": "moradia",
+    "subcategoria": "Conta de Luz",
+    "valor": -500.13,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "TED 237.1669.MAURICIO S",
     "data": "2026-03-12",
     "categoria": "receitas",
