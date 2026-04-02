@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "PIX WHATS Fernand",
+    "data": "2026-03-10",
+    "categoria": "transporte",
+    "subcategoria": "Táxi e Uber",
+    "valor": -54.0,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "IOF",
     "data": "2026-04-02",
     "categoria": "outros",
