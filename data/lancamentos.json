@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "AmazonPrimeBR",
+    "data": "2026-03-26",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -19.9,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "PIX WHATS Fernand",
     "data": "2026-03-09",
     "categoria": "transporte",
