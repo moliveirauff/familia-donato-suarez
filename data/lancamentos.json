@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "PIX WHATS Bruno d",
+    "data": "2026-03-06",
+    "categoria": "despesas_pessoais",
+    "subcategoria": "Cabeleireiro",
+    "valor": -80.0,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "PIX WHATS Pagar Me Pa",
     "data": "2026-03-06",
     "categoria": "alimentacao",
