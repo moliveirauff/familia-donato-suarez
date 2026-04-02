@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "PIX TRANSF OKX SER",
+    "data": "2026-03-23",
+    "categoria": "lazer",
+    "subcategoria": "Viagem",
+    "valor": -500.0,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "PIX WHATS FLORA G",
     "data": "2026-03-25",
     "categoria": "compras",
