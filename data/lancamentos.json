@@ -4,6 +4,14 @@
     "data": "2026-03-29",
     "categoria": "compras",
     "subcategoria": "Outras Compras",
+    "valor": -684.5,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "MERCADOLIVRE*MERCA (02/02)",
+    "data": "2026-03-29",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
     "valor": -433.41,
     "origem": "cartao_itau"
   },
