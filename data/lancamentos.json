@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "PIX WHATS QRCODE MARCELO",
+    "data": "2026-03-11",
+    "categoria": "transporte",
+    "subcategoria": "Táxi e Uber",
+    "valor": -53.8,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "PIX TRANSF OKX SER",
     "data": "2026-03-23",
     "categoria": "lazer",
