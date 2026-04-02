@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "PIX WHATS Pagar Me Pa",
+    "data": "2026-03-06",
+    "categoria": "alimentacao",
+    "subcategoria": "Outros Alimentação",
+    "valor": -13.97,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "PIX WHATS QRCODE MARCELO",
     "data": "2026-03-11",
     "categoria": "transporte",
