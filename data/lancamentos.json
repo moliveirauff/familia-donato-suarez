@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "AMAZONMKTPLC*MIXCOMERC",
+    "data": "2026-03-03",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -65.89,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "AMAZONMKTPLC*COMERCIAL",
     "data": "2026-03-03",
     "categoria": "compras",
