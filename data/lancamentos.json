@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "PIX WHATS FLORA G",
+    "data": "2026-03-25",
+    "categoria": "compras",
+    "subcategoria": "Presentes",
+    "valor": -175.0,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "IOF",
     "data": "2026-03-03",
     "categoria": "outros",
