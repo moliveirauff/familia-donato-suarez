@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "IOF",
+    "data": "2026-03-03",
+    "categoria": "outros",
+    "subcategoria": "Juros",
+    "valor": -153.23,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "JUROS LIMITE DA CONTA",
     "data": "2026-03-05",
     "categoria": "outros",
