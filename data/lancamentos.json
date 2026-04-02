@@ -4,6 +4,14 @@
     "data": "2026-03-16",
     "categoria": "lazer",
     "subcategoria": "Cinema",
+    "valor": -29.4,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "TATU FILMES",
+    "data": "2026-03-16",
+    "categoria": "lazer",
+    "subcategoria": "Cinema",
     "valor": -65.0,
     "origem": "cartao_itau"
   },
