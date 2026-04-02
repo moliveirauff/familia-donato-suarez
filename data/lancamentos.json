@@ -1,6 +1,14 @@
 [
   {
     "descricao": "TED 237.1669.MAURICIO S",
+    "data": "2026-03-12",
+    "categoria": "receitas",
+    "subcategoria": "Salário",
+    "valor": 22566.0,
+    "origem": "conta_corrente_itau"
+  },
+  {
+    "descricao": "TED 237.1669.MAURICIO S",
     "data": "2026-03-27",
     "categoria": "receitas",
     "subcategoria": "Salário",
