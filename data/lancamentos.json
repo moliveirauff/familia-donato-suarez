@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "JUROS LIMITE DA CONTA",
+    "data": "2026-03-05",
+    "categoria": "outros",
+    "subcategoria": "Juros",
+    "valor": -1195.98,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "DA CEG-GAS 00094282639",
     "data": "2026-03-05",
     "categoria": "moradia",
