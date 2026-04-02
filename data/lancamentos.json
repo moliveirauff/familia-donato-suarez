@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "MERCADOLIVRE*MERCADOL",
+    "data": "2026-03-01",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -599.99,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "AMAZON BR",
     "data": "2026-03-03",
     "categoria": "compras",
