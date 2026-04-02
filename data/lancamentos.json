@@ -37154,5 +37154,38 @@
     "subcategoria": "Cursos",
     "valor": -107.84,
     "origem": "cartao_itau"
+  },
+  {
+    "id": "f83a914d-66ef-4c75-8a94-684e341f79ed",
+    "data": "2026-03-23",
+    "descricao": "PIX TRANSF OKX SER (Estorno)",
+    "valor": 115.54,
+    "tipo": "despesa",
+    "categoria": "lazer",
+    "subcategoria": "Viagem",
+    "origem": "conta_corrente_itau",
+    "timestamp": "2026-03-23T12:00:00Z"
+  },
+  {
+    "id": "e04b1709-9461-4ebf-8763-f6b5a2d4c024",
+    "data": "2026-03-16",
+    "descricao": "PIX TRANSF Insider (Estorno)",
+    "valor": 557.74,
+    "tipo": "despesa",
+    "categoria": "compras",
+    "subcategoria": "Vestuário",
+    "origem": "conta_corrente_itau",
+    "timestamp": "2026-03-16T12:00:00Z"
+  },
+  {
+    "id": "6bfc4265-155d-4140-84ba-571c64d49b96",
+    "data": "2026-03-24",
+    "descricao": "PIX QRS PIX Marketp",
+    "valor": -3672.61,
+    "tipo": "despesa",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "origem": "conta_corrente_itau",
+    "timestamp": "2026-03-24T12:00:00Z"
   }
 ]
