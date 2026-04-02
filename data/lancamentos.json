@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "AMAZONMKTPLC*COMERCIAL",
+    "data": "2026-03-03",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -49.89,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "AMAZON BR",
     "data": "2026-03-28",
     "categoria": "compras",
