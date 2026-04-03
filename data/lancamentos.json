@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "NR PARKING",
+    "data": "2026-03-30",
+    "categoria": "transporte",
+    "subcategoria": "Estacionamento",
+    "valor": -34.0,
+    "origem": "flash"
+  },
+  {
     "descricao": "Depósito de Mobilidade Flash",
     "data": "2026-03-27",
     "categoria": "receitas",
