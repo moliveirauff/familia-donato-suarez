@@ -71,6 +71,21 @@ def calcular_valorizacao_mensal(movimentacoes_imoveis):
     return valores
 
 
+def agregar_por_mes(valores_mensais):
+    """
+    Converte valores mensais (keyed by YYYY-MM-DD) para lista por mês
+    
+    Returns:
+        list: [{ "mes": "YYYY-MM", "valor": float }]
+    """
+    por_mes = {}
+    for data_str, valor in valores_mensais.items():
+        mes_key = data_str[:7]  # "YYYY-MM"
+        por_mes[mes_key] = round(valor, 2)  # último dia do mês sobrescreve
+    
+    return [{"mes": mes, "valor": val} for mes, val in sorted(por_mes.items())]
+
+
 def agregar_por_ano(valores_mensais):
     """
     Agrega valores mensais por ano (último valor de cada ano)
@@ -151,7 +166,8 @@ def main():
     print("  ⏳ Calculando valorização mensal (0,2% a.m.)...")
     valores_mensais = calcular_valorizacao_mensal(imovel_data["movimentacoes"])
     
-    print("  📈 Agregando por ano...")
+    print("  📈 Agregando por mês e por ano...")
+    valores_por_mes = agregar_por_mes(valores_mensais)
     valores_por_ano = agregar_por_ano(valores_mensais)
     
     print("  💰 Calculando aluguéis por ano...")
@@ -192,6 +208,7 @@ def main():
         },
         "series": {
             "valor_por_ano": valores_por_ano,
+            "valor_por_mes": valores_por_mes,
             "alugueis_por_ano": alugueis_por_ano,
             "rentabilidade_acumulada": rentabilidade_acumulada
         },

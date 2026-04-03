@@ -365,7 +365,7 @@ Chart.defaults.set('plugins.datalabels', { display: false });
 
 // === STATE ===
 let dInvest = null, dFgts = null, dArgos = null, dImovel = null;
-let investMensal = [], fgtsAnualArr = [], argosMes = [], imovelSeries = [];
+let investMensal = [], fgtsAnualArr = [], fgtsMesArr = [], argosMes = [], imovelSeries = [], imovelMes = [];
 let currentFilterMensal = 12;
 let charts = {};
 let cachedTotals = null;
@@ -436,22 +436,16 @@ function buildMonthlyData(count) {
     return `${meses[parseInt(m) - 1]}/${y.slice(2)}`;
   });
   const investMap = Object.fromEntries(investMensal.map(x => [x[0], x[1]]));
-  const fgtsYearMap = Object.fromEntries(fgtsAnualArr.map(x => [String(x.ano), x.saldo_fim_ano]));
+  
+  // Maps mensais (fallback para último valor conhecido se o mês não existir)
+  const fgtsMonthMap = Object.fromEntries(fgtsMesArr.map(x => [x.mes, x.saldo]));
   const argosMonthMap = Object.fromEntries(argosMes.map(([m, v]) => [m, v]));
-  const imovelYearMap = Object.fromEntries(imovelSeries.map(x => [String(x.ano), x.valor]));
+  const imovelMonthMap = Object.fromEntries(imovelMes.map(x => [x.mes, x.valor]));
 
-  function getFGTS(mes) { return fgtsYearMap[mes.split('-')[0]] || 0; }
-  function getArgos(mes) {
-    const keys = Object.keys(argosMonthMap).sort();
+  function getFromMonthMap(map, mes) {
+    const keys = Object.keys(map).sort();
     let val = 0;
-    for (const k of keys) { if (k <= mes) val = argosMonthMap[k]; }
-    return val;
-  }
-  function getImovel(mes) {
-    const yr = mes.split('-')[0];
-    const years = Object.keys(imovelYearMap).sort();
-    let val = 0;
-    for (const y of years) { if (parseInt(y) <= parseInt(yr)) val = imovelYearMap[y]; }
+    for (const k of keys) { if (k <= mes) val = map[k]; }
     return val;
   }
 
@@ -459,9 +453,9 @@ function buildMonthlyData(count) {
   return {
     labels,
     invest: meses.map(m => investMap[m] || 0),
-    fgts:   meses.map(m => getFGTS(m)),
-    argos:  meses.map(m => getArgos(m)),
-    imovel: meses.map(m => getImovel(m)),
+    fgts:   meses.map(m => getFromMonthMap(fgtsMonthMap, m)),
+    argos:  meses.map(m => getFromMonthMap(argosMonthMap, m)),
+    imovel: meses.map(m => getFromMonthMap(imovelMonthMap, m)),
   };
 }
 
@@ -617,8 +611,10 @@ function filterMensal(months) {
 
     // Séries globais
     imovelSeries = dImovel.series.valor_por_ano;
+    imovelMes    = dImovel.series.valor_por_mes || [];
     argosMes     = dArgos.por_mes.map(x => [x.mes, x.vm_minha_parte]);
     fgtsAnualArr = dFgts.por_ano;
+    fgtsMesArr   = dFgts.por_mes || [];
     investMensal = dInvest.mensal.evolucao.map(x => [x.mes, x.patrimonio]);
 
     // Valores atuais
