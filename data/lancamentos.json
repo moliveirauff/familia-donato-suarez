@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "UBER* TRIP",
+    "data": "2026-03-28",
+    "categoria": "transporte",
+    "subcategoria": "Táxi e Uber",
+    "valor": -70.31,
+    "origem": "flash"
+  },
+  {
     "descricao": "BUS SERVICOS*O NIBUS",
     "data": "2026-03-28",
     "categoria": "transporte",
