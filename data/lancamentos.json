@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "DEGUSTER PRIME",
+    "data": "2026-03-11",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -85.8,
+    "origem": "ticket_restaurante"
+  },
+  {
     "descricao": "DEGUSTER CAFE",
     "data": "2026-03-12",
     "categoria": "alimentacao",
