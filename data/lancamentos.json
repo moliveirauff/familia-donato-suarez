@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Benefício Ticket Alimentação",
+    "data": "2026-03-27",
+    "categoria": "receitas",
+    "subcategoria": "Benefícios",
+    "valor": 1715.0,
+    "origem": "ticket_alimentacao"
+  },
+  {
     "descricao": "DEGUSTER CAFE",
     "data": "2026-03-02",
     "categoria": "alimentacao",
