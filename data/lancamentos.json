@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "GREEN FRUIT",
+    "data": "2026-03-25",
+    "categoria": "alimentacao",
+    "subcategoria": "Mercado",
+    "valor": -254.91,
+    "origem": "ticket_alimentacao"
+  },
+  {
     "descricao": "ZONA SUL SUPERMERCADOS",
     "data": "2026-03-27",
     "categoria": "alimentacao",
