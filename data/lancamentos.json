@@ -16,14 +16,6 @@
     "origem": "conta_corrente_itau"
   },
   {
-    "descricao": "IOF",
-    "data": "2026-04-02",
-    "categoria": "outros",
-    "subcategoria": "Juros",
-    "valor": -92.94,
-    "origem": "conta_corrente_itau"
-  },
-  {
     "descricao": "PIX WHATS Bruno d",
     "data": "2026-03-06",
     "categoria": "despesas_pessoais",
