@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Depósito de Mobilidade Flash",
+    "data": "2026-03-27",
+    "categoria": "receitas",
+    "subcategoria": "Benefícios",
+    "valor": 1500.0,
+    "origem": "flash"
+  },
+  {
     "descricao": "HORT FRUIT KCM DE TERESOPOLIS",
     "data": "2026-03-06",
     "categoria": "alimentacao",
