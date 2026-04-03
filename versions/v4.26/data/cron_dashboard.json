@@ -1,0 +1,561 @@
+{
+  "generated_at": "2026-04-03T12:10:10.183395-03:00",
+  "summary": {
+    "total": 38,
+    "ok": 24,
+    "error": 3,
+    "idle": 11
+  },
+  "agents": [
+    {
+      "id": "main",
+      "name": "S.P.I.N.",
+      "emoji": "🤖",
+      "total": 15,
+      "ok": 14,
+      "error": 1,
+      "idle": 0,
+      "health": "red"
+    },
+    {
+      "id": "argos",
+      "name": "Argos",
+      "emoji": "🏠",
+      "total": 7,
+      "ok": 4,
+      "error": 1,
+      "idle": 2,
+      "health": "red"
+    },
+    {
+      "id": "casa",
+      "name": "Casa",
+      "emoji": "🏡",
+      "total": 2,
+      "ok": 1,
+      "error": 1,
+      "idle": 0,
+      "health": "red"
+    },
+    {
+      "id": "invest",
+      "name": "Invest",
+      "emoji": "📈",
+      "total": 4,
+      "ok": 3,
+      "error": 0,
+      "idle": 1,
+      "health": "green"
+    },
+    {
+      "id": "matheus",
+      "name": "Matheus",
+      "emoji": "🍼",
+      "total": 2,
+      "ok": 2,
+      "error": 0,
+      "idle": 0,
+      "health": "green"
+    },
+    {
+      "id": "dev",
+      "name": "Dev",
+      "emoji": "💻",
+      "total": 1,
+      "ok": 0,
+      "error": 0,
+      "idle": 1,
+      "health": "yellow"
+    },
+    {
+      "id": "fin",
+      "name": "Fin",
+      "emoji": "💰",
+      "total": 1,
+      "ok": 0,
+      "error": 0,
+      "idle": 1,
+      "health": "yellow"
+    },
+    {
+      "id": "kmbot",
+      "name": "KMBot",
+      "emoji": "🧠",
+      "total": 1,
+      "ok": 0,
+      "error": 0,
+      "idle": 1,
+      "health": "yellow"
+    },
+    {
+      "id": "rfbot",
+      "name": "RFBot",
+      "emoji": "📱",
+      "total": 1,
+      "ok": 0,
+      "error": 0,
+      "idle": 1,
+      "health": "yellow"
+    },
+    {
+      "id": "subsea",
+      "name": "Subsea",
+      "emoji": "🌊",
+      "total": 1,
+      "ok": 0,
+      "error": 0,
+      "idle": 1,
+      "health": "yellow"
+    },
+    {
+      "id": "specbot",
+      "name": "SpecBot",
+      "emoji": "📐",
+      "total": 1,
+      "ok": 0,
+      "error": 0,
+      "idle": 1,
+      "health": "yellow"
+    },
+    {
+      "id": "leadbot",
+      "name": "LeadBot",
+      "emoji": "🎯",
+      "total": 1,
+      "ok": 0,
+      "error": 0,
+      "idle": 1,
+      "health": "yellow"
+    },
+    {
+      "id": "medbot",
+      "name": "MedBot",
+      "emoji": "🩺",
+      "total": 1,
+      "ok": 0,
+      "error": 0,
+      "idle": 1,
+      "health": "yellow"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "a3f8c1d2-9b74-4e56-8f3a-2d1e5c7b9a0f",
+      "name": "Argos — Verificação Semanal da API",
+      "agent_id": "argos",
+      "agent_name": "Argos",
+      "agent_emoji": "🏠",
+      "schedule_human": "Seg 09:00",
+      "status": "error",
+      "last_run": "4d ago",
+      "next_run": "in 2d"
+    },
+    {
+      "id": "5ba399f0-f7e4-4566-95c9-faee091e8502",
+      "name": "Inteligência de Mercado — Guarapari (Sábado)",
+      "agent_id": "argos",
+      "agent_name": "Argos",
+      "agent_emoji": "🏠",
+      "schedule_human": "Sáb 05:30",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 17h"
+    },
+    {
+      "id": "e5c9616f-9005-4b1e-8504-ddf86e5cf9da",
+      "name": "Lembrete mensal — Condomínio Armoleu",
+      "agent_id": "argos",
+      "agent_name": "Argos",
+      "agent_emoji": "🏠",
+      "schedule_human": "Dia 9, 10:00",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 5d"
+    },
+    {
+      "id": "b4d7c469-ecb3-4828-b827-e024130a35c3",
+      "name": "Inteligência de Mercado — Copacabana (Sexta)",
+      "agent_id": "argos",
+      "agent_name": "Argos",
+      "agent_emoji": "🏠",
+      "schedule_human": "Sex 05:30",
+      "status": "ok",
+      "last_run": "5h ago",
+      "next_run": "in 6d"
+    },
+    {
+      "id": "4836bda3-7bc7-40c2-b398-286d821fd46f",
+      "name": "Knowledge Review — ArgosBot (dia 2)",
+      "agent_id": "argos",
+      "agent_name": "Argos",
+      "agent_emoji": "🏠",
+      "schedule_human": "Dia 2, 05:00",
+      "status": "ok",
+      "last_run": "1d ago",
+      "next_run": "in 28d"
+    },
+    {
+      "id": "861e4097-6418-4fef-9b0d-55ef962b6b2c",
+      "name": "Letícia Afternoon Status (17:00)",
+      "agent_id": "argos",
+      "agent_name": "Argos",
+      "agent_emoji": "🏠",
+      "schedule_human": "Diário 17:00",
+      "status": "ok",
+      "last_run": "19h ago",
+      "next_run": "in 4h"
+    },
+    {
+      "id": "921955cc-6baa-4c47-b1f6-a80f9ae78618",
+      "name": "Letícia Morning Briefing (8:00)",
+      "agent_id": "argos",
+      "agent_name": "Argos",
+      "agent_emoji": "🏠",
+      "schedule_human": "Diário 08:00",
+      "status": "ok",
+      "last_run": "4h ago",
+      "next_run": "in 19h"
+    },
+    {
+      "id": "22d90960-55c5-4867-b3c8-e410130f0c2d",
+      "name": "CasaBot — Pedidos: Scan Emails + Resumo (Seg/Qui)",
+      "agent_id": "casa",
+      "agent_name": "Casa",
+      "agent_emoji": "🏡",
+      "schedule_human": "Seg/Qui 09:00",
+      "status": "error",
+      "last_run": "1d ago",
+      "next_run": "in 2d"
+    },
+    {
+      "id": "8f147fb2-bcb1-436a-906c-cb926b39461e",
+      "name": "Knowledge Review — CasaBot (dia 3)",
+      "agent_id": "casa",
+      "agent_name": "Casa",
+      "agent_emoji": "🏡",
+      "schedule_human": "Dia 3, 05:00",
+      "status": "ok",
+      "last_run": "7h ago",
+      "next_run": "in 29d"
+    },
+    {
+      "id": "e0b8095b-4abe-466f-8f96-74ab62c23ed8",
+      "name": "Knowledge Review — DevBot (dia 4)",
+      "agent_id": "dev",
+      "agent_name": "Dev",
+      "agent_emoji": "💻",
+      "schedule_human": "Dia 4, 05:00",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 16h"
+    },
+    {
+      "id": "e6722b54-df0d-4c52-b2d1-62050c1b156f",
+      "name": "Knowledge Review — FinBot (dia 5)",
+      "agent_id": "fin",
+      "agent_name": "Fin",
+      "agent_emoji": "💰",
+      "schedule_human": "Dia 5, 05:00",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 1d"
+    },
+    {
+      "id": "311c0811-7aab-4848-9dde-c8a4b5ab2360",
+      "name": "Knowledge Review — InvestBot (dia 6)",
+      "agent_id": "invest",
+      "agent_name": "Invest",
+      "agent_emoji": "📈",
+      "schedule_human": "Dia 6, 05:00",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 2d"
+    },
+    {
+      "id": "e8737269-3a91-4392-8560-244c7b1c024e",
+      "name": "Atualizar BS Opções + Resumo Vencimentos",
+      "agent_id": "invest",
+      "agent_name": "Invest",
+      "agent_emoji": "📈",
+      "schedule_human": "Seg-Sex 04:15",
+      "status": "ok",
+      "last_run": "7h ago",
+      "next_run": "in 2d"
+    },
+    {
+      "id": "0c2908a0-72f0-4901-b719-0ad094175b5f",
+      "name": "Atualização Mensal de Cotações",
+      "agent_id": "invest",
+      "agent_name": "Invest",
+      "agent_emoji": "📈",
+      "schedule_human": "Dia 1, 04:05",
+      "status": "ok",
+      "last_run": "2d ago",
+      "next_run": "in 27d"
+    },
+    {
+      "id": "4eb27f74-7361-4696-8b70-b2669895bd29",
+      "name": "Atualização Semanal de Cotações (Sábado 04:10)",
+      "agent_id": "invest",
+      "agent_name": "Invest",
+      "agent_emoji": "📈",
+      "schedule_human": "Sáb 04:10",
+      "status": "ok",
+      "last_run": "6d ago",
+      "next_run": "in 15h"
+    },
+    {
+      "id": "d31f3805-91d8-4dae-b33a-be74e2837068",
+      "name": "Knowledge Review — KMBot (dia 7)",
+      "agent_id": "kmbot",
+      "agent_name": "KMBot",
+      "agent_emoji": "🧠",
+      "schedule_human": "Dia 7, 05:00",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 3d"
+    },
+    {
+      "id": "f677cf1e-606b-451b-84bc-a732f76485b8",
+      "name": "Knowledge Review — LeadBot (dia 11)",
+      "agent_id": "leadbot",
+      "agent_name": "LeadBot",
+      "agent_emoji": "🎯",
+      "schedule_human": "Dia 11, 05:00",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 7d"
+    },
+    {
+      "id": "8a21a426-028f-49a0-ad8e-7b1f9739c483",
+      "name": "Auditoria de Agentes — Plano de Revisão",
+      "agent_id": "main",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 03:35",
+      "status": "ok",
+      "last_run": "8h ago",
+      "next_run": "in 15h"
+    },
+    {
+      "id": "654f096a-02c3-47fc-8ea3-7d6c45773f1c",
+      "name": "Backup Workspaces — Google Drive",
+      "agent_id": "main",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 03:00",
+      "status": "ok",
+      "last_run": "9h ago",
+      "next_run": "in 14h"
+    },
+    {
+      "id": "7d50dd58-7ece-4eeb-86f0-da979c0165ef",
+      "name": "Email Cleanup — Limpeza Diária",
+      "agent_id": "main",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 03:45",
+      "status": "ok",
+      "last_run": "8h ago",
+      "next_run": "in 15h"
+    },
+    {
+      "id": "9d00bd42-d00b-4486-be2e-3c9d8ffff87e",
+      "name": "Memory Checkpoint — Resumos Mensais",
+      "agent_id": "main",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 03:30",
+      "status": "ok",
+      "last_run": "8h ago",
+      "next_run": "in 15h"
+    },
+    {
+      "id": "e5575a0f-2f82-4b7f-bdc4-7a9eaa635810",
+      "name": "Memory Lifecycle — Arquivamento",
+      "agent_id": "main",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 03:15",
+      "status": "ok",
+      "last_run": "8h ago",
+      "next_run": "in 15h"
+    },
+    {
+      "id": "219a640e-c22a-4b44-b430-ba80541a73f5",
+      "name": "Revisão Mensal Escalabilidade",
+      "agent_id": "main",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Dia 4, 12:00",
+      "status": "ok",
+      "last_run": "30d ago",
+      "next_run": "in 23h"
+    },
+    {
+      "id": "d74ce702-75ad-488c-86db-7fb66828dfbc",
+      "name": "Update Check — OpenClaw",
+      "agent_id": "main",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Dia */3, 04:00",
+      "status": "ok",
+      "last_run": "2d ago",
+      "next_run": "in 15h"
+    },
+    {
+      "id": "64cc6a08-fb03-41a1-b25b-63454713159d",
+      "name": "healthcheck:security-audit",
+      "agent_id": "main",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 11:00",
+      "status": "ok",
+      "last_run": "1h ago",
+      "next_run": "in 22h"
+    },
+    {
+      "id": "59cb9c9b-3dc6-4b05-bd90-0957584b6954",
+      "name": "Knowledge Review — MatheusBot (dia 1)",
+      "agent_id": "matheus",
+      "agent_name": "Matheus",
+      "agent_emoji": "🍼",
+      "schedule_human": "Dia 1, 05:00",
+      "status": "ok",
+      "last_run": "2d ago",
+      "next_run": "in 27d"
+    },
+    {
+      "id": "69b32fe2-ec03-4ed0-9552-f40acafe021e",
+      "name": "Remédios do dia - Matheus",
+      "agent_id": "matheus",
+      "agent_name": "Matheus",
+      "agent_emoji": "🍼",
+      "schedule_human": "Diário 07:00",
+      "status": "ok",
+      "last_run": "5h ago",
+      "next_run": "in 18h"
+    },
+    {
+      "id": "f13f9a16-7e8e-4f41-bfef-bcc749f2e37d",
+      "name": "Knowledge Review — MedBot (dia 12)",
+      "agent_id": "medbot",
+      "agent_name": "MedBot",
+      "agent_emoji": "🩺",
+      "schedule_human": "Dia 12, 05:00",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 8d"
+    },
+    {
+      "id": "a9f4a60b-ae89-4439-bb8b-c040d79d8486",
+      "name": "Knowledge Review — RFBot (dia 8)",
+      "agent_id": "rfbot",
+      "agent_name": "RFBot",
+      "agent_emoji": "📱",
+      "schedule_human": "Dia 8, 05:00",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 4d"
+    },
+    {
+      "id": "7c2a6c96-1ef2-4ab4-9d7e-6586af3778ad",
+      "name": "Knowledge Review — SpecBot (dia 10)",
+      "agent_id": "specbot",
+      "agent_name": "SpecBot",
+      "agent_emoji": "📐",
+      "schedule_human": "Dia 10, 05:00",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 6d"
+    },
+    {
+      "id": "93625b8d-b930-43b0-a8d9-1b4611464416",
+      "name": "Memory Consolidation 17:30",
+      "agent_id": "spin",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 17:30",
+      "status": "error",
+      "last_run": "18h ago",
+      "next_run": "in 5h"
+    },
+    {
+      "id": "806e12b4-0137-4006-8398-1c79021ab1f8",
+      "name": "Dashboard Patrimônio — Regeneração Mensal",
+      "agent_id": "spin",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Dia 1, 04:20",
+      "status": "ok",
+      "last_run": "2d ago",
+      "next_run": "in 27d"
+    },
+    {
+      "id": "301f09d4-67ac-4c94-b825-dc6c11a331e9",
+      "name": "Memory Consolidation 01:30 (EOD)",
+      "agent_id": "spin",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 01:30",
+      "status": "ok",
+      "last_run": "10h ago",
+      "next_run": "in 13h"
+    },
+    {
+      "id": "1e36fad9-aa26-4f7c-ae84-06d4a7048d14",
+      "name": "Memory Consolidation 09:30",
+      "agent_id": "spin",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 09:30",
+      "status": "ok",
+      "last_run": "2h ago",
+      "next_run": "in 21h"
+    },
+    {
+      "id": "69f9163d-224a-4f63-8266-dcc4a4f37d28",
+      "name": "Memory Consolidation 13:30",
+      "agent_id": "spin",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 13:30",
+      "status": "ok",
+      "last_run": "22h ago",
+      "next_run": "in 1h"
+    },
+    {
+      "id": "c6006f1a-29fa-4136-9bf9-52cd683106d2",
+      "name": "Memory Consolidation 21:30",
+      "agent_id": "spin",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 21:30",
+      "status": "ok",
+      "last_run": "14h ago",
+      "next_run": "in 9h"
+    },
+    {
+      "id": "814e69f8-2f14-4ea2-9f07-0047da066969",
+      "name": "Sync Shared Tools",
+      "agent_id": "spin",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Seg 02:00",
+      "status": "ok",
+      "last_run": "4d ago",
+      "next_run": "in 2d"
+    },
+    {
+      "id": "c1ff1328-7c49-452d-beea-0eb8334ca901",
+      "name": "Knowledge Review — SubseaBot (dia 9)",
+      "agent_id": "subsea",
+      "agent_name": "Subsea",
+      "agent_emoji": "🌊",
+      "schedule_human": "Dia 9, 05:00",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 5d"
+    }
+  ]
+}
