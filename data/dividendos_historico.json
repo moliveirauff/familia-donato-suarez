@@ -20120,6 +20120,18 @@
       "quantidade": 158.0
     },
     {
+      "ativo": "VNQ",
+      "data": "2026-03-26",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 346.28,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "valor_usd": 66.2,
+      "valor_bruto_usd": 94.57,
+      "wht_usd": -28.37,
+      "cotacao_usd_brl": 5.2302
+    },
+    {
       "ativo": "RADL3",
       "data": "2026-03-31",
       "tipo": "PROVENTO_JCP",
