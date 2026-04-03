@@ -1,6 +1,6 @@
 {
   "versao": "2026.2.27b",
-  "data_atualizacao": "2026-03-20",
+  "data_atualizacao": "2026-04-03",
   "descricao": "Historico de dividendos, JCP e rendimentos de ativos financeiros",
   "movimentacoes": [
     {
@@ -3012,22 +3012,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "KNCR11_2021.07.12",
-      "data": "2019-08-13",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 68.48,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VISC11_2020.02.17",
-      "data": "2019-08-14",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 69.55,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "HGLG11",
       "data": "2019-08-12",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -3040,6 +3024,22 @@
       "data": "2019-08-12",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 62.9,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "KNCR11_2021.07.12",
+      "data": "2019-08-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 68.48,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VISC11_2020.02.17",
+      "data": "2019-08-14",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 69.55,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -5260,6 +5260,14 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "NVDA_2020.11.04",
+      "data": "2020-09-24",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 1.83,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "BTLG11",
       "data": "2020-09-25",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -5280,14 +5288,6 @@
       "data": "2020-09-25",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 28.08,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "NVDA_2020.11.04",
-      "data": "2020-09-24",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 1.83,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -5484,22 +5484,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "ITUB4",
-      "data": "2020-11-03",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 24.0,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "BBDC4",
-      "data": "2020-11-03",
-      "tipo": "PROVENTO_JCP",
-      "valor_total": 8.79,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "SPY_2025.08.18",
       "data": "2020-10-30",
       "tipo": "PROVENTO_DIVIDENDO",
@@ -5528,6 +5512,22 @@
       "data": "2020-11-02",
       "tipo": "PROVENTO_DIVIDENDO",
       "valor_total": 24.49,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "ITUB4",
+      "data": "2020-11-03",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 24.0,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "BBDC4",
+      "data": "2020-11-03",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 8.79,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -5748,6 +5748,14 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "MSFT_2022.04.01",
+      "data": "2020-12-10",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 10.53,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "BTLG11",
       "data": "2020-12-11",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -5760,14 +5768,6 @@
       "data": "2020-12-11",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 45.3,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "MSFT_2022.04.01",
-      "data": "2020-12-10",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 10.53,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -6204,6 +6204,14 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "AAPL_2022.03.28",
+      "data": "2021-02-11",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 10.96,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "HGLG11",
       "data": "2021-02-12",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -6288,14 +6296,6 @@
       "data": "2021-02-12",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 51.36,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "AAPL_2022.03.28",
-      "data": "2021-02-11",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 10.96,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -6412,6 +6412,14 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "MSFT_2022.04.01",
+      "data": "2021-03-11",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 10.33,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "ITUB4",
       "data": "2021-03-12",
       "tipo": "PROVENTO_JCP",
@@ -6516,14 +6524,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "MSFT_2022.04.01",
-      "data": "2021-03-11",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 10.33,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "VRTA11",
       "data": "2021-03-15",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -6620,6 +6620,14 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "IUSV_2021.05.18",
+      "data": "2021-03-31",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 20.24,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "FLRY3",
       "data": "2021-04-01",
       "tipo": "PROVENTO_DIVIDENDO",
@@ -6648,14 +6656,6 @@
       "data": "2021-04-01",
       "tipo": "PROVENTO_DIVIDENDO",
       "valor_total": 10.38,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "IUSV_2021.05.18",
-      "data": "2021-03-31",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 20.24,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -6900,14 +6900,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "HSML11_2021.07.12",
-      "data": "2021-05-07",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 38.28,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "BBDC4",
       "data": "2021-05-03",
       "tipo": "PROVENTO_JCP",
@@ -6920,6 +6912,14 @@
       "data": "2021-05-03",
       "tipo": "PROVENTO_DIVIDENDO",
       "valor_total": 24.0,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "HSML11_2021.07.12",
+      "data": "2021-05-07",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 38.28,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -7340,38 +7340,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "ODPV3_2025.06.27",
-      "data": "2021-07-06",
-      "tipo": "PROVENTO_JCP",
-      "valor_total": 29.7,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "ODPV3_2025.06.27",
-      "data": "2021-07-06",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 246.88,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "ODPV3_2025.06.27",
-      "data": "2021-07-06",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 258.74,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "HSML11_2021.07.12",
-      "data": "2021-07-07",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 69.6,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "ITUB4",
       "data": "2021-07-01",
       "tipo": "PROVENTO_DIVIDENDO",
@@ -7408,6 +7376,38 @@
       "data": "2021-07-06",
       "tipo": "PROVENTO_DIVIDENDO",
       "valor_total": 258.74,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "ODPV3_2025.06.27",
+      "data": "2021-07-06",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 29.7,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "ODPV3_2025.06.27",
+      "data": "2021-07-06",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 246.88,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "ODPV3_2025.06.27",
+      "data": "2021-07-06",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 258.74,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "HSML11_2021.07.12",
+      "data": "2021-07-07",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 69.6,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -10372,6 +10372,22 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "XLRE_2021.05.18",
+      "data": "2022-09-22",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 99.19,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VEU_2025.08.25",
+      "data": "2022-09-22",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 88.55,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "XPML11",
       "data": "2022-09-23",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -10392,22 +10408,6 @@
       "data": "2022-09-23",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 802.39,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "XLRE_2021.05.18",
-      "data": "2022-09-22",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 99.19,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VEU_2025.08.25",
-      "data": "2022-09-22",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 88.55,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -13444,6 +13444,22 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "VNQI_2025.06.30",
+      "data": "2023-12-21",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 530.81,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VEU_2025.08.25",
+      "data": "2023-12-21",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 314.11,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "XPML11",
       "data": "2023-12-22",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -13476,6 +13492,30 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "IJS_2025.08.18",
+      "data": "2023-12-27",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 38.35,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VNQ",
+      "data": "2023-12-27",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 675.66,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VTV_2025.08.18",
+      "data": "2023-12-27",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 49.32,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "MDIA3_2025.12.16",
       "data": "2023-12-28",
       "tipo": "PROVENTO_JCP",
@@ -13504,46 +13544,6 @@
       "data": "2023-12-28",
       "tipo": "PROVENTO_JCP",
       "valor_total": 248.27,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VNQI_2025.06.30",
-      "data": "2023-12-21",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 530.81,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VEU_2025.08.25",
-      "data": "2023-12-21",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 314.11,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "IJS_2025.08.18",
-      "data": "2023-12-27",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 38.35,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VNQ",
-      "data": "2023-12-27",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 675.66,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VTV_2025.08.18",
-      "data": "2023-12-27",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 49.32,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -13692,6 +13692,14 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "QQQ_2025.08.18",
+      "data": "2024-01-16",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 13.47,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "IRDM11_2025.12.22",
       "data": "2024-01-17",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -13736,6 +13744,14 @@
       "data": "2024-01-25",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 125.21,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "SPY_2025.08.18",
+      "data": "2024-01-31",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 165.19,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -14068,6 +14084,14 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "VEU_2025.08.25",
+      "data": "2024-03-20",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 82.02,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "XPML11",
       "data": "2024-03-25",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -14088,6 +14112,38 @@
       "data": "2024-03-25",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 125.21,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VTV_2025.08.18",
+      "data": "2024-03-26",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 54.31,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "IJS_2025.08.18",
+      "data": "2024-03-27",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 66.07,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "NOBL_2025.08.18",
+      "data": "2024-03-27",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 87.55,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VNQ",
+      "data": "2024-03-27",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 488.63,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -14360,6 +14416,22 @@
       "data": "2024-04-25",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 121.04,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "QQQ_2025.08.18",
+      "data": "2024-04-30",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 37.34,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "SPY_2025.08.18",
+      "data": "2024-04-30",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 144.34,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -14668,6 +14740,14 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "IJS_2025.08.18",
+      "data": "2024-06-17",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 95.0,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "IRDM11_2025.12.22",
       "data": "2024-06-18",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -14712,6 +14792,14 @@
       "data": "2024-06-25",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 114.98,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VEU_2025.08.25",
+      "data": "2024-06-25",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 194.94,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -14768,6 +14856,30 @@
       "data": "2024-07-01",
       "tipo": "PROVENTO_JCP",
       "valor_total": 15.26,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VTV_2025.08.18",
+      "data": "2024-07-01",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 82.55,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VNQ",
+      "data": "2024-07-02",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 782.91,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "NOBL_2025.08.18",
+      "data": "2024-07-03",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 141.66,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -14952,6 +15064,22 @@
       "data": "2024-07-26",
       "tipo": "PROVENTO_DIVIDENDO",
       "valor_total": 487.52,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "QQQ_2025.08.18",
+      "data": "2024-07-31",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 54.35,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "SPY_2025.08.18",
+      "data": "2024-07-31",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 188.99,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -15308,6 +15436,14 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "VEU_2025.08.25",
+      "data": "2024-09-24",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 102.85,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "XPML11",
       "data": "2024-09-25",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -15336,142 +15472,6 @@
       "data": "2024-09-30",
       "tipo": "PROVENTO_JCP",
       "valor_total": 13.52,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "QQQ_2025.08.18",
-      "data": "2024-01-16",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 13.47,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "SPY_2025.08.18",
-      "data": "2024-01-31",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 165.19,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VEU_2025.08.25",
-      "data": "2024-03-20",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 82.02,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VTV_2025.08.18",
-      "data": "2024-03-26",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 54.31,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "IJS_2025.08.18",
-      "data": "2024-03-27",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 66.07,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "NOBL_2025.08.18",
-      "data": "2024-03-27",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 87.55,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VNQ",
-      "data": "2024-03-27",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 488.63,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "QQQ_2025.08.18",
-      "data": "2024-04-30",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 37.34,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "SPY_2025.08.18",
-      "data": "2024-04-30",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 144.34,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "IJS_2025.08.18",
-      "data": "2024-06-17",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 95.0,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VEU_2025.08.25",
-      "data": "2024-06-25",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 194.94,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VTV_2025.08.18",
-      "data": "2024-07-01",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 82.55,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VNQ",
-      "data": "2024-07-02",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 782.91,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "NOBL_2025.08.18",
-      "data": "2024-07-03",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 141.66,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "QQQ_2025.08.18",
-      "data": "2024-07-31",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 54.35,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "SPY_2025.08.18",
-      "data": "2024-07-31",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 188.99,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VEU_2025.08.25",
-      "data": "2024-09-24",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 102.85,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -15508,10 +15508,26 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "VNQ",
+      "data": "2024-10-01",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 627.89,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "FLRY3",
       "data": "2024-10-02",
       "tipo": "PROVENTO_JCP",
       "valor_total": 271.0,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "NOBL_2025.08.18",
+      "data": "2024-10-02",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 137.1,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -15672,6 +15688,22 @@
       "data": "2024-10-25",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 122.24,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "QQQ_2025.08.18",
+      "data": "2024-10-31",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 49.22,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "SPY_2025.08.18",
+      "data": "2024-10-31",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 191.16,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -16084,6 +16116,14 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "IJS_2025.08.18",
+      "data": "2024-12-20",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 120.91,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "XPML11",
       "data": "2024-12-23",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -16104,6 +16144,38 @@
       "data": "2024-12-23",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 147.4,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VEU_2025.08.25",
+      "data": "2024-12-24",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 446.25,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VNQI_2025.06.30",
+      "data": "2024-12-24",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 866.98,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VTV_2025.08.18",
+      "data": "2024-12-26",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 87.44,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VNQ",
+      "data": "2024-12-26",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 711.29,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -16144,78 +16216,6 @@
       "data": "2024-12-30",
       "tipo": "PROVENTO_JCP",
       "valor_total": 187.28,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VNQ",
-      "data": "2024-10-01",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 627.89,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "NOBL_2025.08.18",
-      "data": "2024-10-02",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 137.1,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "QQQ_2025.08.18",
-      "data": "2024-10-31",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 49.22,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "SPY_2025.08.18",
-      "data": "2024-10-31",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 191.16,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "IJS_2025.08.18",
-      "data": "2024-12-20",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 120.91,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VEU_2025.08.25",
-      "data": "2024-12-24",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 446.25,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VNQI_2025.06.30",
-      "data": "2024-12-24",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 866.98,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VTV_2025.08.18",
-      "data": "2024-12-26",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 87.44,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VNQ",
-      "data": "2024-12-26",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 711.29,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -16448,6 +16448,14 @@
       "data": "2025-01-29",
       "tipo": "PROVENTO_JCP",
       "valor_total": 38.65,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "SPY_2025.08.18",
+      "data": "2025-01-30",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 217.46,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -16876,6 +16884,14 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "IJS_2025.08.18",
+      "data": "2025-03-21",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 75.08,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "XPML11",
       "data": "2025-03-25",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -16900,6 +16916,22 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "VNQI_2025.06.30",
+      "data": "2025-03-25",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 83.63,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VNQ",
+      "data": "2025-03-27",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 716.18,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "BBDC4",
       "data": "2025-04-01",
       "tipo": "PROVENTO_JCP",
@@ -16920,6 +16952,14 @@
       "data": "2025-04-01",
       "tipo": "PROVENTO_JCP",
       "valor_total": 9.01,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "NOBL_2025.08.18",
+      "data": "2025-04-01",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 119.82,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -17192,6 +17232,22 @@
       "data": "2025-04-30",
       "tipo": "PROVENTO_DIVIDENDO",
       "valor_total": 10.95,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "QQQ_2025.08.18",
+      "data": "2025-04-30",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 51.05,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "SPY_2025.08.18",
+      "data": "2025-04-30",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 182.14,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -17612,10 +17668,26 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "IJS_2025.08.18",
+      "data": "2025-06-20",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 85.3,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "BTLG11",
       "data": "2025-06-23",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 148.98,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VNQI_2025.06.30",
+      "data": "2025-06-24",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 196.23,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -17652,78 +17724,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "SPY_2025.08.18",
-      "data": "2025-01-30",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 217.46,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "IJS_2025.08.18",
-      "data": "2025-03-21",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 75.08,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VNQI_2025.06.30",
-      "data": "2025-03-25",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 83.63,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VNQ",
-      "data": "2025-03-27",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 716.18,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "NOBL_2025.08.18",
-      "data": "2025-04-01",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 119.82,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "QQQ_2025.08.18",
-      "data": "2025-04-30",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 51.05,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "SPY_2025.08.18",
-      "data": "2025-04-30",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 182.14,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "IJS_2025.08.18",
-      "data": "2025-06-20",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 85.3,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VNQI_2025.06.30",
-      "data": "2025-06-24",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 196.23,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "VNQ",
       "data": "2025-06-30",
       "tipo": "PROVENTO_DIVIDENDO",
@@ -17756,6 +17756,22 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "NOBL_2025.08.18",
+      "data": "2025-07-01",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 145.53,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VTV_2025.08.18",
+      "data": "2025-07-02",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 82.35,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "PVBI11",
       "data": "2025-07-07",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -17784,6 +17800,14 @@
       "data": "2025-07-07",
       "tipo": "PROVENTO_DIVIDENDO",
       "valor_total": 64.0,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "SGOV",
+      "data": "2025-07-07",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 128.36,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -17940,6 +17964,22 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "SPY_2025.08.18",
+      "data": "2025-07-31",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 189.22,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "QQQ_2025.08.18",
+      "data": "2025-07-31",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 43.63,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "ITUB4",
       "data": "2025-08-01",
       "tipo": "PROVENTO_JCP",
@@ -17952,6 +17992,14 @@
       "data": "2025-08-01",
       "tipo": "PROVENTO_JCP",
       "valor_total": 19.35,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "SGOV",
+      "data": "2025-08-06",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 133.97,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -18228,6 +18276,14 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "SGOV",
+      "data": "2025-09-05",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 172.64,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "KNUQ11",
       "data": "2025-09-10",
       "tipo": "PROVENTO_RENDIMENTO",
@@ -18380,74 +18436,18 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "MDIA3_2025.12.16",
-      "data": "2025-09-29",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 65.0,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "NOBL_2025.08.18",
-      "data": "2025-07-01",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 145.53,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VTV_2025.08.18",
-      "data": "2025-07-02",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 82.35,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "SGOV",
-      "data": "2025-07-07",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 128.36,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "SPY_2025.08.18",
-      "data": "2025-07-31",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 189.22,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "QQQ_2025.08.18",
-      "data": "2025-07-31",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 43.63,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "SGOV",
-      "data": "2025-08-06",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 133.97,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "SGOV",
-      "data": "2025-09-05",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 172.64,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "VNQ",
       "data": "2025-09-26",
       "tipo": "PROVENTO_DIVIDENDO",
       "valor_total": 430.84,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "MDIA3_2025.12.16",
+      "data": "2025-09-29",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 65.0,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -18496,6 +18496,14 @@
       "data": "2025-10-06",
       "tipo": "PROVENTO_DIVIDENDO",
       "valor_total": 166.79,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "SGOV",
+      "data": "2025-10-06",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 167.72,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -18692,22 +18700,6 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "SGOV",
-      "data": "2025-10-06",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 167.72,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "SGOV",
-      "data": "2025-11-06",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 188.87,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "ITUB4",
       "data": "2025-11-03",
       "tipo": "PROVENTO_JCP",
@@ -18720,6 +18712,14 @@
       "data": "2025-11-03",
       "tipo": "PROVENTO_JCP",
       "valor_total": 19.35,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "SGOV",
+      "data": "2025-11-06",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 188.87,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -18976,22 +18976,6 @@
       "data": "2025-11-28",
       "tipo": "PROVENTO_DIVIDENDO",
       "valor_total": 15.0,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "SGOV",
-      "data": "2025-12-30",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 341.28,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VNQ",
-      "data": "2025-12-30",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 302.4,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     },
@@ -19388,6 +19372,22 @@
       "quantidade": 0.0
     },
     {
+      "ativo": "SGOV",
+      "data": "2025-12-30",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 341.28,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "VNQ",
+      "data": "2025-12-30",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 302.4,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
       "ativo": "ABEV3_2020.10.13",
       "data": "2025-12-30",
       "tipo": "PROVENTO_DIVIDENDO",
@@ -19412,176 +19412,32 @@
       "quantidade": 0.0
     },
     {
-      "ativo": "SPY",
-      "data": "2026-01-30",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 730.05,
+      "ativo": "BBDC4",
+      "data": "2026-01-02",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 19.35,
+      "preco_unitario": 0.016125,
+      "quantidade": 1200.0
+    },
+    {
+      "ativo": "ITUB4",
+      "data": "2026-01-02",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 10.5,
       "preco_unitario": 0.0,
-      "quantidade": 0.0,
-      "valor_usd": 139.54,
-      "valor_bruto_usd": 199.34,
-      "wht_usd": -59.8,
-      "cotacao_usd_brl": 5.2301
+      "quantidade": 0.0
     },
     {
-      "ativo": "SGOV",
-      "data": "2026-02-05",
+      "ativo": "VALE3",
+      "data": "2026-01-07",
       "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 163.89,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0,
-      "valor_usd": 31.17,
-      "valor_bruto_usd": 44.53,
-      "wht_usd": -13.36,
-      "cotacao_usd_brl": 5.258
-    },
-    {
-      "ativo": "XPML11",
-      "data": "2026-02-25",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 145.36,
-      "preco_unitario": 0.92,
-      "quantidade": 158.0
-    },
-    {
-      "ativo": "BTLG11",
-      "data": "2026-02-25",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 152.8,
-      "preco_unitario": 0.8,
-      "quantidade": 191.0
-    },
-    {
-      "ativo": "VGIP11",
-      "data": "2026-02-20",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 136.32,
-      "preco_unitario": 0.64,
-      "quantidade": 213.0
-    },
-    {
-      "ativo": "MCCI11",
-      "data": "2026-02-20",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 193.0,
-      "preco_unitario": 1.0,
-      "quantidade": 193.0
-    },
-    {
-      "ativo": "RBRY11",
-      "data": "2026-02-19",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 205.85,
-      "preco_unitario": 1.15,
-      "quantidade": 179.0
-    },
-    {
-      "ativo": "XPLG11",
-      "data": "2026-02-13",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 132.84,
-      "preco_unitario": 0.82,
-      "quantidade": 162.0
-    },
-    {
-      "ativo": "VRTA11",
-      "data": "2026-02-13",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 205.7,
-      "preco_unitario": 0.85,
-      "quantidade": 242.0
-    },
-    {
-      "ativo": "VISC11",
-      "data": "2026-02-13",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 132.72,
-      "preco_unitario": 0.84,
-      "quantidade": 158.0
-    },
-    {
-      "ativo": "TRXF11",
-      "data": "2026-02-13",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 176.7,
-      "preco_unitario": 0.93,
-      "quantidade": 190.0
-    },
-    {
-      "ativo": "TGAR11",
-      "data": "2026-02-13",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 135.61,
-      "preco_unitario": 0.71,
-      "quantidade": 191.0
-    },
-    {
-      "ativo": "RECR11",
-      "data": "2026-02-13",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 174.62,
-      "preco_unitario": 0.827583,
-      "quantidade": 211.0
-    },
-    {
-      "ativo": "PMLL11",
-      "data": "2026-02-13",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 164.0,
-      "preco_unitario": 1.0,
-      "quantidade": 164.0
-    },
-    {
-      "ativo": "KNRI11",
-      "data": "2026-02-13",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 99.44,
-      "preco_unitario": 0.88,
-      "quantidade": 113.0
-    },
-    {
-      "ativo": "HGRU11",
-      "data": "2026-02-13",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 146.3,
-      "preco_unitario": 0.95,
-      "quantidade": 154.0
-    },
-    {
-      "ativo": "HGLG11",
-      "data": "2026-02-13",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 135.3,
-      "preco_unitario": 1.1,
-      "quantidade": 123.0
-    },
-    {
-      "ativo": "FATN11",
-      "data": "2026-02-13",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 172.0,
-      "preco_unitario": 0.8,
-      "quantidade": 215.0
-    },
-    {
-      "ativo": "BRCO11",
-      "data": "2026-02-13",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 127.02,
-      "preco_unitario": 0.87,
-      "quantidade": 146.0
-    },
-    {
-      "ativo": "KNUQ11",
-      "data": "2026-02-11",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 209.3,
-      "preco_unitario": 1.3,
-      "quantidade": 161.0
+      "valor_total": 497.64,
+      "preco_unitario": 1.244102,
+      "quantidade": 400.0
     },
     {
       "ativo": "PVBI11",
-      "data": "2026-02-06",
+      "data": "2026-01-08",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 95.4,
       "preco_unitario": 0.45,
@@ -19589,51 +19445,19 @@
     },
     {
       "ativo": "GARE11",
-      "data": "2026-02-06",
+      "data": "2026-01-08",
       "tipo": "PROVENTO_RENDIMENTO",
       "valor_total": 167.07,
       "preco_unitario": 0.082996,
       "quantidade": 2013.0
     },
     {
-      "ativo": "XPML11",
-      "data": "2026-01-23",
+      "ativo": "KNUQ11",
+      "data": "2026-01-13",
       "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 145.36,
-      "preco_unitario": 0.92,
-      "quantidade": 158.0
-    },
-    {
-      "ativo": "BTLG11",
-      "data": "2026-01-23",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 150.89,
-      "preco_unitario": 0.79,
-      "quantidade": 191.0
-    },
-    {
-      "ativo": "VGIP11",
-      "data": "2026-01-20",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 151.23,
-      "preco_unitario": 0.71,
-      "quantidade": 213.0
-    },
-    {
-      "ativo": "MCCI11",
-      "data": "2026-01-20",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 193.0,
-      "preco_unitario": 1.0,
-      "quantidade": 193.0
-    },
-    {
-      "ativo": "RBRY11",
-      "data": "2026-01-19",
-      "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 223.75,
-      "preco_unitario": 1.25,
-      "quantidade": 179.0
+      "valor_total": 217.35,
+      "preco_unitario": 1.35,
+      "quantidade": 161.0
     },
     {
       "ativo": "XPLG11",
@@ -19732,44 +19556,72 @@
       "quantidade": 146.0
     },
     {
-      "ativo": "KNUQ11",
-      "data": "2026-01-13",
+      "ativo": "RBRY11",
+      "data": "2026-01-19",
       "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 217.35,
-      "preco_unitario": 1.35,
-      "quantidade": 161.0
+      "valor_total": 223.75,
+      "preco_unitario": 1.25,
+      "quantidade": 179.0
     },
     {
-      "ativo": "PVBI11",
-      "data": "2026-01-08",
+      "ativo": "VGIP11",
+      "data": "2026-01-20",
       "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 95.4,
-      "preco_unitario": 0.45,
-      "quantidade": 212.0
+      "valor_total": 151.23,
+      "preco_unitario": 0.71,
+      "quantidade": 213.0
     },
     {
-      "ativo": "GARE11",
-      "data": "2026-01-08",
+      "ativo": "MCCI11",
+      "data": "2026-01-20",
       "tipo": "PROVENTO_RENDIMENTO",
-      "valor_total": 167.07,
-      "preco_unitario": 0.082996,
-      "quantidade": 2013.0
+      "valor_total": 193.0,
+      "preco_unitario": 1.0,
+      "quantidade": 193.0
     },
     {
-      "ativo": "PETR4",
-      "data": "2026-02-20",
-      "tipo": "PROVENTO_JCP",
-      "valor_total": 280.61,
-      "preco_unitario": 0.400871,
-      "quantidade": 700.0
+      "ativo": "XPML11",
+      "data": "2026-01-23",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 145.36,
+      "preco_unitario": 0.92,
+      "quantidade": 158.0
     },
     {
-      "ativo": "PETR4",
-      "data": "2026-02-20",
+      "ativo": "BTLG11",
+      "data": "2026-01-23",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 150.89,
+      "preco_unitario": 0.79,
+      "quantidade": 191.0
+    },
+    {
+      "ativo": "SPY",
+      "data": "2026-01-30",
       "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 4.84,
-      "preco_unitario": 0.006914,
-      "quantidade": 700.0
+      "valor_total": 730.05,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "valor_usd": 139.54,
+      "valor_bruto_usd": 199.34,
+      "wht_usd": -59.8,
+      "cotacao_usd_brl": 5.2301
+    },
+    {
+      "ativo": "BBDC4",
+      "data": "2026-01-30",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 303.11,
+      "preco_unitario": 0.252592,
+      "quantidade": 1200.0
+    },
+    {
+      "ativo": "EGIE3",
+      "data": "2026-01-30",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 30.57,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
     },
     {
       "ativo": "ITUB4",
@@ -19788,52 +19640,250 @@
       "quantidade": 2400.0
     },
     {
-      "ativo": "BBDC4",
-      "data": "2026-01-30",
-      "tipo": "PROVENTO_JCP",
-      "valor_total": 303.11,
-      "preco_unitario": 0.252592,
-      "quantidade": 1200.0
-    },
-    {
-      "ativo": "BBDC4",
-      "data": "2026-01-02",
-      "tipo": "PROVENTO_JCP",
-      "valor_total": 19.35,
-      "preco_unitario": 0.016125,
-      "quantidade": 1200.0
-    },
-    {
-      "ativo": "ITUB4",
-      "data": "2026-01-02",
-      "tipo": "PROVENTO_JCP",
-      "valor_total": 10.5,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "VALE3",
-      "data": "2026-01-07",
-      "tipo": "PROVENTO_DIVIDENDO",
-      "valor_total": 497.64,
-      "preco_unitario": 1.244102,
-      "quantidade": 400.0
-    },
-    {
-      "ativo": "EGIE3",
-      "data": "2026-01-30",
-      "tipo": "PROVENTO_JCP",
-      "valor_total": 30.57,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
       "ativo": "ITUB4",
       "data": "2026-02-02",
       "tipo": "PROVENTO_JCP",
       "valor_total": 22.04,
       "preco_unitario": 0.0,
       "quantidade": 0.0
+    },
+    {
+      "ativo": "SGOV",
+      "data": "2026-02-05",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 163.89,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "valor_usd": 31.17,
+      "valor_bruto_usd": 44.53,
+      "wht_usd": -13.36,
+      "cotacao_usd_brl": 5.258
+    },
+    {
+      "ativo": "PVBI11",
+      "data": "2026-02-06",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 95.4,
+      "preco_unitario": 0.45,
+      "quantidade": 212.0
+    },
+    {
+      "ativo": "GARE11",
+      "data": "2026-02-06",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 167.07,
+      "preco_unitario": 0.082996,
+      "quantidade": 2013.0
+    },
+    {
+      "ativo": "KNUQ11",
+      "data": "2026-02-11",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 209.3,
+      "preco_unitario": 1.3,
+      "quantidade": 161.0
+    },
+    {
+      "ativo": "XPLG11",
+      "data": "2026-02-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 132.84,
+      "preco_unitario": 0.82,
+      "quantidade": 162.0
+    },
+    {
+      "ativo": "VRTA11",
+      "data": "2026-02-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 205.7,
+      "preco_unitario": 0.85,
+      "quantidade": 242.0
+    },
+    {
+      "ativo": "VISC11",
+      "data": "2026-02-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 132.72,
+      "preco_unitario": 0.84,
+      "quantidade": 158.0
+    },
+    {
+      "ativo": "TRXF11",
+      "data": "2026-02-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 176.7,
+      "preco_unitario": 0.93,
+      "quantidade": 190.0
+    },
+    {
+      "ativo": "TGAR11",
+      "data": "2026-02-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 135.61,
+      "preco_unitario": 0.71,
+      "quantidade": 191.0
+    },
+    {
+      "ativo": "RECR11",
+      "data": "2026-02-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 174.62,
+      "preco_unitario": 0.827583,
+      "quantidade": 211.0
+    },
+    {
+      "ativo": "PMLL11",
+      "data": "2026-02-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 164.0,
+      "preco_unitario": 1.0,
+      "quantidade": 164.0
+    },
+    {
+      "ativo": "KNRI11",
+      "data": "2026-02-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 99.44,
+      "preco_unitario": 0.88,
+      "quantidade": 113.0
+    },
+    {
+      "ativo": "HGRU11",
+      "data": "2026-02-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 146.3,
+      "preco_unitario": 0.95,
+      "quantidade": 154.0
+    },
+    {
+      "ativo": "HGLG11",
+      "data": "2026-02-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 135.3,
+      "preco_unitario": 1.1,
+      "quantidade": 123.0
+    },
+    {
+      "ativo": "FATN11",
+      "data": "2026-02-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 172.0,
+      "preco_unitario": 0.8,
+      "quantidade": 215.0
+    },
+    {
+      "ativo": "BRCO11",
+      "data": "2026-02-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 127.02,
+      "preco_unitario": 0.87,
+      "quantidade": 146.0
+    },
+    {
+      "ativo": "RBRY11",
+      "data": "2026-02-19",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 205.85,
+      "preco_unitario": 1.15,
+      "quantidade": 179.0
+    },
+    {
+      "ativo": "VGIP11",
+      "data": "2026-02-20",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 136.32,
+      "preco_unitario": 0.64,
+      "quantidade": 213.0
+    },
+    {
+      "ativo": "MCCI11",
+      "data": "2026-02-20",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 193.0,
+      "preco_unitario": 1.0,
+      "quantidade": 193.0
+    },
+    {
+      "ativo": "PETR4",
+      "data": "2026-02-20",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 280.61,
+      "preco_unitario": 0.400871,
+      "quantidade": 700.0
+    },
+    {
+      "ativo": "PETR4",
+      "data": "2026-02-20",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 4.84,
+      "preco_unitario": 0.006914,
+      "quantidade": 700.0
+    },
+    {
+      "ativo": "XPML11",
+      "data": "2026-02-25",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 145.36,
+      "preco_unitario": 0.92,
+      "quantidade": 158.0
+    },
+    {
+      "ativo": "BTLG11",
+      "data": "2026-02-25",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 152.8,
+      "preco_unitario": 0.8,
+      "quantidade": 191.0
+    },
+    {
+      "ativo": "BBSE3",
+      "data": "2026-03-02",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 1019.98,
+      "preco_unitario": 2.54995,
+      "quantidade": 400.0
+    },
+    {
+      "ativo": "BBSE3",
+      "data": "2026-03-02",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 17.62,
+      "preco_unitario": 0.04405,
+      "quantidade": 400.0
+    },
+    {
+      "ativo": "BBDC4",
+      "data": "2026-03-02",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 37.57,
+      "preco_unitario": 0.015654,
+      "quantidade": 2400.0
+    },
+    {
+      "ativo": "ITUB4",
+      "data": "2026-03-02",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 10.8,
+      "preco_unitario": 0.015,
+      "quantidade": 720.0
+    },
+    {
+      "ativo": "ITUB4",
+      "data": "2026-03-02",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 10.81,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "obs": "reembolso BTC"
+    },
+    {
+      "ativo": "VALE3",
+      "data": "2026-03-04",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 840.89,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "obs": "reembolso BTC"
     },
     {
       "ativo": "SGOV",
@@ -19848,6 +19898,168 @@
       "cotacao_usd_brl": 5.2447
     },
     {
+      "ativo": "ITUB4",
+      "data": "2026-03-06",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 220.0,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "obs": "reembolso BTC"
+    },
+    {
+      "ativo": "GARE11",
+      "data": "2026-03-06",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 167.07,
+      "preco_unitario": 0.083,
+      "quantidade": 2013.0
+    },
+    {
+      "ativo": "PVBI11",
+      "data": "2026-03-06",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 95.4,
+      "preco_unitario": 0.45,
+      "quantidade": 212.0
+    },
+    {
+      "ativo": "KNUQ11",
+      "data": "2026-03-11",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 177.1,
+      "preco_unitario": 1.1,
+      "quantidade": 161.0
+    },
+    {
+      "ativo": "ITUB4",
+      "data": "2026-03-12",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 26.47,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "obs": "reembolso BTC"
+    },
+    {
+      "ativo": "BRCO11",
+      "data": "2026-03-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 134.32,
+      "preco_unitario": 0.92,
+      "quantidade": 146.0
+    },
+    {
+      "ativo": "FATN11",
+      "data": "2026-03-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 172.0,
+      "preco_unitario": 0.8,
+      "quantidade": 215.0
+    },
+    {
+      "ativo": "HGLG11",
+      "data": "2026-03-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 135.3,
+      "preco_unitario": 1.1,
+      "quantidade": 123.0
+    },
+    {
+      "ativo": "HGRU11",
+      "data": "2026-03-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 146.3,
+      "preco_unitario": 0.95,
+      "quantidade": 154.0
+    },
+    {
+      "ativo": "KNRI11",
+      "data": "2026-03-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 124.3,
+      "preco_unitario": 1.1,
+      "quantidade": 113.0
+    },
+    {
+      "ativo": "PMLL11",
+      "data": "2026-03-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 164.0,
+      "preco_unitario": 1.0,
+      "quantidade": 164.0
+    },
+    {
+      "ativo": "RECR11",
+      "data": "2026-03-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 153.03,
+      "preco_unitario": 0.7253,
+      "quantidade": 211.0
+    },
+    {
+      "ativo": "TGAR11",
+      "data": "2026-03-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 137.52,
+      "preco_unitario": 0.72,
+      "quantidade": 191.0
+    },
+    {
+      "ativo": "TRXF11",
+      "data": "2026-03-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 176.7,
+      "preco_unitario": 0.93,
+      "quantidade": 190.0
+    },
+    {
+      "ativo": "VISC11",
+      "data": "2026-03-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 132.72,
+      "preco_unitario": 0.84,
+      "quantidade": 158.0
+    },
+    {
+      "ativo": "VRTA11",
+      "data": "2026-03-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 205.7,
+      "preco_unitario": 0.85,
+      "quantidade": 242.0
+    },
+    {
+      "ativo": "XPLG11",
+      "data": "2026-03-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 132.84,
+      "preco_unitario": 0.82,
+      "quantidade": 162.0
+    },
+    {
+      "ativo": "RBRY11",
+      "data": "2026-03-17",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 195.11,
+      "preco_unitario": 1.09,
+      "quantidade": 179.0
+    },
+    {
+      "ativo": "MCCI11",
+      "data": "2026-03-18",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 193.0,
+      "preco_unitario": 1.0,
+      "quantidade": 193.0
+    },
+    {
+      "ativo": "VGIP11",
+      "data": "2026-03-18",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 157.62,
+      "preco_unitario": 0.74,
+      "quantidade": 213.0
+    },
+    {
       "ativo": "SGOV",
       "data": "2026-03-19",
       "tipo": "PROVENTO_DIVIDENDO",
@@ -19858,6 +20070,63 @@
       "valor_bruto_usd": 69.64,
       "wht_usd": 0.0,
       "cotacao_usd_brl": 5.2587
+    },
+    {
+      "ativo": "PETR4",
+      "data": "2026-03-20",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 207.49,
+      "preco_unitario": 0.29641,
+      "quantidade": 700.0
+    },
+    {
+      "ativo": "PETR4",
+      "data": "2026-03-20",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 104.23,
+      "preco_unitario": 0.1489,
+      "quantidade": 700.0
+    },
+    {
+      "ativo": "PETR4",
+      "data": "2026-03-20",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 4.86,
+      "preco_unitario": 0.00694,
+      "quantidade": 700.0
+    },
+    {
+      "ativo": "PETR4",
+      "data": "2026-03-20",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 2.87,
+      "preco_unitario": 0.0041,
+      "quantidade": 700.0
+    },
+    {
+      "ativo": "BTLG11",
+      "data": "2026-03-25",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 152.8,
+      "preco_unitario": 0.8,
+      "quantidade": 191.0
+    },
+    {
+      "ativo": "XPML11",
+      "data": "2026-03-25",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 145.36,
+      "preco_unitario": 0.92,
+      "quantidade": 158.0
+    },
+    {
+      "ativo": "RADL3",
+      "data": "2026-03-31",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 29.01,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "obs": "reembolso BTC"
     }
   ]
 }
