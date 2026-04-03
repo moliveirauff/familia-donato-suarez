@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "POSTO BRISA DE TE",
+    "data": "2026-03-20",
+    "categoria": "transporte",
+    "subcategoria": "Combustível",
+    "valor": -166.64,
+    "origem": "flash"
+  },
+  {
     "descricao": "UBER CASH",
     "data": "2026-03-28",
     "categoria": "transporte",
