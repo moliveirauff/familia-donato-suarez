@@ -194,6 +194,14 @@
       "valor_total": 2377.47,
       "preco_unitario": 0.0,
       "quantidade": 0.0
+    },
+    {
+      "ativo": "Imóvel - Trulli",
+      "data": "2026-03-10",
+      "tipo": "PROVENTO_ALUGUEL",
+      "valor_total": 2377.47,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
     }
   ]
 }

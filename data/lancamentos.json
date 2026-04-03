@@ -1,13 +1,5 @@
 [
   {
-    "descricao": "Aluguel recebido imóvel de renda - março/2026",
-    "data": "2026-03-01",
-    "categoria": "receitas",
-    "subcategoria": "Outras Receitas",
-    "valor": 2377.47,
-    "origem": "conta_corrente_itau"
-  },
-  {
     "descricao": "PIX WHATS Fernand",
     "data": "2026-03-09",
     "categoria": "transporte",
