@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "CITYFRUIT",
+    "data": "2026-03-12",
+    "categoria": "alimentacao",
+    "subcategoria": "Mercado",
+    "valor": -85.55,
+    "origem": "ticket_alimentacao"
+  },
+  {
     "descricao": "GREEN FRUIT",
     "data": "2026-03-14",
     "categoria": "alimentacao",
