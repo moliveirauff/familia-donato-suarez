@@ -1,6 +1,14 @@
 [
   {
     "descricao": "POSTO BRISA DE TE",
+    "data": "2026-03-18",
+    "categoria": "transporte",
+    "subcategoria": "Combustível",
+    "valor": -213.61,
+    "origem": "flash"
+  },
+  {
+    "descricao": "POSTO BRISA DE TE",
     "data": "2026-03-20",
     "categoria": "transporte",
     "subcategoria": "Combustível",
