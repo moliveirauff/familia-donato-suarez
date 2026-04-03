@@ -1,11 +1,11 @@
 {
-  "gerado_em": "2026-04-01T04:20:10.479411",
+  "gerado_em": "2026-04-03T06:22:38.374036",
   "kpis": {
-    "saldo_total": 163522.7,
-    "saldo_teorico_rescisao": 598983.72,
-    "multa_40pct_teorico": 239593.49,
-    "investido_12m": 52838.74,
-    "ultimo_mes": "2026-02"
+    "saldo_total": 168636.88,
+    "saldo_teorico_rescisao": 605698.4,
+    "multa_40pct_teorico": 242279.36,
+    "investido_12m": 57351.94,
+    "ultimo_mes": "2026-03"
   },
   "por_ano": [
     {
@@ -150,13 +150,13 @@
     },
     {
       "ano": "2026",
-      "saldo_fim_ano": 163522.7,
-      "aportes_ano": 12474.95,
+      "saldo_fim_ano": 168636.88,
+      "aportes_ano": 16988.15,
       "retiradas_ano": 0,
-      "rendimento_acum": 81008.55,
-      "rendimento_ano": 1291.2,
-      "rendimento_pct_ano": 0.86,
-      "saldo_teorico_rescisao": 598983.72
+      "rendimento_acum": 81609.53,
+      "rendimento_ano": 1892.18,
+      "rendimento_pct_ano": 1.26,
+      "saldo_teorico_rescisao": 605698.4
     }
   ],
   "por_mes": [
@@ -1662,12 +1662,21 @@
       "aportes_acum": 362859.26,
       "retiradas_acum": 280345.11,
       "rendimento_acum": 81008.55
+    },
+    {
+      "mes": "2026-03",
+      "saldo": 168636.88,
+      "aportes_mes": 4513.2,
+      "retiradas_mes": 0,
+      "aportes_acum": 367372.46,
+      "retiradas_acum": 280345.11,
+      "rendimento_acum": 81609.53
     }
   ],
   "rescisao": {
     "metodologia": "Multa rescisória = 40% × saldo teórico FGTS (todos os depósitos corrigidos, independente de saques). Saques reduzem o saldo real, mas não a base de cálculo da multa. Base legal: CLT Art. 18 §1º.",
-    "saldo_teorico_atual": 598983.72,
-    "multa_40pct": 239593.49,
+    "saldo_teorico_atual": 605698.4,
+    "multa_40pct": 242279.36,
     "por_ano": [
       {
         "ano": "2012",
@@ -1755,9 +1764,9 @@
       },
       {
         "ano": "2026",
-        "saldo_teorico": 598983.72,
-        "multa_40pct": 239593.49,
-        "total_rescisao": 403116.19
+        "saldo_teorico": 605698.4,
+        "multa_40pct": 242279.36,
+        "total_rescisao": 410916.24
       }
     ]
   }

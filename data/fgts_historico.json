@@ -1440,7 +1440,7 @@
       "data": "2026-02-21",
       "tipo": "RENDIMENTO",
       "valor_total": 660.64,
-      "preco_unitario": 2.63100,
+      "preco_unitario": 2.631,
       "quantidade": 0
     },
     {
@@ -1448,8 +1448,24 @@
       "data": "2026-02-13",
       "tipo": "APORTE",
       "valor_total": 5114.96,
-      "preco_unitario": 2.63100,
+      "preco_unitario": 2.631,
       "quantidade": 1944.1
+    },
+    {
+      "ativo": "FGTS",
+      "data": "2026-03-19",
+      "tipo": "APORTE",
+      "valor_total": 4513.2,
+      "preco_unitario": 2.64067,
+      "quantidade": 1709.1
+    },
+    {
+      "ativo": "FGTS",
+      "data": "2026-03-21",
+      "tipo": "RENDIMENTO",
+      "valor_total": 601.11,
+      "preco_unitario": 2.64067,
+      "quantidade": 0
     }
   ]
 }
