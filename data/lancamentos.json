@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "BOUTIQUE DA ROCA",
+    "data": "2026-03-09",
+    "categoria": "alimentacao",
+    "subcategoria": "Mercado",
+    "valor": -15.98,
+    "origem": "ticket_alimentacao"
+  },
+  {
     "descricao": "PAD CONF IMPERIAL TERESOPOLIS",
     "data": "2026-03-10",
     "categoria": "alimentacao",
