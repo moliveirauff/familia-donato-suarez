@@ -2208,5 +2208,18 @@
       "outros": 607.41
     },
     "fgts": 4513.2
+  },
+  {
+    "mes_referencia": "mar/26",
+    "salario_base": 56415.01,
+    "salario_bruto": 56565.01,
+    "salario_liquido": 38118.9,
+    "descontos": {
+      "inss": 988.07,
+      "irrf": 13247.69,
+      "previdencia_privada": 3949.05,
+      "outros": 261.3
+    },
+    "fgts": 4513.2
   }
 ]
