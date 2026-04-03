@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "TERE PAO",
+    "data": "2026-03-09",
+    "categoria": "alimentacao",
+    "subcategoria": "Mercado",
+    "valor": -4.98,
+    "origem": "ticket_alimentacao"
+  },
+  {
     "descricao": "BOUTIQUE DA ROCA",
     "data": "2026-03-09",
     "categoria": "alimentacao",
