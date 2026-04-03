@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "UBER* TRIP",
+    "data": "2026-03-11",
+    "categoria": "transporte",
+    "subcategoria": "Táxi e Uber",
+    "valor": -24.2,
+    "origem": "flash"
+  },
+  {
     "descricao": "POSTO BRISA DE TE",
     "data": "2026-03-18",
     "categoria": "transporte",
