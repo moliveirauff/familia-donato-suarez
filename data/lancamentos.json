@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "ZONA SUL SUPERMERCADOS",
+    "data": "2026-03-10",
+    "categoria": "alimentacao",
+    "subcategoria": "Mercado",
+    "valor": -453.56,
+    "origem": "ticket_alimentacao"
+  },
+  {
     "descricao": "CITYFRUIT",
     "data": "2026-03-12",
     "categoria": "alimentacao",
