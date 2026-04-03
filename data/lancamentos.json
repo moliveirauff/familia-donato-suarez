@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Aluguel março/2026",
+    "data": "2026-03-01",
+    "categoria": "moradia",
+    "subcategoria": "Aluguel",
+    "valor": -2377.47,
+    "origem": "conta_corrente_itau"
+  },
+  {
     "descricao": "PIX WHATS Fernand",
     "data": "2026-03-09",
     "categoria": "transporte",
