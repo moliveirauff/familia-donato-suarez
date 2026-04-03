@@ -1,6 +1,14 @@
 [
   {
     "descricao": "GREEN FRUIT",
+    "data": "2026-03-14",
+    "categoria": "alimentacao",
+    "subcategoria": "Mercado",
+    "valor": -166.47,
+    "origem": "ticket_alimentacao"
+  },
+  {
+    "descricao": "GREEN FRUIT",
     "data": "2026-03-16",
     "categoria": "alimentacao",
     "subcategoria": "Mercado",
