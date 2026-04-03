@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "PAD CONF IMPERIAL TERESOPOLIS",
+    "data": "2026-03-10",
+    "categoria": "alimentacao",
+    "subcategoria": "Mercado",
+    "valor": -14.99,
+    "origem": "ticket_alimentacao"
+  },
+  {
     "descricao": "ZONA SUL SUPERMERCADOS",
     "data": "2026-03-10",
     "categoria": "alimentacao",
