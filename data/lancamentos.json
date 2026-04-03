@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "SALSALITO",
+    "data": "2026-03-31",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -49.0,
+    "origem": "ticket_restaurante"
+  },
+  {
     "descricao": "Benefício Ticket Refeição",
     "data": "2026-03-27",
     "categoria": "receitas",
