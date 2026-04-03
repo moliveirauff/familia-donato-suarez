@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "DEGUSTER CAFE",
+    "data": "2026-03-12",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -63.69,
+    "origem": "ticket_restaurante"
+  },
+  {
     "descricao": "SALSALITO",
     "data": "2026-03-31",
     "categoria": "alimentacao",
