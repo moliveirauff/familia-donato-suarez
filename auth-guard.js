@@ -45,7 +45,7 @@
   // === MONTAR OVERLAY ===
   var overlay = document.createElement('div');
   overlay.id = 'auth-overlay';
-  overlay.style.cssText = 'position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;flex-direction:column;background:var(--bg-secondary,#f0f4f8);transition:background-color 0.3s;';
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;flex-direction:column;background:var(--bg-secondary,#f0f4f8);transition:background-color 0.3s;visibility:visible;';
 
   var box = document.createElement('div');
   box.style.cssText = 'text-align:center;max-width:320px;padding:24px;';
