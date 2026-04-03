@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Viewer — Hub da Família</title>
+  <link rel="stylesheet" href="hub-design-system.css">
+  <style>
+    /* === Layout === */
+    .kv-wrapper {
+      display: flex;
+      min-height: calc(100vh - 180px);
+    }
+
+    /* === Sidebar === */
+    .kv-sidebar {
+      width: 300px;
+      min-width: 300px;
+      border-right: 1px solid var(--border);
+      background: var(--bg-card);
+      overflow-y: auto;
+      max-height: calc(100vh - 180px);
+      position: sticky;
+      top: 0;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    .kv-sidebar-inner { padding: var(--space-md); }
+
+    /* Filters */
+    .kv-filters {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid var(--border);
+    }
+    .kv-filters select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+    }
+
+    /* Agent group */
+    .kv-agent-group { margin-bottom: var(--space-sm); }
+    .kv-agent-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--text-primary);
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      user-select: none;
+    }
+    .kv-agent-header:hover { background: var(--bg-secondary); }
+    .kv-agent-header .kv-count {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.78rem;
+      margin-left: auto;
+    }
+    .kv-agent-header .kv-chevron {
+      font-size: 0.7rem;
+      transition: transform 0.2s;
+    }
+    .kv-agent-header.collapsed .kv-chevron { transform: rotate(-90deg); }
+    .kv-agent-files { padding-left: 12px; }
+    .kv-agent-files.hidden { display: none; }
+
+    /* Category label */
+    .kv-cat-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      padding: 8px 8px 4px;
+    }
+
+    /* File item */
+    .kv-file {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 8px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid transparent;
+      transition: all 0.15s;
+    }
+    .kv-file:hover { background: var(--bg-secondary); }
+    .kv-file.active {
+      background: var(--cyan-bg);
+      border-left-color: var(--cyan);
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .kv-file-icon { flex-shrink: 0; }
+    .kv-file-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* === Content Area === */
+    .kv-content {
+      flex: 1;
+      padding: var(--space-lg) var(--space-xl);
+      overflow-y: auto;
+      max-height: calc(100vh - 180px);
+    }
+
+    .kv-content-header {
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid var(--border);
+    }
+    .kv-content-header h2 {
+      margin: 0 0 6px;
+      font-size: 1.4rem;
+    }
+    .kv-content-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .kv-content-meta .kv-tag {
+      background: var(--cyan-bg);
+      color: var(--cyan-dark);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .kv-placeholder {
+      text-align: center;
+      color: var(--text-muted);
+      padding: var(--space-2xl) var(--space-lg);
+      font-size: 1rem;
+    }
+
+    /* === Search === */
+    .kv-search-wrap {
+      position: relative;
+    }
+    .kv-search-wrap input {
+      width: 100%;
+      padding: 8px 30px 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+    }
+    .kv-search-clear {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-size: 1rem;
+      display: none;
+      padding: 0;
+      line-height: 1;
+    }
+
+    /* === Markdown rendered content === */
+    .md-content { line-height: 1.7; color: var(--text-primary); }
+    .md-content h1 { font-size: 1.5rem; font-weight: 800; margin: 0 0 16px; }
+    .md-content h2 { font-size: 1.25rem; font-weight: 700; margin: 24px 0 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+    .md-content h3 { font-size: 1.1rem; font-weight: 600; margin: 20px 0 8px; }
+    .md-content h4 { font-size: 1rem; font-weight: 600; margin: 16px 0 8px; }
+    .md-content p { margin: 0 0 12px; }
+    .md-content code {
+      background: var(--bg-secondary);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      font-family: var(--font-mono);
+    }
+    .md-content pre {
+      background: var(--bg-secondary);
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      overflow-x: auto;
+      margin: 0 0 16px;
+      border: 1px solid var(--border);
+    }
+    .md-content pre code {
+      background: none;
+      padding: 0;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+    .md-content table { width: 100%; border-collapse: collapse; margin: 0 0 16px; }
+    .md-content th, .md-content td { padding: 8px 12px; border: 1px solid var(--border); text-align: left; font-size: 0.85rem; }
+    .md-content th { background: var(--bg-secondary); font-weight: 600; }
+    .md-content blockquote {
+      border-left: 3px solid var(--cyan);
+      padding-left: 16px;
+      color: var(--text-secondary);
+      margin: 0 0 12px;
+    }
+    .md-content ul, .md-content ol { margin: 0 0 12px; padding-left: 24px; }
+    .md-content li { margin-bottom: 4px; }
+    .md-content hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+    .md-content a { color: var(--cyan-dark); text-decoration: underline; }
+    body.dark-mode .md-content a { color: var(--cyan); }
+    .md-content strong { font-weight: 700; }
+    .md-content em { font-style: italic; }
+
+    /* === Mobile === */
+    .kv-mobile-toggle {
+      display: none;
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      z-index: 200;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: white;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .kv-sidebar {
+        position: fixed;
+        inset: 0;
+        z-index: 150;
+        width: 100%;
+        max-height: 100vh;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+      }
+      .kv-sidebar.open { transform: translateX(0); }
+      .kv-mobile-toggle { display: flex; }
+      .kv-content {
+        padding: var(--space-md);
+        max-height: none;
+      }
+      .kv-wrapper { flex-direction: column; }
+    }
+
+    /* === Error === */
+    .error-msg {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+      color: var(--text-muted);
+    }
+
+    .timestamp {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding: var(--space-sm) 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="page-header">
+    <a href="index.html" class="back-btn">← Hub</a>
+    <div class="eyebrow">S.P.I.N. Knowledge</div>
+    <h1>📚 Knowledge Viewer</h1>
+    <p class="subtitle">Base de conhecimento do ecossistema</p>
+    <div class="cyan-bar"></div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">🌙</button>
+  </div>
+
+  <p class="timestamp" id="timestamp"></p>
+
+  <div class="kv-wrapper">
+    <!-- Sidebar -->
+    <aside class="kv-sidebar" id="sidebar">
+      <div class="kv-sidebar-inner">
+        <!-- Search -->
+        <div class="kv-search-wrap" style="margin-bottom: var(--space-sm);">
+          <input type="text" id="search-input" placeholder="Buscar..." autocomplete="off">
+          <button class="kv-search-clear" id="search-clear">✕</button>
+        </div>
+        <!-- Filters -->
+        <div class="kv-filters">
+          <select id="filter-agent"><option value="">Todos os agentes</option></select>
+          <select id="filter-category">
+            <option value="">Todas as categorias</option>
+            <option value="knowledge">📚 Knowledge</option>
+            <option value="memory_lt">🧠 Memória</option>
+            <option value="identity">🪪 Identidade</option>
+            <option value="daily">📝 Daily Notes</option>
+          </select>
+        </div>
+        <!-- File list -->
+        <div id="file-list"></div>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <main class="kv-content" id="content-area">
+      <div class="kv-placeholder" id="placeholder">
+        📚 Selecione um arquivo na lista ao lado para visualizar o conteúdo.
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile toggle -->
+  <button class="kv-mobile-toggle" id="mobile-toggle">☰</button>
+
+  <div class="error-msg" id="error-msg" style="display:none;">
+    Erro ao carregar dados.
+  </div>
+
+<script>
+(function () {
+  'use strict';
+
+  // === Theme ===
+  function initTheme() {
+    if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+    updateToggle();
+  }
+  function updateToggle() {
+    var btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+  }
+  document.getElementById('theme-toggle').addEventListener('click', function () {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    updateToggle();
+  });
+  initTheme();
+
+  // === Category icons/labels ===
+  var CAT = {
+    knowledge: { icon: '📚', label: 'Knowledge' },
+    memory_lt: { icon: '🧠', label: 'Memória' },
+    identity:  { icon: '🪪', label: 'Identidade' },
+    daily:     { icon: '📝', label: 'Daily Notes' }
+  };
+
+  // === Markdown Renderer ===
+  function renderMarkdown(raw) {
+    if (!raw) return '';
+    // Escape HTML
+    var s = raw.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+    // Code blocks
+    s = s.replace(/```(\w*)\n([\s\S]*?)```/g, function(_,lang,code) {
+      return '<pre><code class="'+lang+'">'+code.trim()+'</code></pre>';
+    });
+
+    // Inline code (after code blocks)
+    s = s.replace(/`([^`\n]+)`/g, '<code>$1</code>');
+
+    // Headers
+    s = s.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
+    s = s.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+    s = s.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+    s = s.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+
+    // HR
+    s = s.replace(/^---+$/gm, '<hr>');
+
+    // Bold & Italic
+    s = s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    s = s.replace(/\*(.+?)\*/g, '<em>$1</em>');
+    s = s.replace(/__(.+?)__/g, '<strong>$1</strong>');
+    s = s.replace(/_(.+?)_/g, '<em>$1</em>');
+
+    // Links
+    s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+    // Images (skip rendering)
+    s = s.replace(/!\[([^\]]*)\]\([^)]+\)/g, '');
+
+    // Blockquotes
+    s = s.replace(/^&gt; (.+)$/gm, '<blockquote>$1</blockquote>');
+    // Merge consecutive blockquotes
+    s = s.replace(/<\/blockquote>\n<blockquote>/g, '\n');
+
+    // Tables
+    s = s.replace(/^(\|.+\|)\n(\|[-:| ]+\|)\n((?:\|.+\|\n?)*)/gm, function(_, header, sep, body) {
+      var ths = header.split('|').filter(function(c){return c.trim();}).map(function(c){return '<th>'+c.trim()+'</th>';}).join('');
+      var rows = body.trim().split('\n').map(function(row){
+        var tds = row.split('|').filter(function(c){return c.trim();}).map(function(c){return '<td>'+c.trim()+'</td>';}).join('');
+        return '<tr>'+tds+'</tr>';
+      }).join('');
+      return '<table><thead><tr>'+ths+'</tr></thead><tbody>'+rows+'</tbody></table>';
+    });
+
+    // Unordered lists
+    s = s.replace(/(^- .+$\n?)+/gm, function(block) {
+      var items = block.trim().split('\n').map(function(l) {
+        return '<li>' + l.replace(/^- /, '') + '</li>';
+      }).join('');
+      return '<ul>' + items + '</ul>';
+    });
+
+    // Ordered lists
+    s = s.replace(/(^\d+\. .+$\n?)+/gm, function(block) {
+      var items = block.trim().split('\n').map(function(l) {
+        return '<li>' + l.replace(/^\d+\. /, '') + '</li>';
+      }).join('');
+      return '<ol>' + items + '</ol>';
+    });
+
+    // Paragraphs (double newline)
+    s = s.replace(/\n\n+/g, '\n</p><p>\n');
+    // Wrap in p if not starting with block element
+    if (!/^<(h[1-4]|pre|ul|ol|table|blockquote|hr)/.test(s.trim())) {
+      s = '<p>' + s + '</p>';
+    }
+    // Clean up empty paragraphs
+    s = s.replace(/<p>\s*<\/(p)>/g, '');
+    s = s.replace(/<p>\s*(<(?:h[1-4]|pre|ul|ol|table|blockquote|hr|div))/g, '$1');
+    s = s.replace(/(<\/(?:h[1-4]|pre|ul|ol|table|blockquote|hr|div)>)\s*<\/p>/g, '$1');
+
+    return s;
+  }
+
+  // === Globals ===
+  var allFiles = [];
+  var selectedFile = null;
+
+  // === Format date BR ===
+  function fmtDate(iso) {
+    if (!iso) return '—';
+    var d = new Date(iso);
+    return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();
+  }
+  function fmtDateFull(iso) {
+    if (!iso) return '';
+    var d = new Date(iso);
+    return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear()+' às '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+  }
+
+  // === Clean display name ===
+  function cleanName(filename, category) {
+    if (category === 'knowledge') return filename.replace(/^k-/, '').replace(/\.md$/, '');
+    return filename.replace(/\.md$/, '');
+  }
+
+  // === Build Sidebar ===
+  function buildSidebar(files) {
+    var list = document.getElementById('file-list');
+    list.innerHTML = '';
+
+    // Group by agent
+    var agents = {};
+    files.forEach(function(f) {
+      if (!agents[f.agent_id]) agents[f.agent_id] = { name: f.agent_name, emoji: f.agent_emoji, files: [] };
+      agents[f.agent_id].files.push(f);
+    });
+
+    var agentIds = Object.keys(agents).sort(function(a,b) {
+      return agents[b].files.length - agents[a].files.length;
+    });
+
+    agentIds.forEach(function(aid) {
+      var ag = agents[aid];
+      var group = document.createElement('div');
+      group.className = 'kv-agent-group';
+
+      var header = document.createElement('div');
+      header.className = 'kv-agent-header';
+      header.innerHTML = '<span class="kv-chevron">▼</span> ' + ag.emoji + ' ' + ag.name + ' <span class="kv-count">(' + ag.files.length + ')</span>';
+
+      var filesDiv = document.createElement('div');
+      filesDiv.className = 'kv-agent-files';
+
+      // Group by category within agent
+      var catOrder = ['knowledge', 'memory_lt', 'identity', 'daily'];
+      var byCat = {};
+      ag.files.forEach(function(f) {
+        if (!byCat[f.category]) byCat[f.category] = [];
+        byCat[f.category].push(f);
+      });
+
+      catOrder.forEach(function(cat) {
+        if (!byCat[cat] || byCat[cat].length === 0) return;
+        var catInfo = CAT[cat] || { icon: '📄', label: cat };
+        var label = document.createElement('div');
+        label.className = 'kv-cat-label';
+        label.textContent = catInfo.icon + ' ' + catInfo.label;
+        filesDiv.appendChild(label);
+
+        byCat[cat].forEach(function(f) {
+          var item = document.createElement('div');
+          item.className = 'kv-file';
+          if (selectedFile && selectedFile.agent_id === f.agent_id && selectedFile.filename === f.filename && selectedFile.category === f.category) {
+            item.className += ' active';
+          }
+          item.innerHTML = '<span class="kv-file-icon">' + catInfo.icon + '</span><span class="kv-file-name">' + cleanName(f.filename, f.category) + '</span>';
+          item.addEventListener('click', function() { selectFile(f); });
+          filesDiv.appendChild(item);
+        });
+      });
+
+      header.addEventListener('click', function() {
+        header.classList.toggle('collapsed');
+        filesDiv.classList.toggle('hidden');
+      });
+
+      group.appendChild(header);
+      group.appendChild(filesDiv);
+      list.appendChild(group);
+    });
+  }
+
+  // === Select File ===
+  function selectFile(f) {
+    selectedFile = f;
+    var area = document.getElementById('content-area');
+    document.getElementById('placeholder').style.display = 'none';
+
+    // Update hash
+    window.location.hash = f.agent_id + '/' + f.filename;
+
+    // Rebuild sidebar to show active
+    applyFilters();
+
+    // Build content
+    var catInfo = CAT[f.category] || { icon: '📄', label: f.category };
+    var tagsHtml = (f.tags || []).map(function(t) { return '<span class="kv-tag">' + t + '</span>'; }).join('');
+
+    area.innerHTML =
+      '<div class="kv-content-header">' +
+        '<h2>' + (f.title || f.filename) + '</h2>' +
+        '<div class="kv-content-meta">' +
+          f.agent_emoji + ' ' + f.agent_name + ' · ' + f.filename +
+          (tagsHtml ? ' · ' + tagsHtml : '') +
+          ' · ' + f.size_kb + ' KB · Modificado: ' + fmtDate(f.last_modified) +
+        '</div>' +
+      '</div>' +
+      '<div class="md-content">' + renderMarkdown(f.content) + '</div>';
+
+    // Close mobile sidebar
+    document.getElementById('sidebar').classList.remove('open');
+  }
+
+  // === Filters & Search ===
+  var searchTimeout;
+  function applyFilters() {
+    var agentFilter = document.getElementById('filter-agent').value;
+    var catFilter = document.getElementById('filter-category').value;
+    var query = document.getElementById('search-input').value.toLowerCase().trim();
+
+    var filtered = allFiles.filter(function(f) {
+      if (agentFilter && f.agent_id !== agentFilter) return false;
+      if (catFilter && f.category !== catFilter) return false;
+      if (query) {
+        var match = (f.filename.toLowerCase().indexOf(query) !== -1) ||
+                    ((f.title || '').toLowerCase().indexOf(query) !== -1) ||
+                    ((f.content || '').toLowerCase().indexOf(query) !== -1);
+        if (!match) return false;
+      }
+      return true;
+    });
+
+    buildSidebar(filtered);
+    document.getElementById('search-clear').style.display = query ? 'block' : 'none';
+  }
+
+  document.getElementById('filter-agent').addEventListener('change', applyFilters);
+  document.getElementById('filter-category').addEventListener('change', applyFilters);
+  document.getElementById('search-input').addEventListener('input', function() {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(applyFilters, 300);
+  });
+  document.getElementById('search-clear').addEventListener('click', function() {
+    document.getElementById('search-input').value = '';
+    applyFilters();
+  });
+
+  // === Mobile toggle ===
+  document.getElementById('mobile-toggle').addEventListener('click', function() {
+    document.getElementById('sidebar').classList.toggle('open');
+  });
+
+  // === Hash navigation ===
+  function loadFromHash() {
+    var hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+    var parts = hash.split('/');
+    if (parts.length < 2) return;
+    var aid = parts[0];
+    var fname = parts.slice(1).join('/');
+    var found = allFiles.find(function(f) { return f.agent_id === aid && f.filename === fname; });
+    if (found) selectFile(found);
+  }
+
+  // === Load Data ===
+  fetch('data/knowledge_content.json?v=' + Date.now())
+    .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function(data) {
+      document.getElementById('timestamp').textContent = 'Atualizado em ' + fmtDateFull(data.generated_at);
+      allFiles = data.files || [];
+
+      // Populate agent filter
+      var agentSelect = document.getElementById('filter-agent');
+      var seen = {};
+      allFiles.forEach(function(f) {
+        if (seen[f.agent_id]) return;
+        seen[f.agent_id] = true;
+        var opt = document.createElement('option');
+        opt.value = f.agent_id;
+        opt.textContent = f.agent_emoji + ' ' + f.agent_name;
+        agentSelect.appendChild(opt);
+      });
+
+      buildSidebar(allFiles);
+      loadFromHash();
+    })
+    .catch(function(err) {
+      console.error('Knowledge load error:', err);
+      document.getElementById('error-msg').style.display = '';
+    });
+})();
+</script>
+<script src="auth-guard.js"></script>
+</body>
+</html>

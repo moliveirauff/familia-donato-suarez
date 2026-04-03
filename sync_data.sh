@@ -4,6 +4,10 @@
 REPO_DIR="/root/.openclaw/familia-donato-suarez"
 cd "$REPO_DIR"
 
+# Regenerar JSONs do Knowledge Dashboard
+echo "Regenerating dashboard JSONs..."
+bash scripts/generate_all.sh 2>&1 || echo "WARN: generate_all.sh failed, continuing with existing data"
+
 git add data/
 if ! git diff-index --quiet HEAD --; then
     git commit -m "sync: data update $(date '+%Y-%m-%d %H:%M:%S')"

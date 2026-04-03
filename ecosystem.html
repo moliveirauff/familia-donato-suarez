@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecossistema — Hub da Família</title>
+  <link rel="stylesheet" href="hub-design-system.css">
+  <style>
+    /* === Agent Cards Grid === */
+    .agents-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+    @media (min-width: 640px) {
+      .agents-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .agents-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* === Agent Card === */
+    .agent-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--green);
+      padding: var(--space-lg);
+      transition: background-color 0.3s, border-color 0.3s, box-shadow 0.2s, transform 0.2s;
+    }
+    .agent-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .agent-card.health-red    { border-left-color: var(--red); }
+    .agent-card.health-yellow { border-left-color: var(--orange); }
+    .agent-card.health-green  { border-left-color: var(--green); }
+
+    .agent-card-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+    .agent-card-header .agent-emoji {
+      font-size: 1.5rem;
+    }
+    .agent-card-header h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .agent-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+    .agent-stats .stat-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .agent-stats .stat-icon {
+      width: 20px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .agent-stats .stat-label {
+      flex: 1;
+    }
+    .agent-stats .stat-value {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .agent-latest {
+      margin-top: var(--space-sm);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* === Timestamp === */
+    .timestamp {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: var(--space-sm);
+    }
+
+    /* === Error state === */
+    .error-msg {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="page-header">
+    <a href="index.html" class="back-btn">← Hub</a>
+    <div class="eyebrow">S.P.I.N. Dashboard</div>
+    <h1>🧠 Ecossistema</h1>
+    <p class="subtitle">Visão geral do ecossistema S.P.I.N.</p>
+    <div class="cyan-bar"></div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">🌙</button>
+  </div>
+
+  <div class="page-container">
+    <!-- Timestamp -->
+    <p class="timestamp" id="timestamp"></p>
+
+    <!-- KPIs -->
+    <div class="section">
+      <div class="kpi-grid" id="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Agentes</div><div class="kpi-value" id="kpi-agents">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Knowledge</div><div class="kpi-value" id="kpi-knowledge">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">Cron Jobs</div><div class="kpi-value" id="kpi-crons">—</div></div>
+        <div class="kpi-card" id="kpi-health-card"><div class="kpi-label">Health</div><div class="kpi-value" id="kpi-health">—</div></div>
+      </div>
+    </div>
+
+    <!-- Agents Grid -->
+    <div class="section">
+      <div class="section-title">Agentes</div>
+      <div class="agents-grid" id="agents-grid"></div>
+    </div>
+
+    <!-- Error fallback -->
+    <div class="error-msg" id="error-msg" style="display:none;">
+      Erro ao carregar dados do ecossistema.
+    </div>
+  </div>
+
+<script>
+(function () {
+  'use strict';
+
+  // === Theme Toggle ===
+  function initTheme() {
+    var saved = localStorage.getItem('theme');
+    if (saved === 'dark') document.body.classList.add('dark-mode');
+    updateToggleIcon();
+  }
+  function updateToggleIcon() {
+    var btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+  }
+  document.getElementById('theme-toggle').addEventListener('click', function () {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    updateToggleIcon();
+  });
+  initTheme();
+
+  // === Format date BR ===
+  function formatDateBR(isoStr) {
+    if (!isoStr) return '—';
+    var d = new Date(isoStr);
+    var dd = String(d.getDate()).padStart(2, '0');
+    var mm = String(d.getMonth() + 1).padStart(2, '0');
+    var yyyy = d.getFullYear();
+    var hh = String(d.getHours()).padStart(2, '0');
+    var mi = String(d.getMinutes()).padStart(2, '0');
+    return dd + '/' + mm + '/' + yyyy + ' às ' + hh + ':' + mi;
+  }
+
+  // === Format latest daily ===
+  function formatLatestDaily(val) {
+    if (!val) return '—';
+    // YYYY-MM-DD or YYYY-MM
+    var parts = val.split('-');
+    var months = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+    if (parts.length === 3) {
+      return parts[2] + '/' + months[parseInt(parts[1],10)-1] + '/' + parts[0];
+    }
+    if (parts.length === 2) {
+      return months[parseInt(parts[1],10)-1] + '/' + parts[0];
+    }
+    return val;
+  }
+
+  // === Cron status text ===
+  function cronStatusText(agent) {
+    var parts = [];
+    if (agent.cron_ok > 0) parts.push(agent.cron_ok + '✅');
+    if (agent.cron_error > 0) parts.push(agent.cron_error + '❌');
+    if (agent.cron_idle > 0) parts.push(agent.cron_idle + '⚪');
+    return agent.cron_total + ' (' + parts.join(', ') + ')';
+  }
+
+  // === Load Data ===
+  fetch('data/ecosystem.json?v=' + Date.now())
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      // Timestamp
+      document.getElementById('timestamp').textContent = 'Atualizado em ' + formatDateBR(data.generated_at);
+
+      // KPIs
+      var t = data.totals;
+      document.getElementById('kpi-agents').textContent = t.agents;
+      document.getElementById('kpi-knowledge').textContent = t.knowledge_files;
+      document.getElementById('kpi-crons').textContent = t.cron_jobs;
+
+      var healthPct = t.cron_jobs > 0 ? Math.round((t.cron_healthy / t.cron_jobs) * 100) : 100;
+      document.getElementById('kpi-health').textContent = healthPct + '%';
+      var healthCard = document.getElementById('kpi-health-card');
+      if (healthPct >= 90) healthCard.style.borderColor = 'var(--green)';
+      else if (healthPct >= 70) healthCard.style.borderColor = 'var(--orange)';
+      else healthCard.style.borderColor = 'var(--red)';
+
+      // Agents Grid
+      var grid = document.getElementById('agents-grid');
+      data.agents.forEach(function (agent) {
+        var card = document.createElement('div');
+        card.className = 'agent-card health-' + agent.health;
+
+        var memoryText = agent.memory_exists ? (agent.memory_size_kb + ' KB') : 'Não existe';
+
+        card.innerHTML =
+          '<div class="agent-card-header">' +
+            '<span class="agent-emoji">' + agent.emoji + '</span>' +
+            '<h3>' + agent.name + '</h3>' +
+          '</div>' +
+          '<div class="agent-stats">' +
+            '<div class="stat-row"><span class="stat-icon">📚</span><span class="stat-label">Knowledge:</span><span class="stat-value">' + agent.knowledge_count + ' arquivos</span></div>' +
+            '<div class="stat-row"><span class="stat-icon">📝</span><span class="stat-label">Daily notes:</span><span class="stat-value">' + agent.daily_notes_count + '</span></div>' +
+            '<div class="stat-row"><span class="stat-icon">🧠</span><span class="stat-label">MEMORY.md:</span><span class="stat-value">' + memoryText + '</span></div>' +
+            '<div class="stat-row"><span class="stat-icon">⏱️</span><span class="stat-label">Cron jobs:</span><span class="stat-value">' + (agent.cron_total > 0 ? cronStatusText(agent) : '0') + '</span></div>' +
+          '</div>' +
+          '<div class="agent-latest">Última nota: ' + formatLatestDaily(agent.latest_daily) + '</div>';
+
+        grid.appendChild(card);
+      });
+    })
+    .catch(function (err) {
+      console.error('Ecosystem load error:', err);
+      document.getElementById('error-msg').style.display = '';
+    });
+})();
+</script>
+<script src="auth-guard.js"></script>
+</body>
+</html>

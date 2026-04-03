@@ -126,7 +126,7 @@
 </head>
 <body>
 
-<span class="version-badge">v4.25</span>
+<span class="version-badge">v4.26</span>
 <button id="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
 <h1 class="page-title">🏠 Hub da Família</h1>
 
@@ -235,6 +235,19 @@
             <a href="consultasmedicas.html">Consultas</a>
         </div>
     </div>
+
+    <!-- 9. Dashboards & Sistema -->
+    <div class="card">
+        <div class="agent-badge">🤖 S.P.I.N.</div>
+        <div class="card-icon">📊</div>
+        <h2>Dashboards & Sistema</h2>
+        <p>Monitoramento do ecossistema S.P.I.N. — agentes, knowledge base e automações.</p>
+        <div class="card-links">
+            <a href="ecosystem.html">Ecossistema</a>
+            <a href="knowledge.html">Knowledge</a>
+            <a href="cron-monitor.html">Cron Monitor</a>
+        </div>
+    </div>
 </main>
 
 <script>
@@ -257,5 +270,6 @@ function toggleTheme() {
 
 initTheme();
 </script>
+<script src="auth-guard.js"></script>
 </body>
 </html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cron Monitor — Hub da Família</title>
+  <link rel="stylesheet" href="hub-design-system.css">
+  <style>
+    /* === Health bar === */
+    .health-bar-wrap {
+      background: var(--border);
+      border-radius: var(--radius-full);
+      height: 10px;
+      overflow: hidden;
+      margin-top: var(--space-sm);
+    }
+    .health-bar-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+      background: linear-gradient(90deg, var(--green) 0%, var(--green) 100%);
+      transition: width 0.8s ease;
+    }
+    .health-bar-label {
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* === Accordion === */
+    .acc-group { margin-bottom: var(--space-md); }
+    .acc-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 12px var(--space-md);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    .acc-header:hover { background: var(--bg-secondary); }
+    .acc-header.has-error { background: var(--red-bg); border-color: var(--red); }
+    body.dark-mode .acc-header.has-error { background: rgba(229,57,53,0.15); }
+    .acc-chevron {
+      font-size: 0.8rem;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .acc-header.collapsed .acc-chevron { transform: rotate(-90deg); }
+    .acc-agent-info {
+      flex: 1;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .acc-summary {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .acc-body {
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .acc-body.hidden { max-height: 0 !important; }
+
+    /* === Jobs Table (desktop) === */
+    .jobs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-top: 2px;
+    }
+    .jobs-table thead tr {
+      background: var(--navy);
+      color: white;
+    }
+    .jobs-table thead th {
+      padding: 8px 12px;
+      text-align: left;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .jobs-table tbody td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-primary);
+    }
+    .jobs-table tbody tr:nth-child(even) { background: var(--bg-secondary); }
+    .jobs-table tbody tr.row-error { background: var(--red-bg); }
+    body.dark-mode .jobs-table tbody tr.row-error { background: rgba(229,57,53,0.12); }
+    .jobs-table tbody tr.row-idle { opacity: 0.7; }
+
+    /* === Job Cards (mobile) === */
+    .job-cards { display: none; margin-top: 2px; }
+    .job-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      margin-bottom: var(--space-sm);
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    .job-card.card-error { background: var(--red-bg); border-color: var(--red); }
+    .job-card-name { font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
+    .job-card-details { font-size: 0.82rem; color: var(--text-secondary); }
+
+    @media (max-width: 768px) {
+      .jobs-table-wrap { display: none; }
+      .job-cards { display: block; }
+    }
+
+    .timestamp {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: var(--space-sm);
+    }
+    .error-msg {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="page-header">
+    <a href="index.html" class="back-btn">← Hub</a>
+    <div class="eyebrow">S.P.I.N. Operations</div>
+    <h1>⏱️ Cron Monitor</h1>
+    <p class="subtitle">Automações do ecossistema S.P.I.N.</p>
+    <div class="cyan-bar"></div>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">🌙</button>
+  </div>
+
+  <div class="page-container">
+    <p class="timestamp" id="timestamp"></p>
+
+    <!-- KPIs -->
+    <div class="section">
+      <div class="kpi-grid" id="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">Total</div><div class="kpi-value" id="kpi-total">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">🟢 OK</div><div class="kpi-value" id="kpi-ok">—</div></div>
+        <div class="kpi-card" id="kpi-error-card"><div class="kpi-label">🔴 Erro</div><div class="kpi-value" id="kpi-error">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">⚪ Idle</div><div class="kpi-value" id="kpi-idle">—</div></div>
+      </div>
+      <!-- Health bar -->
+      <div class="health-bar-wrap"><div class="health-bar-fill" id="health-bar"></div></div>
+      <div class="health-bar-label" id="health-label"></div>
+    </div>
+
+    <!-- Accordions -->
+    <div class="section">
+      <div class="section-title">Jobs por Agente</div>
+      <div id="accordions"></div>
+    </div>
+
+    <div class="error-msg" id="error-msg" style="display:none;">Erro ao carregar dados.</div>
+  </div>
+
+<script>
+(function () {
+  'use strict';
+
+  // === Theme ===
+  function initTheme() {
+    if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+    updateToggle();
+  }
+  function updateToggle() {
+    var btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+  }
+  document.getElementById('theme-toggle').addEventListener('click', function () {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    updateToggle();
+  });
+  initTheme();
+
+  // === Format date ===
+  function fmtDateFull(iso) {
+    if (!iso) return '';
+    var d = new Date(iso);
+    return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear()+' às '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+  }
+
+  // === Status icon ===
+  function statusIcon(s) {
+    if (s === 'ok') return '🟢';
+    if (s === 'error') return '🔴';
+    return '⚪';
+  }
+
+  // === Build summary text ===
+  function summaryText(agent) {
+    var parts = [];
+    if (agent.ok > 0) parts.push(agent.ok + ' ✅');
+    if (agent.error > 0) parts.push(agent.error + ' ❌');
+    if (agent.idle > 0) parts.push(agent.idle + ' ⚪');
+    return agent.total + ' jobs (' + parts.join(', ') + ')';
+  }
+
+  // === Load Data ===
+  fetch('data/cron_dashboard.json?v=' + Date.now())
+    .then(function(r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function(data) {
+      document.getElementById('timestamp').textContent = 'Atualizado em ' + fmtDateFull(data.generated_at);
+
+      var s = data.summary;
+      document.getElementById('kpi-total').textContent = s.total;
+      document.getElementById('kpi-ok').textContent = s.ok;
+      document.getElementById('kpi-error').textContent = s.error;
+      document.getElementById('kpi-idle').textContent = s.idle;
+
+      // Error KPI highlight
+      if (s.error > 0) {
+        document.getElementById('kpi-error-card').style.background = 'var(--red-bg)';
+      }
+
+      // Health bar
+      var pct = s.total > 0 ? Math.round((s.ok / s.total) * 100) : 100;
+      var bar = document.getElementById('health-bar');
+      bar.style.width = pct + '%';
+      if (pct >= 90) bar.style.background = 'var(--green)';
+      else if (pct >= 70) bar.style.background = 'var(--orange)';
+      else bar.style.background = 'var(--red)';
+      document.getElementById('health-label').textContent = pct + '% healthy';
+
+      // Build accordions
+      var container = document.getElementById('accordions');
+      var agents = data.agents || [];
+
+      agents.forEach(function(agent) {
+        var agentJobs = (data.jobs || []).filter(function(j) {
+          // match agent — handle spin/main consolidation
+          return j.agent_id === agent.id || (agent.id === 'main' && j.agent_id === 'spin');
+        });
+
+        var group = document.createElement('div');
+        group.className = 'acc-group';
+
+        var hasError = agent.error > 0;
+        var collapsed = !hasError;
+
+        var header = document.createElement('div');
+        header.className = 'acc-header' + (hasError ? ' has-error' : '') + (collapsed ? ' collapsed' : '');
+        header.innerHTML =
+          '<span class="acc-chevron">▼</span>' +
+          '<span class="acc-agent-info">' + agent.emoji + ' ' + agent.name + '</span>' +
+          '<span class="acc-summary">' + summaryText(agent) + '</span>';
+
+        var body = document.createElement('div');
+        body.className = 'acc-body' + (collapsed ? ' hidden' : '');
+
+        // Desktop table
+        var tableWrap = document.createElement('div');
+        tableWrap.className = 'jobs-table-wrap';
+        var table = '<table class="jobs-table"><thead><tr><th>Nome</th><th>Frequência</th><th>Último Run</th><th>Status</th><th>Próximo</th></tr></thead><tbody>';
+        agentJobs.forEach(function(j) {
+          var rowClass = j.status === 'error' ? 'row-error' : (j.status === 'idle' ? 'row-idle' : '');
+          var namePrefix = j.status === 'error' ? '❌ ' : '';
+          var idleNote = j.status === 'idle' ? ' (nunca executado)' : '';
+          table += '<tr class="'+rowClass+'"><td>'+namePrefix+j.name+'</td><td>'+j.schedule_human+'</td><td>'+j.last_run+idleNote+'</td><td>'+statusIcon(j.status)+'</td><td>'+j.next_run+'</td></tr>';
+        });
+        table += '</tbody></table>';
+        tableWrap.innerHTML = table;
+        body.appendChild(tableWrap);
+
+        // Mobile cards
+        var cardsDiv = document.createElement('div');
+        cardsDiv.className = 'job-cards';
+        agentJobs.forEach(function(j) {
+          var card = document.createElement('div');
+          card.className = 'job-card' + (j.status === 'error' ? ' card-error' : '');
+          var icon = statusIcon(j.status);
+          var idleNote = j.status === 'idle' ? ' · nunca executado' : '';
+          card.innerHTML =
+            '<div class="job-card-name">' + icon + ' ' + j.name + '</div>' +
+            '<div class="job-card-details">' + j.schedule_human + ' · Último: ' + j.last_run + idleNote + ' · Próximo: ' + j.next_run + '</div>';
+          cardsDiv.appendChild(card);
+        });
+        body.appendChild(cardsDiv);
+
+        header.addEventListener('click', function() {
+          header.classList.toggle('collapsed');
+          body.classList.toggle('hidden');
+        });
+
+        group.appendChild(header);
+        group.appendChild(body);
+        container.appendChild(group);
+      });
+    })
+    .catch(function(err) {
+      console.error('Cron load error:', err);
+      document.getElementById('error-msg').style.display = '';
+    });
+})();
+</script>
+<script src="auth-guard.js"></script>
+</body>
+</html>
