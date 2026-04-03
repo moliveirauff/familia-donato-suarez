@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "BUS SERVICOS*O NIBUS",
+    "data": "2026-03-07",
+    "categoria": "transporte",
+    "subcategoria": "Transporte Público",
+    "valor": -52.34,
+    "origem": "flash"
+  },
+  {
     "descricao": "POSTO BRISA DE TE",
     "data": "2026-03-11",
     "categoria": "transporte",
