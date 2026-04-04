@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Raia206",
+    "data": "2026-03-30",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -2513.72,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Connect Vending",
     "data": "2026-03-14",
     "categoria": "alimentacao",
