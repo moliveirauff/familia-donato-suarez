@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Mdpsthshrio",
+    "data": "2026-03-12",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -114.0,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Cortes",
     "data": "2026-03-30",
     "categoria": "alimentacao",
