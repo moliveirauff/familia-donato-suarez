@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Conta Vivo",
+    "data": "2026-03-26",
+    "categoria": "despesas_pessoais",
+    "subcategoria": "Celular",
+    "valor": -410.89,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Flora Granja Comary",
     "data": "2026-03-08",
     "categoria": "compras",
