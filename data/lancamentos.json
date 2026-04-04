@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Flora Granja Comary",
+    "data": "2026-03-08",
+    "categoria": "compras",
+    "subcategoria": "Presentes",
+    "valor": -68.0,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Daiso Brasil",
     "data": "2026-03-12",
     "categoria": "compras",
