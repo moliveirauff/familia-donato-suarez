@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "FGV MBA (metade)",
+    "data": "2026-03-10",
+    "categoria": "educacao",
+    "subcategoria": "Cursos",
+    "valor": -777.97,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Puravida",
     "data": "2026-03-10",
     "categoria": "saude",
