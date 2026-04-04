@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "MercadoLivre",
+    "data": "2026-03-11",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -581.99,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Amazon BR",
     "data": "2026-03-23",
     "categoria": "compras",
