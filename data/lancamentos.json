@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Google Claude Anthropic",
+    "data": "2026-03-26",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -687.5,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Hostinger",
     "data": "2026-03-29",
     "categoria": "educacao",
