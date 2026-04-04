@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Amazon Prime BR",
+    "data": "2026-03-26",
+    "categoria": "lazer",
+    "subcategoria": "Streaming",
+    "valor": -19.9,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Globoplay",
     "data": "2026-03-29",
     "categoria": "lazer",
