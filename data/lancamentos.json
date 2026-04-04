@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Daiso Brasil",
+    "data": "2026-03-12",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -26.98,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "MercadoLivre",
     "data": "2026-03-11",
     "categoria": "compras",
