@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "iFood CSB Drogarias",
+    "data": "2026-03-27",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -217.89,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Raia206",
     "data": "2026-03-30",
     "categoria": "saude",
