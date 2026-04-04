@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "iFood Oak Rio3",
+    "data": "2026-03-12",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -69.96,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "iFood Mad Sushi",
     "data": "2026-03-15",
     "categoria": "alimentacao",
