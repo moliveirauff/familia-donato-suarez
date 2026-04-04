@@ -4,6 +4,14 @@
     "data": "2026-03-07",
     "categoria": "alimentacao",
     "subcategoria": "Outros Alimentação",
+    "valor": -40.6,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Doce Infancia Gelato",
+    "data": "2026-03-07",
+    "categoria": "alimentacao",
+    "subcategoria": "Outros Alimentação",
     "valor": -32.8,
     "origem": "cartao_itau"
   },
