@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Raia1459",
+    "data": "2026-03-07",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -129.39,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Drogarias Cristal",
     "data": "2026-03-13",
     "categoria": "saude",
