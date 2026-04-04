@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Amazon BR",
+    "data": "2026-03-24",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -45.99,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Amazon Fyoracome",
     "data": "2026-03-24",
     "categoria": "compras",
