@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "iFood Churrascaria Fogo",
+    "data": "2026-03-14",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -434.28,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "iFood Outback Steakhouse",
     "data": "2026-03-27",
     "categoria": "alimentacao",
