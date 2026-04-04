@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "iFood Outback Steakhouse",
+    "data": "2026-03-27",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -152.09,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "iFood Club",
     "data": "2026-03-28",
     "categoria": "alimentacao",
