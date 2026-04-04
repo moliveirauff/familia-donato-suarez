@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Mundo Verde",
+    "data": "2026-03-12",
+    "categoria": "saude",
+    "subcategoria": "Suplementos",
+    "valor": -154.0,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Beep Saude",
     "data": "2026-03-28",
     "categoria": "saude",
