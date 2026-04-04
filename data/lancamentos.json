@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Meli+",
+    "data": "2026-03-06",
+    "categoria": "lazer",
+    "subcategoria": "Streaming",
+    "valor": -9.9,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Amazon Prime Canais",
     "data": "2026-03-06",
     "categoria": "lazer",
