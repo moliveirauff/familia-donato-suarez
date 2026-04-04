@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Lovable",
+    "data": "2026-03-21",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -147.94,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Google Claude Anthropic",
     "data": "2026-03-26",
     "categoria": "educacao",
