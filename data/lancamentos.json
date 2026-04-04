@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "iFood Drogarias Pacheco",
+    "data": "2026-03-20",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -55.97,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "iFood CSB Drogarias",
     "data": "2026-03-27",
     "categoria": "saude",
