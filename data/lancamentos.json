@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "iFood Raia Drogasil",
+    "data": "2026-03-13",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -102.21,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "iFood Drogaria Pegale",
     "data": "2026-03-14",
     "categoria": "saude",
