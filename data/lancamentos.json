@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Raia2674",
+    "data": "2026-03-16",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -309.9,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "iFood Drogarias Pacheco",
     "data": "2026-03-20",
     "categoria": "saude",
