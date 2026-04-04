@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Amazon Marketplace",
+    "data": "2026-03-23",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -19.89,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Amazon Inpersonl",
     "data": "2026-03-24",
     "categoria": "compras",
