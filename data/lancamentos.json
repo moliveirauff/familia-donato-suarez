@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "IOF compras internacionais pessoais (Amazon + Anthropic)",
+    "data": "2026-03-31",
+    "categoria": "outros",
+    "subcategoria": "Outros Outros",
+    "valor": -6.52,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Anthropic (internacional)",
     "data": "2026-03-06",
     "categoria": "educacao",
