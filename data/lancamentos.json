@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Suno Research 05/12",
+    "data": "2026-03-26",
+    "categoria": "educacao",
+    "subcategoria": "Cursos",
+    "valor": -107.84,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "FGV MBA (metade)",
     "data": "2026-03-10",
     "categoria": "educacao",
