@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "iFood Club",
+    "data": "2026-03-28",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -12.9,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Roda Conveniencia",
     "data": "2026-03-28",
     "categoria": "alimentacao",
