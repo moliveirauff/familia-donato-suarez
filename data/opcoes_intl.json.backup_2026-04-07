@@ -1,15 +1,15 @@
 {
   "versao": "2.3",
-  "data_atualizacao": "2026-04-07",
+  "data_atualizacao": "2026-04-02",
   "descricao": "Operações de opções US - taxa abertura (CSV) + $0,12 por 100 contratos fechamento",
   "estatisticas": {
-    "total_operacoes": 198,
-    "operacoes_fechadas": 188,
+    "total_operacoes": 197,
+    "operacoes_fechadas": 187,
     "operacoes_abertas": 10,
-    "resultado_total_realizado_usd": 9988.67,
-    "vitorias": 96,
-    "derrotas": 92,
-    "win_rate_percentual": 51.1
+    "resultado_total_realizado_usd": 8002.15,
+    "vitorias": 82,
+    "derrotas": 86,
+    "win_rate_percentual": 47.4
   },
   "operacoes": [
     {
@@ -3496,14 +3496,14 @@
       "strike": 693.0,
       "quantidade": 100,
       "preco_opcao_abertura": 4.66,
-      "data_fechamento": "2026-04-07",
-      "preco_acao_fechamento": 656.0,
-      "preco_opcao_fechamento": 0.18,
+      "data_fechamento": null,
+      "preco_acao_fechamento": null,
+      "preco_opcao_fechamento": null,
       "taxas_abertura": 1.12,
-      "taxas_fechamento": 0.12,
-      "taxas_total": 1.2400000000000002,
-      "resultado": 446.76,
-      "status": "fechada",
+      "taxas_fechamento": null,
+      "taxas_total": 1.12,
+      "resultado": null,
+      "status": "aberta",
       "spot_atual": 658.93,
       "bs_data_calculo": "2026-04-07",
       "preco_mercado": 0.11,
@@ -3895,26 +3895,6 @@
       "preco_mercado": 0.21,
       "iv_calculada": 0.4773,
       "preco_teorico": 0.21
-    },
-    {
-      "ticker": "SPY",
-      "data_operacao": "2026-04-07",
-      "preco_acao_na_operacao": 656.0,
-      "operacao": "Venda",
-      "tipo_contrato": "CALL",
-      "vencimento": "2026-05-15",
-      "strike": 688.0,
-      "quantidade": 100,
-      "preco_opcao_abertura": 4.41,
-      "data_fechamento": null,
-      "preco_acao_fechamento": null,
-      "preco_opcao_fechamento": null,
-      "taxas_abertura": 1.13,
-      "taxas_fechamento": null,
-      "taxas_total": 1.13,
-      "resultado": null,
-      "status": "aberta",
-      "ptax_abertura": 5.15
     }
   ]
 }
