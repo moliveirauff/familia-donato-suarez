@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Zettle / Lexington",
+    "data": "2026-03-23",
+    "categoria": "lazer",
+    "subcategoria": "Viagem",
+    "valor": -29.89,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Venchi",
     "data": "2026-03-19",
     "categoria": "lazer",
