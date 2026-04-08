@@ -536,14 +536,6 @@
     "origem": "flash"
   },
   {
-    "descricao": "UBER CASH",
-    "data": "2026-03-11",
-    "categoria": "transporte",
-    "subcategoria": "Táxi e Uber",
-    "valor": -200.0,
-    "origem": "flash"
-  },
-  {
     "descricao": "UBER* TRIP",
     "data": "2026-03-11",
     "categoria": "transporte",
