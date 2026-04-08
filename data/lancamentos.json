@@ -1,5 +1,13 @@
 [
   {
+    "descricao": "Venchi",
+    "data": "2026-03-19",
+    "categoria": "lazer",
+    "subcategoria": "Viagem",
+    "valor": -108.13,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "Ivy Brasserie Winches",
     "data": "2026-03-21",
     "categoria": "lazer",
