@@ -5811,11 +5811,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 85.59,
+      "spot_atual": 84.69,
       "mkt_atual": 29.18,
-      "iv_calculada": null,
-      "preco_teorico": 23.75,
-      "bs_data_calculo": "2026-04-09",
+      "iv_calculada": 1.246,
+      "preco_teorico": 25.04,
+      "bs_data_calculo": "2026-04-10",
       "preco_mercado": 25.14
     },
     {
@@ -5967,11 +5967,11 @@
       "taxas_total": 0.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 23.42,
+      "spot_atual": 23.47,
       "mkt_atual": 6.95,
       "iv_calculada": null,
       "preco_teorico": null,
-      "bs_data_calculo": "2026-04-09",
+      "bs_data_calculo": "2026-04-10",
       "preco_mercado": 5.33
     },
     {
@@ -6071,8 +6071,8 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 20.17,
-      "bs_data_calculo": "2026-04-09",
+      "spot_atual": 20.29,
+      "bs_data_calculo": "2026-04-10",
       "iv_calculada": null,
       "preco_teorico": null
     },
@@ -6095,8 +6095,8 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 20.17,
-      "bs_data_calculo": "2026-04-09",
+      "spot_atual": 20.29,
+      "bs_data_calculo": "2026-04-10",
       "iv_calculada": null,
       "preco_teorico": null
     },
@@ -6119,10 +6119,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 43.15,
-      "bs_data_calculo": "2026-04-09",
-      "iv_calculada": null,
-      "preco_teorico": 1.19
+      "spot_atual": 43.8,
+      "bs_data_calculo": "2026-04-10",
+      "iv_calculada": 0.5269,
+      "preco_teorico": 3.2
     },
     {
       "acao": "FLRY3",
@@ -6143,8 +6143,8 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 16.13,
-      "bs_data_calculo": "2026-04-09",
+      "spot_atual": 16.78,
+      "bs_data_calculo": "2026-04-10",
       "iv_calculada": null,
       "preco_teorico": 1.7
     },
@@ -6167,8 +6167,8 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 44.98,
-      "bs_data_calculo": "2026-04-09",
+      "spot_atual": 45.75,
+      "bs_data_calculo": "2026-04-10",
       "iv_calculada": null,
       "preco_teorico": null
     },
@@ -6191,8 +6191,8 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 44.98,
-      "bs_data_calculo": "2026-04-09",
+      "spot_atual": 45.75,
+      "bs_data_calculo": "2026-04-10",
       "iv_calculada": null,
       "preco_teorico": null
     },
@@ -6215,10 +6215,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 46.61,
-      "bs_data_calculo": "2026-04-09",
+      "spot_atual": 47.9,
+      "bs_data_calculo": "2026-04-10",
       "iv_calculada": null,
-      "preco_teorico": 13.45
+      "preco_teorico": 14.82
     },
     {
       "acao": "PSSA3",
@@ -6239,8 +6239,8 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 51.75,
-      "bs_data_calculo": "2026-04-09",
+      "spot_atual": 52.42,
+      "bs_data_calculo": "2026-04-10",
       "iv_calculada": null,
       "preco_teorico": null
     },
@@ -6283,10 +6283,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 15.86,
-      "bs_data_calculo": "2026-04-09",
-      "iv_calculada": 0.5937,
-      "preco_teorico": 1.57
+      "spot_atual": 16.06,
+      "bs_data_calculo": "2026-04-10",
+      "iv_calculada": 0.5672,
+      "preco_teorico": 1.72
     },
     {
       "acao": "ABEV3",
@@ -6307,10 +6307,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 15.86,
-      "bs_data_calculo": "2026-04-09",
-      "iv_calculada": 0.3061,
-      "preco_teorico": 0.28
+      "spot_atual": 16.06,
+      "bs_data_calculo": "2026-04-10",
+      "iv_calculada": 0.3764,
+      "preco_teorico": 0.43
     },
     {
       "acao": "BBSE3",
@@ -6331,10 +6331,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 35.85,
-      "bs_data_calculo": "2026-04-09",
-      "iv_calculada": 0.3063,
-      "preco_teorico": 1.1
+      "spot_atual": 35.9,
+      "bs_data_calculo": "2026-04-10",
+      "iv_calculada": 0.219,
+      "preco_teorico": 0.95
     },
     {
       "acao": "EGIE3",
@@ -6355,9 +6355,9 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 34.2,
-      "bs_data_calculo": "2026-04-09",
-      "iv_calculada": 0.2594,
+      "spot_atual": 34.46,
+      "bs_data_calculo": "2026-04-10",
+      "iv_calculada": null,
       "preco_teorico": 1.75
     },
     {
@@ -6379,8 +6379,8 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 40.61,
-      "bs_data_calculo": "2026-04-09",
+      "spot_atual": 40.99,
+      "bs_data_calculo": "2026-04-10",
       "iv_calculada": null,
       "preco_teorico": null
     },
@@ -6403,8 +6403,8 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 44.91,
-      "bs_data_calculo": "2026-04-09",
+      "spot_atual": 45.51,
+      "bs_data_calculo": "2026-04-10",
       "iv_calculada": null,
       "preco_teorico": 6.5
     },
@@ -6427,10 +6427,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 85.59,
-      "bs_data_calculo": "2026-04-09",
-      "iv_calculada": 0.3341,
-      "preco_teorico": 0.59
+      "spot_atual": 84.69,
+      "bs_data_calculo": "2026-04-10",
+      "iv_calculada": 0.3375,
+      "preco_teorico": 0.76
     },
     {
       "acao": "VIVT3",
@@ -6451,8 +6451,8 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 42.25,
-      "bs_data_calculo": "2026-04-09",
+      "spot_atual": 42.75,
+      "bs_data_calculo": "2026-04-10",
       "iv_calculada": null,
       "preco_teorico": null
     },
@@ -6475,8 +6475,8 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 52.77,
-      "bs_data_calculo": "2026-04-09",
+      "spot_atual": 52.5,
+      "bs_data_calculo": "2026-04-10",
       "iv_calculada": null,
       "preco_teorico": null
     },
@@ -6499,8 +6499,8 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 52.77,
-      "bs_data_calculo": "2026-04-09",
+      "spot_atual": 52.5,
+      "bs_data_calculo": "2026-04-10",
       "iv_calculada": null,
       "preco_teorico": null
     }
