@@ -1,5 +1,525 @@
 [
   {
+    "descricao": "Acqu. Distrib. Automati",
+    "data": "2026-03-19",
+    "categoria": "lazer",
+    "subcategoria": "Viagem",
+    "valor": -9.89,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Zettle / Lexington",
+    "data": "2026-03-20",
+    "categoria": "lazer",
+    "subcategoria": "Viagem",
+    "valor": -34.5,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Cell and Repair",
+    "data": "2026-03-21",
+    "categoria": "lazer",
+    "subcategoria": "Viagem",
+    "valor": -217.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Clapham West Cornwall",
+    "data": "2026-03-21",
+    "categoria": "lazer",
+    "subcategoria": "Viagem",
+    "valor": -97.5,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Zettle / Lexington",
+    "data": "2026-03-23",
+    "categoria": "lazer",
+    "subcategoria": "Viagem",
+    "valor": -29.89,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Venchi",
+    "data": "2026-03-19",
+    "categoria": "lazer",
+    "subcategoria": "Viagem",
+    "valor": -108.13,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Ivy Brasserie Winches",
+    "data": "2026-03-21",
+    "categoria": "lazer",
+    "subcategoria": "Viagem",
+    "valor": -176.6,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "IOF compras internacionais pessoais (Amazon + Anthropic)",
+    "data": "2026-03-31",
+    "categoria": "outros",
+    "subcategoria": "Outros Outros",
+    "valor": -6.52,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Anthropic (internacional)",
+    "data": "2026-03-06",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -5.34,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Anthropic (internacional)",
+    "data": "2026-03-07",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -5.34,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Amazon BR (internacional)",
+    "data": "2026-03-23",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -116.46,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Amazon Marketplace Fyoracome (internacional)",
+    "data": "2026-03-24",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -39.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Amazon BR (internacional)",
+    "data": "2026-03-24",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -23.47,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Meli+",
+    "data": "2026-03-06",
+    "categoria": "lazer",
+    "subcategoria": "Streaming",
+    "valor": -9.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Amazon Prime Canais",
+    "data": "2026-03-06",
+    "categoria": "lazer",
+    "subcategoria": "Streaming",
+    "valor": -27.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Amazon Prime BR",
+    "data": "2026-03-26",
+    "categoria": "lazer",
+    "subcategoria": "Streaming",
+    "valor": -19.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Globoplay",
+    "data": "2026-03-29",
+    "categoria": "lazer",
+    "subcategoria": "Streaming",
+    "valor": -39.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Conta Vivo",
+    "data": "2026-03-26",
+    "categoria": "despesas_pessoais",
+    "subcategoria": "Celular",
+    "valor": -410.89,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Flora Granja Comary",
+    "data": "2026-03-08",
+    "categoria": "compras",
+    "subcategoria": "Presentes",
+    "valor": -68.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Daiso Brasil",
+    "data": "2026-03-12",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -26.98,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "MercadoLivre",
+    "data": "2026-03-11",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -581.99,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Amazon BR",
+    "data": "2026-03-23",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -116.46,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Amazon Marketplace",
+    "data": "2026-03-23",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -19.89,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Amazon Inpersonl",
+    "data": "2026-03-24",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -25.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Amazon BR",
+    "data": "2026-03-24",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -45.99,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Amazon Fyoracome",
+    "data": "2026-03-24",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -39.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Amazon BR",
+    "data": "2026-03-24",
+    "categoria": "compras",
+    "subcategoria": "Outras Compras",
+    "valor": -23.47,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "AdaptaOrg 09/12",
+    "data": "2026-03-19",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -99.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Anthropic",
+    "data": "2026-03-06",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -5.34,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Anthropic",
+    "data": "2026-03-06",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -5.34,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Lovable",
+    "data": "2026-03-21",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -147.94,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Google Claude Anthropic",
+    "data": "2026-03-26",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -687.5,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Hostinger",
+    "data": "2026-03-29",
+    "categoria": "educacao",
+    "subcategoria": "Ferramentas AI",
+    "valor": -89.99,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Suno Research 05/12",
+    "data": "2026-03-26",
+    "categoria": "educacao",
+    "subcategoria": "Cursos",
+    "valor": -107.84,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "FGV MBA (metade)",
+    "data": "2026-03-10",
+    "categoria": "educacao",
+    "subcategoria": "Cursos",
+    "valor": -777.97,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Puravida",
+    "data": "2026-03-10",
+    "categoria": "saude",
+    "subcategoria": "Suplementos",
+    "valor": -366.26,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Mundo Verde",
+    "data": "2026-03-12",
+    "categoria": "saude",
+    "subcategoria": "Suplementos",
+    "valor": -154.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Beep Saude",
+    "data": "2026-03-28",
+    "categoria": "saude",
+    "subcategoria": "Médicos e Terapeutas",
+    "valor": -989.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Raia1459",
+    "data": "2026-03-07",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -129.39,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Drogarias Cristal",
+    "data": "2026-03-13",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -1935.43,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "iFood Raia Drogasil",
+    "data": "2026-03-13",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -102.21,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "iFood Drogaria Pegale",
+    "data": "2026-03-14",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -103.14,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "iFood Venancio Produtos",
+    "data": "2026-03-14",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -97.58,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "iFood CSB Drogarias",
+    "data": "2026-03-14",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -128.17,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Raia2674",
+    "data": "2026-03-16",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -309.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "iFood Drogarias Pacheco",
+    "data": "2026-03-20",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -55.97,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "iFood CSB Drogarias",
+    "data": "2026-03-27",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -217.89,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Raia206",
+    "data": "2026-03-30",
+    "categoria": "saude",
+    "subcategoria": "Farmácia",
+    "valor": -2513.72,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Connect Vending",
+    "data": "2026-03-14",
+    "categoria": "alimentacao",
+    "subcategoria": "Outros Alimentação",
+    "valor": -4.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Bomboniere Choco Galea",
+    "data": "2026-03-14",
+    "categoria": "alimentacao",
+    "subcategoria": "Outros Alimentação",
+    "valor": -120.5,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Kopenhagen",
+    "data": "2026-03-06",
+    "categoria": "alimentacao",
+    "subcategoria": "Outros Alimentação",
+    "valor": -182.4,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Doce Infancia Gelato",
+    "data": "2026-03-07",
+    "categoria": "alimentacao",
+    "subcategoria": "Outros Alimentação",
+    "valor": -40.6,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Doce Infancia Gelato",
+    "data": "2026-03-07",
+    "categoria": "alimentacao",
+    "subcategoria": "Outros Alimentação",
+    "valor": -32.8,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Coco Legal",
+    "data": "2026-03-27",
+    "categoria": "alimentacao",
+    "subcategoria": "Outros Alimentação",
+    "valor": -144.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Mdpsthshrio",
+    "data": "2026-03-12",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -114.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Cortes",
+    "data": "2026-03-30",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -435.84,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Viva Italia",
+    "data": "2026-03-07",
+    "categoria": "alimentacao",
+    "subcategoria": "Restaurante",
+    "valor": -500.0,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "iFood Oak Rio3",
+    "data": "2026-03-12",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -69.96,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "iFood Mad Sushi",
+    "data": "2026-03-15",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -262.93,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "iFood Churrascaria Fogo",
+    "data": "2026-03-14",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -434.28,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "iFood Outback Steakhouse",
+    "data": "2026-03-27",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -152.09,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "iFood Club",
+    "data": "2026-03-28",
+    "categoria": "alimentacao",
+    "subcategoria": "Delivery",
+    "valor": -12.9,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Roda Conveniencia",
+    "data": "2026-03-28",
+    "categoria": "alimentacao",
+    "subcategoria": "Mercado",
+    "valor": -16.49,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Roda Conveniencia",
+    "data": "2026-03-28",
+    "categoria": "alimentacao",
+    "subcategoria": "Mercado",
+    "valor": -17.67,
+    "origem": "cartao_itau"
+  },
+  {
+    "descricao": "Roda Conveniencia",
+    "data": "2026-03-29",
+    "categoria": "alimentacao",
+    "subcategoria": "Mercado",
+    "valor": -27.38,
+    "origem": "cartao_itau"
+  },
+  {
     "descricao": "BUS SERVICOS*O NIBUS",
     "data": "2026-03-07",
     "categoria": "transporte",
@@ -13,14 +533,6 @@
     "categoria": "transporte",
     "subcategoria": "Combustível",
     "valor": -275.67,
-    "origem": "flash"
-  },
-  {
-    "descricao": "UBER CASH",
-    "data": "2026-03-11",
-    "categoria": "transporte",
-    "subcategoria": "Táxi e Uber",
-    "valor": -200.0,
     "origem": "flash"
   },
   {
