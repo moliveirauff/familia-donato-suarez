@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Carteira de Investimentos - Hub Família</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="hub-design-system.css">
+
+  <style>
+    /* --- CORE VARIABLES --- */
+    /* ── DS compatibility bridge ── */
+    :root {
+      --bg:      #f0f4f8;
+      --surface: #ffffff;
+      --card-bg: #ffffff;
+      --text:    #0A1928;
+      --subtext: #718096;
+      --primary: #0088CC;
+      --accent:  #0088CC;
+      --success: #43A047;
+      --warning: #FF6D00;
+      --danger:  #E53935;
+      --shadow:  var(--shadow-md);
+    }
+    body.dark-mode {
+      --bg:      #171923;
+      --surface: #2d3748;
+      --card-bg: #2d3748;
+      --text:    #f7fafc;
+      --subtext: #a0aec0;
+      --border:  #4a5568;
+      --primary: #00B0FF;
+      --accent:  #00B0FF;
+      --shadow:  0 2px 8px rgba(0,0,0,.25), 0 1px 3px rgba(0,0,0,.15);
+    }
+    
+/* --- BASE RESET --- */
+body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s, color 0.3s;
+      padding: 10px 12px 60px 12px;
+      min-height: 100vh;
+    }
+
+h1 {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 10px 44px 20px 44px;
+      color: var(--text);
+    }
+
+    /* --- KPIS --- */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 8px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      display: flex; flex-direction: column; gap: 4px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .kpi-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .kpi-label { font-size: 0.6rem; font-weight: 800; color: var(--subtext); text-transform: uppercase; letter-spacing: 0.5px; }
+    .kpi-value { font-size: 1.05rem; font-weight: 800; color: var(--text); }
+    .kpi-sub { font-size: 0.65rem; color: var(--text-muted); }
+
+    /* --- CARDS --- */
+    .card {
+      background: var(--surface);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    .card-header {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-align: center;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    /* --- CHARTS --- */
+    .chart-container {
+      position: relative;
+      height: 320px;
+      width: 100%;
+    }
+
+    /* --- CONTROLS --- */
+    .controls {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 4px;
+      width: 100%;
+    }
+    select.filter-select {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      outline: none;
+      transition: all 0.2s;
+      max-width: 100%;
+    }
+    select.filter-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+    }
+    .filter-btn {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover:not(:disabled) { opacity: 0.75; }
+    .filter-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* --- TABLE --- */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    th {
+      background: rgba(0,0,0,0.02);
+      padding: 12px 10px;
+      text-align: left;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+    body.dark-mode th { background: rgba(255,255,255,0.05); }
+    td {
+      padding: 10px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    tr:last-child td { border-bottom: none; }
+    .text-right { text-align: right; }
+    .pos { color: var(--success); font-weight: 600; }
+    .neg { color: var(--danger); font-weight: 600; }
+    
+    /* --- UTILS --- */
+    hr {
+      margin: 30px 0;
+      border: 0;
+      border-top: 1px solid var(--border);
+      opacity: 0.6;
+    }
+    #loading {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    /* --- RESPONSIVE --- */
+    /* Last update */
+    .last-update { text-align: center; font-size: 0.72rem; color: var(--text-muted); margin: -12px 0 18px 0; font-weight: 500; }
+
+    @media (min-width: 768px) {
+      body { padding: 16px 24px 60px 24px; }
+      h1 { font-size: 1.75rem; }
+      .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .chart-container { height: 380px; }
+      .card-header { flex-direction: row; justify-content: space-between; }
+      .card-title { justify-content: flex-start; width: auto; }
+      .controls { justify-content: flex-end; width: auto; margin-bottom: 0; }
+    }
+
+    @media (max-width: 767px) {
+      table { font-size: 0.75rem; }
+      th, td { padding: 8px 6px; }
+      .kpi-value { font-size: 0.95rem; }
+    }
+
+  </style>
+</head>
+<body>
+<div id="loading">🔄 Carregando dados...</div>
+<button id="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">🌙</button>
+<a href="index.html" class="nav-link">← Voltar</a>
+<h1>Carteira de Investimentos</h1>
+<p class="last-update">Atualizado em: <span id="lastUpdateHeader">—</span></p>
+<main>
+  <!-- KPIs -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <span class="kpi-label">💰 Patrimônio Total</span>
+      <span class="kpi-value" id="kpiPatrimonio">—</span>
+      <span class="kpi-sub" id="lastUpdate">Sincronizando...</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">💰 Aporte Líquido Total</span>
+      <span class="kpi-value" id="kpiAportesLiquidos">—</span>
+      <span class="kpi-sub">Soma acumulada</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">📈 Rentabilidade Total</span>
+      <span class="kpi-value" id="kpiRent">—</span>
+      <span class="kpi-sub">Nominal acumulada</span>
+    </div>
+    <div class="kpi-card">
+      <span class="kpi-label">🚀 CAGR (5 anos)</span>
+      <span class="kpi-value" id="kpiCAGR">—</span>
+      <span class="kpi-sub">Crescimento anual</span>
+    </div>
+  </div>
+
+  <!-- SEÇÃO ANUAL -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">🗓️ Evolução Histórica (Anual)</div>
+      <div class="controls">
+        <select id="filterEvolAno" class="filter-select" aria-label="Filtrar Categoria">
+          <option value="todas">Todas as Classes</option>
+        </select>
+      </div>
+    </div>
+    <div class="chart-container"><canvas id="chartEvolAno"></canvas></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">💸 Aporte Líquido Anual</div>
+        <div class="controls">
+          <select id="filterAportesAno" class="filter-select" aria-label="Filtrar Categoria">
+            <option value="todas">Todas as Classes</option>
+          </select>
+        </div>
+      </div>
+      <div class="chart-container"><canvas id="chartAportesAno"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🎯 Lucro Nominal Anual (R$)</div>
+      </div>
+      <div class="chart-container"><canvas id="chartLucroAno"></canvas></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">📊 Performance Anual vs Benchmarks</div>
+      <div class="controls">
+        <select id="filterPerfAno" class="filter-select" aria-label="Filtrar Categoria">
+          <option value="todas">Todas as Classes</option>
+        </select>
+      </div>
+    </div>
+    <div class="chart-container"><canvas id="chartPerformanceAno"></canvas></div>
+  </div>
+
+  <hr>
+
+  <!-- SEÇÃO MENSAL -->
+  <!-- Controle de link entre filtros mensais -->
+  <div style="display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-bottom:10px;">
+    <span style="font-size:0.75rem;color:var(--text-muted);font-weight:600;">Filtros de classe:</span>
+    <button class="filter-btn active" id="btnLinkFiltros" onclick="toggleLinkFiltros()" title="Vincular filtros de classe entre os 3 cards">🔗 Vinculado</button>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">📊 Evolução Mensal — Últimos 12 Meses</div>
+      <div class="controls">
+        <button class="filter-btn" id="btnMesPrevEvol" onclick="navMes(-1)">←</button>
+        <span id="labelMesEvol" style="font-size:0.9rem;font-weight:700;padding:0 8px;min-width:72px;text-align:center;display:inline-block;">—</span>
+        <button class="filter-btn" id="btnMesNextEvol" onclick="navMes(1)">→</button>
+        <select id="filterEvolMes" class="filter-select" aria-label="Filtrar Classe" onchange="onCatChange('evol')">
+          <option value="todas">Todas as Classes</option>
+        </select>
+      </div>
+    </div>
+    <div class="chart-container"><canvas id="chartEvolMes"></canvas></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">💸 Aporte Líquido — Últimos 12 Meses</div>
+        <div class="controls">
+          <button class="filter-btn" id="btnMesPrevAportes" onclick="navMes(-1)">←</button>
+          <span id="labelMesAportes" style="font-size:0.9rem;font-weight:700;padding:0 8px;min-width:72px;text-align:center;display:inline-block;">—</span>
+          <button class="filter-btn" id="btnMesNextAportes" onclick="navMes(1)">→</button>
+          <select id="filterAportesMes" class="filter-select" aria-label="Filtrar Classe" onchange="onCatChange('aportes')">
+            <option value="todas">Todas as Classes</option>
+          </select>
+        </div>
+      </div>
+      <div class="chart-container"><canvas id="chartAportesMes"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🎯 Lucro Nominal — Últimos 12 Meses (R$)</div>
+        <div class="controls">
+          <button class="filter-btn" id="btnMesPrevLucro" onclick="navMes(-1)">←</button>
+          <span id="labelMesLucro" style="font-size:0.9rem;font-weight:700;padding:0 8px;min-width:72px;text-align:center;display:inline-block;">—</span>
+          <button class="filter-btn" id="btnMesNextLucro" onclick="navMes(1)">→</button>
+          <select id="filterLucroMes" class="filter-select" aria-label="Filtrar Classe" onchange="onCatChange('lucro')">
+            <option value="todas">Todas as Classes</option>
+          </select>
+        </div>
+      </div>
+      <div class="chart-container"><canvas id="chartLucroMes"></canvas></div>
+    </div>
+  </div>
+
+  <!-- TOP 10 VARIAÇÕES MENSAIS -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">📊 Maiores Variações (%)</div>
+      <div class="controls">
+        <button class="filter-btn active" id="btnVar1m" onclick="setVarMode('1m')">1M</button>
+        <button class="filter-btn" id="btnVar12m" onclick="setVarMode('12m')">12M</button>
+        <button class="filter-btn" id="btnVarPrev" onclick="navMes(-1)">←</button>
+        <span id="labelVarMes" style="font-size:0.9rem; font-weight:700; padding: 0 8px; min-width:72px; text-align:center; display:inline-block;">—</span>
+        <button class="filter-btn" id="btnVarNext" onclick="navMes(1)">→</button>
+      </div>
+    </div>
+    <div class="chart-container" id="containerVariacoes">
+      <canvas id="chartVariacoes"></canvas>
+    </div>
+  </div>
+
+  <!-- SEÇÃO ALOCAÇÃO E TABELA -->
+  <div class="card">
+    <div class="card-header"><div class="card-title">⚖️ Alocação Tática (Meta vs Real)</div></div>
+    <div class="chart-container" style="height: 450px;"><canvas id="chartAlocacao"></canvas></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">🥇 Posição por Ativo</div>
+      <div class="controls">
+        <select id="filterRanking" class="filter-select" aria-label="Filtrar Categoria">
+          <option value="todas">Todas as Classes</option>
+        </select>
+      </div>
+    </div>
+    <div class="table-container">
+      <table>
+        <thead><tr><th>Ativo</th><th class="text-right">Aporte Líq.</th><th class="text-right">Saldo Atual</th><th class="text-right">Resultado</th></tr></thead>
+        <tbody id="tbodyAtivos"></tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  let rawData = null;
+  let cotacoesData = null;
+  let mesesDisp = [];
+  let currentMesIdx = 0;      // compartilhado: 3 cards mensais + variações
+  let varMode = '1m';          // '1m' | '12m'
+  let filtersLinked = true;    // 🔗 filtros de classe vinculados entre os 3 cards mensais
+  let charts = {};
+
+  const COLORS = {
+    carteira: '#667eea', cdi: '#4299e1', ifix: '#ed8936', dolar: '#48bb78', imovel: '#f56565',
+    success: '#48bb78', danger: '#f56565', dividend: '#f6e05e', meta_bg: 'rgba(160, 174, 192, 0.4)'
+  };
+  const NOMES_CAT = {
+    '1_renda_fixa_soberana': 'Renda Fixa Soberana', '2_credito_privado': 'Crédito Privado',
+    '3_acoes_brasil': 'Ações Brasil', '4_ativos_reais': 'Ativos Reais (FIIs)',
+    '5_internacional': 'Internacional', '6_criptoativos': 'Criptoativos',
+    '7_alternativos_estratega': 'Alternativos', '9_uncategorized': 'Não Categorizado'
+  };
+  const MESES_NOMES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+  const MESES_MAP   = { jan:0,fev:1,mar:2,abr:3,mai:4,jun:5,jul:6,ago:7,set:8,out:9,nov:10,dez:11 };
+
+  Chart.defaults.plugins.legend.position = 'bottom';
+  Chart.defaults.font.family = "'Inter', 'Segoe UI', system-ui, sans-serif";
+  // ── Adaptive color defaults ──
+  function updateChartColors() {
+    const dark = document.body.classList.contains('dark-mode');
+    Chart.defaults.color       = dark ? '#e2e8f0' : '#4a5568';
+    Chart.defaults.borderColor = dark ? '#4a5568' : '#dde3ea';
+  }
+  updateChartColors();
+
+  // === INIT ===
+  async function init() {
+    try {
+      const v = Date.now();
+      const [resp, respCot] = await Promise.all([
+        fetch('data/dashboard_investimentos.json?v=' + v),
+        fetch('data/invest_cotacoes_mensais.json?v=' + v)
+      ]);
+      rawData = await resp.json();
+      cotacoesData = await respCot.json();
+      updateKPIs();
+      populateFilters();
+      renderAnnual();
+      initMeses();
+      document.getElementById('loading').style.display = 'none';
+    } catch (e) {
+      console.error(e);
+      document.getElementById('loading').innerHTML = "❌ Erro ao carregar dados.";
+    }
+  }
+
+  function fmt(v) { return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+  function getTextColor()   { return getComputedStyle(document.body).getPropertyValue('--text').trim()   || '#2d3748'; }
+  function getBorderColor() { return getComputedStyle(document.body).getPropertyValue('--border').trim() || '#e2e8f0'; }
+
+  function updateKPIs() {
+    const k = rawData.kpis;
+    document.getElementById('kpiPatrimonio').textContent = fmt(k.patrimonio_total);
+    document.getElementById('kpiAportesLiquidos').textContent = fmt(k.aportes_liquido_total);
+    document.getElementById('kpiRent').textContent = k.rentabilidade_nominal.toFixed(2) + '%';
+    document.getElementById('kpiCAGR').textContent = k.cagr_5anos.toFixed(2) + '%';
+    try {
+      const lu = rawData.last_update;
+      if (lu) {
+        const d = new Date(lu);
+        const fmtd = d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+        document.getElementById('lastUpdate').textContent = fmtd;
+        const hdr = document.getElementById('lastUpdateHeader');
+        if (hdr) hdr.textContent = fmtd;
+      }
+    } catch(e) { document.getElementById('lastUpdate').textContent = rawData.last_update || '—'; }
+  }
+
+  // === FILTERS ===
+  function populateFilters() {
+    const categorias = Object.keys(rawData.anual.evolucao_por_cat || {}).sort();
+    const catDropdowns = ['filterEvolAno', 'filterAportesAno', 'filterPerfAno',
+                          'filterEvolMes', 'filterAportesMes', 'filterLucroMes', 'filterRanking'];
+    categorias.forEach(cat => {
+      const hasValue = rawData.anual.evolucao_por_cat[cat].some(d => d.patrimonio > 0);
+      if (!hasValue) return;
+      catDropdowns.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const opt = document.createElement('option');
+          opt.value = cat; opt.textContent = NOMES_CAT[cat] || cat;
+          el.appendChild(opt);
+        }
+      });
+    });
+    document.getElementById('filterEvolAno').addEventListener('change', renderEvolucaoAnual);
+    document.getElementById('filterAportesAno').addEventListener('change', renderAportesAnual);
+    document.getElementById('filterPerfAno').addEventListener('change', renderPerformanceAnual);
+    document.getElementById('filterRanking').addEventListener('change', renderRanking);
+    // Mensais: onCatChange trata via onchange inline (com lógica de link)
+  }
+
+  // Gerencia mudança de filtro de classe num dos 3 cards mensais
+  function onCatChange(origem) {
+    if (!filtersLinked) {
+      // Renderiza só o card que mudou
+      if (origem === 'evol')    renderEvolucaoMensal();
+      if (origem === 'aportes') renderAportesMensal();
+      if (origem === 'lucro')   renderLucroMensal();
+      return;
+    }
+    // Propaga o valor para os outros dois selects
+    const val = document.getElementById(
+      origem === 'evol' ? 'filterEvolMes' : origem === 'aportes' ? 'filterAportesMes' : 'filterLucroMes'
+    ).value;
+    ['filterEvolMes','filterAportesMes','filterLucroMes'].forEach(id => {
+      document.getElementById(id).value = val;
+    });
+    renderEvolucaoMensal();
+    renderAportesMensal();
+    renderLucroMensal();
+  }
+
+  function toggleLinkFiltros() {
+    filtersLinked = !filtersLinked;
+    const btn = document.getElementById('btnLinkFiltros');
+    btn.classList.toggle('active', filtersLinked);
+    btn.textContent = filtersLinked ? '🔗 Vinculado' : '🔓 Independente';
+    if (filtersLinked) {
+      // Sincroniza tudo com o valor atual do primeiro select
+      const val = document.getElementById('filterEvolMes').value;
+      ['filterAportesMes','filterLucroMes'].forEach(id => {
+        document.getElementById(id).value = val;
+      });
+      renderAportesMensal();
+      renderLucroMensal();
+    }
+  }
+
+  // === ANNUAL CHARTS ===
+  function renderAnnual() {
+    renderEvolucaoAnual();
+    renderAportesAnual();
+    renderLucroAnual();
+    renderPerformanceAnual();
+    renderAlocacao();
+    renderRanking();
+  }
+
+  function renderEvolucaoAnual() {
+    const cat = document.getElementById('filterEvolAno').value;
+    const data = cat === 'todas' ? rawData.anual.evolucao : rawData.anual.evolucao_por_cat[cat];
+    if (charts.evolAno) charts.evolAno.destroy();
+    charts.evolAno = new Chart(document.getElementById('chartEvolAno'), {
+      type: 'bar',
+      data: { labels: data.map(d => d.ano), datasets: [{ label: 'Patrimônio 31/Dez', data: data.map(d => d.patrimonio), backgroundColor: COLORS.success, borderRadius: 4 }] },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+  }
+
+  function renderAportesAnual() {
+    const cat = document.getElementById('filterAportesAno').value;
+    const data = cat === 'todas' ? rawData.anual.aportes : rawData.anual.aportes_por_cat[cat];
+    if (charts.aportesAno) charts.aportesAno.destroy();
+    charts.aportesAno = new Chart(document.getElementById('chartAportesAno'), {
+      type: 'bar',
+      data: {
+        labels: data.map(d => d.ano),
+        datasets: [
+          { label: 'Dinheiro Novo', data: data.map(d => d.aporte_real), backgroundColor: COLORS.success, borderRadius: 4 },
+          { label: 'Dividendos Reinv.', data: data.map(d => d.dividendos), backgroundColor: COLORS.dividend, borderRadius: 4 }
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } }
+    });
+  }
+
+  function renderLucroAnual() {
+    // Sem filtro de categoria — dado não disponível por categoria no JSON
+    const data = rawData.anual.lucro_reais;
+    if (charts.lucroAno) charts.lucroAno.destroy();
+    charts.lucroAno = new Chart(document.getElementById('chartLucroAno'), {
+      type: 'bar',
+      data: {
+        labels: data.map(d => d.ano),
+        datasets: [
+          { label: 'Valorização (R$)', data: data.map(d => d.valorizacao), backgroundColor: COLORS.carteira, borderRadius: 4 },
+          { label: 'Dividendos (R$)', data: data.map(d => d.dividendos), backgroundColor: COLORS.dividend, borderRadius: 4 }
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } }
+    });
+  }
+
+  function renderPerformanceAnual() {
+    const cat = document.getElementById('filterPerfAno').value;
+    const data = cat === 'todas' ? rawData.anual.rentabilidade_pct : rawData.anual.rentabilidade_por_cat[cat];
+    const globalData = rawData.anual.rentabilidade_pct;
+    if (charts.perfAno) charts.perfAno.destroy();
+    charts.perfAno = new Chart(document.getElementById('chartPerformanceAno'), {
+      type: 'bar',
+      data: {
+        labels: data.map(d => d.ano),
+        datasets: [
+          { label: 'Carteira (%)', data: data.map(d => d.sem_dividendos), backgroundColor: COLORS.carteira, borderRadius: 4 },
+          { label: 'Com Dividendos (%)', data: data.map(d => d.com_dividendos), backgroundColor: COLORS.success, borderRadius: 4 },
+          { label: 'CDI', data: data.map(d => { const g = globalData.find(x => x.ano === d.ano); return g ? g.cdi : 0; }),
+            borderColor: COLORS.cdi, type: 'line', tension: 0.3, pointRadius: 4, borderDash: [5,5] }
+        ]
+      },
+      options: { responsive: true, maintainAspectRatio: false, scales: { y: { ticks: { callback: v => v + '%' } } } }
+    });
+  }
+
+  function renderAlocacao() {
+    if (charts.aloc) charts.aloc.destroy();
+    charts.aloc = new Chart(document.getElementById('chartAlocacao'), {
+      type: 'bar',
+      data: {
+        labels: rawData.alocacao.map(d => NOMES_CAT[d.categoria] || d.categoria),
+        datasets: [
+          { label: 'Real', data: rawData.alocacao.map(d => d.real_rs),
+            backgroundColor: d => rawData.alocacao[d.dataIndex].real_rs >= rawData.alocacao[d.dataIndex].meta_rs ? COLORS.success : COLORS.danger,
+            borderRadius: 6, barPercentage: 0.6, order: 1 },
+          { label: 'Meta', data: rawData.alocacao.map(d => d.meta_rs),
+            backgroundColor: COLORS.meta_bg, borderRadius: 6, barPercentage: 0.8, order: 2 }
+        ]
+      },
+      options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, scales: { x: { stacked: false }, y: { stacked: true } } }
+    });
+  }
+
+  function renderRanking() {
+    const cat = document.getElementById('filterRanking').value;
+    const tbody = document.getElementById('tbodyAtivos');
+    tbody.innerHTML = '';
+    let filtered = rawData.ranking_ativos.filter(a => a.quantidade > 0);
+    if (cat !== 'todas') filtered = filtered.filter(a => a.categoria === cat);
+    filtered.forEach(a => {
+      const tr = document.createElement('tr');
+      const diff = a.atual - a.investido;
+      tr.innerHTML = `
+        <td><div style="font-weight:700;font-size:0.85rem">${a.ticker}</div><div style="font-size:0.7rem;color:var(--text-muted)">${a.quantidade} cotas</div></td>
+        <td class="text-right">${fmt(a.investido)}</td>
+        <td class="text-right">${fmt(a.atual)}</td>
+        <td class="text-right ${diff >= 0 ? 'pos' : 'neg'}">${fmt(diff)}<br><small>${a.rent_pct}%</small></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // === SHARED MONTH NAVIGATION ===
+  function initMeses() {
+    const mesesSet = new Set();
+    Object.values(cotacoesData).forEach(vals => {
+      if (!vals || typeof vals !== 'object' || Array.isArray(vals)) return;
+      Object.entries(vals).forEach(([m, v]) => { if (v !== null && m.includes('/')) mesesSet.add(m); });
+    });
+    mesesDisp = [...mesesSet].sort((a, b) => {
+      const [ma, ya] = a.split('/');
+      const [mb, yb] = b.split('/');
+      return new Date(parseInt(ya), MESES_MAP[ma]) - new Date(parseInt(yb), MESES_MAP[mb]);
+    });
+    currentMesIdx = mesesDisp.length - 1;
+    renderAllMonthly();
+  }
+
+  function navMes(dir) {
+    const novo = currentMesIdx + dir;
+    if (novo < 0 || novo >= mesesDisp.length) return;
+    currentMesIdx = novo;
+    renderAllMonthly();
+  }
+
+  function renderAllMonthly() {
+    updateNavButtons();
+    renderEvolucaoMensal();
+    renderAportesMensal();
+    renderLucroMensal();
+    renderVariacoes();
+  }
+
+  function updateNavButtons() {
+    const mes = mesesDisp[currentMesIdx] || '—';
+    ['labelMesEvol','labelMesAportes','labelMesLucro','labelVarMes'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.textContent = mes;
+    });
+    const isFirst = currentMesIdx === 0;
+    const isLast  = currentMesIdx === mesesDisp.length - 1;
+    ['btnMesPrevEvol','btnMesPrevAportes','btnMesPrevLucro','btnVarPrev'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.disabled = isFirst;
+    });
+    ['btnMesNextEvol','btnMesNextAportes','btnMesNextLucro','btnVarNext'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.disabled = isLast;
+    });
+  }
+
+  // Converter mmm/YYYY → YYYY-MM
+  function mmmYYYYtoISO(s) {
+    const [mn, ya] = s.split('/');
+    return ya + '-' + String(MESES_MAP[mn] + 1).padStart(2, '0');
+  }
+
+  // Label legível: YYYY-MM → mmm/YY
+  function isoToLabel(iso) {
+    const [y, m] = iso.split('-');
+    return MESES_NOMES[parseInt(m) - 1] + '/' + y.slice(2);
+  }
+
+  // Retorna os últimos N meses de dataArray até mesAlvo (mmm/YYYY), inclusive
+  function getMensal12(dataArray, mesAlvo, n) {
+    n = n || 12;
+    const alvo = mmmYYYYtoISO(mesAlvo);
+    let idx = dataArray.findIndex(d => d.mes === alvo);
+    if (idx === -1) {
+      // Encontrar o mais próximo anterior
+      const prev = dataArray.filter(d => d.mes <= alvo);
+      if (!prev.length) return dataArray.slice(-n);
+      idx = dataArray.findIndex(d => d.mes === prev[prev.length - 1].mes);
+    }
+    return dataArray.slice(Math.max(0, idx - n + 1), idx + 1);
+  }
+
+  // === MONTHLY CHARTS ===
+  function renderEvolucaoMensal() {
+    const mesAlvo = mesesDisp[currentMesIdx];
+    if (!mesAlvo) return;
+    const cat = document.getElementById('filterEvolMes').value;
+    const source = cat === 'todas' ? rawData.mensal.evolucao : (rawData.mensal.evolucao_por_cat[cat] || rawData.mensal.evolucao);
+    const data = getMensal12(source, mesAlvo);
+    if (charts.evolMes) charts.evolMes.destroy();
+    charts.evolMes = new Chart(document.getElementById('chartEvolMes'), {
+      type: 'bar',
+      data: {
+        labels: data.map(d => isoToLabel(d.mes)),
+        datasets: [{ label: 'Patrimônio', data: data.map(d => d.patrimonio), backgroundColor: COLORS.carteira, borderRadius: 4 }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: getTextColor() }, grid: { color: getBorderColor() } },
+          y: { ticks: { color: getTextColor(), callback: v => 'R$' + (v/1000).toFixed(0) + 'k' }, grid: { color: getBorderColor() } }
+        }
+      }
+    });
+  }
+
+  function renderAportesMensal() {
+    const mesAlvo = mesesDisp[currentMesIdx];
+    if (!mesAlvo) return;
+    const cat = document.getElementById('filterAportesMes').value;
+    const source = cat === 'todas'
+      ? rawData.mensal.aportes
+      : (rawData.mensal.aportes_por_cat && rawData.mensal.aportes_por_cat[cat]) || rawData.mensal.aportes;
+    const data = getMensal12(source, mesAlvo);
+    if (charts.aportesMes) charts.aportesMes.destroy();
+    charts.aportesMes = new Chart(document.getElementById('chartAportesMes'), {
+      type: 'bar',
+      data: {
+        labels: data.map(d => isoToLabel(d.mes)),
+        datasets: [
+          { label: 'Dinheiro Novo', data: data.map(d => d.aporte_real), backgroundColor: COLORS.success, borderRadius: 4 },
+          { label: 'Dividendos', data: data.map(d => d.dividendos), backgroundColor: COLORS.dividend, borderRadius: 4 }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        scales: {
+          x: { stacked: true, ticks: { color: getTextColor() }, grid: { color: getBorderColor() } },
+          y: { stacked: true, ticks: { color: getTextColor(), callback: v => 'R$' + (v/1000).toFixed(0) + 'k' }, grid: { color: getBorderColor() } }
+        }
+      }
+    });
+  }
+
+  function renderLucroMensal() {
+    const mesAlvo = mesesDisp[currentMesIdx];
+    if (!mesAlvo) return;
+    const cat = document.getElementById('filterLucroMes').value;
+    const source = cat === 'todas'
+      ? rawData.mensal.lucro_reais
+      : (rawData.mensal.lucro_reais_por_cat && rawData.mensal.lucro_reais_por_cat[cat]) || rawData.mensal.lucro_reais;
+    const data = getMensal12(source, mesAlvo);
+    if (charts.lucroMes) charts.lucroMes.destroy();
+    charts.lucroMes = new Chart(document.getElementById('chartLucroMes'), {
+      type: 'bar',
+      data: {
+        labels: data.map(d => isoToLabel(d.mes)),
+        datasets: [
+          { label: 'Valorização', data: data.map(d => d.valorizacao), backgroundColor: COLORS.carteira, borderRadius: 4 },
+          { label: 'Dividendos', data: data.map(d => d.dividendos), backgroundColor: COLORS.dividend, borderRadius: 4 }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        scales: {
+          x: { stacked: true, ticks: { color: getTextColor() }, grid: { color: getBorderColor() } },
+          y: { stacked: true, ticks: { color: getTextColor(), callback: v => 'R$' + (v/1000).toFixed(0) + 'k' }, grid: { color: getBorderColor() } }
+        }
+      }
+    });
+  }
+
+  // === VARIAÇÕES ===
+  function setVarMode(mode) {
+    varMode = mode;
+    document.getElementById('btnVar1m').classList.toggle('active', mode === '1m');
+    document.getElementById('btnVar12m').classList.toggle('active', mode === '12m');
+    renderVariacoes();
+  }
+
+  function renderVariacoes() {
+    const mesAlvo = mesesDisp[currentMesIdx];
+    if (!mesAlvo) return;
+    const [mesNome, ano] = mesAlvo.split('/');
+    const mesIdx = MESES_MAP[mesNome];
+
+    let mesRef;
+    if (varMode === '1m') {
+      const prevIdx = mesIdx === 0 ? 11 : mesIdx - 1;
+      const prevAno = mesIdx === 0 ? parseInt(ano) - 1 : parseInt(ano);
+      mesRef = MESES_NOMES[prevIdx] + '/' + prevAno;
+    } else {
+      // 12M atrás
+      const d12 = new Date(parseInt(ano), mesIdx);
+      d12.setMonth(d12.getMonth() - 12);
+      mesRef = MESES_NOMES[d12.getMonth()] + '/' + d12.getFullYear();
+    }
+
+    const seen = {};
+    Object.entries(cotacoesData).forEach(([ativo, vals]) => {
+      if (!vals || typeof vals !== 'object' || Array.isArray(vals)) return;
+      const va = vals[mesAlvo];
+      const vp = vals[mesRef];
+      if (va == null || vp == null || vp === 0) return;
+      const varPct = ((va - vp) / Math.abs(vp)) * 100;
+      const nome = ativo.replace(/_\d{4}\.\d{2}\.\d{2}$/, '');
+      if (seen[nome] == null || Math.abs(varPct) > Math.abs(seen[nome])) seen[nome] = varPct;
+    });
+
+    const sorted = Object.entries(seen)
+      .map(([ativo, v]) => ({ ativo, v: parseFloat(v.toFixed(2)) }))
+      .sort((a, b) => Math.abs(b.v) - Math.abs(a.v))
+      .slice(0, 10)
+      .sort((a, b) => b.v - a.v);
+
+    const labels = sorted.map(s => s.ativo);
+    const data   = sorted.map(s => s.v);
+    const colors = data.map(v => v >= 0 ? '#48bb78' : '#f56565');
+
+    const container = document.getElementById('containerVariacoes');
+    container.style.height = Math.max(300, sorted.length * 42 + 40) + 'px';
+
+    if (charts.variacoes) charts.variacoes.destroy();
+    charts.variacoes = new Chart(document.getElementById('chartVariacoes'), {
+      type: 'bar',
+      data: { labels, datasets: [{ data, backgroundColor: colors, borderRadius: 4, barPercentage: 0.65 }] },
+      options: {
+        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: ctx => (ctx.raw >= 0 ? '+' : '') + ctx.raw.toFixed(2) + '%' } }
+        },
+        scales: {
+          x: { ticks: { callback: v => v.toFixed(1) + '%', color: getTextColor() }, grid: { color: getBorderColor() } },
+          y: { ticks: { font: { weight: '600', size: 11 }, color: getTextColor() }, grid: { display: false } }
+        },
+        animation: { duration: 400, easing: 'easeInOutQuart' }
+      }
+    });
+  }
+
+  // === THEME ===
+  function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    document.getElementById('theme-toggle').textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    setTimeout(() => { updateChartColors(); renderAnnual(); if (cotacoesData) renderAllMonthly(); }, 100);
+  }
+  if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); document.getElementById('theme-toggle').textContent = '☀️'; }
+  init();
+</script>
+<script src="auth-guard.js"></script>
+</body>
+</html>

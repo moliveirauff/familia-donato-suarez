@@ -1,0 +1,1449 @@
+{
+  "versao": "2026.2.5",
+  "data_atualizacao": "2026-02-27",
+  "ativos": [
+    {
+      "nome": "SGOV",
+      "macro_classe": "5_internacional",
+      "subclasse": "1.1_liquidez",
+      "status": "aberto"
+    },
+    {
+      "nome": "TETHER (USDT)_2024.03.30",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "1.1_liquidez",
+      "status": "fechado"
+    },
+    {
+      "nome": "Tesouro Selic 2029_2025.08.30",
+      "macro_classe": "1_renda_fixa_soberana",
+      "subclasse": "1.1_liquidez",
+      "status": "fechado"
+    },
+    {
+      "nome": "Tesouro Selic 2031_2025.09.01",
+      "macro_classe": "1_renda_fixa_soberana",
+      "subclasse": "1.1_liquidez",
+      "status": "fechado"
+    },
+    {
+      "nome": "LFT 2021_2017.04.20",
+      "macro_classe": "1_renda_fixa_soberana",
+      "subclasse": "1.1_liquidez",
+      "status": "fechado"
+    },
+    {
+      "nome": "CBD Agibank (CDI)_2020.01.07",
+      "macro_classe": "1_renda_fixa_soberana",
+      "subclasse": "1.1_liquidez",
+      "status": "fechado"
+    },
+    {
+      "nome": "Tesouro IPCA 2029_2025.10.24",
+      "macro_classe": "1_renda_fixa_soberana",
+      "subclasse": "1.2_ipca_curto",
+      "status": "fechado"
+    },
+    {
+      "nome": "Tesouro IPCA 2035_2025.10.24",
+      "macro_classe": "1_renda_fixa_soberana",
+      "subclasse": "1.2_ipca_curto",
+      "status": "fechado"
+    },
+    {
+      "nome": "NTN-B 2019_2017.09.12",
+      "macro_classe": "1_renda_fixa_soberana",
+      "subclasse": "1.2_ipca_curto",
+      "status": "fechado"
+    },
+    {
+      "nome": "NTN-B 2035_2018.12.17",
+      "macro_classe": "1_renda_fixa_soberana",
+      "subclasse": "1.2_ipca_curto",
+      "status": "fechado"
+    },
+    {
+      "nome": "LTN 2018_2017.04.27",
+      "macro_classe": "1_renda_fixa_soberana",
+      "subclasse": "1.4_prefixado",
+      "status": "fechado"
+    },
+    {
+      "nome": "LTN 2023_2017.08.18",
+      "macro_classe": "1_renda_fixa_soberana",
+      "subclasse": "1.4_prefixado",
+      "status": "fechado"
+    },
+    {
+      "nome": "LTN 2025_2020.09.29",
+      "macro_classe": "1_renda_fixa_soberana",
+      "subclasse": "1.4_prefixado",
+      "status": "fechado"
+    },
+    {
+      "nome": "DEB ALGA26_2020.02.17",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "DEB CMDT23_2020.02.27",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "DEB PETR26_2020.05.26",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "DEB RUMOA2_2020.02.17",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "DEB TAEE17_2020.02.27",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "RECR11",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.2_high_yield",
+      "status": "aberto",
+      "analise": {
+        "vies": "neutro",
+        "recomendacao": "MANTER",
+        "notas": "Papel Mid-High Yield. DY ~13,7%, P/VP 0,90. Sofre com inadimplência (Projeto Olimpo) e exposição a loteamento/incorporação. Dividendo recente caiu p/ R$ 0,72. Não vender no fundo (P/VP 0,90), mas não alocar capital novo.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "VGIP11",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.2_high_yield",
+      "status": "aberto"
+    },
+    {
+      "nome": "MCCI11",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.2_high_yield",
+      "status": "aberto",
+      "analise": {
+        "vies": "neutro",
+        "recomendacao": "MANTER",
+        "notas": "FII de papel high grade, inadimplência 0%, 98% IPCA+8,3%. Reservas críticas (R$0,09/cota). Risco de corte de div se IPCA fraco. Melhor risco-ajustado entre pares. Ponto de compra: P/VP <0,85.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "VRTA11",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.2_high_yield",
+      "status": "aberto"
+    },
+    {
+      "nome": "RBRY11",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.2_high_yield",
+      "status": "aberto"
+    },
+    {
+      "nome": "IRDM11_2025.12.22",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.2_high_yield",
+      "status": "fechado"
+    },
+    {
+      "nome": "KNCR11_2021.07.12",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.2_high_yield",
+      "status": "fechado"
+    },
+    {
+      "nome": "BCRI11_2020.09.22",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.2_high_yield",
+      "status": "fechado"
+    },
+    {
+      "nome": "Icatu Previ",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.3_prev_rf",
+      "status": "aberto",
+      "custodia": "Icatu",
+      "cnpj": "21.596.169/0001-26",
+      "nome_oficial": "PGBL INSTITUIDO ADVANTAGE RF"
+    },
+    {
+      "nome": "Arca Grão RF Previ",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.3_prev_rf",
+      "status": "aberto",
+      "custodia": "XP",
+      "susep": "15414613245202221",
+      "nome_oficial": "PGBL Arca Grão XP Seg Prev Advisory FIC FIM"
+    },
+    {
+      "nome": "Quest Luce Previ",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.3_prev_rf",
+      "status": "aberto",
+      "custodia": "XP",
+      "susep": "15414626297201961",
+      "nome_oficial": "PGBL AZ Quest Luce Advisory Prev XP Seg FICFIRF CP"
+    },
+    {
+      "nome": "Arca RF Previ_2025.07.30",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.3_prev_rf",
+      "status": "fechado"
+    },
+    {
+      "nome": "ARX Denali Previ_2022.06.30",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.3_prev_rf",
+      "status": "fechado"
+    },
+    {
+      "nome": "Capitânia Previ_2022.06.30",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.3_prev_rf",
+      "status": "fechado"
+    },
+    {
+      "nome": "Sparta Premium_2016.05.18",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.3_prev_rf",
+      "status": "fechado"
+    },
+    {
+      "nome": "Sparta Top_2016.11.03",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.3_prev_rf",
+      "status": "fechado"
+    },
+    {
+      "nome": "Sulamérica Previ_2019.02.21",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.3_prev_rf",
+      "status": "fechado"
+    },
+    {
+      "nome": "Vinci Previ_2020.07.09",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.3_prev_rf",
+      "status": "fechado"
+    },
+    {
+      "nome": "VALE3",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.1_beta_commodities",
+      "status": "aberto",
+      "analise": {
+        "vies": "neutro",
+        "recomendacao": "manter",
+        "notas": "[QUALIDADE+RENDA] Cíclica, mas com yield estrutural alto (~9-11%). Moat logístico enorme. Peso de 10,2% está equilibrado. Melhor comprar apenas abaixo de R$ 65.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "PETR4",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.1_beta_commodities",
+      "status": "aberto",
+      "analise": {
+        "vies": "positivo",
+        "recomendacao": "manter",
+        "notas": "[MOTOR RENDA] P/L 5,8x, ROE 28%. DY de 8-10%. Desconto pelo risco político. Peso 6,8% é seguro. Manter para coletar yield agressivo que financia aportes no motor Growth.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "PETR4_2022.08.15",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.1_beta_commodities",
+      "status": "fechado"
+    },
+    {
+      "nome": "BRKM5_2018.06.18",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.1_beta_commodities",
+      "status": "fechado"
+    },
+    {
+      "nome": "SUZB5_2017.06.23",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.1_beta_commodities",
+      "status": "fechado"
+    },
+    {
+      "nome": "TUPY3_2020.09.10",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.1_beta_commodities",
+      "status": "fechado"
+    },
+    {
+      "nome": "EZTC3_2018.08.21",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.2_small_caps",
+      "status": "fechado"
+    },
+    {
+      "nome": "LAME4_2017.10.20",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.2_small_caps",
+      "status": "fechado"
+    },
+    {
+      "nome": "HGTX3_2020.09.29",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.2_small_caps",
+      "status": "fechado"
+    },
+    {
+      "nome": "ANIM3_2018.09.03",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.2_small_caps",
+      "status": "fechado"
+    },
+    {
+      "nome": "FRAS3_2018.08.24",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.2_small_caps",
+      "status": "fechado"
+    },
+    {
+      "nome": "LEVE3_2020.09.29",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.2_small_caps",
+      "status": "fechado"
+    },
+    {
+      "nome": "LPSB3_2018.09.03",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.2_small_caps",
+      "status": "fechado"
+    },
+    {
+      "nome": "MTSA4_2018.08.24",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.2_small_caps",
+      "status": "fechado"
+    },
+    {
+      "nome": "PTBL3_2018.09.05",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.2_small_caps",
+      "status": "fechado"
+    },
+    {
+      "nome": "SHOW3_2018.08.24",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.2_small_caps",
+      "status": "fechado"
+    },
+    {
+      "nome": "TECN3_2018.08.24",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.2_small_caps",
+      "status": "fechado"
+    },
+    {
+      "nome": "TEND3_2018.07.17",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.2_small_caps",
+      "status": "fechado"
+    },
+    {
+      "nome": "VLID3_2017.09.04",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.2_small_caps",
+      "status": "fechado"
+    },
+    {
+      "nome": "BBDC4",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "aberto",
+      "analise": {
+        "vies": "neutro",
+        "recomendacao": "manter",
+        "notas": "[TURNAROUND] Aposta de re-rating (ROE voltando a 15,2%). Peso 9,5% já é alto para tese de risco. Aguardar ROE >16% sustentado antes de pensar em aportar.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "ITUB4",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "aberto",
+      "analise": {
+        "vies": "positivo",
+        "recomendacao": "manter",
+        "notas": "[QUALIDADE+RENDA] Relógio suíço (ROE 23,4%). Paga a conta e cresce um pouco. P/L 10,9x está acima da média, então apenas manter e reinvestir os proventos gordos.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "BBSE3",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "aberto",
+      "analise": {
+        "vies": "positivo",
+        "recomendacao": "comprar",
+        "notas": "[MOTOR RENDA] DY 12,7%. Asset-light (ROE ~90%). Peso de 2,9% está sub-dimensionado para o yield seguro que entrega. Principal alvo de aporte atual para turbinar o fluxo de caixa.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "PSSA3",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "aberto",
+      "analise": {
+        "vies": "positivo",
+        "recomendacao": "manter",
+        "notas": "[QUALIDADE+RENDA] Turnaround concluído (ROE 22,8%). Diversificada. P/L 9,6x é justo. Posição já subiu 112%. Reter para dividendos e valorização moderada.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "EGIE3",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "aberto",
+      "analise": {
+        "vies": "neutro",
+        "recomendacao": "manter",
+        "notas": "[MOTOR RENDA/TURNAROUND] Lucro caiu 33% em 2025. D/E subiu para 214%. Empresa perene, mas 2025 foi ano ruim. Monitorar 1T26 antes de novos aportes. Peso pequeno de 3,8% protege.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "EQTL3",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "aberto",
+      "analise": {
+        "vies": "positivo",
+        "recomendacao": "manter",
+        "notas": "[MOTOR GROWTH] M&A e turnaround (Sabesp). Opcionalidade gigante de valorização. Alavancagem (195%) e problemas em renováveis pedem cautela no curto prazo. Não focar no DY (~3%).",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "SAPR11",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "aberto",
+      "analise": {
+        "vies": "positivo",
+        "recomendacao": "manter",
+        "notas": "[MOTOR RENDA] Monopólio defensivo. ROE 17,9%. DY ~6%. O P/VP reprecificou para 1,12x (+134% de lucro). Posição madura, apenas coletar o yield.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "VIVT3",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "aberto",
+      "analise": {
+        "vies": "neutro",
+        "recomendacao": "manter",
+        "notas": "[MOTOR RENDA] Ação defensiva pura. DY ~6-7%. P/L 21,8x esticou (acima da média). Não aportar nesse preço, mas excelente para segurar e usar os dividendos.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "WEGE3",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "aberto",
+      "analise": {
+        "vies": "positivo",
+        "recomendacao": "comprar_oportunidade",
+        "notas": "[MOTOR GROWTH] ROIC 32,5%. Âncora de crescimento da carteira. P/L 34x é o prêmio pela qualidade. DY baixo irrelevante para esta tese. Acumular em correções (<25x) para multiplicar o bolo até 2030.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "RADL3",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "aberto",
+      "analise": {
+        "vies": "positivo",
+        "recomendacao": "comprar_oportunidade",
+        "notas": "[MOTOR GROWTH] Crescimento orgânico impecável (330 lojas/ano). P/L 29x (abaixo da média). DY 1,7% não importa aqui. Acumular para compor patrimônio a longo prazo. Oportunidade se <22x.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "FLRY3",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "aberto",
+      "analise": {
+        "vies": "neutro",
+        "recomendacao": "manter",
+        "notas": "[TURNAROUND/RENDA] Posição caindo 29%. Margem líquida de 7% esmaga a rentabilidade final, apesar da receita crescer. Manter sob estrita vigilância de margens.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "RDOR3",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "aberto",
+      "analise": {
+        "vies": "positivo",
+        "recomendacao": "manter",
+        "notas": "[MOTOR GROWTH] ROE 20%. Tese de crescimento intacta (receita +23%), mas D/E 241% com Selic alta impede novos aportes agressivos agora. Manter para capturar queda futura de juros.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "ABEV3_2025.12.19",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "ABEV3_2020.10.13",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "MDIA3_2025.12.16",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "MDIA3_2020.10.13",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "HYPE3_2025.11.21",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "TAEE11_2025.11.21",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "SULA11_2022.12.23",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "ODPV3_2025.06.27",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "ENBR3_2023.04.03",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "XPBR31_2022.09.15",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "BBSE3_2022.01.10",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "XP_2021.10.06",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "QUAL3_2021.02.11",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "BBDC3_2020.10.08",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "ITSA4_2020.09.29",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "ALUP11_2020.09.29",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "ABCB4_2020.12.16",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "BBAS3_2018.11.23",
+      "macro_classe": "3_acoes_brasil",
+      "subclasse": "3.3_dividendos",
+      "status": "fechado"
+    },
+    {
+      "nome": "BTLG11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.1_logistico",
+      "status": "aberto",
+      "analise": {
+        "vies": "neutro",
+        "recomendacao": "MANTER",
+        "notas": "Logístico top-tier, BTG Pactual. Vacância sub-3%, DY 9,15%, P/VP 1,01. Dividendos crescentes e gestão ativa. Sem margem de segurança no momento. Acumular em quedas (< R$ 100).",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "HGLG11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.1_logistico",
+      "status": "aberto",
+      "analise": {
+        "vies": "neutro",
+        "recomendacao": "MANTER",
+        "notas": "Blue chip logístico. FFO apertado (R$0,75 vs div R$1,10), usando reservas. Projeção R$1,17 no 2S26. P/VP 0,94. Menor taxa admin (0,60%) e vacância (3,0%) do segmento.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "XPLG11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.1_logistico",
+      "status": "aberto"
+    },
+    {
+      "nome": "BRCO11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.1_logistico",
+      "status": "aberto"
+    },
+    {
+      "nome": "VILG11_2024.12.04",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.1_logistico",
+      "status": "fechado"
+    },
+    {
+      "nome": "LVBI11_2025.10.29",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.1_logistico",
+      "status": "fechado"
+    },
+    {
+      "nome": "LVBI11_2020.09.15",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.1_logistico",
+      "status": "fechado"
+    },
+    {
+      "nome": "ALZR11_2025.04.02",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.1_logistico",
+      "status": "fechado"
+    },
+    {
+      "nome": "RNGO11_2018.12.17",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.1_logistico",
+      "status": "fechado"
+    },
+    {
+      "nome": "TRXL11_2018.03.02",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.1_logistico",
+      "status": "fechado"
+    },
+    {
+      "nome": "XPML11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "aberto",
+      "analise": {
+        "vies": "neutro",
+        "recomendacao": "MANTER",
+        "notas": "Maior FII de shoppings do Brasil. DY 10,07%, P/VP 0,99. Dividendo cresceu 123% em 5 anos. NOI crescente. Sem margem de segurança para novo aporte (P/VP justo). Ponto de compra: P/VP ≤0,90.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "VISC11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "aberto",
+      "analise": {
+        "vies": "positivo",
+        "recomendacao": "MANTER / COMPRAR",
+        "notas": "Maior diversificação (30+ shoppings em 15 estados). DY 9,01%, P/VP 0,92 (desconto de 8%). Ótima margem de segurança. Taxa admin um pouco alta, mas qualidade compensa. Bom alvo para aportes.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "PMLL11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "aberto"
+    },
+    {
+      "nome": "PVBI11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "aberto"
+    },
+    {
+      "nome": "KNRI11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "aberto"
+    },
+    {
+      "nome": "FATN11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "aberto"
+    },
+    {
+      "nome": "TRXF11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "aberto"
+    },
+    {
+      "nome": "HGRU11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "aberto"
+    },
+    {
+      "nome": "GARE11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "aberto"
+    },
+    {
+      "nome": "KNUQ11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "aberto"
+    },
+    {
+      "nome": "RBRP11_2025.02.11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "HSML11_2021.07.12",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "KNRI11_2021.05.11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "XPPR11_2021.05.11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "RBRR11_2021.05.11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "JSRE11_2020.04.28",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "HGRE11_2020.09.15",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "GTWR11_2020.09.15",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "VISC11_2020.02.17",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado",
+      "analise": {
+        "vies": "positivo",
+        "recomendacao": "MANTER / COMPRAR",
+        "notas": "Maior diversificação (30+ shoppings em 15 estados). DY 9,01%, P/VP 0,92 (desconto de 8%). Ótima margem de segurança. Taxa admin um pouco alta, mas qualidade compensa. Bom alvo para aportes.",
+        "data_analise": "2026-04-02",
+        "ficha_completa": true
+      }
+    },
+    {
+      "nome": "ABCP11_2019.07.24",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "MALL11_2019.07.24",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "BRCR11_2019.04.08",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "HTMX11_2019.03.18",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "BBPO11_2020.09.15",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "CBOP11_2018.05.25",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "ALMI11_2018.01.18",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "FEXC11_2017.06.02",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "fechado"
+    },
+    {
+      "nome": "TGAR11",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.4_desenvolvimento",
+      "status": "aberto"
+    },
+    {
+      "nome": "QQQM_2025.11.12",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "VEU_2025.08.25",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "VTV_2025.08.18",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "IJS_2025.08.18",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "NOBL_2025.08.18",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "QQQ_2025.08.18",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "VT_2022.09.06",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "ARKK_2022.08.29",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "ARKQ_2022.08.29",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "ARKG_2022.08.29",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "ARKF_2022.08.29",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "AAPL_2022.03.28",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "AMZN_2022.03.28",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "GOOGL_2022.03.28",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "FB_2022.04.01",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "MSFT_2022.04.01",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "INDA_2021.11.23",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "MCHI_2021.11.23",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "IUSV_2021.05.18",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "BRK.B_2021.02.05",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "VYM_2020.12.02",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "NVDA_2020.11.04",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "VZ_2020.10.21",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "DIS_2020.10.21",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "CVS_2020.10.07",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "BMY_2020.10.07",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "ED_2020.10.07",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "SQ_2020.10.07",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "JPM_2020.03.09",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "VNQ",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.2_real_estate",
+      "status": "aberto"
+    },
+    {
+      "nome": "VNQI_2025.06.30",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.2_real_estate",
+      "status": "fechado"
+    },
+    {
+      "nome": "XLRE_2023.05.15",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.2_real_estate",
+      "status": "fechado"
+    },
+    {
+      "nome": "SCHH_2023.04.17",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.2_real_estate",
+      "status": "fechado"
+    },
+    {
+      "nome": "XLRE_2021.05.18",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.2_real_estate",
+      "status": "fechado"
+    },
+    {
+      "nome": "SCHH_2021.05.18",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.2_real_estate",
+      "status": "fechado"
+    },
+    {
+      "nome": "VNQI_2021.02.05",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.2_real_estate",
+      "status": "fechado"
+    },
+    {
+      "nome": "IBIT",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.1_reserva_valor",
+      "status": "aberto"
+    },
+    {
+      "nome": "BITH11_2025.07.21",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.1_reserva_valor",
+      "status": "fechado"
+    },
+    {
+      "nome": "BITCOIN (BTC)_2025.02.02",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.1_reserva_valor",
+      "status": "fechado"
+    },
+    {
+      "nome": "ETHA",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "aberto"
+    },
+    {
+      "nome": "CHAINLINK (LINK)_2025.08.08",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "POLYGON (POL)_2025.08.10",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "BNB (BNB)_2025.08.08",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "SOLH11_2025.08.11",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "SOLANA (SOL)_2025.05.11",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "ETHEREUM (ETH)_2024.12.16",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "PENDLE (PENDLE)_2024.12.08",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "NEAR PROTOCOL (NEAR)_2024.12.08",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "MAKER (MKR)_2024.12.08",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "AAVE (AAVE)_2023.12.26",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "OPTIMISM (OP)_2024.11.20",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "GMX (GMX)_2024.11.22",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "DYDX (DYDX)_2024.11.20",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "POLKADOT (DOT)_2023.11.30",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "THE SANDBOX (SAND)_2022.12.30",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "DECENTRALAND (MANA)_2022.06.06",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "CARDANO (ADA)_2022.05.31",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "HASH11_2021.11.22",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "HASH11_2021.07.12",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "Arca Previ",
+      "macro_classe": "7_alternativos_estratega",
+      "subclasse": "7.1_multimercado",
+      "status": "aberto",
+      "custodia": "XP",
+      "susep": "15414613245202221",
+      "nome_oficial": "PGBL Arca Grão XP Seg Prev Advisory FIC FIM"
+    },
+    {
+      "nome": "XP Superprev 2",
+      "macro_classe": "7_alternativos_estratega",
+      "subclasse": "7.1_multimercado",
+      "status": "aberto",
+      "custodia": "XP",
+      "susep": "15414613328202058",
+      "nome_oficial": "PGBL XP Seg Superprev 2 FIM"
+    },
+    {
+      "nome": "Vitreo Superprev 2",
+      "macro_classe": "7_alternativos_estratega",
+      "subclasse": "7.1_multimercado",
+      "status": "aberto",
+      "custodia": "Icatu",
+      "cnpj": "33.269.171/0001-70",
+      "nome_oficial": "PGBL INSTITUÍDO VITREO FOF SUPERPREVIDÊNCIA"
+    },
+    {
+      "nome": "Kapitalo K10 Prvi_2024.01.15",
+      "macro_classe": "7_alternativos_estratega",
+      "subclasse": "7.1_multimercado",
+      "status": "fechado"
+    },
+    {
+      "nome": "Verde Mundi Previ_2023.09.15",
+      "macro_classe": "7_alternativos_estratega",
+      "subclasse": "7.1_multimercado",
+      "status": "fechado"
+    },
+    {
+      "nome": "Verde Previdência_2020.07.09",
+      "macro_classe": "7_alternativos_estratega",
+      "subclasse": "7.1_multimercado",
+      "status": "fechado"
+    },
+    {
+      "nome": "Adam Previ_2019.12.10",
+      "macro_classe": "7_alternativos_estratega",
+      "subclasse": "7.1_multimercado",
+      "status": "fechado"
+    },
+    {
+      "nome": "DEB CMTR33_2020.02.27",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "DEB GASP15_2020.02.27",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "LIDO DAO (LDO)_2024.12.08",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "CELESTIA (TIA)_2024.11.22",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "TONCOIN (TON)_2024.12.08",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "UNISWAP (UNI)_2024.12.08",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "ZILLIQA (ZIL)_2024.11.22",
+      "macro_classe": "6_criptoativos",
+      "subclasse": "6.2_plataforma_utility",
+      "status": "fechado"
+    },
+    {
+      "nome": "CDB Banco Pine (IPCA)_2018.07.09",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "CDB BMG (CDI)_2019.05.06",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "CDB BMG (IPCA)_2020.03.25",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "CDB BMG (IPCA) (2)_2020.04.17",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "CDB BMG (Pré-Fixado)_2019.04.08",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "CDB Fibra (CDI)_2019.08.27",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "CDB Fibra (Pré-Fixado)_2020.03.19",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "CDB Original (IPCA)_2020.03.09",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "CDB Pine (CDI)_2018.03.19",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "CDB Pine (CDI) (2)_2019.10.03",
+      "macro_classe": "2_credito_privado",
+      "subclasse": "2.1_high_grade",
+      "status": "fechado"
+    },
+    {
+      "nome": "SPY",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "aberto"
+    },
+    {
+      "nome": "SPYD_2021.11.09",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "SPY_2025.08.18",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "SPYM_2025.11.21",
+      "macro_classe": "5_internacional",
+      "subclasse": "5.1_acoes_globais",
+      "status": "fechado"
+    },
+    {
+      "nome": "Tesouro IPCA+ 2050",
+      "macro_classe": "1_renda_fixa_soberana",
+      "subclasse": "1.3_ipca_longo",
+      "status": "aberto"
+    },
+    {
+      "nome": "Tesouro Educa+ 2043",
+      "macro_classe": "1_renda_fixa_soberana",
+      "subclasse": "1.3_ipca_longo",
+      "status": "aberto"
+    },
+    {
+      "nome": "Imóvel - Trulli",
+      "macro_classe": "4_ativos_reais",
+      "subclasse": "4.2_urbano",
+      "status": "aberto"
+    }
+  ]
+}
