@@ -1,9 +1,9 @@
 {
   "kpis": {
-    "patrimonio_total": 2340128.53,
-    "aportes_liquido_total": 1756546.98,
-    "rentabilidade_nominal": 33.22,
-    "cagr_5anos": 18.76
+    "patrimonio_total": 2332230.43,
+    "aportes_liquido_total": 1748648.88,
+    "rentabilidade_nominal": 33.37,
+    "cagr_5anos": 18.68
   },
   "anual": {
     "evolucao": [
@@ -65,7 +65,7 @@
       },
       {
         "ano": 2026,
-        "patrimonio": 2340128.53
+        "patrimonio": 2332230.43
       }
     ],
     "evolucao_por_cat": {
@@ -190,7 +190,7 @@
         },
         {
           "ano": 2026,
-          "patrimonio": 560311.05
+          "patrimonio": 552412.95
         }
       ],
       "3_acoes_brasil": [
@@ -653,9 +653,9 @@
       },
       {
         "ano": 2026,
-        "aporte_real": 48673.18,
+        "aporte_real": 40775.08,
         "dividendos": 14997.41,
-        "total": 63670.59
+        "total": 55772.49
       }
     ],
     "aportes_por_cat": {
@@ -809,7 +809,7 @@
         },
         {
           "ano": 2026,
-          "aporte_real": 33559.65,
+          "aporte_real": 25661.55,
           "dividendos": 2764.54
         }
       ],
@@ -1656,8 +1656,8 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": 1.47,
-          "com_dividendos": 1.97
+          "sem_dividendos": 1.49,
+          "com_dividendos": 2.0
         }
       ],
       "3_acoes_brasil": [
@@ -2808,11 +2808,11 @@
       },
       {
         "mes": "2026-03",
-        "patrimonio": 2282037.61
+        "patrimonio": 2274139.51
       },
       {
         "mes": "2026-04",
-        "patrimonio": 2340128.53
+        "patrimonio": 2332230.43
       }
     ],
     "evolucao_por_cat": {
@@ -4189,11 +4189,11 @@
         },
         {
           "mes": "2026-03",
-          "patrimonio": 560248.85
+          "patrimonio": 552350.75
         },
         {
           "mes": "2026-04",
-          "patrimonio": 560311.05
+          "patrimonio": 552412.95
         }
       ],
       "3_acoes_brasil": [
@@ -9360,9 +9360,9 @@
       },
       {
         "mes": "2026-03",
-        "aporte_real": 9308.94,
+        "aporte_real": 1410.84,
         "dividendos": 6487.26,
-        "total": 15796.2
+        "total": 7898.1
       },
       {
         "mes": "2026-04",
@@ -11429,9 +11429,9 @@
         },
         {
           "mes": "2026-03",
-          "aporte_real": 14891.74,
+          "aporte_real": 6993.64,
           "dividendos": 904.46,
-          "total": 15796.2
+          "total": 7898.1
         },
         {
           "mes": "2026-04",
@@ -26957,37 +26957,37 @@
   "alocacao": [
     {
       "categoria": "1_renda_fixa_soberana",
-      "meta_rs": 117006.43,
+      "meta_rs": 116611.52,
       "real_rs": 0.0
     },
     {
       "categoria": "2_credito_privado",
-      "meta_rs": 351019.28,
-      "real_rs": 366780.77
+      "meta_rs": 349834.56,
+      "real_rs": 358882.67
     },
     {
       "categoria": "3_acoes_brasil",
-      "meta_rs": 585032.13,
+      "meta_rs": 583057.61,
       "real_rs": 512933.41
     },
     {
       "categoria": "4_ativos_reais",
-      "meta_rs": 351019.28,
+      "meta_rs": 349834.56,
       "real_rs": 264301.59
     },
     {
       "categoria": "5_internacional",
-      "meta_rs": 468025.71,
+      "meta_rs": 466446.09,
       "real_rs": 460680.2
     },
     {
       "categoria": "6_criptoativos",
-      "meta_rs": 117006.43,
+      "meta_rs": 116611.52,
       "real_rs": 138406.5
     },
     {
       "categoria": "7_alternativos_estratega",
-      "meta_rs": 351019.28,
+      "meta_rs": 349834.56,
       "real_rs": 0.0
     }
   ],
@@ -27002,10 +27002,10 @@
     },
     {
       "ticker": "Icatu Previ",
-      "quantidade": 151235.2745,
-      "investido": 183275.32,
-      "atual": 278037.81,
-      "rent_pct": 51.7,
+      "quantidade": 146939.1994,
+      "investido": 175377.22,
+      "atual": 270139.71,
+      "rent_pct": 54.03,
       "categoria": "2_credito_privado"
     },
     {
@@ -27369,5 +27369,5 @@
       "categoria": "1_renda_fixa_soberana"
     }
   ],
-  "last_update": "2026-04-11 06:24"
+  "last_update": "2026-04-11 06:29"
 }
