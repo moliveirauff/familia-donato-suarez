@@ -1,9 +1,9 @@
 {
   "kpis": {
-    "patrimonio_total": 2332230.43,
+    "patrimonio_total": 2331540.16,
     "aportes_liquido_total": 1748648.88,
-    "rentabilidade_nominal": 33.37,
-    "cagr_5anos": 18.68
+    "rentabilidade_nominal": 33.33,
+    "cagr_5anos": 18.67
   },
   "anual": {
     "evolucao": [
@@ -65,7 +65,7 @@
       },
       {
         "ano": 2026,
-        "patrimonio": 2332230.43
+        "patrimonio": 2331540.16
       }
     ],
     "evolucao_por_cat": {
@@ -500,7 +500,7 @@
         },
         {
           "ano": 2026,
-          "patrimonio": 401444.73
+          "patrimonio": 400754.45
         }
       ],
       "9_uncategorized": [
@@ -1363,9 +1363,9 @@
       },
       {
         "ano": 2026,
-        "valorizacao": -1316.95,
+        "valorizacao": -2007.23,
         "dividendos": 14997.41,
-        "total": 13680.46
+        "total": 12990.18
       }
     ],
     "rentabilidade_pct": [
@@ -1497,8 +1497,8 @@
       },
       {
         "ano": 2026,
-        "sem_dividendos": -0.7,
-        "com_dividendos": -0.06,
+        "sem_dividendos": -0.73,
+        "com_dividendos": -0.09,
         "cdi": 12.0,
         "ifix": 5.0,
         "dolar": 2.0,
@@ -2041,8 +2041,8 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": 3.21,
-          "com_dividendos": 3.21
+          "sem_dividendos": 3.04,
+          "com_dividendos": 3.04
         }
       ],
       "9_uncategorized": [
@@ -2808,11 +2808,11 @@
       },
       {
         "mes": "2026-03",
-        "patrimonio": 2274139.51
+        "patrimonio": 2273449.24
       },
       {
         "mes": "2026-04",
-        "patrimonio": 2332230.43
+        "patrimonio": 2331540.16
       }
     ],
     "evolucao_por_cat": {
@@ -7639,11 +7639,11 @@
         },
         {
           "mes": "2026-03",
-          "patrimonio": 401444.73
+          "patrimonio": 400754.45
         },
         {
           "mes": "2026-04",
-          "patrimonio": 401444.73
+          "patrimonio": 400754.45
         }
       ],
       "9_uncategorized": [
@@ -18668,9 +18668,9 @@
       },
       {
         "mes": "2026-03",
-        "valorizacao": -53233.05,
+        "valorizacao": -53923.33,
         "dividendos": 6487.26,
-        "total": -46745.79
+        "total": -47436.07
       },
       {
         "mes": "2026-04",
@@ -25907,9 +25907,9 @@
         },
         {
           "mes": "2026-03",
-          "valorizacao": 0.0,
+          "valorizacao": -690.28,
           "dividendos": 0.0,
-          "total": 0.0
+          "total": -690.28
         },
         {
           "mes": "2026-04",
@@ -26957,38 +26957,38 @@
   "alocacao": [
     {
       "categoria": "1_renda_fixa_soberana",
-      "meta_rs": 116611.52,
+      "meta_rs": 116577.01,
       "real_rs": 0.0
     },
     {
       "categoria": "2_credito_privado",
-      "meta_rs": 349834.56,
+      "meta_rs": 349731.02,
       "real_rs": 358882.67
     },
     {
       "categoria": "3_acoes_brasil",
-      "meta_rs": 583057.61,
+      "meta_rs": 582885.04,
       "real_rs": 512933.41
     },
     {
       "categoria": "4_ativos_reais",
-      "meta_rs": 349834.56,
+      "meta_rs": 349731.02,
       "real_rs": 264301.59
     },
     {
       "categoria": "5_internacional",
-      "meta_rs": 466446.09,
+      "meta_rs": 466308.03,
       "real_rs": 460680.2
     },
     {
       "categoria": "6_criptoativos",
-      "meta_rs": 116611.52,
+      "meta_rs": 116577.01,
       "real_rs": 138406.5
     },
     {
       "categoria": "7_alternativos_estratega",
-      "meta_rs": 349834.56,
-      "real_rs": 0.0
+      "meta_rs": 349731.02,
+      "real_rs": 140914.42
     }
   ],
   "ranking_ativos": [
@@ -27007,6 +27007,14 @@
       "atual": 270139.71,
       "rent_pct": 54.03,
       "categoria": "2_credito_privado"
+    },
+    {
+      "ticker": "Vitreo Superprev 2",
+      "quantidade": 97298.6,
+      "investido": 115437.12,
+      "atual": 140914.42,
+      "rent_pct": 22.07,
+      "categoria": "7_alternativos_estratega"
     },
     {
       "ticker": "IBIT",
@@ -27313,14 +27321,6 @@
       "categoria": "6_criptoativos"
     },
     {
-      "ticker": "Vitreo Superprev 2",
-      "quantidade": 97298.6,
-      "investido": 115437.12,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "7_alternativos_estratega"
-    },
-    {
       "ticker": "XP Superprev 2",
       "quantidade": 85769.7,
       "investido": 88131.22,
@@ -27369,5 +27369,5 @@
       "categoria": "1_renda_fixa_soberana"
     }
   ],
-  "last_update": "2026-04-11 06:29"
+  "last_update": "2026-04-11 06:34"
 }
