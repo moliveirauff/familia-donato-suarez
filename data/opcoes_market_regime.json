@@ -1,41 +1,77 @@
 {
   "versao": "2026.4.12",
-  "generated_at": "2026-04-12T18:00:00-03:00",
+  "generated_at": "2026-04-12T18:32:00-03:00",
   "week_of": "2026-04-13",
   "summary": "Leitura semanal com confiança moderada. EUA seguem aceitáveis para venda coberta seletiva, enquanto Brasil e Cripto pedem mais cautela por risco de movimento direcional e pior relação prêmio versus upside cedido.",
   "markets": {
     "brasil": {
       "name": "Brasil",
-      "status": "red",
-      "score": 4,
-      "objective": "Ambiente ruim para novas covered calls táticas, com mercado forte demais para vender upside barato e janela macro ainda relevante no radar.",
-      "indicators": [
-        "Ibovespa em movimento forte recente, reduzindo margem para covered call confortável",
-        "Vol implícita sem sinal claro de prêmio gordo suficiente para compensar upside cedido",
-        "Copom de fim de mês mantém cautela macro no horizonte"
-      ]
+      "weekly": {
+        "status": "red",
+        "score": 4,
+        "objective": "Ambiente ruim para novas covered calls táticas, com mercado forte demais para vender upside barato e janela macro ainda relevante no radar.",
+        "indicators": [
+          "Ibovespa em movimento forte recente, reduzindo margem para covered call confortável",
+          "Vol implícita sem sinal claro de prêmio gordo suficiente para compensar upside cedido",
+          "Copom de fim de mês mantém cautela macro no horizonte"
+        ]
+      },
+      "medium_term": {
+        "status": "yellow",
+        "score": 6,
+        "objective": "No médio prazo, Brasil segue aceitável, mas não confortável, porque a tendência ainda favorece mercado firme enquanto o ciclo de Copom e inflação pode gerar mudanças de regime nas próximas 8-12 semanas.",
+        "indicators": [
+          "Tendência estrutural segue positiva, o que reduz conforto para vender upside de forma recorrente",
+          "Próximas reuniões do Copom e trajetória de inflação podem reprecificar prêmio e direção",
+          "Melhor usar covered calls de forma seletiva, não sistemática, até o regime ficar mais claro"
+        ]
+      }
     },
     "eua": {
       "name": "Estados Unidos",
-      "status": "yellow",
-      "score": 6,
-      "objective": "Ambiente aceitável e seletivo, com IV ainda útil e liquidez muito boa, mas pedindo cuidado por breadth forte e início da temporada de resultados.",
-      "indicators": [
-        "VIX perto de 19, com IV ainda utilizável para venda coberta",
-        "Breadth saudável reduz conforto para strikes muito próximos",
-        "Semana carregada de earnings aumenta risco de upside cap em nomes sensíveis"
-      ]
+      "weekly": {
+        "status": "yellow",
+        "score": 6,
+        "objective": "Ambiente aceitável e seletivo, com IV ainda útil e liquidez muito boa, mas pedindo cuidado por breadth forte e início da temporada de resultados.",
+        "indicators": [
+          "VIX perto de 19, com IV ainda utilizável para venda coberta",
+          "Breadth saudável reduz conforto para strikes muito próximos",
+          "Semana carregada de earnings aumenta risco de upside cap em nomes sensíveis"
+        ]
+      },
+      "medium_term": {
+        "status": "yellow",
+        "score": 7,
+        "objective": "No médio prazo, EUA continuam sendo o melhor ambiente relativo para venda coberta, mas em modo seletivo, porque a combinação de earnings fortes, rotação setorial e reuniões do Fed pode manter volatilidade com tendência ainda construtiva.",
+        "indicators": [
+          "Liquidez e microestrutura seguem muito favoráveis para gerir rolagem e strikes",
+          "Próximas reuniões do FOMC e temporada de resultados podem alternar janelas boas e ruins",
+          "Ambiente parece melhor para covered calls oportunísticas do que para travar upside de forma contínua"
+        ]
+      }
     },
     "cripto": {
       "name": "Cripto",
-      "status": "red",
-      "score": 4,
-      "objective": "Ambiente ruim para covered call mais agressiva, porque fluxo de ETF e rallies rápidos podem invalidar o prêmio recebido com muita velocidade.",
-      "indicators": [
-        "Fluxos de ETF melhoraram, mas ainda são instáveis e binários",
-        "IV caiu versus picos anteriores, piorando a relação prêmio versus risco de alta",
-        "Cripto segue sujeito a breakout rápido, onde covered call perde assimetria"
-      ]
+      "weekly": {
+        "status": "red",
+        "score": 4,
+        "objective": "Ambiente ruim para covered call mais agressiva, porque fluxo de ETF e rallies rápidos podem invalidar o prêmio recebido com muita velocidade.",
+        "indicators": [
+          "Fluxos de ETF melhoraram, mas ainda são instáveis e binários",
+          "IV caiu versus picos anteriores, piorando a relação prêmio versus risco de alta",
+          "Cripto segue sujeito a breakout rápido, onde covered call perde assimetria"
+        ]
+      },
+      "medium_term": {
+        "status": "red",
+        "score": 5,
+        "objective": "No médio prazo, Cripto ainda não dá conforto para venda coberta recorrente, porque a classe segue dependente de fluxo, macro e eventos binários, mantendo risco alto de upside cap justamente onde mora a assimetria.",
+        "indicators": [
+          "ETF flows ajudam, mas ainda não estabilizam o regime o suficiente",
+          "IV recuou em relação aos picos, reduzindo prêmio disponível para compensar a assimetria",
+          "Em 8-12 semanas, breakout e repricing continuam risco central para quem vende call"
+        ]
+      }
     }
   }
 }
