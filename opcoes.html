@@ -232,31 +232,109 @@ h1 {
       display: none !important;
     }
 
-    .semaforo-grid {
+    .semaforo-row {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 12px;
+      gap: 8px;
       margin-top: 12px;
     }
 
-    .semaforo-card {
+    .semaforo-chip {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 13px 12px;
+      background: var(--card-bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font: inherit;
+    }
+
+    .semaforo-chip:hover {
+      border-color: var(--accent);
+    }
+
+    .semaforo-chip.active {
+      border-color: var(--accent);
+      background: rgba(0, 136, 204, 0.06);
+      box-shadow: 0 0 0 2px rgba(0, 136, 204, 0.12);
+    }
+
+    body.dark-mode .semaforo-chip.active {
+      background: rgba(0, 176, 255, 0.10);
+    }
+
+    .semaforo-chip-main {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .semaforo-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: var(--warning);
+      box-shadow: 0 0 0 4px rgba(255, 109, 0, 0.12);
+    }
+
+    .semaforo-dot.green {
+      background: var(--success);
+      box-shadow: 0 0 0 4px rgba(67, 160, 71, 0.12);
+    }
+
+    .semaforo-dot.yellow {
+      background: var(--warning);
+      box-shadow: 0 0 0 4px rgba(255, 109, 0, 0.12);
+    }
+
+    .semaforo-dot.red {
+      background: var(--danger);
+      box-shadow: 0 0 0 4px rgba(229, 57, 53, 0.12);
+    }
+
+    .semaforo-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .semaforo-score {
+      font-size: 0.76rem;
+      color: var(--subtext);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .semaforo-detail {
+      margin-top: 10px;
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 14px;
       background: var(--card-bg);
     }
 
-    .semaforo-header {
+    .semaforo-detail.hidden {
+      display: none !important;
+    }
+
+    .semaforo-detail-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
       margin-bottom: 8px;
-    }
-
-    .semaforo-title {
-      font-size: 0.95rem;
-      font-weight: 800;
+      flex-wrap: wrap;
     }
 
     .semaforo-badge {
@@ -265,7 +343,7 @@ h1 {
       gap: 6px;
       border-radius: 999px;
       padding: 4px 10px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.04em;
@@ -286,23 +364,30 @@ h1 {
       color: var(--danger);
     }
 
-    .semaforo-score {
-      font-size: 0.78rem;
-      color: var(--subtext);
-      font-weight: 700;
-    }
-
     .semaforo-text {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       line-height: 1.45;
       color: var(--text);
     }
 
-    .semaforo-bullets {
-      margin: 10px 0 0 18px;
-      padding: 0;
+    .semaforo-indicators {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .semaforo-indicator {
+      font-size: 0.78rem;
       color: var(--subtext);
-      font-size: 0.8rem;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.03);
+      border: 1px solid var(--border);
+    }
+
+    body.dark-mode .semaforo-indicator {
+      background: rgba(255,255,255,0.04);
     }
 
     .semaforo-meta {
@@ -313,8 +398,12 @@ h1 {
     }
 
     @media (min-width: 768px) {
-      .semaforo-grid {
+      .semaforo-row {
         grid-template-columns: repeat(3, 1fr);
+      }
+
+      .semaforo-detail-top {
+        flex-wrap: nowrap;
       }
     }
   </style>
@@ -352,7 +441,8 @@ h1 {
     <div class="card">
       <h3>🚦 Semáforo Semanal de Venda Coberta</h3>
       <div id="semaforoResumo" class="semaforo-text">Aguardando leitura semanal.</div>
-      <div id="semaforoGrid" class="semaforo-grid"></div>
+      <div id="semaforoGrid" class="semaforo-row"></div>
+      <div id="semaforoDetail" class="semaforo-detail hidden"></div>
       <div id="semaforoMeta" class="semaforo-meta">Sem atualização semanal publicada.</div>
     </div>
 
@@ -581,6 +671,7 @@ h1 {
 
     // ─── GLOBAL DATA ───
     let globalData = {};
+    let activeSemaforoKey = null;
 
     // ─── RENDER KPIs ───
     function renderKPIs(fluxoData, brData, usData) {
@@ -608,38 +699,83 @@ h1 {
       el4.className = 'kpi-value ' + (total_vencendo > 0 ? 'warning' : '');
     }
 
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function toggleSemaforo(key) {
+      activeSemaforoKey = activeSemaforoKey === key ? null : key;
+      renderSemaforo(globalData.semaforoData);
+    }
+
     function renderSemaforo(semaforoData) {
       const resumoEl = document.getElementById('semaforoResumo');
       const gridEl = document.getElementById('semaforoGrid');
+      const detailEl = document.getElementById('semaforoDetail');
       const metaEl = document.getElementById('semaforoMeta');
 
       if (!semaforoData || !semaforoData.markets) {
         resumoEl.textContent = 'Sem leitura semanal disponível.';
         gridEl.innerHTML = '';
+        detailEl.classList.add('hidden');
+        detailEl.innerHTML = '';
         metaEl.textContent = 'Publique data/opcoes_market_regime.json para exibir o semáforo.';
         return;
       }
 
+      const ordem = ['brasil', 'eua', 'cripto'];
+      const availableKeys = ordem.filter(key => semaforoData.markets[key]);
+      if (activeSemaforoKey && !availableKeys.includes(activeSemaforoKey)) activeSemaforoKey = null;
+
       resumoEl.textContent = semaforoData.summary || 'Leitura semanal publicada.';
       metaEl.textContent = `Semana de ${semaforoData.week_of || '--'} • atualizado em ${formatDateTime(semaforoData.generated_at)}`;
 
-      const ordem = ['brasil', 'eua', 'cripto'];
-      gridEl.innerHTML = ordem.map((key) => {
+      gridEl.innerHTML = availableKeys.map((key) => {
         const item = semaforoData.markets[key];
-        if (!item) return '';
-        const bullets = (item.indicators || []).slice(0, 3).map(text => `<li>${text}</li>`).join('');
+        const isActive = activeSemaforoKey === key;
         return `
-          <div class="semaforo-card">
-            <div class="semaforo-header">
-              <div class="semaforo-title">${item.name || key}</div>
-              <div class="semaforo-badge ${item.status || 'yellow'}">${semaforoLabel(item.status)}</div>
+          <button class="semaforo-chip ${isActive ? 'active' : ''}" type="button" onclick="toggleSemaforo('${key}')" aria-expanded="${isActive}">
+            <div class="semaforo-chip-main">
+              <span class="semaforo-dot ${item.status || 'yellow'}"></span>
+              <span class="semaforo-title">${escapeHtml(item.name || key)}</span>
             </div>
-            <div class="semaforo-score">Score ${item.score ?? '--'}/10</div>
-            <div class="semaforo-text">${item.objective || 'Sem análise objetiva publicada.'}</div>
-            ${bullets ? `<ul class="semaforo-bullets">${bullets}</ul>` : ''}
-          </div>
+            <span class="semaforo-score">${item.score != null ? `Score ${escapeHtml(item.score)}/10` : 'Sem score'}</span>
+          </button>
         `;
       }).join('');
+
+      if (!activeSemaforoKey) {
+        detailEl.classList.add('hidden');
+        detailEl.innerHTML = '';
+        return;
+      }
+
+      const activeItem = semaforoData.markets[activeSemaforoKey];
+      if (!activeItem) {
+        detailEl.classList.add('hidden');
+        detailEl.innerHTML = '';
+        return;
+      }
+
+      const indicators = (activeItem.indicators || []).slice(0, 3).map(text => `
+        <div class="semaforo-indicator">${escapeHtml(text)}</div>
+      `).join('');
+
+      detailEl.classList.remove('hidden');
+      detailEl.innerHTML = `
+        <div class="semaforo-detail-top">
+          <div class="semaforo-title">${escapeHtml(activeItem.name || activeSemaforoKey)}</div>
+          <div class="semaforo-badge ${activeItem.status || 'yellow'}">${semaforoLabel(activeItem.status)}</div>
+        </div>
+        <div class="semaforo-score">Score ${activeItem.score ?? '--'}/10</div>
+        <div class="semaforo-text">${escapeHtml(activeItem.objective || 'Sem análise objetiva publicada.')}</div>
+        ${indicators ? `<div class="semaforo-indicators">${indicators}</div>` : ''}
+      `;
     }
 
     // ─── RENDER GRÁFICO FLUXO MENSAL ───
