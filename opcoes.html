@@ -231,6 +231,92 @@ h1 {
     .hidden {
       display: none !important;
     }
+
+    .semaforo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .semaforo-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      background: var(--card-bg);
+    }
+
+    .semaforo-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .semaforo-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .semaforo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .semaforo-badge.green {
+      background: rgba(67, 160, 71, 0.14);
+      color: var(--success);
+    }
+
+    .semaforo-badge.yellow {
+      background: rgba(255, 109, 0, 0.14);
+      color: var(--warning);
+    }
+
+    .semaforo-badge.red {
+      background: rgba(229, 57, 53, 0.14);
+      color: var(--danger);
+    }
+
+    .semaforo-score {
+      font-size: 0.78rem;
+      color: var(--subtext);
+      font-weight: 700;
+    }
+
+    .semaforo-text {
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: var(--text);
+    }
+
+    .semaforo-bullets {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: var(--subtext);
+      font-size: 0.8rem;
+    }
+
+    .semaforo-meta {
+      margin-top: 12px;
+      font-size: 0.75rem;
+      color: var(--subtext);
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .semaforo-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
   </style>
 </head>
 <body>
@@ -261,6 +347,13 @@ h1 {
         <div class="kpi-label">Venc. 7 Dias</div>
         <div class="kpi-value" id="kpiVencendo">--</div>
       </div>
+    </div>
+
+    <div class="card">
+      <h3>🚦 Semáforo Semanal de Venda Coberta</h3>
+      <div id="semaforoResumo" class="semaforo-text">Aguardando leitura semanal.</div>
+      <div id="semaforoGrid" class="semaforo-grid"></div>
+      <div id="semaforoMeta" class="semaforo-meta">Sem atualização semanal publicada.</div>
     </div>
 
     <!-- Gráficos -->
@@ -436,6 +529,22 @@ h1 {
       return `${mesNome}/${ano.slice(2)}`;
     }
 
+    function formatDateTime(dateStr) {
+      if (!dateStr) return '--';
+      const d = new Date(dateStr);
+      if (Number.isNaN(d.getTime())) return dateStr;
+      return d.toLocaleString('pt-BR');
+    }
+
+    function semaforoLabel(status) {
+      const labels = {
+        green: 'Verde',
+        yellow: 'Amarelo',
+        red: 'Vermelho'
+      };
+      return labels[status] || 'Sem leitura';
+    }
+
     // ─── CALCULAR FLUXO POR ATIVO ───
     function calcularFluxoPorAtivo(operacoes, campoAtivo) {
       const fluxo = {};
@@ -497,6 +606,40 @@ h1 {
       const el4 = document.getElementById('kpiVencendo');
       el4.textContent = total_vencendo;
       el4.className = 'kpi-value ' + (total_vencendo > 0 ? 'warning' : '');
+    }
+
+    function renderSemaforo(semaforoData) {
+      const resumoEl = document.getElementById('semaforoResumo');
+      const gridEl = document.getElementById('semaforoGrid');
+      const metaEl = document.getElementById('semaforoMeta');
+
+      if (!semaforoData || !semaforoData.markets) {
+        resumoEl.textContent = 'Sem leitura semanal disponível.';
+        gridEl.innerHTML = '';
+        metaEl.textContent = 'Publique data/opcoes_market_regime.json para exibir o semáforo.';
+        return;
+      }
+
+      resumoEl.textContent = semaforoData.summary || 'Leitura semanal publicada.';
+      metaEl.textContent = `Semana de ${semaforoData.week_of || '--'} • atualizado em ${formatDateTime(semaforoData.generated_at)}`;
+
+      const ordem = ['brasil', 'eua', 'cripto'];
+      gridEl.innerHTML = ordem.map((key) => {
+        const item = semaforoData.markets[key];
+        if (!item) return '';
+        const bullets = (item.indicators || []).slice(0, 3).map(text => `<li>${text}</li>`).join('');
+        return `
+          <div class="semaforo-card">
+            <div class="semaforo-header">
+              <div class="semaforo-title">${item.name || key}</div>
+              <div class="semaforo-badge ${item.status || 'yellow'}">${semaforoLabel(item.status)}</div>
+            </div>
+            <div class="semaforo-score">Score ${item.score ?? '--'}/10</div>
+            <div class="semaforo-text">${item.objective || 'Sem análise objetiva publicada.'}</div>
+            ${bullets ? `<ul class="semaforo-bullets">${bullets}</ul>` : ''}
+          </div>
+        `;
+      }).join('');
     }
 
     // ─── RENDER GRÁFICO FLUXO MENSAL ───
@@ -857,6 +1000,7 @@ h1 {
         return;
       }
 
+      renderSemaforo(globalData.semaforoData);
       renderKPIs(globalData.fluxoData, globalData.brData, globalData.usData);
       renderFluxoMensal(globalData.fluxoData);
       renderRetorno(globalData.fluxoData, globalData.investData);
@@ -876,17 +1020,21 @@ h1 {
 
   async function init() {
       try {
-        const [fluxoReq, brReq, usReq, investReq] = await Promise.all([
+        const [fluxoReq, brReq, usReq, investReq, semaforoData] = await Promise.all([
           fetch('data/fluxo_caixa_opcoes_mensal.json?v=' + Date.now()),
           fetch('data/opcoes_br.json?v=' + Date.now()),
           fetch('data/opcoes_intl.json?v=' + Date.now()),
-          fetch('data/dashboard_investimentos.json?v=' + Date.now())
+          fetch('data/dashboard_investimentos.json?v=' + Date.now()),
+          fetch('data/opcoes_market_regime.json?v=' + Date.now())
+            .then(resp => resp.ok ? resp.json() : null)
+            .catch(() => null)
         ]);
 
         globalData.fluxoData = await fluxoReq.json();
         globalData.brData = await brReq.json();
         globalData.usData = await usReq.json();
         globalData.investData = await investReq.json();
+        globalData.semaforoData = semaforoData;
 
         // Última data dos dados
         try {

@@ -1,0 +1,41 @@
+{
+  "versao": "2026.4.12",
+  "generated_at": "2026-04-12T16:35:00-03:00",
+  "week_of": "2026-04-13",
+  "summary": "Semáforo semanal criado. Primeira leitura objetiva completa será publicada pelo cron de domingo antes da abertura da semana.",
+  "markets": {
+    "brasil": {
+      "name": "Brasil",
+      "status": "yellow",
+      "score": 5,
+      "objective": "Leitura inicial pendente. Usar com cautela até a primeira análise semanal publicada.",
+      "indicators": [
+        "Aguardar leitura de tendência e liquidez da semana",
+        "Validar calendário macro local antes do lançamento",
+        "Evitar forçar rolagem sem crédito líquido"
+      ]
+    },
+    "eua": {
+      "name": "Estados Unidos",
+      "status": "yellow",
+      "score": 5,
+      "objective": "Leitura inicial pendente. Semáforo definitivo sai no cron semanal.",
+      "indicators": [
+        "Checar IV vs RV e breadth do mercado",
+        "Evitar vender call com prêmio pobre",
+        "Redobrar atenção em semanas com evento macro"
+      ]
+    },
+    "cripto": {
+      "name": "Cripto",
+      "status": "yellow",
+      "score": 5,
+      "objective": "Leitura inicial pendente. Em cripto, breakout invalida rápido a venda coberta.",
+      "indicators": [
+        "Priorizar compressão/range com IV rica",
+        "Evitar breakout forte e fluxo binário",
+        "Book e open interest precisam estar firmes"
+      ]
+    }
+  }
+}
