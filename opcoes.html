@@ -318,14 +318,29 @@ h1 {
 
     .semaforo-detail {
       margin-top: 10px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .semaforo-detail.hidden {
+      display: none !important;
+    }
+
+    .semaforo-panel {
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 14px;
       background: var(--card-bg);
     }
 
-    .semaforo-detail.hidden {
-      display: none !important;
+    .semaforo-panel.placeholder {
+      padding: 11px 12px;
+      background: rgba(0,0,0,0.02);
+    }
+
+    body.dark-mode .semaforo-panel.placeholder {
+      background: rgba(255,255,255,0.03);
     }
 
     .semaforo-detail-top {
@@ -335,6 +350,15 @@ h1 {
       gap: 10px;
       margin-bottom: 8px;
       flex-wrap: wrap;
+    }
+
+    .semaforo-panel-title {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--subtext);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
     }
 
     .semaforo-badge {
@@ -708,6 +732,46 @@ h1 {
         .replace(/'/g, '&#39;');
     }
 
+    function normalizeSemaforoSignals(item) {
+      const semanal = item?.weekly || item?.semanal || item?.signals?.weekly || item?.signals?.semanal || {
+        status: item?.status,
+        score: item?.score,
+        objective: item?.objective,
+        indicators: item?.indicators
+      };
+
+      const medioPrazo = item?.medium_term || item?.medio_prazo || item?.signals?.medium_term || item?.signals?.medio_prazo || null;
+
+      return { semanal, medioPrazo };
+    }
+
+    function renderSignalPanel(title, signal, emptyMessage) {
+      if (!signal || (!signal.status && signal.score == null && !signal.objective && !(signal.indicators || []).length)) {
+        return `
+          <div class="semaforo-panel placeholder">
+            <div class="semaforo-panel-title">${escapeHtml(title)}</div>
+            <div class="semaforo-text">${escapeHtml(emptyMessage)}</div>
+          </div>
+        `;
+      }
+
+      const indicators = (signal.indicators || []).slice(0, 3).map(text => `
+        <div class="semaforo-indicator">${escapeHtml(text)}</div>
+      `).join('');
+
+      return `
+        <div class="semaforo-panel">
+          <div class="semaforo-panel-title">${escapeHtml(title)}</div>
+          <div class="semaforo-detail-top">
+            <div class="semaforo-badge ${signal.status || 'yellow'}">${semaforoLabel(signal.status)}</div>
+            <div class="semaforo-score">Score ${signal.score ?? '--'}/10</div>
+          </div>
+          <div class="semaforo-text">${escapeHtml(signal.objective || 'Sem análise publicada.')}</div>
+          ${indicators ? `<div class="semaforo-indicators">${indicators}</div>` : ''}
+        </div>
+      `;
+    }
+
     function toggleSemaforo(key) {
       activeSemaforoKey = activeSemaforoKey === key ? null : key;
       renderSemaforo(globalData.semaforoData);
@@ -737,14 +801,15 @@ h1 {
 
       gridEl.innerHTML = availableKeys.map((key) => {
         const item = semaforoData.markets[key];
+        const { semanal } = normalizeSemaforoSignals(item);
         const isActive = activeSemaforoKey === key;
         return `
           <button class="semaforo-chip ${isActive ? 'active' : ''}" type="button" onclick="toggleSemaforo('${key}')" aria-expanded="${isActive}">
             <div class="semaforo-chip-main">
-              <span class="semaforo-dot ${item.status || 'yellow'}"></span>
+              <span class="semaforo-dot ${semanal?.status || 'yellow'}"></span>
               <span class="semaforo-title">${escapeHtml(item.name || key)}</span>
             </div>
-            <span class="semaforo-score">${item.score != null ? `Score ${escapeHtml(item.score)}/10` : 'Sem score'}</span>
+            <span class="semaforo-score">${semanal?.score != null ? `Score ${escapeHtml(semanal.score)}/10` : 'Sem score'}</span>
           </button>
         `;
       }).join('');
@@ -762,19 +827,12 @@ h1 {
         return;
       }
 
-      const indicators = (activeItem.indicators || []).slice(0, 3).map(text => `
-        <div class="semaforo-indicator">${escapeHtml(text)}</div>
-      `).join('');
+      const { semanal, medioPrazo } = normalizeSemaforoSignals(activeItem);
 
       detailEl.classList.remove('hidden');
       detailEl.innerHTML = `
-        <div class="semaforo-detail-top">
-          <div class="semaforo-title">${escapeHtml(activeItem.name || activeSemaforoKey)}</div>
-          <div class="semaforo-badge ${activeItem.status || 'yellow'}">${semaforoLabel(activeItem.status)}</div>
-        </div>
-        <div class="semaforo-score">Score ${activeItem.score ?? '--'}/10</div>
-        <div class="semaforo-text">${escapeHtml(activeItem.objective || 'Sem análise objetiva publicada.')}</div>
-        ${indicators ? `<div class="semaforo-indicators">${indicators}</div>` : ''}
+        ${renderSignalPanel('Sinal Semanal', semanal, 'Sem leitura semanal publicada.')}
+        ${renderSignalPanel('Sinal de Médio Prazo', medioPrazo, 'Leitura de médio prazo ainda não publicada neste dashboard.')}
       `;
     }
 
