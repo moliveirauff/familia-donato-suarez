@@ -1,40 +1,40 @@
 {
   "versao": "2026.4.12",
-  "generated_at": "2026-04-12T16:35:00-03:00",
+  "generated_at": "2026-04-12T18:00:00-03:00",
   "week_of": "2026-04-13",
-  "summary": "Semáforo semanal criado. Primeira leitura objetiva completa será publicada pelo cron de domingo antes da abertura da semana.",
+  "summary": "Leitura semanal com confiança moderada. EUA seguem aceitáveis para venda coberta seletiva, enquanto Brasil e Cripto pedem mais cautela por risco de movimento direcional e pior relação prêmio versus upside cedido.",
   "markets": {
     "brasil": {
       "name": "Brasil",
-      "status": "yellow",
-      "score": 5,
-      "objective": "Leitura inicial pendente. Usar com cautela até a primeira análise semanal publicada.",
+      "status": "red",
+      "score": 4,
+      "objective": "Ambiente ruim para novas covered calls táticas, com mercado forte demais para vender upside barato e janela macro ainda relevante no radar.",
       "indicators": [
-        "Aguardar leitura de tendência e liquidez da semana",
-        "Validar calendário macro local antes do lançamento",
-        "Evitar forçar rolagem sem crédito líquido"
+        "Ibovespa em movimento forte recente, reduzindo margem para covered call confortável",
+        "Vol implícita sem sinal claro de prêmio gordo suficiente para compensar upside cedido",
+        "Copom de fim de mês mantém cautela macro no horizonte"
       ]
     },
     "eua": {
       "name": "Estados Unidos",
       "status": "yellow",
-      "score": 5,
-      "objective": "Leitura inicial pendente. Semáforo definitivo sai no cron semanal.",
+      "score": 6,
+      "objective": "Ambiente aceitável e seletivo, com IV ainda útil e liquidez muito boa, mas pedindo cuidado por breadth forte e início da temporada de resultados.",
       "indicators": [
-        "Checar IV vs RV e breadth do mercado",
-        "Evitar vender call com prêmio pobre",
-        "Redobrar atenção em semanas com evento macro"
+        "VIX perto de 19, com IV ainda utilizável para venda coberta",
+        "Breadth saudável reduz conforto para strikes muito próximos",
+        "Semana carregada de earnings aumenta risco de upside cap em nomes sensíveis"
       ]
     },
     "cripto": {
       "name": "Cripto",
-      "status": "yellow",
-      "score": 5,
-      "objective": "Leitura inicial pendente. Em cripto, breakout invalida rápido a venda coberta.",
+      "status": "red",
+      "score": 4,
+      "objective": "Ambiente ruim para covered call mais agressiva, porque fluxo de ETF e rallies rápidos podem invalidar o prêmio recebido com muita velocidade.",
       "indicators": [
-        "Priorizar compressão/range com IV rica",
-        "Evitar breakout forte e fluxo binário",
-        "Book e open interest precisam estar firmes"
+        "Fluxos de ETF melhoraram, mas ainda são instáveis e binários",
+        "IV caiu versus picos anteriores, piorando a relação prêmio versus risco de alta",
+        "Cripto segue sujeito a breakout rápido, onde covered call perde assimetria"
       ]
     }
   }
