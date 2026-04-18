@@ -1,9 +1,9 @@
 {
   "kpis": {
-    "patrimonio_total": 2331540.16,
-    "aportes_liquido_total": 1748648.88,
-    "rentabilidade_nominal": 33.33,
-    "cagr_5anos": 18.67
+    "patrimonio_total": 2329729.07,
+    "aportes_liquido_total": 1752335.07,
+    "rentabilidade_nominal": 32.95,
+    "cagr_5anos": 18.65
   },
   "anual": {
     "evolucao": [
@@ -57,15 +57,15 @@
       },
       {
         "ano": 2024,
-        "patrimonio": 1820120.34
+        "patrimonio": 1820120.24
       },
       {
         "ano": 2025,
-        "patrimonio": 2277774.89
+        "patrimonio": 2277774.77
       },
       {
         "ano": 2026,
-        "patrimonio": 2331540.16
+        "patrimonio": 2329729.07
       }
     ],
     "evolucao_por_cat": {
@@ -128,7 +128,7 @@
         },
         {
           "ano": 2026,
-          "patrimonio": 2051.05
+          "patrimonio": 1963.22
         }
       ],
       "2_credito_privado": [
@@ -190,7 +190,7 @@
         },
         {
           "ano": 2026,
-          "patrimonio": 552412.95
+          "patrimonio": 555799.55
         }
       ],
       "3_acoes_brasil": [
@@ -492,15 +492,15 @@
         },
         {
           "ano": 2024,
-          "patrimonio": 307160.85
+          "patrimonio": 307160.75
         },
         {
           "ano": 2025,
-          "patrimonio": 388941.38
+          "patrimonio": 388941.26
         },
         {
           "ano": 2026,
-          "patrimonio": 400754.45
+          "patrimonio": 395644.6
         }
       ],
       "9_uncategorized": [
@@ -653,9 +653,9 @@
       },
       {
         "ano": 2026,
-        "aporte_real": 40775.08,
+        "aporte_real": 44461.27,
         "dividendos": 14997.41,
-        "total": 55772.49
+        "total": 59458.68
       }
     ],
     "aportes_por_cat": {
@@ -809,7 +809,7 @@
         },
         {
           "ano": 2026,
-          "aporte_real": 25661.55,
+          "aporte_real": 29347.74,
           "dividendos": 2764.54
         }
       ],
@@ -1351,21 +1351,21 @@
       },
       {
         "ano": 2024,
-        "valorizacao": 164190.81,
+        "valorizacao": 164190.71,
         "dividendos": 48023.73,
-        "total": 212214.54
+        "total": 212214.44
       },
       {
         "ano": 2025,
-        "valorizacao": 154847.36,
+        "valorizacao": 154847.35,
         "dividendos": 69129.89,
-        "total": 223977.25
+        "total": 223977.24
       },
       {
         "ano": 2026,
-        "valorizacao": -2007.23,
+        "valorizacao": -7504.38,
         "dividendos": 14997.41,
-        "total": 12990.18
+        "total": 7493.03
       }
     ],
     "rentabilidade_pct": [
@@ -1497,8 +1497,8 @@
       },
       {
         "ano": 2026,
-        "sem_dividendos": -0.73,
-        "com_dividendos": -0.09,
+        "sem_dividendos": -0.96,
+        "com_dividendos": -0.32,
         "cdi": 12.0,
         "ifix": 5.0,
         "dolar": 2.0,
@@ -1579,8 +1579,8 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": 2.53,
-          "com_dividendos": 2.53
+          "sem_dividendos": -1.86,
+          "com_dividendos": -1.86
         }
       ],
       "2_credito_privado": [
@@ -1656,8 +1656,8 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": 1.49,
-          "com_dividendos": 2.0
+          "sem_dividendos": 1.43,
+          "com_dividendos": 1.93
         }
       ],
       "3_acoes_brasil": [
@@ -2041,8 +2041,8 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": 3.04,
-          "com_dividendos": 3.04
+          "sem_dividendos": 1.72,
+          "com_dividendos": 1.72
         }
       ],
       "9_uncategorized": [
@@ -2740,79 +2740,79 @@
       },
       {
         "mes": "2024-10",
-        "patrimonio": 1680578.86
+        "patrimonio": 1680578.76
       },
       {
         "mes": "2024-11",
-        "patrimonio": 1772061.0
+        "patrimonio": 1772060.9
       },
       {
         "mes": "2024-12",
-        "patrimonio": 1820120.34
+        "patrimonio": 1820120.24
       },
       {
         "mes": "2025-01",
-        "patrimonio": 1824796.41
+        "patrimonio": 1824796.31
       },
       {
         "mes": "2025-02",
-        "patrimonio": 1800164.41
+        "patrimonio": 1800164.31
       },
       {
         "mes": "2025-03",
-        "patrimonio": 1814403.71
+        "patrimonio": 1814403.61
       },
       {
         "mes": "2025-04",
-        "patrimonio": 1915002.61
+        "patrimonio": 1915002.5
       },
       {
         "mes": "2025-05",
-        "patrimonio": 1991775.72
+        "patrimonio": 1991775.61
       },
       {
         "mes": "2025-06",
-        "patrimonio": 2042498.65
+        "patrimonio": 2042498.54
       },
       {
         "mes": "2025-07",
-        "patrimonio": 2084673.15
+        "patrimonio": 2084673.04
       },
       {
         "mes": "2025-08",
-        "patrimonio": 2136486.29
+        "patrimonio": 2136486.18
       },
       {
         "mes": "2025-09",
-        "patrimonio": 2171670.86
+        "patrimonio": 2171670.74
       },
       {
         "mes": "2025-10",
-        "patrimonio": 2187606.52
+        "patrimonio": 2187606.4
       },
       {
         "mes": "2025-11",
-        "patrimonio": 2191674.63
+        "patrimonio": 2191674.51
       },
       {
         "mes": "2025-12",
-        "patrimonio": 2277774.89
+        "patrimonio": 2277774.77
       },
       {
         "mes": "2026-01",
-        "patrimonio": 2313997.58
+        "patrimonio": 2313997.45
       },
       {
         "mes": "2026-02",
-        "patrimonio": 2319474.47
+        "patrimonio": 2319474.34
       },
       {
         "mes": "2026-03",
-        "patrimonio": 2273449.24
+        "patrimonio": 2271638.15
       },
       {
         "mes": "2026-04",
-        "patrimonio": 2331540.16
+        "patrimonio": 2329729.07
       }
     ],
     "evolucao_por_cat": {
@@ -3499,11 +3499,11 @@
         },
         {
           "mes": "2026-03",
-          "patrimonio": 2051.05
+          "patrimonio": 1963.22
         },
         {
           "mes": "2026-04",
-          "patrimonio": 2051.05
+          "patrimonio": 1963.22
         }
       ],
       "2_credito_privado": [
@@ -4189,11 +4189,11 @@
         },
         {
           "mes": "2026-03",
-          "patrimonio": 552350.75
+          "patrimonio": 555737.35
         },
         {
           "mes": "2026-04",
-          "patrimonio": 552412.95
+          "patrimonio": 555799.55
         }
       ],
       "3_acoes_brasil": [
@@ -7571,79 +7571,79 @@
         },
         {
           "mes": "2024-10",
-          "patrimonio": 316079.59
+          "patrimonio": 316079.48
         },
         {
           "mes": "2024-11",
-          "patrimonio": 322341.85
+          "patrimonio": 322341.75
         },
         {
           "mes": "2024-12",
-          "patrimonio": 307160.85
+          "patrimonio": 307160.75
         },
         {
           "mes": "2025-01",
-          "patrimonio": 318502.97
+          "patrimonio": 318502.86
         },
         {
           "mes": "2025-02",
-          "patrimonio": 323098.49
+          "patrimonio": 323098.39
         },
         {
           "mes": "2025-03",
-          "patrimonio": 332005.08
+          "patrimonio": 332004.98
         },
         {
           "mes": "2025-04",
-          "patrimonio": 333248.61
+          "patrimonio": 333248.5
         },
         {
           "mes": "2025-05",
-          "patrimonio": 348811.79
+          "patrimonio": 348811.68
         },
         {
           "mes": "2025-06",
-          "patrimonio": 359773.45
+          "patrimonio": 359773.33
         },
         {
           "mes": "2025-07",
-          "patrimonio": 364698.77
+          "patrimonio": 364698.66
         },
         {
           "mes": "2025-08",
-          "patrimonio": 381253.75
+          "patrimonio": 381253.64
         },
         {
           "mes": "2025-09",
-          "patrimonio": 387522.51
+          "patrimonio": 387522.39
         },
         {
           "mes": "2025-10",
-          "patrimonio": 372534.72
+          "patrimonio": 372534.61
         },
         {
           "mes": "2025-11",
-          "patrimonio": 380355.49
+          "patrimonio": 380355.37
         },
         {
           "mes": "2025-12",
-          "patrimonio": 388941.38
+          "patrimonio": 388941.26
         },
         {
           "mes": "2026-01",
-          "patrimonio": 395674.54
+          "patrimonio": 395674.42
         },
         {
           "mes": "2026-02",
-          "patrimonio": 401444.73
+          "patrimonio": 401444.61
         },
         {
           "mes": "2026-03",
-          "patrimonio": 400754.45
+          "patrimonio": 395644.6
         },
         {
           "mes": "2026-04",
-          "patrimonio": 400754.45
+          "patrimonio": 395644.6
         }
       ],
       "9_uncategorized": [
@@ -9360,9 +9360,9 @@
       },
       {
         "mes": "2026-03",
-        "aporte_real": 1410.84,
+        "aporte_real": 5097.03,
         "dividendos": 6487.26,
-        "total": 7898.1
+        "total": 11584.29
       },
       {
         "mes": "2026-04",
@@ -11429,9 +11429,9 @@
         },
         {
           "mes": "2026-03",
-          "aporte_real": 6993.64,
+          "aporte_real": 10679.83,
           "dividendos": 904.46,
-          "total": 7898.1
+          "total": 11584.29
         },
         {
           "mes": "2026-04",
@@ -15469,9 +15469,9 @@
         },
         {
           "mes": "2024-11",
-          "aporte_real": -0.0,
+          "aporte_real": 0.0,
           "dividendos": 0.0,
-          "total": -0.0
+          "total": 0.0
         },
         {
           "mes": "2024-12",
@@ -18566,9 +18566,9 @@
       },
       {
         "mes": "2024-10",
-        "valorizacao": 14729.1,
+        "valorizacao": 14729.0,
         "dividendos": 4108.47,
-        "total": 18837.57
+        "total": 18837.47
       },
       {
         "mes": "2024-11",
@@ -18626,9 +18626,9 @@
       },
       {
         "mes": "2025-08",
-        "valorizacao": 31155.14,
+        "valorizacao": 31155.13,
         "dividendos": 4717.34,
-        "total": 35872.48
+        "total": 35872.47
       },
       {
         "mes": "2025-09",
@@ -18668,9 +18668,9 @@
       },
       {
         "mes": "2026-03",
-        "valorizacao": -53923.33,
+        "valorizacao": -59420.48,
         "dividendos": 6487.26,
-        "total": -47436.07
+        "total": -52933.22
       },
       {
         "mes": "2026-04",
@@ -19703,9 +19703,9 @@
         },
         {
           "mes": "2026-03",
-          "valorizacao": 0.0,
+          "valorizacao": -87.83,
           "dividendos": 0.0,
-          "total": 0.0
+          "total": -87.83
         },
         {
           "mes": "2026-04",
@@ -20269,9 +20269,9 @@
         },
         {
           "mes": "2019-09",
-          "valorizacao": 1233.43,
+          "valorizacao": 1233.42,
           "dividendos": 60.99,
-          "total": 1294.42
+          "total": 1294.41
         },
         {
           "mes": "2019-10",
@@ -20737,9 +20737,9 @@
         },
         {
           "mes": "2026-03",
-          "valorizacao": 493.15,
+          "valorizacao": 193.55,
           "dividendos": 904.46,
-          "total": 1397.61
+          "total": 1098.01
         },
         {
           "mes": "2026-04",
@@ -23599,9 +23599,9 @@
         },
         {
           "mes": "2022-11",
-          "valorizacao": 16360.95,
+          "valorizacao": 16360.96,
           "dividendos": 0.0,
-          "total": 16360.95
+          "total": 16360.96
         },
         {
           "mes": "2022-12",
@@ -25805,9 +25805,9 @@
         },
         {
           "mes": "2024-10",
-          "valorizacao": 788.64,
+          "valorizacao": 788.54,
           "dividendos": 0.0,
-          "total": 788.64
+          "total": 788.54
         },
         {
           "mes": "2024-11",
@@ -25823,9 +25823,9 @@
         },
         {
           "mes": "2025-01",
-          "valorizacao": 4983.16,
+          "valorizacao": 4983.15,
           "dividendos": 0.0,
-          "total": 4983.16
+          "total": 4983.15
         },
         {
           "mes": "2025-02",
@@ -25835,21 +25835,21 @@
         },
         {
           "mes": "2025-03",
-          "valorizacao": 2547.63,
+          "valorizacao": 2547.62,
           "dividendos": 0.0,
-          "total": 2547.63
+          "total": 2547.62
         },
         {
           "mes": "2025-04",
-          "valorizacao": 11109.94,
+          "valorizacao": 11109.93,
           "dividendos": 0.0,
-          "total": 11109.94
+          "total": 11109.93
         },
         {
           "mes": "2025-05",
-          "valorizacao": 9204.23,
+          "valorizacao": 9204.22,
           "dividendos": 0.0,
-          "total": 9204.23
+          "total": 9204.22
         },
         {
           "mes": "2025-06",
@@ -25883,9 +25883,9 @@
         },
         {
           "mes": "2025-11",
-          "valorizacao": 7820.77,
+          "valorizacao": 7820.76,
           "dividendos": 0.0,
-          "total": 7820.77
+          "total": 7820.76
         },
         {
           "mes": "2025-12",
@@ -25895,9 +25895,9 @@
         },
         {
           "mes": "2026-01",
-          "valorizacao": 6733.16,
+          "valorizacao": 6733.15,
           "dividendos": 0.0,
-          "total": 6733.16
+          "total": 6733.15
         },
         {
           "mes": "2026-02",
@@ -25907,9 +25907,9 @@
         },
         {
           "mes": "2026-03",
-          "valorizacao": -690.28,
+          "valorizacao": -5800.01,
           "dividendos": 0.0,
-          "total": -690.28
+          "total": -5800.01
         },
         {
           "mes": "2026-04",
@@ -26957,38 +26957,38 @@
   "alocacao": [
     {
       "categoria": "1_renda_fixa_soberana",
-      "meta_rs": 116577.01,
-      "real_rs": 0.0
+      "meta_rs": 116486.45,
+      "real_rs": 1963.22
     },
     {
       "categoria": "2_credito_privado",
-      "meta_rs": 349731.02,
-      "real_rs": 358882.67
+      "meta_rs": 349459.36,
+      "real_rs": 555799.55
     },
     {
       "categoria": "3_acoes_brasil",
-      "meta_rs": 582885.04,
+      "meta_rs": 582432.27,
       "real_rs": 512933.41
     },
     {
       "categoria": "4_ativos_reais",
-      "meta_rs": 349731.02,
+      "meta_rs": 349459.36,
       "real_rs": 264301.59
     },
     {
       "categoria": "5_internacional",
-      "meta_rs": 466308.03,
+      "meta_rs": 465945.81,
       "real_rs": 460680.2
     },
     {
       "categoria": "6_criptoativos",
-      "meta_rs": 116577.01,
+      "meta_rs": 116486.45,
       "real_rs": 138406.5
     },
     {
       "categoria": "7_alternativos_estratega",
-      "meta_rs": 349731.02,
-      "real_rs": 140914.42
+      "meta_rs": 349459.36,
+      "real_rs": 395644.6
     }
   ],
   "ranking_ativos": [
@@ -27009,11 +27009,27 @@
       "categoria": "2_credito_privado"
     },
     {
+      "ticker": "Quest Luce Previ",
+      "quantidade": 78266.0478,
+      "investido": 130510.45,
+      "atual": 147095.78,
+      "rent_pct": 12.71,
+      "categoria": "2_credito_privado"
+    },
+    {
       "ticker": "Vitreo Superprev 2",
       "quantidade": 97298.6,
       "investido": 115437.12,
       "atual": 140914.42,
       "rent_pct": 22.07,
+      "categoria": "7_alternativos_estratega"
+    },
+    {
+      "ticker": "Arca Previ",
+      "quantidade": 82132.5,
+      "investido": 97181.83,
+      "atual": 131000.98,
+      "rent_pct": 34.8,
       "categoria": "7_alternativos_estratega"
     },
     {
@@ -27023,6 +27039,14 @@
       "atual": 129842.5,
       "rent_pct": -29.13,
       "categoria": "6_criptoativos"
+    },
+    {
+      "ticker": "XP Superprev 2",
+      "quantidade": 85769.6166,
+      "investido": 88131.22,
+      "atual": 123729.2,
+      "rent_pct": 40.39,
+      "categoria": "7_alternativos_estratega"
     },
     {
       "ticker": "SGOV",
@@ -27047,6 +27071,14 @@
       "atual": 51354.0,
       "rent_pct": 45.21,
       "categoria": "3_acoes_brasil"
+    },
+    {
+      "ticker": "Arca Grão RF Previ",
+      "quantidade": 31235.8863,
+      "investido": 44829.15,
+      "atual": 49821.1,
+      "rent_pct": 11.14,
+      "categoria": "2_credito_privado"
     },
     {
       "ticker": "BBDC4",
@@ -27321,53 +27353,21 @@
       "categoria": "6_criptoativos"
     },
     {
-      "ticker": "XP Superprev 2",
-      "quantidade": 85769.7,
-      "investido": 88131.22,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "7_alternativos_estratega"
-    },
-    {
-      "ticker": "Arca Previ",
-      "quantidade": 82132.5,
-      "investido": 97181.83,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "7_alternativos_estratega"
-    },
-    {
-      "ticker": "Quest Luce Previ",
-      "quantidade": 76300.4046,
-      "investido": 126824.26,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "2_credito_privado"
-    },
-    {
-      "ticker": "Arca Grão RF Previ",
-      "quantidade": 31235.8863,
-      "investido": 44829.15,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "2_credito_privado"
-    },
-    {
       "ticker": "Tesouro IPCA+ 2050",
       "quantidade": 1.13,
       "investido": 1003.45,
-      "atual": 0.0,
-      "rent_pct": -100.0,
+      "atual": 981.82,
+      "rent_pct": -2.16,
       "categoria": "1_renda_fixa_soberana"
     },
     {
       "ticker": "Tesouro Educa+ 2043",
       "quantidade": 0.8,
       "investido": 997.0,
-      "atual": 0.0,
-      "rent_pct": -100.0,
+      "atual": 981.4,
+      "rent_pct": -1.56,
       "categoria": "1_renda_fixa_soberana"
     }
   ],
-  "last_update": "2026-04-17 04:15"
+  "last_update": "2026-04-17 20:37"
 }
