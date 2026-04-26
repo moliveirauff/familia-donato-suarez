@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "1.0",
-    "last_updated": "2026-03-31T12:15:00",
-    "total_consultas": 6
+    "last_updated": "2026-04-26T15:26:00",
+    "total_consultas": 7
   },
   "consultas": [
     {
@@ -855,10 +855,18 @@
         "maior_1_ano": "Heimlich: joinha no umbigo + 5 golpes nas costas primeiro, depois movimento de gancho"
       },
       "vacinas": {
-        "prioridades": ["BeeFop (pode no posto a partir de 6 meses)", "Gripe (particular)", "COVID (particular)"],
+        "prioridades": [
+          "BeeFop (pode no posto a partir de 6 meses)",
+          "Gripe (particular)",
+          "COVID (particular)"
+        ],
         "ordem": "BeeFop + Gripe primeiro. COVID depois.",
         "podem_fazer_mesmo_dia": "Sim, mas Alana acha muita coisa — esperar ~1 semana entre rodadas",
-        "clinicas_sugeridas": ["Felipe Mattoso", "Kinder", "Vaccini"],
+        "clinicas_sugeridas": [
+          "Felipe Mattoso",
+          "Kinder",
+          "Vaccini"
+        ],
         "calendario": {
           "7_meses": "Só reforço de gripe e COVID",
           "8_meses": "Nenhuma",
@@ -934,6 +942,65 @@
       },
       "notas_livres": "Consulta extensa (~1h12min), focada em orientação de introdução alimentar completa. Matheus pesando 7.9kg (de 7.6), manteve curva OMS. Idade corrigida 4m25d — dentro da janela de IA. Decisão conjunta: esperar desmame do esomeprazol antes de iniciar frutas (proteção gástrica). Alana revisou manobra de desengasgo — babá nova deve fazer curso. Praia e piscina LIBERADOS. Protetor Mustela, repelente Exposis. Oftalmologista e relatório de prematuridade pendentes. Consulta: R$650.",
       "transcript_file": "transcricoes/consulta_alana_30mar2026_transcricao.txt"
+    },
+    {
+      "identificacao": {
+        "data": "2026-04-24",
+        "especialidade": "Oftalmopediatria",
+        "medico": "Dra. Julia Dutra Rossetto",
+        "crm": "52.107322-2",
+        "local": "Clínica de Olhos Roisman — Rua Visconde de Pirajá 156, 8º andar, Ipanema, Rio de Janeiro"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "7 meses e 6 dias (cronológico)",
+        "idade_corrigida_texto": "~5 meses e meio corrigido (prematuro 33 semanas)",
+        "peso_kg": null,
+        "altura_cm": null,
+        "perimetro_cefalico_cm": null,
+        "observacao": "Consulta oftalmológica de rotina, sem medidas antropométricas registradas no laudo."
+      },
+      "motivo": "Consulta oftalmológica de rotina aos 7 meses, conforme acompanhamento recomendado pela pediatra devido ao histórico de prematuridade.",
+      "avaliacao": "Exame oftalmológico global normal. Comportamento visual adequado para a idade, sem estrabismo, motilidade ocular preservada, segmento anterior sem alterações e fundo de olho normal. Refração cicloplegiada descrita como plano -1,00 a 180 em ambos os olhos. Impressão do laudo: exame normal, pré-miopia.",
+      "diagnosticos": [
+        {
+          "nome": "Exame oftalmológico de rotina normal",
+          "status": "sem alterações relevantes ao exame"
+        },
+        {
+          "nome": "Pré-miopia",
+          "status": "monitoramento — sem tratamento imediato descrito"
+        }
+      ],
+      "observacoes_clinicas": [
+        "Comportamento visual normal com ambos os olhos; fixa e segue objetos, adequado para a idade.",
+        "Motilidade ocular preservada, reflexos corneanos centralizados, sem estrabismo, reflexos pupilares preservados bilateralmente.",
+        "Ectoscopia sem alterações: conjuntiva clara, córnea transparente, câmara anterior ampla, íris trófica e cristalino transparente.",
+        "Refração cicloplegiada: plano -1,00 a 180 em ambos os olhos.",
+        "Fundo de olho normal: disco óptico róseo e bem delimitado, escavação fisiológica, mácula e vasos sem alterações, retinas aplicadas em ambos os olhos."
+      ],
+      "conduta": {
+        "orientacoes": [
+          "Acompanhamento oftalmológico em 1 ano ou antes se surgirem queixas.",
+          "Zero tela; se houver uso, preferir telas maiores e na maior distância possível.",
+          "Evitar telas durante as refeições e nas 2 horas antes de dormir.",
+          "Estimular pelo menos 2 horas por dia de atividades ao ar livre."
+        ]
+      },
+      "alertas": [
+        "⚠️ Retorno antes de 1 ano se surgirem queixas visuais ou qualquer preocupação oftalmológica."
+      ],
+      "proxima_consulta": {
+        "data_prevista": "2027-04-24",
+        "objetivo": "Reavaliação oftalmológica de rotina e acompanhamento da refração/pré-miopia."
+      },
+      "notas_livres": "Laudo escrito enviado por foto no WhatsApp e transcrição automática em DOCX também recebida. O documento escrito foi usado como fonte principal e preservado como transcrição limpa canônica; o DOCX ficou apenas como bruto auxiliar por baixa inteligibilidade.",
+      "transcript_file": "transcricoes/consulta_oftalmo_24-04-2026_transcricao_limpa.txt",
+      "laudo_resumo": {
+        "documento": "Relatório oftalmológico datado de 24/04/2026",
+        "assinado_por": "Dra. Julia Dutra Rossetto",
+        "encaminhado_para": "Dra. Alana Kohn"
+      },
+      "transcript_source": "Laudo escrito/fotografado revisado manualmente; DOCX automático mantido apenas como bruto auxiliar devido à baixa inteligibilidade."
     }
   ]
 }
