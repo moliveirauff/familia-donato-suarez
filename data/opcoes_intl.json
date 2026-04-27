@@ -3915,11 +3915,11 @@
       "resultado": null,
       "status": "aberta",
       "ptax_abertura": 5.15,
-      "spot_atual": 708.45,
-      "bs_data_calculo": "2026-04-24",
-      "preco_mercado": 25.17,
-      "iv_calculada": 0.1637,
-      "preco_teorico": 25.17
+      "spot_atual": 713.94,
+      "bs_data_calculo": "2026-04-27",
+      "preco_mercado": 31.0,
+      "iv_calculada": 0.213,
+      "preco_teorico": 31.0
     },
     {
       "ticker": "ETHA",
@@ -3939,8 +3939,8 @@
       "taxas_total": 1.13,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 17.49,
-      "bs_data_calculo": "2026-04-24",
+      "spot_atual": 17.52,
+      "bs_data_calculo": "2026-04-27",
       "preco_mercado": 1.0,
       "iv_calculada": null,
       "preco_teorico": null
@@ -3963,8 +3963,8 @@
       "taxas_total": 1.13,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 17.49,
-      "bs_data_calculo": "2026-04-24",
+      "spot_atual": 17.52,
+      "bs_data_calculo": "2026-04-27",
       "preco_mercado": 0.01,
       "iv_calculada": null,
       "preco_teorico": null
@@ -4059,8 +4059,8 @@
       "taxas_total": 1.13,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 44.05,
-      "bs_data_calculo": "2026-04-24",
+      "spot_atual": 44.02,
+      "bs_data_calculo": "2026-04-27",
       "preco_mercado": 0.01,
       "iv_calculada": null,
       "preco_teorico": null
@@ -4083,8 +4083,8 @@
       "taxas_total": 1.13,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 95.49,
-      "bs_data_calculo": "2026-04-24",
+      "spot_atual": 95.3,
+      "bs_data_calculo": "2026-04-27",
       "preco_mercado": 3.2,
       "iv_calculada": null,
       "preco_teorico": null
@@ -4107,8 +4107,8 @@
       "taxas_total": 9.05,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 44.05,
-      "bs_data_calculo": "2026-04-24",
+      "spot_atual": 44.02,
+      "bs_data_calculo": "2026-04-27",
       "preco_mercado": 1.59,
       "iv_calculada": null,
       "preco_teorico": null
@@ -4131,8 +4131,8 @@
       "taxas_total": 7.86,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 44.05,
-      "bs_data_calculo": "2026-04-24",
+      "spot_atual": 44.02,
+      "bs_data_calculo": "2026-04-27",
       "preco_mercado": 0.07,
       "iv_calculada": null,
       "preco_teorico": null
