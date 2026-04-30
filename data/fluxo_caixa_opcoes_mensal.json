@@ -1,15 +1,15 @@
 {
   "versao": "1.1",
-  "data_geracao": "2026-04-30 04:16:07",
+  "data_geracao": "2026-04-30 06:47:44",
   "descricao": "Fluxo de caixa mensal de operações de opções (BR + US + Cripto)",
   "observacao": "Valores positivos = entrada de caixa, valores negativos = saída de caixa. Cripto = ETFs IBIT e ETHA",
   "totais": {
     "br_total_brl": 18805.04,
     "us_total_usd": 4279.45,
     "us_total_brl": 22549.54,
-    "cripto_total_usd": 7010.08,
-    "cripto_total_brl": 36991.7,
-    "total_geral_brl": 78346.28
+    "cripto_total_usd": 7279.05,
+    "cripto_total_brl": 38336.14,
+    "total_geral_brl": 79690.72
   },
   "fluxo_mensal": [
     {
@@ -134,9 +134,9 @@
       "br_brl": -932.0,
       "us_usd": 753.0,
       "us_brl": 3820.26,
-      "cripto_usd": 76.1,
-      "cripto_brl": 225.25,
-      "total_brl": 3113.51
+      "cripto_usd": 345.07,
+      "cripto_brl": 1569.7,
+      "total_brl": 4457.96
     }
   ]
 }
