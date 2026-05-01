@@ -1,10 +1,10 @@
 {
   "kpis": {
     "num_imoveis": 1,
-    "valor_mercado_atual": 544580.14,
+    "valor_mercado_atual": 545669.31,
     "alugueis_12m": 21850.86,
-    "dy_12m": 4.01,
-    "rentabilidade_total": 20.79
+    "dy_12m": 4.0,
+    "rentabilidade_total": 21.01
   },
   "series": {
     "valor_por_ano": [
@@ -30,7 +30,7 @@
       },
       {
         "ano": 2026,
-        "valor": 544580.14
+        "valor": 545669.31
       }
     ],
     "valor_por_mes": [
@@ -265,6 +265,10 @@
       {
         "mes": "2026-04",
         "valor": 544580.14
+      },
+      {
+        "mes": "2026-05",
+        "valor": 545669.31
       }
     ],
     "alugueis_por_ano": [
@@ -304,12 +308,12 @@
       },
       {
         "ano": 2026,
-        "percentual": 20.79
+        "percentual": 21.01
       }
     ]
   },
   "metadata": {
-    "data_geracao": "2026-04-18 20:16:12",
+    "data_geracao": "2026-05-01 04:20:24",
     "total_investido": 498424.36,
     "total_alugueis": 57486.0,
     "taxa_valorizacao_mensal": 0.002
