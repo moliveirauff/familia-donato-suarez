@@ -6523,10 +6523,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 14.33,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.3527,
-      "preco_teorico": 0.21
+      "spot_atual": 14.51,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.3628,
+      "preco_teorico": 0.27
     },
     {
       "acao": "ABEV3",
@@ -6547,9 +6547,9 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 14.33,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.4082,
+      "spot_atual": 14.51,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.3932,
       "preco_teorico": 0.02
     },
     {
@@ -6571,10 +6571,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 14.33,
-      "bs_data_calculo": "2026-04-30",
+      "spot_atual": 14.51,
+      "bs_data_calculo": "2026-05-01",
       "iv_calculada": null,
-      "preco_teorico": 1.09
+      "preco_teorico": 0.89
     },
     {
       "acao": "BBDC4",
@@ -6595,10 +6595,10 @@
       "taxas_total": 7.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 19.11,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.7686,
-      "preco_teorico": 3.12
+      "spot_atual": 19.32,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.7064,
+      "preco_teorico": 3.24
     },
     {
       "acao": "BBDC4",
@@ -6619,10 +6619,10 @@
       "taxas_total": 7.0,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 19.11,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.4227,
-      "preco_teorico": 1.33
+      "spot_atual": 19.32,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.3232,
+      "preco_teorico": 1.04
     },
     {
       "acao": "EGIE3",
@@ -6643,10 +6643,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 34.65,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.5612,
-      "preco_teorico": 2.79
+      "spot_atual": 35.31,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.2493,
+      "preco_teorico": 2.77
     },
     {
       "acao": "EQTL3",
@@ -6667,10 +6667,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 41.7,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.8438,
-      "preco_teorico": 2.93
+      "spot_atual": 42.32,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.3197,
+      "preco_teorico": 1.49
     },
     {
       "acao": "FLRY3",
@@ -6691,10 +6691,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 16.03,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 2.0736,
-      "preco_teorico": 3.58
+      "spot_atual": 16.08,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.6573,
+      "preco_teorico": 2.12
     },
     {
       "acao": "ITUB4",
@@ -6715,9 +6715,9 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 42.87,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 2.2775,
+      "spot_atual": 43.19,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 2.2739,
       "preco_teorico": 11.31
     },
     {
@@ -6739,10 +6739,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 42.87,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.2961,
-      "preco_teorico": 2.55
+      "spot_atual": 43.19,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": null,
+      "preco_teorico": 2.16
     },
     {
       "acao": "PSSA3",
@@ -6763,10 +6763,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 49.5,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.2882,
-      "preco_teorico": 0.7
+      "spot_atual": 49.79,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.3604,
+      "preco_teorico": 1.04
     },
     {
       "acao": "PSSA3",
@@ -6787,10 +6787,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 49.5,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.3397,
-      "preco_teorico": 1.99
+      "spot_atual": 49.79,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.2511,
+      "preco_teorico": 1.45
     },
     {
       "acao": "RADL3",
@@ -6811,9 +6811,9 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 21.45,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 1.1285,
+      "spot_atual": 21.94,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.9131,
       "preco_teorico": 2.99
     },
     {
@@ -6835,10 +6835,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 21.45,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.4756,
-      "preco_teorico": 1.65
+      "spot_atual": 21.94,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.4321,
+      "preco_teorico": 1.23
     },
     {
       "acao": "RDOR3",
@@ -6859,9 +6859,9 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 37.74,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.5263,
+      "spot_atual": 38.37,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.4556,
       "preco_teorico": 1.08
     },
     {
@@ -6883,9 +6883,9 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 40.4,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.5386,
+      "spot_atual": 40.54,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.4886,
       "preco_teorico": 4.6
     },
     {
@@ -6907,10 +6907,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 79.44,
-      "bs_data_calculo": "2026-04-30",
+      "spot_atual": 81.18,
+      "bs_data_calculo": "2026-05-01",
       "iv_calculada": null,
-      "preco_teorico": 19.27
+      "preco_teorico": 20.4
     },
     {
       "acao": "VALE3",
@@ -6931,10 +6931,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 79.44,
-      "bs_data_calculo": "2026-04-30",
+      "spot_atual": 81.18,
+      "bs_data_calculo": "2026-05-01",
       "iv_calculada": null,
-      "preco_teorico": 6.89
+      "preco_teorico": 4.89
     },
     {
       "acao": "VIVT3",
@@ -6955,8 +6955,8 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 38.05,
-      "bs_data_calculo": "2026-04-30",
+      "spot_atual": 39.25,
+      "bs_data_calculo": "2026-05-01",
       "iv_calculada": null,
       "preco_teorico": null
     },
@@ -6979,9 +6979,9 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 44.1,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.3473,
+      "spot_atual": 44.86,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": null,
       "preco_teorico": 2.37
     },
     {
@@ -7003,10 +7003,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 44.1,
-      "bs_data_calculo": "2026-04-30",
+      "spot_atual": 44.86,
+      "bs_data_calculo": "2026-05-01",
       "iv_calculada": null,
-      "preco_teorico": 6.28
+      "preco_teorico": 5.64
     },
     {
       "acao": "BBSE3",
@@ -7027,9 +7027,9 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 33.75,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.2453,
+      "spot_atual": 33.88,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.2442,
       "preco_teorico": 0.06
     },
     {
@@ -7051,10 +7051,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 48.96,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 1.4218,
-      "preco_teorico": 16.35
+      "spot_atual": 49.08,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 1.3154,
+      "preco_teorico": 16.28
     },
     {
       "acao": "PETR4",
@@ -7075,10 +7075,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 48.96,
-      "bs_data_calculo": "2026-04-30",
-      "iv_calculada": 0.4202,
-      "preco_teorico": 0.34
+      "spot_atual": 49.08,
+      "bs_data_calculo": "2026-05-01",
+      "iv_calculada": 0.4187,
+      "preco_teorico": 0.29
     },
     {
       "acao": "WEGE3",
@@ -7099,10 +7099,10 @@
       "taxas_total": 3.5,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 44.1,
-      "bs_data_calculo": "2026-04-30",
+      "spot_atual": 44.86,
+      "bs_data_calculo": "2026-05-01",
       "iv_calculada": null,
-      "preco_teorico": 4.03
+      "preco_teorico": 3.17
     }
   ]
 }
