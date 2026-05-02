@@ -1,9 +1,9 @@
 {
   "kpis": {
-    "patrimonio_total": 2326755.0,
+    "patrimonio_total": 2331437.24,
     "aportes_liquido_total": 1760981.42,
-    "rentabilidade_nominal": 32.13,
-    "cagr_5anos": 18.75
+    "rentabilidade_nominal": 32.39,
+    "cagr_5anos": 18.8
   },
   "anual": {
     "evolucao": [
@@ -65,7 +65,7 @@
       },
       {
         "ano": 2026,
-        "patrimonio": 2326755.0
+        "patrimonio": 2331437.24
       }
     ],
     "evolucao_por_cat": {
@@ -376,7 +376,7 @@
         },
         {
           "ano": 2026,
-          "patrimonio": 478882.8
+          "patrimonio": 479554.04
         }
       ],
       "6_criptoativos": [
@@ -438,7 +438,7 @@
         },
         {
           "ano": 2026,
-          "patrimonio": 151277.0
+          "patrimonio": 155288.0
         }
       ],
       "7_alternativos_estratega": [
@@ -1363,9 +1363,9 @@
       },
       {
         "ano": 2026,
-        "valorizacao": -19124.8,
+        "valorizacao": -14442.56,
         "dividendos": 14997.41,
-        "total": -4127.39
+        "total": 554.85
       }
     ],
     "rentabilidade_pct": [
@@ -1497,8 +1497,8 @@
       },
       {
         "ano": 2026,
-        "sem_dividendos": -1.45,
-        "com_dividendos": -0.82,
+        "sem_dividendos": -1.25,
+        "com_dividendos": -0.62,
         "cdi": 12.0,
         "ifix": 5.0,
         "dolar": 2.0,
@@ -1887,8 +1887,8 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": -5.38,
-          "com_dividendos": -5.03
+          "sem_dividendos": -5.25,
+          "com_dividendos": -4.9
         }
       ],
       "6_criptoativos": [
@@ -1964,8 +1964,8 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": -19.83,
-          "com_dividendos": -19.83
+          "sem_dividendos": -17.7,
+          "com_dividendos": -17.7
         }
       ],
       "7_alternativos_estratega": [
@@ -2816,7 +2816,7 @@
       },
       {
         "mes": "2026-05",
-        "patrimonio": 2326755.0
+        "patrimonio": 2331437.24
       }
     ],
     "evolucao_por_cat": {
@@ -6287,7 +6287,7 @@
         },
         {
           "mes": "2026-05",
-          "patrimonio": 478882.8
+          "patrimonio": 479554.04
         }
       ],
       "6_criptoativos": [
@@ -6981,7 +6981,7 @@
         },
         {
           "mes": "2026-05",
-          "patrimonio": 151277.0
+          "patrimonio": 155288.0
         }
       ],
       "7_alternativos_estratega": [
@@ -18770,9 +18770,9 @@
       },
       {
         "mes": "2026-05",
-        "valorizacao": 0.0,
+        "valorizacao": 4682.24,
         "dividendos": 0.0,
-        "total": 0.0
+        "total": 4682.24
       }
     ],
     "lucro_reais_por_cat": {
@@ -23971,9 +23971,9 @@
         },
         {
           "mes": "2026-05",
-          "valorizacao": 0.0,
+          "valorizacao": 671.24,
           "dividendos": 0.0,
-          "total": 0.0
+          "total": 671.24
         }
       ],
       "6_criptoativos": [
@@ -25011,9 +25011,9 @@
         },
         {
           "mes": "2026-05",
-          "valorizacao": 0.0,
+          "valorizacao": 4011.0,
           "dividendos": 0.0,
-          "total": 0.0
+          "total": 4011.0
         }
       ],
       "7_alternativos_estratega": [
@@ -27101,37 +27101,37 @@
   "alocacao": [
     {
       "categoria": "1_renda_fixa_soberana",
-      "meta_rs": 116337.75,
+      "meta_rs": 116571.86,
       "real_rs": 0.0
     },
     {
       "categoria": "2_credito_privado",
-      "meta_rs": 349013.25,
+      "meta_rs": 349715.59,
       "real_rs": 89353.89
     },
     {
       "categoria": "3_acoes_brasil",
-      "meta_rs": 581688.75,
+      "meta_rs": 582859.31,
       "real_rs": 478221.88
     },
     {
       "categoria": "4_ativos_reais",
-      "meta_rs": 349013.25,
+      "meta_rs": 349715.59,
       "real_rs": 264355.02
     },
     {
       "categoria": "5_internacional",
-      "meta_rs": 465351.0,
-      "real_rs": 478882.8
+      "meta_rs": 466287.45,
+      "real_rs": 479554.04
     },
     {
       "categoria": "6_criptoativos",
-      "meta_rs": 116337.75,
-      "real_rs": 151277.0
+      "meta_rs": 116571.86,
+      "real_rs": 155288.0
     },
     {
       "categoria": "7_alternativos_estratega",
-      "meta_rs": 349013.25,
+      "meta_rs": 349715.59,
       "real_rs": 0.0
     }
   ],
@@ -27140,24 +27140,24 @@
       "ticker": "SPY",
       "quantidade": 100.0,
       "investido": 355263.66,
-      "atual": 358511.0,
-      "rent_pct": 0.91,
+      "atual": 359503.0,
+      "rent_pct": 1.19,
       "categoria": "5_internacional"
     },
     {
       "ticker": "IBIT",
       "quantidade": 700.0,
       "investido": 200087.86,
-      "atual": 151277.0,
-      "rent_pct": -24.39,
+      "atual": 155288.0,
+      "rent_pct": -22.39,
       "categoria": "6_criptoativos"
     },
     {
       "ticker": "SGOV",
       "quantidade": 144.0,
       "investido": 78728.37,
-      "atual": 72316.8,
-      "rent_pct": -8.14,
+      "atual": 72131.04,
+      "rent_pct": -8.38,
       "categoria": "5_internacional"
     },
     {
@@ -27180,8 +27180,8 @@
       "ticker": "VNQ",
       "quantidade": 100.0,
       "investido": 43496.7,
-      "atual": 48055.0,
-      "rent_pct": 10.48,
+      "atual": 47920.0,
+      "rent_pct": 10.17,
       "categoria": "5_internacional"
     },
     {
@@ -27505,5 +27505,5 @@
       "categoria": "1_renda_fixa_soberana"
     }
   ],
-  "last_update": "2026-05-01 04:15"
+  "last_update": "2026-05-02 04:10"
 }
