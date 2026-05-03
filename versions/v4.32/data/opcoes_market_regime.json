@@ -1,0 +1,41 @@
+{
+  "versao": "2026.4.26",
+  "generated_at": "2026-04-26T18:00:00-03:00",
+  "week_of": "2026-04-27",
+  "summary": "Leitura semanal com confiança moderada. EUA seguem como o melhor ambiente relativo para venda coberta seletiva, mas continuam em amarelo por conta do breakout recente e da semana pesada de earnings; Brasil e Cripto seguem pedindo mais cautela.",
+  "markets": {
+    "brasil": {
+      "name": "Brasil",
+      "status": "red",
+      "score": 5,
+      "objective": "Ambiente ainda fraco para novas covered calls de rotina, porque a combinação de fluxo forte, prêmio só razoável e liquidez concentrada não compensa bem o upside cedido nesta semana.",
+      "indicators": [
+        "Ibovespa saiu de máximas históricas recentes e ainda carrega fluxo estrangeiro muito forte",
+        "IV de mercado segue utilizável, mas sem prêmio gordo claro para o risco de upside cap",
+        "Liquidez de opções continua boa só nos nomes mais negociados, não de forma homogênea"
+      ]
+    },
+    "eua": {
+      "name": "Estados Unidos",
+      "status": "yellow",
+      "score": 6,
+      "objective": "Ambiente aceitável e seletivo para venda coberta, com IV ainda útil e liquidez excelente, mas com risco relevante de upside cap em mercado perto de máximas e semana carregada de mega caps.",
+      "indicators": [
+        "S&P 500 fechou em nova máxima, o que impede leitura verde para covered calls",
+        "VIX perto de 18,7 mantém extrínseco utilizável sem sinal de estresse",
+        "Semana tem Meta, Microsoft, Amazon, Alphabet e Apple, elevando risco direcional"
+      ]
+    },
+    "cripto": {
+      "name": "Cripto",
+      "status": "red",
+      "score": 4,
+      "objective": "Ambiente ruim para covered calls recorrentes, porque o rally puxado por ETF flows e o risco de breakout continuam maiores do que o prêmio oferecido para travar upside agora.",
+      "indicators": [
+        "Bitcoin voltou para a faixa de 77-78 mil dólares com forte sequência recente de inflows em ETFs spot",
+        "IV de curto prazo segue presente, mas abaixo de picos de estresse e sem compensar bem o gap risk",
+        "Classe continua mais sujeita a repricing rápido do que Brasil e EUA"
+      ]
+    }
+  }
+}

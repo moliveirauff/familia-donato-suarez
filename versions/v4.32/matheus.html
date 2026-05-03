@@ -574,16 +574,10 @@ function renderCountOnly(limit) {
 
 function renderHist(limit) {
     const data = getFilteredData(limit).filter(r => r.v >= 10);
-    const maxBottleVolume = 185;
-    const groupSize = 25;
     const bins = {};
-
     data.forEach(r => {
-        const cappedVolume = Math.min(r.v, maxBottleVolume);
-        const bucketIndex = Math.floor((maxBottleVolume - cappedVolume) / groupSize);
-        const binUpper = maxBottleVolume - (bucketIndex * groupSize);
-        const binLower = Math.max(10, binUpper - groupSize + 1);
-        const label = `${binLower}-${binUpper}`;
+        let binFloor = Math.floor((Math.min(r.v, 150) - 0.1 - 10) / 20) * 20 + 10;
+        const label = `${binFloor}-${binFloor+20}`;
         bins[label] = (bins[label] || 0) + 1;
     });
     const sortedKeys = Object.keys(bins).sort((a,b) => parseInt(a) - parseInt(b));

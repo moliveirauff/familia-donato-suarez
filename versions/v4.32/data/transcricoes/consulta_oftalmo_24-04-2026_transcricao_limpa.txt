@@ -1,0 +1,59 @@
+================================================================================
+TRANSCRIÇÃO LIMPA CONSOLIDADA — Consulta Oftalmológica do Matheus
+Data: 24/04/2026
+Médica: Dra. Julia Dutra Rossetto — Oftalmopediatria
+Local: Clínica de Olhos Roisman — Rua Visconde de Pirajá 156, 8º andar, Ipanema, Rio de Janeiro
+Fonte principal: laudo escrito/fotografado enviado por WhatsApp
+Fonte secundária: transcrição automática em DOCX (baixa inteligibilidade)
+================================================================================
+
+Observação de governança:
+- O áudio/transcrição automática ficou ruidoso e não preservou fala utilizável de forma confiável.
+- O texto abaixo é a transcrição limpa do conteúdo clínico legível do laudo escrito usado para estruturar a consulta no JSON canônico.
+- Não é resumo interpretativo; é a consolidação textual corrigida do documento clínico disponível.
+
+================================================================================
+CONTEÚDO CLÍNICO TRANSCRITO E LIMPO
+================================================================================
+
+Consulta oftalmológica de rotina em lactente com histórico de prematuridade.
+
+Comportamento visual: normal em ambos os olhos, adequado para a idade. Fixa e segue.
+
+Estrabismo: ausente.
+
+Motilidade ocular: preservada.
+
+Reflexos corneanos: centralizados.
+
+Reflexos pupilares: preservados bilateralmente.
+
+Segmento anterior / ectoscopia:
+- conjuntivas claras
+- córneas transparentes
+- câmaras anteriores amplas
+- íris tróficas
+- cristalinos transparentes
+
+Refração cicloplegiada:
+- olho direito: plano -1,00 a 180
+- olho esquerdo: plano -1,00 a 180
+
+Fundo de olho:
+- disco óptico róseo e bem delimitado
+- escavação fisiológica
+- mácula sem alterações
+- vasos sem alterações
+- retinas aplicadas em ambos os olhos
+
+Impressão:
+- exame oftalmológico normal
+- pré-miopia
+
+Orientação registrada:
+- acompanhamento oftalmológico em 1 ano ou antes se surgirem queixas
+
+Orientações adicionais referidas na consulta e preservadas na estrutura canônica:
+- zero tela; se houver uso, preferir telas maiores e na maior distância possível
+- evitar telas durante as refeições e nas 2 horas antes de dormir
+- estimular pelo menos 2 horas por dia de atividades ao ar livre

@@ -1,0 +1,142 @@
+{
+  "paciente": "Mauricio Suarez de Oliveira",
+  "nascimento": "1988-08-17",
+  "medica": "Dra. Erika Cesar de Oliveira Naliato",
+  "consultas": [
+    {
+      "identificacao": {
+        "data": "2025-11-27",
+        "especialidade": "Endocrinologia",
+        "medico": "Dra. Erika Naliato",
+        "local": "Consultório Dra. Erika — Niterói/RJ"
+      },
+      "snapshot_mauricio": {
+        "peso_kg": 71.3,
+        "idade_texto": "37 anos"
+      },
+      "motivo": "Retorno / Acompanhamento — revisão de exames nov/2025, efeito colateral Mounjaro (garganta arranhando), cansaço extremo por privação de sono (Matheus prematuro com cólicas)",
+      "avaliacao": "Exames satisfatórios apesar do contexto adverso (estresse, insônia, sedentarismo). Mounjaro com efeito significativo na composição corporal (-4,2 kg, -2,2% gordura em 4 meses sem exercício). Ferritina caiu espontaneamente de 886→754. Risco cardiovascular intermediário com metas lipídicas cumpridas.",
+      "diagnosticos": [
+        { "nome": "Hiperferritinemia crônica", "status": "confirmado" },
+        { "nome": "Refluxo laringofaríngeo (Mounjaro)", "status": "confirmado" },
+        { "nome": "Dislipidemia em tratamento", "status": "confirmado" },
+        { "nome": "Hiperprolactinemia reacional", "status": "suspeito" },
+        { "nome": "Hemocromatose hereditária", "status": "suspeito" }
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "Mounjaro (tirzepatida)",
+            "dose": "5 mg/semana (reduzido de 7,5 mg)",
+            "frequencia": "1x/semana (subcutâneo)",
+            "motivo": "Redução por refluxo laringofaríngeo. Paciente não precisa perder mais peso, dose de manutenção"
+          },
+          {
+            "nome": "Milanta Plus",
+            "dose": "1 colher de sobremesa",
+            "frequencia": "Ao acordar + 2h pós-café + 2h pós-almoço + antes de dormir (conforme necessidade)",
+            "motivo": "Refluxo laringofaríngeo causado pelo Mounjaro"
+          },
+          {
+            "nome": "Rosuvastatina",
+            "dose": "10 mg/dia",
+            "frequencia": "Diário",
+            "motivo": "Manter, metas lipídicas cumpridas"
+          }
+        ],
+        "orientacoes": [
+          "Manter Super DHA (ômega-3), não trocar de marca",
+          "Manter CoQ10, Lavitan Homem, Vitamina D (2 comp/dia), Magnésio + Inositol",
+          "Tentar retomar Creatina com regularidade",
+          "Iniciar Forten para reforço imunológico",
+          "Retomar exercício físico quando possível"
+        ],
+        "outros": [
+          "Encaminhamento para Psicologia (receituário com QR Code para reembolso Bradesco)",
+          "Encaminhamento para Nutrição"
+        ]
+      },
+      "proxima_consulta": {
+        "data_prevista": "2026-03-01",
+        "objetivo": "Reavaliação geral, final de fevereiro / início de março de 2026. Investigação aprofundada da ferritina programada para 2026"
+      },
+      "alertas": [
+        "🔴 Ferritina 754 ng/mL, cronicamente elevada. Investigação HFE programada para 2026",
+        "⚠️ Prolactina 19,8, Dra. Erika interpretou como reacional a estresse/insônia",
+        "⚠️ Privação de sono crônica, com impacto em marcadores hormonais e rotina"
+      ],
+      "notas_livres": "Composição corporal: 75,5 kg (jul/25) → 71,3 kg (nov/25), gordura 25% → 22,8%. Super DHA fez diferença no HDL. Dra. Erika sobre SHBG 60,4: não valorizaria. Testosterona robusta (878). Vitamina D melhorou com dose dobrada.",
+      "transcript_file": "mauricio_consulta_2025-11-27.md"
+    },
+    {
+      "identificacao": {
+        "data": "2026-04-10",
+        "especialidade": "Endocrinologia",
+        "medico": "Dra. Erika Naliato",
+        "local": "Consultório Dra. Erika — Teresópolis/RJ"
+      },
+      "snapshot_mauricio": {
+        "peso_kg": 75.8,
+        "imc": 26.9,
+        "cintura_cm": 98.9,
+        "idade_texto": "37 anos"
+      },
+      "motivo": "Retorno presencial para revisar o exame de 03/04/2026, recalibrar o Mounjaro após ganho de peso e definir o próximo passo da investigação da ferritina.",
+      "avaliacao": "Consulta focada em dois eixos: recuperar controle metabólico e avançar a investigação da ferritina. Exame de sangue globalmente bom, mas com ferritina 979,6 ng/mL persistente, TGO/TGP discretamente elevadas e composição corporal ainda acima do ideal, especialmente em gordura central.",
+      "diagnosticos": [
+        { "nome": "Hiperferritinemia crônica", "status": "confirmado" },
+        { "nome": "Sobrecarga de ferro / hemocromatose", "status": "suspeito" },
+        { "nome": "Dislipidemia em tratamento", "status": "confirmado" },
+        { "nome": "Elevação discreta de transaminases", "status": "suspeito" },
+        { "nome": "Adiposidade central / componente metabólico", "status": "confirmado" }
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "Mounjaro (tirzepatida)",
+            "dose": "7,5 mg/semana por enquanto",
+            "frequencia": "1x/semana (subcutâneo)",
+            "motivo": "Recuperar controle do peso e da ingestão. Depois considerar alternância semanal entre 7,5 mg e 5 mg"
+          },
+          {
+            "nome": "Rosuvastatina",
+            "dose": "10 mg/dia",
+            "frequencia": "Diário",
+            "motivo": "Manter"
+          },
+          {
+            "nome": "Stanglit",
+            "dose": "15 mg/dia",
+            "frequencia": "Diário",
+            "motivo": "Confirmado como em uso para resistência à insulina"
+          }
+        ],
+        "exames_solicitados": [
+          "Ressonância de abdome/fígado para quantificação de depósito hepático de ferro"
+        ],
+        "orientacoes": [
+          "Não retomar jejum intermitente por enquanto",
+          "Depois da fase inicial, considerar alternância semanal 7,5 mg / 5 mg de Mounjaro",
+          "Retomar exercício físico quando a rotina permitir",
+          "Perguntar à família, especialmente ao irmão, sobre ferritina elevada ou hemocromatose"
+        ],
+        "outros": [
+          "Elastografia prévia foi tranquilizadora para fibrose/esteatose significativa, mas não substitui a ressonância para quantificar ferro",
+          "Possível avaliação hematológica dependendo do grau de depósito hepático"
+        ]
+      },
+      "proxima_consulta": {
+        "data_prevista": "2026-06-01",
+        "objetivo": "Revisar resposta ao ajuste do Mounjaro e o resultado da ressonância hepática"
+      },
+      "alertas": [
+        "🔴 Ferritina 979,6 ng/mL, novo pico e principal pendência diagnóstica",
+        "🔴 Ressonância hepática pendente para quantificar depósito de ferro",
+        "⚠️ TGO 42 e TGP 63, elevação discreta com hipótese metabólica",
+        "⚠️ Cintura 98,9 cm e PGC 29,3%, ainda acima do ideal apesar de melhora parcial da gordura visceral"
+      ],
+      "notas_livres": "Glicose 62 foi interpretada como compatível com jejum de ~11 horas. Prolactina normalizou. Testosterona total 678 com frações livres e biodisponíveis boas. Vitamina D 33. Mauricio relatou melhora do sono com suplemento contendo magnésio, inositol, taurina e melatonina. Interromper o jejum ajudou os sintomas digestivos.",
+      "transcript_file": "mauricio_consulta_2026-04-10.md"
+    }
+  ]
+}

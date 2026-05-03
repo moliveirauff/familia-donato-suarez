@@ -1,0 +1,284 @@
+{
+  "generated_at": "2026-04-08T22:36:06.547414-03:00",
+  "summary": {
+    "total": 21,
+    "ok": 13,
+    "error": 4,
+    "idle": 4
+  },
+  "agents": [
+    {
+      "id": "main",
+      "name": "S.P.I.N.",
+      "emoji": "🤖",
+      "total": 11,
+      "ok": 5,
+      "error": 3,
+      "idle": 3,
+      "health": "red"
+    },
+    {
+      "id": "invest",
+      "name": "Invest",
+      "emoji": "📈",
+      "total": 3,
+      "ok": 2,
+      "error": 1,
+      "idle": 0,
+      "health": "red"
+    },
+    {
+      "id": "argos",
+      "name": "Argos",
+      "emoji": "🏠",
+      "total": 6,
+      "ok": 5,
+      "error": 0,
+      "idle": 1,
+      "health": "green"
+    },
+    {
+      "id": "casa",
+      "name": "Casa",
+      "emoji": "🏡",
+      "total": 1,
+      "ok": 1,
+      "error": 0,
+      "idle": 0,
+      "health": "green"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "e5c9616f-9005-4b1e-8504-ddf86e5cf9da",
+      "name": "Lembrete mensal — Condomínio Armoleu",
+      "agent_id": "argos",
+      "agent_name": "Argos",
+      "agent_emoji": "🏠",
+      "schedule_human": "Dia 9, 10:00",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 11h"
+    },
+    {
+      "id": "a3f8c1d2-9b74-4e56-8f3a-2d1e5c7b9a0f",
+      "name": "Argos — Verificação Semanal da API",
+      "agent_id": "argos",
+      "agent_name": "Argos",
+      "agent_emoji": "🏠",
+      "schedule_human": "Seg 09:00",
+      "status": "ok",
+      "last_run": "2d ago",
+      "next_run": "in 4d"
+    },
+    {
+      "id": "b4d7c469-ecb3-4828-b827-e024130a35c3",
+      "name": "Inteligência de Mercado — Copacabana (Sexta)",
+      "agent_id": "argos",
+      "agent_name": "Argos",
+      "agent_emoji": "🏠",
+      "schedule_human": "Sex 05:30",
+      "status": "ok",
+      "last_run": "5d ago",
+      "next_run": "in 1d"
+    },
+    {
+      "id": "5ba399f0-f7e4-4566-95c9-faee091e8502",
+      "name": "Inteligência de Mercado — Guarapari (Sábado)",
+      "agent_id": "argos",
+      "agent_name": "Argos",
+      "agent_emoji": "🏠",
+      "schedule_human": "Sáb 05:30",
+      "status": "ok",
+      "last_run": "4d ago",
+      "next_run": "in 2d"
+    },
+    {
+      "id": "861e4097-6418-4fef-9b0d-55ef962b6b2c",
+      "name": "Letícia Afternoon Status (17:00)",
+      "agent_id": "argos",
+      "agent_name": "Argos",
+      "agent_emoji": "🏠",
+      "schedule_human": "Diário 17:00",
+      "status": "ok",
+      "last_run": "5h ago",
+      "next_run": "in 18h"
+    },
+    {
+      "id": "921955cc-6baa-4c47-b1f6-a80f9ae78618",
+      "name": "Letícia Morning Briefing (8:00)",
+      "agent_id": "argos",
+      "agent_name": "Argos",
+      "agent_emoji": "🏠",
+      "schedule_human": "Diário 08:00",
+      "status": "ok",
+      "last_run": "14h ago",
+      "next_run": "in 9h"
+    },
+    {
+      "id": "22d90960-55c5-4867-b3c8-e410130f0c2d",
+      "name": "CasaBot — Pedidos: Scan Emails + Resumo (Seg/Qui)",
+      "agent_id": "casa",
+      "agent_name": "Casa",
+      "agent_emoji": "🏡",
+      "schedule_human": "Seg/Qui 09:00",
+      "status": "ok",
+      "last_run": "2d ago",
+      "next_run": "in 10h"
+    },
+    {
+      "id": "e8737269-3a91-4392-8560-244c7b1c024e",
+      "name": "Atualizar BS Opções + Resumo Vencimentos",
+      "agent_id": "invest",
+      "agent_name": "Invest",
+      "agent_emoji": "📈",
+      "schedule_human": "Seg-Sex 04:15",
+      "status": "error",
+      "last_run": "18h ago",
+      "next_run": "in 5h"
+    },
+    {
+      "id": "0c2908a0-72f0-4901-b719-0ad094175b5f",
+      "name": "Atualização Mensal de Cotações",
+      "agent_id": "invest",
+      "agent_name": "Invest",
+      "agent_emoji": "📈",
+      "schedule_human": "Dia 1, 04:05",
+      "status": "ok",
+      "last_run": "7d ago",
+      "next_run": "in 22d"
+    },
+    {
+      "id": "4eb27f74-7361-4696-8b70-b2669895bd29",
+      "name": "Atualização Semanal de Cotações (Sábado 04:10)",
+      "agent_id": "invest",
+      "agent_name": "Invest",
+      "agent_emoji": "📈",
+      "schedule_human": "Sáb 04:10",
+      "status": "ok",
+      "last_run": "4d ago",
+      "next_run": "in 2d"
+    },
+    {
+      "id": "654f096a-02c3-47fc-8ea3-7d6c45773f1c",
+      "name": "Backup Workspaces — Google Drive",
+      "agent_id": "main",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 03:00",
+      "status": "error",
+      "last_run": "19h ago",
+      "next_run": "in 4h"
+    },
+    {
+      "id": "d74ce702-75ad-488c-86db-7fb66828dfbc",
+      "name": "Update Check — OpenClaw",
+      "agent_id": "main",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Dia */3, 04:00",
+      "status": "error",
+      "last_run": "1d ago",
+      "next_run": "in 1d"
+    },
+    {
+      "id": "8a21a426-028f-49a0-ad8e-7b1f9739c483",
+      "name": "Auditoria de Agentes — Plano de Revisão (Segunda 04:00)",
+      "agent_id": "main",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Seg 04:00",
+      "status": "ok",
+      "last_run": "19h ago",
+      "next_run": "in 4d"
+    },
+    {
+      "id": "64cc6a08-fb03-41a1-b25b-63454713159d",
+      "name": "healthcheck:security-audit",
+      "agent_id": "main",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 11:00",
+      "status": "ok",
+      "last_run": "11h ago",
+      "next_run": "in 12h"
+    },
+    {
+      "id": "f939fb14-a776-4a0a-8f95-e4431e3c391e",
+      "name": "EOD Consolidation — 02:00",
+      "agent_id": "spin",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 01:00",
+      "status": "error",
+      "last_run": "20h ago",
+      "next_run": "in 2h"
+    },
+    {
+      "id": "e960fc17-43d4-4f76-8e8e-7e18bfb2099f",
+      "name": "Memory Lifecycle — Seg/Qui 03:20",
+      "agent_id": "spin",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Seg/Qui 03:20",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 4h"
+    },
+    {
+      "id": "0a7d70e7-3cbb-4300-9019-241c2fc1abae",
+      "name": "Memory Resumos Semanais — Dom 03:40",
+      "agent_id": "spin",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Dom 03:40",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 3d"
+    },
+    {
+      "id": "bc396031-552e-4404-b5de-a37ef95aea33",
+      "name": "Morning Sync — 08:00",
+      "agent_id": "spin",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 05:00",
+      "status": "idle",
+      "last_run": "-",
+      "next_run": "in 6h"
+    },
+    {
+      "id": "b4415061-a11a-47c0-af71-f40ad83f7eb7",
+      "name": "Afternoon Checkpoint — 16:00",
+      "agent_id": "spin",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Diário 16:00",
+      "status": "ok",
+      "last_run": "6h ago",
+      "next_run": "in 17h"
+    },
+    {
+      "id": "806e12b4-0137-4006-8398-1c79021ab1f8",
+      "name": "Dashboard Patrimônio — Regeneração Mensal",
+      "agent_id": "spin",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Dia 1, 04:20",
+      "status": "ok",
+      "last_run": "7d ago",
+      "next_run": "in 22d"
+    },
+    {
+      "id": "814e69f8-2f14-4ea2-9f07-0047da066969",
+      "name": "Sync Shared Tools",
+      "agent_id": "spin",
+      "agent_name": "S.P.I.N.",
+      "agent_emoji": "🤖",
+      "schedule_human": "Seg 02:00",
+      "status": "ok",
+      "last_run": "2d ago",
+      "next_run": "in 4d"
+    }
+  ]
+}
