@@ -3915,11 +3915,11 @@
       "resultado": null,
       "status": "aberta",
       "ptax_abertura": 5.15,
-      "spot_atual": 718.66,
-      "bs_data_calculo": "2026-05-01",
-      "preco_mercado": 33.85,
-      "iv_calculada": 0.2177,
-      "preco_teorico": 33.85
+      "spot_atual": 720.65,
+      "bs_data_calculo": "2026-05-04",
+      "preco_mercado": 36.2,
+      "iv_calculada": 0.2742,
+      "preco_teorico": 36.2
     },
     {
       "ticker": "ETHA",
@@ -4083,11 +4083,11 @@
       "taxas_total": 1.13,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 96.33,
-      "bs_data_calculo": "2026-05-01",
-      "preco_mercado": 3.2,
-      "iv_calculada": null,
-      "preco_teorico": null
+      "spot_atual": 96.06,
+      "bs_data_calculo": "2026-05-04",
+      "preco_mercado": 4.82,
+      "iv_calculada": 0.3263,
+      "preco_teorico": 4.82
     },
     {
       "ticker": "IBIT",
@@ -4155,11 +4155,11 @@
       "taxas_total": 2.27,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 43.32,
-      "bs_data_calculo": "2026-05-01",
-      "preco_mercado": 0.6,
-      "iv_calculada": 0.4076,
-      "preco_teorico": 0.6
+      "spot_atual": 44.47,
+      "bs_data_calculo": "2026-05-04",
+      "preco_mercado": 0.23,
+      "iv_calculada": 0.492,
+      "preco_teorico": 0.23
     },
     {
       "ticker": "IBIT",
@@ -4179,11 +4179,11 @@
       "taxas_total": 7.9,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 43.32,
-      "bs_data_calculo": "2026-05-01",
-      "preco_mercado": 0.22,
-      "iv_calculada": 0.3762,
-      "preco_teorico": 0.22
+      "spot_atual": 44.47,
+      "bs_data_calculo": "2026-05-04",
+      "preco_mercado": 0.43,
+      "iv_calculada": 0.4478,
+      "preco_teorico": 0.43
     },
     {
       "ticker": "IBIT",
@@ -4203,11 +4203,11 @@
       "taxas_total": 7.86,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 43.32,
-      "bs_data_calculo": "2026-05-01",
-      "preco_mercado": 0.06,
-      "iv_calculada": 0.4123,
-      "preco_teorico": 0.06
+      "spot_atual": 44.47,
+      "bs_data_calculo": "2026-05-04",
+      "preco_mercado": 0.09,
+      "iv_calculada": 0.4621,
+      "preco_teorico": 0.09
     }
   ]
 }
