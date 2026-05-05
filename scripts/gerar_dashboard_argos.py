@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Gera data/argos_dashboard.json a partir de data/argos_historico.json
-Lógica de valuation: cada aporte corrigido em 0,1% a.m. composto
+Lógica de valuation: cada aporte corrigido em 0,4% a.m. composto
 Participação de Mauricio: 1/3 exato
 """
 import json
@@ -14,7 +14,7 @@ INPUT    = os.path.join(BASE_DIR, 'data', 'argos_historico.json')
 OUTPUT   = os.path.join(BASE_DIR, 'data', 'argos_dashboard.json')
 
 PARTICIPACAO = 1 / 3
-TAXA_MENSAL  = 0.001   # 0,1% a.m.
+TAXA_MENSAL  = 0.004   # 0,4% a.m.
 
 def meses_entre(data_inicio, data_fim):
     d = datetime.strptime(data_inicio, '%Y-%m-%d')
@@ -77,7 +77,7 @@ def main():
 
     output = {
         'gerado_em':   hoje.isoformat(),
-        'metodologia': 'Aportes corrigidos a 0,1% a.m. composto. Participacao: 1/3. Valuation empresa = minha parte x 3.',
+        'metodologia': 'Aportes corrigidos a 0,4% a.m. composto. Participacao: 1/3. Valuation empresa = minha parte x 3.',
         'kpis': {
             'total_investido':   round(total_investido, 2),
             'valor_mercado':     round(valor_mercado, 2),
