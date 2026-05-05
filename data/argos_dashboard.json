@@ -1,13 +1,13 @@
 {
-  "gerado_em": "2026-05-01T04:20:24.022408",
+  "gerado_em": "2026-05-04T23:30:39.856444",
   "metodologia": "Aportes corrigidos a 0,1% a.m. composto. Participacao: 1/3. Valuation empresa = minha parte x 3.",
   "kpis": {
-    "total_investido": 283684.18,
-    "valor_mercado": 287198.59,
-    "valuation_empresa": 861595.77,
+    "total_investido": 320791.2,
+    "valor_mercado": 324371.33,
+    "valuation_empresa": 973114.0,
     "participacao_pct": 33.3333,
-    "rendimento": 3514.41,
-    "rentabilidade_pct": 1.2388,
+    "rendimento": 3580.13,
+    "rentabilidade_pct": 1.116,
     "ultimo_mes": "2026-05"
   },
   "por_mes": [
@@ -188,38 +188,38 @@
     },
     {
       "mes": "2026-01",
-      "aportes_mes": 0,
-      "aportes_acum": 283684.18,
-      "vm_minha_parte": 286052.66,
-      "valuation_empresa": 858157.99
+      "aportes_mes": 16771.04,
+      "aportes_acum": 300455.22,
+      "vm_minha_parte": 302823.7,
+      "valuation_empresa": 908471.11
     },
     {
       "mes": "2026-02",
-      "aportes_mes": 0,
-      "aportes_acum": 283684.18,
-      "vm_minha_parte": 286338.71,
-      "valuation_empresa": 859016.14
+      "aportes_mes": 1793.59,
+      "aportes_acum": 302248.81,
+      "vm_minha_parte": 304903.34,
+      "valuation_empresa": 914710.03
     },
     {
       "mes": "2026-03",
-      "aportes_mes": 0,
-      "aportes_acum": 283684.18,
-      "vm_minha_parte": 286625.05,
-      "valuation_empresa": 859875.16
+      "aportes_mes": 11772.24,
+      "aportes_acum": 314021.05,
+      "vm_minha_parte": 316978.69,
+      "valuation_empresa": 950936.08
     },
     {
       "mes": "2026-04",
-      "aportes_mes": 0,
-      "aportes_acum": 283684.18,
-      "vm_minha_parte": 286911.68,
-      "valuation_empresa": 860735.03
+      "aportes_mes": 6770.15,
+      "aportes_acum": 320791.2,
+      "vm_minha_parte": 324054.05,
+      "valuation_empresa": 972162.15
     },
     {
       "mes": "2026-05",
       "aportes_mes": 0,
-      "aportes_acum": 283684.18,
-      "vm_minha_parte": 287198.59,
-      "valuation_empresa": 861595.77
+      "aportes_acum": 320791.2,
+      "vm_minha_parte": 324371.33,
+      "valuation_empresa": 973114.0
     }
   ],
   "por_aporte": [
@@ -362,6 +362,34 @@
       "meses_desde": 4,
       "valor_corrigido": 31898.78,
       "rendimento": 127.28
+    },
+    {
+      "data": "2026-01-31",
+      "valor_aportado": 16771.04,
+      "meses_desde": 3,
+      "valor_corrigido": 16821.4,
+      "rendimento": 50.36
+    },
+    {
+      "data": "2026-02-28",
+      "valor_aportado": 1793.59,
+      "meses_desde": 2,
+      "valor_corrigido": 1797.18,
+      "rendimento": 3.59
+    },
+    {
+      "data": "2026-03-31",
+      "valor_aportado": 11772.24,
+      "meses_desde": 1,
+      "valor_corrigido": 11784.01,
+      "rendimento": 11.77
+    },
+    {
+      "data": "2026-04-30",
+      "valor_aportado": 6770.15,
+      "meses_desde": 0,
+      "valor_corrigido": 6770.15,
+      "rendimento": 0.0
     }
   ]
 }
