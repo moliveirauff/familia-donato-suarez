@@ -1,13 +1,13 @@
 {
-  "gerado_em": "2026-05-04T23:37:37.189157",
-  "metodologia": "Aportes corrigidos a 0,4% a.m. composto. Participacao: 1/3. Valuation empresa = minha parte x 3.",
+  "gerado_em": "2026-05-06T18:56:03.221089",
+  "metodologia": "Aportes corrigidos a 0,6% a.m. composto. Participacao: 1/3. Valuation empresa = minha parte x 3.",
   "kpis": {
     "total_investido": 320791.2,
-    "valor_mercado": 335471.75,
-    "valuation_empresa": 1006415.25,
+    "valor_mercado": 343184.7,
+    "valuation_empresa": 1029554.11,
     "participacao_pct": 33.3333,
-    "rendimento": 14680.55,
-    "rentabilidade_pct": 4.5764,
+    "rendimento": 22393.5,
+    "rentabilidade_pct": 6.9807,
     "ultimo_mes": "2026-05"
   },
   "por_mes": [
@@ -29,197 +29,197 @@
       "mes": "2024-02",
       "aportes_mes": 0,
       "aportes_acum": 50000.0,
-      "vm_minha_parte": 50200.0,
-      "valuation_empresa": 150600.0
+      "vm_minha_parte": 50300.0,
+      "valuation_empresa": 150900.0
     },
     {
       "mes": "2024-03",
       "aportes_mes": 0,
       "aportes_acum": 50000.0,
-      "vm_minha_parte": 50400.8,
-      "valuation_empresa": 151202.4
+      "vm_minha_parte": 50601.8,
+      "valuation_empresa": 151805.4
     },
     {
       "mes": "2024-04",
       "aportes_mes": 0,
       "aportes_acum": 50000.0,
-      "vm_minha_parte": 50602.4,
-      "valuation_empresa": 151807.21
+      "vm_minha_parte": 50905.41,
+      "valuation_empresa": 152716.23
     },
     {
       "mes": "2024-05",
       "aportes_mes": 0,
       "aportes_acum": 50000.0,
-      "vm_minha_parte": 50804.81,
-      "valuation_empresa": 152414.44
+      "vm_minha_parte": 51210.84,
+      "valuation_empresa": 153632.53
     },
     {
       "mes": "2024-06",
       "aportes_mes": 0,
       "aportes_acum": 50000.0,
-      "vm_minha_parte": 51008.03,
-      "valuation_empresa": 153024.1
+      "vm_minha_parte": 51518.11,
+      "valuation_empresa": 154554.32
     },
     {
       "mes": "2024-07",
       "aportes_mes": 0,
       "aportes_acum": 50000.0,
-      "vm_minha_parte": 51212.06,
-      "valuation_empresa": 153636.19
+      "vm_minha_parte": 51827.22,
+      "valuation_empresa": 155481.65
     },
     {
       "mes": "2024-08",
       "aportes_mes": 0,
       "aportes_acum": 50000.0,
-      "vm_minha_parte": 51416.91,
-      "valuation_empresa": 154250.74
+      "vm_minha_parte": 52138.18,
+      "valuation_empresa": 156414.54
     },
     {
       "mes": "2024-09",
       "aportes_mes": 4000.0,
       "aportes_acum": 54000.0,
-      "vm_minha_parte": 55622.58,
-      "valuation_empresa": 166867.74
+      "vm_minha_parte": 56451.01,
+      "valuation_empresa": 169353.03
     },
     {
       "mes": "2024-10",
       "aportes_mes": 2000.0,
       "aportes_acum": 56000.0,
-      "vm_minha_parte": 57845.07,
-      "valuation_empresa": 173535.21
+      "vm_minha_parte": 58789.72,
+      "valuation_empresa": 176369.15
     },
     {
       "mes": "2024-11",
       "aportes_mes": 2000.0,
       "aportes_acum": 58000.0,
-      "vm_minha_parte": 60068.45,
-      "valuation_empresa": 180205.35
+      "vm_minha_parte": 61130.45,
+      "valuation_empresa": 183391.36
     },
     {
       "mes": "2024-12",
       "aportes_mes": 8666.67,
       "aportes_acum": 66666.67,
-      "vm_minha_parte": 68967.39,
-      "valuation_empresa": 206902.18
+      "vm_minha_parte": 70151.91,
+      "valuation_empresa": 210455.72
     },
     {
       "mes": "2025-01",
       "aportes_mes": 6666.66,
       "aportes_acum": 73333.33,
-      "vm_minha_parte": 75875.26,
-      "valuation_empresa": 227625.77
+      "vm_minha_parte": 77187.48,
+      "valuation_empresa": 231562.43
     },
     {
       "mes": "2025-02",
       "aportes_mes": 0,
       "aportes_acum": 73333.33,
-      "vm_minha_parte": 76152.09,
-      "valuation_empresa": 228456.28
+      "vm_minha_parte": 77610.6,
+      "valuation_empresa": 232831.81
     },
     {
       "mes": "2025-03",
       "aportes_mes": 23333.33,
       "aportes_acum": 96666.66,
-      "vm_minha_parte": 99790.03,
-      "valuation_empresa": 299370.09
+      "vm_minha_parte": 101409.6,
+      "valuation_empresa": 304228.79
     },
     {
       "mes": "2025-04",
       "aportes_mes": 3000.0,
       "aportes_acum": 99666.66,
-      "vm_minha_parte": 103095.86,
-      "valuation_empresa": 309287.57
+      "vm_minha_parte": 104878.05,
+      "valuation_empresa": 314634.16
     },
     {
       "mes": "2025-05",
       "aportes_mes": 30966.68,
       "aportes_acum": 130633.34,
-      "vm_minha_parte": 134462.92,
-      "valuation_empresa": 403388.76
+      "vm_minha_parte": 136456.0,
+      "valuation_empresa": 409368.01
     },
     {
       "mes": "2025-06",
       "aportes_mes": 25763.36,
       "aportes_acum": 156396.7,
-      "vm_minha_parte": 160640.27,
-      "valuation_empresa": 481920.8
+      "vm_minha_parte": 162852.3,
+      "valuation_empresa": 488556.89
     },
     {
       "mes": "2025-07",
       "aportes_mes": 18427.43,
       "aportes_acum": 174824.13,
-      "vm_minha_parte": 179607.2,
-      "valuation_empresa": 538821.61
+      "vm_minha_parte": 182102.26,
+      "valuation_empresa": 546306.79
     },
     {
       "mes": "2025-08",
       "aportes_mes": 11771.58,
       "aportes_acum": 186595.71,
-      "vm_minha_parte": 192023.5,
-      "valuation_empresa": 576070.51
+      "vm_minha_parte": 194855.89,
+      "valuation_empresa": 584567.67
     },
     {
       "mes": "2025-09",
       "aportes_mes": 11773.63,
       "aportes_acum": 198369.34,
-      "vm_minha_parte": 204518.14,
-      "valuation_empresa": 613554.42
+      "vm_minha_parte": 207728.03,
+      "valuation_empresa": 623184.08
     },
     {
       "mes": "2025-10",
       "aportes_mes": 21772.14,
       "aportes_acum": 220141.48,
-      "vm_minha_parte": 227061.26,
-      "valuation_empresa": 681183.77
+      "vm_minha_parte": 230675.89,
+      "valuation_empresa": 692027.68
     },
     {
       "mes": "2025-11",
       "aportes_mes": 31771.2,
       "aportes_acum": 251912.68,
-      "vm_minha_parte": 259653.61,
-      "valuation_empresa": 778960.84
+      "vm_minha_parte": 263700.52,
+      "valuation_empresa": 791101.55
     },
     {
       "mes": "2025-12",
       "aportes_mes": 31771.5,
       "aportes_acum": 283684.18,
-      "vm_minha_parte": 292336.64,
-      "valuation_empresa": 877009.93
+      "vm_minha_parte": 296863.59,
+      "valuation_empresa": 890590.77
     },
     {
       "mes": "2026-01",
       "aportes_mes": 16771.04,
       "aportes_acum": 300455.22,
-      "vm_minha_parte": 310149.94,
-      "valuation_empresa": 930449.83
+      "vm_minha_parte": 315225.18,
+      "valuation_empresa": 945675.55
     },
     {
       "mes": "2026-02",
       "aportes_mes": 1793.59,
       "aportes_acum": 302248.81,
-      "vm_minha_parte": 313117.05,
-      "valuation_empresa": 939351.15
+      "vm_minha_parte": 318809.5,
+      "valuation_empresa": 956428.5
     },
     {
       "mes": "2026-03",
       "aportes_mes": 11772.24,
       "aportes_acum": 314021.05,
-      "vm_minha_parte": 326134.58,
-      "valuation_empresa": 978403.75
+      "vm_minha_parte": 332483.83,
+      "valuation_empresa": 997451.5
     },
     {
       "mes": "2026-04",
       "aportes_mes": 6770.15,
       "aportes_acum": 320791.2,
-      "vm_minha_parte": 334162.18,
-      "valuation_empresa": 1002486.55
+      "vm_minha_parte": 341178.25,
+      "valuation_empresa": 1023534.76
     },
     {
       "mes": "2026-05",
       "aportes_mes": 0,
       "aportes_acum": 320791.2,
-      "vm_minha_parte": 335471.75,
-      "valuation_empresa": 1006415.25
+      "vm_minha_parte": 343184.7,
+      "valuation_empresa": 1029554.11
     }
   ],
   "por_aporte": [
@@ -227,162 +227,162 @@
       "data": "2023-12-30",
       "valor_aportado": 50000.0,
       "meses_desde": 28,
-      "valor_corrigido": 55913.15,
-      "rendimento": 5913.15
+      "valor_corrigido": 59117.15,
+      "rendimento": 9117.15
     },
     {
       "data": "2024-09-01",
       "valor_aportado": 4000.0,
       "meses_desde": 20,
-      "valor_corrigido": 4332.46,
-      "rendimento": 332.46
+      "valor_corrigido": 4508.37,
+      "rendimento": 508.37
     },
     {
       "data": "2024-10-30",
       "valor_aportado": 2000.0,
       "meses_desde": 18,
-      "valor_corrigido": 2149.0,
-      "rendimento": 149.0
+      "valor_corrigido": 2227.38,
+      "rendimento": 227.38
     },
     {
       "data": "2024-11-30",
       "valor_aportado": 2000.0,
       "meses_desde": 17,
-      "valor_corrigido": 2140.44,
-      "rendimento": 140.44
+      "valor_corrigido": 2214.09,
+      "rendimento": 214.09
     },
     {
       "data": "2024-12-24",
       "valor_aportado": 6666.67,
       "meses_desde": 16,
-      "valor_corrigido": 7106.38,
-      "rendimento": 439.71
+      "valor_corrigido": 7336.29,
+      "rendimento": 669.62
     },
     {
       "data": "2024-12-24",
       "valor_aportado": 2000.0,
       "meses_desde": 16,
-      "valor_corrigido": 2131.91,
-      "rendimento": 131.91
+      "valor_corrigido": 2200.89,
+      "rendimento": 200.89
     },
     {
       "data": "2025-01-30",
       "valor_aportado": 6666.66,
       "meses_desde": 15,
-      "valor_corrigido": 7078.06,
-      "rendimento": 411.4
+      "valor_corrigido": 7292.53,
+      "rendimento": 625.87
     },
     {
       "data": "2025-03-30",
       "valor_aportado": 23333.33,
       "meses_desde": 13,
-      "valor_corrigido": 24576.21,
-      "rendimento": 1242.88
+      "valor_corrigido": 25220.31,
+      "rendimento": 1886.98
     },
     {
       "data": "2025-04-07",
       "valor_aportado": 3000.0,
       "meses_desde": 12,
-      "valor_corrigido": 3147.21,
-      "rendimento": 147.21
+      "valor_corrigido": 3223.27,
+      "rendimento": 223.27
     },
     {
       "data": "2025-05-08",
       "valor_aportado": 25000.0,
       "meses_desde": 11,
-      "valor_corrigido": 26122.27,
-      "rendimento": 1122.27
+      "valor_corrigido": 26700.4,
+      "rendimento": 1700.4
     },
     {
       "data": "2025-05-08",
       "valor_aportado": 4251.6,
       "meses_desde": 11,
-      "valor_corrigido": 4442.46,
-      "rendimento": 190.86
+      "valor_corrigido": 4540.78,
+      "rendimento": 289.18
     },
     {
       "data": "2025-05-26",
       "valor_aportado": 1715.08,
       "meses_desde": 11,
-      "valor_corrigido": 1792.07,
-      "rendimento": 76.99
+      "valor_corrigido": 1831.73,
+      "rendimento": 116.65
     },
     {
       "data": "2025-06-10",
       "valor_aportado": 430.03,
       "meses_desde": 10,
-      "valor_corrigido": 447.54,
-      "rendimento": 17.51
+      "valor_corrigido": 456.54,
+      "rendimento": 26.51
     },
     {
       "data": "2025-06-26",
       "valor_aportado": 25333.33,
       "meses_desde": 10,
-      "valor_corrigido": 26365.1,
-      "rendimento": 1031.77
+      "valor_corrigido": 26895.03,
+      "rendimento": 1561.7
     },
     {
       "data": "2025-07-30",
       "valor_aportado": 18427.43,
       "meses_desde": 9,
-      "valor_corrigido": 19101.53,
-      "rendimento": 674.1
+      "valor_corrigido": 19446.73,
+      "rendimento": 1019.3
     },
     {
       "data": "2025-08-30",
       "valor_aportado": 11771.58,
       "meses_desde": 8,
-      "valor_corrigido": 12153.59,
-      "rendimento": 382.01
+      "valor_corrigido": 12348.63,
+      "rendimento": 577.05
     },
     {
       "data": "2025-09-30",
       "valor_aportado": 11773.63,
       "meses_desde": 7,
-      "valor_corrigido": 12107.27,
-      "rendimento": 333.64
+      "valor_corrigido": 12277.11,
+      "rendimento": 503.48
     },
     {
       "data": "2025-10-31",
       "valor_aportado": 21772.14,
       "meses_desde": 6,
-      "valor_corrigido": 22299.92,
-      "rendimento": 527.78
+      "valor_corrigido": 22567.79,
+      "rendimento": 795.65
     },
     {
       "data": "2025-11-30",
       "valor_aportado": 31771.2,
       "meses_desde": 5,
-      "valor_corrigido": 32411.73,
-      "rendimento": 640.53
+      "valor_corrigido": 32735.84,
+      "rendimento": 964.64
     },
     {
       "data": "2025-12-30",
       "valor_aportado": 31771.5,
       "meses_desde": 4,
-      "valor_corrigido": 32282.9,
-      "rendimento": 511.4
+      "valor_corrigido": 32540.91,
+      "rendimento": 769.41
     },
     {
       "data": "2026-01-31",
       "valor_aportado": 16771.04,
       "meses_desde": 3,
-      "valor_corrigido": 16973.1,
-      "rendimento": 202.06
+      "valor_corrigido": 17074.73,
+      "rendimento": 303.69
     },
     {
       "data": "2026-02-28",
       "valor_aportado": 1793.59,
       "meses_desde": 2,
-      "valor_corrigido": 1807.97,
-      "rendimento": 14.38
+      "valor_corrigido": 1815.18,
+      "rendimento": 21.59
     },
     {
       "data": "2026-03-31",
       "valor_aportado": 11772.24,
       "meses_desde": 1,
-      "valor_corrigido": 11819.33,
-      "rendimento": 47.09
+      "valor_corrigido": 11842.87,
+      "rendimento": 70.63
     },
     {
       "data": "2026-04-30",
