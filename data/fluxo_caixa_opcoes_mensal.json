@@ -1,6 +1,6 @@
 {
   "versao": "1.1",
-  "data_geracao": "2026-05-07 04:15:46",
+  "data_geracao": "2026-05-08 04:15:56",
   "descricao": "Fluxo de caixa mensal de operações de opções (BR + US + Cripto)",
   "observacao": "Valores positivos = entrada de caixa, valores negativos = saída de caixa. Cripto = ETFs IBIT e ETHA",
   "totais": {
