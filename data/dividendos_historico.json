@@ -1,6 +1,6 @@
 {
   "versao": "2026.2.27b",
-  "data_atualizacao": "2026-04-03",
+  "data_atualizacao": "2026-05-09",
   "descricao": "Historico de dividendos, JCP e rendimentos de ativos financeiros",
   "movimentacoes": [
     {
@@ -20139,6 +20139,312 @@
       "preco_unitario": 0.0,
       "quantidade": 0.0,
       "obs": "reembolso BTC"
+    },
+    {
+      "ativo": "BBDC4",
+      "data": "2026-04-01",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 37.57,
+      "preco_unitario": 0.015654,
+      "quantidade": 2400.0,
+      "obs": "JCP XP"
+    },
+    {
+      "ativo": "ITUB4",
+      "data": "2026-04-01",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 21.61,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "obs": "CREDITO DE REEMBOLSO DE EVENTO BRITUBACNPR1; classificado online como JCP pago em 2026-04-01"
+    },
+    {
+      "ativo": "ABEV3_2025.12.19",
+      "data": "2026-04-06",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 89.26,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "obs": "CREDITO DE REEMBOLSO DE EVENTO BRABEVACNOR1; classificado online como JCP pago em 2026-04-06"
+    },
+    {
+      "ativo": "RDOR3",
+      "data": "2026-04-07",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 131.3,
+      "preco_unitario": 0.1313,
+      "quantidade": 1000.0,
+      "obs": "JCP XP"
+    },
+    {
+      "ativo": "GARE11",
+      "data": "2026-04-08",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 167.07,
+      "preco_unitario": 0.083,
+      "quantidade": 2013.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "PVBI11",
+      "data": "2026-04-08",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 84.8,
+      "preco_unitario": 0.4,
+      "quantidade": 212.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "PSSA3",
+      "data": "2026-04-10",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 220.7,
+      "preco_unitario": 0.367833,
+      "quantidade": 600.0,
+      "obs": "JCP XP"
+    },
+    {
+      "ativo": "PSSA3",
+      "data": "2026-04-10",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 246.44,
+      "preco_unitario": 0.410733,
+      "quantidade": 600.0,
+      "obs": "JCP XP"
+    },
+    {
+      "ativo": "PSSA3",
+      "data": "2026-04-10",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 272.24,
+      "preco_unitario": 0.453733,
+      "quantidade": 600.0,
+      "obs": "JCP XP"
+    },
+    {
+      "ativo": "PSSA3",
+      "data": "2026-04-10",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 274.18,
+      "preco_unitario": 0.456967,
+      "quantidade": 600.0,
+      "obs": "JCP XP"
+    },
+    {
+      "ativo": "KNUQ11",
+      "data": "2026-04-13",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 193.2,
+      "preco_unitario": 1.2,
+      "quantidade": 161.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "VIVT3",
+      "data": "2026-04-14",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 372.84,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "obs": "CREDITO DE REEMBOLSO DE EVENTO BRVIVTACNOR0; classificado online como JCP pago em 2026-04-14"
+    },
+    {
+      "ativo": "VIVT3",
+      "data": "2026-04-14",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 44.08,
+      "preco_unitario": 0.125943,
+      "quantidade": 350.0,
+      "obs": "JCP XP"
+    },
+    {
+      "ativo": "VIVT3",
+      "data": "2026-04-14",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 33.69,
+      "preco_unitario": 0.052641,
+      "quantidade": 640.0,
+      "obs": "JCP XP"
+    },
+    {
+      "ativo": "VIVT3",
+      "data": "2026-04-14",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 29.09,
+      "preco_unitario": 0.090342,
+      "quantidade": 322.0,
+      "obs": "JCP XP"
+    },
+    {
+      "ativo": "VIVT3",
+      "data": "2026-04-14",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 35.56,
+      "preco_unitario": 0.093089,
+      "quantidade": 382.0,
+      "obs": "JCP XP"
+    },
+    {
+      "ativo": "BRCO11",
+      "data": "2026-04-15",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 134.32,
+      "preco_unitario": 0.92,
+      "quantidade": 146.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "FATN11",
+      "data": "2026-04-15",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 172.0,
+      "preco_unitario": 0.8,
+      "quantidade": 215.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "HGLG11",
+      "data": "2026-04-15",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 135.3,
+      "preco_unitario": 1.1,
+      "quantidade": 123.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "HGRU11",
+      "data": "2026-04-15",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 146.3,
+      "preco_unitario": 0.95,
+      "quantidade": 154.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "KNRI11",
+      "data": "2026-04-15",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 124.3,
+      "preco_unitario": 1.1,
+      "quantidade": 113.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "PMLL11",
+      "data": "2026-04-15",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 164.0,
+      "preco_unitario": 1.0,
+      "quantidade": 164.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "RECR11",
+      "data": "2026-04-15",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 218.06,
+      "preco_unitario": 1.03346,
+      "quantidade": 211.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "TGAR11",
+      "data": "2026-04-15",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 137.52,
+      "preco_unitario": 0.72,
+      "quantidade": 191.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "TRXF11",
+      "data": "2026-04-15",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 176.7,
+      "preco_unitario": 0.93,
+      "quantidade": 190.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "VISC11",
+      "data": "2026-04-15",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 132.72,
+      "preco_unitario": 0.84,
+      "quantidade": 158.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "VRTA11",
+      "data": "2026-04-15",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 205.7,
+      "preco_unitario": 0.85,
+      "quantidade": 242.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "XPLG11",
+      "data": "2026-04-15",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 132.84,
+      "preco_unitario": 0.82,
+      "quantidade": 162.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "RBRY11",
+      "data": "2026-04-17",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 189.74,
+      "preco_unitario": 1.06,
+      "quantidade": 179.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "MCCI11",
+      "data": "2026-04-20",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 193.0,
+      "preco_unitario": 1.0,
+      "quantidade": 193.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "VGIP11",
+      "data": "2026-04-20",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 155.49,
+      "preco_unitario": 0.73,
+      "quantidade": 213.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "BTLG11",
+      "data": "2026-04-24",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 154.71,
+      "preco_unitario": 0.81,
+      "quantidade": 191.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "XPML11",
+      "data": "2026-04-24",
+      "tipo": "PROVENTO_RENDIMENTO",
+      "valor_total": 145.36,
+      "preco_unitario": 0.92,
+      "quantidade": 158.0,
+      "obs": "rendimento FII XP"
+    },
+    {
+      "ativo": "BBDC4",
+      "data": "2026-04-30",
+      "tipo": "PROVENTO_JCP",
+      "valor_total": 303.11,
+      "preco_unitario": 0.252592,
+      "quantidade": 1200.0,
+      "obs": "JCP XP"
     }
   ]
 }

@@ -653,8 +653,8 @@
       },
       {
         "ano": 2026,
-        "aporte_real": 53107.62,
-        "dividendos": 14997.41,
+        "aporte_real": 47832.82,
+        "dividendos": 20272.21,
         "total": 68105.03
       }
     ],
@@ -809,8 +809,8 @@
         },
         {
           "ano": 2026,
-          "aporte_real": 29347.74,
-          "dividendos": 2764.54
+          "aporte_real": 28385.75,
+          "dividendos": 3726.53
         }
       ],
       "3_acoes_brasil": [
@@ -886,8 +886,8 @@
         },
         {
           "ano": 2026,
-          "aporte_real": -3739.07,
-          "dividendos": 3739.07
+          "aporte_real": -5850.74,
+          "dividendos": 5850.74
         }
       ],
       "4_ativos_reais": [
@@ -963,8 +963,8 @@
         },
         {
           "ano": 2026,
-          "aporte_real": -6743.39,
-          "dividendos": 6743.39
+          "aporte_real": -8944.53,
+          "dividendos": 8944.53
         }
       ],
       "5_internacional": [
@@ -1364,8 +1364,8 @@
       {
         "ano": 2026,
         "valorizacao": -21202.56,
-        "dividendos": 14997.41,
-        "total": -6205.15
+        "dividendos": 20272.21,
+        "total": -930.35
       }
     ],
     "rentabilidade_pct": [
@@ -1497,7 +1497,7 @@
       },
       {
         "ano": 2026,
-        "sem_dividendos": -1.54,
+        "sem_dividendos": -1.77,
         "com_dividendos": -0.9,
         "cdi": 12.0,
         "ifix": 5.0,
@@ -1656,7 +1656,7 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": 1.52,
+          "sem_dividendos": 1.34,
           "com_dividendos": 2.02
         }
       ],
@@ -1733,7 +1733,7 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": 4.66,
+          "sem_dividendos": 4.19,
           "com_dividendos": 5.5
         }
       ],
@@ -1810,7 +1810,7 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": -4.78,
+          "sem_dividendos": -5.6,
           "com_dividendos": -2.28
         }
       ],
@@ -9402,8 +9402,8 @@
       },
       {
         "mes": "2026-04",
-        "aporte_real": 8646.35,
-        "dividendos": 0.0,
+        "aporte_real": 3371.55,
+        "dividendos": 5274.8,
         "total": 8646.35
       },
       {
@@ -11483,8 +11483,8 @@
         },
         {
           "mes": "2026-04",
-          "aporte_real": 0.0,
-          "dividendos": 0.0,
+          "aporte_real": -961.99,
+          "dividendos": 961.99,
           "total": 0.0
         },
         {
@@ -12523,8 +12523,8 @@
         },
         {
           "mes": "2026-04",
-          "aporte_real": 0.0,
-          "dividendos": 0.0,
+          "aporte_real": -2111.67,
+          "dividendos": 2111.67,
           "total": 0.0
         },
         {
@@ -13563,8 +13563,8 @@
         },
         {
           "mes": "2026-04",
-          "aporte_real": 0.0,
-          "dividendos": 0.0,
+          "aporte_real": -2201.14,
+          "dividendos": 2201.14,
           "total": 0.0
         },
         {
@@ -18765,8 +18765,8 @@
       {
         "mes": "2026-04",
         "valorizacao": 46470.5,
-        "dividendos": 0.0,
-        "total": 46470.5
+        "dividendos": 5274.8,
+        "total": 51745.3
       },
       {
         "mes": "2026-05",
@@ -20846,8 +20846,8 @@
         {
           "mes": "2026-04",
           "valorizacao": 673.13,
-          "dividendos": 0.0,
-          "total": 673.13
+          "dividendos": 961.99,
+          "total": 1635.12
         },
         {
           "mes": "2026-05",
@@ -21886,8 +21886,8 @@
         {
           "mes": "2026-04",
           "valorizacao": 6274.57,
-          "dividendos": 0.0,
-          "total": 6274.57
+          "dividendos": 2111.67,
+          "total": 8386.24
         },
         {
           "mes": "2026-05",
@@ -22926,8 +22926,8 @@
         {
           "mes": "2026-04",
           "valorizacao": 1303.97,
-          "dividendos": 0.0,
-          "total": 1303.97
+          "dividendos": 2201.14,
+          "total": 3505.11
         },
         {
           "mes": "2026-05",
@@ -27505,5 +27505,5 @@
       "categoria": "1_renda_fixa_soberana"
     }
   ],
-  "last_update": "2026-05-09 04:11"
+  "last_update": "2026-05-09 04:54"
 }
