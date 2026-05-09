@@ -653,8 +653,8 @@
       },
       {
         "ano": 2026,
-        "aporte_real": 47832.82,
-        "dividendos": 20272.21,
+        "aporte_real": 47053.01,
+        "dividendos": 21052.02,
         "total": 68105.03
       }
     ],
@@ -1040,8 +1040,8 @@
         },
         {
           "ano": 2026,
-          "aporte_real": -1750.41,
-          "dividendos": 1750.41
+          "aporte_real": -2530.22,
+          "dividendos": 2530.22
         }
       ],
       "6_criptoativos": [
@@ -1364,8 +1364,8 @@
       {
         "ano": 2026,
         "valorizacao": -21202.56,
-        "dividendos": 20272.21,
-        "total": -930.35
+        "dividendos": 21052.02,
+        "total": -150.54
       }
     ],
     "rentabilidade_pct": [
@@ -1497,7 +1497,7 @@
       },
       {
         "ano": 2026,
-        "sem_dividendos": -1.77,
+        "sem_dividendos": -1.8,
         "com_dividendos": -0.9,
         "cdi": 12.0,
         "ifix": 5.0,
@@ -1887,7 +1887,7 @@
         },
         {
           "ano": 2026,
-          "sem_dividendos": -5.22,
+          "sem_dividendos": -5.38,
           "com_dividendos": -4.88
         }
       ],
@@ -9402,8 +9402,8 @@
       },
       {
         "mes": "2026-04",
-        "aporte_real": 3371.55,
-        "dividendos": 5274.8,
+        "aporte_real": 2591.74,
+        "dividendos": 6054.61,
         "total": 8646.35
       },
       {
@@ -14603,8 +14603,8 @@
         },
         {
           "mes": "2026-04",
-          "aporte_real": 0.0,
-          "dividendos": 0.0,
+          "aporte_real": -779.81,
+          "dividendos": 779.81,
           "total": 0.0
         },
         {
@@ -18765,8 +18765,8 @@
       {
         "mes": "2026-04",
         "valorizacao": 46470.5,
-        "dividendos": 5274.8,
-        "total": 51745.3
+        "dividendos": 6054.61,
+        "total": 52525.11
       },
       {
         "mes": "2026-05",
@@ -23966,8 +23966,8 @@
         {
           "mes": "2026-04",
           "valorizacao": 25293.76,
-          "dividendos": 0.0,
-          "total": 25293.76
+          "dividendos": 779.81,
+          "total": 26073.57
         },
         {
           "mes": "2026-05",
@@ -27505,5 +27505,5 @@
       "categoria": "1_renda_fixa_soberana"
     }
   ],
-  "last_update": "2026-05-09 04:54"
+  "last_update": "2026-05-09 19:45"
 }

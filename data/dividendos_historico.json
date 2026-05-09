@@ -20445,6 +20445,32 @@
       "preco_unitario": 0.252592,
       "quantidade": 1200.0,
       "obs": "JCP XP"
+    },
+    {
+      "ativo": "SGOV",
+      "data": "2026-04-07",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 152.29,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "valor_usd": 29.5,
+      "valor_bruto_usd": 42.15,
+      "wht_usd": -12.65,
+      "cotacao_usd_brl": 5.1625,
+      "obs": "ISHARES TRUST no extrato; classificado como SGOV"
+    },
+    {
+      "ativo": "SPY",
+      "data": "2026-04-30",
+      "tipo": "PROVENTO_DIVIDENDO",
+      "valor_total": 627.52,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0,
+      "valor_usd": 125.79,
+      "valor_bruto_usd": 179.7,
+      "wht_usd": -53.91,
+      "cotacao_usd_brl": 4.9886,
+      "obs": "STATE STREET SPDR S&P 500 ETF"
     }
   ]
 }
