@@ -1,40 +1,40 @@
 {
-  "versao": "2026.5.03",
-  "generated_at": "2026-05-03T18:00:00-03:00",
-  "week_of": "2026-05-04",
-  "summary": "Leitura semanal com confiança moderada. O ambiente segue mais favorável a execução seletiva do que a venda coberta agressiva: EUA ficam em amarelo, enquanto Brasil e Cripto continuam em vermelho por risco de upside cap e prêmio insuficiente para o regime.",
+  "versao": "2026.5.10",
+  "generated_at": "2026-05-10T18:00:00-03:00",
+  "week_of": "2026-05-11",
+  "summary": "Leitura semanal com confiança moderada. Brasil melhora para execução seletiva por correção recente e volatilidade ainda presente; EUA e Cripto seguem desfavoráveis para covered calls agressivas, porque o upside continua caro de ceder frente ao prêmio disponível e ao calendário da semana.",
   "markets": {
     "brasil": {
       "name": "Brasil",
-      "status": "red",
-      "score": 5,
-      "objective": "Ambiente ainda ruim para novas covered calls de rotina, porque o Ibovespa voltou a renovar força e o prêmio disponível não compensa bem abrir mão do upside nesta semana.",
+      "status": "yellow",
+      "score": 6,
+      "objective": "Ambiente aceitável apenas para venda coberta seletiva, com mercado local menos acelerado e volatilidade utilizável, mas ainda com macro frágil e risco de falsa lateralização.",
       "indicators": [
-        "Ibovespa fechou a semana útil em alta forte e perto de máximas, com feriado reduzindo a leitura de fluxo",
-        "Volatilidade local segue utilizável, mas sem prêmio gordo claro para compensar o risco de breakout",
-        "Liquidez de opções permanece concentrada nos nomes mais negociados, exigindo execução seletiva"
+        "Ibovespa corrigiu na semana e perdeu suporte curto após máxima recente, reduzindo o risco imediato de breakout forte",
+        "Volatilidade implícita local segue elevada o bastante para gerar prêmio, mas com stress macro acima do normal",
+        "Liquidez continua concentrada nos vencimentos e nomes principais, exigindo execução disciplinada"
       ]
     },
     "eua": {
       "name": "Estados Unidos",
-      "status": "yellow",
-      "score": 6,
-      "objective": "Ambiente aceitável apenas para venda coberta seletiva, com liquidez excelente, mas VIX mais baixo e índices em recordes reduzem a atratividade do prêmio versus upside cedido.",
+      "status": "red",
+      "score": 5,
+      "objective": "Ambiente ruim para covered calls de rotina, porque S&P 500 e Nasdaq seguem em máximas com momentum forte e VIX baixo, deixando assimetria desfavorável para abrir mão do upside.",
       "indicators": [
-        "S&P 500 e Nasdaq renovaram máximas após earnings fortes, impedindo leitura verde",
-        "VIX caiu para a faixa de 16-17, sinalizando menos extrínseco do que nas semanas anteriores",
-        "Calendário ainda tem balanços relevantes e Fed sem alívio claro, mantendo risco direcional"
+        "S&P 500 e Nasdaq encerraram a semana em recordes, com Nasdaq sobrecomprado e tendência ainda acelerada",
+        "VIX perto de 17 indica prêmio moderado, não um colchão claro para vender upside em índices fortes",
+        "Semana tem CPI, PPI, varejo e evento geopolítico EUA-China, elevando risco de repricing direcional"
       ]
     },
     "cripto": {
       "name": "Cripto",
       "status": "red",
       "score": 4,
-      "objective": "Ambiente desfavorável para covered calls recorrentes, porque Bitcoin segue sustentado por fluxo em ETFs enquanto a IV caiu, deixando o prêmio menos atraente para travar upside.",
+      "objective": "Ambiente desfavorável para venda coberta recorrente, com Bitcoin sustentado por fluxo em ETFs e IV de BTC baixa para o tamanho do gap risk de fim de semana.",
       "indicators": [
-        "Bitcoin segue na faixa de 78-79 mil dólares após abril forte e novos fluxos para ETFs spot",
-        "IV de BTC caiu para abaixo de 40% e ETH recuou para abaixo de 50% no curto prazo",
-        "Gap risk de fim de semana e repricing rápido continuam altos frente ao prêmio atual"
+        "Bitcoin segue acima de 80 mil dólares com fluxo institucional ainda relevante em ETFs spot",
+        "IV de BTC está baixa para padrões cripto, enquanto ETH mantém volatilidade maior e menos previsível",
+        "Risco regulatório, gap 24/7 e movimentos rápidos continuam altos frente ao prêmio disponível"
       ]
     }
   }
