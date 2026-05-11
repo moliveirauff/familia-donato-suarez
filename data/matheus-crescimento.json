@@ -3,7 +3,7 @@
     "nome": "Matheus",
     "sexo": "masculino",
     "data_nascimento": "2025-09-18",
-    "ultima_atualizacao": "2026-03-31T09:00:00Z"
+    "ultima_atualizacao": "2026-05-11T18:26:51Z"
   },
   "medicoes": [
     {
@@ -117,6 +117,13 @@
       "peso_kg": 7.98,
       "altura_cm": 70.0,
       "observacoes": "Consulta Dra. Alana + Dr. Junqueira (mesmo dia)"
+    },
+    {
+      "data": "2026-05-04",
+      "idade_meses": 7.53,
+      "peso_kg": 8.56,
+      "altura_cm": 71.5,
+      "observacoes": "Consulta Dra. Alana; altura corrigida por Mauricio em 11/05/2026 para 71,5cm."
     }
   ]
 }

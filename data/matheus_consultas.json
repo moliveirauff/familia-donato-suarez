@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "1.0",
-    "last_updated": "2026-04-26T15:26:00",
-    "total_consultas": 7
+    "last_updated": "2026-05-11T15:28",
+    "total_consultas": 8
   },
   "consultas": [
     {
@@ -1001,6 +1001,229 @@
         "encaminhado_para": "Dra. Alana Kohn"
       },
       "transcript_source": "Laudo escrito/fotografado revisado manualmente; DOCX automático mantido apenas como bruto auxiliar devido à baixa inteligibilidade."
+    },
+    {
+      "identificacao": {
+        "data": "2026-05-04",
+        "especialidade": "Pediatria",
+        "medico": "Dra. Alana Benevides Kohn",
+        "crm": "52.86364-0",
+        "local": "Consultório Dra. Alana"
+      },
+      "snapshot_matheus": {
+        "idade_texto": "7 meses e 16 dias (cronológico)",
+        "idade_corrigida_texto": "~6 meses corrigidos (prematuro 33 semanas)",
+        "peso_kg": 8.56,
+        "altura_cm": 71.5,
+        "perimetro_cefalico_cm": null,
+        "observacao": "Peso medido na consulta: 8,560 kg. Altura corrigida por Mauricio em 11/05/2026: 71,5 cm. Ganho ponderal considerado muito bom pela pediatra."
+      },
+      "motivo": "Puericultura/retorno com foco em sono muito fragmentado, transição de fórmula, introdução alimentar, dermatite/assadura persistente, crescimento, vacinas e desenvolvimento.",
+      "avaliacao": "Matheus em bom estado geral, crescimento excelente e curva confortável: peso subiu bem, IMC aumentou e comprimento manteve curva. Refluxo/golfadas raros após suspensão do esomeprazol. Transição de fórmula quase concluída e bem tolerada. Sono em fase crítica com muitos despertares, provavelmente associado a rotina/associação de sono e privação de sonecas; ferritina baixa ficou como hipótese secundária, mas exame de sangue foi adiado. Assadura persistente será tratada empiricamente como possível candidíase; umbigo/pele com dermatite leve e orelha/couro cabeludo compatíveis com dermatite seborreica externa. Introdução alimentar com engasgos/ânsia/vômitos por textura, mas sem pânico pela curva boa. Desenvolvimento motor e social evoluindo bem: senta sem apoio por períodos, pivoteia, desloca-se para trás, sustenta quatro apoios, interage mais e demonstra preferências.",
+      "diagnosticos": [
+        {
+          "nome": "Crescimento ponderoestatural",
+          "status": "excelente evolução; 8,560 kg na consulta"
+        },
+        {
+          "nome": "APLV / transição de fórmula",
+          "status": "transição Neocate → Pregomin Pepti quase 100%, bem tolerada"
+        },
+        {
+          "nome": "Refluxo gastroesofágico",
+          "status": "esomeprazol suspenso há cerca de 1 mês; golfadas raras e pequenas"
+        },
+        {
+          "nome": "Sono fragmentado",
+          "status": "despertares frequentes; manejo ambiental/rotina antes de exame de ferritina"
+        },
+        {
+          "nome": "Assadura persistente / possível candidíase",
+          "status": "tratamento empírico com Dermodex Tratamento por 14 dias"
+        },
+        {
+          "nome": "Dermatite seborreica externa",
+          "status": "orelha/couro cabeludo; manejo tópico e higiene local"
+        },
+        {
+          "nome": "Introdução alimentar com ânsia por textura",
+          "status": "manter almoço e ajustar consistência; sem pânico pela curva"
+        },
+        {
+          "nome": "Desenvolvimento neuropsicomotor",
+          "status": "boa evolução para idade corrigida"
+        },
+        {
+          "nome": "Pré-miopia",
+          "status": "acompanhar com oftalmologia; retorno em 1 ano conforme consulta anterior"
+        }
+      ],
+      "conduta": {
+        "medicamentos": [
+          {
+            "nome": "Growvit solução",
+            "dose": "6 gotas",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo até nova orientação",
+            "motivo": "Suplementação vitamínica"
+          },
+          {
+            "nome": "Dexfer 100 mg/mL",
+            "dose": "3 gotas",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo até nova orientação",
+            "motivo": "Suplementação de ferro; receita atual mudou para uso diário"
+          },
+          {
+            "nome": "Vitamina D 200 UI/gota",
+            "dose": "1 gota",
+            "frequencia": "1x/dia",
+            "duracao": "contínuo até nova orientação",
+            "motivo": "Suplementação de vitamina D"
+          },
+          {
+            "nome": "Dipirona 500 mg/mL",
+            "dose": "7 gotas",
+            "frequencia": "6/6h SOS",
+            "duracao": "se necessário",
+            "motivo": "Antitérmico/analgésico SOS conforme receita"
+          },
+          {
+            "nome": "Dermodex Tratamento",
+            "dose": "aplicar a cada troca de fralda",
+            "frequencia": "a cada troca",
+            "duracao": "14 dias",
+            "motivo": "Tratamento de assadura persistente/possível candidíase"
+          }
+        ],
+        "suspensos": [
+          {
+            "nome": "Esomeprazol",
+            "motivo": "Desmame concluído; já suspenso há cerca de 1 mês na consulta de 04/05"
+          }
+        ],
+        "dieta": {
+          "formula": "Pregomin Pepti em transição final; última dose de Neocate prevista para acabar na semana da consulta",
+          "preparo_atual_relatado": "150 ml de água + 5 medidas de fórmula + 1 medida de Neospoon, rendendo aproximadamente 180 ml",
+          "bico": "Bico maior/4+ relatado como melhor adaptado após resistência inicial; validar padrão operacional se necessário",
+          "regra_volume": "Quando raspar a mamadeira, pode preparar e oferecer mais 60 ml; Matheus pode mamar quanto quiser conforme fome",
+          "frequencia": "Não precisa mais rigidamente mamar de 3 em 3 horas; referência hospitalar seria 4/4h ou antes se pedir. Buscar pelo menos 3 mamadas/dia (manhã, tarde e noite), ajustando conforme comida e fome.",
+          "introducao_alimentar": {
+            "frutas": "Manter; boas aceitações relatadas com tangerina, laranja e manga. Banana/maçã menos aceitas.",
+            "almoco": "Manter mesmo com baixa aceitação; comeu, comeu; não comeu, tudo bem. Ajustar textura para bem homogênea temporariamente e depois progredir.",
+            "textura": "Evitar bater sempre para preservar fibra, mas pode triturar nesta fase para melhorar aceitação; depois misturar com porção bem amassada.",
+            "ovo": "Liberado bem cozido; pode oferecer ovo cozido amassado ou mexido bem passado, inclusive misturado com fruta se fizer sentido.",
+            "opcoes_prontas": [
+              "Jornada Mínima",
+              "Papai Que Fez"
+            ],
+            "agua": "Continuar treinando com copo preferido; água ainda em adaptação."
+          }
+        },
+        "sono": {
+          "hipoteses": [
+            "associação de sono/colo/presença dos pais",
+            "excesso de cansaço e sonecas insuficientes",
+            "ferritina baixa como hipótese secundária se não melhorar"
+          ],
+          "plano": [
+            "Tentar tirar Matheus do quarto dos pais e colocá-lo no quarto dele, idealmente em colchão/cama montessoriana no chão com entorno acolchoado/tapete/almofadas seguras.",
+            "Não atender cada resmungo; esperar choro real antes de intervir, sem deixar chorando sozinho por tempo prolongado.",
+            "Tentar mamada dos sonhos por volta de 21h-22h, com ele dormindo, oferecendo o que aceitar sem forçar.",
+            "Durante o dia, fazer sonecas em quarto escuro, ar-condicionado e ambiente de sono; se não dormir, manter 40 minutos de reset no escuro/ninando.",
+            "Priorizar que durma, mesmo no colo/conchinha, para reduzir privação de sono.",
+            "Passeio/estímulo externo: tentar 2 saídas/voltas no play por dia quando possível."
+          ],
+          "exame_sangue": "Segurar por enquanto; considerar ferritina/exames se as medidas ambientais não melhorarem o sono."
+        },
+        "pele": {
+          "assadura": "Dermodex Tratamento por 14 dias, substituindo as demais pomadas; se não melhorar, considerar dermatologista.",
+          "umbigo": "Hidratante frequente, idealmente a cada troca/fralda ou ~4x/dia; observar sem corticoide por enquanto.",
+          "orelha_couro_cabeludo": "Provável dermatite seborreica externa; usar creme/produto da crosta com cotonete na área externa da orelha e retomar cuidado da crosta láctea se necessário."
+        },
+        "vacinas": {
+          "covid": "Segunda dose mencionada para 18/05/2026 se disponível.",
+          "gripe": "Pedir/usar encaminhamento para tentar vacinação em clínica Rainbow; família prefere horário marcado.",
+          "pendencias": "Rotavírus: pendente por atraso da primeira dose; trata-se da segunda dose. Validado por Mauricio em 11/05/2026.",
+          "febre_amarela": "Prevista aos 9 meses; importante para viagem futura, com proteção esperada 15 dias após aplicação."
+        },
+        "desenvolvimento": {
+          "presentes": [
+            "Demonstra estranhamento/angústia de separação e preferências claras.",
+            "Interage com espelho e pessoas, vocaliza mais, mas ainda sem sílabas repetidas claras como dada/baba/mamá.",
+            "Acompanha objetos que caem e procura objetos no chão.",
+            "Senta sem apoio por períodos; pode ficar no tapete acolchoado com supervisão.",
+            "Pivotear bem, desloca-se para trás e sustenta posição de quatro apoios/força de pernas."
+          ],
+          "estimulos": [
+            "Treinar desvirar de barriga para cima no chão: dobrar perna de cima, esticar a de baixo e ajudar o giro.",
+            "Estimular quatro apoios e movimentação para frente.",
+            "Observar se percebe pequenos objetos/grãozinhos sobre a mesa."
+          ]
+        },
+        "seguranca_higiene": {
+          "casa": "Usar checklist de segurança domiciliar da SBP: telas, tomadas, escadas, proteção de risco de queda etc.",
+          "quedas": "Frente da cabeça é menos preocupante; manter ambiente acolchoado e evitar cama sem proteção.",
+          "maos": "Para sujeira relevante, álcool sem cheiro/spray ou lencinho de álcool apropriado para bebê; se ficar resíduo, enxaguar com água filtrada. Lenço umedecido pode tirar excesso."
+        },
+        "creche_baba": {
+          "creche": "Dra. Alana não recomendou creche agora pelo risco de ciclos frequentes de febre/doença, especialmente com sono ruim.",
+          "baba": "Continuar busca por babá; família precisa de ajuda para preservar sono/saúde materna."
+        },
+        "receita_04_05_2026": {
+          "fonte": "Imagens da receita enviadas por Mauricio em 11/05/2026",
+          "transcricao_file": "transcricoes/receita_alana_04-05-2026_transcricao.txt",
+          "itens": [
+            {
+              "nome": "Growvit solução",
+              "dose": "6 gotas",
+              "frequencia": "1x/dia",
+              "duracao": "contínuo até nova orientação",
+              "motivo": "Suplementação vitamínica"
+            },
+            {
+              "nome": "Dexfer 100 mg/mL",
+              "dose": "3 gotas",
+              "frequencia": "1x/dia",
+              "duracao": "contínuo até nova orientação",
+              "motivo": "Suplementação de ferro; receita atual mudou para uso diário"
+            },
+            {
+              "nome": "Vitamina D 200 UI/gota",
+              "dose": "1 gota",
+              "frequencia": "1x/dia",
+              "duracao": "contínuo até nova orientação",
+              "motivo": "Suplementação de vitamina D"
+            },
+            {
+              "nome": "Dipirona 500 mg/mL",
+              "dose": "7 gotas",
+              "frequencia": "6/6h SOS",
+              "duracao": "se necessário",
+              "motivo": "Antitérmico/analgésico SOS conforme receita"
+            },
+            {
+              "nome": "Dermodex Tratamento",
+              "dose": "aplicar a cada troca de fralda",
+              "frequencia": "a cada troca",
+              "duracao": "14 dias",
+              "motivo": "Tratamento de assadura persistente/possível candidíase"
+            }
+          ]
+        }
+      },
+      "proxima_consulta": {
+        "data_prevista": "2026-06-04",
+        "objetivo": "Retorno mensal com Dra. Alana para avaliar sono, pele/assadura, fórmula, alimentação, crescimento e vacinas."
+      },
+      "alertas": [
+        "⚠️ Dermodex Tratamento por 14 dias: se assadura não melhorar, considerar dermatologista.",
+        "⚠️ Sono muito fragmentado com risco de exaustão familiar; priorizar medidas de segurança no quarto e preservação do sono.",
+        "⚠️ Não forçar alimentação até vômito; ajustar textura e respeitar sinais de recusa.",
+        "⚠️ Rotavírus: segunda dose pendente porque a primeira atrasou."
+      ],
+      "notas_livres": "Consulta longa (~59 min de conteúdo clínico) em 04/05/2026, transcrição automática enviada em DOCX em 11/05/2026. Ponto central: Matheus está crescendo muito bem, o que permite conduzir sono/alimentação com menos pressão por volume. O problema mais urgente operacionalmente é o sono da família. A pele/assadura ganhou teste terapêutico específico por 14 dias. Correção Mauricio 11/05/2026: altura correta 71,5 cm; vacina pendente é rotavírus segunda dose, atrasada porque a primeira dose atrasou. Receita enviada em imagens em 11/05/2026 e consolidada no protocolo ativo: Growvit 6gt 1x/dia; Dexfer 100 mg/mL 3gt 1x/dia; Vitamina D 200 UI/gt 1gt 1x/dia; Dipirona 500 mg/mL 7gt 6/6h SOS; Dermodex Tratamento a cada troca por 14 dias.",
+      "transcript_file": "transcricoes/consulta_alana_04-05-2026_transcricao.txt"
     }
   ]
 }
