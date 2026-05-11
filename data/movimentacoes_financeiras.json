@@ -1,6 +1,6 @@
 {
   "versao": "2026.2.27",
-  "data_atualizacao": "2026-04-11",
+  "data_atualizacao": "2026-05-10",
   "movimentacoes": [
     {
       "ativo": "Sulamérica Previ_2019.02.21",
@@ -16073,6 +16073,38 @@
       "valor_total": 7898.1,
       "preco_unitario": 1.8384455,
       "quantidade": 4296.07513522
+    },
+    {
+      "ativo": "ETHA",
+      "data": "2026-04-24",
+      "tipo": "RETIRADA",
+      "valor_total": 8238.35,
+      "preco_unitario": 82.3835,
+      "quantidade": 100.0
+    },
+    {
+      "ativo": "IBIT",
+      "data": "2026-04-29",
+      "tipo": "APORTE (Reposição Assignment CALL 42.50)",
+      "valor_total": 3783.2,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "IBIT",
+      "data": "2026-04-29",
+      "tipo": "APORTE",
+      "valor_total": 16884.7,
+      "preco_unitario": 216.4705,
+      "quantidade": 78.0
+    },
+    {
+      "ativo": "Icatu Previ",
+      "data": "2026-04-30",
+      "tipo": "APORTE",
+      "valor_total": 7898.1,
+      "preco_unitario": 1.8598203,
+      "quantidade": 4246.70060866
     }
   ],
   "descricao": "Historico de aportes e retiradas (trades) de ativos financeiros"
