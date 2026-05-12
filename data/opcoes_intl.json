@@ -1,15 +1,15 @@
 {
   "versao": "2.3",
-  "data_atualizacao": "2026-04-14",
+  "data_atualizacao": "2026-05-12",
   "descricao": "Operações de opções US - taxa abertura (CSV) + $0,12 por 100 contratos fechamento",
   "estatisticas": {
-    "total_operacoes": 216,
-    "operacoes_fechadas": 208,
+    "total_operacoes": 217,
+    "operacoes_fechadas": 209,
     "operacoes_abertas": 8,
-    "resultado_total_realizado_usd": 6184.26,
+    "resultado_total_realizado_usd": 6009.01,
     "vitorias": 109,
-    "derrotas": 99,
-    "win_rate_percentual": 52.4
+    "derrotas": 100,
+    "win_rate_percentual": 52.2
   },
   "operacoes": [
     {
@@ -4075,14 +4075,14 @@
       "strike": 92.0,
       "quantidade": 100,
       "preco_opcao_abertura": 3.08,
-      "data_fechamento": null,
-      "preco_acao_fechamento": null,
-      "preco_opcao_fechamento": null,
+      "data_fechamento": "2026-05-11",
+      "preco_acao_fechamento": 96.69,
+      "preco_opcao_fechamento": 4.82,
       "taxas_abertura": 1.13,
-      "taxas_fechamento": null,
-      "taxas_total": 1.13,
-      "resultado": null,
-      "status": "aberta",
+      "taxas_fechamento": 0.12,
+      "taxas_total": 1.25,
+      "resultado": -175.25,
+      "status": "fechada",
       "spot_atual": 96.69,
       "bs_data_calculo": "2026-05-12",
       "preco_mercado": 4.82,
@@ -4352,6 +4352,30 @@
       "preco_mercado": 0.12,
       "iv_calculada": 0.577,
       "preco_teorico": 0.12
+    },
+    {
+      "ticker": "VNQ",
+      "data_operacao": "2026-05-11",
+      "preco_acao_na_operacao": 96.69,
+      "operacao": "Venda",
+      "tipo_contrato": "CALL",
+      "vencimento": "2026-06-18",
+      "strike": 92.0,
+      "quantidade": 100,
+      "preco_opcao_abertura": 5.6,
+      "data_fechamento": null,
+      "preco_acao_fechamento": null,
+      "preco_opcao_fechamento": null,
+      "taxas_abertura": 1.14,
+      "taxas_fechamento": null,
+      "taxas_total": 1.14,
+      "resultado": null,
+      "status": "aberta",
+      "spot_atual": 96.69,
+      "bs_data_calculo": "2026-05-12",
+      "preco_mercado": 5.6,
+      "iv_calculada": null,
+      "preco_teorico": null
     }
   ]
 }
