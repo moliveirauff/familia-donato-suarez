@@ -27102,12 +27102,12 @@
     {
       "categoria": "1_renda_fixa_soberana",
       "meta_rs": 117051.51,
-      "real_rs": 0.0
+      "real_rs": 1963.22
     },
     {
       "categoria": "2_credito_privado",
       "meta_rs": 351154.54,
-      "real_rs": 89242.2
+      "real_rs": 569069.83
     },
     {
       "categoria": "3_acoes_brasil",
@@ -27132,7 +27132,7 @@
     {
       "categoria": "7_alternativos_estratega",
       "meta_rs": 351154.54,
-      "real_rs": 0.0
+      "real_rs": 399226.6
     }
   ],
   "ranking_ativos": [
@@ -27145,12 +27145,52 @@
       "categoria": "5_internacional"
     },
     {
+      "ticker": "Icatu Previ",
+      "quantidade": 151185.9,
+      "investido": 183275.32,
+      "atual": 281178.61,
+      "rent_pct": 53.42,
+      "categoria": "2_credito_privado"
+    },
+    {
       "ticker": "IBIT",
       "quantidade": 700.0,
       "investido": 200087.86,
       "atual": 155890.0,
       "rent_pct": -22.09,
       "categoria": "6_criptoativos"
+    },
+    {
+      "ticker": "Quest Luce Previ",
+      "quantidade": 78266.0478,
+      "investido": 130510.45,
+      "atual": 148235.2,
+      "rent_pct": 13.58,
+      "categoria": "2_credito_privado"
+    },
+    {
+      "ticker": "Vitreo Superprev 2",
+      "quantidade": 97298.6,
+      "investido": 115437.12,
+      "atual": 140914.42,
+      "rent_pct": 22.07,
+      "categoria": "7_alternativos_estratega"
+    },
+    {
+      "ticker": "Arca Previ",
+      "quantidade": 82132.5,
+      "investido": 97181.83,
+      "atual": 132559.07,
+      "rent_pct": 36.4,
+      "categoria": "7_alternativos_estratega"
+    },
+    {
+      "ticker": "XP Superprev 2",
+      "quantidade": 85769.6166,
+      "investido": 88131.22,
+      "atual": 125753.11,
+      "rent_pct": 42.69,
+      "categoria": "7_alternativos_estratega"
     },
     {
       "ticker": "SGOV",
@@ -27167,6 +27207,14 @@
       "atual": 59455.66,
       "rent_pct": 61.42,
       "categoria": "3_acoes_brasil"
+    },
+    {
+      "ticker": "Arca Grão RF Previ",
+      "quantidade": 31235.8863,
+      "investido": 44829.15,
+      "atual": 50413.82,
+      "rent_pct": 12.46,
+      "categoria": "2_credito_privado"
     },
     {
       "ticker": "VALE3",
@@ -27441,69 +27489,21 @@
       "categoria": "4_ativos_reais"
     },
     {
-      "ticker": "Icatu Previ",
-      "quantidade": 151185.9,
-      "investido": 183275.32,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "2_credito_privado"
-    },
-    {
-      "ticker": "Vitreo Superprev 2",
-      "quantidade": 97298.6,
-      "investido": 115437.12,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "7_alternativos_estratega"
-    },
-    {
-      "ticker": "XP Superprev 2",
-      "quantidade": 85769.6166,
-      "investido": 88131.22,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "7_alternativos_estratega"
-    },
-    {
-      "ticker": "Arca Previ",
-      "quantidade": 82132.5,
-      "investido": 97181.83,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "7_alternativos_estratega"
-    },
-    {
-      "ticker": "Quest Luce Previ",
-      "quantidade": 78266.0478,
-      "investido": 130510.45,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "2_credito_privado"
-    },
-    {
-      "ticker": "Arca Grão RF Previ",
-      "quantidade": 31235.8863,
-      "investido": 44829.15,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "2_credito_privado"
+      "ticker": "Tesouro IPCA+ 2050",
+      "quantidade": 1.13,
+      "investido": 1003.45,
+      "atual": 981.82,
+      "rent_pct": -2.16,
+      "categoria": "1_renda_fixa_soberana"
     },
     {
       "ticker": "Tesouro Educa+ 2043",
       "quantidade": 0.8,
       "investido": 997.0,
-      "atual": 0.0,
-      "rent_pct": -100.0,
-      "categoria": "1_renda_fixa_soberana"
-    },
-    {
-      "ticker": "Tesouro IPCA+ 2050",
-      "quantidade": 1.13,
-      "investido": 1003.45,
-      "atual": 0.0,
-      "rent_pct": -100.0,
+      "atual": 981.4,
+      "rent_pct": -1.56,
       "categoria": "1_renda_fixa_soberana"
     }
   ],
-  "last_update": "2026-05-12 22:33"
+  "last_update": "2026-05-12 23:12"
 }
