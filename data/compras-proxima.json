@@ -94,5 +94,29 @@
     "price": "0",
     "checked": false,
     "obs": "Teste de Sincronização"
+  },
+  {
+    "Item": "Remédio de pressão",
+    "Categoria": "Outros",
+    "qty": "1",
+    "price": "0",
+    "checked": false,
+    "obs": "Adicionado por Mauricio"
+  },
+  {
+    "Item": "Vitamina D",
+    "Categoria": "Outros",
+    "qty": "1",
+    "price": "0",
+    "checked": false,
+    "obs": "Adicionado por Mauricio"
+  },
+  {
+    "Item": "Coenzima Q10",
+    "Categoria": "Outros",
+    "qty": "1",
+    "price": "0",
+    "checked": false,
+    "obs": "Adicionado por Mauricio"
   }
 ]

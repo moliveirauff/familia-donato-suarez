@@ -95,6 +95,30 @@
       "price": "0",
       "checked": false,
       "obs": "Teste de Sincronização"
+    },
+    {
+      "Item": "Remédio de pressão",
+      "Categoria": "Outros",
+      "qty": "1",
+      "price": "0",
+      "checked": false,
+      "obs": "Adicionado por Mauricio"
+    },
+    {
+      "Item": "Vitamina D",
+      "Categoria": "Outros",
+      "qty": "1",
+      "price": "0",
+      "checked": false,
+      "obs": "Adicionado por Mauricio"
+    },
+    {
+      "Item": "Coenzima Q10",
+      "Categoria": "Outros",
+      "qty": "1",
+      "price": "0",
+      "checked": false,
+      "obs": "Adicionado por Mauricio"
     }
   ],
   "masterData": [
@@ -785,6 +809,30 @@
       "Quantidade Típica": "1",
       "Valor Esperado (Un)": "4,99",
       "Observações": "Ref: supermercadoindustrial.com.br"
+    },
+    {
+      "Item": "Remédio de pressão",
+      "Marca/Descrição": "",
+      "Categoria": "Outros",
+      "Quantidade Típica": "1",
+      "Valor Esperado (Un)": "0",
+      "Observações": ""
+    },
+    {
+      "Item": "Vitamina D",
+      "Marca/Descrição": "",
+      "Categoria": "Outros",
+      "Quantidade Típica": "1",
+      "Valor Esperado (Un)": "0",
+      "Observações": ""
+    },
+    {
+      "Item": "Coenzima Q10",
+      "Marca/Descrição": "",
+      "Categoria": "Outros",
+      "Quantidade Típica": "1",
+      "Valor Esperado (Un)": "0",
+      "Observações": ""
     }
   ]
 }
