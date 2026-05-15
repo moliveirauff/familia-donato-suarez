@@ -4203,7 +4203,7 @@
       "taxas_total": 7.86,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 46.17,
+      "spot_atual": 44.74,
       "bs_data_calculo": "2026-05-15",
       "preco_mercado": 0.02,
       "iv_calculada": null,
@@ -4227,7 +4227,7 @@
       "taxas_total": 1.13,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 46.17,
+      "spot_atual": 44.74,
       "bs_data_calculo": "2026-05-15",
       "preco_mercado": 0.04,
       "iv_calculada": null,
@@ -4251,11 +4251,11 @@
       "taxas_total": 7.89,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 46.17,
+      "spot_atual": 44.74,
       "bs_data_calculo": "2026-05-15",
-      "preco_mercado": 0.22,
-      "iv_calculada": 0.4054,
-      "preco_teorico": 0.22
+      "preco_mercado": 0.04,
+      "iv_calculada": 0.422,
+      "preco_teorico": 0.04
     },
     {
       "ticker": "IBIT",
@@ -4275,11 +4275,11 @@
       "taxas_total": 7.86,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 46.17,
+      "spot_atual": 44.74,
       "bs_data_calculo": "2026-05-15",
-      "preco_mercado": 0.05,
-      "iv_calculada": 0.4819,
-      "preco_teorico": 0.05
+      "preco_mercado": 0.02,
+      "iv_calculada": 0.5559,
+      "preco_teorico": 0.02
     },
     {
       "ticker": "SPY",
@@ -4299,11 +4299,11 @@
       "taxas_total": 1.23,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 748.17,
+      "spot_atual": 740.95,
       "bs_data_calculo": "2026-05-15",
-      "preco_mercado": 58.76,
-      "iv_calculada": 0.2055,
-      "preco_teorico": 58.76
+      "preco_mercado": 52.05,
+      "iv_calculada": 0.1988,
+      "preco_teorico": 52.06
     },
     {
       "ticker": "ETHA",
@@ -4323,7 +4323,7 @@
       "taxas_total": 5.61,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 17.36,
+      "spot_atual": 16.69,
       "bs_data_calculo": "2026-05-15",
       "preco_mercado": 0.01,
       "iv_calculada": null,
@@ -4347,9 +4347,9 @@
       "taxas_total": 2.26,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 17.36,
+      "spot_atual": 16.69,
       "bs_data_calculo": "2026-05-15",
-      "preco_mercado": 0.06,
+      "preco_mercado": 0.33,
       "iv_calculada": null,
       "preco_teorico": null
     },
@@ -4371,11 +4371,11 @@
       "taxas_total": 1.14,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 95.32,
+      "spot_atual": 94.07,
       "bs_data_calculo": "2026-05-15",
-      "preco_mercado": 4.98,
-      "iv_calculada": 0.2461,
-      "preco_teorico": 4.98
+      "preco_mercado": 3.85,
+      "iv_calculada": 0.2195,
+      "preco_teorico": 3.85
     }
   ]
 }
