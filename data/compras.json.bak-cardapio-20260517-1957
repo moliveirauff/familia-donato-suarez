@@ -27,10 +27,10 @@
     {
       "Item": "Farinha de trigo",
       "Categoria": "Outros",
-      "qty": "500 g",
+      "qty": "1",
       "price": "4.29",
       "checked": false,
-      "obs": "Para: Panqueca Doce | Cardápio 2 semanas — molho branco"
+      "obs": "Para: Panqueca Doce"
     },
     {
       "Item": "Fermento em pó",
@@ -43,10 +43,10 @@
     {
       "Item": "Leite",
       "Categoria": "Laticínios",
-      "qty": "2 L",
+      "qty": "2",
       "price": "5.29",
       "checked": false,
-      "obs": "Para: Panqueca Doce | Cardápio 2 semanas — escondidinhos e molho branco"
+      "obs": "Para: Panqueca Doce"
     },
     {
       "Item": "Açúcar",
@@ -67,10 +67,10 @@
     {
       "Item": "Manteiga",
       "Categoria": "Laticínios",
-      "qty": "200 g",
+      "qty": "1",
       "price": "14.9",
       "checked": false,
-      "obs": "Para: Panqueca Doce | Cardápio 2 semanas — escondidinhos e molho branco"
+      "obs": "Para: Panqueca Doce"
     },
     {
       "Item": "Coca-Cola",
@@ -119,214 +119,6 @@
       "price": "0",
       "checked": false,
       "obs": "Adicionado por Mauricio"
-    },
-    {
-      "Item": "Carne moída",
-      "Categoria": "Carnes e Frios",
-      "qty": "1,8 kg",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — Semana 1"
-    },
-    {
-      "Item": "Frango em cubos",
-      "Categoria": "Carnes e Frios",
-      "qty": "1,5 kg",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — frango picadinho Semana 1"
-    },
-    {
-      "Item": "Filé de peixe",
-      "Categoria": "Carnes e Frios",
-      "qty": "1,2 kg",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — Semana 1"
-    },
-    {
-      "Item": "Carne para assar",
-      "Categoria": "Carnes e Frios",
-      "qty": "1,6 kg",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — Semana 2"
-    },
-    {
-      "Item": "Sobrecoxa",
-      "Categoria": "Carnes e Frios",
-      "qty": "1,8 kg",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — Semana 2"
-    },
-    {
-      "Item": "Frango desfiado",
-      "Categoria": "Carnes e Frios",
-      "qty": "1,2 kg",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — escondidinho Semana 2"
-    },
-    {
-      "Item": "Arroz",
-      "Categoria": "Mercearia / Grãos",
-      "qty": "2,5 kg",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas"
-    },
-    {
-      "Item": "Feijão",
-      "Categoria": "Mercearia / Grãos",
-      "qty": "1,5 kg",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas"
-    },
-    {
-      "Item": "Cebola",
-      "Categoria": "Hortifruti",
-      "qty": "1 kg",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas"
-    },
-    {
-      "Item": "Alho",
-      "Categoria": "Hortifruti",
-      "qty": "4 cabeças",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas"
-    },
-    {
-      "Item": "Óleo ou azeite",
-      "Categoria": "Mercearia / Grãos",
-      "qty": "1 un",
-      "price": "0",
-      "checked": false,
-      "obs": "Conferir estoque — Cardápio 2 semanas"
-    },
-    {
-      "Item": "Sal",
-      "Categoria": "Mercearia / Grãos",
-      "qty": "1 un",
-      "price": "0",
-      "checked": false,
-      "obs": "Conferir estoque — Cardápio 2 semanas"
-    },
-    {
-      "Item": "Pimenta",
-      "Categoria": "Mercearia / Grãos",
-      "qty": "1 un",
-      "price": "0",
-      "checked": false,
-      "obs": "Conferir estoque — Cardápio 2 semanas"
-    },
-    {
-      "Item": "Colorau ou páprica",
-      "Categoria": "Mercearia / Grãos",
-      "qty": "1 un",
-      "price": "0",
-      "checked": false,
-      "obs": "Conferir estoque — Cardápio 2 semanas"
-    },
-    {
-      "Item": "Batata inglesa",
-      "Categoria": "Hortifruti",
-      "qty": "2,5 kg",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — Semana 1"
-    },
-    {
-      "Item": "Beterraba",
-      "Categoria": "Hortifruti",
-      "qty": "1,2 kg",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — Semana 1"
-    },
-    {
-      "Item": "Couve-flor",
-      "Categoria": "Hortifruti",
-      "qty": "2 un médias",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — Semana 1"
-    },
-    {
-      "Item": "Vagem",
-      "Categoria": "Hortifruti",
-      "qty": "800 g",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — Semana 1"
-    },
-    {
-      "Item": "Abóbora",
-      "Categoria": "Hortifruti",
-      "qty": "1,8 kg",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — Semana 2"
-    },
-    {
-      "Item": "Chuchu",
-      "Categoria": "Hortifruti",
-      "qty": "1,2 kg",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — fazer com molho branco"
-    },
-    {
-      "Item": "Brócolis",
-      "Categoria": "Hortifruti",
-      "qty": "2 maços/un",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — Semana 2"
-    },
-    {
-      "Item": "Abobrinha",
-      "Categoria": "Hortifruti",
-      "qty": "1,2 kg",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — Semana 2"
-    },
-    {
-      "Item": "Queijo muçarela",
-      "Categoria": "Laticínios",
-      "qty": "600 g",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — escondidinhos"
-    },
-    {
-      "Item": "Queijo parmesão",
-      "Categoria": "Laticínios",
-      "qty": "200 g",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — escondidinhos"
-    },
-    {
-      "Item": "Creme de leite",
-      "Categoria": "Laticínios",
-      "qty": "2 caixinhas",
-      "price": "0",
-      "checked": false,
-      "obs": "Cardápio 2 semanas — escondidinhos"
-    },
-    {
-      "Item": "Noz-moscada",
-      "Categoria": "Mercearia / Grãos",
-      "qty": "1 un",
-      "price": "0",
-      "checked": false,
-      "obs": "Opcional — molho branco do chuchu"
     }
   ],
   "masterData": [
@@ -376,7 +168,7 @@
       "Categoria": "Carnes e Frios",
       "Quantidade Típica": "2",
       "Valor Esperado (Un)": "22,99",
-      "Observações": "Usado no cardápio de 2 semanas"
+      "Observações": ""
     },
     {
       "Item": "Ovos",
@@ -472,7 +264,7 @@
       "Categoria": "Hortifruti",
       "Quantidade Típica": "1",
       "Valor Esperado (Un)": "8,49",
-      "Observações": "Usado no cardápio de 2 semanas"
+      "Observações": ""
     },
     {
       "Item": "Abobrinha",
@@ -480,7 +272,7 @@
       "Categoria": "Hortifruti",
       "Quantidade Típica": "1",
       "Valor Esperado (Un)": "1,4",
-      "Observações": "Usado no cardápio de 2 semanas"
+      "Observações": ""
     },
     {
       "Item": "Alface",
@@ -504,7 +296,7 @@
       "Categoria": "Hortifruti",
       "Quantidade Típica": "1",
       "Valor Esperado (Un)": "23,99",
-      "Observações": "Usado no cardápio de 2 semanas"
+      "Observações": ""
     },
     {
       "Item": "Batata",
@@ -520,7 +312,7 @@
       "Categoria": "Hortifruti",
       "Quantidade Típica": "1",
       "Valor Esperado (Un)": "1",
-      "Observações": "Usado no cardápio de 2 semanas"
+      "Observações": ""
     },
     {
       "Item": "Desengordurante",
@@ -640,7 +432,7 @@
       "Categoria": "Laticínios",
       "Quantidade Típica": "2",
       "Valor Esperado (Un)": "5,29",
-      "Observações": "Usado no cardápio de 2 semanas"
+      "Observações": ""
     },
     {
       "Item": "Leite longa vida",
@@ -656,7 +448,7 @@
       "Categoria": "Laticínios",
       "Quantidade Típica": "1",
       "Valor Esperado (Un)": "14,9",
-      "Observações": "Usado no cardápio de 2 semanas"
+      "Observações": ""
     },
     {
       "Item": "Queijo minas",
@@ -672,7 +464,7 @@
       "Categoria": "Laticínios",
       "Quantidade Típica": "2",
       "Valor Esperado (Un)": "29,99",
-      "Observações": "Usado no cardápio de 2 semanas"
+      "Observações": ""
     },
     {
       "Item": "Requeijão",
@@ -784,7 +576,7 @@
       "Categoria": "Mercearia / Grãos",
       "Quantidade Típica": "2",
       "Valor Esperado (Un)": "5,85",
-      "Observações": "Usado no cardápio de 2 semanas"
+      "Observações": ""
     },
     {
       "Item": "Atum em lata",
@@ -872,7 +664,7 @@
       "Categoria": "Mercearia / Grãos",
       "Quantidade Típica": "1",
       "Valor Esperado (Un)": "5,59",
-      "Observações": "Usado no cardápio de 2 semanas"
+      "Observações": ""
     },
     {
       "Item": "Granola",
@@ -1008,7 +800,7 @@
       "Categoria": "Mercearia / Grãos",
       "Quantidade Típica": "1",
       "Valor Esperado (Un)": "4,29",
-      "Observações": "Ref: supermercadoindustrial.com.br | Usado no cardápio de 2 semanas"
+      "Observações": "Ref: supermercadoindustrial.com.br"
     },
     {
       "Item": "Fermento em pó",
@@ -1041,150 +833,6 @@
       "Quantidade Típica": "1",
       "Valor Esperado (Un)": "0",
       "Observações": ""
-    },
-    {
-      "Item": "Frango em cubos",
-      "Marca/Descrição": "",
-      "Categoria": "Carnes e Frios",
-      "Quantidade Típica": "1,5 kg",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Cardápio 2 semanas — frango picadinho Semana 1"
-    },
-    {
-      "Item": "Filé de peixe",
-      "Marca/Descrição": "",
-      "Categoria": "Carnes e Frios",
-      "Quantidade Típica": "1,2 kg",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Cardápio 2 semanas — Semana 1"
-    },
-    {
-      "Item": "Carne para assar",
-      "Marca/Descrição": "",
-      "Categoria": "Carnes e Frios",
-      "Quantidade Típica": "1,6 kg",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Cardápio 2 semanas — Semana 2"
-    },
-    {
-      "Item": "Sobrecoxa",
-      "Marca/Descrição": "",
-      "Categoria": "Carnes e Frios",
-      "Quantidade Típica": "1,8 kg",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Cardápio 2 semanas — Semana 2"
-    },
-    {
-      "Item": "Frango desfiado",
-      "Marca/Descrição": "",
-      "Categoria": "Carnes e Frios",
-      "Quantidade Típica": "1,2 kg",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Cardápio 2 semanas — escondidinho Semana 2"
-    },
-    {
-      "Item": "Óleo ou azeite",
-      "Marca/Descrição": "",
-      "Categoria": "Mercearia / Grãos",
-      "Quantidade Típica": "1 un",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Conferir estoque — Cardápio 2 semanas"
-    },
-    {
-      "Item": "Sal",
-      "Marca/Descrição": "",
-      "Categoria": "Mercearia / Grãos",
-      "Quantidade Típica": "1 un",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Conferir estoque — Cardápio 2 semanas"
-    },
-    {
-      "Item": "Pimenta",
-      "Marca/Descrição": "",
-      "Categoria": "Mercearia / Grãos",
-      "Quantidade Típica": "1 un",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Conferir estoque — Cardápio 2 semanas"
-    },
-    {
-      "Item": "Colorau ou páprica",
-      "Marca/Descrição": "",
-      "Categoria": "Mercearia / Grãos",
-      "Quantidade Típica": "1 un",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Conferir estoque — Cardápio 2 semanas"
-    },
-    {
-      "Item": "Batata inglesa",
-      "Marca/Descrição": "",
-      "Categoria": "Hortifruti",
-      "Quantidade Típica": "2,5 kg",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Cardápio 2 semanas — Semana 1"
-    },
-    {
-      "Item": "Beterraba",
-      "Marca/Descrição": "",
-      "Categoria": "Hortifruti",
-      "Quantidade Típica": "1,2 kg",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Cardápio 2 semanas — Semana 1"
-    },
-    {
-      "Item": "Couve-flor",
-      "Marca/Descrição": "",
-      "Categoria": "Hortifruti",
-      "Quantidade Típica": "2 un médias",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Cardápio 2 semanas — Semana 1"
-    },
-    {
-      "Item": "Vagem",
-      "Marca/Descrição": "",
-      "Categoria": "Hortifruti",
-      "Quantidade Típica": "800 g",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Cardápio 2 semanas — Semana 1"
-    },
-    {
-      "Item": "Chuchu",
-      "Marca/Descrição": "",
-      "Categoria": "Hortifruti",
-      "Quantidade Típica": "1,2 kg",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Cardápio 2 semanas — fazer com molho branco"
-    },
-    {
-      "Item": "Brócolis",
-      "Marca/Descrição": "",
-      "Categoria": "Hortifruti",
-      "Quantidade Típica": "2 maços/un",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Cardápio 2 semanas — Semana 2"
-    },
-    {
-      "Item": "Queijo muçarela",
-      "Marca/Descrição": "",
-      "Categoria": "Laticínios",
-      "Quantidade Típica": "600 g",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Cardápio 2 semanas — escondidinhos"
-    },
-    {
-      "Item": "Creme de leite",
-      "Marca/Descrição": "",
-      "Categoria": "Laticínios",
-      "Quantidade Típica": "2 caixinhas",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Cardápio 2 semanas — escondidinhos"
-    },
-    {
-      "Item": "Noz-moscada",
-      "Marca/Descrição": "",
-      "Categoria": "Mercearia / Grãos",
-      "Quantidade Típica": "1 un",
-      "Valor Esperado (Un)": "0",
-      "Observações": "Opcional — molho branco do chuchu"
     }
   ]
 }

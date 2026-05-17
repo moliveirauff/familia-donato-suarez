@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-12T22:28:58.044714-03:00",
+  "generated_at": "2026-05-17T20:02:09.069423-03:00",
   "summary": {
     "total": 20,
-    "ok": 15,
-    "error": 5,
+    "ok": 16,
+    "error": 4,
     "idle": 0
   },
   "agents": [
@@ -22,8 +22,8 @@
       "name": "S.P.I.N.",
       "emoji": "🤖",
       "total": 11,
-      "ok": 9,
-      "error": 2,
+      "ok": 10,
+      "error": 1,
       "idle": 0,
       "health": "red"
     },
@@ -57,8 +57,8 @@
       "agent_emoji": "🏠",
       "schedule_human": "Diário 08:00",
       "status": "ok",
-      "last_run": "14h ago",
-      "next_run": "in 9h"
+      "last_run": "12h ago",
+      "next_run": "in 11h"
     },
     {
       "id": "a3f8c1d2-9b74-4e56-8f3a-2d1e5c7b9a0f",
@@ -68,8 +68,8 @@
       "agent_emoji": "🏠",
       "schedule_human": "Seg 09:00",
       "status": "ok",
-      "last_run": "1d ago",
-      "next_run": "in 5d"
+      "last_run": "6d ago",
+      "next_run": "in 12h"
     },
     {
       "id": "b4d7c469-ecb3-4828-b827-e024130a35c3",
@@ -79,8 +79,8 @@
       "agent_emoji": "🏠",
       "schedule_human": "Sex 05:30",
       "status": "ok",
-      "last_run": "4d ago",
-      "next_run": "in 2d"
+      "last_run": "2d ago",
+      "next_run": "in 4d"
     },
     {
       "id": "5ba399f0-f7e4-4566-95c9-faee091e8502",
@@ -90,8 +90,8 @@
       "agent_emoji": "🏠",
       "schedule_human": "Sáb 05:30",
       "status": "ok",
-      "last_run": "3d ago",
-      "next_run": "in 3d"
+      "last_run": "1d ago",
+      "next_run": "in 5d"
     },
     {
       "id": "22d90960-55c5-4867-b3c8-e410130f0c2d",
@@ -101,8 +101,8 @@
       "agent_emoji": "🏡",
       "schedule_human": "Seg/Qui 09:00",
       "status": "ok",
-      "last_run": "1d ago",
-      "next_run": "in 1d"
+      "last_run": "3d ago",
+      "next_run": "in 12h"
     },
     {
       "id": "0c2908a0-72f0-4901-b719-0ad094175b5f",
@@ -112,8 +112,8 @@
       "agent_emoji": "📈",
       "schedule_human": "Dia 1, 04:05",
       "status": "error",
-      "last_run": "11d ago",
-      "next_run": "in 19d"
+      "last_run": "16d ago",
+      "next_run": "in 14d"
     },
     {
       "id": "4eb27f74-7361-4696-8b70-b2669895bd29",
@@ -123,8 +123,8 @@
       "agent_emoji": "📈",
       "schedule_human": "Sáb 04:10",
       "status": "error",
-      "last_run": "3d ago",
-      "next_run": "in 3d"
+      "last_run": "1d ago",
+      "next_run": "in 5d"
     },
     {
       "id": "c02dc452-9911-4929-b446-ab21bd07ad27",
@@ -134,8 +134,8 @@
       "agent_emoji": "📈",
       "schedule_human": "Dom 18:00",
       "status": "error",
-      "last_run": "2d ago",
-      "next_run": "in 4d"
+      "last_run": "2h ago",
+      "next_run": "in 6d"
     },
     {
       "id": "e8737269-3a91-4392-8560-244c7b1c024e",
@@ -145,8 +145,8 @@
       "agent_emoji": "📈",
       "schedule_human": "Seg-Sex 04:15",
       "status": "ok",
-      "last_run": "18h ago",
-      "next_run": "in 5h"
+      "last_run": "2d ago",
+      "next_run": "in 8h"
     },
     {
       "id": "d74ce702-75ad-488c-86db-7fb66828dfbc",
@@ -156,8 +156,8 @@
       "agent_emoji": "🤖",
       "schedule_human": "Dia */3, 04:00",
       "status": "error",
-      "last_run": "2d ago",
-      "next_run": "in 5h"
+      "last_run": "1d ago",
+      "next_run": "in 1d"
     },
     {
       "id": "654f096a-02c3-47fc-8ea3-7d6c45773f1c",
@@ -167,8 +167,8 @@
       "agent_emoji": "🤖",
       "schedule_human": "Diário 03:00",
       "status": "ok",
-      "last_run": "19h ago",
-      "next_run": "in 4h"
+      "last_run": "17h ago",
+      "next_run": "in 6h"
     },
     {
       "id": "8a21a426-028f-49a0-ad8e-7b1f9739c483",
@@ -178,8 +178,8 @@
       "agent_emoji": "🤖",
       "schedule_human": "Ter 04:00",
       "status": "ok",
-      "last_run": "18h ago",
-      "next_run": "in 6d"
+      "last_run": "5d ago",
+      "next_run": "in 1d"
     },
     {
       "id": "64cc6a08-fb03-41a1-b25b-63454713159d",
@@ -189,8 +189,8 @@
       "agent_emoji": "🤖",
       "schedule_human": "Diário 11:00",
       "status": "ok",
-      "last_run": "11h ago",
-      "next_run": "in 12h"
+      "last_run": "9h ago",
+      "next_run": "in 14h"
     },
     {
       "id": "b4415061-a11a-47c0-af71-f40ad83f7eb7",
@@ -199,9 +199,9 @@
       "agent_name": "S.P.I.N.",
       "agent_emoji": "🤖",
       "schedule_human": "Diário 16:00",
-      "status": "error",
-      "last_run": "6h ago",
-      "next_run": "in 17h"
+      "status": "ok",
+      "last_run": "4h ago",
+      "next_run": "in 19h"
     },
     {
       "id": "806e12b4-0137-4006-8398-1c79021ab1f8",
@@ -211,8 +211,8 @@
       "agent_emoji": "🤖",
       "schedule_human": "Dia 1, 04:20",
       "status": "ok",
-      "last_run": "11d ago",
-      "next_run": "in 19d"
+      "last_run": "16d ago",
+      "next_run": "in 14d"
     },
     {
       "id": "f939fb14-a776-4a0a-8f95-e4431e3c391e",
@@ -222,8 +222,8 @@
       "agent_emoji": "🤖",
       "schedule_human": "Diário 01:00",
       "status": "ok",
-      "last_run": "21h ago",
-      "next_run": "in 2h"
+      "last_run": "19h ago",
+      "next_run": "in 4h"
     },
     {
       "id": "e960fc17-43d4-4f76-8e8e-7e18bfb2099f",
@@ -233,8 +233,8 @@
       "agent_emoji": "🤖",
       "schedule_human": "Seg/Qui 03:20",
       "status": "ok",
-      "last_run": "1d ago",
-      "next_run": "in 1d"
+      "last_run": "3d ago",
+      "next_run": "in 7h"
     },
     {
       "id": "0a7d70e7-3cbb-4300-9019-241c2fc1abae",
@@ -244,8 +244,8 @@
       "agent_emoji": "🤖",
       "schedule_human": "Dom 03:40",
       "status": "ok",
-      "last_run": "2d ago",
-      "next_run": "in 4d"
+      "last_run": "16h ago",
+      "next_run": "in 6d"
     },
     {
       "id": "bc396031-552e-4404-b5de-a37ef95aea33",
@@ -255,8 +255,8 @@
       "agent_emoji": "🤖",
       "schedule_human": "Diário 05:00",
       "status": "ok",
-      "last_run": "17h ago",
-      "next_run": "in 6h"
+      "last_run": "15h ago",
+      "next_run": "in 8h"
     },
     {
       "id": "814e69f8-2f14-4ea2-9f07-0047da066969",
@@ -266,8 +266,8 @@
       "agent_emoji": "🤖",
       "schedule_human": "Seg 02:00",
       "status": "ok",
-      "last_run": "1d ago",
-      "next_run": "in 5d"
+      "last_run": "6d ago",
+      "next_run": "in 5h"
     }
   ]
 }
