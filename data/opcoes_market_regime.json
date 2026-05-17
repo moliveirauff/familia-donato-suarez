@@ -1,40 +1,40 @@
 {
-  "versao": "2026.5.10",
-  "generated_at": "2026-05-10T18:00:00-03:00",
-  "week_of": "2026-05-11",
-  "summary": "Leitura semanal com confiança moderada. Brasil melhora para execução seletiva por correção recente e volatilidade ainda presente; EUA e Cripto seguem desfavoráveis para covered calls agressivas, porque o upside continua caro de ceder frente ao prêmio disponível e ao calendário da semana.",
+  "versao": "2026.5.17",
+  "generated_at": "2026-05-17T18:00:00-03:00",
+  "week_of": "2026-05-18",
+  "summary": "Leitura semanal com confiança moderada. Brasil segue apenas seletivo após correção forte; EUA continuam ruins para venda coberta agressiva por índice ainda perto das máximas e calendário carregado; Cripto permanece desfavorável pelo gap risk e pressão recente nos ETFs.",
   "markets": {
     "brasil": {
       "name": "Brasil",
       "status": "yellow",
       "score": 6,
-      "objective": "Ambiente aceitável apenas para venda coberta seletiva, com mercado local menos acelerado e volatilidade utilizável, mas ainda com macro frágil e risco de falsa lateralização.",
+      "objective": "Ambiente aceitável só para venda coberta seletiva, com correção recente reduzindo risco de breakout, mas macro e liquidez ainda exigindo disciplina.",
       "indicators": [
-        "Ibovespa corrigiu na semana e perdeu suporte curto após máxima recente, reduzindo o risco imediato de breakout forte",
-        "Volatilidade implícita local segue elevada o bastante para gerar prêmio, mas com stress macro acima do normal",
-        "Liquidez continua concentrada nos vencimentos e nomes principais, exigindo execução disciplinada"
+        "Ibovespa recuou 3,7% em 5 pregões e ficou quase 10% abaixo da máxima de 20 dias",
+        "Volatilidade local tende a seguir acima de mercados desenvolvidos, mas com prêmio concentrado nos nomes líquidos",
+        "Risco macro doméstico e commodities ainda impede leitura francamente favorável"
       ]
     },
     "eua": {
       "name": "Estados Unidos",
       "status": "red",
       "score": 5,
-      "objective": "Ambiente ruim para covered calls de rotina, porque S&P 500 e Nasdaq seguem em máximas com momentum forte e VIX baixo, deixando assimetria desfavorável para abrir mão do upside.",
+      "objective": "Ambiente ruim para covered calls de rotina, porque S&P 500 e Nasdaq seguem perto das máximas enquanto eventos da semana podem reacelerar o movimento direcional.",
       "indicators": [
-        "S&P 500 e Nasdaq encerraram a semana em recordes, com Nasdaq sobrecomprado e tendência ainda acelerada",
-        "VIX perto de 17 indica prêmio moderado, não um colchão claro para vender upside em índices fortes",
-        "Semana tem CPI, PPI, varejo e evento geopolítico EUA-China, elevando risco de repricing direcional"
+        "S&P 500 e Nasdaq ficaram a cerca de 1% a 2% das máximas de 20 dias, mesmo após perda de fôlego no fim da semana",
+        "VIX em torno de 18 oferece prêmio apenas moderado para ceder upside em índice ainda forte",
+        "Semana tem ata do FOMC, PMIs, dados de consumo e resultados relevantes de tecnologia e varejo"
       ]
     },
     "cripto": {
       "name": "Cripto",
       "status": "red",
       "score": 4,
-      "objective": "Ambiente desfavorável para venda coberta recorrente, com Bitcoin sustentado por fluxo em ETFs e IV de BTC baixa para o tamanho do gap risk de fim de semana.",
+      "objective": "Ambiente desfavorável para venda coberta recorrente, com queda recente, saídas de ETFs e volatilidade/gap risk ainda altos frente ao prêmio disponível.",
       "indicators": [
-        "Bitcoin segue acima de 80 mil dólares com fluxo institucional ainda relevante em ETFs spot",
-        "IV de BTC está baixa para padrões cripto, enquanto ETH mantém volatilidade maior e menos previsível",
-        "Risco regulatório, gap 24/7 e movimentos rápidos continuam altos frente ao prêmio disponível"
+        "Bitcoin e Ethereum recuaram na semana e seguem abaixo das máximas recentes",
+        "Fluxos recentes de ETFs cripto viraram para saída, reduzindo suporte tático do mercado",
+        "Mercado 24/7 mantém risco de gap de fim de semana e exige margem maior que EUA para qualquer semáforo verde"
       ]
     }
   }
