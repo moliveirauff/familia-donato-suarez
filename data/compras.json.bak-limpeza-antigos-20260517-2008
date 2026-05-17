@@ -1,12 +1,44 @@
 {
   "shoppingList": [
     {
+      "Item": "Queijo minas",
+      "Categoria": "Laticínios",
+      "qty": "1",
+      "price": "51.45",
+      "checked": false,
+      "obs": ""
+    },
+    {
+      "Item": "Requeijão",
+      "Categoria": "Laticínios",
+      "qty": "1",
+      "price": "17.99",
+      "checked": false,
+      "obs": ""
+    },
+    {
+      "Item": "Sabão em Pó Lava Louças",
+      "Categoria": "Limpeza",
+      "qty": "1",
+      "price": "55",
+      "checked": false,
+      "obs": ""
+    },
+    {
       "Item": "Farinha de trigo",
       "Categoria": "Outros",
       "qty": "500 g",
       "price": "4.29",
       "checked": false,
-      "obs": "Cardápio 2 semanas — molho branco"
+      "obs": "Para: Panqueca Doce | Cardápio 2 semanas — molho branco"
+    },
+    {
+      "Item": "Fermento em pó",
+      "Categoria": "Outros",
+      "qty": "1",
+      "price": "4.99",
+      "checked": false,
+      "obs": "Para: Panqueca Doce"
     },
     {
       "Item": "Leite",
@@ -14,7 +46,23 @@
       "qty": "2 L",
       "price": "5.29",
       "checked": false,
-      "obs": "Cardápio 2 semanas — escondidinhos e molho branco"
+      "obs": "Para: Panqueca Doce | Cardápio 2 semanas — escondidinhos e molho branco"
+    },
+    {
+      "Item": "Açúcar",
+      "Categoria": "Mercearia / Grãos",
+      "qty": "2",
+      "price": "6",
+      "checked": false,
+      "obs": "Para: Panqueca Doce"
+    },
+    {
+      "Item": "Ovo",
+      "Categoria": "Outros",
+      "qty": "1",
+      "price": "9.99",
+      "checked": false,
+      "obs": "Para: Panqueca Doce"
     },
     {
       "Item": "Manteiga",
@@ -22,7 +70,55 @@
       "qty": "200 g",
       "price": "14.9",
       "checked": false,
-      "obs": "Cardápio 2 semanas — escondidinhos e molho branco"
+      "obs": "Para: Panqueca Doce | Cardápio 2 semanas — escondidinhos e molho branco"
+    },
+    {
+      "Item": "Coca-Cola",
+      "Categoria": "Bebidas",
+      "qty": "6",
+      "price": "3.99",
+      "checked": false,
+      "obs": "Adicionado por CasaBot"
+    },
+    {
+      "Item": "Refrigerante H2O",
+      "Categoria": "Bebidas",
+      "qty": "1",
+      "price": "3.99",
+      "checked": false,
+      "obs": "Adicionado por CasaBot"
+    },
+    {
+      "Item": "Teste Item Novo",
+      "Categoria": "Limpeza",
+      "qty": "3",
+      "price": "0",
+      "checked": false,
+      "obs": "Teste de Sincronização"
+    },
+    {
+      "Item": "Remédio de pressão",
+      "Categoria": "Outros",
+      "qty": "1",
+      "price": "0",
+      "checked": false,
+      "obs": "Adicionado por Mauricio"
+    },
+    {
+      "Item": "Vitamina D",
+      "Categoria": "Outros",
+      "qty": "1",
+      "price": "0",
+      "checked": false,
+      "obs": "Adicionado por Mauricio"
+    },
+    {
+      "Item": "Coenzima Q10",
+      "Categoria": "Outros",
+      "qty": "1",
+      "price": "0",
+      "checked": false,
+      "obs": "Adicionado por Mauricio"
     },
     {
       "Item": "Carne moída",
