@@ -1,8 +1,8 @@
 {
-  "versao": "2026.5.18",
-  "generated_at": "2026-05-18T10:36:00-03:00",
+  "versao": "2026.5.18-cripto",
+  "generated_at": "2026-05-18T11:26:00-03:00",
   "week_of": "2026-05-18",
-  "summary": "Semáforo semanal segue seletivo: Brasil e EUA em amarelo tanto no curto quanto no médio prazo. Prêmios existem, mas não justificam venda coberta agressiva por macro, juros, calendário e risco de repique/breakout.",
+  "summary": "Semáforo semanal completo: Brasil e EUA em amarelo; cripto curto prazo em amarelo cauteloso, mas médio prazo vermelho. A leitura geral segue seletiva, com prêmio insuficiente para venda coberta agressiva.",
   "markets": {
     "brasil": {
       "name": "Brasil",
@@ -57,13 +57,27 @@
     "cripto": {
       "name": "Cripto",
       "status": "red",
-      "score": 4,
-      "objective": "Ambiente desfavorável para venda coberta recorrente, com queda recente, saídas de ETFs e volatilidade/gap risk ainda altos frente ao prêmio disponível.",
+      "score": 5,
+      "objective": "Curto prazo permite venda de prêmio muito seletiva em IBIT, mas médio prazo permanece desfavorável para abrir mão de upside em cripto ETFs.",
       "indicators": [
-        "Bitcoin e Ethereum recuaram na semana e seguem abaixo das máximas recentes",
-        "Fluxos recentes de ETFs cripto viraram para saída, reduzindo suporte tático do mercado",
-        "Mercado 24/7 mantém risco de gap de fim de semana e exige margem maior que EUA para qualquer semáforo verde"
-      ]
+        "Cripto curto prazo: amarelo cauteloso, score 5,5/10; IV favorece venda de prêmio, mas tendência e fluxos estão frágeis.",
+        "BTC abaixo de US$80k e ETH em consolidação/pullback mantêm risco de whipsaw e repique forte.",
+        "IBIT tem liquidez forte em opções; ETHA tem liquidez e fluxo piores, exigindo mais desconto operacional.",
+        "IV vs RV é moderadamente favorável, mas IV rank/percentil baixo reduz atratividade para 1-3 meses.",
+        "Fed parado, yields altos, dólar/geopolítica e fluxo negativo em ETFs impedem semáforo verde."
+      ],
+      "horizons": {
+        "curto_prazo": {
+          "status": "yellow",
+          "score": 5.5,
+          "objective": "IBIT é utilizável só com strikes OTM e vencimentos curtos; ETHA fica amarelo-fraco/vermelho pela execução pior."
+        },
+        "medio_prazo": {
+          "status": "red",
+          "score": 5,
+          "objective": "Para junho/julho, prêmio não parece rico o bastante para compensar upside cedido e gap risk; só delta baixo e strike bem fora do dinheiro."
+        }
+      }
     }
   }
 }
