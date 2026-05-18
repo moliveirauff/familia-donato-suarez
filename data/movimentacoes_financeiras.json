@@ -1,6 +1,6 @@
 {
   "versao": "2026.2.27",
-  "data_atualizacao": "2026-05-10",
+  "data_atualizacao": "2026-05-18",
   "movimentacoes": [
     {
       "ativo": "Sulamérica Previ_2019.02.21",
@@ -16085,18 +16085,18 @@
     {
       "ativo": "IBIT",
       "data": "2026-04-29",
-      "tipo": "APORTE (Reposição Assignment CALL 42.50)",
-      "valor_total": 3783.2,
-      "preco_unitario": 0.0,
-      "quantidade": 0.0
-    },
-    {
-      "ativo": "IBIT",
-      "data": "2026-04-29",
       "tipo": "APORTE",
       "valor_total": 16884.7,
       "preco_unitario": 216.4705,
       "quantidade": 78.0
+    },
+    {
+      "ativo": "IBIT",
+      "data": "2026-04-29",
+      "tipo": "APORTE (Reposição Assignment CALL 42.50)",
+      "valor_total": 3783.2,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
     },
     {
       "ativo": "Icatu Previ",
@@ -16105,6 +16105,38 @@
       "valor_total": 7898.1,
       "preco_unitario": 1.8598203,
       "quantidade": 4246.70060866
+    },
+    {
+      "ativo": "BBDC4",
+      "data": "2026-05-15",
+      "tipo": "APORTE (Exercício PUT BBDCQ209)",
+      "valor_total": 10130.0,
+      "preco_unitario": 20.26,
+      "quantidade": 500.0
+    },
+    {
+      "ativo": "PSSA3",
+      "data": "2026-05-15",
+      "tipo": "APORTE (Exercício PUT PSSAQ522)",
+      "valor_total": 10174.0,
+      "preco_unitario": 50.87,
+      "quantidade": 200.0
+    },
+    {
+      "ativo": "RADL3",
+      "data": "2026-05-15",
+      "tipo": "APORTE (Exercício PUT RADLQ229)",
+      "valor_total": 11435.0,
+      "preco_unitario": 22.87,
+      "quantidade": 500.0
+    },
+    {
+      "ativo": "WEGE3",
+      "data": "2026-05-15",
+      "tipo": "APORTE (Exercício PUT WEGEQ484)",
+      "valor_total": 14463.0,
+      "preco_unitario": 48.21,
+      "quantidade": 300.0
     }
   ],
   "descricao": "Historico de aportes e retiradas (trades) de ativos financeiros"
