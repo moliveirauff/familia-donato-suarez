@@ -1,30 +1,58 @@
 {
-  "versao": "2026.5.17",
-  "generated_at": "2026-05-17T18:00:00-03:00",
+  "versao": "2026.5.18",
+  "generated_at": "2026-05-18T10:36:00-03:00",
   "week_of": "2026-05-18",
-  "summary": "Leitura semanal com confiança moderada. Brasil segue apenas seletivo após correção forte; EUA continuam ruins para venda coberta agressiva por índice ainda perto das máximas e calendário carregado; Cripto permanece desfavorável pelo gap risk e pressão recente nos ETFs.",
+  "summary": "Semáforo semanal segue seletivo: Brasil e EUA em amarelo tanto no curto quanto no médio prazo. Prêmios existem, mas não justificam venda coberta agressiva por macro, juros, calendário e risco de repique/breakout.",
   "markets": {
     "brasil": {
       "name": "Brasil",
       "status": "yellow",
       "score": 6,
-      "objective": "Ambiente aceitável só para venda coberta seletiva, com correção recente reduzindo risco de breakout, mas macro e liquidez ainda exigindo disciplina.",
+      "objective": "Curto prazo amarelo: operar apenas seletivo; correção reduz risco de breakout, mas macro, fluxo estrangeiro e liquidez fora dos grandes pedem disciplina.",
       "indicators": [
-        "Ibovespa recuou 3,7% em 5 pregões e ficou quase 10% abaixo da máxima de 20 dias",
-        "Volatilidade local tende a seguir acima de mercados desenvolvidos, mas com prêmio concentrado nos nomes líquidos",
-        "Risco macro doméstico e commodities ainda impede leitura francamente favorável"
-      ]
+        "BR curto prazo: Ibovespa vinha de 5 semanas de queda e -3,71% na semana anterior; sem alta acelerada, mas com risco de repique.",
+        "VXBR em torno de 20 pontos e prêmio moderado; liquidez melhor em PETR4, VALE3, ITUB4 e BBDC4.",
+        "Selic 14,50%, Focus pressionado e fluxo estrangeiro negativo na B3 impedem leitura verde.",
+        "BR médio prazo também amarelo: junho/julho carregam Copom, fiscal, commodities, eleição 2026 e início de earnings Q2.",
+        "Mais operáveis: PETR4, VALE3, ITUB4 e BBDC4; cuidado maior em WEGE3, RADL3, FLRY3 e RDOR3 se spread/prêmio forem ruins."
+      ],
+      "horizons": {
+        "curto_prazo": {
+          "status": "yellow",
+          "score": 6,
+          "objective": "Venda coberta seletiva, preferindo OTM e vencimento junho; evitar ATM muito curto e rolagem ruim."
+        },
+        "medio_prazo": {
+          "status": "yellow",
+          "score": 6,
+          "objective": "Aceitável para junho/julho, mas sem agressividade pelo risco de repique após correção e eventos macro."
+        }
+      }
     },
     "eua": {
       "name": "Estados Unidos",
-      "status": "red",
-      "score": 5,
-      "objective": "Ambiente ruim para covered calls de rotina, porque S&P 500 e Nasdaq seguem perto das máximas enquanto eventos da semana podem reacelerar o movimento direcional.",
+      "status": "yellow",
+      "score": 6,
+      "objective": "Curto e médio prazo em amarelo: prêmio aceitável, mas SPY perto de máxima, IV apenas moderada e calendário/Fed/juros limitam venda coberta agressiva.",
       "indicators": [
-        "S&P 500 e Nasdaq ficaram a cerca de 1% a 2% das máximas de 20 dias, mesmo após perda de fôlego no fim da semana",
-        "VIX em torno de 18 oferece prêmio apenas moderado para ceder upside em índice ainda forte",
-        "Semana tem ata do FOMC, PMIs, dados de consumo e resultados relevantes de tecnologia e varejo"
-      ]
+        "US curto prazo: SPY perto de ATH; risco de capar upside em eventual continuação do rally.",
+        "VIX em torno de 17-18 e IV rank do SPY perto de 27-31%: prêmio existe, mas não está excepcional.",
+        "Ata do FOMC, NVDA/retail earnings e juros longos altos aumentam risco direcional intrassemana.",
+        "US médio prazo: Fed provavelmente sem cortes em junho/julho; 10Y perto de 4,4%-4,6% e 30Y acima de 5% pressionam múltiplos e VNQ.",
+        "SPY tem liquidez excelente; VNQ é amarelo baixo por sensibilidade a yields e REITs."
+      ],
+      "horizons": {
+        "curto_prazo": {
+          "status": "yellow",
+          "score": 6,
+          "objective": "SPY amarelo/vermelho claro; VNQ amarelo. Preferir strikes conservadores, sem vender call colada."
+        },
+        "medio_prazo": {
+          "status": "yellow",
+          "score": 6,
+          "objective": "SPY amarelo alto e VNQ amarelo baixo; preferir delta baixo/moderado e 30-45 DTE."
+        }
+      }
     },
     "cripto": {
       "name": "Cripto",
