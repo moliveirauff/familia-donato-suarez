@@ -147,20 +147,22 @@ def calcular_fluxo_us(opcoes):
             target_usd[mes_abertura] -= val
             target_brl[mes_abertura] -= val * cotacao
 
-        # FECHAMENTO (mesma cotação da abertura!)
+        # FECHAMENTO: usar PTAX da data do fechamento (data efetiva do caixa)
         if op['status'] == 'fechada' and op.get('data_fechamento'):
-            mes_fech = op['data_fechamento'][:7]
+            data_fechamento = op['data_fechamento']
+            mes_fech = data_fechamento[:7]
+            cotacao_fechamento = float(op.get('ptax_fechamento') or _buscar_cotacao(data_fechamento, cache_cotacoes))
             preco_fech = op.get('preco_opcao_fechamento', 0)
             taxa_fech = op.get('taxas_fechamento', 0)
 
             if op['operacao'] == 'Venda':
                 val = (preco_fech * qtd) + taxa_fech
                 target_usd[mes_fech] -= val
-                target_brl[mes_fech] -= val * cotacao
+                target_brl[mes_fech] -= val * cotacao_fechamento
             else:  # Compra
                 val = (preco_fech * qtd) - taxa_fech
                 target_usd[mes_fech] += val
-                target_brl[mes_fech] += val * cotacao
+                target_brl[mes_fech] += val * cotacao_fechamento
 
     return fluxo_us_usd, fluxo_us_brl, fluxo_cripto_usd, fluxo_cripto_brl
 

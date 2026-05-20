@@ -30,7 +30,8 @@
       "taxas_total": 1.24,
       "resultado": -104.24,
       "status": "fechada",
-      "ptax_abertura": 5.5722
+      "ptax_abertura": 5.5722,
+      "ptax_fechamento": 5.3928
     },
     {
       "ticker": "SPYM",
@@ -50,7 +51,8 @@
       "taxas_total": 0.25,
       "resultado": -257.25,
       "status": "fechada",
-      "ptax_abertura": 5.5722
+      "ptax_abertura": 5.5722,
+      "ptax_fechamento": 5.301
     },
     {
       "ticker": "SPYM",
@@ -70,7 +72,8 @@
       "taxas_total": 0.74,
       "resultado": 41.26,
       "status": "fechada",
-      "ptax_abertura": 5.5722
+      "ptax_abertura": 5.5722,
+      "ptax_fechamento": 5.3928
     },
     {
       "ticker": "IBIT",
@@ -90,7 +93,8 @@
       "taxas_total": 0.24,
       "resultado": 95.76,
       "status": "fechada",
-      "ptax_abertura": 5.5625
+      "ptax_abertura": 5.5625,
+      "ptax_fechamento": 5.3928
     },
     {
       "ticker": "IBIT",
@@ -110,7 +114,8 @@
       "taxas_total": 0.24,
       "resultado": 400.76,
       "status": "fechada",
-      "ptax_abertura": 5.5625
+      "ptax_abertura": 5.5625,
+      "ptax_fechamento": 5.4264
     },
     {
       "ticker": "IBIT",
@@ -130,7 +135,8 @@
       "taxas_total": 0.74,
       "resultado": -387.74,
       "status": "fechada",
-      "ptax_abertura": 5.5625
+      "ptax_abertura": 5.5625,
+      "ptax_fechamento": 5.3928
     },
     {
       "ticker": "IBIT",
@@ -150,7 +156,8 @@
       "taxas_total": 0.36,
       "resultado": 131.64,
       "status": "fechada",
-      "ptax_abertura": 5.5119
+      "ptax_abertura": 5.5119,
+      "ptax_fechamento": 5.4716
     },
     {
       "ticker": "IBIT",
@@ -170,7 +177,8 @@
       "taxas_total": 0.49,
       "resultado": -44.49,
       "status": "fechada",
-      "ptax_abertura": 5.5119
+      "ptax_abertura": 5.5119,
+      "ptax_fechamento": 5.4716
     },
     {
       "ticker": "IBIT",
@@ -190,7 +198,8 @@
       "taxas_total": 0.24,
       "resultado": -157.24,
       "status": "fechada",
-      "ptax_abertura": 5.5119
+      "ptax_abertura": 5.5119,
+      "ptax_fechamento": 5.3928
     },
     {
       "ticker": "ETHA",
@@ -210,7 +219,8 @@
       "taxas_total": 0.49,
       "resultado": -1258.49,
       "status": "fechada",
-      "ptax_abertura": 5.5119
+      "ptax_abertura": 5.5119,
+      "ptax_fechamento": 5.3928
     },
     {
       "ticker": "ETHA",
@@ -230,7 +240,8 @@
       "taxas_total": 0.24,
       "resultado": 458.76,
       "status": "fechada",
-      "ptax_abertura": 5.5119
+      "ptax_abertura": 5.5119,
+      "ptax_fechamento": 5.3928
     },
     {
       "ticker": "SPYM",
@@ -250,7 +261,8 @@
       "taxas_total": 0.25,
       "resultado": -160.25,
       "status": "fechada",
-      "ptax_abertura": 5.3928
+      "ptax_abertura": 5.3928,
+      "ptax_fechamento": 5.301
     },
     {
       "ticker": "SPYM",
@@ -270,7 +282,8 @@
       "taxas_total": 0.24,
       "resultado": 104.76,
       "status": "fechada",
-      "ptax_abertura": 5.3928
+      "ptax_abertura": 5.3928,
+      "ptax_fechamento": 5.301
     },
     {
       "ticker": "ETHA",
@@ -290,7 +303,8 @@
       "taxas_total": 0.49,
       "resultado": 745.51,
       "status": "fechada",
-      "ptax_abertura": 5.3928
+      "ptax_abertura": 5.3928,
+      "ptax_fechamento": 5.4828
     },
     {
       "ticker": "ETHA",
@@ -310,7 +324,8 @@
       "taxas_total": 0.24,
       "resultado": -384.24,
       "status": "fechada",
-      "ptax_abertura": 5.3928
+      "ptax_abertura": 5.3928,
+      "ptax_fechamento": 5.4828
     },
     {
       "ticker": "IBIT",
@@ -330,7 +345,8 @@
       "taxas_total": 0.86,
       "resultado": 761.14,
       "status": "fechada",
-      "ptax_abertura": 5.3928
+      "ptax_abertura": 5.3928,
+      "ptax_fechamento": 5.4716
     },
     {
       "ticker": "IBIT",
@@ -350,7 +366,8 @@
       "taxas_total": 0.5,
       "resultado": -170.5,
       "status": "fechada",
-      "ptax_abertura": 5.3928
+      "ptax_abertura": 5.3928,
+      "ptax_fechamento": 5.4716
     },
     {
       "ticker": "IBIT",
@@ -370,7 +387,8 @@
       "taxas_total": 1.47,
       "resultado": 10.53,
       "status": "fechada",
-      "ptax_abertura": 5.4716
+      "ptax_abertura": 5.4716,
+      "ptax_fechamento": 5.4392
     },
     {
       "ticker": "IBIT",
@@ -390,7 +408,8 @@
       "taxas_total": 1.23,
       "resultado": -26.23,
       "status": "fechada",
-      "ptax_abertura": 5.4716
+      "ptax_abertura": 5.4716,
+      "ptax_fechamento": 5.4392
     },
     {
       "ticker": "ETHA",
@@ -410,7 +429,8 @@
       "taxas_total": 0.49,
       "resultado": -42.49,
       "status": "fechada",
-      "ptax_abertura": 5.3928
+      "ptax_abertura": 5.3928,
+      "ptax_fechamento": 5.4264
     },
     {
       "ticker": "ETHA",
@@ -430,7 +450,8 @@
       "taxas_total": 0.24,
       "resultado": -25.24,
       "status": "fechada",
-      "ptax_abertura": 5.3928
+      "ptax_abertura": 5.3928,
+      "ptax_fechamento": 5.4264
     },
     {
       "ticker": "IBIT",
@@ -450,7 +471,8 @@
       "taxas_total": 1.47,
       "resultado": 382.53,
       "status": "fechada",
-      "ptax_abertura": 5.4392
+      "ptax_abertura": 5.4392,
+      "ptax_fechamento": 5.4218
     },
     {
       "ticker": "IBIT",
@@ -470,7 +492,8 @@
       "taxas_total": 0.99,
       "resultado": -108.99,
       "status": "fechada",
-      "ptax_abertura": 5.4392
+      "ptax_abertura": 5.4392,
+      "ptax_fechamento": 5.4218
     },
     {
       "ticker": "VNQ",
@@ -490,7 +513,8 @@
       "taxas_total": 0.49,
       "resultado": 139.51,
       "status": "fechada",
-      "ptax_abertura": 5.4174
+      "ptax_abertura": 5.4174,
+      "ptax_fechamento": 5.301
     },
     {
       "ticker": "VNQ",
@@ -510,7 +534,8 @@
       "taxas_total": 0.24,
       "resultado": -25.24,
       "status": "fechada",
-      "ptax_abertura": 5.4174
+      "ptax_abertura": 5.4174,
+      "ptax_fechamento": 5.301
     },
     {
       "ticker": "SPYM",
@@ -530,7 +555,8 @@
       "taxas_total": 1.46,
       "resultado": -565.46,
       "status": "fechada",
-      "ptax_abertura": 5.4174
+      "ptax_abertura": 5.4174,
+      "ptax_fechamento": 5.301
     },
     {
       "ticker": "SPYM",
@@ -550,7 +576,8 @@
       "taxas_total": 1.0,
       "resultado": -1.0,
       "status": "fechada",
-      "ptax_abertura": 5.4174
+      "ptax_abertura": 5.4174,
+      "ptax_fechamento": 5.301
     },
     {
       "ticker": "IBIT",
@@ -570,7 +597,8 @@
       "taxas_total": 1.7,
       "resultado": 187.3,
       "status": "fechada",
-      "ptax_abertura": 5.4218
+      "ptax_abertura": 5.4218,
+      "ptax_fechamento": 5.468
     },
     {
       "ticker": "IBIT",
@@ -590,7 +618,8 @@
       "taxas_total": 0.98,
       "resultado": -84.98,
       "status": "fechada",
-      "ptax_abertura": 5.4218
+      "ptax_abertura": 5.4218,
+      "ptax_fechamento": 5.468
     },
     {
       "ticker": "ETHA",
@@ -610,7 +639,8 @@
       "taxas_total": 0.49,
       "resultado": -28.49,
       "status": "fechada",
-      "ptax_abertura": 5.4264
+      "ptax_abertura": 5.4264,
+      "ptax_fechamento": 5.4587
     },
     {
       "ticker": "ETHA",
@@ -630,7 +660,8 @@
       "taxas_total": 0.24,
       "resultado": -22.24,
       "status": "fechada",
-      "ptax_abertura": 5.4264
+      "ptax_abertura": 5.4264,
+      "ptax_fechamento": 5.4587
     },
     {
       "ticker": "IBIT",
@@ -650,7 +681,8 @@
       "taxas_total": 1.22,
       "resultado": 233.78,
       "status": "fechada",
-      "ptax_abertura": 5.468
+      "ptax_abertura": 5.468,
+      "ptax_fechamento": 5.3677
     },
     {
       "ticker": "IBIT",
@@ -670,7 +702,8 @@
       "taxas_total": 0.74,
       "resultado": -90.74,
       "status": "fechada",
-      "ptax_abertura": 5.468
+      "ptax_abertura": 5.468,
+      "ptax_fechamento": 5.3677
     },
     {
       "ticker": "ETHA",
@@ -690,7 +723,8 @@
       "taxas_total": 0.73,
       "resultado": -150.73,
       "status": "fechada",
-      "ptax_abertura": 5.4587
+      "ptax_abertura": 5.4587,
+      "ptax_fechamento": 5.3677
     },
     {
       "ticker": "ETHA",
@@ -710,7 +744,8 @@
       "taxas_total": 0.5,
       "resultado": -24.5,
       "status": "fechada",
-      "ptax_abertura": 5.4587
+      "ptax_abertura": 5.4587,
+      "ptax_fechamento": 5.3677
     },
     {
       "ticker": "ETHA",
@@ -730,7 +765,8 @@
       "taxas_total": 0.73,
       "resultado": -186.73,
       "status": "fechada",
-      "ptax_abertura": 5.3677
+      "ptax_abertura": 5.3677,
+      "ptax_fechamento": 5.301
     },
     {
       "ticker": "ETHA",
@@ -750,7 +786,8 @@
       "taxas_total": 0.5,
       "resultado": 5.5,
       "status": "fechada",
-      "ptax_abertura": 5.3677
+      "ptax_abertura": 5.3677,
+      "ptax_fechamento": 5.301
     },
     {
       "ticker": "IBIT",
@@ -770,7 +807,8 @@
       "taxas_total": 1.22,
       "resultado": 13.78,
       "status": "fechada",
-      "ptax_abertura": 5.3677
+      "ptax_abertura": 5.3677,
+      "ptax_fechamento": 5.301
     },
     {
       "ticker": "IBIT",
@@ -790,7 +828,8 @@
       "taxas_total": 0.74,
       "resultado": -45.74,
       "status": "fechada",
-      "ptax_abertura": 5.3677
+      "ptax_abertura": 5.3677,
+      "ptax_fechamento": 5.301
     },
     {
       "ticker": "SPYM",
@@ -810,7 +849,8 @@
       "taxas_total": 1.91,
       "resultado": 126.09,
       "status": "fechada",
-      "ptax_abertura": 5.301
+      "ptax_abertura": 5.301,
+      "ptax_fechamento": 5.4629
     },
     {
       "ticker": "SPYM",
@@ -830,7 +870,8 @@
       "taxas_total": 0.49,
       "resultado": -80.49,
       "status": "fechada",
-      "ptax_abertura": 5.301
+      "ptax_abertura": 5.301,
+      "ptax_fechamento": 5.4629
     },
     {
       "ticker": "VNQ",
@@ -850,7 +891,8 @@
       "taxas_total": 0.73,
       "resultado": 80.27,
       "status": "fechada",
-      "ptax_abertura": 5.301
+      "ptax_abertura": 5.301,
+      "ptax_fechamento": 5.3445
     },
     {
       "ticker": "VNQ",
@@ -870,7 +912,8 @@
       "taxas_total": 0.5,
       "resultado": -20.5,
       "status": "fechada",
-      "ptax_abertura": 5.301
+      "ptax_abertura": 5.301,
+      "ptax_fechamento": 5.3445
     },
     {
       "ticker": "ETHA",
@@ -890,7 +933,8 @@
       "taxas_total": 0.73,
       "resultado": 1235.27,
       "status": "fechada",
-      "ptax_abertura": 5.301
+      "ptax_abertura": 5.301,
+      "ptax_fechamento": 5.3445
     },
     {
       "ticker": "ETHA",
@@ -910,7 +954,8 @@
       "taxas_total": 0.5,
       "resultado": -424.5,
       "status": "fechada",
-      "ptax_abertura": 5.301
+      "ptax_abertura": 5.301,
+      "ptax_fechamento": 5.3445
     },
     {
       "ticker": "IBIT",
@@ -930,7 +975,8 @@
       "taxas_total": 1.22,
       "resultado": 453.78,
       "status": "fechada",
-      "ptax_abertura": 5.301
+      "ptax_abertura": 5.301,
+      "ptax_fechamento": 5.3445
     },
     {
       "ticker": "IBIT",
@@ -950,7 +996,8 @@
       "taxas_total": 0.74,
       "resultado": -105.74,
       "status": "fechada",
-      "ptax_abertura": 5.301
+      "ptax_abertura": 5.301,
+      "ptax_fechamento": 5.3445
     },
     {
       "ticker": "ETHA",
@@ -970,7 +1017,8 @@
       "taxas_total": 0.48,
       "resultado": -328.48,
       "status": "fechada",
-      "ptax_abertura": 5.3445
+      "ptax_abertura": 5.3445,
+      "ptax_fechamento": 5.3498
     },
     {
       "ticker": "ETHA",
@@ -990,7 +1038,8 @@
       "taxas_total": 0.24,
       "resultado": 16.76,
       "status": "fechada",
-      "ptax_abertura": 5.3445
+      "ptax_abertura": 5.3445,
+      "ptax_fechamento": 5.3498
     },
     {
       "ticker": "IBIT",
@@ -1010,7 +1059,8 @@
       "taxas_total": 1.2,
       "resultado": -1971.2,
       "status": "fechada",
-      "ptax_abertura": 5.3445
+      "ptax_abertura": 5.3445,
+      "ptax_fechamento": 5.3498
     },
     {
       "ticker": "IBIT",
@@ -1030,7 +1080,8 @@
       "taxas_total": 1.19,
       "resultado": 863.81,
       "status": "fechada",
-      "ptax_abertura": 5.3445
+      "ptax_abertura": 5.3445,
+      "ptax_fechamento": 5.3498
     },
     {
       "ticker": "VNQ",
@@ -1050,7 +1101,8 @@
       "taxas_total": 0.72,
       "resultado": 233.28,
       "status": "fechada",
-      "ptax_abertura": 5.3445
+      "ptax_abertura": 5.3445,
+      "ptax_fechamento": 5.4629
     },
     {
       "ticker": "VNQ",
@@ -1070,7 +1122,8 @@
       "taxas_total": 0.49,
       "resultado": -52.49,
       "status": "fechada",
-      "ptax_abertura": 5.3445
+      "ptax_abertura": 5.3445,
+      "ptax_fechamento": 5.4629
     },
     {
       "ticker": "ETHA",
@@ -1090,7 +1143,8 @@
       "taxas_total": 0.72,
       "resultado": 602.28,
       "status": "fechada",
-      "ptax_abertura": 5.3498
+      "ptax_abertura": 5.3498,
+      "ptax_fechamento": 5.3538
     },
     {
       "ticker": "ETHA",
@@ -1110,7 +1164,8 @@
       "taxas_total": 0.48,
       "resultado": -194.48,
       "status": "fechada",
-      "ptax_abertura": 5.3498
+      "ptax_abertura": 5.3498,
+      "ptax_fechamento": 5.3538
     },
     {
       "ticker": "IBIT",
@@ -1130,7 +1185,8 @@
       "taxas_total": 1.19,
       "resultado": 618.81,
       "status": "fechada",
-      "ptax_abertura": 5.3498
+      "ptax_abertura": 5.3498,
+      "ptax_fechamento": 5.3538
     },
     {
       "ticker": "IBIT",
@@ -1150,7 +1206,8 @@
       "taxas_total": 0.73,
       "resultado": -429.73,
       "status": "fechada",
-      "ptax_abertura": 5.3498
+      "ptax_abertura": 5.3498,
+      "ptax_fechamento": 5.3538
     },
     {
       "ticker": "ETHA",
@@ -1170,7 +1227,8 @@
       "taxas_total": 0.72,
       "resultado": 113.28,
       "status": "fechada",
-      "ptax_abertura": 5.3498
+      "ptax_abertura": 5.3498,
+      "ptax_fechamento": 5.439
     },
     {
       "ticker": "ETHA",
@@ -1190,7 +1248,8 @@
       "taxas_total": 0.36,
       "resultado": -30.36,
       "status": "fechada",
-      "ptax_abertura": 5.3498
+      "ptax_abertura": 5.3498,
+      "ptax_fechamento": 5.439
     },
     {
       "ticker": "IBIT",
@@ -1210,7 +1269,8 @@
       "taxas_total": 1.07,
       "resultado": 1403.93,
       "status": "fechada",
-      "ptax_abertura": 5.3498
+      "ptax_abertura": 5.3498,
+      "ptax_fechamento": 5.439
     },
     {
       "ticker": "IBIT",
@@ -1230,7 +1290,8 @@
       "taxas_total": 0.36,
       "resultado": -262.36,
       "status": "fechada",
-      "ptax_abertura": 5.3498
+      "ptax_abertura": 5.3498,
+      "ptax_fechamento": 5.439
     },
     {
       "ticker": "SPYM",
@@ -1250,7 +1311,8 @@
       "taxas_total": 1.92,
       "resultado": 1494.08,
       "status": "fechada",
-      "ptax_abertura": 5.4629
+      "ptax_abertura": 5.4629,
+      "ptax_fechamento": 5.3902
     },
     {
       "ticker": "SPYM",
@@ -1270,7 +1332,8 @@
       "taxas_total": 0.24,
       "resultado": -126.24,
       "status": "fechada",
-      "ptax_abertura": 5.4629
+      "ptax_abertura": 5.4629,
+      "ptax_fechamento": 5.3902
     },
     {
       "ticker": "VNQ",
@@ -1290,7 +1353,8 @@
       "taxas_total": 0.72,
       "resultado": 326.28,
       "status": "fechada",
-      "ptax_abertura": 5.4629
+      "ptax_abertura": 5.4629,
+      "ptax_fechamento": 5.3902
     },
     {
       "ticker": "VNQ",
@@ -1310,7 +1374,8 @@
       "taxas_total": 0.48,
       "resultado": -110.48,
       "status": "fechada",
-      "ptax_abertura": 5.4629
+      "ptax_abertura": 5.4629,
+      "ptax_fechamento": 5.3902
     },
     {
       "ticker": "ETHA",
@@ -1330,7 +1395,8 @@
       "taxas_total": 0.72,
       "resultado": 122.28,
       "status": "fechada",
-      "ptax_abertura": 5.439
+      "ptax_abertura": 5.439,
+      "ptax_fechamento": 5.384
     },
     {
       "ticker": "ETHA",
@@ -1350,7 +1416,8 @@
       "taxas_total": 0.49,
       "resultado": -38.49,
       "status": "fechada",
-      "ptax_abertura": 5.439
+      "ptax_abertura": 5.439,
+      "ptax_fechamento": 5.384
     },
     {
       "ticker": "IBIT",
@@ -1370,7 +1437,8 @@
       "taxas_total": 1.2,
       "resultado": 283.8,
       "status": "fechada",
-      "ptax_abertura": 5.439
+      "ptax_abertura": 5.439,
+      "ptax_fechamento": 5.3797
     },
     {
       "ticker": "IBIT",
@@ -1390,7 +1458,8 @@
       "taxas_total": 1.19,
       "resultado": -116.19,
       "status": "fechada",
-      "ptax_abertura": 5.439
+      "ptax_abertura": 5.439,
+      "ptax_fechamento": 5.3797
     },
     {
       "ticker": "ETHA",
@@ -1410,7 +1479,8 @@
       "taxas_total": 0.72,
       "resultado": 116.28,
       "status": "fechada",
-      "ptax_abertura": 5.384
+      "ptax_abertura": 5.384,
+      "ptax_fechamento": 5.385
     },
     {
       "ticker": "ETHA",
@@ -1430,7 +1500,8 @@
       "taxas_total": 0.49,
       "resultado": -32.49,
       "status": "fechada",
-      "ptax_abertura": 5.384
+      "ptax_abertura": 5.384,
+      "ptax_fechamento": 5.385
     },
     {
       "ticker": "SPY",
@@ -1450,7 +1521,8 @@
       "taxas_total": 0.24,
       "resultado": -177.24,
       "status": "fechada",
-      "ptax_abertura": 5.384
+      "ptax_abertura": 5.384,
+      "ptax_fechamento": 5.3843
     },
     {
       "ticker": "SPY",
@@ -1470,7 +1542,8 @@
       "taxas_total": 0.24,
       "resultado": -21.24,
       "status": "fechada",
-      "ptax_abertura": 5.384
+      "ptax_abertura": 5.384,
+      "ptax_fechamento": 5.3843
     },
     {
       "ticker": "SPY",
@@ -1490,7 +1563,8 @@
       "taxas_total": 0.24,
       "resultado": 298.76,
       "status": "fechada",
-      "ptax_abertura": 5.384
+      "ptax_abertura": 5.384,
+      "ptax_fechamento": 5.385
     },
     {
       "ticker": "SPY",
@@ -1510,7 +1584,8 @@
       "taxas_total": 0.24,
       "resultado": -163.24,
       "status": "fechada",
-      "ptax_abertura": 5.384
+      "ptax_abertura": 5.384,
+      "ptax_fechamento": 5.3843
     },
     {
       "ticker": "IBIT",
@@ -1530,7 +1605,8 @@
       "taxas_total": 1.19,
       "resultado": 233.81,
       "status": "fechada",
-      "ptax_abertura": 5.3797
+      "ptax_abertura": 5.3797,
+      "ptax_fechamento": 5.385
     },
     {
       "ticker": "IBIT",
@@ -1550,7 +1626,8 @@
       "taxas_total": 1.19,
       "resultado": -56.19,
       "status": "fechada",
-      "ptax_abertura": 5.3797
+      "ptax_abertura": 5.3797,
+      "ptax_fechamento": 5.385
     },
     {
       "ticker": "QQQ",
@@ -1570,7 +1647,8 @@
       "taxas_total": 0.24,
       "resultado": 55.76,
       "status": "fechada",
-      "ptax_abertura": 5.3744
+      "ptax_abertura": 5.3744,
+      "ptax_fechamento": 5.3843
     },
     {
       "ticker": "QQQ",
@@ -1590,7 +1668,8 @@
       "taxas_total": 0.24,
       "resultado": -14.24,
       "status": "fechada",
-      "ptax_abertura": 5.3744
+      "ptax_abertura": 5.3744,
+      "ptax_fechamento": 5.3843
     },
     {
       "ticker": "QQQ",
@@ -1610,7 +1689,8 @@
       "taxas_total": 0.24,
       "resultado": 155.76,
       "status": "fechada",
-      "ptax_abertura": 5.3744
+      "ptax_abertura": 5.3744,
+      "ptax_fechamento": 5.3843
     },
     {
       "ticker": "QQQ",
@@ -1630,7 +1710,8 @@
       "taxas_total": 0.24,
       "resultado": -80.24,
       "status": "fechada",
-      "ptax_abertura": 5.3744
+      "ptax_abertura": 5.3744,
+      "ptax_fechamento": 5.3843
     },
     {
       "ticker": "ETHA",
@@ -1650,7 +1731,8 @@
       "taxas_total": 0.72,
       "resultado": 104.28,
       "status": "fechada",
-      "ptax_abertura": 5.385
+      "ptax_abertura": 5.385,
+      "ptax_fechamento": 5.3846
     },
     {
       "ticker": "ETHA",
@@ -1670,7 +1752,8 @@
       "taxas_total": 0.49,
       "resultado": -30.49,
       "status": "fechada",
-      "ptax_abertura": 5.385
+      "ptax_abertura": 5.385,
+      "ptax_fechamento": 5.3846
     },
     {
       "ticker": "IBIT",
@@ -1690,7 +1773,8 @@
       "taxas_total": 1.45,
       "resultado": 304.55,
       "status": "fechada",
-      "ptax_abertura": 5.385
+      "ptax_abertura": 5.385,
+      "ptax_fechamento": 5.3846
     },
     {
       "ticker": "IBIT",
@@ -1710,7 +1794,8 @@
       "taxas_total": 1.45,
       "resultado": -103.45,
       "status": "fechada",
-      "ptax_abertura": 5.385
+      "ptax_abertura": 5.385,
+      "ptax_fechamento": 5.3846
     },
     {
       "ticker": "QQQ",
@@ -1730,7 +1815,8 @@
       "taxas_total": 0.36,
       "resultado": 34.64,
       "status": "fechada",
-      "ptax_abertura": 5.3843
+      "ptax_abertura": 5.3843,
+      "ptax_fechamento": 5.3846
     },
     {
       "ticker": "QQQ",
@@ -1750,7 +1836,8 @@
       "taxas_total": 0.12,
       "resultado": -7.12,
       "status": "fechada",
-      "ptax_abertura": 5.3843
+      "ptax_abertura": 5.3843,
+      "ptax_fechamento": 5.3567
     },
     {
       "ticker": "QQQ",
@@ -1770,7 +1857,8 @@
       "taxas_total": 0.24,
       "resultado": -902.24,
       "status": "fechada",
-      "ptax_abertura": 5.3843
+      "ptax_abertura": 5.3843,
+      "ptax_fechamento": 5.3567
     },
     {
       "ticker": "QQQ",
@@ -1790,7 +1878,8 @@
       "taxas_total": 0.24,
       "resultado": -34.24,
       "status": "fechada",
-      "ptax_abertura": 5.3843
+      "ptax_abertura": 5.3843,
+      "ptax_fechamento": 5.3567
     },
     {
       "ticker": "SPY",
@@ -1810,7 +1899,8 @@
       "taxas_total": 0.36,
       "resultado": 155.64,
       "status": "fechada",
-      "ptax_abertura": 5.3843
+      "ptax_abertura": 5.3843,
+      "ptax_fechamento": 5.3846
     },
     {
       "ticker": "SPY",
@@ -1830,7 +1920,8 @@
       "taxas_total": 0.24,
       "resultado": -22.24,
       "status": "fechada",
-      "ptax_abertura": 5.3843
+      "ptax_abertura": 5.3843,
+      "ptax_fechamento": 5.3567
     },
     {
       "ticker": "SPY",
@@ -1850,7 +1941,8 @@
       "taxas_total": 0.48,
       "resultado": -304.48,
       "status": "fechada",
-      "ptax_abertura": 5.3843
+      "ptax_abertura": 5.3843,
+      "ptax_fechamento": 5.3567
     },
     {
       "ticker": "SPY",
@@ -1870,7 +1962,8 @@
       "taxas_total": 0.48,
       "resultado": -82.48,
       "status": "fechada",
-      "ptax_abertura": 5.3843
+      "ptax_abertura": 5.3843,
+      "ptax_fechamento": 5.3567
     },
     {
       "ticker": "ETHA",
@@ -1890,7 +1983,8 @@
       "taxas_total": 0.72,
       "resultado": 89.28,
       "status": "fechada",
-      "ptax_abertura": 5.3846
+      "ptax_abertura": 5.3846,
+      "ptax_fechamento": 5.2885
     },
     {
       "ticker": "ETHA",
@@ -1910,7 +2004,8 @@
       "taxas_total": 0.49,
       "resultado": -24.49,
       "status": "fechada",
-      "ptax_abertura": 5.3846
+      "ptax_abertura": 5.3846,
+      "ptax_fechamento": 5.2885
     },
     {
       "ticker": "IBIT",
@@ -1930,7 +2025,8 @@
       "taxas_total": 1.44,
       "resultado": 322.56,
       "status": "fechada",
-      "ptax_abertura": 5.3846
+      "ptax_abertura": 5.3846,
+      "ptax_fechamento": 5.2885
     },
     {
       "ticker": "IBIT",
@@ -1950,7 +2046,8 @@
       "taxas_total": 1.46,
       "resultado": -139.46,
       "status": "fechada",
-      "ptax_abertura": 5.3846
+      "ptax_abertura": 5.3846,
+      "ptax_fechamento": 5.2885
     },
     {
       "ticker": "IBIT",
@@ -1970,7 +2067,8 @@
       "taxas_total": 0.48,
       "resultado": 177.52,
       "status": "fechada",
-      "ptax_abertura": 5.3798
+      "ptax_abertura": 5.3798,
+      "ptax_fechamento": 5.2885
     },
     {
       "ticker": "IBIT",
@@ -1990,7 +2088,8 @@
       "taxas_total": 0.49,
       "resultado": -92.49,
       "status": "fechada",
-      "ptax_abertura": 5.3798
+      "ptax_abertura": 5.3798,
+      "ptax_fechamento": 5.2885
     },
     {
       "ticker": "QQQ",
@@ -2010,7 +2109,8 @@
       "taxas_total": 0.24,
       "resultado": 1052.76,
       "status": "fechada",
-      "ptax_abertura": 5.3567
+      "ptax_abertura": 5.3567,
+      "ptax_fechamento": 5.2952
     },
     {
       "ticker": "QQQ",
@@ -2030,7 +2130,8 @@
       "taxas_total": 0.24,
       "resultado": -596.24,
       "status": "fechada",
-      "ptax_abertura": 5.3567
+      "ptax_abertura": 5.3567,
+      "ptax_fechamento": 5.2952
     },
     {
       "ticker": "SPY",
@@ -2050,7 +2151,8 @@
       "taxas_total": 0.24,
       "resultado": 793.76,
       "status": "fechada",
-      "ptax_abertura": 5.3567
+      "ptax_abertura": 5.3567,
+      "ptax_fechamento": 5.2952
     },
     {
       "ticker": "SPY",
@@ -2070,7 +2172,8 @@
       "taxas_total": 0.24,
       "resultado": -406.24,
       "status": "fechada",
-      "ptax_abertura": 5.3567
+      "ptax_abertura": 5.3567,
+      "ptax_fechamento": 5.2952
     },
     {
       "ticker": "SPY",
@@ -2090,7 +2193,8 @@
       "taxas_total": 0.24,
       "resultado": 514.76,
       "status": "fechada",
-      "ptax_abertura": 5.3567
+      "ptax_abertura": 5.3567,
+      "ptax_fechamento": 5.3181
     },
     {
       "ticker": "SPY",
@@ -2110,7 +2214,8 @@
       "taxas_total": 0.24,
       "resultado": -120.24,
       "status": "fechada",
-      "ptax_abertura": 5.3567
+      "ptax_abertura": 5.3567,
+      "ptax_fechamento": 5.3181
     },
     {
       "ticker": "IBIT",
@@ -2130,7 +2235,8 @@
       "taxas_total": 1.93,
       "resultado": 286.07,
       "status": "fechada",
-      "ptax_abertura": 5.2885
+      "ptax_abertura": 5.2885,
+      "ptax_fechamento": 5.2952
     },
     {
       "ticker": "IBIT",
@@ -2150,7 +2256,8 @@
       "taxas_total": 1.91,
       "resultado": -113.91,
       "status": "fechada",
-      "ptax_abertura": 5.2885
+      "ptax_abertura": 5.2885,
+      "ptax_fechamento": 5.2952
     },
     {
       "ticker": "ETHA",
@@ -2170,7 +2277,8 @@
       "taxas_total": 0.72,
       "resultado": 83.28,
       "status": "fechada",
-      "ptax_abertura": 5.2885
+      "ptax_abertura": 5.2885,
+      "ptax_fechamento": 5.2952
     },
     {
       "ticker": "ETHA",
@@ -2190,7 +2298,8 @@
       "taxas_total": 0.49,
       "resultado": -16.49,
       "status": "fechada",
-      "ptax_abertura": 5.2885
+      "ptax_abertura": 5.2885,
+      "ptax_fechamento": 5.2952
     },
     {
       "ticker": "IBIT",
@@ -2210,7 +2319,8 @@
       "taxas_total": 1.93,
       "resultado": 158.07,
       "status": "fechada",
-      "ptax_abertura": 5.2952
+      "ptax_abertura": 5.2952,
+      "ptax_fechamento": 5.3108
     },
     {
       "ticker": "IBIT",
@@ -2230,7 +2340,8 @@
       "taxas_total": 1.91,
       "resultado": -49.91,
       "status": "fechada",
-      "ptax_abertura": 5.2952
+      "ptax_abertura": 5.2952,
+      "ptax_fechamento": 5.3108
     },
     {
       "ticker": "ETHA",
@@ -2250,7 +2361,8 @@
       "taxas_total": 0.72,
       "resultado": 50.28,
       "status": "fechada",
-      "ptax_abertura": 5.2952
+      "ptax_abertura": 5.2952,
+      "ptax_fechamento": 5.3108
     },
     {
       "ticker": "ETHA",
@@ -2270,7 +2382,8 @@
       "taxas_total": 0.49,
       "resultado": 3.51,
       "status": "fechada",
-      "ptax_abertura": 5.2952
+      "ptax_abertura": 5.2952,
+      "ptax_fechamento": 5.3108
     },
     {
       "ticker": "QQQ",
@@ -2290,7 +2403,8 @@
       "taxas_total": 0.24,
       "resultado": 184.76,
       "status": "fechada",
-      "ptax_abertura": 5.2952
+      "ptax_abertura": 5.2952,
+      "ptax_fechamento": 5.3346
     },
     {
       "ticker": "QQQ",
@@ -2310,7 +2424,8 @@
       "taxas_total": 0.24,
       "resultado": -47.24,
       "status": "fechada",
-      "ptax_abertura": 5.2952
+      "ptax_abertura": 5.2952,
+      "ptax_fechamento": 5.3346
     },
     {
       "ticker": "QQQ",
@@ -2330,7 +2445,8 @@
       "taxas_total": 0.24,
       "resultado": 255.76,
       "status": "fechada",
-      "ptax_abertura": 5.2952
+      "ptax_abertura": 5.2952,
+      "ptax_fechamento": 5.3346
     },
     {
       "ticker": "QQQ",
@@ -2350,7 +2466,8 @@
       "taxas_total": 0.24,
       "resultado": -151.24,
       "status": "fechada",
-      "ptax_abertura": 5.2952
+      "ptax_abertura": 5.2952,
+      "ptax_fechamento": 5.3346
     },
     {
       "ticker": "IBIT",
@@ -2370,7 +2487,8 @@
       "taxas_total": 1.9,
       "resultado": 206.1,
       "status": "fechada",
-      "ptax_abertura": 5.3108
+      "ptax_abertura": 5.3108,
+      "ptax_fechamento": 5.3346
     },
     {
       "ticker": "IBIT",
@@ -2390,7 +2508,8 @@
       "taxas_total": 1.93,
       "resultado": -33.93,
       "status": "fechada",
-      "ptax_abertura": 5.3108
+      "ptax_abertura": 5.3108,
+      "ptax_fechamento": 5.3346
     },
     {
       "ticker": "ETHA",
@@ -2410,7 +2529,8 @@
       "taxas_total": 0.72,
       "resultado": 77.28,
       "status": "fechada",
-      "ptax_abertura": 5.3108
+      "ptax_abertura": 5.3108,
+      "ptax_fechamento": 5.3902
     },
     {
       "ticker": "ETHA",
@@ -2430,7 +2550,8 @@
       "taxas_total": 0.49,
       "resultado": -22.49,
       "status": "fechada",
-      "ptax_abertura": 5.3108
+      "ptax_abertura": 5.3108,
+      "ptax_fechamento": 5.3902
     },
     {
       "ticker": "IBIT",
@@ -2450,7 +2571,8 @@
       "taxas_total": 1.44,
       "resultado": 286.56,
       "status": "fechada",
-      "ptax_abertura": 5.3346
+      "ptax_abertura": 5.3346,
+      "ptax_fechamento": 5.3902
     },
     {
       "ticker": "IBIT",
@@ -2470,7 +2592,8 @@
       "taxas_total": 1.44,
       "resultado": -73.44,
       "status": "fechada",
-      "ptax_abertura": 5.3346
+      "ptax_abertura": 5.3346,
+      "ptax_fechamento": 5.3902
     },
     {
       "ticker": "ETHA",
@@ -2490,7 +2613,8 @@
       "taxas_total": 0.48,
       "resultado": -64.48,
       "status": "fechada",
-      "ptax_abertura": 5.3902
+      "ptax_abertura": 5.3902,
+      "ptax_fechamento": 5.3338
     },
     {
       "ticker": "ETHA",
@@ -2510,7 +2634,8 @@
       "taxas_total": 0.48,
       "resultado": -24.48,
       "status": "fechada",
-      "ptax_abertura": 5.3902
+      "ptax_abertura": 5.3902,
+      "ptax_fechamento": 5.3338
     },
     {
       "ticker": "VNQ",
@@ -2530,7 +2655,8 @@
       "taxas_total": 0.48,
       "resultado": 107.52,
       "status": "fechada",
-      "ptax_abertura": 5.3902
+      "ptax_abertura": 5.3902,
+      "ptax_fechamento": 5.3929
     },
     {
       "ticker": "VNQ",
@@ -2550,7 +2676,8 @@
       "taxas_total": 0.48,
       "resultado": -88.48,
       "status": "fechada",
-      "ptax_abertura": 5.3902
+      "ptax_abertura": 5.3902,
+      "ptax_fechamento": 5.3929
     },
     {
       "ticker": "IBIT",
@@ -2570,7 +2697,8 @@
       "taxas_total": 1.44,
       "resultado": -205.44,
       "status": "fechada",
-      "ptax_abertura": 5.3902
+      "ptax_abertura": 5.3902,
+      "ptax_fechamento": 5.3338
     },
     {
       "ticker": "IBIT",
@@ -2590,7 +2718,8 @@
       "taxas_total": 1.44,
       "resultado": -25.44,
       "status": "fechada",
-      "ptax_abertura": 5.3902
+      "ptax_abertura": 5.3902,
+      "ptax_fechamento": 5.3338
     },
     {
       "ticker": "SPY",
@@ -2610,7 +2739,8 @@
       "taxas_total": 0.24,
       "resultado": -993.24,
       "status": "fechada",
-      "ptax_abertura": 5.3902
+      "ptax_abertura": 5.3902,
+      "ptax_fechamento": 5.3338
     },
     {
       "ticker": "SPY",
@@ -2630,7 +2760,8 @@
       "taxas_total": 0.24,
       "resultado": 174.76,
       "status": "fechada",
-      "ptax_abertura": 5.3902
+      "ptax_abertura": 5.3902,
+      "ptax_fechamento": 5.3338
     },
     {
       "ticker": "QQQ",
@@ -2650,7 +2781,8 @@
       "taxas_total": 0.24,
       "resultado": 317.76,
       "status": "fechada",
-      "ptax_abertura": 5.3948
+      "ptax_abertura": 5.3948,
+      "ptax_fechamento": 5.5093
     },
     {
       "ticker": "QQQ",
@@ -2670,7 +2802,8 @@
       "taxas_total": 0.24,
       "resultado": -189.24,
       "status": "fechada",
-      "ptax_abertura": 5.3948
+      "ptax_abertura": 5.3948,
+      "ptax_fechamento": 5.5093
     },
     {
       "ticker": "QQQ",
@@ -2690,7 +2823,8 @@
       "taxas_total": 0.24,
       "resultado": 380.76,
       "status": "fechada",
-      "ptax_abertura": 5.3948
+      "ptax_abertura": 5.3948,
+      "ptax_fechamento": 5.2952
     },
     {
       "ticker": "QQQ",
@@ -2710,7 +2844,8 @@
       "taxas_total": 0.24,
       "resultado": -310.24,
       "status": "fechada",
-      "ptax_abertura": 5.3948
+      "ptax_abertura": 5.3948,
+      "ptax_fechamento": 5.2952
     },
     {
       "ticker": "ETHA",
@@ -2730,7 +2865,8 @@
       "taxas_total": 0.48,
       "resultado": 221.52,
       "status": "fechada",
-      "ptax_abertura": 5.3338
+      "ptax_abertura": 5.3338,
+      "ptax_fechamento": 5.3929
     },
     {
       "ticker": "ETHA",
@@ -2750,7 +2886,8 @@
       "taxas_total": 0.48,
       "resultado": -92.48,
       "status": "fechada",
-      "ptax_abertura": 5.3338
+      "ptax_abertura": 5.3338,
+      "ptax_fechamento": 5.3929
     },
     {
       "ticker": "IBIT",
@@ -2770,7 +2907,8 @@
       "taxas_total": 1.44,
       "resultado": 592.56,
       "status": "fechada",
-      "ptax_abertura": 5.3338
+      "ptax_abertura": 5.3338,
+      "ptax_fechamento": 5.3929
     },
     {
       "ticker": "IBIT",
@@ -2790,7 +2928,8 @@
       "taxas_total": 1.2,
       "resultado": -246.2,
       "status": "fechada",
-      "ptax_abertura": 5.3338
+      "ptax_abertura": 5.3338,
+      "ptax_fechamento": 5.3929
     },
     {
       "ticker": "SPY",
@@ -2810,7 +2949,8 @@
       "taxas_total": 0.24,
       "resultado": 571.76,
       "status": "fechada",
-      "ptax_abertura": 5.3338
+      "ptax_abertura": 5.3338,
+      "ptax_fechamento": 5.3929
     },
     {
       "ticker": "IBIT",
@@ -2830,7 +2970,8 @@
       "taxas_total": 1.44,
       "resultado": 418.56,
       "status": "fechada",
-      "ptax_abertura": 5.3929
+      "ptax_abertura": 5.3929,
+      "ptax_fechamento": 5.376
     },
     {
       "ticker": "IBIT",
@@ -2850,7 +2991,8 @@
       "taxas_total": 1.44,
       "resultado": -223.44,
       "status": "fechada",
-      "ptax_abertura": 5.3929
+      "ptax_abertura": 5.3929,
+      "ptax_fechamento": 5.376
     },
     {
       "ticker": "SPY",
@@ -2870,7 +3012,8 @@
       "taxas_total": 0.24,
       "resultado": 438.76,
       "status": "fechada",
-      "ptax_abertura": 5.3929
+      "ptax_abertura": 5.3929,
+      "ptax_fechamento": 5.3795
     },
     {
       "ticker": "VNQ",
@@ -2895,7 +3038,8 @@
       "preco_teorico": 2.0,
       "bs_data_calculo": "2026-03-18",
       "preco_mercado": 2.0,
-      "ptax_abertura": 5.3929
+      "ptax_abertura": 5.3929,
+      "ptax_fechamento": 5.2112
     },
     {
       "ticker": "ETHA",
@@ -2915,7 +3059,8 @@
       "taxas_total": 0.24,
       "resultado": 208.76,
       "status": "fechada",
-      "ptax_abertura": 5.3929
+      "ptax_abertura": 5.3929,
+      "ptax_fechamento": 5.2587
     },
     {
       "ticker": "IBIT",
@@ -2935,7 +3080,8 @@
       "taxas_total": 0.24,
       "resultado": 167.76,
       "status": "fechada",
-      "ptax_abertura": 5.4505
+      "ptax_abertura": 5.4505,
+      "ptax_fechamento": 5.376
     },
     {
       "ticker": "IBIT",
@@ -2955,7 +3101,8 @@
       "taxas_total": 0.24,
       "resultado": 155.76,
       "status": "fechada",
-      "ptax_abertura": 5.376
+      "ptax_abertura": 5.376,
+      "ptax_fechamento": 5.2006
     },
     {
       "ticker": "IBIT",
@@ -2975,7 +3122,8 @@
       "taxas_total": 1.44,
       "resultado": 196.56,
       "status": "fechada",
-      "ptax_abertura": 5.376
+      "ptax_abertura": 5.376,
+      "ptax_fechamento": 5.379
     },
     {
       "ticker": "IBIT",
@@ -2995,7 +3143,8 @@
       "taxas_total": 1.44,
       "resultado": -61.44,
       "status": "fechada",
-      "ptax_abertura": 5.376
+      "ptax_abertura": 5.376,
+      "ptax_fechamento": 5.379
     },
     {
       "ticker": "SPY",
@@ -3015,7 +3164,8 @@
       "taxas_total": 0.24,
       "resultado": 488.76,
       "status": "fechada",
-      "ptax_abertura": 5.3795
+      "ptax_abertura": 5.3795,
+      "ptax_fechamento": 5.1674
     },
     {
       "ticker": "IBIT",
@@ -3035,7 +3185,8 @@
       "taxas_total": 1.44,
       "resultado": 88.56,
       "status": "fechada",
-      "ptax_abertura": 5.379
+      "ptax_abertura": 5.379,
+      "ptax_fechamento": 5.3368
     },
     {
       "ticker": "IBIT",
@@ -3055,7 +3206,8 @@
       "taxas_total": 1.44,
       "resultado": -31.44,
       "status": "fechada",
-      "ptax_abertura": 5.379
+      "ptax_abertura": 5.379,
+      "ptax_fechamento": 5.3368
     },
     {
       "ticker": "IBIT",
@@ -3075,7 +3227,8 @@
       "taxas_total": 1.44,
       "resultado": 196.56,
       "status": "fechada",
-      "ptax_abertura": 5.3368
+      "ptax_abertura": 5.3368,
+      "ptax_fechamento": 5.2301
     },
     {
       "ticker": "IBIT",
@@ -3095,7 +3248,8 @@
       "taxas_total": 1.44,
       "resultado": -67.44,
       "status": "fechada",
-      "ptax_abertura": 5.3368
+      "ptax_abertura": 5.3368,
+      "ptax_fechamento": 5.2301
     },
     {
       "ticker": "IBIT",
@@ -3115,7 +3269,8 @@
       "taxas_total": 1.44,
       "resultado": 136.56,
       "status": "fechada",
-      "ptax_abertura": 5.2587
+      "ptax_abertura": 5.2587,
+      "ptax_fechamento": 5.258
     },
     {
       "ticker": "IBIT",
@@ -3135,7 +3290,8 @@
       "taxas_total": 1.44,
       "resultado": -49.44,
       "status": "fechada",
-      "ptax_abertura": 5.2587
+      "ptax_abertura": 5.2587,
+      "ptax_fechamento": 5.258
     },
     {
       "ticker": "ETHA",
@@ -3155,7 +3311,8 @@
       "taxas_total": 0.24,
       "resultado": 23.76,
       "status": "fechada",
-      "ptax_abertura": 5.2587
+      "ptax_abertura": 5.2587,
+      "ptax_fechamento": 5.258
     },
     {
       "ticker": "IBIT",
@@ -3175,7 +3332,8 @@
       "taxas_total": 1.44,
       "resultado": 190.56,
       "status": "fechada",
-      "ptax_abertura": 5.258
+      "ptax_abertura": 5.258,
+      "ptax_fechamento": 5.1836
     },
     {
       "ticker": "IBIT",
@@ -3195,7 +3353,8 @@
       "taxas_total": 1.44,
       "resultado": -67.44,
       "status": "fechada",
-      "ptax_abertura": 5.258
+      "ptax_abertura": 5.258,
+      "ptax_fechamento": 5.1836
     },
     {
       "ticker": "ETHA",
@@ -3215,7 +3374,8 @@
       "taxas_total": 0.24,
       "resultado": 73.76,
       "status": "fechada",
-      "ptax_abertura": 5.258
+      "ptax_abertura": 5.258,
+      "ptax_fechamento": 5.1836
     },
     {
       "ticker": "IBIT",
@@ -3235,7 +3395,8 @@
       "taxas_total": 1.44,
       "resultado": 148.56,
       "status": "fechada",
-      "ptax_abertura": 5.1836
+      "ptax_abertura": 5.1836,
+      "ptax_fechamento": 5.2349
     },
     {
       "ticker": "IBIT",
@@ -3255,7 +3416,8 @@
       "taxas_total": 1.44,
       "resultado": -61.44,
       "status": "fechada",
-      "ptax_abertura": 5.1836
+      "ptax_abertura": 5.1836,
+      "ptax_fechamento": 5.2349
     },
     {
       "ticker": "ETHA",
@@ -3275,7 +3437,8 @@
       "taxas_total": 0.24,
       "resultado": 30.76,
       "status": "fechada",
-      "ptax_abertura": 5.1836
+      "ptax_abertura": 5.1836,
+      "ptax_fechamento": 5.2006
     },
     {
       "ticker": "SPY",
@@ -3300,7 +3463,8 @@
       "preco_teorico": 0.04,
       "bs_data_calculo": "2026-03-13",
       "preco_mercado": 0.04,
-      "ptax_abertura": 5.1674
+      "ptax_abertura": 5.1674,
+      "ptax_fechamento": 5.2541
     },
     {
       "ticker": "IBIT",
@@ -3320,7 +3484,8 @@
       "taxas_total": 0.87,
       "resultado": 153.13,
       "status": "fechada",
-      "ptax_abertura": 5.2349
+      "ptax_abertura": 5.2349,
+      "ptax_fechamento": 5.144
     },
     {
       "ticker": "IBIT",
@@ -3340,7 +3505,8 @@
       "taxas_total": 0.89,
       "resultado": -35.89,
       "status": "fechada",
-      "ptax_abertura": 5.2349
+      "ptax_abertura": 5.2349,
+      "ptax_fechamento": 5.144
     },
     {
       "ticker": "IBIT",
@@ -3360,7 +3526,8 @@
       "taxas_total": 0.12,
       "resultado": 70.88,
       "status": "fechada",
-      "ptax_abertura": 5.2349
+      "ptax_abertura": 5.2349,
+      "ptax_fechamento": 5.1382
     },
     {
       "ticker": "ETHA",
@@ -3380,7 +3547,8 @@
       "taxas_total": 0.12,
       "resultado": 32.88,
       "status": "fechada",
-      "ptax_abertura": 5.2006
+      "ptax_abertura": 5.2006,
+      "ptax_fechamento": 5.1495
     },
     {
       "ticker": "IBIT",
@@ -3400,7 +3568,8 @@
       "taxas_total": 7.87,
       "resultado": -154.87,
       "status": "fechada",
-      "ptax_abertura": 5.144
+      "ptax_abertura": 5.144,
+      "ptax_fechamento": 5.2878
     },
     {
       "ticker": "IBIT",
@@ -3420,7 +3589,8 @@
       "taxas_total": 8.75,
       "resultado": 369.25,
       "status": "fechada",
-      "ptax_abertura": 5.144
+      "ptax_abertura": 5.144,
+      "ptax_fechamento": 5.2878
     },
     {
       "ticker": "IBIT",
@@ -3440,7 +3610,8 @@
       "taxas_total": 1.24,
       "resultado": 99.76,
       "status": "fechada",
-      "ptax_abertura": 5.1382
+      "ptax_abertura": 5.1382,
+      "ptax_fechamento": 5.2447
     },
     {
       "ticker": "ETHA",
@@ -3464,7 +3635,8 @@
       "iv_calculada": null,
       "preco_teorico": null,
       "bs_data_calculo": "2026-03-06",
-      "ptax_abertura": 5.1495
+      "ptax_abertura": 5.1495,
+      "ptax_fechamento": 5.2878
     },
     {
       "ticker": "IBIT",
@@ -3489,7 +3661,8 @@
       "iv_calculada": null,
       "preco_teorico": null,
       "preco_mercado": 0.08,
-      "ptax_abertura": 5.2447
+      "ptax_abertura": 5.2447,
+      "ptax_fechamento": 5.2541
     },
     {
       "ticker": "IBIT",
@@ -3514,7 +3687,8 @@
       "iv_calculada": null,
       "bs_data_calculo": "2026-03-13",
       "preco_teorico": null,
-      "ptax_abertura": 5.2878
+      "ptax_abertura": 5.2878,
+      "ptax_fechamento": 5.2541
     },
     {
       "ticker": "IBIT",
@@ -3539,7 +3713,8 @@
       "iv_calculada": null,
       "bs_data_calculo": "2026-03-13",
       "preco_teorico": null,
-      "ptax_abertura": 5.2878
+      "ptax_abertura": 5.2878,
+      "ptax_fechamento": 5.2541
     },
     {
       "ticker": "ETHA",
@@ -3564,7 +3739,8 @@
       "iv_calculada": null,
       "bs_data_calculo": "2026-03-13",
       "preco_teorico": null,
-      "ptax_abertura": 5.2878
+      "ptax_abertura": 5.2878,
+      "ptax_fechamento": 5.2541
     },
     {
       "ticker": "IBIT",
@@ -3589,7 +3765,8 @@
       "preco_mercado": 0.3,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.2541
+      "ptax_abertura": 5.2541,
+      "ptax_fechamento": 5.2587
     },
     {
       "ticker": "IBIT",
@@ -3614,7 +3791,8 @@
       "preco_mercado": 0.09,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.2541
+      "ptax_abertura": 5.2541,
+      "ptax_fechamento": 5.2587
     },
     {
       "ticker": "IBIT",
@@ -3639,7 +3817,8 @@
       "preco_mercado": 0.03,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.2541
+      "ptax_abertura": 5.2541,
+      "ptax_fechamento": 5.2587
     },
     {
       "ticker": "ETHA",
@@ -3664,7 +3843,8 @@
       "preco_mercado": 2.59,
       "iv_calculada": 1.394,
       "preco_teorico": 2.59,
-      "ptax_abertura": 5.2541
+      "ptax_abertura": 5.2541,
+      "ptax_fechamento": 5.2112
     },
     {
       "ticker": "SPY",
@@ -3689,7 +3869,8 @@
       "preco_mercado": 0.11,
       "iv_calculada": 0.1436,
       "preco_teorico": 0.11,
-      "ptax_abertura": 5.2541
+      "ptax_abertura": 5.2541,
+      "ptax_fechamento": 5.1625
     },
     {
       "ticker": "ETHA",
@@ -3714,7 +3895,8 @@
       "preco_mercado": 0.52,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.2112
+      "ptax_abertura": 5.2112,
+      "ptax_fechamento": 5.1606
     },
     {
       "ticker": "VNQ",
@@ -3739,7 +3921,8 @@
       "preco_mercado": 1.02,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.2112
+      "ptax_abertura": 5.2112,
+      "ptax_fechamento": 4.9806
     },
     {
       "ticker": "IBIT",
@@ -3764,7 +3947,8 @@
       "preco_mercado": 0.07,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.2587
+      "ptax_abertura": 5.2587,
+      "ptax_fechamento": 5.2308
     },
     {
       "ticker": "IBIT",
@@ -3789,7 +3973,8 @@
       "preco_mercado": 0.01,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.2587
+      "ptax_abertura": 5.2587,
+      "ptax_fechamento": 5.2376
     },
     {
       "ticker": "IBIT",
@@ -3814,7 +3999,8 @@
       "preco_mercado": 0.06,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.2587
+      "ptax_abertura": 5.2587,
+      "ptax_fechamento": 5.2308
     },
     {
       "ticker": "ETHA",
@@ -3839,7 +4025,8 @@
       "preco_mercado": 0.11,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.28
+      "ptax_abertura": 5.28,
+      "ptax_fechamento": 5.1606
     },
     {
       "ticker": "IBIT",
@@ -3864,7 +4051,8 @@
       "preco_mercado": 0.03,
       "iv_calculada": 0.7945,
       "preco_teorico": 0.03,
-      "ptax_abertura": 5.2308
+      "ptax_abertura": 5.2308,
+      "ptax_fechamento": 5.2194
     },
     {
       "ticker": "IBIT",
@@ -3889,7 +4077,8 @@
       "preco_mercado": 0.01,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.2308
+      "ptax_abertura": 5.2308,
+      "ptax_fechamento": 5.1655
     },
     {
       "ticker": "IBIT",
@@ -3914,7 +4103,8 @@
       "preco_mercado": 0.37,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.2308
+      "ptax_abertura": 5.2308,
+      "ptax_fechamento": 5.1606
     },
     {
       "ticker": "IBIT",
@@ -3939,7 +4129,8 @@
       "preco_mercado": 0.63,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.2194
+      "ptax_abertura": 5.2194,
+      "ptax_fechamento": 5.0229
     },
     {
       "ticker": "IBIT",
@@ -3964,7 +4155,8 @@
       "preco_mercado": 0.03,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.2194
+      "ptax_abertura": 5.2194,
+      "ptax_fechamento": 5.0229
     },
     {
       "ticker": "ETHA",
@@ -3989,7 +4181,8 @@
       "preco_mercado": 0.04,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.1606
+      "ptax_abertura": 5.1606,
+      "ptax_fechamento": 5.0821
     },
     {
       "ticker": "IBIT",
@@ -4014,7 +4207,8 @@
       "preco_mercado": 0.03,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.1606
+      "ptax_abertura": 5.1606,
+      "ptax_fechamento": 5.0821
     },
     {
       "ticker": "ETHA",
@@ -4039,7 +4233,8 @@
       "preco_mercado": 1.23,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.1606
+      "ptax_abertura": 5.1606,
+      "ptax_fechamento": 5.0821
     },
     {
       "ticker": "QQQ",
@@ -4064,7 +4259,8 @@
       "bs_data_calculo": "2026-04-09",
       "preco_mercado": 0.07,
       "iv_calculada": null,
-      "preco_teorico": null
+      "preco_teorico": null,
+      "ptax_fechamento": 5.0821
     },
     {
       "ticker": "QQQ",
@@ -4089,7 +4285,8 @@
       "bs_data_calculo": "2026-04-09",
       "preco_mercado": 0.03,
       "iv_calculada": null,
-      "preco_teorico": null
+      "preco_teorico": null,
+      "ptax_fechamento": 5.0821
     },
     {
       "ticker": "SPY",
@@ -4114,7 +4311,8 @@
       "bs_data_calculo": "2026-05-08",
       "preco_mercado": 43.54,
       "iv_calculada": null,
-      "preco_teorico": null
+      "preco_teorico": null,
+      "ptax_fechamento": 4.8999
     },
     {
       "ticker": "ETHA",
@@ -4139,7 +4337,8 @@
       "preco_mercado": 1.0,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.0821
+      "ptax_abertura": 5.0821,
+      "ptax_fechamento": 5.0083
     },
     {
       "ticker": "ETHA",
@@ -4164,7 +4363,8 @@
       "preco_mercado": 0.01,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.0821
+      "ptax_abertura": 5.0821,
+      "ptax_fechamento": 5.0083
     },
     {
       "ticker": "IBIT",
@@ -4189,7 +4389,8 @@
       "preco_mercado": 0.06,
       "iv_calculada": 0.643,
       "preco_teorico": 0.06,
-      "ptax_abertura": 5.0821
+      "ptax_abertura": 5.0821,
+      "ptax_fechamento": 4.9806
     },
     {
       "ticker": "IBIT",
@@ -4214,7 +4415,8 @@
       "preco_mercado": 1.79,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.0229
+      "ptax_abertura": 5.0229,
+      "ptax_fechamento": 4.9695
     },
     {
       "ticker": "IBIT",
@@ -4239,7 +4441,8 @@
       "preco_mercado": 0.31,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 5.0229
+      "ptax_abertura": 5.0229,
+      "ptax_fechamento": 4.9695
     },
     {
       "ticker": "IBIT",
@@ -4264,7 +4467,8 @@
       "preco_mercado": 0.01,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 4.9806
+      "ptax_abertura": 4.9806,
+      "ptax_fechamento": 5.0083
     },
     {
       "ticker": "VNQ",
@@ -4289,7 +4493,8 @@
       "preco_mercado": 4.82,
       "iv_calculada": 0.3771,
       "preco_teorico": 4.82,
-      "ptax_abertura": 4.9806
+      "ptax_abertura": 4.9806,
+      "ptax_fechamento": 4.8973
     },
     {
       "ticker": "IBIT",
@@ -4314,7 +4519,8 @@
       "preco_mercado": 1.59,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 4.9695
+      "ptax_abertura": 4.9695,
+      "ptax_fechamento": 5.0083
     },
     {
       "ticker": "IBIT",
@@ -4339,7 +4545,8 @@
       "preco_mercado": 0.07,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 4.9695
+      "ptax_abertura": 4.9695,
+      "ptax_fechamento": 5.0083
     },
     {
       "ticker": "IBIT",
@@ -4364,7 +4571,8 @@
       "preco_mercado": 0.01,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 4.9985
+      "ptax_abertura": 4.9985,
+      "ptax_fechamento": 4.8999
     },
     {
       "ticker": "IBIT",
@@ -4389,7 +4597,8 @@
       "preco_mercado": 0.3,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 4.9985
+      "ptax_abertura": 4.9985,
+      "ptax_fechamento": 4.8999
     },
     {
       "ticker": "IBIT",
@@ -4414,7 +4623,8 @@
       "preco_mercado": 0.02,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 4.9985
+      "ptax_abertura": 4.9985,
+      "ptax_fechamento": 4.8999
     },
     {
       "ticker": "IBIT",
@@ -4439,7 +4649,8 @@
       "preco_mercado": 0.04,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 4.8999
+      "ptax_abertura": 4.8999,
+      "ptax_fechamento": 4.9118
     },
     {
       "ticker": "IBIT",
@@ -4464,7 +4675,8 @@
       "preco_mercado": 0.04,
       "iv_calculada": 0.422,
       "preco_teorico": 0.04,
-      "ptax_abertura": 4.8999
+      "ptax_abertura": 4.8999,
+      "ptax_fechamento": 5.0654
     },
     {
       "ticker": "IBIT",
@@ -4489,7 +4701,8 @@
       "preco_mercado": 0.02,
       "iv_calculada": 0.5559,
       "preco_teorico": 0.02,
-      "ptax_abertura": 4.8999
+      "ptax_abertura": 4.8999,
+      "ptax_fechamento": 5.0654
     },
     {
       "ticker": "SPY",
@@ -4539,7 +4752,8 @@
       "preco_mercado": 0.01,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 4.8999
+      "ptax_abertura": 4.8999,
+      "ptax_fechamento": 5.0654
     },
     {
       "ticker": "ETHA",
@@ -4564,7 +4778,8 @@
       "preco_mercado": 0.33,
       "iv_calculada": null,
       "preco_teorico": null,
-      "ptax_abertura": 4.8999
+      "ptax_abertura": 4.8999,
+      "ptax_fechamento": 5.0654
     },
     {
       "ticker": "VNQ",
@@ -4589,7 +4804,8 @@
       "preco_mercado": 4.35,
       "iv_calculada": 0.1353,
       "preco_teorico": 4.35,
-      "ptax_abertura": 4.8973
+      "ptax_abertura": 4.8973,
+      "ptax_fechamento": 5.0301
     },
     {
       "ticker": "ETHA",
@@ -4689,7 +4905,8 @@
       "preco_mercado": 0.01,
       "iv_calculada": 0.4914,
       "preco_teorico": 0.01,
-      "ptax_abertura": 5.0654
+      "ptax_abertura": 5.0654,
+      "ptax_fechamento": 5.0301
     },
     {
       "ticker": "IBIT",
