@@ -55,32 +55,59 @@ CRIPTO_TICKERS = {'IBIT', 'ETHA'}
 
 
 def _buscar_cotacao(data_str, cache):
-    """Busca cotação do dólar no Bacen"""
+    """Busca PTAX de venda no Bacen de forma determinística.
+
+    Regra operacional: usar a PTAX do dia da operação. Se a data não tiver
+    cotação Bacen (fim de semana/feriado), usar o último dia útil anterior.
+    Nunca usar fallback fixo silencioso, pois isso altera o fluxo histórico.
+    """
     import requests
+    import time
+    from datetime import timedelta
 
     if data_str in cache:
         return cache[data_str]
 
-    try:
-        data_obj = datetime.strptime(data_str, '%Y-%m-%d')
-        data_bacen = data_obj.strftime('%m-%d-%Y')
+    data_obj = datetime.strptime(data_str, '%Y-%m-%d')
+    erros = []
+
+    for back in range(0, 8):
+        data_consulta = data_obj - timedelta(days=back)
+        data_bacen = data_consulta.strftime('%m-%d-%Y')
+        data_cache = data_consulta.strftime('%Y-%m-%d')
         url = (
             f"https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/"
             f"CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='{data_bacen}'&$format=json"
         )
-        resp = requests.get(url, timeout=5)
-        if resp.status_code == 200:
-            data = resp.json()
-            if 'value' in data and len(data['value']) > 0:
-                cotacao = float(data['value'][0]['cotacaoVenda'])
-                cache[data_str] = cotacao
-                print(f"  Cotação {data_str}: R$ {cotacao:.4f}")
-                return cotacao
-    except Exception as e:
-        print(f"  ⚠️ Erro ao buscar {data_str}: {e}")
 
-    cache[data_str] = 5.70
-    return 5.70
+        erro_de_rede = None
+        for tentativa in range(4):
+            try:
+                resp = requests.get(url, timeout=20)
+                resp.raise_for_status()
+                data = resp.json()
+                erro_de_rede = None
+                if data.get('value'):
+                    cotacao = round(float(data['value'][0]['cotacaoVenda']), 4)
+                    cache[data_str] = cotacao
+                    sufixo = '' if data_cache == data_str else f' (última útil: {data_cache})'
+                    print(f"  Cotação {data_str}: R$ {cotacao:.4f}{sufixo}")
+                    return cotacao
+                break
+            except Exception as e:
+                erro_de_rede = e
+                erros.append(f'{data_cache} tentativa {tentativa + 1}: {e}')
+                time.sleep(0.5 * (tentativa + 1))
+        if erro_de_rede is not None:
+            raise RuntimeError(
+                f"Falha de rede/API ao buscar PTAX de {data_cache}; "
+                f"não vou recuar para data anterior por timeout. Erro: {erro_de_rede}"
+            )
+
+    raise RuntimeError(
+        f"PTAX não encontrada para {data_str}; sem fallback fixo. "
+        f"Erros: {' | '.join(erros[-5:])}"
+    )
 
 
 def calcular_fluxo_us(opcoes):
@@ -104,7 +131,7 @@ def calcular_fluxo_us(opcoes):
 
         data_abertura = op['data_operacao']
         mes_abertura = data_abertura[:7]
-        cotacao = _buscar_cotacao(data_abertura, cache_cotacoes)
+        cotacao = float(op.get('ptax_abertura') or _buscar_cotacao(data_abertura, cache_cotacoes))
 
         preco_ab = op.get('preco_opcao_abertura', 0)
         qtd = op.get('quantidade', 0)
