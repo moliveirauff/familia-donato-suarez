@@ -1,13 +1,13 @@
 {
-  "gerado_em": "2026-05-06T18:56:03.221089",
+  "gerado_em": "2026-05-20T07:19:49.307742",
   "metodologia": "Aportes corrigidos a 0,6% a.m. composto. Participacao: 1/3. Valuation empresa = minha parte x 3.",
   "kpis": {
-    "total_investido": 320791.2,
-    "valor_mercado": 343184.7,
-    "valuation_empresa": 1029554.11,
+    "total_investido": 322559.99,
+    "valor_mercado": 345163.02,
+    "valuation_empresa": 1035489.06,
     "participacao_pct": 33.3333,
-    "rendimento": 22393.5,
-    "rentabilidade_pct": 6.9807,
+    "rendimento": 22603.03,
+    "rentabilidade_pct": 7.0074,
     "ultimo_mes": "2026-05"
   },
   "por_mes": [
@@ -216,10 +216,10 @@
     },
     {
       "mes": "2026-05",
-      "aportes_mes": 0,
-      "aportes_acum": 320791.2,
-      "vm_minha_parte": 343184.7,
-      "valuation_empresa": 1029554.11
+      "aportes_mes": 1768.79,
+      "aportes_acum": 322559.99,
+      "vm_minha_parte": 344953.49,
+      "valuation_empresa": 1034860.48
     }
   ],
   "por_aporte": [
@@ -282,23 +282,23 @@
     {
       "data": "2025-04-07",
       "valor_aportado": 3000.0,
-      "meses_desde": 12,
-      "valor_corrigido": 3223.27,
-      "rendimento": 223.27
+      "meses_desde": 13,
+      "valor_corrigido": 3242.61,
+      "rendimento": 242.61
     },
     {
       "data": "2025-05-08",
       "valor_aportado": 25000.0,
-      "meses_desde": 11,
-      "valor_corrigido": 26700.4,
-      "rendimento": 1700.4
+      "meses_desde": 12,
+      "valor_corrigido": 26860.6,
+      "rendimento": 1860.6
     },
     {
       "data": "2025-05-08",
       "valor_aportado": 4251.6,
-      "meses_desde": 11,
-      "valor_corrigido": 4540.78,
-      "rendimento": 289.18
+      "meses_desde": 12,
+      "valor_corrigido": 4568.02,
+      "rendimento": 316.42
     },
     {
       "data": "2025-05-26",
@@ -310,9 +310,9 @@
     {
       "data": "2025-06-10",
       "valor_aportado": 430.03,
-      "meses_desde": 10,
-      "valor_corrigido": 456.54,
-      "rendimento": 26.51
+      "meses_desde": 11,
+      "valor_corrigido": 459.28,
+      "rendimento": 29.25
     },
     {
       "data": "2025-06-26",
@@ -389,6 +389,13 @@
       "valor_aportado": 6770.15,
       "meses_desde": 0,
       "valor_corrigido": 6770.15,
+      "rendimento": 0.0
+    },
+    {
+      "data": "2026-05-05",
+      "valor_aportado": 1768.79,
+      "meses_desde": 0,
+      "valor_corrigido": 1768.79,
       "rendimento": 0.0
     }
   ]

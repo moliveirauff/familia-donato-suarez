@@ -1,6 +1,6 @@
 {
   "versao": "2026.2.1",
-  "data_atualizacao": "2026-05-04",
+  "data_atualizacao": "2026-05-20",
   "descricao": "Historico de aportes, retiradas e movimentações de capital da Argos",
   "movimentacoes": [
     {
@@ -192,6 +192,14 @@
       "data": "2026-04-30",
       "tipo": "APORTE",
       "valor_total": 6770.15,
+      "preco_unitario": 0.0,
+      "quantidade": 0.0
+    },
+    {
+      "ativo": "Argos",
+      "data": "2026-05-05",
+      "tipo": "APORTE",
+      "valor_total": 1768.79,
       "preco_unitario": 0.0,
       "quantidade": 0.0
     }
