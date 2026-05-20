@@ -3,13 +3,13 @@
   "data_atualizacao": "2026-05-12",
   "descricao": "Operações de opções US - taxa abertura (CSV) + $0,12 por 100 contratos fechamento",
   "estatisticas": {
-    "total_operacoes": 222,
-    "operacoes_fechadas": 215,
-    "operacoes_abertas": 7,
-    "resultado_total_realizado_usd": 6088.4,
-    "vitorias": 112,
+    "total_operacoes": 224,
+    "operacoes_fechadas": 216,
+    "operacoes_abertas": 8,
+    "resultado_total_realizado_usd": 6198.65,
+    "vitorias": 113,
     "derrotas": 103,
-    "win_rate_percentual": 52.09
+    "win_rate_percentual": 52.31
   },
   "operacoes": [
     {
@@ -4299,11 +4299,11 @@
       "taxas_total": 1.23,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 733.73,
+      "spot_atual": 738.49,
       "bs_data_calculo": "2026-05-20",
-      "preco_mercado": 51.0,
-      "iv_calculada": 0.3091,
-      "preco_teorico": 51.0
+      "preco_mercado": 48.51,
+      "iv_calculada": 0.1892,
+      "preco_teorico": 48.51
     },
     {
       "ticker": "ETHA",
@@ -4371,11 +4371,11 @@
       "taxas_total": 1.14,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 95.28,
+      "spot_atual": 95.89,
       "bs_data_calculo": "2026-05-20",
-      "preco_mercado": 3.35,
-      "iv_calculada": null,
-      "preco_teorico": null
+      "preco_mercado": 4.35,
+      "iv_calculada": 0.1328,
+      "preco_teorico": 4.35
     },
     {
       "ticker": "ETHA",
@@ -4395,11 +4395,11 @@
       "taxas_total": 5.61,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 15.93,
+      "spot_atual": 16.1,
       "bs_data_calculo": "2026-05-20",
-      "preco_mercado": 0.05,
-      "iv_calculada": 0.7144,
-      "preco_teorico": 0.05
+      "preco_mercado": 0.04,
+      "iv_calculada": 0.6935,
+      "preco_teorico": 0.03
     },
     {
       "ticker": "ETHA",
@@ -4419,11 +4419,11 @@
       "taxas_total": 2.26,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 15.93,
+      "spot_atual": 16.1,
       "bs_data_calculo": "2026-05-20",
-      "preco_mercado": 0.76,
-      "iv_calculada": 0.4196,
-      "preco_teorico": 0.76
+      "preco_mercado": 0.68,
+      "iv_calculada": 0.4537,
+      "preco_teorico": 0.68
     },
     {
       "ticker": "IBIT",
@@ -4443,11 +4443,11 @@
       "taxas_total": 1.13,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 43.5,
+      "spot_atual": 43.85,
       "bs_data_calculo": "2026-05-20",
-      "preco_mercado": 0.56,
-      "iv_calculada": 0.4393,
-      "preco_teorico": 0.56
+      "preco_mercado": 0.32,
+      "iv_calculada": 0.3666,
+      "preco_teorico": 0.32
     },
     {
       "ticker": "IBIT",
@@ -4459,14 +4459,14 @@
       "strike": 47.0,
       "quantidade": 700,
       "preco_opcao_abertura": 0.19,
-      "data_fechamento": null,
-      "preco_acao_fechamento": null,
-      "preco_opcao_fechamento": null,
+      "data_fechamento": "2026-05-20",
+      "preco_acao_fechamento": 43.5,
+      "preco_opcao_fechamento": 0.02,
       "taxas_abertura": 7.89,
-      "taxas_fechamento": null,
-      "taxas_total": 7.89,
-      "resultado": null,
-      "status": "aberta",
+      "taxas_fechamento": 0.86,
+      "taxas_total": 8.75,
+      "resultado": 110.25,
+      "status": "fechada",
       "spot_atual": 43.5,
       "bs_data_calculo": "2026-05-20",
       "preco_mercado": 0.01,
@@ -4491,11 +4491,59 @@
       "taxas_total": 7.86,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 43.5,
+      "spot_atual": 43.85,
       "bs_data_calculo": "2026-05-20",
-      "preco_mercado": 0.02,
-      "iv_calculada": 0.7842,
-      "preco_teorico": 0.02
+      "preco_mercado": 0.01,
+      "iv_calculada": 0.6686,
+      "preco_teorico": 0.01
+    },
+    {
+      "ticker": "IBIT",
+      "data_operacao": "2026-05-20",
+      "preco_acao_na_operacao": 43.5,
+      "operacao": "Venda",
+      "tipo_contrato": "CALL",
+      "vencimento": "2026-05-29",
+      "strike": 45.5,
+      "quantidade": 700,
+      "preco_opcao_abertura": 0.32,
+      "data_fechamento": null,
+      "preco_acao_fechamento": null,
+      "preco_opcao_fechamento": null,
+      "taxas_abertura": 7.89,
+      "taxas_fechamento": null,
+      "taxas_total": 7.89,
+      "resultado": null,
+      "status": "aberta",
+      "spot_atual": 43.85,
+      "bs_data_calculo": "2026-05-20",
+      "preco_mercado": 0.34,
+      "iv_calculada": 0.3355,
+      "preco_teorico": 0.35
+    },
+    {
+      "ticker": "IBIT",
+      "data_operacao": "2026-05-20",
+      "preco_acao_na_operacao": 43.5,
+      "operacao": "Compra",
+      "tipo_contrato": "CALL",
+      "vencimento": "2026-05-29",
+      "strike": 47.5,
+      "quantidade": 700,
+      "preco_opcao_abertura": 0.09,
+      "data_fechamento": null,
+      "preco_acao_fechamento": null,
+      "preco_opcao_fechamento": null,
+      "taxas_abertura": 7.86,
+      "taxas_fechamento": null,
+      "taxas_total": 7.86,
+      "resultado": null,
+      "status": "aberta",
+      "spot_atual": 43.85,
+      "bs_data_calculo": "2026-05-20",
+      "preco_mercado": 0.08,
+      "iv_calculada": 0.3457,
+      "preco_teorico": 0.08
     }
   ]
 }
