@@ -3,9 +3,9 @@
   "data_atualizacao": "2026-05-12",
   "descricao": "Operações de opções US - taxa abertura (CSV) + $0,12 por 100 contratos fechamento",
   "estatisticas": {
-    "total_operacoes": 224,
+    "total_operacoes": 225,
     "operacoes_fechadas": 216,
-    "operacoes_abertas": 8,
+    "operacoes_abertas": 9,
     "resultado_total_realizado_usd": 6198.65,
     "vitorias": 113,
     "derrotas": 103,
@@ -4299,11 +4299,11 @@
       "taxas_total": 1.23,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 738.49,
+      "spot_atual": 739.19,
       "bs_data_calculo": "2026-05-20",
-      "preco_mercado": 48.51,
-      "iv_calculada": 0.1892,
-      "preco_teorico": 48.51
+      "preco_mercado": 48.7,
+      "iv_calculada": 0.177,
+      "preco_teorico": 48.71
     },
     {
       "ticker": "ETHA",
@@ -4371,10 +4371,10 @@
       "taxas_total": 1.14,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 95.89,
+      "spot_atual": 95.87,
       "bs_data_calculo": "2026-05-20",
       "preco_mercado": 4.35,
-      "iv_calculada": 0.1328,
+      "iv_calculada": 0.1353,
       "preco_teorico": 4.35
     },
     {
@@ -4395,11 +4395,11 @@
       "taxas_total": 5.61,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 16.1,
+      "spot_atual": 16.12,
       "bs_data_calculo": "2026-05-20",
       "preco_mercado": 0.04,
-      "iv_calculada": 0.6935,
-      "preco_teorico": 0.03
+      "iv_calculada": 0.6979,
+      "preco_teorico": 0.04
     },
     {
       "ticker": "ETHA",
@@ -4419,10 +4419,10 @@
       "taxas_total": 2.26,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 16.1,
+      "spot_atual": 16.12,
       "bs_data_calculo": "2026-05-20",
       "preco_mercado": 0.68,
-      "iv_calculada": 0.4537,
+      "iv_calculada": 0.4684,
       "preco_teorico": 0.68
     },
     {
@@ -4443,11 +4443,11 @@
       "taxas_total": 1.13,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 43.85,
+      "spot_atual": 43.88,
       "bs_data_calculo": "2026-05-20",
-      "preco_mercado": 0.32,
-      "iv_calculada": 0.3666,
-      "preco_teorico": 0.32
+      "preco_mercado": 0.34,
+      "iv_calculada": 0.3961,
+      "preco_teorico": 0.34
     },
     {
       "ticker": "IBIT",
@@ -4491,10 +4491,10 @@
       "taxas_total": 7.86,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 43.85,
+      "spot_atual": 43.88,
       "bs_data_calculo": "2026-05-20",
       "preco_mercado": 0.01,
-      "iv_calculada": 0.6686,
+      "iv_calculada": 0.665,
       "preco_teorico": 0.01
     },
     {
@@ -4515,11 +4515,11 @@
       "taxas_total": 7.89,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 43.85,
+      "spot_atual": 43.88,
       "bs_data_calculo": "2026-05-20",
-      "preco_mercado": 0.34,
-      "iv_calculada": 0.3355,
-      "preco_teorico": 0.35
+      "preco_mercado": 0.33,
+      "iv_calculada": 0.323,
+      "preco_teorico": 0.33
     },
     {
       "ticker": "IBIT",
@@ -4539,11 +4539,35 @@
       "taxas_total": 7.86,
       "resultado": null,
       "status": "aberta",
-      "spot_atual": 43.85,
+      "spot_atual": 43.88,
       "bs_data_calculo": "2026-05-20",
       "preco_mercado": 0.08,
-      "iv_calculada": 0.3457,
+      "iv_calculada": 0.3434,
       "preco_teorico": 0.08
+    },
+    {
+      "ticker": "IBIT",
+      "data_operacao": "2026-05-20",
+      "preco_acao_na_operacao": 43.85,
+      "operacao": "Venda",
+      "tipo_contrato": "PUT",
+      "vencimento": "2026-05-29",
+      "strike": 43.5,
+      "quantidade": 100,
+      "preco_opcao_abertura": 0.78,
+      "data_fechamento": null,
+      "preco_acao_fechamento": null,
+      "preco_opcao_fechamento": null,
+      "taxas_abertura": 1.13,
+      "taxas_fechamento": null,
+      "taxas_total": 1.13,
+      "resultado": null,
+      "status": "aberta",
+      "spot_atual": 43.88,
+      "bs_data_calculo": "2026-05-20",
+      "preco_mercado": 0.81,
+      "iv_calculada": 0.3675,
+      "preco_teorico": 0.81
     }
   ]
 }
