@@ -1,14 +1,13 @@
 {
-  "versao": "2026.Q1.r2",
-  "estrategia": "Crescimento + Renda (Cenário B)",
-  "ultima_revisao": "2026-02-28",
-  "metas": {
-    "1_renda_fixa_soberana": 0.05,
-    "2_credito_privado": 0.15,
-    "3_acoes_brasil": 0.25,
-    "4_ativos_reais": 0.15,
-    "5_internacional": 0.20,
-    "6_criptoativos": 0.05,
-    "7_alternativos_estratega": 0.15
-  }
+ "versao": "2026.7",
+ "estrategia": "Renda passiva 2031 (v2026.7)",
+ "ultima_revisao": "2026-07-06",
+ "metas": {
+  "1_renda_fixa": 0.225,
+  "2_fiis": 0.15,
+  "3_acoes_brasil": 0.25,
+  "4_internacional": 0.2,
+  "5_criptoativos": 0.05,
+  "6_alternativos": 0.125
+ }
 }
